@@ -8,7 +8,6 @@
     i18n_domain="tarmii.theme">
 
     <includeDependencies package="." />
-    <include package=".browser" />
     <grok:grok package="." />
     
     <genericsetup:registerProfile
