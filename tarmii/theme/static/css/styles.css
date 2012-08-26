@@ -1,8 +1,1054 @@
-body {
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-    text-align: left;
-    color: #333;
-    font-size: 1em;
+html {
+    font-family:Arial;
+}
+
+body
+{
+    width:1050px;
+    margin:auto;
+}
+
+div.formHelp {
+    font-size: 10px; 
+}
+
+/* Default heading styles */
+h1 {
+    font-weight: normal;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+span.learner_absent input[type="submit"] {
+    float: right;
+    background-color: red;
+}
+
+span.learner_present input[type="submit"] {
+    float: right;
+}
+
+/* Default button style */
+button, input[type="submit"] {
+    background-image: none;
+    font-family:Arial !important;
+    font-size: 11px !important;
+    text-transform: none;
+    min-width: 72px;
+    padding: 1px 5px 1px 5px;
+    cursor: pointer;
+}
+
+/* Default select style */
+select {
+    vertical-align: middle;
+    font-size: 11px;
+}
+
+/* Default select style */
+option {
+    font-size: 11px;
+}
+
+/* Default legend style */
+legend {
+  background: none;
+}
+
+/* Default anchor style */
+a {
+    color: #21558f;
+    text-decoration: none;
+}
+
+/* Default paragraph style */
+p {
+    line-height: 150%;
+    letter-spacing: 0.02em;
+}
+
+/* Custom style to hide schemata tabs on learner edit */
+#learner-base-edit ul.formTabs {
+    visibility:hidden;
+}
+
+/* Custom style to hide 1px border on learner edit */
+#learner-base-edit fieldset.formPanel {
+    border:0px;
+}
+
+#personal_pane
+{
+  background-color:#363636;
+  color:white;
+  font-size:12px;
+  font-weight:bold;
+  padding-left:4em;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+#personal_pane td
+{
+  color:white;
+  font-size:12px;
+  font-weight:bold;
+}
+
+#personal_pane input
+{
+  border-style:hidden;
+  height:22px;
+  width:120px;
+  font-style:italic;
+  color:#363636;
+  padding-top:3px;
+  padding-left:3px;
+}
+
+#personal_pane button
+{
+  border-style:hidden;
+  background-color:#363636;
+  height:22px;
+}
+#personal_pane a
+{
+  color:white;
+  font-size:11px;
+  text-decoration:underline;
+}
+
+#login_form
+{
+  padding:0;
+  margin:0;
+}
+
+#actions_pane
+{
+  height:100px;
+  padding-left:3em;
+}
+
+#actions_pane_home_page
+{
+  height:300px;
+  padding-left:3em;
+}
+
+#menu img 
+{
+  border-style:hidden;
+}
+
+ul.menu
+{
+    height:50px;
+    width:600px;
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
+    display: block;
     padding: 0;
-    margin: 0; 
+    list-style-type: none;
+    text-align: center;
+
+}
+
+.menu li
+{
+  list-style:none;
+  float:left;
+  display: inline;
+  margin: 0;
+  font-size:14px;
+  font-weight:normal;
+  color:#363636;
+}
+
+
+.menu a
+{
+  list-style:none;
+  float:left;
+  display: inline;
+  text-decoration:none;
+  margin: 0;
+  padding-left: 15px;
+  padding-top: 25px;
+  font-size:14px;
+  font-weight:normal;
+  color:#363636;
+}
+
+#menu
+{
+  float:left;
+  width:50%;
+}
+
+#books
+{
+  margin-top:55px;
+  float:right;
+}
+
+#context_image
+{
+  float:right;
+  margin-right: 10em;
+}
+
+#overview
+{
+  float:left;
+  width:50%;
+  color:#363636;
+  font-size:11px;
+  font-weight:normal;
+}
+
+#overview p
+{
+  padding-left:4px;
+}
+
+#overview h3 
+{
+  padding-left:4px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+#overview img
+{
+  border-style:hidden;
+}
+
+#footer_pane
+{
+  background:#d2d2d2 url(footer_gradient.png) repeat-x;
+  height:50px;
+  font-size:11px;
+  font-weight:bold;
+  color:#6b6b6b;
+  padding-left:3em;
+}
+
+#content_pane
+{
+  background:white url(content_gradient.png) repeat-x;
+  font-size:11px;
+  font-weight:normal;
+  color:#333333;
+  min-height: 400px;
+  padding: 10px 3em 0px 3em;
+}
+
+.content_pane_outer_table
+{
+  margin-top: 3em;
+  width:100%;
+}
+
+.content_pane_outer_table img
+{
+  border-style:hidden;
+}
+
+.content_pane_outer_table a
+{
+  text-decoration:none;
+  color:#333333;
+}
+
+#content_pane h3
+{
+  font-size:16px;
+}
+
+
+#content_pane img
+{
+  border-style:hidden;
+}
+
+ul.footer_list {
+
+  display: block;
+  list-style-type: none;
+  float:left;
+  width:640px;
+  margin-top:20px;
+}
+
+
+.footer_list li a {
+  display: inline;
+  list-style:none;
+  float:left;
+  text-decoration:none;
+  padding-left:10px;
+  padding-right:10px;
+  margin:0;
+  font-size:11px;
+  font-weight:bold;
+  border-right:1px solid;
+  color:#6b6b6b;
+}
+
+#footer_list_last {
+  border-right:0px;
+}
+
+#rights
+{
+  float:right;
+  margin-top:20px;
+  margin-right:20px;
+}
+
+.learner-list {
+    padding: 0px;
+}
+
+.learner-submit {
+    text-align:right;
+}
+
+.scoresheet {
+    clear:both;
+}
+
+.question {
+  text-align: left;
+  border:0px;
+}
+
+.question-title {
+  font-weight:bold; 
+}
+
+form#assessmentbank-create-test-form .searchfield-header {
+  display: inline-block;
+  float: left;
+  width: 200px;
+}  
+
+form#assessmentbank-create-test-form .searchfield-select {
+  border: solid 1px #333333;
+  color: #666666;
+  min-width: 320px;
+}
+
+form#assessmentbank-create-test-form .searchfield-radio {
+    margin-left: 1.5em;
+}
+
+/* Create a test wizrd styles */
+form div#create-test-searchfield-assessmentStandards select {
+    width: 320px;
+}    
+
+form div#create-test-searchfield-assessmentStandards table tr td {
+    padding-left: 5px;
+}
+
+/* Status messages - copied from public.css */
+
+dl.portalMessage {
+    background-color: #ffffe3; 
+    border: 1px solid #996;    
+}
+dl.portalMessage a {
+    color: black;
+    border: none;
+    text-decoration: underline;
+}
+dl.portalMessage dt {
+    background-color: #996; 
+    font-weight: bold;
+    float: left;
+    margin: 0 0.5em 0 0;
+    padding: 0.5em 0.75em;
+    color: White;
+    line-height: 1.25em;
+}
+dl.portalMessage dd {
+    padding: 0.5em 0.5em; 
+    margin: 0;
+    line-height: 1.25em;
+}
+dl.warning {
+    border-color: #d80;
+}
+dl.warning dt {
+    background-color: #d80;
+}
+dl.error {
+    border-color: #d00;    
+}
+dl.error dt {
+    background-color: #d00; 
+}
+dl.warning {
+    border-color: #d80;    
+}
+dl.warning dd {
+    background-color: #fd7; 
+}
+dl.error {
+    border-color: #d80;    
+}
+dl.error dd {
+    background-color: #fd7; 
+}
+
+/* Classlist Edit styles. */
+#classlist-edit-form {
+    padding-left: 15px;
+}
+
+#classlist-edit-form select {
+    margin-left: 2px;
+}
+
+#classlist-save {
+    margin-left: 5px;
+}
+
+#classlist-title {
+    width: 175px;
+    margin-right: 10px;
+}
+
+#classlist-add-learner-form {
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#classlist-add-learner-form table {
+    border-top: dashed 1px #cccccc;
+    padding-top: 10px;
+}
+
+#classlist-learners-form table {
+    padding-bottom: 10px;
+}
+.classlist-odd {
+    background-color: #fbfbfb;
+}
+
+.classlist-even {
+    background-color: #efefef;
+}
+
+.classlist-code {
+   width: 50px;
+   padding-left:5px;
+   padding-right:5px;
+}
+
+.classlist-name {
+   width: 100px;
+   padding-left:5px;
+   padding-right:5px;
+}
+
+.classlist-gender {
+   width: 100px;
+   padding-left:5px;
+   padding-right:5px;
+   text-align: center;
+}
+
+.classlist-language {
+   width: 100px;
+   padding-left:5px;
+   padding-right:5px;
+   text-align: center;
+}
+
+
+/* From public.css */
+.documentDescription {
+    border-bottom: dashed 1px #cccccc;
+    padding-bottom: 10px;
+}    
+
+/* Formatting table uses on class lists page */
+table#classlistfolder-view-table {
+    margin-top: 10px;
+}
+
+table#classlistfolder-view-table tr th {
+    font-weight: normal;
+    font-size: 12px;
+    color: black;
+    text-align: left;
+}
+
+table#classlistfolder-view-table tr td {
+    padding: 0px 8px 4px 0px;
+}    
+
+table#classlistfolder-view-table tr td a {
+    font-size: 12px;
+}    
+
+/* Format icon and download link block for create test wizard */
+div.create-test-download-block {
+    text-align: center;
+    width: 85px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+span.learner-name {
+    font-size: 16px;
+}
+
+tr.tests-table {
+    
+}
+
+table.marks {
+    width:100%;
+    border-collapse:collapse;
+    cellpadding:0px;
+}
+
+table.marks thead tr th {
+    font-size:16px;
+    font-weight:bold;
+    text-transform:uppercase;
+    padding-bottom:10px;
+    text-align: left;
+}
+
+table.marks tbody tr.odd {
+    background:#f8f8f8;
+}
+
+table.marks tbody tr.even {
+    background:#efefef;
+}
+
+table.marks td {
+    padding:5px;
+    font-size:12px;
+}
+
+
+table.scoresheet tr td.no-option {
+  background:#dbdbdb url(grey_button_gradient.png) repeat-x;
+}
+table.scoresheet tr td.answer {
+  text-transform: uppercase;
+}
+
+/*
+ * The following couple of classes is due to IE6 insanity with multiple
+ * classes.  Please do not refactor to make more efficient, as this will break
+ * in IE6.
+ */
+
+table.scoresheet tr td.answer,
+table.scoresheet tr td.answer_red,
+div.batch_button {
+  background:#dbdbdb url(grey_button_gradient.png) repeat-x;
+  border: 1px solid #bfbfbf;
+  text-align: center;
+  height:34px;
+  width: 87px;
+  padding:0px;
+  margin:0px;
+  cursor: pointer;
+}
+
+table.scoresheet tr td.selected_answer {
+  border: 1px solid green;
+  background:#2c690a url(green_button_gradient.png) repeat-x;
+  background-image:url(green_button_gradient.png) repeat-x;
+  text-align: center;
+  height:34px;
+  width: 87px;
+  padding:0px;
+  margin:0px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+table.scoresheet tr td.selected_answer_red {
+  border: 1px solid red;
+  background:#b1141d url(red_button_gradient.png) repeat-x;
+  background-image:url(red_button_gradient.png) repeat-x;
+  text-align: center;
+  height:34px;
+  width: 87px;
+  padding:0px;
+  margin:0px;
+  color: white;
+  font-weight: bold;
+}
+
+/*
+ * End of IE insanity work around
+ */
+
+table.testslist {
+    width:100%;
+    border-collapse:collapse;
+    cellpadding:0px;
+}
+
+table.testslist thead tr th {
+    font-size:16px;
+    font-weight:bold;
+    text-transform:uppercase;
+    padding-bottom:10px;
+}
+
+table.testslist tbody tr.odd {
+    background:#f8f8f8;
+}
+
+table.testslist tbody tr.even {
+    background:#efefef;
+}
+
+table.testslist td {
+    padding:5px;
+    font-size:12px;
+    text-align:center;
+}
+
+table.testslist tr td div.batch_button {
+    margin-top:20px;
+    margin-left:10px;
+    float:right;
+    width: 100px;
+}
+
+ div.batch_button span{
+    padding:10px;
+    display:block;
+    text-decoration:none;
+    color:black;
+
+}
+
+/*TARMII reporting styles */
+ol.reports_list li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+ol.reports_list hr {
+    color: #fcfcfc;
+}
+
+table.reports {
+    width: 83%;
+    border: 0;
+    margin: 2;
+    padding: 5;
+}
+
+td.centered {
+    text-align:center;
+}
+
+/* Can be generalized to just .left */
+th.left {
+    text-align:left;
+}
+
+td.report_heading {
+    vertical-align:top;
+}
+
+td>h3 {
+    margin-top:0;
+}
+
+div.report-info {
+    font-style:italic;
+    font-size:smaller;
+    margin-bottom:4px;
+}
+td.exceededcell {
+    vertical-align:top;
+    background-color: #52BEE4;
+    color: white;
+    width: 25%;
+}
+
+td.achievedcell {
+    vertical-align:top;
+    background-color: #3F8D06;
+    color: white;
+    width: 25%;
+}
+
+td.partiallyachievedcell {
+    vertical-align:top;
+    background-color: #FCA70C;
+    color: black;
+    width: 25%;
+}
+
+td.notachievedcell {
+    vertical-align:top;
+    background-color: red;
+    color: white;
+    width: 25%;
+}
+
+tr.three_column_report {
+    vertical-align:top;
+}
+
+table.legend {
+    margin-top: 10px;
+    margin-left: 250px;
+}
+
+table.legend tr {
+    vertical-align: middle;
+}
+
+td.legend_spacing {
+    padding-right: 30px;
+}
+
+td.legend_exceeded {
+    width: 30px;
+    height: 30px;
+    background-color: #52BEE4;
+}
+
+td.legend_achieved {
+    width: 30px;
+    height: 30px;
+    background-color: #3F8D06;
+}
+
+td.legend_partiallyachieved {
+    width: 30px;
+    height: 30px;
+    background-color: #FCA70C;
+}
+
+td.legend_notachieved {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+td.legend_mastered {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+}
+
+
+td.legend_not_mastered {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+td.legend_correct {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: solid 1px black;
+}
+
+td.legend_incorrect {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border: solid 1px black;
+}
+
+td.legend_learner {
+    width: 30px;
+    height: 30px;
+    background-color: #E32184;
+}
+
+td.legend_class {
+    width: 30px;
+    height: 30px;
+    background-color: #52BEE4;
+}
+
+td.legend_national {
+    width: 30px;
+    height: 30px;
+    background-color: #A52A2A;
+}
+
+div.learner {
+    margin:10px;
+}
+
+#tarmii-report-assessmentstandard-select {
+    width: 180px;
+}
+
+/* Default popup style */
+div#assessmentbank-popup-content {
+    font-size:11px;
+    font-weight:normal;
+    color:#333333;
+}    
+
+div#assessmentbank-popup-content .warning {
+    font-weight: bold;
+    color: red;
+}
+
+/* Ajaxreference browser styles */
+ul.ajaxreference-lines {
+    width: 480px;
+}
+
+ul.ajaxreference-lines li, div.ajaxreference-browser-line {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-bottom: dashed 1px #cccccc;
+}
+
+div.ajaxreference-browser-learningoutcome_uids, div.ajaxreference-browser-assessmentstandard_uids {
+    width: 40% !important;
+    left: 30% !important;
+}   
+
+div.ajaxreference-browser-line div {
+    width: 400px;
+    display: inline-block;
+}    
+
+/* Strength weaknesses report */
+table.sw_report {
+    width: 100%;
+    border: solid 1px #cccccc;
+    border-collapse: collapse;
+}
+
+table.sw_report th {
+    border: solid 1px #cccccc;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+table.sw_report td {
+    vertical-align:center;
+    width: 25%;
+    text-align:center;
+    border: solid 1px #cccccc;
+}
+
+table.sw_report tr.incorrect {
+    vertical-align:center;
+    background-color:red;
+    width: 25%;
+    color:white;
+}
+
+#tarmii_definition td {
+    font-size: 0.8em;
+    color: #333333;
+}
+
+button.boring {
+    background: transparent;
+    border: none;
+}
+
+div#report-select {
+    vertical-align: text-bottom;
+}
+
+div.title {
+    float: left;
+    width: 100px;
+    padding-top: 2px;
+}
+
+div.options {
+    width: 100%;
+    padding-top: 2px;
+}
+
+div#report-criteria {
+    padding-right: 5em;
+    border-bottom:1px dashed #cccccc;
+    padding-bottom:10px;
+}
+
+div#report-criteria h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+div#report-criteria ul {
+    padding-left: 0;
+}
+
+div#report-criteria li {
+    list-style: none;
+}
+
+div#report-criteria-classlists {
+    width: 100%;
+}
+
+div#report-criteria-classlists b {
+    width: 100px;
+}
+
+div#report-form-controls {
+}
+
+div#right-column {
+}
+
+div#report_contents {
+    margin-top: 5px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+form.print-pdf {
+    margin-left: 100px;
+    float: right;
+}
+
+form.export-excel {
+    margin-left: 100px;
+    float: right;
+}
+
+/* marks sheet styles */
+table.marks_sheet,
+table.marks_legend {
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+}
+
+table.marks_sheet td,
+table.marks_legend td {
+    width: 50px;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.marks_sheet tr,
+table.marks_legend tr {
+    border-collapse: collapse;
+}
+
+table.marks_legend tr {
+    white-space: nowrap;
+}
+
+table.marks_sheet th,
+table.marks_legend th
+{
+    border: 1px solid #cccccc;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 20px;
+}
+
+table.marks_legend th.number {
+    width: 50px;
+}
+
+table.marks_legend th.date {
+    width: 100px;
+}
+
+table.marks_legend th.title {
+}
+
+table.marks_sheet td,
+table.marks_legend td {
+    border: 1px solid #cccccc;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.text_left {
+    text-align: left;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.odd {
+    background-color: #ececec;
+}
+
+/* slide show styles */
+div.slideshow {
+    width: 100%;
+}
+
+td.image img {
+    width: 800px;
+    height: 600px;
+}
+
+td.slideshow_controls {
+    font-size: 16px;
+}
+
+td.next_link, td.disabled_next_link, 
+td.previous_link, td.disabled_previous_link
+{
+    font-size: 16px;
+}
+
+#reports_list {
+    float: left;
+    width: 30%;
+}
+
+#report_examples {
+    float: right;
+}
+
+.hidden {
+    width: 600px;
+    display: none;
+}
+
+.visible {
+    width: 650px;
+    display: block;
+}
+
+div#standard-gap-analysis-report table.legend,
+div#standard-gap-analysis-report table.legend_greyscale,
+div#strengths_and_weaknesses table.legend,
+div#strengths_and_weaknesses table.legend_greyscale {
+    text-align: left;
+    margin-left: 1px;
 }
