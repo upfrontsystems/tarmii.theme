@@ -1,215 +1,91 @@
 <html>
-    <head>
-        <link href='css/styles.css' rel='stylesheet' type='text/css'>
-    </head>
-
+<head>
+    <link href='css/styles.css' rel='stylesheet' type='text/css'>
+</head>
     
-  <body>
+<body>
     <div id="portal-header">
+    </div>
 
-</div>
-
-<div id="personal_pane">
+    <div id="personal_pane">
   
-    <form id="login_form" action="login_form" method="POST"> 
-    <table>
-        <tr>
-        <td>USERNAME <input id="__ac_name" name="__ac_name" /></td>
-        <td>PASSWORD <input id="__ac_password" name="__ac_password" type="password" /></td>
-        <td><button id="login_button" name="login_button" type="submit"><img src="login.png" alt="LOGIN:" /></button></td>
-        <td>
-            <a href="http://tarmii.co.za/mail_password_form?userid="><u>forgot your password?</u></a>
-        </td>
-        </tr>
-    </table>
-    <input type="hidden" value="1" name="form.submitted" />
-    <input type="hidden" name="came_from"
-           value="http://tarmii.co.za" />
-    </form>
-  
-  
-</div>
-
-       <div id="actions_pane_home_page">
-       <div id="menu" name="menu">
+        <form id="login_form" action="login_form" method="POST"> 
         <table>
-          <tr>
-            <td>
-              <a href="http://tarmii.co.za">
-                <img src="http://tarmii.co.za/logo.png" />
-              </a>
-            <!--span tal:content="context/absolute_url" /--> 
-            </td>
-            <td>
-              <ul class="menu">
-                <li>
-                    <a href="http://tarmii.co.za">HOME</a>
-                </li>
-                <li>
-                    <a href="http://tarmii.co.za/login_form">CLASSES</a>
-                </li>
-                <li>
-                    <a href="http://tarmii.co.za/login_form">TESTS</a>
-                </li>
-                <li>
-                    <a href="http://tarmii.co.za/login_form">MARKS</a>
-                </li>
-                <li>
-                    <a href="http://tarmii.co.za/login_form">REPORTS</a>
-                </li>
-              </ul>
-            </td>
-          </tr>
-          <tr id="tarmii_definition">
-              <td colspan="2">
-                Teacher Assessment Resources for Monitoring and Improving Instruction   
-              </td>
-          </tr>
-        </table>
-       </div>
-       
-        <div id="books">
-            <img src="http://tarmii.co.za/books.png" />
-        </div>
-    
-       
-        <div id="overview">
-          <h3>ENHANCING ASSESSMENT FOR LEARNING</h3>
-          <p>Focus your energy and time in areas where you can help your Learners
-            the most.</p>
-          <table>
             <tr>
-              <td>
-                <a href="http://tarmii.co.za/@@slideshow">
-                  <img src="http://tarmii.co.za/take_a_tour.png" />
-                </a>
-              </td>
-              <td>
-                <a href="http://tarmii.co.za/join_form">
-                  <img src="http://tarmii.co.za/sign_up.png" />
-                </a>
-              </td>
+            <td>TH USERNAME <input id="__ac_name" name="__ac_name" /></td>
+            <td>PASSWORD <input id="__ac_password" name="__ac_password" type="password" /></td>
+            <td><button id="login_button" name="login_button" type="submit"><img src="images/login.png" alt="LOGIN:" /></button></td>
+            <td>
+                <a href="http://tarmii.co.za/mail_password_form?userid="><u>forgot your password?</u></a>
+            </td>
             </tr>
-          </table>
+        </table>
+        <input type="hidden" value="1" name="form.submitted" />
+        <input type="hidden" name="came_from"
+               value="http://tarmii.co.za" />
+        </form>
+    </div>
+
+    <div id="actions_pane_home_page">
+        <div id="menu" name="menu">
+            <table>
+              <tr>
+                <td>
+                  <a href="http://tarmii.co.za">
+                    <img src="images/logo.png" />
+                  </a>
+                <!--span tal:content="context/absolute_url" /--> 
+                </td>
+                <td>
+                  <ul class="menu">
+                    <li>
+                        <a href="http://tarmii.co.za">HOME</a>
+                    </li>
+                    <li>
+                        <a href="http://tarmii.co.za/login_form">CLASSES</a>
+                    </li>
+                    <li>
+                        <a href="http://tarmii.co.za/login_form">TESTS</a>
+                    </li>
+                    <li>
+                        <a href="http://tarmii.co.za/login_form">MARKS</a>
+                    </li>
+                    <li>
+                        <a href="http://tarmii.co.za/login_form">REPORTS</a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr id="tarmii_definition">
+                  <td colspan="2">
+                    Teacher Assessment Resources for Monitoring and Improving Instruction   
+                  </td>
+              </tr>
+            </table>
+        </div>    
+    </div>
+    
+    <div id="portal-footer">
+
+        <div id="footer_pane">
+          <ul class="footer_list">
+            <li><a href="http://tarmii.co.za">Home</a></li>
+            
+            <li><a href="http://tarmii.co.za/about">About</a></li>
+            <li><a href="http://tarmii.co.za/contact_us">Contact</a></li>
+            <li><a href="http://tarmii.co.za/support">Support</a></li>
+            <li><a href="http://tarmii.co.za/faq">FAQ</a></li>
+            <li><a href="http://tarmii.co.za/privacy">Privacy</a></li>        
+            
+              <li><a href="http://tarmii.co.za/join_form">Signup</a></li>
+              <li><a id="footer_list_last"
+                     href="http://tarmii.co.za/login_form">Login</a></li>
+            
+          </ul>
+          <p id="rights">All rights reserved 2012 TARMII (v None)</p>
         </div>
-    
-    </div>
-    
-    <div id="portal-column-content">
-
-      <div id="content_pane">
-       
-    <div style="display: none;">
-      
-
-    <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
-        <dt>Info</dt>
-        <dd></dd>
-    </dl>
-
 
     </div>
-
-    <table class="content_pane_outer_table"
-           cellspacing="10px">
-        <tr>
-          <td>
-            <table>
-              <tr>
-                <td><a href="http://tarmii.co.za/login_form"> 
-                      <img src="http://tarmii.co.za/class_list.png" /></a></td>
-                <td>
-                  <h3><a href="http://tarmii.co.za/login_form">CREATE CLASS LISTS</a></h3>
-                  <p>This section allows you to manage your class lists. Here
-                  you can create or delete, import or export your class
-                  lists.</p>  
-                </td>
-              </tr>
-            </table>
-          </td>
-          <td>
-            <table>
-              <tr>
-                <td><a href="http://tarmii.co.za/login_form"> 
-                      <img src="http://tarmii.co.za/grade_test.png" /></a></td>
-                <td>
-                  <h3><a href="http://tarmii.co.za/login_form">ENTER MARKS</a></h3>
-                  <p>This section allows you to enter marks of tests
-                  already administered to the whole class. </p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <table>
-              <tr>
-                <td><a href="http://tarmii.co.za/login_form"> 
-                      <img src="http://tarmii.co.za/generate_test.png" /></a></td>
-                <td>
-                  <h3><a href="http://tarmii.co.za/login_form">GENERATE TESTS</a></h3>
-                  <p>This section enables you to generate tests for your
-                  class for the unit of work completed.</p>
-                </td>
-              </tr>
-            </table>
-          </td>
-          <td>
-            <table>
-              <tr>
-                <td><a href="http://tarmii.co.za/login_form"> 
-                      <img src="http://tarmii.co.za/outcomes.png" /></a></td>
-                <td>
-                  <h3><a href="http://tarmii.co.za/login_form">GENERATE REPORTS</a></h3>
-                  <p>This section allows you to generate various
-                  assessment reports for tests you have administered,
-                  marked and entered into the system.</p>
-
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-    </table>
-
-    <div style="text-align: center">
-        <img size="" src="logo_dept_education.png" />
-    </div>
-    
-      </div>
-    </div>
-
-    
-    <div id="assessmentbank-popup" tabindex="0">
-        <div id="assessmentbank-popup-close">X&nbsp;</div>
-        <div id="assessmentbank-popup-content">
-            Popup
-        </div>
-    </div>
-
-<div id="portal-footer">
-
-    <div id="footer_pane">
-      <ul class="footer_list">
-        <li><a href="http://tarmii.co.za">Home</a></li>
-        
-        <li><a href="http://tarmii.co.za/about">About</a></li>
-        <li><a href="http://tarmii.co.za/contact_us">Contact</a></li>
-        <li><a href="http://tarmii.co.za/support">Support</a></li>
-        <li><a href="http://tarmii.co.za/faq">FAQ</a></li>
-        <li><a href="http://tarmii.co.za/privacy">Privacy</a></li>
-        
-        
-          <li><a href="http://tarmii.co.za/join_form">Signup</a></li>
-          <li><a id="footer_list_last"
-                 href="http://tarmii.co.za/login_form">Login</a></li>
-        
-      </ul>
-      <p id="rights">All rights reserved 2009 TARMII (v None)</p>
-    </div>
-
-</div>
 
 
   </body>

@@ -35,3 +35,4 @@ pip-log.txt
 .gitignore~
 *.html~
 *.css~
+*.cfg~
