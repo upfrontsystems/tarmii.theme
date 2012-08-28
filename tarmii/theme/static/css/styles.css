@@ -7,9 +7,9 @@ body {
     margin:auto;
 }
 
-div.formHelp {
+/*div.formHelp {
     font-size: 10px; 
-}
+}*/
 
 /* Default heading styles */
 h1 {
@@ -18,16 +18,8 @@ h1 {
     text-transform: uppercase;
 }
 
-span.learner_absent input[type="submit"] {
-    float: right;
-    background-color: red;
-}
-
-span.learner_present input[type="submit"] {
-    float: right;
-}
-
 /* Default button style */
+
 button, input[type="submit"] {
     background-image: none;
     font-family:Arial !important;
@@ -36,7 +28,7 @@ button, input[type="submit"] {
     min-width: 72px;
     padding: 1px 5px 1px 5px;
     cursor: pointer;
-}
+} 
 
 /* Default select style */
 select {
@@ -66,18 +58,7 @@ p {
     letter-spacing: 0.02em;
 }
 
-/* Custom style to hide schemata tabs on learner edit */
-#learner-base-edit ul.formTabs {
-    visibility:hidden;
-}
-
-/* Custom style to hide 1px border on learner edit */
-#learner-base-edit fieldset.formPanel {
-    border:0px;
-}
-
-#personal_pane
-{
+#personal_pane {
   background-color:#363636;
   color:white;
   font-size:12px;
@@ -87,15 +68,13 @@ p {
   padding-bottom:5px;
 }
 
-#personal_pane td
-{
+#personal_pane td {
   color:white;
   font-size:12px;
   font-weight:bold;
 }
 
-#personal_pane input
-{
+#personal_pane input {
   border-style:hidden;
   height:22px;
   width:120px;
@@ -105,44 +84,50 @@ p {
   padding-left:3px;
 }
 
-#personal_pane button
-{
+#personal_pane button {
   border-style:hidden;
   background-color:#363636;
   height:22px;
 }
-#personal_pane a
-{
+#personal_pane a {
   color:white;
   font-size:11px;
   text-decoration:underline;
 }
 
-#login_form
-{
+#login_form {
   padding:0;
   margin:0;
 }
 
-#actions_pane
-{
+#login_form td {
+  padding: 0px 4px 0px 4px;
+}
+
+#login_form input {
+  margin: 0px 0px 0px 4px;
+}
+
+#actions_pane {
   height:100px;
   padding-left:3em;
 }
 
-#actions_pane_home_page
-{
+#actions_pane_home_page {
   height:300px;
   padding-left:3em;
 }
 
-#menu img 
-{
-  border-style:hidden;
+#tarmii_definition td {
+    font-size: 0.8em;
+    color: #333333;
 }
 
-ul.menu
-{
+#menu img {
+  border-style:hidden; 
+}
+
+ul.menu {
     height:50px;
     width:600px;
     border-left:none;
@@ -152,11 +137,9 @@ ul.menu
     padding: 0;
     list-style-type: none;
     text-align: center;
-
 }
 
-.menu li
-{
+.menu li {
   list-style:none;
   float:left;
   display: inline;
@@ -166,9 +149,7 @@ ul.menu
   color:#363636;
 }
 
-
-.menu a
-{
+.menu a {
   list-style:none;
   float:left;
   display: inline;
@@ -181,26 +162,29 @@ ul.menu
   color:#363636;
 }
 
-#menu
-{
+#menu {
   float:left;
   width:50%;
 }
 
-#books
-{
+#books {
   margin-top:55px;
   float:right;
 }
 
-#context_image
-{
+#context_image {
   float:right;
   margin-right: 10em;
 }
 
-#overview
-{
+#portal-content {
+    vertical-align: top;
+    border-collapse: collapse;
+    padding: 1.5em 1em 0 1em;
+    margin: 0em 0em 2em 0em;
+}
+
+#overview {
   float:left;
   width:50%;
   color:#363636;
@@ -208,8 +192,7 @@ ul.menu
   font-weight:normal;
 }
 
-#overview p
-{
+#overview p {
   padding-left:4px;
 }
 
@@ -220,14 +203,12 @@ ul.menu
   font-weight:bold;
 }
 
-#overview img
-{
+#overview img {
   border-style:hidden;
 }
 
-#footer_pane
-{
-  background:#d2d2d2 url(footer_gradient.png) repeat-x;
+#footer_pane {
+  background:#d2d2d2 url(../images/footer_gradient.png) repeat-x;
   height:50px;
   font-size:11px;
   font-weight:bold;
@@ -235,9 +216,8 @@ ul.menu
   padding-left:3em;
 }
 
-#content_pane
-{
-  background:white url(content_gradient.png) repeat-x;
+#content_pane {
+  background:white url(../images/content_gradient.png) repeat-x;
   font-size:11px;
   font-weight:normal;
   color:#333333;
@@ -245,43 +225,37 @@ ul.menu
   padding: 10px 3em 0px 3em;
 }
 
-.content_pane_outer_table
-{
+/*
+.content_pane_outer_table {
   margin-top: 3em;
   width:100%;
 }
 
-.content_pane_outer_table img
-{
+.content_pane_outer_table img {
   border-style:hidden;
 }
 
-.content_pane_outer_table a
-{
+.content_pane_outer_table a {
   text-decoration:none;
   color:#333333;
 }
 
-#content_pane h3
-{
+#content_pane h3 {
   font-size:16px;
 }
 
-
-#content_pane img
-{
+#content_pane img {
   border-style:hidden;
 }
+*/
 
 ul.footer_list {
-
   display: block;
   list-style-type: none;
   float:left;
   width:640px;
   margin-top:20px;
 }
-
 
 .footer_list li a {
   display: inline;
@@ -297,19 +271,24 @@ ul.footer_list {
   color:#6b6b6b;
 }
 
+/* XXX only for development to show which footer links still need to be 
+   brought in from plone into the theme - take out when done (in theme also) */
+.footer_list li a.tempgrey {
+  color: #bbb;
+}
+
 #footer_list_last {
   border-right:0px;
 }
 
-#rights
-{
+#rights {
   float:right;
   margin-top:20px;
   margin-right:20px;
 }
 
 /* Status messages - copied from public.css */
-
+/*
 dl.portalMessage {
     background-color: #ffffe3; 
     border: 1px solid #996;    
@@ -356,11 +335,12 @@ dl.error {
 }
 dl.error dd {
     background-color: #fd7; 
-}
+} */
 
 /* From public.css */
+/*
 .documentDescription {
     border-bottom: dashed 1px #cccccc;
     padding-bottom: 10px;
 }    
-
+*/

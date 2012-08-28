@@ -5,6 +5,50 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <!-- The default theme, used for standard Plone web pages -->
-    <theme href="home.html" css:if-content="#visual-portal-wrapper" />
+    <theme href="theme.html" css:if-content="#visual-portal-wrapper" />
+
+    <!-- Rules applying to a standard Plone web page -->
+    <rules css:if-content="#visual-portal-wrapper">
+
+        <!-- Add meta tags -->
+        <drop theme="/html/head/meta" />
+        <after content="/html/head/meta" theme-children="/html/head" />
+        <append theme="/html/head" content="/html/head/base"/>
+
+        <!-- Copy style, script and link tags in the order they appear in the content -->
+        <after
+            content="/html/head/style | /html/head/script | /html/head/link"
+            theme-children="/html/head"
+            />
+
+        <drop theme="/html/head/style" />
+        <drop theme="/html/head/script" />
+
+        <!-- Copy over the id/class attributes on the body tag.
+             This is important for per-section styling -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+        <!-- copy href of logo from plone to theme -->
+        <copy attributes="href" css:content="#portal-logo" css:theme="#portal-logo" />
+
+        <!-- info and error messages -->
+        <replace css:content=".portalMessage" css:theme=".portalMessage" />
+
+        <!-- main menu navigation -->
+        <replace css:content-children="#portal-globalnav" css:theme-children="#menu-globalnav" /> 
+
+        <!-- content -->
+        <replace
+            css:content-children="#content"
+            css:theme-children="#content_pane" />
+
+        <!-- footer links -->
+            <!-- home -->
+            <copy attributes="href" css:content="#portal-logo" css:theme="#footer_home_link" />
+
+            <!-- home -->
+            <copy attributes="href" css:content="#siteaction-contact a" css:theme="#footer_contact_link" />
+
+    </rules>
 
 </rules>
