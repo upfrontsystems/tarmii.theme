@@ -27,7 +27,8 @@
         <copy attributes="id dir" css:content="body" css:theme="body" />
         <replace css:content=".portalMessage" css:theme=".portalMessage" />
        
-        <replace content="//a[@id='user-name']/text()" css:theme="username" />         
+        <!-- copy logged in username from Plone to theme -->
+        <replace content="//a[@id='user-name']/text()" theme="//span[@id='username']" />
 
         <!-- if logged in drop login form -->
         <drop css:theme="#login_form" css:if-content="#user-name" />
