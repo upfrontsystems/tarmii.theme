@@ -25,6 +25,17 @@
              This is important for per-section styling -->
         <merge attributes="class" css:content="body" css:theme="body" />
         <copy attributes="id dir" css:content="body" css:theme="body" />
+
+
+        <!-- if logged in drop login form -->
+        <drop css:theme="#login_form" css:if-content="#user-name" />
+        <!-- if logged out drop logged in info strip -->
+        <drop css:theme="#personal_pane_logged_in" css:if-not-content="#user-name" />
+
+        <!-- copy hrefs of logged in links from plone to theme -->
+        <copy attributes="href" css:content="#personaltools-logout a" css:theme="#log_out" />
+        <copy attributes="href" css:content="#personaltools-preferences a" css:theme="#change_prefs" />
+
         <!-- copy href of logo from plone to theme -->
         <copy attributes="href" css:content="#portal-logo" css:theme="#portal-logo" />
 
@@ -38,7 +49,7 @@
             <!-- home -->
             <copy attributes="href" css:content="#portal-logo" css:theme="#footer_home_link" />
 
-            <!-- home -->
+            <!-- contact -->
             <copy attributes="href" css:content="#siteaction-contact a" css:theme="#footer_contact_link" />
 
 
@@ -57,10 +68,7 @@
         <rules css:if-not-content=".breadcrumbSeparator">
             <theme href="home.html" />
  
-            <!-- content -->
-            <!--<replace
-                css:content-children="#content"
-                css:theme-children="#content_pane" /> -->
+            <drop css:theme="#signup" css:if-content="#user-name" />
 
         </rules>
     </rules>

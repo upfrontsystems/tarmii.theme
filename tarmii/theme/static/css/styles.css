@@ -58,6 +58,12 @@ p {
     letter-spacing: 0.02em;
 }
 
+/* table override as plone's public.css @media=screen makes border-spacing=0 */
+table {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
 #personal_pane {
   background-color:#363636;
   color:white;
@@ -194,13 +200,16 @@ ul.menu {
 
 #overview p {
   padding-left:4px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-#overview h3 
-{
+#overview h3 {
   padding-left:4px;
   font-size:14px;
   font-weight:bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #overview img {
@@ -225,7 +234,7 @@ ul.menu {
   padding: 10px 3em 0px 3em;
 }
 
-/*
+
 .content_pane_outer_table {
   margin-top: 3em;
   width:100%;
@@ -247,7 +256,7 @@ ul.menu {
 #content_pane img {
   border-style:hidden;
 }
-*/
+
 
 ul.footer_list {
   display: block;
