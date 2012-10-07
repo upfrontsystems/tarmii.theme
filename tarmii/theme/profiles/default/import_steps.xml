@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step
+        id="tarmii.theme-setup"
+        handler="tarmii.theme.setuphandlers.setup"
+        title="Set up Tarmii.theme"
+        version="2012-10-06">
+        Set up tarmii.theme
+    </import-step>
+</import-steps>
+
