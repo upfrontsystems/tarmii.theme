@@ -23,8 +23,9 @@
             </tal:topictrees>
 
             <tal:topictrees tal:condition="view/find_topic_trees">
-                <div tal:repeat="topictree view/find_topic_trees">                        
-                            <div tal:content="topictree/Title">TITLE</div>
+                <div tal:repeat="topictree view/find_topic_trees">
+                    <div class="treeroot" tal:attributes="uid topictree/UID">
+                    </div>
                 </div>
             </tal:topictrees>
 

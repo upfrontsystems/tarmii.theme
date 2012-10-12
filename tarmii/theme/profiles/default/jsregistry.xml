@@ -9,4 +9,11 @@
                 inline="False"/>
                 <!-- expression="request/HTTP_X_THEME_ENABLED | nothing" -->
 
+    <javascript cacheable="True"
+                compression="none"
+                cookable="True"
+                enabled="True"
+                id="++resource++tarmii.theme/js/resources.js"
+                inline="False"/>
+
 </object>
