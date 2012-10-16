@@ -9,23 +9,33 @@ PROFILE_ID = 'profile-tarmii.theme.app:default'
 
 log = logging.getLogger('tarmii.theme-setuphandlers')
 
-def setupPortalContent(portal):
+sitefolders = (
+    ('topics', 'Topics', 
+        ['collective.topictree.topictree']),
+    ('assessmentitems', 'Assessment Items', 
+        ['upfront.assessmentitem.content.assessmentitemcontainer']),
+    ('resources', 'Teacher Resources', ['File']),
+)
 
-    # setup Resources folder
-    if not portal.hasObject('resources'):
-        portal.invokeFactory(type_name='Folder', id='resources',
-                             title='Resources')
-    folder = portal._getOb('resources')
-    folder.setLayout('resources')
-    folder.setConstrainTypesMode(ENABLED)
-    folder.setLocallyAllowedTypes(['collective.topictree.topictree',
-                                   'collective.topictree.topic'])
-    folder.setImmediatelyAddableTypes(['collective.topictree.topictree',
-                                       'collective.topictree.topic'])
-    # Nobody is allowed to modify the constraints or tweak the
-    # display here
-    folder.manage_permission(ModifyConstrainTypes, roles=[])
-    folder.manage_permission(ModifyViewTemplate, roles=[])
+def setupPortalContent(portal):
+    # delete all content in the root
+    for objId in ('front-page', 'Members', 'news', 'events'):
+        if portal.hasObject(objId):
+            portal.manage_delObjects(ids=objId)
+
+    for folder_id, title, allowed_types in sitefolders:
+        if not portal.hasObject(folder_id):
+            portal.invokeFactory(type_name='Folder', id=folder_id, title=title)
+        folder = portal._getOb(folder_id)
+        folder.setConstrainTypesMode(ENABLED)
+        folder.setLocallyAllowedTypes(allowed_types)
+        folder.setImmediatelyAddableTypes(allowed_types)
+
+        # Nobody is allowed to modify the constraints or tweak the
+        # display here
+        folder.manage_permission(ModifyConstrainTypes, roles=[])
+        folder.manage_permission(ModifyViewTemplate, roles=[])
+
 
 def setup(context):
     # Only run step if a flag file is present
