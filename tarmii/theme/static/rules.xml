@@ -57,7 +57,7 @@
 
 
         <!-- THEME -->
-        <rules css:if-content=".breadcrumbSeparator">
+        <rules css:if-not-content="body.section-front-page">
             <theme href="theme.html" />
 
             <!-- content -->
@@ -68,7 +68,7 @@
         </rules>
 
         <!-- HOME -->
-        <rules css:if-not-content=".breadcrumbSeparator">
+        <rules css:if-content="body.section-front-page">
             <theme href="home.html" />
  
             <drop css:theme="#signup" css:if-content="#user-name" />
