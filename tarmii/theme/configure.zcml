@@ -5,6 +5,7 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
     i18n_domain="tarmii.theme">
 
     <includeDependencies package="." />
@@ -19,5 +20,21 @@
         />
 
     <plone:static type="theme" directory="static" />
+
+    <include package="collective.monkeypatcher" />
+
+    <monkey:patch
+        description="Give z3c subforms the necessary context"
+        class="z3c.form.widget.MultiWidget"
+        original="getWidget"
+        replacement=".patches.getWidget"
+        />
+
+    <monkey:patch
+        description="Give z3c subforms the necessary context"
+        class="z3c.form.object.ObjectWidget"
+        original="updateWidgets"
+        replacement=".patches.updateWidgets"
+        />
 
 </configure>
