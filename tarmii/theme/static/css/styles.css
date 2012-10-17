@@ -225,9 +225,9 @@ ul.menu {
   padding-left:3em;
 }
 
-#content_pane {
+#content {
   background:white url(../images/content_gradient.png) repeat-x;
-  font-size:11px;
+  font-size: 80%;
   font-weight:normal;
   color:#333333;
   min-height: 400px;

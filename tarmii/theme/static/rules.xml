@@ -65,7 +65,7 @@
             <!-- content -->
             <replace
                 css:content-children="#content"
-                css:theme-children="#content_pane" />
+                css:theme-children="#content" />
 
         </rules>
 
