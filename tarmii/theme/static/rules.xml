@@ -21,23 +21,25 @@
         <drop theme="/html/head/style" />
         <drop theme="/html/head/script" />
 
+        <append theme="/html/head">
+            <script type="text/javascript"
+                src="++resource++plone.app.toolbar/src/iframed.js"></script>
+        </append>
+
         <!-- Copy over the id/class attributes on the body tag.
              This is important for per-section styling -->
         <merge attributes="class" css:content="body" css:theme="body" />
         <copy attributes="id dir" css:content="body" css:theme="body" />
         <replace css:content=".portalMessage" css:theme=".portalMessage" />
-       
+
+        <append theme="/html/body"
+            content="//div[@data-iframe='toolbar']" />
+
+        <drop css:theme="#personal_pane"
+            if-content="//div[@data-iframe='toolbar']" />
+
         <!-- copy logged in username from Plone to theme -->
         <replace content="//a[@id='user-name']/text()" theme="//span[@id='username']" />
-
-        <!-- if logged in drop login form -->
-        <drop css:theme="#login_form" css:if-content="#user-name" />
-        <!-- if logged out drop logged in info strip -->
-        <drop css:theme="#personal_pane_logged_in" css:if-not-content="#user-name" />
-
-        <!-- copy hrefs of logged in links from plone to theme -->
-        <copy attributes="href" css:content="#personaltools-logout a" css:theme="#log_out" />
-        <copy attributes="href" css:content="#personaltools-preferences a" css:theme="#change_prefs" />
 
         <!-- copy href of logo from plone to theme -->
         <copy attributes="href" css:content="#portal-logo" css:theme="#portal-logo" />
