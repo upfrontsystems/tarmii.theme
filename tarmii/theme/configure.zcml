@@ -10,6 +10,7 @@
 
     <includeDependencies package="." />
     <grok:grok package="." />
+    <include package=".browser" />
     
     <genericsetup:registerProfile
         name="default"
