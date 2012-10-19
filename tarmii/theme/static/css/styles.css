@@ -260,6 +260,9 @@ div#content {
 #content ul.list li {
     list-style: none;
 }
+#content ul.list input[type='checkbox'] {
+    margin-right: 0.5em;
+}
 
 ul.footer_list {
     display: block;
