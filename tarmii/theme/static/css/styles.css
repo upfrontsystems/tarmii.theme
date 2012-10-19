@@ -1,5 +1,5 @@
 html {
-    font-family: Arial;
+    font-family: Arial, FreeSans, sans-serif;
 }
 
 body {
@@ -7,24 +7,18 @@ body {
     margin: auto;
 }
 
-/* Default heading styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, FreeSans, sans-serif;
+}
+
 h1 {
     font-weight: normal;
     font-size: 17px;
     text-transform: uppercase;
+    margin-bottom: 1em;
 }
 
 /* Default button style */
-
-button, input[type="submit"] {
-    background-image: none;
-    font-family: Arial !important;
-    font-size: 11px !important;
-    text-transform: none;
-    min-width: 72px;
-    padding: 1px 5px 1px 5px;
-    cursor: pointer;
-} 
 
 /* Default select style */
 select {
@@ -233,7 +227,7 @@ div#content {
     font-weight: normal;
     color:#333333;
     min-height: 400px;
-    padding: 10px 3em 0px 3em;
+    padding: 2em 3em 0 3em;
 }
 
 
@@ -259,6 +253,13 @@ div#content {
     border-style: hidden;
 }
 
+
+#content ul.list {
+    margin: 1em 0.5em;
+}
+#content ul.list li {
+    list-style: none;
+}
 
 ul.footer_list {
     display: block;
@@ -297,3 +298,4 @@ ul.footer_list {
     margin-top: 20px;
     margin-right: 20px;
 }
+
