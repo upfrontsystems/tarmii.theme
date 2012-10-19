@@ -1,15 +1,11 @@
 html {
-    font-family:Arial;
+    font-family: Arial;
 }
 
 body {
-    width:1050px;
-    margin:auto;
+    width: 1050px;
+    margin: auto;
 }
-
-/*div.formHelp {
-    font-size: 10px; 
-}*/
 
 /* Default heading styles */
 h1 {
@@ -22,7 +18,7 @@ h1 {
 
 button, input[type="submit"] {
     background-image: none;
-    font-family:Arial !important;
+    font-family: Arial !important;
     font-size: 11px !important;
     text-transform: none;
     min-width: 72px;
@@ -43,7 +39,7 @@ option {
 
 /* Default legend style */
 legend {
-  background: none;
+    background: none;
 }
 
 /* Default anchor style */
@@ -60,68 +56,74 @@ p {
 
 /* table override as plone's public.css @media=screen makes border-spacing=0 */
 table {
-  border-collapse: separate;
-  border-spacing: 2px;
+    border-collapse: separate;
+    border-spacing: 2px;
 }
 
 #personal_pane {
-  background-color:#363636;
-  color:white;
-  font-size:12px;
-  font-weight:bold;
-  padding-left:4em;
-  padding-top:5px;
-  padding-bottom:5px;
+    background-color:#363636;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 4em;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #personal_pane td {
-  color:white;
-  font-size:12px;
-  font-weight:bold;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #personal_pane input {
-  border-style:hidden;
-  height:22px;
-  width:120px;
-  font-style:italic;
-  color:#363636;
-  padding-top:3px;
-  padding-left:3px;
+    border-style: hidden;
+    height: 22px;
+    width: 120px;
+    font-style: italic;
+    color:#363636;
+    padding-top: 3px;
+    padding-left: 3px;
 }
 
 #personal_pane button {
-  border-style:hidden;
-  background-color:#363636;
-  height:22px;
+    border-style: hidden;
+    background-color:#363636;
+    height: 22px;
 }
 #personal_pane a {
-  color:white;
-  font-size:11px;
-  text-decoration:underline;
+    color: white;
+    font-size: 11px;
+    text-decoration: underline;
+}
+#personaltools {
+    padding: 0.5em;
+}
+#personaltools a {
+    margin-left: 2em; 
 }
 
 #login_form {
-  padding:0;
-  margin:0;
+    padding: 0;
+    margin: 0;
 }
 
 #login_form td {
-  padding: 0px 4px 0px 4px;
+    padding: 0px 4px 0px 4px;
 }
 
 #login_form input {
-  margin: 0px 0px 0px 4px;
+    margin: 0px 0px 0px 4px;
 }
 
 #actions_pane {
-  height:100px;
-  padding-left:3em;
+    height: 100px;
+    padding-left: 3em;
 }
 
 #actions_pane_home_page {
-  height:300px;
-  padding-left:3em;
+    height: 300px;
+    padding-left: 3em;
 }
 
 #tarmii_definition td {
@@ -130,15 +132,15 @@ table {
 }
 
 #menu img {
-  border-style:hidden; 
+    border-style: hidden; 
 }
 
 ul.menu {
-    height:50px;
-    width:600px;
-    border-left:none;
-    border-right:none;
-    border-bottom:none;
+    height: 50px;
+    width: 600px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
     display: block;
     padding: 0;
     list-style-type: none;
@@ -146,41 +148,41 @@ ul.menu {
 }
 
 .menu li {
-  list-style:none;
-  float:left;
-  display: inline;
-  margin: 0;
-  font-size:14px;
-  font-weight:normal;
-  color:#363636;
+    list-style: none;
+    float: left;
+    display: inline;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color:#363636;
 }
 
 .menu a {
-  list-style:none;
-  float:left;
-  display: inline;
-  text-decoration:none;
-  margin: 0;
-  padding-left: 15px;
-  padding-top: 25px;
-  font-size:14px;
-  font-weight:normal;
-  color:#363636;
+    list-style: none;
+    float: left;
+    display: inline;
+    text-decoration: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-top: 25px;
+    font-size: 14px;
+    font-weight: normal;
+    color:#363636;
 }
 
 #menu {
-  float:left;
-  width:50%;
+    float: left;
+    width: 50%;
 }
 
 #books {
-  margin-top:55px;
-  float:right;
+    margin-top: 55px;
+    float: right;
 }
 
 #context_image {
-  float:right;
-  margin-right: 10em;
+    float: right;
+    margin-right: 10em;
 }
 
 #portal-content {
@@ -191,165 +193,107 @@ ul.menu {
 }
 
 #overview {
-  float:left;
-  width:50%;
-  color:#363636;
-  font-size:11px;
-  font-weight:normal;
+    float: left;
+    width: 50%;
+    color:#363636;
+    font-size: 11px;
+    font-weight: normal;
 }
 
 #overview p {
-  padding-left:4px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+    padding-left: 4px;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #overview h3 {
-  padding-left:4px;
-  font-size:14px;
-  font-weight:bold;
-  margin-top: 1em;
-  margin-bottom: 1em;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #overview img {
-  border-style:hidden;
+    border-style: hidden;
 }
 
 #footer_pane {
-  background:#d2d2d2 url(../images/footer_gradient.png) repeat-x;
-  height:50px;
-  font-size:11px;
-  font-weight:bold;
-  color:#6b6b6b;
-  padding-left:3em;
+    background:#d2d2d2 url(../images/footer_gradient.png) repeat-x;
+    height: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    color:#6b6b6b;
+    padding-left: 3em;
 }
 
 div#content {
-  background:white url(../images/content_gradient.png) repeat-x;
-  font-size: 80%;
-  font-weight:normal;
-  color:#333333;
-  min-height: 400px;
-  padding: 10px 3em 0px 3em;
+    background: white url(../images/content_gradient.png) repeat-x;
+    font-size: 80%;
+    font-weight: normal;
+    color:#333333;
+    min-height: 400px;
+    padding: 10px 3em 0px 3em;
 }
 
 
 .content_pane_outer_table {
-  margin-top: 3em;
-  width:100%;
+    margin-top: 3em;
+    width: 100%;
 }
 
 .content_pane_outer_table img {
-  border-style:hidden;
+    border-style: hidden;
 }
 
 .content_pane_outer_table a {
-  text-decoration:none;
-  color:#333333;
+    text-decoration: none;
+    color:#333333;
 }
 
 #content_pane h3 {
-  font-size:16px;
+    font-size: 16px;
 }
 
 #content_pane img {
-  border-style:hidden;
+    border-style: hidden;
 }
 
 
 ul.footer_list {
-  display: block;
-  list-style-type: none;
-  float:left;
-  width:640px;
-  margin-top:20px;
+    display: block;
+    list-style-type: none;
+    float: left;
+    width: 640px;
+    margin-top: 20px;
 }
 
 .footer_list li a {
-  display: inline;
-  list-style:none;
-  float:left;
-  text-decoration:none;
-  padding-left:10px;
-  padding-right:10px;
-  margin:0;
-  font-size:11px;
-  font-weight:bold;
-  border-right:1px solid;
-  color:#6b6b6b;
+    display: inline;
+    list-style: none;
+    float: left;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    font-size: 11px;
+    font-weight: bold;
+    border-right: 1px solid;
+    color:#6b6b6b;
 }
 
 /* XXX only for development to show which footer links still need to be 
    brought in from plone into the theme - take out when done (in theme also) */
 .footer_list li a.tempgrey {
-  color: #bbb;
+    color: #bbb;
 }
 
 #footer_list_last {
-  border-right:0px;
+    border-right: 0px;
 }
 
 #rights {
-  float:right;
-  margin-top:20px;
-  margin-right:20px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
 }
-
-/* Status messages - copied from public.css */
-/*
-dl.portalMessage {
-    background-color: #ffffe3; 
-    border: 1px solid #996;    
-}
-dl.portalMessage a {
-    color: black;
-    border: none;
-    text-decoration: underline;
-}
-dl.portalMessage dt {
-    background-color: #996; 
-    font-weight: bold;
-    float: left;
-    margin: 0 0.5em 0 0;
-    padding: 0.5em 0.75em;
-    color: White;
-    line-height: 1.25em;
-}
-dl.portalMessage dd {
-    padding: 0.5em 0.5em; 
-    margin: 0;
-    line-height: 1.25em;
-}
-dl.warning {
-    border-color: #d80;
-}
-dl.warning dt {
-    background-color: #d80;
-}
-dl.error {
-    border-color: #d00;    
-}
-dl.error dt {
-    background-color: #d00; 
-}
-dl.warning {
-    border-color: #d80;    
-}
-dl.warning dd {
-    background-color: #fd7; 
-}
-dl.error {
-    border-color: #d80;    
-}
-dl.error dd {
-    background-color: #fd7; 
-} */
-
-/* From public.css */
-/*
-.documentDescription {
-    border-bottom: dashed 1px #cccccc;
-    padding-bottom: 10px;
-}    
-*/
