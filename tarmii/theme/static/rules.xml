@@ -52,6 +52,7 @@
             <!-- contact -->
             <copy attributes="href" css:content="#siteaction-contact a" css:theme="#footer_contact_link" />
 
+        <drop css:content="#plone-document-byline" />
 
         <!-- THEME -->
         <rules css:if-not-content="body.section-front-page">
