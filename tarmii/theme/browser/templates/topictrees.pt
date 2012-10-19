@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content-core">
+    
+        <form id="add-button-form" name="add-topictree-form" tal:attributes="action view/add_topictree_url">
+            <input class="allowMultiSubmit" type="submit" value="Add Topic Tree" i18n:attributes="value"
+                tal:attributes="href view/add_topictree_url">
+        </form>
+
+        <tal:topictrees tal:condition="not:view/topictrees">
+            <div i18n:translate="message_no_topictrees_exist">No topic trees have been created yet.</div>
+        </tal:topictrees>
+
+        <tal:listing tal:condition="view/topictrees">
+            <ul class="list">
+                <li tal:repeat="topictree view/topictrees">
+                    <a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
+                </li>
+            </ul>
+        </tal:listing>
+
+    </metal:main>
+</body>
+</html>
