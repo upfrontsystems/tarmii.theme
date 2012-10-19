@@ -10,7 +10,7 @@ PROFILE_ID = 'profile-tarmii.theme.app:default'
 log = logging.getLogger('tarmii.theme-setuphandlers')
 
 sitefolders = (
-    ('topics', 'Topics', 
+    ('topictrees', 'Topic Trees', 
         ['collective.topictree.topictree']),
     ('assessmentitems', 'Assessment Items', 
         ['upfront.assessmentitem.content.assessmentitemcontainer']),
