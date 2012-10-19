@@ -10,11 +10,11 @@ PROFILE_ID = 'profile-tarmii.theme.app:default'
 log = logging.getLogger('tarmii.theme-setuphandlers')
 
 sitefolders = (
-    ('topictrees', 'Topic Trees', 
+    ('topictrees', 'topictrees', 'Topic Trees', 
         ['collective.topictree.topictree']),
-    ('assessmentitems', 'Assessment Items', 
+    ('assessmentitems', 'folder_listing', 'Assessment Items', 
         ['upfront.assessmentitem.content.assessmentitemcontainer']),
-    ('resources', 'Teacher Resources', ['File']),
+    ('resources', 'resources', 'Teacher Resources', ['File']),
 )
 
 def setupPortalContent(portal):
@@ -23,10 +23,12 @@ def setupPortalContent(portal):
         if portal.hasObject(objId):
             portal.manage_delObjects(ids=objId)
 
-    for folder_id, title, allowed_types in sitefolders:
+    for folder_id, layout, title, allowed_types in sitefolders:
         if not portal.hasObject(folder_id):
             portal.invokeFactory(type_name='Folder', id=folder_id, title=title)
         folder = portal._getOb(folder_id)
+        if layout:
+            folder.setLayout(layout)
         folder.setConstrainTypesMode(ENABLED)
         folder.setLocallyAllowedTypes(allowed_types)
         folder.setImmediatelyAddableTypes(allowed_types)
