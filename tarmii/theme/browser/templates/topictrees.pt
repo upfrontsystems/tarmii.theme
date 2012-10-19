@@ -19,11 +19,22 @@
         </tal:topictrees>
 
         <tal:listing tal:condition="view/topictrees">
-            <ul class="list">
-                <li tal:repeat="topictree view/topictrees">
-                    <a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
-                </li>
-            </ul>
+            <form method="post" name="listTopicTreesForm"
+                    tal:attributes="action context/absolute_url">
+                <ul class="list">
+                    <li tal:repeat="topictree view/topictrees">
+                        <input type="checkbox" name="paths:list" class="noborder"
+                            tal:attributes="title string:Select ${topictree/Title};
+                                            alt string:Select ${topictree/Title};
+                                            value topictree/getPath;
+                                            id string:cb_${topictree/getId}">
+                        <a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
+                    </li>
+                </ul>
+                <input type="submit" value="Delete" name="folder_delete:method" class="context">
+                <input type="hidden" name="orig_template" value="topictrees"/>
+                <input tal:replace="structure context/@@authenticator/authenticator" />
+            </form>
         </tal:listing>
 
     </metal:main>
