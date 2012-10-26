@@ -7,30 +7,23 @@
       lang="en">
 
 <body>
-    <metal:main fill-slot="main">
-    
-        <div id="content">
-            <div id="content-core">
-            <h1>RESOURCES</h1>
+    <metal:main fill-slot="content-core">
             
-            <!-- XXX The button must only be shown if the user has the "AddPortalContent" permission in the resources folder. -->
-            <form id="add-resource-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
-                <input type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path">
-            </form>
+        <!-- XXX The button must only be shown if the user has the "AddPortalContent" permission in the resources folder. -->
+        <form id="add-resource-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
+            <input type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path">
+        </form>
 
-            <tal:topictrees tal:condition="not:view/find_topic_trees">
-                <div>No resources found in the system.</div>
-            </tal:topictrees>
+        <tal:topictrees tal:condition="not:view/find_topic_trees">
+            <div>No resources found in the system.</div>
+        </tal:topictrees>
 
-            <tal:topictrees tal:condition="view/find_topic_trees">
-                <div tal:repeat="topictree view/find_topic_trees">
-                    <div class="treeroot" tal:attributes="uid topictree/UID">
-                    </div>
+        <tal:topictrees tal:condition="view/find_topic_trees">
+            <div tal:repeat="topictree view/find_topic_trees">
+                <div class="treeroot" tal:attributes="uid topictree/UID">
                 </div>
-            </tal:topictrees>
-
             </div>
-        </div>
+        </tal:topictrees>
 
     </metal:main>
 </body>
