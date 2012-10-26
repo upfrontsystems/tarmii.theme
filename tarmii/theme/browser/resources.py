@@ -18,7 +18,7 @@ class ResourcesView(grok.View):
     grok.template('resources')
     grok.require('zope2.View')
 
-    def find_topic_trees(self):
+    def topictrees(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(portal_type='collective.topictree.topictree')
         return brains

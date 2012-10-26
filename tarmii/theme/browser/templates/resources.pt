@@ -14,16 +14,13 @@
             <input type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path">
         </form>
 
-        <tal:topictrees tal:condition="not:view/find_topic_trees">
+        <tal:topictrees tal:condition="not:view/topictrees">
             <div>No resources found in the system.</div>
         </tal:topictrees>
 
-        <tal:topictrees tal:condition="view/find_topic_trees">
-            <div tal:repeat="topictree view/find_topic_trees">
-                <div class="treeroot" tal:attributes="uid topictree/UID">
-                </div>
-            </div>
-        </tal:topictrees>
+        <div tal:repeat="topictree view/topictrees">
+            <div class="treeroot" tal:attributes="uid topictree/UID"/>
+        </div>
 
     </metal:main>
 </body>
