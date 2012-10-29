@@ -17,8 +17,12 @@ class QuestionsView(grok.View):
         """
         return self.context.getFolderContents()
 
-    def add_question_url(self):
-        """ URL for topictree add form
-        """
-        return ('%s/++add++upfront.assessmentitem.content.'
-                'assessmentitemcontainer' % (self.context.absolute_url()))
+
+class AddQuestionView(grok.View):
+    """ Add Questions View
+    """
+    grok.context(Interface)
+    grok.name('addquestion')
+    grok.template('addquestion')
+    grok.require('cmf.AddPortalContent')
+

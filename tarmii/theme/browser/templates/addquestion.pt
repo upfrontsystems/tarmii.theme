@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content">
+    <div id="content">
+
+        <h1 class="documentFirstHeading" i18n:translate="heading_write_new_ question">Write a New Question</h1>
+
+        <h4 i18n:translate="label_choose_question_type">Choose a question type from the options below</h4>
+
+        <div id="choose-question-type"
+            tal:define="plone_view context/@@plone_portal_state;
+                        portal_url plone_view/portal_url">
+            <div id="simple-question">
+                <form method="post" action="++add++upfront.assessmentitem.content.assessmentitemcontainer">
+                    <input alt="Free-form or multiple-choice question" src="images/simplequestion.png" title="Free-form or multiple-choice question" border="1" type="image" i18n:attributes="alt title" tal:attributes="src string:${portal_url}/++resource++tarmii.theme/images/simplequestion.png">
+                </form>
+
+                <div class="heading" i18n:translate="heading_simple_question">Simple Question</div>
+
+                <div class="explanation" i18n:translate="simple_question_explanation">
+                    Use this type for simple free-form questions that may or may
+                    not have a multiple-choice answer.
+                </div>
+
+            </div>
+            <div id="multipart-question">
+                <form method="post" action="++add++upfront.assessmentitem.content.assessmentitemcontainer">
+                    <input type="image" border="1" title="Multipart question" src="/images/multipartquestion.png" alt="Multipart question" i18n:attributes="alt title" tal:attributes="src string:${portal_url}/++resource++tarmii.theme/images/multipartquestion.png">
+                </form>
+
+                <div class="heading" i18n:translate="heading_multipart_question">Multipart Question</div>
+
+                <div class="explanation" i18n:translate="multipart_question_explanation">
+                    These questions share a common introduction for which several questions are then asked. The questions can be independent or they can have some dependence.
+                </div>
+
+            </div>
+
+        </div>
+        <div class="visualClear"></div>
+
+    </div>
+    </metal:main>
+</body>
+</html>
+

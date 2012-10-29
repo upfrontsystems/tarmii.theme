@@ -302,3 +302,25 @@ ul.footer_list {
     margin-right: 20px;
 }
 
+/* add question */
+
+
+#choose-question-type {
+    text-align: center;
+    margin-top: 2em;
+}
+#choose-question-type .heading {
+    font-size: 160%;
+    padding: 1em;
+}
+#choose-question-type .explanation {
+    text-align: left;
+    padding: 0 1.5em 0 3em;
+    font-size: 110%;
+}
+
+#simple-question,
+#multipart-question {
+    float: left;
+    width: 320px;
+}

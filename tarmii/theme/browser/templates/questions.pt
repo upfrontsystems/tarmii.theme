@@ -9,9 +9,8 @@
 <body>
     <metal:main fill-slot="content-core">
     
-        <form id="add-button-form" name="add-question-form" tal:attributes="action view/add_question_url">
-            <input class="allowMultiSubmit" type="submit" value="Add Question" i18n:attributes="value"
-                tal:attributes="href view/add_topictree_url">
+        <form id="add-button-form" name="add-question-form" action="@@addquestion">
+            <input class="allowMultiSubmit" type="submit" value="Add Question" i18n:attributes="value" href="@@addquestion">
         </form>
 
         <tal:topictrees tal:condition="not:view/questions">
@@ -23,7 +22,7 @@
             define="template_id string:${view/__name__};
                     Batch python:modules['Products.CMFPlone'].Batch;
                     b_start python:int(request.get('b_start', 0));
-                    batch python:Batch(view.questions, 10, b_start, orphan=0)">
+                    batch python:Batch(view.questions(), 10, b_start, orphan=0)">
 
 
             <table class="wide-table">
