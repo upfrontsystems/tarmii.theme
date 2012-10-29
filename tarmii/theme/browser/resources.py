@@ -28,6 +28,7 @@ class ResourcesView(grok.View):
         """
         return '%s/createObject?type_name=File' % self.context.absolute_url()
 
+
 class GetTreeDataView(grok.View):
     """ Return the JSON representation of the entire Topic Tree
     """

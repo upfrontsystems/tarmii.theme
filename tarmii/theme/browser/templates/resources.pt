@@ -10,7 +10,7 @@
     <metal:main fill-slot="content-core">
             
         <!-- XXX The button must only be shown if the user has the "AddPortalContent" permission in the resources folder. -->
-        <form id="add-resource-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
+        <form id="add-button-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
             <input type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path">
         </form>
 
