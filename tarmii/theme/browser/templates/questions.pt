@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content-core">
+    
+        <form id="add-button-form" name="add-question-form" tal:attributes="action view/add_question_url">
+            <input class="allowMultiSubmit" type="submit" value="Add Question" i18n:attributes="value"
+                tal:attributes="href view/add_topictree_url">
+        </form>
+
+        <tal:topictrees tal:condition="not:view/questions">
+            <div i18n:translate="message_no_questions_exist">No questions have been created yet.</div>
+        </tal:topictrees>
+
+        <tal:questions
+            condition="view/questions"
+            define="template_id string:${view/__name__};
+                    Batch python:modules['Products.CMFPlone'].Batch;
+                    b_start python:int(request.get('b_start', 0));
+                    batch python:Batch(view.questions, 10, b_start, orphan=0)">
+
+
+            <table class="wide-table">
+                <tr>
+                    <td class="no-padding" colspan="3"><hr/></td>
+                </tr>
+                <tal:brains repeat="brain view/questions">
+                    <tal:ai tal:define="ai brain/getObject">
+                        Assessment item goes here
+                    </tal:ai>
+                </tal:brains>
+
+            </table>
+
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+        </tal:questions>
+
+    </metal:main>
+</body>
+</html>

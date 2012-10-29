@@ -38,6 +38,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.topictrees = self.portal.topictrees
+        self.questions = self.portal.questions
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
         self.topictrees.invokeFactory('collective.topictree.topictree',
