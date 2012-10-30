@@ -32,4 +32,6 @@ class AddQuestionView(grok.View):
             return
         obj = createContentInContainer(self.context,
             'upfront.assessmentitem.content.assessmentitemcontainer')
+        createContentInContainer(obj,
+            'upfront.assessmentitem.content.assessmentitem')
         self.request.RESPONSE.redirect(obj.absolute_url() + '/edit')
