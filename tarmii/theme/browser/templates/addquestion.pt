@@ -18,7 +18,8 @@
             tal:define="plone_view context/@@plone_portal_state;
                         portal_url plone_view/portal_url">
             <div id="simple-question">
-                <form method="post" action="++add++upfront.assessmentitem.content.assessmentitemcontainer">
+                <form method="post" tal:attributes="action view/__name__">
+                    <input name="form.submitted" type="hidden" value="1"/>
                     <input name="questiontype" type="hidden" value="simple"/>
                     <input alt="Free-form or multiple-choice question" src="images/simplequestion.png" title="Free-form or multiple-choice question" border="1" type="image" i18n:attributes="alt title" tal:attributes="src string:${portal_url}/++resource++tarmii.theme/images/simplequestion.png">
                 </form>
@@ -32,7 +33,8 @@
 
             </div>
             <div id="multipart-question">
-                <form method="post" action="++add++upfront.assessmentitem.content.assessmentitemcontainer">
+                <form method="post" tal:attributes="action view/__name__">
+                    <input name="form.submitted" type="hidden" value="1"/>
                     <input name="questiontype" type="hidden" value="multipart"/>
                     <input type="image" border="1" title="Multipart question" src="/images/multipartquestion.png" alt="Multipart question" i18n:attributes="alt title" tal:attributes="src string:${portal_url}/++resource++tarmii.theme/images/multipartquestion.png">
                 </form>
