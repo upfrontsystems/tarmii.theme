@@ -13,7 +13,8 @@ sitefolders = (
     ('topictrees', 'topictrees', 'Topic Trees', 
         ['collective.topictree.topictree']),
     ('questions', 'questions', 'Questions', 
-        ['upfront.assessmentitem.content.assessmentitemcontainer']),
+        ['upfront.assessmentitem.content.assessmentitem',
+         'upfront.assessmentitem.content.introtext']),
     ('resources', 'resources', 'Teacher Resources', ['File']),
 )
 
