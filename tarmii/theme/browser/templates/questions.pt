@@ -9,8 +9,9 @@
 <body>
     <metal:main fill-slot="content-core">
     
-        <form id="add-button-form" name="add-question-form" action="@@addquestion">
-            <input class="allowMultiSubmit" type="submit" value="Add Question" i18n:attributes="value" href="@@addquestion">
+        <form id="add-button-form" name="add-question-form"
+            action="++add++upfront.assessmentitem.content.assessmentitem">
+            <input class="allowMultiSubmit" type="submit" value="Add Question" i18n:attributes="value">
         </form>
 
         <tal:topictrees tal:condition="not:view/questions">
