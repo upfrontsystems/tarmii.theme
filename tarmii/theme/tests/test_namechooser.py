@@ -17,18 +17,18 @@ class TestNameChooser(TarmiiThemeTestBase):
     def test_checkName(self):
         namechooser = INameChooser(self.questions)
         obj = createContent(
-            'upfront.assessmentitem.content.assessmentitemcontainer')
+            'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.checkName('Q001', obj), True)
         obj = createContentInContainer(self.questions,
-            'upfront.assessmentitem.content.assessmentitemcontainer')
+            'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.checkName('Q001', obj), False)
 
     def test_chooseName(self):
         namechooser = INameChooser(self.questions)
         obj = createContentInContainer(self.questions,
-            'upfront.assessmentitem.content.assessmentitemcontainer')
+            'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.chooseName(None, obj), 'Q001')
         obj = createContent(
-            'upfront.assessmentitem.content.assessmentitemcontainer')
+            'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.chooseName(None, obj), 'Q002')
         self.assertEqual(namechooser.chooseName('custom', obj), 'custom')

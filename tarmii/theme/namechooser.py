@@ -6,8 +6,7 @@ from plone.app.content.namechooser import NormalizingNameChooser
 from Acquisition import aq_base
 from Products.CMFCore.interfaces import IFolderish
 
-from upfront.assessmentitem.content.assessmentitemcontainer import \
-    IAssessmentItemContainer
+from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
 from tarmii.theme.interfaces import IItemVersion   
 
 class AssessmentItemNameChooser(grok.Adapter, NormalizingNameChooser):
@@ -18,7 +17,7 @@ class AssessmentItemNameChooser(grok.Adapter, NormalizingNameChooser):
     grok.context(IFolderish)
 
     def chooseName(self, name, object):
-        if not IAssessmentItemContainer.providedBy(object):
+        if not IAssessmentItem.providedBy(object):
             return super(AssessmentItemNameChooser, self).chooseName(
                 name, object)
         else:
