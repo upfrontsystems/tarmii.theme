@@ -1,7 +1,5 @@
 from zope.interface import Interface
 from five import grok
-from plone.dexterity.utils import createContentInContainer
-from collective.topictree.topictree import ITopicTree
 
 grok.templatedir('templates')
 
