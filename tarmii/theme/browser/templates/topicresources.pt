@@ -9,8 +9,17 @@
 <body>
     <metal:main fill-slot="content-core">
             
-        <h3>Teacher resources for: </h3><h3 tal:content="view/topictitle" />
+        <h3>Teacher resources for <span tal:content="view/topictitle"> </span></h3>
         <span tal:content="view/itemcount"/><span> resources for this topic.</span>
+
+        <div tal:repeat="resourcefile view/resourcefiles">
+            <a tal:attributes="href string:${resourcefile/absolute_url}/at_download/file">
+                <span tal:content="resourcefile/Title"></span>
+            </a>
+            <span> - </span>
+            <span tal:content="resourcefile/size"></span>
+            <span> bytes</span>
+        </div>
 
     </metal:main>
 </body>

@@ -57,6 +57,23 @@ class TopicResourcesView(grok.View):
         brains = rc(targetUID=topic_uid, relationship='topics')
         return len(brains)
 
+    def resourcefiles(self):
+        """ Return resource files associated with a topic
+        """
+        request = self.request
+        topic_uid = request.get('topic_uid', '')
+        rc = getToolByName(self.context, 'reference_catalog')
+        brains = rc(targetUID=topic_uid, relationship='topics')
+        
+        resources = []
+        pc = getToolByName(self.context, 'portal_catalog')
+        for b in brains:
+            resource_uid = b.getObject().sourceUID      
+            resource = pc(UID=resource_uid)[0].getObject()
+            resources.append(resource)
+
+        return resources
+
 class GetTreeDataView(grok.View):
     """ Return the JSON representation of the entire Topic Tree
     """
