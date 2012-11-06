@@ -1,6 +1,6 @@
 $(function() {
 
-    $(".topictree").each(function(index) {
+    $(".resourcetree").each(function(index) {
         // get the content_node_uid
         var context_node_uid = $(this).attr('uid');
         var ajax_call = '@@gettreedata?context_node_uid=' + context_node_uid;

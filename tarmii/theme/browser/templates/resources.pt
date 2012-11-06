@@ -19,7 +19,7 @@
         </tal:topictrees>
 
         <div tal:repeat="topictree view/topictrees">
-            <div class="topictree" tal:attributes="uid topictree/UID"/>
+            <div class="resourcetree" tal:attributes="uid topictree/UID"/>
         </div>
 
     </metal:main>
