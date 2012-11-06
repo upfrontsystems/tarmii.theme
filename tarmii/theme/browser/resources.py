@@ -5,6 +5,10 @@ from Products.CMFCore.utils import getToolByName
 
 from plone.uuid.interfaces import IUUID
 
+from zope.component import getUtility
+from zope.app.intid.interfaces import IIntIds
+from zc.relation.interfaces import ICatalog
+
 from collective.topictree.topictree import ITopicTree
 from tarmii.theme import MessageFactory as _
 
@@ -50,17 +54,26 @@ class GetTreeDataView(grok.View):
         """
         return ''
 
-    def TopicJSON(self,node_uid):
+    def itemcount(self, node_uid):
+        """ Return number of resource items that are referenced by topic
+        """
+        rc = getToolByName(self.context, 'reference_catalog')
+        brains = rc(targetUID=node_uid, relationship='topics')
+        return len(brains)
+
+    def TopicJSON(self, node_uid):
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(UID=node_uid)
         contents = brains[0].getObject().getFolderContents()
         node_name = brains[0].Title
 
+        node_name = node_name + ' (' + str(self.itemcount(node_uid)) + ')'
+
         # node_rel should be default unless it is a root node
         if brains[0].portal_type == 'collective.topictree.topictree':
             node_rel = 'root'
         else:
-            node_rel = 'default'        
+            node_rel = 'default'
 
         Json_string = ''
 
