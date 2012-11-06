@@ -33,6 +33,29 @@ class ResourcesView(grok.View):
         """
         return '%s/createObject?type_name=File' % self.context.absolute_url()
 
+class TopicResourcesView(grok.View):
+    """ XXX
+    """
+    grok.context(Interface)
+    grok.name('topicresources')
+    grok.template('topicresources')
+    grok.require('zope2.View')
+
+    def topictitle(self):
+        request = self.request
+        topic_uid = request.get('topic_uid', '')
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(UID=topic_uid)
+        return brains[0].Title
+
+    def itemcount(self):
+        """ Return number of resource items that are referenced by topic
+        """
+        request = self.request
+        topic_uid = request.get('topic_uid', '')
+        rc = getToolByName(self.context, 'reference_catalog')
+        brains = rc(targetUID=topic_uid, relationship='topics')
+        return len(brains)
 
 class GetTreeDataView(grok.View):
     """ Return the JSON representation of the entire Topic Tree
