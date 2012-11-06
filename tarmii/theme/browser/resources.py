@@ -46,7 +46,7 @@ class GetTreeDataView(grok.View):
         request = self.request
         context_node_uid = request.get('context_node_uid', '')
 
-       # get the JSON representation of the topic tree
+        # get the JSON representation of the topic tree
         # call TopicJSON on tree root
         return json.dumps(self.TopicJSON(context_node_uid))
 
