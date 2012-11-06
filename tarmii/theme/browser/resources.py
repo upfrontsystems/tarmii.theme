@@ -1,3 +1,4 @@
+import json
 from five import grok
 
 from zope.interface import Interface
@@ -47,7 +48,7 @@ class GetTreeDataView(grok.View):
 
        # get the JSON representation of the topic tree
         # call TopicJSON on tree root
-        return self.TopicJSON(context_node_uid)
+        return json.dumps(self.TopicJSON(context_node_uid))
 
     def render(self):
         """ No-op to keep grok.View happy
@@ -67,35 +68,21 @@ class GetTreeDataView(grok.View):
         contents = brains[0].getObject().getFolderContents()
         node_name = brains[0].Title
 
-        node_name = node_name + ' (' + str(self.itemcount(node_uid)) + ')'
-
         # node_rel should be default unless it is a root node
         if brains[0].portal_type == 'collective.topictree.topictree':
             node_rel = 'root'
         else:
             node_rel = 'default'
+            node_name = node_name + ' (' + str(self.itemcount(node_uid)) + ')'
 
-        Json_string = ''
+        data = {
+            'data': node_name,
+            'attr': {'node_uid': node_uid, 'id': node_uid},
+            'rel': node_rel,
+            'children': [],
+        }
 
-        if len(contents) == 0: 
-            # Tree leaf
-            Json_string = '{ "data" : "' + node_name +\
-                          '", "attr" : { "node_uid" : "' + node_uid +\
-                          '", "rel" : "' + node_rel + '" } }'
-        else:
-            # Non Tree leaf
-            Json_string = '{ "data" : "' + node_name +\
-                          '", "attr" : { "node_uid" : "' + node_uid +\
-                          '", "rel" : "' + node_rel +\
-                          '" }, "children" : [ '
+        for brain in contents:
+            data['children'].append(self.TopicJSON(brain.UID))
 
-            for brain in contents:
-                    brain_uid = brain.UID                
-                    Json_string = Json_string + self.TopicJSON(brain_uid) + ', '
-
-            # remove last 2 characters ", " (not needed after last child)
-            Json_string = Json_string[:-2]
-            # add closing brackets
-            Json_string = Json_string + ' ] }'
-
-        return Json_string
+        return data
