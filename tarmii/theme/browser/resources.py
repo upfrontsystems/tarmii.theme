@@ -47,8 +47,8 @@ class GetTreeDataView(grok.View):
         context_node_uid = request.get('context_node_uid', '')
 
         # get the JSON representation of the topic tree
-        # call TopicJSON on tree root
-        return json.dumps(self.TopicJSON(context_node_uid))
+        # call topicjson on tree root
+        return json.dumps(self.topicjson(context_node_uid))
 
     def render(self):
         """ No-op to keep grok.View happy
@@ -62,7 +62,7 @@ class GetTreeDataView(grok.View):
         brains = rc(targetUID=node_uid, relationship='topics')
         return len(brains)
 
-    def TopicJSON(self, node_uid):
+    def topicjson(self, node_uid):
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(UID=node_uid)
         contents = brains[0].getObject().getFolderContents()
@@ -83,6 +83,6 @@ class GetTreeDataView(grok.View):
         }
 
         for brain in contents:
-            data['children'].append(self.TopicJSON(brain.UID))
+            data['children'].append(self.topicjson(brain.UID))
 
         return data
