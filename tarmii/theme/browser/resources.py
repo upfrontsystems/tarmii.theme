@@ -71,14 +71,17 @@ class GetTreeDataView(grok.View):
         # node_rel should be default unless it is a root node
         if brains[0].portal_type == 'collective.topictree.topictree':
             node_rel = 'root'
+            node_state = 'open'
         else:
             node_rel = 'default'
             node_name = node_name + ' (' + str(self.itemcount(node_uid)) + ')'
+            node_state = 'closed'
 
         data = {
             'data': node_name,
             'attr': {'node_uid': node_uid, 'id': node_uid},
             'rel': node_rel,
+            'state' : node_state,
             'children': [],
         }
 
