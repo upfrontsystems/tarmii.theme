@@ -77,13 +77,23 @@ class GetTreeDataView(grok.View):
             node_name = node_name + ' (' + str(self.itemcount(node_uid)) + ')'
             node_state = 'closed'
 
-        data = {
-            'data': node_name,
-            'attr': {'node_uid': node_uid, 'id': node_uid},
-            'rel': node_rel,
-            'state' : node_state,
-            'children': [],
-        }
+        if len(contents) == 0: 
+            # Tree leaf (no state information)
+            data = {
+                'data': node_name,
+                'attr': {'node_uid': node_uid, 'id': node_uid},
+                'rel': node_rel,
+                'children': [],
+            }
+        else:
+            # Non Tree leaf
+            data = {
+                'data': node_name,
+                'attr': {'node_uid': node_uid, 'id': node_uid},
+                'rel': node_rel,
+                'state' : node_state,
+                'children': [],
+            }
 
         for brain in contents:
             data['children'].append(self.topicjson(brain.UID))
