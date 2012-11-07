@@ -14,5 +14,7 @@ class QuestionsView(grok.View):
     def questions(self):
         """ Return all the questions in the current folder
         """
-        return self.context.getFolderContents()
+        contentFilter = {
+            'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
+        return self.context.getFolderContents(contentFilter)
 
