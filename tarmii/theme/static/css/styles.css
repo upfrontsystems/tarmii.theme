@@ -230,7 +230,6 @@ div#content {
     padding: 2em 3em 0 3em;
 }
 
-
 .content_pane_outer_table {
     margin-top: 3em;
     width: 100%;
@@ -302,25 +301,7 @@ ul.footer_list {
     margin-right: 20px;
 }
 
-/* add question */
-
-
-#choose-question-type {
-    text-align: center;
-    margin-top: 2em;
-}
-#choose-question-type .heading {
-    font-size: 160%;
-    padding: 1em;
-}
-#choose-question-type .explanation {
-    text-align: left;
-    padding: 0 1.5em 0 3em;
-    font-size: 110%;
+div.formControls {
+    margin-left: 0;
 }
 
-#simple-question,
-#multipart-question {
-    float: left;
-    width: 320px;
-}
