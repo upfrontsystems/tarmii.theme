@@ -5,7 +5,16 @@ $(function() {
         var context_node_uid = $(this).attr('uid');
         var ajax_call = '@@gettreedata?context_node_uid=' + context_node_uid;
 
-        $(this).jstree({ 
+        $(this).bind("loaded.jstree", function (event, data) {
+            // bind click handlers to correct urls when the tree is fully loaded
+            $('.resourcetree li a').bind('click', function() {
+                var url = $(this).parents().attr('url');
+                if ( url != '#' ) {
+                    window.location.href = $(this).parent().attr('url')
+                }
+            });
+        })
+        .jstree({ 
             "core": {
                 "animation": 100,
             },
@@ -16,19 +25,7 @@ $(function() {
             "json_data" : {
                 // get the UID from the attr attribute
                 // call treedata view with that parameter
-                "ajax" : { 
-                    "url" : ajax_call,
-                    "success" : function (data) {
-                        // bind click handlers to correct urls
-                        $('.resourcetree li a').bind('click', function() {
-                            var url = $(this).parents().attr('url');
-                            if ( url != '#' ) {
-                                window.location.href = 
-                                    $(this).parent().attr('url')
-                            }
-                        });
-                    }
-                },
+                "ajax" : { "url" : ajax_call },
             },
             "themes" : {
                 "theme" : "default",
