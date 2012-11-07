@@ -16,7 +16,19 @@ $(function() {
             "json_data" : {
                 // get the UID from the attr attribute
                 // call treedata view with that parameter
-                "ajax" : { "url" : ajax_call },
+                "ajax" : { 
+                    "url" : ajax_call,
+                    "success" : function (data) {
+                        // bind click handlers to correct urls
+                        $('.resourcetree li a').bind('click', function() {
+                            var url = $(this).parents().attr('url');
+                            if ( url != '#' ) {
+                                window.location.href = 
+                                    $(this).parent().attr('url')
+                            }
+                        });
+                    }
+                },
             },
             "themes" : {
                 "theme" : "default",
@@ -48,5 +60,4 @@ $(function() {
             },
         });
     });
-
 });

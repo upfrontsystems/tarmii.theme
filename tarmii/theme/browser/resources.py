@@ -108,20 +108,26 @@ class GetTreeDataView(grok.View):
         contents = brains[0].getObject().getFolderContents()
         node_name = brains[0].Title
 
-        # node_rel should be default unless it is a root node
+        # node_rel should be default unless it is a root node,
+        # root nodes are open by default and are non-clickable - invalid url (#)
         if brains[0].portal_type == 'collective.topictree.topictree':
             node_rel = 'root'
             node_state = 'open'
+            url = '#'
         else:
             node_rel = 'default'
             node_name = node_name + ' (' + str(self.itemcount(node_uid)) + ')'
             node_state = 'closed'
+            url = '%s/@@topicresources?topic_uid=%s' % (
+                  self.context.aq_parent.absolute_url(),
+                  node_uid
+            )
 
         if len(contents) == 0: 
             # Tree leaf (no state information)
             data = {
                 'data': node_name,
-                'attr': {'node_uid': node_uid, 'id': node_uid},
+                'attr': {'node_uid': node_uid, 'id': node_uid, 'url' : url, },
                 'rel': node_rel,
                 'children': [],
             }
@@ -129,7 +135,7 @@ class GetTreeDataView(grok.View):
             # Non Tree leaf
             data = {
                 'data': node_name,
-                'attr': {'node_uid': node_uid, 'id': node_uid},
+                'attr': {'node_uid': node_uid, 'id': node_uid, 'url' : url, },
                 'rel': node_rel,
                 'state' : node_state,
                 'children': [],
