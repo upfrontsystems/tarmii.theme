@@ -74,11 +74,11 @@ class TopicResourcesView(grok.View):
 
         return resources
 
-class GetTreeDataView(grok.View):
+class TreeDataView(grok.View):
     """ Return the JSON representation of the entire Topic Tree
     """
     grok.context(Interface)
-    grok.name('gettreedata') 
+    grok.name('treedata') 
     grok.require('zope2.View')
 
     def __call__(self):
