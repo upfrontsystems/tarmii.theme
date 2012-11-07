@@ -12,15 +12,15 @@
         <h3>Teacher resources for <span tal:content="view/topictitle"> </span></h3>
         <span tal:content="view/itemcount"/><span> resources for this topic.</span>
 
-        <div tal:repeat="resourcefile view/resourcefiles">
-            <a tal:attributes="href string:${resourcefile/absolute_url}/at_download/file">
-                <span tal:content="resourcefile/Title"></span>
+        <div tal:repeat="resource view/resources">
+            <a tal:attributes="href string:${resource/absolute_url}/at_download/file">
+                <span tal:content="resource/Title">File Title</span>
             </a>
-            <span> - </span>
-            <span tal:content="resourcefile/size"></span>
-            <span> bytes</span>
+            <span tal:content="string:- ${resource/size} bytes">- 123 bytes</span>
         </div>
 
     </metal:main>
 </body>
 </html>
+
+
