@@ -305,6 +305,10 @@ div.formControls {
     margin-left: 0;
 }
 
+#questions-list {
+    margin-top: 1em;
+}
+
 hr.item-separator {
     margin: 1em 0;
     border-top: 2px solid #black;
