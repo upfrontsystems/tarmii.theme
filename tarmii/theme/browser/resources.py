@@ -4,19 +4,12 @@ from five import grok
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 
-from plone.uuid.interfaces import IUUID
-
-from zope.component import getUtility
-from zope.app.intid.interfaces import IIntIds
-from zc.relation.interfaces import ICatalog
-
-from collective.topictree.topictree import ITopicTree
 from tarmii.theme import MessageFactory as _
 
 grok.templatedir('templates')
 
 class ResourcesView(grok.View):
-    """ XXX
+    """ A view to display the all the resources (as topic trees) in the system.
     """
     grok.context(Interface)
     grok.name('resources')
@@ -34,7 +27,7 @@ class ResourcesView(grok.View):
         return '%s/createObject?type_name=File' % self.context.absolute_url()
 
 class TopicResourcesView(grok.View):
-    """ XXX
+    """ A view to display, in detail, the resources associated with a topic.
     """
     grok.context(Interface)
     grok.name('topicresources')
@@ -42,8 +35,9 @@ class TopicResourcesView(grok.View):
     grok.require('zope2.View')
 
     def topictitle(self):
-        request = self.request
-        topic_uid = request.get('topic_uid', '')
+        """ Return the title of a specific topic.
+        """
+        topic_uid = self.request.get('topic_uid', '')
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(UID=topic_uid)
         return brains[0].Title
@@ -51,17 +45,15 @@ class TopicResourcesView(grok.View):
     def itemcount(self):
         """ Return number of resource items that are referenced by topic
         """
-        request = self.request
-        topic_uid = request.get('topic_uid', '')
+        topic_uid = self.request.get('topic_uid', '')
         rc = getToolByName(self.context, 'reference_catalog')
         brains = rc(targetUID=topic_uid, relationship='topics')
         return len(brains)
 
-    def resourcefiles(self):
+    def resources(self):
         """ Return resource files associated with a topic
         """
-        request = self.request
-        topic_uid = request.get('topic_uid', '')
+        topic_uid = self.request.get('topic_uid', '')
         rc = getToolByName(self.context, 'reference_catalog')
         brains = rc(targetUID=topic_uid, relationship='topics')
         
@@ -74,17 +66,18 @@ class TopicResourcesView(grok.View):
 
         return resources
 
-class GetTreeDataView(grok.View):
+class TreeDataView(grok.View):
     """ Return the JSON representation of the entire Topic Tree
     """
     grok.context(Interface)
-    grok.name('gettreedata') 
+    grok.name('treedata') 
     grok.require('zope2.View')
 
     def __call__(self):
+        """ get the JSON representation of the topic tree
+        """
         # get the root object uid from the request
-        request = self.request
-        context_node_uid = request.get('context_node_uid', '')
+        context_node_uid = self.request.get('context_node_uid', '')
 
         # get the JSON representation of the topic tree
         # call topicjson on tree root

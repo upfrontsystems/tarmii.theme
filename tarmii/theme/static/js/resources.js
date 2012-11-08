@@ -3,7 +3,7 @@ $(function() {
     $(".resourcetree").each(function(index) {
         // get the content_node_uid
         var context_node_uid = $(this).attr('uid');
-        var ajax_call = '@@gettreedata?context_node_uid=' + context_node_uid;
+        var ajax_call = '@@treedata?context_node_uid=' + context_node_uid;
 
         $(this).bind("loaded.jstree", function (event, data) {
             // bind click handlers to correct urls when the tree is fully loaded

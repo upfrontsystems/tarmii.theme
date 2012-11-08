@@ -15,7 +15,7 @@
         </form>
 
         <tal:topictrees tal:condition="not:view/topictrees">
-            <div>No resources found in the system.</div>
+            <div i18n:translate="message_no_resources">No resources found in the system.</div>
         </tal:topictrees>
 
         <div tal:repeat="topictree view/topictrees">
