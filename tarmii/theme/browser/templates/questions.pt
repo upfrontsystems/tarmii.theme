@@ -25,18 +25,25 @@
                     b_start python:int(request.get('b_start', 0));
                     batch python:Batch(view.questions(), 10, b_start, orphan=0)">
 
-
-            <table class="wide-table">
-                <tr>
-                    <td class="no-padding" colspan="3"><hr/></td>
-                </tr>
+            <div id="questions-list">
                 <tal:brains repeat="brain view/questions">
-                    <tal:ai tal:define="ai brain/getObject">
-                        Assessment item goes here
-                    </tal:ai>
+                    <tal:item tal:define="item brain/getObject">
+                        <div class="introduction" tal:content="structure item/introduction/output|nothing">
+                            Optional Question Introduction
+                        </div>
+                        <div class="question" tal:content="structure item/question/output|nothing">
+                            The question
+                        </div>
+                        <div class="item-actions-left">
+                            <a tal:attributes="href item/absolute_url"
+                               i18n:translate="label_view">View</a>
+                            <a tal:attributes="href string:${item/absolute_url}/edit"
+                               i18n:translate="label_edit">Edit</a>
+                        </div>
+                        <hr class="item-separator"/>
+                    </tal:item>
                 </tal:brains>
-
-            </table>
+            </div>
 
             <div metal:use-macro="context/batch_macros/macros/navigation" />
 

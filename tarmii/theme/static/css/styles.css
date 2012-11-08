@@ -305,3 +305,11 @@ div.formControls {
     margin-left: 0;
 }
 
+hr.item-separator {
+    margin: 1em 0;
+    border-top: 2px solid #black;
+}
+
+div.item-actions-left a {
+    margin-right: 1em;
+}
