@@ -16,7 +16,7 @@
             <a tal:attributes="href string:${resource/absolute_url}/at_download/file">
                 <span tal:content="resource/Title">File Title</span>
             </a>
-            <span tal:content="string:- ${resource/size}"></span><span i18n:translate="label_default_bytes"> bytes</span>
+            - <span tal:content="resource/size"/> <span i18n:translate="label_bytes">bytes</span>
         </div>
 
     </metal:main>
