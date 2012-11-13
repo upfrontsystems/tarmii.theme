@@ -19,7 +19,7 @@ class TestCase(PloneSandboxLayer):
         self.loadZCML(package=collective.topictree)
         self.loadZCML(package=upfront.assessmentitem)
         self.loadZCML(package=tarmii.theme)
-        z2.installProduct(app, PROJECTNAME)
+        z2.installProduct(app, PROJECTNAME) 
 
     def setUpPloneSite(self, portal):
         self.applyProfile(portal, '%s:default' % PROJECTNAME)
@@ -40,6 +40,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.request = self.layer['request']
         self.topictrees = self.portal.topictrees
         self.questions = self.portal.questions
+        self.resources = self.portal.resources
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
         self.topictrees.invokeFactory('collective.topictree.topictree',
@@ -48,7 +49,40 @@ class TarmiiThemeTestBase(unittest.TestCase):
 
         topictree.invokeFactory('collective.topictree.topic',
                                 'afrikaans', title='Afrikaans')
+        self.topic1 = topictree._getOb('afrikaans')
         topictree.invokeFactory('collective.topictree.topic',
                                 'english', title='English')
+        self.topic2 = topictree._getOb('english')
         topictree.invokeFactory('collective.topictree.topic',
                                 'xhosa', title='Xhosa')
+        self.topic3 = topictree._getOb('xhosa')
+
+        # add 2 resources
+        self.resources.invokeFactory('File','resource1', title='Resource1')
+        self.res1 = self.resources._getOb('resource1')
+        self.resources.invokeFactory('File','resource2', title='Resource2')
+        self.res2 = self.resources._getOb('resource2')
+
+        # link resource1 to topics1 and topics2
+        topicsfield = self.res1.Schema().get('topics')
+        mutator = topicsfield.getMutator(self.res1)
+        mutator([self.topic1, self.topic2])
+
+        # link resource2 to topic2
+        topicsfield = self.res2.Schema().get('topics')
+        mutator = topicsfield.getMutator(self.res2)
+        mutator([self.topic2])
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
