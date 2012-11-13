@@ -23,19 +23,16 @@ class TestTopicResourcesView(TarmiiThemeTestBase):
 
     def test_topictitle(self):
         view = self.topictrees.restrictedTraverse('@@topicresources')
-
         self.request.set('topic_uid',IUUID(self.topic1))
         self.assertEqual(self.topic1.Title(),view.topictitle())
 
     def test_itemcount(self):
         view = self.topictrees.restrictedTraverse('@@topicresources')
-
         self.request.set('topic_uid',IUUID(self.topic2))
         self.assertEqual(2,view.itemcount())
 
     def test_resources(self):
         view = self.topictrees.restrictedTraverse('@@topicresources')
-
         self.request.set('topic_uid',IUUID(self.topic2))
         self.assertEqual(self.res1,view.resources()[0])
         self.assertEqual(self.res2,view.resources()[1])
