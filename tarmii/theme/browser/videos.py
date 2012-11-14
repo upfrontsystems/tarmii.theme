@@ -37,7 +37,7 @@ class VideosView(grok.View):
                                                     self.context)
 
     def add_video_button_path(self):
-        """ Path string for the Add Resource button
+        """ Path string for the Add Video button
         """
         # XXX: we need some sort of check to make sure only flv extensions are
         # allowed to be uploaded.
