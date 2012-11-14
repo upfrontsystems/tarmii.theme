@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="main"
+        tal:define="batch view/videos">
+            
+        <h1> VIDEOS </h1>
+
+            <tal:listing tal:condition="not:batch">
+                <p>No videos added.</p>
+            </tal:listing>
+
+            <tal:listing tal:condition="batch">
+                <div metal:use-macro="context/batch_macros/macros/navigation" />
+                
+                <table class="listing">
+                    <thead>
+                        <tr> 
+                            <th>Video title</th>
+                        </tr>
+                    </thead>
+
+                    <tal:fill tal:repeat="brain batch">
+                        <tr tal:define="video brain/getObject">
+                            <td tal:content="video/Title"></td>
+                        </tr>	
+                    </tal:fill>
+                </table>
+
+                <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </tal:listing>
+
+
+<!--        <tal:addresource_visible condition="view/addresource_visible">
+            <form id="add-button-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
+                <input type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path">
+            </form>
+        </tal:addresource_visible>
+
+        <tal:topictrees tal:condition="not:view/topictrees">
+            <div i18n:translate="message_no_resources">No resources found in the system.</div>
+        </tal:topictrees>
+
+        <div tal:repeat="topictree view/topictrees">
+            <div class="resourcetree" tal:attributes="uid topictree/UID"/>
+        </div> -->
+
+    </metal:main>
+</body>
+</html>
