@@ -24,7 +24,7 @@
             <div metal:use-macro="context/batch_macros/macros/navigation" />
                 
                 <tal:fill tal:repeat="brain batch">
-                    <div tal:define="thumb brain/getObject">
+                    <div class="thumb" tal:define="thumb brain/getObject">
                         <img tal:attributes="src string:${thumb/absolute_url}/image;
                                              alt thumb/Title" />
                         <p tal:content="thumb/Title"></p>

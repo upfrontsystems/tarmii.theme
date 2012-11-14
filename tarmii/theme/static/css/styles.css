@@ -317,3 +317,13 @@ hr.item-separator {
 div.item-actions-left a {
     margin-right: 1em;
 }
+
+/* videos view */
+
+.thumb {
+    display: inline-block;
+    padding: 5px 21px 5px 21px;
+}
+
+
+
