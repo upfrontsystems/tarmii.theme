@@ -23,18 +23,13 @@
         <tal:listing tal:condition="batch">
             <div metal:use-macro="context/batch_macros/macros/navigation" />
                 
-            <table class="listing">
-                <thead>
-                    <tr> 
-                        <th i18n:translate="video_title">Video title</th>
-                    </tr>
-                </thead>
                 <tal:fill tal:repeat="brain batch">
-                    <tr tal:define="video brain/getObject">
-                        <td tal:content="video/Title"></td>
-                    </tr>	
+                    <div tal:define="thumb brain/getObject">
+                        <img tal:attributes="src string:${thumb/absolute_url}/image;
+                                             alt thumb/Title" />
+                        <p tal:content="thumb/Title"></p>
+                    </div>
                 </tal:fill>
-            </table>
 
             <div metal:use-macro="context/batch_macros/macros/navigation" />
         </tal:listing>

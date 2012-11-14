@@ -23,7 +23,7 @@ def onVideoAdded(video, event):
     thumb = tempfile.gettempdir() + '/tmp.jpg'
     # take the 5th second of video for thumb, -y overwrites old tmp.jpg files.
     call(["ffmpeg", "-itsoffset", "-5", "-i", tmp.name, "-vcodec", "mjpeg", "-y",
-          "-vframes", "1", "-an", "-f", "rawvideo", "-s", "320x180", thumb])
+          "-vframes", "1", "-an", "-f", "rawvideo", "-s", "265x150", thumb])
 
     #read in tmp.jpg 
     cwd = os.path.join(tempfile.gettempdir(), 'tmp.jpg')
@@ -32,4 +32,5 @@ def onVideoAdded(video, event):
 
     # create an image object from tmp.jpg data
     video_id = video.title + '_'
-    video.aq_parent.invokeFactory('Image', video_id, image=fileRawData)
+    video.aq_parent.invokeFactory('Image', video_id, title=video.title,
+                                  image=fileRawData)

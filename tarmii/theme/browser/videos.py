@@ -22,8 +22,9 @@ class VideosView(grok.View):
     def videos(self):
         """ query for contents of videos folder and return as batch
         """
-        brains = self.context.getFolderContents()
-        b_size = 5
+        contentFilter = {"portal_type" : "Image"}
+        brains = self.context.getFolderContents(contentFilter)
+        b_size = 6
         b_start = self.request.get('b_start', 0)
         return Batch(brains, b_size, int(b_start), orphan=0)
 
