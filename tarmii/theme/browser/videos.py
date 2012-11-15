@@ -42,7 +42,6 @@ class VideosView(grok.View):
         """
         # XXX: we need some sort of check to make sure only flv extensions are
         # allowed to be uploaded.
-        # The title of the file (video ) must also be non-optional
         return '%s/createObject?type_name=File' % self.context.absolute_url()
 
 
