@@ -7,4 +7,11 @@
 
     <grok:grok package="." />
 
+    <browser:page
+            name="feedback"
+            for="Products.CMFPlone.Portal.PloneSite"
+            class=".feedback.FeedbackForm"
+            permission="zope.Public"
+            />
+
 </configure>
