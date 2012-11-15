@@ -1,3 +1,5 @@
+from smtplib import SMTPRecipientsRefused
+
 from five.formlib.formbase import PageForm
 from zope.formlib import form
 from zope.interface import Interface
@@ -42,6 +44,11 @@ class FeedbackForm(PageForm):
         self.mSubject = data['subject']
         self.mBody = data['message']
 
-        mhost.send(self.mBody, self.mTo, self.mFrom, self.mSubject)
+        try:
+            mhost.send(self.mBody, self.mTo, self.mFrom, self.mSubject, 
+                       immediate=True)
+        except SMTPRecipientsRefused:
+            # Don't disclose email address on failure
+            raise SMTPRecipientsRefused('Recipient address rejected by server')
 
         return self.result_template()
