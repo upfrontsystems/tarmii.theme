@@ -35,13 +35,10 @@ class FeedbackForm(PageForm):
 
     label = u'Contact Us'
     form_fields = form.Fields(IFeedbackForm)
-#    template = ViewPageTemplateFile('feedback_form.pt')
     result_template = ViewPageTemplateFile('templates/feedback_result.pt')
 
     # XXX: # The mail must be sent to the site email address configured here:
     # http://127.0.0.1:8080/Plone/@@mail-controlpanel
-    # The mail must include the user's name and email in addition to the subject 
-    # and message capture on the form.
 
     @form.action("send")
     def action_send(self, action, data):
