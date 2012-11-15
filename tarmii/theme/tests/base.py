@@ -41,6 +41,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.topictrees = self.portal.topictrees
         self.questions = self.portal.questions
         self.resources = self.portal.resources
+        self.videos = self.portal.videos
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
         self.topictrees.invokeFactory('collective.topictree.topictree',
@@ -72,6 +73,12 @@ class TarmiiThemeTestBase(unittest.TestCase):
         topicsfield = self.res2.Schema().get('topics')
         mutator = topicsfield.getMutator(self.res2)
         mutator([self.topic2])
+
+        # add 2 video thumbnails
+        self.videos.invokeFactory('Image','vid1thumb', title='Video1')
+        self.vid1thumb = self.videos._getOb('vid1thumb')
+        self.videos.invokeFactory('Image','vid2thumb', title='Video2')
+        self.vid2thumb = self.videos._getOb('vid2thumb')
 
 
 
