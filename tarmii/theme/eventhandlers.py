@@ -28,9 +28,17 @@ def onVideoAdded(video, event):
     #read in tmp.jpg 
     cwd = os.path.join(tempfile.gettempdir(), 'tmp.jpg')
     f = open(cwd, "rb")
-    fileRawData = f.read()
+    try:
+        fileRawData = f.read()
+    except:
+        # file could not be read
+        # XXX: add exception message
+        return
+    finally:
+        f.close()
 
     # create an image object from tmp.jpg data
     video_id = video.title + '_'
     video.aq_parent.invokeFactory('Image', video_id, title=video.title,
                                   image=fileRawData)
+
