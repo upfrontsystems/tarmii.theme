@@ -5,6 +5,7 @@ from zope.interface import Interface
 from zope.schema import TextLine, Text, Choice
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 
 class IFeedbackForm(Interface):
     """ Contact us form schema
@@ -45,8 +46,10 @@ class FeedbackForm(PageForm):
     @form.action("send")
     def action_send(self, action, data):
         mhost = MHost()
-#        self.mFrom = data['customer']
-        self.mFrom = 'Mr Logged in user'
+        mt = getToolByName(self.context, 'portal_membership')
+        user_name = mt.getAuthenticatedMember().getUserName()
+        user_email = mt.getAuthenticatedMember().email
+        self.mFrom = user_name + ' (' + user_email + ')'
         self.mTo = "feedback@mycompany.com"
         self.mSubject = data['subject']
         self.mBody = data['message']
