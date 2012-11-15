@@ -1,5 +1,4 @@
 from five.formlib.formbase import PageForm
-
 from zope.formlib import form
 from zope.interface import Interface
 from zope.schema import TextLine, Text, Choice
@@ -20,15 +19,6 @@ class IFeedbackForm(Interface):
                    required=True)
             
 
-# use a dummy MailHost tool here to keep it simple
-class MHost:
-    def __init__(self):
-        pass
-
-    def Send(self, sender, to, subject, body):
-        pass
-
-
 class FeedbackForm(PageForm):
     """ Contact us feedback form 
     """
@@ -37,18 +27,21 @@ class FeedbackForm(PageForm):
     form_fields = form.Fields(IFeedbackForm)
     result_template = ViewPageTemplateFile('templates/feedback_result.pt')
 
-    # XXX: # The mail must be sent to the site email address configured here:
-    # http://127.0.0.1:8080/Plone/@@mail-controlpanel
-
     @form.action("send")
     def action_send(self, action, data):
-        mhost = MHost()
-        mt = getToolByName(self.context, 'portal_membership')
-        user_name = mt.getAuthenticatedMember().getUserName()
-        user_email = mt.getAuthenticatedMember().email
-        self.mFrom = user_name + ' (' + user_email + ')'
-        self.mTo = "feedback@mycompany.com"
+
+        mhost = getToolByName(self.context, 'MailHost')
+        pm = getToolByName(self.context, 'portal_membership')
+
+        user_name = pm.getAuthenticatedMember().getUserName()
+        user_email = pm.getAuthenticatedMember().email
+        email_from = pm.email_from_address
+
+        self.mFrom = user_name + ' <' + user_email + '>'
+        self.mTo = email_from
         self.mSubject = data['subject']
         self.mBody = data['message']
-        mhost.Send(self.mFrom, self.mTo, self.mSubject, self.mBody)
+
+        mhost.send(self.mBody, self.mTo, self.mFrom, self.mSubject)
+
         return self.result_template()

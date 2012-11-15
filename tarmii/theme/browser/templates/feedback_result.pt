@@ -1,5 +1,3 @@
-<!-- -<html metal:use-macro="context/@@standard_macros/view"> -->
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
@@ -10,11 +8,13 @@
 
 <body>
     <div metal:fill-slot="main">
+
         <h1 tal:content="view/label">Form label</h1>
-        <p>Thank you for your request about
+        <p i18n:translate="message_thankyou">Thank you for your request about
         <span tal:replace="view/mSubject">subject</span>,
         <span tal:replace="view/mFrom">customer@mail</span>.</p>
-        <p>We will reply to it shortly.</p>
+        <p i18n:translate="message_willreply">We will reply to it shortly.</p>
+
     </div>
 </body>
 </html>
