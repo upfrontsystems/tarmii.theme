@@ -6,7 +6,6 @@ class TestVideosView(TarmiiThemeTestBase):
 
     def test_videos(self):
         view = self.videos.restrictedTraverse('@@videos')
-        import pdb; pdb.set_trace()
         batch = view.videos()
         self.assertEquals([self.vid1thumb,self.vid2thumb],
                           [p.getObject() for p in batch])

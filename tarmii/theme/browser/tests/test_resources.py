@@ -1,3 +1,4 @@
+
 from plone.uuid.interfaces import IUUID
 from tarmii.theme.tests.base import TarmiiThemeTestBase
 
@@ -38,4 +39,12 @@ class TestTopicResourcesView(TarmiiThemeTestBase):
         self.assertEqual(self.res2,view.resources()[1])
 
 
+class TestTreeDataView(TarmiiThemeTestBase):
+    """ Test TopicData browser view
+    """
+
+    def test_itemcount(self):
+        view = self.topictrees.restrictedTraverse('@@treedata')
+        itemcount = view.itemcount(IUUID(self.topic2))
+        self.assertEqual(2,itemcount)
 
