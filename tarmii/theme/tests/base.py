@@ -58,6 +58,8 @@ class TarmiiThemeTestBase(unittest.TestCase):
                                 'xhosa', title='Xhosa')
         self.topic3 = topictree._getOb('xhosa')
 
+        self.topictree = topictree
+
         # add 2 resources
         self.resources.invokeFactory('File','resource1', title='Resource1')
         self.res1 = self.resources._getOb('resource1')
