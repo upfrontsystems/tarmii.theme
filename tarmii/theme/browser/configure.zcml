@@ -14,4 +14,11 @@
             permission="zope.Public"
             />
 
+    <browser:page
+            name="feedback"
+            for="upfront.assessmentitem.content.assessmentitem.IAssessmentItem"
+            class=".feedback.AssessmentItemFeedbackForm"
+            permission="zope.Public"
+            />
+
 </configure>
