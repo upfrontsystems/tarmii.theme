@@ -3,7 +3,7 @@ from smtplib import SMTPRecipientsRefused
 from five.formlib.formbase import PageForm
 from zope.formlib import form
 from zope.interface import Interface
-from zope.schema import TextLine, Text, Choice
+from zope.schema import TextLine, Text
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName

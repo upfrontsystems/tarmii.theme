@@ -1,7 +1,6 @@
 from five import grok
 
 from AccessControl import getSecurityManager
-from Acquisition import aq_inner
 from zope.interface import Interface
 
 from Products.CMFPlone.PloneBatch import Batch
