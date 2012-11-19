@@ -8,6 +8,11 @@ from zope.schema import TextLine, Text, Choice
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
+from zope.component import getUtility
+from zope.app.intid.interfaces import IIntIds
+
+from zc.relation.interfaces import ICatalog
+
 class IFeedbackForm(Interface):
     """ Contact us form schema
     """
@@ -26,14 +31,13 @@ class FeedbackForm(PageForm):
     """
 
     MESSAGE = u"""
-    Message from user: %s
+Message from user: %s
 
-    Subject: %s
-    Message:
+Subject: %s
+Message:
 
-    %s
-
-    """
+%s
+"""
 
     label = u'Contact Us'
     form_fields = form.Fields(IFeedbackForm)
@@ -84,15 +88,18 @@ class AssessmentItemFeedbackForm(PageForm):
     """
 
     MESSAGE = u"""
-    Message from user: %s
-    regarding item: %s
+Message from user: %s
+regarding item: %s
 
-    Subject: %s
-    Message:
+Subject: %s
+Message:
 
-    %s
+%s
 
-    """
+Topics associated with this item:
+%s
+
+"""
 
     label = u'Feedback'
     form_fields = form.Fields(IAssessmentItemFeedbackForm)
@@ -110,13 +117,29 @@ class AssessmentItemFeedbackForm(PageForm):
         email_from = pm.email_from_address
         self.assessment_item_id = self.context.id
 
+        catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
+        result = catalog.findRelations({
+            'from_id': intids.getId(self.context)})
+        
+        topics = ''
+        notfinished = True;
+        while notfinished:            
+            try:
+                rel = result.next()        
+                if rel.to_object.portal_type == 'collective.topictree.topic':
+                    topics = topics + rel.to_object.title + '\n'
+            except StopIteration:
+                notfinished = False;
+
         self.mFrom = user_name + ' <' + user_email + '>'
         self.mTo = email_from
         self.mSubject = data['subject']
         self.mBody = self.MESSAGE % (self.mFrom,
                                      self.assessment_item_id,
                                      data['subject'],
-                                     data['feedback'])
+                                     data['feedback'],
+                                     topics)
 
         try:
             mhost.send(self.mBody, self.mTo, self.mFrom, self.mSubject, 
