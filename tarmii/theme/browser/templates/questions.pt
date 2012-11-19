@@ -39,6 +39,8 @@
                                i18n:translate="label_view">View</a>
                             <a tal:attributes="href string:${item/absolute_url}/edit"
                                i18n:translate="label_edit">Edit</a>
+                            <a tal:attributes="href string:${item/absolute_url}/feedback"
+                               i18n:translate="label_edit">Feedback</a>
                         </div>
                         <hr class="item-separator"/>
                     </tal:item>
