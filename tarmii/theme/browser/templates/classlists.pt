@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content-core">
+    
+        <form id="add-button-form" name="add-classlist-form" tal:attributes="action view/add_classlist_url">
+            <input class="allowMultiSubmit" type="submit" value="Add class list" i18n:attributes="value"
+                tal:attributes="href view/add_classlist_url">
+        </form>
+
+        <tal:classlists tal:condition="not:view/classlists">
+            <div i18n:translate="message_no_classlists_exist">No class lists have been created yet.</div>
+        </tal:classlists>
+
+        <tal:listing tal:condition="view/classlists">
+            <form method="post" name="listClassListsForm"
+                    tal:attributes="action context/absolute_url">
+                <ul class="list">
+                    <li tal:repeat="classlist view/classlists">
+                        <input type="checkbox" name="paths:list" class="noborder"
+                            tal:attributes="title string:Select ${classlist/Title};
+                                            alt string:Select ${classlist/Title};
+                                            value classlist/getPath;
+                                            id string:cb_${classlist/getId}">
+                        <a tal:attributes="href string:${classlist/getURL}" tal:content="classlist/Title"></a>
+                    </li>
+                </ul>
+                <input type="submit" value="Delete" name="folder_delete:method" class="context">
+                <input type="hidden" name="orig_template" value="classlists"/>
+                <input tal:replace="structure context/@@authenticator/authenticator" />
+            </form>
+        </tal:listing>
+
+    </metal:main>
+</body>
+</html>
