@@ -23,12 +23,10 @@ class VideosView(grok.View):
         """
         contentFilter = {"portal_type" : "Image"}
         brains = self.context.getFolderContents(contentFilter)
-        b_size = 6
+        b_size = 9
         b_start = self.request.get('b_start', 0)
         return Batch(brains, b_size, int(b_start), orphan=0)
 
-    # this might not be necessary if we upgrade to collective.quickupload
-    # as it includes a permissions check already.
     def addvideo_visible(self):
         """ test if add video button can be shown based on whether the user
             has "AddPortalContent" Permission on the resouces folder

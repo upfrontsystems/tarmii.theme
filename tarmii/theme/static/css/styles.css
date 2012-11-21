@@ -323,6 +323,8 @@ div.item-actions-left a {
 .thumb {
     display: inline-block;
     padding: 5px 21px 5px 21px;
+    width: 265px;
+    word-wrap: break-word;
 }
 
 
