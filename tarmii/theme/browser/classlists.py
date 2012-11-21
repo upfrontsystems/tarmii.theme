@@ -2,6 +2,7 @@ from five import grok
 from zope.interface import Interface
 from collective.topictree.topictree import ITopicTree
 
+from plone.directives import dexterity
 grok.templatedir('templates')
 
 class ClassListsView(grok.View):
@@ -22,5 +23,29 @@ class ClassListsView(grok.View):
         """
         return "%s/++add++upfront.classlist.content.classlist" % (
             self.context.absolute_url())
+
+
+class ClassListAddForm(dexterity.AddForm):
+    grok.name('upfront.classlist.content.classlist')
+
+    # this method needed so we can reference newly created class list object,
+    # that we need in the nextURL method
+    def createAndAdd(self, data):
+        classlist = super(ClassListAddForm, self).createAndAdd(data)
+        # Acquisition wrap patient in the current context
+        self.classlist = classlist.__of__(self.context)
+        return self.classlist
+
+    def nextURL(self):
+        return '%s' % self.classlist.absolute_url()
+
+
+
+
+
+
+
+
+
 
 

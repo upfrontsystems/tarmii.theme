@@ -5,8 +5,17 @@ $(function($) {
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
-        noform: 'reload',
-        redirect: url,
+        noform: 'redirect',
+        redirect: function (overlay, responseText) {
+            var href = location.href;
+            // look to see if there has been a server redirect
+            var newTarget = $("<div>").html(responseText).find("base").attr("href"); 
+            if ($.trim(newTarget) && newTarget !== location.href) { 
+                return newTarget; 
+            }
+            // if not, simply reload
+            return href;
+        },
         closeselector: '[name=form.buttons.cancel]'
         });
 
