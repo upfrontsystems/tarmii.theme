@@ -14,9 +14,12 @@ class ClassListsView(grok.View):
     grok.require('cmf.ModifyPortalContent')
 
     def classlists(self):
-        """ Return all the topic trees in the current folder
-        """        
-        return self.context.getFolderContents()
+        """ Return all the classlists in the current folder
+        """
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist'}
+        return self.context.getFolderContents(contentFilter)
+
 
     def add_classlist_url(self):
         """ URL for classlist add form
