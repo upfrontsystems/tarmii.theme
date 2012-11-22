@@ -26,6 +26,10 @@ def setupPortalContent(portal):
         if portal.hasObject(objId):
             portal.manage_delObjects(ids=objId)
 
+    # disable tabs
+    pprop = getToolByName(portal, 'portal_properties')
+    pprop.site_properties._updateProperty('disable_folder_sections', True)
+
     for folder_id, layout, title, allowed_types in sitefolders:
         if not portal.hasObject(folder_id):
             portal.invokeFactory(type_name='Folder', id=folder_id, title=title)
