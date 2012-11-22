@@ -1,16 +1,16 @@
 import os
 import tempfile
 import subprocess
+
 from five import grok
+
 from Acquisition import aq_parent
-from subprocess import call
+from zope.component.hooks import getSite
 
 from Products.ATContentTypes.interfaces.file import IFileContent
 from Products.Archetypes.interfaces import IObjectInitializedEvent
-
 from Products.PluggableAuthService.interfaces.authservice import IPropertiedUser
 from Products.PlonePAS.interfaces.events import IUserInitialLoginInEvent
-
 from Products.statusmessages.interfaces import IStatusMessage
 
 from tarmii.theme import MessageFactory as _
@@ -31,10 +31,11 @@ def on_video_added(video, event):
     try:
         thumb = tempfile.gettempdir() + '/tmp.jpg'    
         # take the 5th second of video for thumb, -y overwrites old tmp.jpgfiles
-        call(["avconv", "-itsoffset", "-5", "-i", tmp.name, "-vcodec", "mjpeg",
-              "-y", "-vframes", "1", "-an", "-f", "rawvideo", "-s", "265x150",
-              thumb])
-    except: # XXX find out what errors avconv returns and insert here
+        subprocess.call(["avconv", "-itsoffset", "-5", "-i", tmp.name,
+                         "-vcodec", "mjpeg", "-y", "-vframes", "1", "-an", "-f",
+                         "rawvideo", "-s", "265x150", thumb])       
+    except: # XXX - change to try, finally -output message from avconv
+            # Invalid data found when processing input 
         request = getattr(video, "REQUEST", None)
         IStatusMessage(request).addStatusMessage(
                                     _(u"Thumbnail generation failed"),"error")
@@ -48,6 +49,7 @@ def on_video_added(video, event):
         # file could not be read
         # XXX: add exception message
         return
+
     finally:
         f.close()
 
@@ -62,6 +64,14 @@ def on_user_initial_login(user, event):
     """ Create classlists folder inside members folder upon initial login
     """
 
-    # XXX: Implement
-    return True
+    pm = getSite().portal_membership
+    # create members folder
+    pm.createMemberArea()
+    members_folder = pm.getHomeFolder()
+    # create classlists folder in members folder
+    members_folder.invokeFactory(type_name='Folder', id='classlists',
+                                 title='Class Lists')
+    classlists_folder = members_folder._getOb('classlists')
+    # set default view to @@classlists view
+    classlists_folder.setLayout('@@classlists')
 
