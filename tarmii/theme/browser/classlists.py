@@ -20,7 +20,6 @@ class ClassListsView(grok.View):
             'portal_type': 'upfront.classlist.content.classlist'}
         return self.context.getFolderContents(contentFilter)
 
-
     def add_classlist_url(self):
         """ URL for classlist add form
         """

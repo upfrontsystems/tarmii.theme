@@ -15,9 +15,11 @@ class TestCase(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         import collective.topictree
         import upfront.assessmentitem
+        import upfront.classlist
         import tarmii.theme
         self.loadZCML(package=collective.topictree)
         self.loadZCML(package=upfront.assessmentitem)
+        self.loadZCML(package=upfront.classlist)
         self.loadZCML(package=tarmii.theme)
         z2.installProduct(app, PROJECTNAME) 
 
@@ -81,15 +83,18 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.vid1thumb = self.videos._getOb('vid1thumb')
         self.videos.invokeFactory('Image','vid2thumb', title='Video2')
         self.vid2thumb = self.videos._getOb('vid2thumb')
+       
+        # create a classlists folder for testing
+        self.portal.invokeFactory(type_name='Folder', id='classlists',
+                                  title='Classlists')
+        self.classlists = self.portal._getOb('classlists') 
 
-
-
-
-
-
-        
-
-
+        self.classlists.invokeFactory('upfront.classlist.content.classlist',
+                                      'list1', title='List1')
+        self.classlist1 = self.classlists._getOb('list1')
+        self.classlists.invokeFactory('upfront.classlist.content.classlist',
+                                      'list2', title='List2')
+        self.classlist2 = self.classlists._getOb('list2')
 
 
 
