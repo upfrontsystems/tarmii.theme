@@ -18,7 +18,6 @@ sitefolders = (
          'upfront.assessmentitem.content.introtext']),
     ('resources', 'resources', 'Teacher Resources', ['File']),
     ('videos', 'videos', 'Videos', ['File','Image']),
-    ('classtest', 'classtest', 'ClassTest', ['upfront.classlist.content.classlist']),
 )
 
 def setupPortalContent(portal):
