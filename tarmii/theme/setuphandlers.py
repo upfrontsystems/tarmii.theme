@@ -22,7 +22,7 @@ sitefolders = (
 
 def setupPortalContent(portal):
     # delete all content in the root
-    for objId in ('front-page', 'Members', 'news', 'events'):
+    for objId in ('front-page', 'news', 'events'):
         if portal.hasObject(objId):
             portal.manage_delObjects(ids=objId)
 
