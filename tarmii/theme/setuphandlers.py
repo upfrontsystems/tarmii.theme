@@ -1,5 +1,6 @@
 import logging
 
+from plone.app.controlpanel.security import ISecuritySchema
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.permissions import ModifyViewTemplate
 from Products.ATContentTypes.permission import ModifyConstrainTypes
@@ -17,6 +18,7 @@ sitefolders = (
          'upfront.assessmentitem.content.introtext']),
     ('resources', 'resources', 'Teacher Resources', ['File']),
     ('videos', 'videos', 'Videos', ['File','Image']),
+    ('classtest', 'classtest', 'ClassTest', ['upfront.classlist.content.classlist']),
 )
 
 def setupPortalContent(portal):
@@ -40,6 +42,9 @@ def setupPortalContent(portal):
         folder.manage_permission(ModifyConstrainTypes, roles=[])
         folder.manage_permission(ModifyViewTemplate, roles=[])
 
+    # allow member folders to be created
+    security_adapter =  ISecuritySchema(portal)
+    security_adapter.set_enable_user_folders(True)
 
 def setup(context):
     # Only run step if a flag file is present
