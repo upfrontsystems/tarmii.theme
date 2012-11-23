@@ -96,7 +96,3 @@ class TarmiiThemeTestBase(unittest.TestCase):
                                       'list2', title='List2')
         self.classlist2 = self.classlists._getOb('list2')
 
-
-
-
-

@@ -4,6 +4,7 @@
         <dependency>profile-plone.app.registry:default</dependency>
         <dependency>profile-plone.app.theming:default</dependency>
         <dependency>profile-upfront.assessmentitem:default</dependency>
+        <dependency>profile-upfront.classlist:default</dependency>
         <dependency>profile-collective.topictree:default</dependency>
     </dependencies>
 </metadata>
