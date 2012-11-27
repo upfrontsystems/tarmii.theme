@@ -25,7 +25,6 @@
              This is important for per-section styling -->
         <merge attributes="class" css:content="body" css:theme="body" />
         <copy attributes="id dir" css:content="body" css:theme="body" />
-        <replace css:content=".portalMessage" css:theme=".portalMessage" />
 
         <drop css:theme="#personaltools"
               css:if-not-content="#user-name" />
