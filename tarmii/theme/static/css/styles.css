@@ -327,5 +327,10 @@ div.item-actions-left a {
     word-wrap: break-word;
 }
 
+/* class listing view */
 
+/* fix alignment of checkboxes in table of learners */
+#div-learner-listing table.listing td {
+    vertical-align: middle !important;
+}
 
