@@ -40,6 +40,7 @@
 
         <!-- info and error messages -->
         <replace css:content=".portalMessage" css:theme=".portalMessage" />
+        <drop css:content="#kssPortalMessage" />        
 
         <!-- main menu navigation -->
         <replace css:content-children="#portal-globalnav" css:theme-children="#menu-globalnav" /> 
@@ -57,10 +58,10 @@
         <rules css:if-not-content="body.section-front-page">
             <theme href="theme.html" />
 
-            <!-- content -->
+            <!-- content core -->
             <replace
                 css:content-children="#content"
-                css:theme-children="#content" />
+                css:theme="#content-core" />
 
         </rules>
 

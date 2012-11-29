@@ -334,3 +334,24 @@ div.item-actions-left a {
     vertical-align: middle !important;
 }
 
+/* import learner view */
+
+div.labels {
+    float: left;
+    width: 200px;
+}
+div.labels div {
+    height: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+div.edit_areas div {
+    height: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+div.help_text {
+    clear: both;
+}
+
+
