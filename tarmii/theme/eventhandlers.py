@@ -25,38 +25,24 @@ def on_video_added(video, event):
     if video.aq_parent.Title() != 'Videos':
         return
     
-    tmp = tempfile.NamedTemporaryFile()
-    tmp.write(video.data)
-
     try:
-        thumb = tempfile.gettempdir() + '/tmp.jpg'    
-        # take the 5th second of video for thumb, -y overwrites old tmp.jpgfiles
-        subprocess.call(["avconv", "-itsoffset", "-5", "-i", tmp.name,
-                         "-vcodec", "mjpeg", "-y", "-vframes", "1", "-an", "-f",
-                         "rawvideo", "-s", "265x150", thumb])       
-    except: # XXX - change to try, finally -output message from avconv
-            # Invalid data found when processing input 
+        cmdargs = ['avconv', '-itsoffset', '-5', '-i', '-', '-vcodec', 'mjpeg',
+                   '-y', '-vframes', '1', '-an', '-f', 'rawvideo', '-s',
+                   '265x150', '-']
+        process = subprocess.Popen(cmdargs,
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        stdout, stderr = process.communicate(video.data)
+
+    finally:
+        #XXX: add output message from avconv here
         request = getattr(video, "REQUEST", None)
         IStatusMessage(request).addStatusMessage(
                                     _(u"Thumbnail generation failed"),"error")
 
-    #read in tmp.jpg 
-    cwd = os.path.join(tempfile.gettempdir(), 'tmp.jpg')
-    f = open(cwd, "rb")
-    try:
-        fileRawData = f.read()
-    except:
-        # file could not be read
-        # XXX: add exception message
-        return
-
-    finally:
-        f.close()
-
     # create an image object from tmp.jpg data
     video_id = video.id + '-thumb'
     video.aq_parent.invokeFactory('Image', video_id, title=video.title,
-                                  image=fileRawData)
+                                  image=stdout)
 
 
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
