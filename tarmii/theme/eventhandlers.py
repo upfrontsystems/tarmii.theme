@@ -39,7 +39,6 @@ def on_video_added(video, event):
         IStatusMessage(request).addStatusMessage(
                                     _(u"Thumbnail generation failed"),"error")
 
-    # create an image object from tmp.jpg data
     video_id = video.id + '-thumb'
     video.aq_parent.invokeFactory('Image', video_id, title=video.title,
                                   image=stdout)
