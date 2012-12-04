@@ -26,11 +26,11 @@ def on_video_added(video, event):
         return
     
     try:
-        cmdargs = ['avconv', '-itsoffset', '-5', '-i', '-', '-vcodec', 'mjpeg',
+        cmdargs = ['avconv', '-itsoffset', '-5', '-i', 'pipe:0', '-vcodec', 'mjpeg',
                    '-y', '-vframes', '1', '-an', '-f', 'rawvideo', '-s',
-                   '265x150', '-']
+                   '265x150', 'pipe:1']
         process = subprocess.Popen(cmdargs,
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = process.communicate(video.data)
 
     finally:
