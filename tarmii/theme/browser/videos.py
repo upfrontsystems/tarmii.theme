@@ -52,5 +52,7 @@ class VideoView(grok.View):
     grok.require('zope2.View')
 
     def video_link(self):
+        """ return the download url of a video 
+        """
         return '%s/at_download/file' % self.context.absolute_url()
 

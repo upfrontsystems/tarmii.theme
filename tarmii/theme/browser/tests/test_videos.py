@@ -15,3 +15,13 @@ class TestVideosView(TarmiiThemeTestBase):
         self.assertEqual(view.add_video_button_path(), 
                          "%s/createObject?type_name=File" %
                          self.videos.absolute_url())
+
+
+class TestVideoView(TarmiiThemeTestBase):
+    """ Test Video browser view
+    """
+
+    def test_video_link(self):
+        view = self.videos.restrictedTraverse('@@video')
+        self.assertEqual(view.video_link(),
+                         "%s/at_download/file" % self.videos.absolute_url())
