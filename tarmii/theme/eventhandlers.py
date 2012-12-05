@@ -2,7 +2,12 @@ import os
 import tempfile
 import subprocess
 
+from subprocess import call
+
 from five import grok
+
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 
 from Acquisition import aq_parent
 from zope.component.hooks import getSite
@@ -41,7 +46,11 @@ def on_video_added(video, event):
 
     video_id = video.id + '-thumb'
     video.aq_parent.invokeFactory('Image', video_id, title=video.title,
-                                  image=stdout)
+                                  image=fileRawData)
+
+    thumb_obj = video.aq_parent._getOb(video_id)
+    thumb_obj.link = thumb_obj.aq_parent.absolute_url() + '/' + video.id
+    notify(ObjectModifiedEvent(thumb_obj))
 
 
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
