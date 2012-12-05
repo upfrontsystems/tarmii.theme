@@ -46,8 +46,9 @@ def on_video_added(video, event):
 
     video_id = video.id + '-thumb'
     video.aq_parent.invokeFactory('Image', video_id, title=video.title,
-                                  image=fileRawData)
+                                  image=stdout)
 
+    # generate link so that we can get the video url from its thumbnail object
     thumb_obj = video.aq_parent._getOb(video_id)
     thumb_obj.link = thumb_obj.aq_parent.absolute_url() + '/' + video.id
     notify(ObjectModifiedEvent(thumb_obj))
