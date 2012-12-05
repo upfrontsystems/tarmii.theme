@@ -1,4 +1,5 @@
 from five import grok
+import cStringIO
 
 from AccessControl import getSecurityManager
 from zope.interface import Interface
@@ -42,7 +43,14 @@ class VideosView(grok.View):
         return '%s/createObject?type_name=File' % self.context.absolute_url()
 
 
+class VideoView(grok.View):
+    """ A view to display a single video
+    """
+    grok.context(Interface)
+    grok.name('video')
+    grok.template('video')
+    grok.require('zope2.View')
 
-
-
+    def video_link(self):
+        return '%s/at_download/file' % self.context.absolute_url()
 

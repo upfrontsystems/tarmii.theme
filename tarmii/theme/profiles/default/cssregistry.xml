@@ -17,4 +17,18 @@
         title=""
         />
 
+    <stylesheet     
+        applyPrefix="True"
+        authenticated="False"
+        cacheable="True"
+        compression="safe"
+        cookable="True"
+        enabled="on"
+        id="++theme++tarmii.theme/flowplayer5.2/skin/functional.css"
+        media=""
+        rel="stylesheet"
+        rendering="link"
+        title=""
+        />
+
 </object>

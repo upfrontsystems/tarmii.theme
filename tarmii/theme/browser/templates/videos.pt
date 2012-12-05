@@ -16,6 +16,9 @@
             </form>
         </tal:addvideo_visible>
 
+        <tal:quickupload  tal:content="structure context/@@quick_upload">
+        </tal:quickupload>
+
         <tal:listing tal:condition="not:batch">
             <div i18n:translate="message_no_videos">No videos found in the system.</div>
         </tal:listing>
@@ -25,8 +28,11 @@
                 
                 <tal:fill tal:repeat="brain batch">
                     <div class="thumb" tal:define="thumb brain/getObject">
+
+                        <a tal:attributes="href string:${thumb/link}/@@video">
                         <img tal:attributes="src string:${thumb/absolute_url}/image;
                                              alt thumb/Title" />
+                        </a>
                         <p tal:content="thumb/Title"></p>
                     </div>
                 </tal:fill>

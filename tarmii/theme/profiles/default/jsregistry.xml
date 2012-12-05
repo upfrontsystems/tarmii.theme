@@ -16,4 +16,12 @@
                 id="++resource++tarmii.theme/js/resources.js"
                 inline="False"/>
 
+    <javascript cacheable="True"
+                compression="none"
+                cookable="True"
+                enabled="True"
+                id="++resource++tarmii.theme/flowplayer5.2/flowplayer.min.js"
+                inline="False"/>
+
+
 </object>
