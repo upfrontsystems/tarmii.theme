@@ -325,7 +325,23 @@ div.item-actions-left a {
     padding: 5px 21px 5px 21px;
     width: 265px;
     word-wrap: break-word;
+    vertical-align: top;
 }
+
+/* quick upload button */
+
+.quick-uploader #label-upload {
+    display: none;
+}
+
+.qq-upload-button {
+    float: none;
+}
+
+.quick-uploader .pannelHeader {
+    display: none;
+}
+
 
 /* class listing view */
 
