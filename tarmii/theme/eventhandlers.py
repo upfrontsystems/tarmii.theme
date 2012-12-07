@@ -56,7 +56,8 @@ def on_video_added(video, event):
 
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
 def on_user_initial_login(user, event):
-    """ Create classlists folder inside members folder upon initial login
+    """ Create classlists and assessments folders inside members folder upon
+        initial login
     """
 
     pm = getSite().portal_membership
@@ -69,4 +70,16 @@ def on_user_initial_login(user, event):
     classlists_folder = members_folder._getOb('classlists')
     # set default view to @@classlists view
     classlists_folder.setLayout('@@classlists')
+
+    # create assessments folder in members folder
+    members_folder.invokeFactory(type_name='Folder', id='assessments',
+                                 title='Assessments')
+    assessments_folder = members_folder._getOb('assessments')
+
+    allowed_types = ['upfront.assessment.content.assessment']
+    assessments_folder.setConstrainTypesMode(ENABLED)
+    assessments_folder.setLocallyAllowedTypes(allowed_types)
+    assessments_folder.setImmediatelyAddableTypes(allowed_types)
+
+
 
