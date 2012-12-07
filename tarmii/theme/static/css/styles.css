@@ -329,8 +329,8 @@ div.item-actions-left a {
 }
 
 /* quick upload button */
-
-.quick-uploader #label-upload {
+.quick-uploader #label-upload,
+.quick-uploader .pannelHeader {
     display: none;
 }
 
@@ -338,20 +338,19 @@ div.item-actions-left a {
     float: none !important;
 }
 
-.quick-uploader .pannelHeader {
-    display: none;
-}
-
-
 /* class listing view */
-
 /* fix alignment of checkboxes in table of learners */
 #div-learner-listing table.listing td {
     vertical-align: middle !important;
 }
 
-/* import learner view */
+/* assessment listing view */
+/* fix alignment of checkboxes in table of tests */
+#div-assessment-listing table.listing td {
+    vertical-align: middle !important;
+}
 
+/* import learner view */
 div.labels {
     float: left;
     width: 200px;
@@ -369,5 +368,3 @@ div.edit_areas div {
 div.help_text {
     clear: both;
 }
-
-
