@@ -6,7 +6,7 @@ from Products.CMFDynamicViewFTI.permissions import ModifyViewTemplate
 from Products.ATContentTypes.permission import ModifyConstrainTypes
 from Products.ATContentTypes.lib.constraintypes import ENABLED
 
-PROFILE_ID = 'profile-tarmii.theme.app:default'
+PROFILE_ID = 'profile-tarmii.theme.theme:default'
 
 log = logging.getLogger('tarmii.theme-setuphandlers')
 
