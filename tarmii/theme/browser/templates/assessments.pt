@@ -21,6 +21,7 @@
             <div i18n:translate="message_no_assesments_exist">No tests have been created yet.</div>
         </tal:assessments>
 
+        <div id="div-assessment-listing">
         <tal:listing tal:condition="view/assessments">
             <form method="post" name="listAssessmentsForm"
                     tal:attributes="action context/absolute_url">
@@ -49,6 +50,7 @@
                 <input tal:replace="structure context/@@authenticator/authenticator" />
             </form>
         </tal:listing>
+        </div>
 
     </metal:main>
 </body>
