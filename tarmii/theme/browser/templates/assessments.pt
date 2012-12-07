@@ -25,13 +25,13 @@
             <form method="post" name="listAssessmentsForm"
                     tal:attributes="action context/absolute_url">
                 <table id="assessment-listing" class="listing">
-                        <tr>
-                            <th></th>
-                            <th>Test name</th>
-                            <th>Date</th>
-                            <th>Test</th>
-                            <th>Memo</th>
-                        </tr>
+                    <tr>
+                        <th></th>
+                        <th>Test name</th>
+                        <th>Date</th>
+                        <th>Test PDF</th>
+                        <th>Memo PDF</th>
+                    </tr>
                     <tr tal:repeat="assessment view/assessments">
                         <td><input type="checkbox" name="paths:list" class="noborder"
                             tal:attributes="title string:Select ${assessment/Title};
@@ -39,7 +39,7 @@
                                             value assessment/getPath;
                                             id string:cb_${assessment/getId}"></td>
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
-                        <td></td>
+                        <td tal:content="python:assessment.creation_date.strftime('%d %B %Y')"></td>
                         <td></td>
                         <td></td>
                     </tr>
