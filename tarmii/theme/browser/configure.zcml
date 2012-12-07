@@ -21,4 +21,21 @@
             permission="zope.Public"
             />
 
+     <browser:page
+          for="..interfaces.IQuickUploadCapable"
+          name="quick_upload"
+          class=".custom_quick_upload.CustomQuickUploadView"
+          permission="cmf.AddPortalContent"
+          layer="..interfaces.ITARMIIThemeLayer"
+          />
+
+      <!-- Quick Upload javascript Init -->
+     <browser:page
+          for="*"
+          name="quick_upload_init"
+          class=".custom_quick_upload.CustomQuickUploadInit"
+          permission="cmf.AddPortalContent"
+          layer="..interfaces.ITARMIIThemeLayer"
+          />
+
 </configure>

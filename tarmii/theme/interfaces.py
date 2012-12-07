@@ -1,5 +1,6 @@
 from zope.interface import Interface
 from zope.schema import Int
+from collective.quickupload.interfaces import IQuickUploadCapable
 
 from tarmii.theme import MessageFactory as _
 

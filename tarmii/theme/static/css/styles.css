@@ -335,7 +335,7 @@ div.item-actions-left a {
 }
 
 .qq-upload-button {
-    float: none;
+    float: none !important;
 }
 
 .quick-uploader .pannelHeader {
