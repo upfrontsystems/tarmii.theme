@@ -1,7 +1,5 @@
 from five import grok
 from zope.interface import Interface
-from collective.topictree.topictree import ITopicTree
-
 from plone.directives import dexterity
 grok.templatedir('templates')
 
