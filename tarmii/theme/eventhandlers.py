@@ -14,6 +14,7 @@ from zope.component.hooks import getSite
 
 from Products.ATContentTypes.interfaces.file import IFileContent
 from Products.Archetypes.interfaces import IObjectInitializedEvent
+from Products.ATContentTypes.lib.constraintypes import ENABLED
 from Products.PluggableAuthService.interfaces.authservice import IPropertiedUser
 from Products.PlonePAS.interfaces.events import IUserInitialLoginInEvent
 from Products.statusmessages.interfaces import IStatusMessage
