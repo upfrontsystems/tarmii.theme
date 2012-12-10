@@ -81,7 +81,7 @@ def on_user_initial_login(user, event):
     assessments_folder.setConstrainTypesMode(ENABLED)
     assessments_folder.setLocallyAllowedTypes(allowed_types)
     assessments_folder.setImmediatelyAddableTypes(allowed_types)
-    # set default view to @@classlists view
+    # set default view to @@assessments view
     assessments_folder.setLayout('@@assessments')
 
 
