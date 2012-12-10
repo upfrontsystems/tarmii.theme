@@ -16,7 +16,7 @@ $(function($) {
             // if not, simply reload
             return href;
         },
-        closeselector: '[name=form.buttons.cancel]'
+        //closeselector: '[name=form.buttons.cancel]'
         });
 
     $('a.edit_link').prepOverlay({
@@ -25,7 +25,7 @@ $(function($) {
         formselector: '#form',
         noform: 'reload',
         redirect: url,
-        closeselector: '[name=form.buttons.cancel]'
+        //closeselector: '[name=form.buttons.cancel]'
         });
 
 });
