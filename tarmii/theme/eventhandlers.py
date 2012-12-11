@@ -31,28 +31,32 @@ def on_video_added(video, event):
     if video.aq_parent.Title() != 'Videos':
         return
     
-    try:
-        cmdargs = ['avconv', '-itsoffset', '-5', '-i', 'pipe:0', '-vcodec', 'mjpeg',
-                   '-y', '-vframes', '1', '-an', '-f', 'rawvideo', '-s',
-                   '265x150', 'pipe:1']
-        process = subprocess.Popen(cmdargs,
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = process.communicate(video.data)
+    cmdargs = ['avconv', '-loglevel', 'error' , '-itsoffset', '-5', '-i', 
+               'pipe:0', '-vcodec', 'mjpeg', '-y', '-vframes', '1', '-an', 
+               '-f', 'rawvideo', '-s', '265x150', 'pipe:1']
+    process = subprocess.Popen(cmdargs,
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = process.communicate(video.data)
+    
+    if stderr == '':
+        #if no errors from avconv - create thumbnail image
+        video_id = video.id + '-thumb'
+        video.aq_parent.invokeFactory('Image', video_id, title=video.title,
+                                      image=stdout)
 
-    finally:
-        #XXX: add output message from avconv here
+        # generate link so that we can get the video url from its thumbnail obj
+        thumb_obj = video.aq_parent._getOb(video_id)
+        thumb_obj.link = thumb_obj.aq_parent.absolute_url() + '/' + video.id
+        notify(ObjectModifiedEvent(thumb_obj))
+
+    else:
+        #display errors in detail
         request = getattr(video, "REQUEST", None)
         IStatusMessage(request).addStatusMessage(
                                     _(u"Thumbnail generation failed"),"error")
+        IStatusMessage(request).addStatusMessage(stderr,"info")
 
-    video_id = video.id + '-thumb'
-    video.aq_parent.invokeFactory('Image', video_id, title=video.title,
-                                  image=stdout)
-
-    # generate link so that we can get the video url from its thumbnail object
-    thumb_obj = video.aq_parent._getOb(video_id)
-    thumb_obj.link = thumb_obj.aq_parent.absolute_url() + '/' + video.id
-    notify(ObjectModifiedEvent(thumb_obj))
+    return
 
 
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
