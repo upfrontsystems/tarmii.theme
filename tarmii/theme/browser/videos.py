@@ -35,14 +35,6 @@ class VideosView(grok.View):
         return getSecurityManager().checkPermission(AddPortalContent,
                                                     self.context)
 
-    def add_video_button_path(self):
-        """ Path string for the Add Video button
-        """
-        # XXX: we need some sort of check to make sure only flv extensions are
-        # allowed to be uploaded.
-        return '%s/createObject?type_name=File' % self.context.absolute_url()
-
-
 class VideoView(grok.View):
     """ A view to display a single video
     """

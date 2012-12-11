@@ -10,12 +10,6 @@ class TestVideosView(TarmiiThemeTestBase):
         self.assertEquals([self.vid1thumb,self.vid2thumb],
                           [p.getObject() for p in batch])
 
-    def test_add_video_button_path(self):
-        view = self.videos.restrictedTraverse('@@videos')
-        self.assertEqual(view.add_video_button_path(), 
-                         "%s/createObject?type_name=File" %
-                         self.videos.absolute_url())
-
 
 class TestVideoView(TarmiiThemeTestBase):
     """ Test Video browser view

@@ -11,13 +11,9 @@
         tal:define="batch view/videos">
             
         <tal:addvideo_visible condition="view/addvideo_visible">
-            <form id="add-button-form" name="add-video-form" tal:attributes="action view/add_video_button_path">
-                <input type="submit" value="Add video" tal:attributes="action view/add_video_button_path">
-            </form>
+            <tal:quickupload  tal:content="structure context/@@quick_upload">
+            </tal:quickupload>
         </tal:addvideo_visible>
-
-        <tal:quickupload  tal:content="structure context/@@quick_upload">
-        </tal:quickupload>
 
         <tal:listing tal:condition="not:batch">
             <div i18n:translate="message_no_videos">No videos found in the system.</div>
