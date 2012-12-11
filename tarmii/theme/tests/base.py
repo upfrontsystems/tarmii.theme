@@ -48,18 +48,10 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.videos = self.portal.videos
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
-        self.topictrees.invokeFactory('collective.topictree.topictree',
-                                      'language', title='Language')
+        # language directory and topics are created by setuphandlers
         topictree = self.topictrees._getOb('language')
-
-        topictree.invokeFactory('collective.topictree.topic',
-                                'afrikaans', title='Afrikaans')
         self.topic1 = topictree._getOb('afrikaans')
-        topictree.invokeFactory('collective.topictree.topic',
-                                'english', title='English')
         self.topic2 = topictree._getOb('english')
-        topictree.invokeFactory('collective.topictree.topic',
-                                'xhosa', title='Xhosa')
         self.topic3 = topictree._getOb('xhosa')
 
         self.topictree = topictree
