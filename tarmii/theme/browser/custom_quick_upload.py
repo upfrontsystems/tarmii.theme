@@ -134,7 +134,6 @@ XHR_UPLOAD_JS = """
     onUploadComplete_%(ul_id)s = function(id, fileName, responseJSON) {
         var uploader = xhr_%(ul_id)s;
         PloneQuickUpload.onUploadComplete(uploader, uploader._element, id, fileName, responseJSON);
-        console.log('KAK');
     }
     createUploader_%(ul_id)s= function(){
         xhr_%(ul_id)s = new qq.FileUploader({
@@ -306,11 +305,17 @@ class CustomQuickUploadInit(QuickUploadInit):
         elif mediaupload == 'flash' :
             ext = '*.swf;'
             msg = _(u'Choose flash files to upload')
-        elif mediaupload :
+#        elif mediaupload :
+#            # you can also pass a list of extensions in mediaupload request var
+#            # with this syntax '*.aaa;*.bbb;'
+#            ext = mediaupload
+#            msg = _(u'Choose file for upload: ${ext}', mapping={'ext': ext})
+        elif mediaupload == '':
             # you can also pass a list of extensions in mediaupload request var
             # with this syntax '*.aaa;*.bbb;'
-            ext = mediaupload
+            ext = '*.flv;*.mpg;*.avi'
             msg = _(u'Choose file for upload: ${ext}', mapping={'ext': ext})
+
 
         try :
             extlist = [f.split('.')[1].strip() for f in ext.split(';') if f.strip()]
