@@ -1,15 +1,7 @@
-import os
-import tempfile
 import subprocess
-
-from subprocess import call
-
 from five import grok
-
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
-
-from Acquisition import aq_parent
 from zope.component.hooks import getSite
 
 from Products.ATContentTypes.interfaces.file import IFileContent
@@ -58,7 +50,6 @@ def on_video_added(video, event):
 
     return
 
-
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
 def on_user_initial_login(user, event):
     """ Create classlists and assessments folders inside members folder upon
@@ -87,6 +78,4 @@ def on_user_initial_login(user, event):
     assessments_folder.setImmediatelyAddableTypes(allowed_types)
     # set default view to @@assessments view
     assessments_folder.setLayout('@@assessments')
-
-
 
