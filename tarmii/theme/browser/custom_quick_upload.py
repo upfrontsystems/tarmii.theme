@@ -311,8 +311,9 @@ class CustomQuickUploadInit(QuickUploadInit):
 #            ext = mediaupload
 #            msg = _(u'Choose file for upload: ${ext}', mapping={'ext': ext})
         elif mediaupload == '':
-            # you can also pass a list of extensions in mediaupload request var
-            # with this syntax '*.aaa;*.bbb;'
+            # the original code was setup to use the mediaload but we set our 
+            # restrictions instead when the mediaupload parameter is not in use
+            # at all.
             ext = '*.flv;*.mpg;*.avi'
             msg = _(u'Choose file for upload: ${ext}', mapping={'ext': ext})
 
