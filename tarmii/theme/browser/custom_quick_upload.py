@@ -314,7 +314,7 @@ class CustomQuickUploadInit(QuickUploadInit):
             # the original code was setup to use the mediaload but we set our 
             # restrictions instead when the mediaupload parameter is not in use
             # at all.
-            ext = '*.flv;*.mpg;*.avi'
+            ext = '*.avi;*.flv;*.mp4;*.mpg;'
             msg = _(u'Choose file for upload: ${ext}', mapping={'ext': ext})
 
 
