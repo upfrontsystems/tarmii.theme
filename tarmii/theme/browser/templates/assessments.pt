@@ -20,6 +20,7 @@
         <tal:assessments tal:condition="not:view/assessments">
             <div i18n:translate="message_no_assesments_exist">No tests have been created yet.</div>
         </tal:assessments>
+        <div>&nbsp;</div>
 
         <div id="div-assessment-listing">
         <tal:listing tal:condition="view/assessments">
