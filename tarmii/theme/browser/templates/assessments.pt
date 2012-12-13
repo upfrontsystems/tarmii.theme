@@ -9,16 +9,16 @@
 <body>
     <metal:main fill-slot="content-core">
     
-        <p i18n:translate="description_assesments">This section lists test papers created by you. Click on the name of the test to edit it.
+        <p i18n:translate="description_assesments">This section lists assessments created by you. Click on the name of the assessment to edit it.
         </p>
 
         <form id="add-button-form" name="add-assessment-form" tal:attributes="action view/add_assessment_url">
-            <input class="allowMultiSubmit" type="submit" value="Add Test" i18n:attributes="value"
+            <input class="allowMultiSubmit" type="submit" value="Add Assessment" i18n:attributes="value"
                 tal:attributes="href view/add_assessment_url">
         </form>
 
         <tal:assessments tal:condition="not:view/assessments">
-            <div i18n:translate="message_no_assesments_exist">No tests have been created yet.</div>
+            <div i18n:translate="message_no_assesments_exist">No assessments have been created yet.</div>
         </tal:assessments>
         <div>&nbsp;</div>
 
@@ -29,9 +29,9 @@
                 <table id="assessment-listing" class="listing">
                     <tr>
                         <th></th>
-                        <th>Test name</th>
+                        <th>Assessment name</th>
                         <th>Date</th>
-                        <th>Test PDF</th>
+                        <th>Assessment PDF</th>
                         <th>Memo PDF</th>
                     </tr>
                     <tr tal:repeat="assessment view/assessments">
