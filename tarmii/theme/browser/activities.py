@@ -3,16 +3,16 @@ from five import grok
 
 grok.templatedir('templates')
 
-class QuestionsView(grok.View):
-    """ View for questions folder
+class ActivitiesView(grok.View):
+    """ View for activities folder
     """
     grok.context(Interface)
-    grok.name('questions')
-    grok.template('questions')
+    grok.name('activities')
+    grok.template('activities')
     grok.require('cmf.AddPortalContent')
 
-    def questions(self):
-        """ Return all the questions in the current folder
+    def activities(self):
+        """ Return all the activities in the current folder
         """
         contentFilter = {
             'portal_type': 'upfront.assessmentitem.content.assessmentitem'}

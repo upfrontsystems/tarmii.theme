@@ -11,21 +11,21 @@ class TestNameChooser(TarmiiThemeTestBase):
     """
 
     def test_lookup(self):
-        namechooser = INameChooser(self.questions)
+        namechooser = INameChooser(self.activities)
         self.assertEqual(namechooser.__class__, AssessmentItemNameChooser)
 
     def test_checkName(self):
-        namechooser = INameChooser(self.questions)
+        namechooser = INameChooser(self.activities)
         obj = createContent(
             'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.checkName('Q001', obj), True)
-        obj = createContentInContainer(self.questions,
+        obj = createContentInContainer(self.activities,
             'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.checkName('Q001', obj), False)
 
     def test_chooseName(self):
-        namechooser = INameChooser(self.questions)
-        obj = createContentInContainer(self.questions,
+        namechooser = INameChooser(self.activities)
+        obj = createContentInContainer(self.activities,
             'upfront.assessmentitem.content.assessmentitem')
         self.assertEqual(namechooser.chooseName(None, obj), 'Q001')
         obj = createContent(

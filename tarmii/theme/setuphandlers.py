@@ -13,7 +13,7 @@ log = logging.getLogger('tarmii.theme-setuphandlers')
 sitefolders = (
     ('topictrees', 'topictrees', 'Topic Trees', 
         ['collective.topictree.topictree']),
-    ('questions', 'questions', 'Questions', 
+    ('activities', 'activities', 'Activities', 
         ['upfront.assessmentitem.content.assessmentitem',
          'upfront.assessmentitem.content.introtext']),
     ('resources', 'resources', 'Teacher Resources', ['File']),
