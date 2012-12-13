@@ -43,7 +43,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
         self.topictrees = self.portal.topictrees
-        self.questions = self.portal.questions
+        self.activities = self.portal.activities
         self.resources = self.portal.resources
         self.videos = self.portal.videos
         setRoles(self.portal, TEST_USER_ID, ['Manager'])

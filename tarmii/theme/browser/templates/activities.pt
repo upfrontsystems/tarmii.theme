@@ -9,30 +9,30 @@
 <body>
     <metal:main fill-slot="content-core">
     
-        <form id="add-button-form" name="add-question-form"
+        <form id="add-button-form" name="add-activity-form"
             action="++add++upfront.assessmentitem.content.assessmentitem">
-            <input class="allowMultiSubmit" type="submit" value="Add Question" i18n:attributes="value">
+            <input class="allowMultiSubmit" type="submit" value="Add Activity" i18n:attributes="value">
         </form>
 
-        <tal:topictrees tal:condition="not:view/questions">
-            <div i18n:translate="message_no_questions_exist">No questions have been created yet.</div>
+        <tal:topictrees tal:condition="not:view/activities">
+            <div i18n:translate="message_no_activities_exist">No activities have been created yet.</div>
         </tal:topictrees>
 
-        <tal:questions
-            condition="view/questions"
+        <tal:activities
+            condition="view/activities"
             define="template_id string:${view/__name__};
                     Batch python:modules['Products.CMFPlone'].Batch;
                     b_start python:int(request.get('b_start', 0));
-                    batch python:Batch(view.questions(), 10, b_start, orphan=0)">
+                    batch python:Batch(view.activities(), 10, b_start, orphan=0)">
 
-            <div id="questions-list">
-                <tal:brains repeat="brain view/questions">
+            <div id="activities-list">
+                <tal:brains repeat="brain view/activities">
                     <tal:item tal:define="item brain/getObject">
                         <div class="introduction" tal:content="structure item/introduction/output|nothing">
-                            Optional Question Introduction
+                            Optional Activity Introduction
                         </div>
-                        <div class="question" tal:content="structure item/question/output|nothing">
-                            The question
+                        <div class="activity" tal:content="structure item/question/output|nothing">
+                            The Activity
                         </div>
                         <div class="item-actions-left">
                             <a tal:attributes="href item/absolute_url"
@@ -49,7 +49,7 @@
 
             <div metal:use-macro="context/batch_macros/macros/navigation" />
 
-        </tal:questions>
+        </tal:activities>
 
     </metal:main>
 </body>
