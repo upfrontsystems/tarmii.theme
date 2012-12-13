@@ -50,7 +50,7 @@ def setupPortalContent(portal):
     security_adapter.set_enable_user_folders(True)
 
     # create basic language topictree
-    if not portal.hasObject('language'):
+    if not portal.hasObject('topictrees'):
         topicfolder = portal._getOb('topictrees')
         topicfolder.invokeFactory('collective.topictree.topictree',
                                   'language', title='Language')
