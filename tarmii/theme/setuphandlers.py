@@ -50,16 +50,17 @@ def setupPortalContent(portal):
     security_adapter.set_enable_user_folders(True)
 
     # create basic language topictree
-    topicfolder = portal._getOb('topictrees')
-    topicfolder.invokeFactory('collective.topictree.topictree',
-                              'language', title='Language')
-    langtree = topicfolder._getOb('language')
-    langtree.invokeFactory('collective.topictree.topic',
-                            'afrikaans', title='Afrikaans')
-    langtree.invokeFactory('collective.topictree.topic',
-                            'english', title='English')
-    langtree.invokeFactory('collective.topictree.topic',
-                            'xhosa', title='Xhosa')
+    if not portal.hasObject('language'):
+        topicfolder = portal._getOb('topictrees')
+        topicfolder.invokeFactory('collective.topictree.topictree',
+                                  'language', title='Language')
+        langtree = topicfolder._getOb('language')
+        langtree.invokeFactory('collective.topictree.topic',
+                                'afrikaans', title='Afrikaans')
+        langtree.invokeFactory('collective.topictree.topic',
+                                'english', title='English')
+        langtree.invokeFactory('collective.topictree.topic',
+                                'xhosa', title='Xhosa')
 
 def setup(context):
     # Only run step if a flag file is present
