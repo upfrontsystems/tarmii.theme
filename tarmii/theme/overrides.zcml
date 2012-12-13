@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+  
+    <adapter
+        provides=".userdataschema.ITARMIIUserDataSchema"
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        factory=".adapters.TARMIIUserDataPanelAdapter"
+        />
+
+</configure>

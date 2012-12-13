@@ -22,20 +22,34 @@
             />
 
      <browser:page
-          for="..interfaces.IQuickUploadCapable"
-          name="quick_upload"
-          class=".custom_quick_upload.CustomQuickUploadView"
-          permission="cmf.AddPortalContent"
-          layer="..interfaces.ITARMIIThemeLayer"
-          />
+            for="..interfaces.IQuickUploadCapable"
+            name="quick_upload"
+            class=".custom_quick_upload.CustomQuickUploadView"
+            permission="cmf.AddPortalContent"
+            layer="..interfaces.ITARMIIThemeLayer"
+            />
 
-      <!-- Quick Upload javascript Init -->
+     <!-- Quick Upload javascript Init -->
      <browser:page
-          for="*"
-          name="quick_upload_init"
-          class=".custom_quick_upload.CustomQuickUploadInit"
-          permission="cmf.AddPortalContent"
-          layer="..interfaces.ITARMIIThemeLayer"
-          />
+            for="*"
+            name="quick_upload_init"
+            class=".custom_quick_upload.CustomQuickUploadInit"
+            permission="cmf.AddPortalContent"
+            layer="..interfaces.ITARMIIThemeLayer"
+            />
+
+     <browser:page
+            for="plone.app.layout.navigation.interfaces.INavigationRoot"
+            name="tarmii-user-info"
+            class=".views.TARMIIUserDataConfiglet"
+            permission="cmf.SetOwnProperties"
+            />
+
+     <browser:page
+            for="plone.app.layout.navigation.interfaces.INavigationRoot"
+            name="tarmii-new-user"
+            class=".views.TARMIIAddUserForm"
+            permission="cmf.SetOwnProperties"
+            />
 
 </configure>

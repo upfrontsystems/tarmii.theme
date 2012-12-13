@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_memberdata" meta_type="Plone Memberdata Tool">
+    <property name="fullname" type="string"></property> 
+    <property name="username" type="string"></property> 
+    <property name="email" type="string"></property>
+    <property name="school" type="string"></property>
+    <property name="province" type="string"></property>
+    <property name="EMIS" type="string"></property>
+    <property name="school_contact_number" type="string"></property>
+    <property name="school_email" type="string"></property>
+    <property name="qualification" type="string"></property>
+    <property name="years_teaching" type="string"></property>
+</object>
