@@ -49,12 +49,24 @@ class TarmiiThemeTestBase(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
         # language directory and topics are created by setuphandlers
+        if not self.topictrees.hasObject('language'):
+            self.topictrees.invokeFactory('collective.topictree.topictree',
+                                          'language', title='Language')
         topictree = self.topictrees._getOb('language')
-        self.topic1 = topictree._getOb('afrikaans')
-        self.topic2 = topictree._getOb('english')
-        self.topic3 = topictree._getOb('xhosa')
+        if not topictree.hasObject('afrikaans'):
+            topictree.invokeFactory('collective.topictree.topic',
+                                    'afrikaans', title='Afrikaans')
+        if not topictree.hasObject('english'):
+            topictree.invokeFactory('collective.topictree.topic',
+                                    'english', title='English')
+        if not topictree.hasObject('xhosa'):
+            topictree.invokeFactory('collective.topictree.topic',
+                                    'xhosa', title='Xhosa')
 
         self.topictree = topictree
+        self.topic1 = topictree._getOb('afrikaans')
+        self.topic2 = topictree._getOb('english')
+        self.topic3 = topictree._getOb('xhosa')       
 
         # add 2 resources
         self.resources.invokeFactory('File','resource1', title='Resource1')
