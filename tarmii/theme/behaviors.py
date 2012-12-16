@@ -17,7 +17,7 @@ class IAssessmentItemBlobs(form.Schema):
         )
 
     check_list = NamedBlobFile(
-            title=_(u"Check List"),
+            title=_(u"Check list"),
             required=False,
         )
 
