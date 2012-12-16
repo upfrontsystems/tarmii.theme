@@ -48,6 +48,8 @@ def setupPortalContent(portal):
     # allow member folders to be created
     security_adapter =  ISecuritySchema(portal)
     security_adapter.set_enable_user_folders(True)
+    # enable self-registration of users
+    security_adapter.set_enable_self_reg(True)
 
     # create basic language topictree
     if not portal.hasObject('topictrees'):
