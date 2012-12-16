@@ -1,6 +1,8 @@
 from zope.interface import Interface
 from five import grok
 
+from Products.CMFCore.utils import getToolByName
+
 grok.templatedir('templates')
 
 class SelectProfileView(grok.View):
@@ -15,5 +17,12 @@ class SelectProfileView(grok.View):
     def profiles(self):
         """ Return all non-admin users in the system.
         """
-        return ''
+
+        pm = getToolByName(self.context, 'portal_membership')
+
+        #get all users that are do not have the Site Administrator role.
+        non_admins = [member for member in pm.listMembers()
+                if not member.has_role('Site Administrator')]
+
+        return non_admins
 

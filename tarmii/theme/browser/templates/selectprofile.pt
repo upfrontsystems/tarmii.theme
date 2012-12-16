@@ -13,9 +13,9 @@
             <div i18n:translate="message_no_profiles_exist">No profiles have been created yet.</div>
         </tal:profiles>
 
-        <tal:profiles condition="view/profiles">
-            <!-- display non-admin user profiles here -->
-        </tal:profiles>
+        <div tal:repeat="profile view/profiles">
+            <div tal:content="profile"/>
+        </div>
 
     </metal:main>
 </body>
