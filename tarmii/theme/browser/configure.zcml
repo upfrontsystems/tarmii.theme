@@ -49,7 +49,7 @@
             for="plone.app.layout.navigation.interfaces.INavigationRoot"
             name="tarmii-new-user"
             class=".views.TARMIIAddUserForm"
-            permission="cmf.SetOwnProperties"
+            permission="zope2.Public"
             />
 
 </configure>
