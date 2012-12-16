@@ -38,4 +38,11 @@
         replacement=".patches.updateWidgets"
         />
 
+    <plone:behavior
+        title="Behavior that enables Blob file fields on Assessment Items"
+        description="Behavior that enables Blob file fields on Assessment Items"
+        provides=".behaviors.IAssessmentItemBlobs"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
 </configure>
