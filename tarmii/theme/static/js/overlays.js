@@ -19,6 +19,15 @@ $(function($) {
         //closeselector: '[name=form.buttons.cancel]'
         });
 
+    $('a.add_to_assessment').prepOverlay({
+        subtype: 'ajax',
+        filter: '#content>*',
+        formselector: '#form',
+        noform: 'reload',
+        redirect: url,
+        //closeselector: '[name=form.buttons.cancel]'
+        });
+
     $('a.edit_link').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',

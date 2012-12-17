@@ -39,6 +39,8 @@
                                i18n:translate="label_view">View</a>
                             <a tal:attributes="href string:${item/absolute_url}/edit"
                                i18n:translate="label_edit">Edit</a>
+                            <a class="add_to_assessment" tal:attributes="href string:${item/absolute_url}/@@add-to-assessment"
+                               i18n:translate="label_addtoassessment">Add to Assessment</a>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
                                i18n:translate="label_edit">Feedback</a>
                         </div>
