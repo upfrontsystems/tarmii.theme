@@ -2,6 +2,7 @@ from zope.interface import Interface
 from five import grok
 
 from Products.CMFCore.utils import getToolByName
+from zope.component.hooks import getSite
 
 grok.templatedir('templates')
 
@@ -24,6 +25,8 @@ class SelectProfileView(grok.View):
             self.context.acl_users.session._setupSession(username,
                                                 self.context.REQUEST.RESPONSE)
             self.request.RESPONSE.redirect(self.context.absolute_url())
+            acl = getSite().acl_users
+            acl.credentials_cookie_auth.login_path = '@@select-profile'
 
     def profiles(self):
         """ Return all non-admin users in the system.

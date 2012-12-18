@@ -9,7 +9,7 @@
 <body>
     <metal:main fill-slot="main">
 
-        <h1 i18n:translate="heading_select_login_profile"> Select a profile to login: </h1>
+        <h1 i18n:translate="heading_select_profile"> Select your profile</h1>
     
         <tal:profiles tal:condition="not:view/profiles">
             <div i18n:translate="message_no_profiles_exist">No profiles have been created yet.</div>
