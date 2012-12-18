@@ -8,13 +8,17 @@
 
 <body>
     <metal:main fill-slot="main">
+
+        <h1 i18n:translate="heading_select_login_profile"> Select a profile to login: </h1>
     
         <tal:profiles tal:condition="not:view/profiles">
             <div i18n:translate="message_no_profiles_exist">No profiles have been created yet.</div>
         </tal:profiles>
 
         <div tal:repeat="profile view/profiles">
-            <div tal:content="profile"/>
+            <form id="profile-login-form" action="@@select-profile" method="post" name="profile-login-form"> 
+                <input type="submit" tal:attributes="value profile" name="buttons.profile.login.submit" id="buttons.profile.login.submit"/>
+            </form>
         </div>
 
     </metal:main>

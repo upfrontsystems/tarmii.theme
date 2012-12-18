@@ -14,6 +14,17 @@ class SelectProfileView(grok.View):
     grok.template('selectprofile')
     grok.require('zope2.View')
 
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """ if one of the select profile buttons has been submitted, log that 
+            user in
+        """
+        if self.request.form.has_key('buttons.profile.login.submit'):
+            username = self.request.form['buttons.profile.login.submit']
+            self.context.acl_users.session._setupSession(username,
+                                                self.context.REQUEST.RESPONSE)
+            self.request.RESPONSE.redirect(self.context.absolute_url())
+
     def profiles(self):
         """ Return all non-admin users in the system.
         """
@@ -25,4 +36,3 @@ class SelectProfileView(grok.View):
                 if not member.has_role('Site Administrator')]
 
         return non_admins
-
