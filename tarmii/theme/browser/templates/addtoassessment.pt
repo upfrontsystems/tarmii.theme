@@ -9,17 +9,33 @@
 <body>
     <metal:main fill-slot="main">
             
-        <h3> Add activity to assessment</h3>
+        <h3 i18n:translate="heading_add_to_assessment"> Add activity to assessment</h3>
+        
+        <form name="add-to-assessment-form" tal:attributes="action string:${view/__name__}?activity_id=${view/activity_id}" method="post">
+                
+            <div id="formfield-choose-assessment" tal:condition="view/assessments">
+                <label for="formfield-choose-assessment" i18n:translate="label_choose_assessment">Choose existing assessment</label>
+                <select name="assessment_uid_selected">
+                    <option tal:repeat="assessment view/assessments"
+                            tal:attributes="value assessment/UID"
+                            tal:content="assessment/Title">
+                    </option>
+                </select>
+            </div>
 
-        <form>
-        <div tal:repeat="assessment view/assessments">
-            <select name="assessment_uid_selected">
-                <option tal:repeat="assessment view/assessments"
-                        tal:attributes="value assessment/UID"
-                        tal:content="assessment/Title">
-                </option>
-            </select>
-        </div>
+            <div id="formfield-add-new-assessment">
+
+                <label for="formfield-add-new-assessment" i18n:translate="label_add_new_assessment">Or enter the name of a new assessment</label>
+                <input id="buttons-add-to-assessment-input" name="buttons.add.to.assessment.text.input"
+                       class="text-widget required textline-field" value="" type="text">         
+                <div>
+                    <input id="buttons-add-to-assessment-submit" name="buttons.add.to.assessment.submit"
+                           value="Submit" type="submit">
+                    <input id="buttons-add-to-assessment-cancel" name="buttons.add.to.assessment.cancel"
+                           value="Cancel" type="submit">
+                </div>
+            </div>
+
         </form>
 
     </metal:main>

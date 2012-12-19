@@ -1,5 +1,6 @@
 from zope.interface import Interface
 from five import grok
+from plone.uuid.interfaces import IUUID
 
 grok.templatedir('templates')
 
