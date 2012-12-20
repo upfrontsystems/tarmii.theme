@@ -41,7 +41,7 @@
                                             value assessment/getPath;
                                             id string:cb_${assessment/getId}"></td>
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
-                        <td tal:content="python:assessment.creation_date.strftime('%d %B %Y')"></td>
+                        <td tal:content="python:assessment.created.strftime('%d %B %Y')"></td>
                         <td></td>
                         <td></td>
                     </tr>
