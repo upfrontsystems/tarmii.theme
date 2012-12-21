@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content-core">
+    
+        <form id="add-button-form" name="add-evaluationsheet-form" tal:attributes="action view/add_evaluationsheet_url">
+            <input class="allowMultiSubmit" type="submit" value="Add evaluation sheet" i18n:attributes="value"
+                tal:attributes="href view/add_evaluationsheet_url">
+        </form>
+
+        <div>&nbsp;</div>
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <div i18n:translate="message_no_evaluationsheets_exist">No evaluation sheets have been created yet.</div>
+        </tal:evaluationsheets>
+
+        <div id="div-evaluationsheet-listing">
+        <tal:listing tal:condition="view/evaluationsheets">
+            <form method="post" name="listEvaluationSheetsForm"
+                    tal:attributes="action context/absolute_url">
+                <table id="evaluationsheet-listing" class="listing">
+                    <tr>
+                        <th></th>
+                        <th>Assessment</th>
+                        <th>Class list</th>
+                    </tr>
+                    <tr tal:repeat="evaluationsheet view/evaluationsheets">
+                        <td><input type="checkbox" name="paths:list" class="noborder"
+                            tal:attributes="title string:Select ${evaluationsheet/Title};
+                                            alt string:Select ${evaluationsheet/Title};
+                                            value evaluationsheet/getPath;
+                                            id string:cb_${evaluationsheet/getId}"></td>
+                        <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
+                        <td tal:content="python:evaluationsheet.getObject().classlist.to_object.title"></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Delete" name="folder_delete:method" class="context">
+                <input type="hidden" name="orig_template" value="evaluationsheets"/>
+                <input tal:replace="structure context/@@authenticator/authenticator" />
+            </form>
+        </tal:listing>
+        </div>
+
+    </metal:main>
+</body>
+</html>

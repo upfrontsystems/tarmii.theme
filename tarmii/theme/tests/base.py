@@ -102,7 +102,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
                                       'list2', title='List2')
         self.classlist2 = self.classlists._getOb('list2')
 
-        # create a assessments folder for testing
+        # create an assessments folder for testing
         self.portal.invokeFactory(type_name='Folder', id='assessments_',
                                   title='Assessments')
         self.assessments = self.portal._getOb('assessments_') 
@@ -113,4 +113,17 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.assessments.invokeFactory('upfront.assessment.content.assessment',
                                       'test2', title='Test2')
         self.assessment2 = self.assessments._getOb('test2')
+
+        # create an evaluation folder for testing
+        self.portal.invokeFactory(type_name='Folder', id='evaluation',
+                                  title='Evaluation')
+        self.evaluationsheets = self.portal._getOb('evaluation') 
+
+        eval_factory = 'upfront.assessment.content.evaluationsheet'
+        self.evaluationsheets.invokeFactory(eval_factory,
+                                      'evalsheet1', title='EvalSheet1')
+        self.evaluationsheet1 = self.evaluationsheets._getOb('evalsheet1')
+        self.evaluationsheets.invokeFactory(eval_factory,
+                                      'evalsheet2', title='EvalSheet2')
+        self.evaluationsheet2 = self.evaluationsheets._getOb('evalsheet2')
 
