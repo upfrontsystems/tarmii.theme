@@ -14,6 +14,7 @@
                 tal:attributes="href view/add_classlist_url">
         </form>
 
+        <div>&nbsp;</div>
         <tal:classlists tal:condition="not:view/classlists">
             <div i18n:translate="message_no_classlists_exist">No class lists have been created yet.</div>
         </tal:classlists>
