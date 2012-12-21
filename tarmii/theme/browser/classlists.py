@@ -32,7 +32,7 @@ class ClassListAddForm(dexterity.AddForm):
     # that we need in the nextURL method
     def createAndAdd(self, data):
         classlist = super(ClassListAddForm, self).createAndAdd(data)
-        # Acquisition wrap patient in the current context
+        # Acquisition wrap classlist in the current context
         self.classlist = classlist.__of__(self.context)
         return self.classlist
 
