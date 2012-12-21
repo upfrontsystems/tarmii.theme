@@ -71,11 +71,32 @@ def on_user_initial_login(user, event):
     members_folder.invokeFactory(type_name='Folder', id='assessments',
                                  title='Assessments')
     assessments_folder = members_folder._getOb('assessments')
-
     allowed_types = ['upfront.assessment.content.assessment']
     assessments_folder.setConstrainTypesMode(ENABLED)
     assessments_folder.setLocallyAllowedTypes(allowed_types)
     assessments_folder.setImmediatelyAddableTypes(allowed_types)
     # set default view to @@assessments view
     assessments_folder.setLayout('@@assessments')
+
+    # create evaluation folder in members folder
+    members_folder.invokeFactory(type_name='Folder', id='evaluation',
+                                 title='Evaluation')
+    evaluation_folder = members_folder._getOb('evaluation')
+    allowed_types = ['upfront.assessment.content.evaluationsheet']
+    evaluation_folder.setConstrainTypesMode(ENABLED)
+    evaluation_folder.setLocallyAllowedTypes(allowed_types)
+    evaluation_folder.setImmediatelyAddableTypes(allowed_types)
+    # set default view to @@evaluationsheets view
+    evaluation_folder.setLayout('@@evaluationsheets')
+
+
+
+
+
+
+
+
+
+
+
 

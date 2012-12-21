@@ -112,7 +112,7 @@ table {
 
 #actions_pane {
     height: 100px;
-    padding-left: 3em;
+    padding-left: 2em;
 }
 
 #actions_pane_home_page {
@@ -131,7 +131,7 @@ table {
 
 ul.menu {
     height: 50px;
-    width: 600px;
+    width: 700px;
     border-left: none;
     border-right: none;
     border-bottom: none;
@@ -176,7 +176,7 @@ ul.menu {
 
 #context_image {
     float: right;
-    margin-right: 5em;
+    margin-right: 2em;
 }
 
 #portal-content {
