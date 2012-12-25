@@ -33,13 +33,27 @@ class TARMIIAddUserForm(AddUserForm):
 
     @property
     def form_fields(self):
-        allFields = form.Fields(ITARMIIUserDataSchema)
-        allFields = allFields.omit('home_page')
-        allFields = allFields.omit('description')
-        allFields = allFields.omit('location')
-        allFields = allFields.omit('portrait')
-        allFields = allFields.omit('pdelete')
-        return allFields    
+        # user original @@new-user form without some fields
+        originalFields = super(TARMIIAddUserForm, self).form_fields
+        originalFields = originalFields.omit('password')
+        originalFields = originalFields.omit('password_ctl')
+        originalFields = originalFields.omit('groups')
+
+        # use TARMIIUserDataSchema (that also inherits from UserDataSchema)
+        # but remove fields that would cause duplicate field errors.
+        newFields = form.Fields(ITARMIIUserDataSchema)
+        newFields = newFields.omit('fullname') # originalfields already has it
+        newFields = newFields.omit('email') # originalfields already has it
+        newFields = newFields.omit('home_page')
+        newFields = newFields.omit('home_page')
+        newFields = newFields.omit('description')
+        newFields = newFields.omit('location')
+        newFields = newFields.omit('portrait')
+        newFields = newFields.omit('pdelete')
+
+        # merge 
+        allFields = originalFields + newFields
+        return allFields 
 
     @form.action(_(u'label_register', default=u'Register'),
                  validator='validate_registration', name=u'register')

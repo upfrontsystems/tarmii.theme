@@ -7,21 +7,6 @@ from tarmii.theme import MessageFactory as _
 
 class ITARMIIUserDataSchema(IUserDataSchema):
 
-    fullname = schema.TextLine(
-            title=_(u"Full Name"),
-            required=True,
-        )
-
-    username = schema.TextLine(
-            title=_(u"User name"),
-            required=True,
-        )
-
-    email = schema.TextLine(
-            title=_(u"Email"),
-            required=True,
-        )
-
     school = schema.TextLine(
             title=_(u"School"),
             required=True,
@@ -46,6 +31,7 @@ class ITARMIIUserDataSchema(IUserDataSchema):
             title=_(u"School Email"),
             required=True,
         )
+
 
     qualification = schema.TextLine(
             title=_(u"Qualification"),

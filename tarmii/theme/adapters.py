@@ -2,24 +2,6 @@ from plone.app.users.browser.personalpreferences import UserDataPanelAdapter
 
 class TARMIIUserDataPanelAdapter(UserDataPanelAdapter):
 
-    def get_fullname(self):
-        return self.context.getProperty('fullname', '')
-    def set_fullname(self, value):
-        return self.context.setMemberProperties({'fullname': value})
-    fullname = property(get_fullname, set_fullname)
-
-    def get_username(self):
-        return self.context.getProperty('username', '')
-    def set_username(self, value):
-        return self.context.setMemberProperties({'username': value})
-    username = property(get_username, set_username)
-
-    def get_email(self):
-        return self.context.getProperty('email', '')
-    def set_email(self, value):
-        return self.context.setMemberProperties({'email': value})
-    email = property(get_email, set_email)
-
     def get_school(self):
         return self.context.getProperty('school', '')
     def set_school(self, value):
