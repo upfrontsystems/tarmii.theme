@@ -26,12 +26,17 @@ class AddToAssessmentView(grok.View):
         activity_id = self.request.get('activity_id', '')
         catalog = getToolByName(self.context, 'portal_catalog')
         brain = catalog.searchResults(
+
                     portal_type='upfront.assessmentitem.content.assessmentitem',
                     id=activity_id)
         assessmentitem = brain[0].getObject()
 
+        if self.request.form.has_key('buttons.add.to.assessment.cancel'):
+            # Redirect to the activities listing - which should be the context            
+            return self.request.RESPONSE.redirect(self.context.absolute_url())
+
         # check if form has been submitted
-        if self.request.form.has_key('buttons.add.to.assessment.text.input'):
+        if self.request.form.has_key('buttons.add.to.assessment.submit'):
             new_assessment =\
                 self.request.form['buttons.add.to.assessment.text.input']
             # anything typed into input takes prescedence over dropdown select
@@ -69,10 +74,18 @@ class AddToAssessmentView(grok.View):
             else:
                 # get selected assessment from dropdown
                 selected = self.request.get('assessment_uid_selected', '')
-                brain = catalog.searchResults(
+                if selected != '': 
+                    brain = catalog.searchResults(
                             portal_type='upfront.assessment.content.assessment',
                             UID=selected)
-                assessment = brain[0].getObject()
+                    assessment = brain[0].getObject()
+                else:
+                    # being here means that we have no specified a new
+                    # assessment, and this activity already exists in all 
+                    # existing assessments, which means that the list of
+                    # availble assessments is empty
+                    self.request.RESPONSE.redirect(self.context.absolute_url())
+                    return
 
             # if we arrived here, we have obtained a valid assessment object,
             # associate the activity with it
@@ -83,7 +96,9 @@ class AddToAssessmentView(grok.View):
             assessment_items = assessment.assessment_items
             assessment_items.append(RelationValue(assessmentitem_intid))
             assessment.assessment_items = assessment_items
-            notify(ObjectModifiedEvent(assessment))
+            notify(ObjectModifiedEvent(assessment))           
+
+            self.request.RESPONSE.redirect(self.context.absolute_url())
 
     def activity_id(self):
         """ return activity_id so that it can be reposted in a new request """
