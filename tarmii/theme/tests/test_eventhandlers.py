@@ -2,6 +2,7 @@ import os
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.app.component.hooks import getSite
+from plone.app.controlpanel.security import ISecuritySchema
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
@@ -53,4 +54,42 @@ class TestEventhandlers(TarmiiThemeTestBase):
         self.assertEqual(len(self.videos.getFolderContents(contentFilter)),3)
         thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
         self.assertEqual(thumb.id,'vid2-thumb')
+
+
+    def test_on_user_initial_login(self):
+
+        #create user
+        username = 'testuser1'
+        passwd = username
+        email = 'testuser1@email.com'
+        title = 'Test User1'
+        properties = {'username' : username,
+                      'fullname' : title.encode("utf-8"),
+                      'email' : email,   
+                     }
+
+        portal = getSite()
+        # allow member folders to be created
+        security_adapter =  ISecuritySchema(portal)
+        security_adapter.set_enable_user_folders(True)
+        # enable self-registration of users
+        security_adapter.set_enable_self_reg(True)
+
+        regtool = getToolByName(portal, 'portal_registration')
+        member = regtool.addMember(username, passwd, properties=properties)
+
+        pm = portal.portal_membership
+        print pm.getAuthenticatedMember()
+
+        acl = getSite().acl_users
+        acl.session._setupSession(username,self.request.RESPONSE)
+
+        # call event
+        on_user_initial_login(member,None)
+
+        # MEMBER FOLDER DOESNT EXIST? why?
+
+        # test for existence of members folder
+        # test for existence of classlists, assessments and evaluation folders
+        # test thee folders layout, allowed types
 
