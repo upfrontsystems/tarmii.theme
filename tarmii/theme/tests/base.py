@@ -7,6 +7,12 @@ from plone.app.testing import TEST_USER_ID
 
 from plone.testing import z2
 
+from z3c.relationfield import RelationValue
+from zope.app.intid.interfaces import IIntIds
+from zope.component import getUtility
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
+
 PROJECTNAME = "tarmii.theme"
 
 class TestCase(PloneSandboxLayer):
@@ -47,6 +53,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.resources = self.portal.resources
         self.videos = self.portal.videos
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.intids = getUtility(IIntIds)
 
         # language directory and topics are created by setuphandlers
         if not self.topictrees.hasObject('language'):
@@ -127,3 +134,16 @@ class TarmiiThemeTestBase(unittest.TestCase):
                                       'evalsheet2', title='EvalSheet2')
         self.evaluationsheet2 = self.evaluationsheets._getOb('evalsheet2')
 
+        classlist1_intid = self.intids.getId(self.classlist1)
+        classlist2_intid = self.intids.getId(self.classlist2)
+        self.evaluationsheet1.classlist = RelationValue(classlist1_intid)
+        self.evaluationsheet2.classlist = RelationValue(classlist2_intid)
+
+        assessment1_intid = self.intids.getId(self.assessment1)
+        assessment2_intid = self.intids.getId(self.assessment2)
+        self.evaluationsheet1.assessment = RelationValue(assessment1_intid)
+        self.evaluationsheet2.assessment = RelationValue(assessment2_intid)
+
+        notify(ObjectModifiedEvent(self.evaluationsheet1))
+        notify(ObjectModifiedEvent(self.evaluationsheet2))
+        

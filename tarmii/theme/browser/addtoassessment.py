@@ -6,7 +6,6 @@ from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 
 from z3c.relationfield import RelationValue
-
 from Products.CMFCore.utils import getToolByName
 
 grok.templatedir('templates')
@@ -15,7 +14,7 @@ class AddToAssessmentView(grok.View):
     """ View for selecting which assessments (tests) an assessment item
         (activity) must be added to.
     """
-    grok.context(Interface) # XXX Perhaps change this to assessmentitem only?
+    grok.context(Interface) 
     grok.name('add-to-assessment')
     grok.template('addtoassessment')
     grok.require('zope2.View')
