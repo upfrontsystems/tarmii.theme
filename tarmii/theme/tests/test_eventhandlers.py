@@ -79,17 +79,18 @@ class TestEventhandlers(TarmiiThemeTestBase):
         member = regtool.addMember(username, passwd, properties=properties)
 
         pm = portal.portal_membership
-        print pm.getAuthenticatedMember()
-
         acl = getSite().acl_users
         acl.session._setupSession(username,self.request.RESPONSE)
 
         # call event
         on_user_initial_login(member,None)
 
-        # MEMBER FOLDER DOESNT EXIST? why?
+        brains = pm.getHomeFolder().getFolderContents()
+        self.assertEquals(brains[0].getObject().id,'classlists')
+        self.assertEquals(brains[0].getObject().getLayout(),'@@classlists')
+        self.assertEquals(brains[1].getObject().id,'assessments')
+        self.assertEquals(brains[1].getObject().getLayout(),'@@assessments')
+        self.assertEquals(brains[2].getObject().id,'evaluation')
+        self.assertEquals(brains[2].getObject().getLayout(),'@@evaluationsheets')
 
-        # test for existence of members folder
-        # test for existence of classlists, assessments and evaluation folders
-        # test thee folders layout, allowed types
 

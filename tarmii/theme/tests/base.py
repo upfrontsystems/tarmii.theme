@@ -55,6 +55,10 @@ class TarmiiThemeTestBase(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.intids = getUtility(IIntIds)
 
+        # create members folder
+        self.portal.invokeFactory(type_name='Folder', id='Members',
+                                     title='Members')
+
         # language directory and topics are created by setuphandlers
         if not self.topictrees.hasObject('language'):
             self.topictrees.invokeFactory('collective.topictree.topictree',
