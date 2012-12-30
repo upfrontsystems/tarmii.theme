@@ -86,11 +86,13 @@ class TestEventhandlers(TarmiiThemeTestBase):
         on_user_initial_login(member,None)
 
         brains = pm.getHomeFolder().getFolderContents()
-        self.assertEquals(brains[0].getObject().id,'classlists')
-        self.assertEquals(brains[0].getObject().getLayout(),'@@classlists')
-        self.assertEquals(brains[1].getObject().id,'assessments')
-        self.assertEquals(brains[1].getObject().getLayout(),'@@assessments')
-        self.assertEquals(brains[2].getObject().id,'evaluation')
-        self.assertEquals(brains[2].getObject().getLayout(),'@@evaluationsheets')
+        # first 3 folder objects are the ones created in base.py
+        # the ones created by on_user_initial_login are effectively objects 4-6
+        self.assertEquals(brains[3].getObject().id,'classlists')
+        self.assertEquals(brains[3].getObject().getLayout(),'@@classlists')
+        self.assertEquals(brains[4].getObject().id,'assessments')
+        self.assertEquals(brains[4].getObject().getLayout(),'@@assessments')
+        self.assertEquals(brains[5].getObject().id,'evaluation')
+        self.assertEquals(brains[5].getObject().getLayout(),'@@evaluationsheets')
 
 

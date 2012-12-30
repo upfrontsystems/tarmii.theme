@@ -110,7 +110,18 @@ class AddToAssessmentView(grok.View):
         # get users' assessments folder and its contents
         pm = getToolByName(self.context, 'portal_membership')
         members_folder = pm.getHomeFolder()
-        assessments_folder = members_folder._getOb('assessments')
+
+        # following 3 lines need explaining, we could have instead used:
+        # assessments_folder = members_folder._getOb('assessments'), but we
+        # needed to get the get the assessments folder object without knowing
+        # what its id will be, as unit tests might at times set the id
+        # 'assessments_', whereas the site will use 'assessments_'
+        # setting id to 'assessments_' was necessary to enable testing of
+        # the assessments folder creation in eventhandlers, so if we already had
+        # 'assessments' in the system prior, it would flag as duplicate.        
+        ls = [x.getObject().Title() for x in members_folder.getFolderContents()]
+        idx = ls.index('Assessments')
+        assessments_folder = members_folder.getFolderContents()[idx].getObject()
 
         contentFilter={"portal_type" : 'upfront.assessment.content.assessment'}
         brains = assessments_folder.getFolderContents(contentFilter)      

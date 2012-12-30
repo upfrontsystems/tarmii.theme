@@ -12,6 +12,8 @@ from zope.app.intid.interfaces import IIntIds
 from zope.component import getUtility
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+from plone.app.controlpanel.security import ISecuritySchema
+from zope.component.hooks import getSite
 
 PROJECTNAME = "tarmii.theme"
 
@@ -100,12 +102,34 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.vid1thumb = self.videos._getOb('vid1thumb')
         self.videos.invokeFactory('Image','vid2thumb', title='Video2')
         self.vid2thumb = self.videos._getOb('vid2thumb')
-       
-        # create a classlists folder for testing
-        self.portal.invokeFactory(type_name='Folder', id='classlists_',
-                                  title='Classlists')
-        self.classlists = self.portal._getOb('classlists_') 
 
+
+        # allow member folders to be created
+        security_adapter =  ISecuritySchema(self.portal)
+        security_adapter.set_enable_user_folders(True)
+        # enable self-registration of users
+        security_adapter.set_enable_self_reg(True)
+
+        pm = getSite().portal_membership
+        # create members folder
+        pm.createMemberArea()
+        members_folder = pm.getHomeFolder()
+
+        # create classlists folder in members folder
+        members_folder.invokeFactory(type_name='Folder', id='classlists_',
+                                     title='Class Lists')
+        self.classlists = members_folder._getOb('classlists_')
+        # create assessments folder in members folder
+        members_folder.invokeFactory(type_name='Folder', id='assessments_',
+                                     title='Assessments')
+        self.assessments = members_folder._getOb('assessments_')
+   
+        # create evaluation folder in members folder
+        members_folder.invokeFactory(type_name='Folder', id='evaluation_',
+                                     title='Evaluation')
+        self.evaluationsheets = members_folder._getOb('evaluation_')
+
+       
         self.classlists.invokeFactory('upfront.classlist.content.classlist',
                                       'list1', title='List1')
         self.classlist1 = self.classlists._getOb('list1')
@@ -113,22 +137,12 @@ class TarmiiThemeTestBase(unittest.TestCase):
                                       'list2', title='List2')
         self.classlist2 = self.classlists._getOb('list2')
 
-        # create an assessments folder for testing
-        self.portal.invokeFactory(type_name='Folder', id='assessments_',
-                                  title='Assessments')
-        self.assessments = self.portal._getOb('assessments_') 
-
         self.assessments.invokeFactory('upfront.assessment.content.assessment',
                                       'test1', title='Test1')
         self.assessment1 = self.assessments._getOb('test1')
         self.assessments.invokeFactory('upfront.assessment.content.assessment',
                                       'test2', title='Test2')
         self.assessment2 = self.assessments._getOb('test2')
-
-        # create an evaluation folder for testing
-        self.portal.invokeFactory(type_name='Folder', id='evaluation',
-                                  title='Evaluation')
-        self.evaluationsheets = self.portal._getOb('evaluation') 
 
         eval_factory = 'upfront.assessment.content.evaluationsheet'
         self.evaluationsheets.invokeFactory(eval_factory,
@@ -151,3 +165,23 @@ class TarmiiThemeTestBase(unittest.TestCase):
         notify(ObjectModifiedEvent(self.evaluationsheet1))
         notify(ObjectModifiedEvent(self.evaluationsheet2))
         
+
+        # create activities
+        self.activities.invokeFactory('upfront.assessmentitem.content.assessmentitem',
+                                      'assessmentitem1', title='Activity1')
+        self.activity1 = self.activities._getOb('assessmentitem1')
+        self.activities.invokeFactory('upfront.assessmentitem.content.assessmentitem',
+                                      'assessmentitem2', title='Activity2')
+        self.activity2 = self.activities._getOb('assessmentitem2')
+        self.activities.invokeFactory('upfront.assessmentitem.content.assessmentitem',
+                                      'assessmentitem3', title='Activity3')
+        self.activity3 = self.activities._getOb('assessmentitem3')
+
+        # add activities to assessment1
+        self.assessment1.assessment_items = [
+                            RelationValue(self.intids.getId(self.activity1)),
+                            RelationValue(self.intids.getId(self.activity2)),
+                            RelationValue(self.intids.getId(self.activity3)),
+                            ]
+        notify(ObjectModifiedEvent(self.assessment1))
+

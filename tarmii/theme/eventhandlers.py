@@ -89,14 +89,3 @@ def on_user_initial_login(user, event):
     # set default view to @@evaluationsheets view
     evaluation_folder.setLayout('@@evaluationsheets')
 
-
-
-
-
-
-
-
-
-
-
-
