@@ -115,8 +115,8 @@ class AddToAssessmentView(grok.View):
         # assessments_folder = members_folder._getOb('assessments'), but we
         # needed to get the get the assessments folder object without knowing
         # what its id will be, as unit tests might at times set the id
-        # 'assessments_', whereas the site will use 'assessments_'
-        # setting id to 'assessments_' was necessary to enable testing of
+        # 'assessments_', whereas the real live site will use 'assessments'
+        # setting id to 'assessments_' at testing was necessary to enable testof
         # the assessments folder creation in eventhandlers, so if we already had
         # 'assessments' in the system prior, it would flag as duplicate.        
         ls = [x.getObject().Title() for x in members_folder.getFolderContents()]
