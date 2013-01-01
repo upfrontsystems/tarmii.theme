@@ -10,11 +10,12 @@
     <metal:main fill-slot="main">
             
         <h3 i18n:translate="heading_add_to_assessment"> Add activity to assessment</h3>
+        <br />
         
         <form name="add-to-assessment-form" tal:attributes="action string:${view/__name__}?activity_id=${view/activity_id}" method="post">
                 
             <div id="formfield-choose-assessment" tal:condition="view/assessments">
-                <label for="formfield-choose-assessment" i18n:translate="label_choose_assessment">Choose existing assessment</label>
+                <label for="formfield-choose-assessment" i18n:translate="label_choose_assessment">Choose existing assessment: </label>
                 <select name="assessment_uid_selected">
                     <option tal:repeat="assessment view/assessments"
                             tal:attributes="value assessment/UID"
@@ -23,11 +24,15 @@
                 </select>
             </div>
 
+            <br />
             <div id="formfield-add-new-assessment">
 
-                <label for="formfield-add-new-assessment" i18n:translate="label_add_new_assessment">Or enter the name of a new assessment</label>
+                <label for="formfield-add-new-assessment" i18n:translate="label_add_new_assessment">Or enter the name of a new assessment: </label>
                 <input id="buttons-add-to-assessment-input" name="buttons.add.to.assessment.text.input"
-                       class="text-widget required textline-field" value="" type="text">         
+                       class="text-widget required textline-field" value="" type="text">
+                <br />
+                <br />
+
                 <div>
                     <input id="buttons-add-to-assessment-submit" name="buttons.add.to.assessment.submit"
                            value="Submit" type="submit">
