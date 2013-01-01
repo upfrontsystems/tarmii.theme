@@ -25,7 +25,6 @@ class AddToAssessmentView(grok.View):
         activity_id = self.request.get('activity_id', '')
         catalog = getToolByName(self.context, 'portal_catalog')
         brain = catalog.searchResults(
-
                     portal_type='upfront.assessmentitem.content.assessmentitem',
                     id=activity_id)
         assessmentitem = brain[0].getObject()
@@ -51,14 +50,22 @@ class AddToAssessmentView(grok.View):
                     # create new assessment in assessments folder
                     pm = getToolByName(self.context, 'portal_membership')
                     members_folder = pm.getHomeFolder()
-                    assessments_folder = members_folder._getOb('assessments')
+
+                    # see explanation in assessments method why we do next 3 
+                    # lines instead of "members_folder._getOb('assessments')"
+                    ls = [x.getObject().Title() for x in 
+                                            members_folder.getFolderContents()]
+                    idx = ls.index('Assessments')
+                    assessments_folder = members_folder.getFolderContents()\
+                                                            [idx].getObject()
+
                     assessments_folder.invokeFactory(
                                        'upfront.assessment.content.assessment',
                                        new_assessment,
                                        title=new_assessment)
                     assessment = assessments_folder._getOb(new_assessment)
                 else:
-                    # that we want to create alreay exists
+                    # assessment that we want to create already exists
                     # add activity to it if it doesnt already contain the very
                     # activity
                     for brain in brains:
@@ -83,8 +90,9 @@ class AddToAssessmentView(grok.View):
                     # assessment, and this activity already exists in all 
                     # existing assessments, which means that the list of
                     # availble assessments is empty
-                    self.request.RESPONSE.redirect(self.context.absolute_url())
-                    return
+                    return self.request.RESPONSE.redirect(
+                                                    self.context.absolute_url())
+
 
             # if we arrived here, we have obtained a valid assessment object,
             # associate the activity with it
@@ -103,9 +111,12 @@ class AddToAssessmentView(grok.View):
         """ return activity_id so that it can be reposted in a new request """
         return self.request.get('activity_id', '')
 
-    def assessments(self):
-        """ Return all assessments of the current logged in user
+    def available_assessments(self):
+        """ Return all assessments of the current logged in user that do not
+            contain the specified activity yet.
         """
+
+        activity_id = self.request.get('activity_id', '')
 
         # get users' assessments folder and its contents
         pm = getToolByName(self.context, 'portal_membership')
@@ -124,15 +135,14 @@ class AddToAssessmentView(grok.View):
         assessments_folder = members_folder.getFolderContents()[idx].getObject()
 
         contentFilter={"portal_type" : 'upfront.assessment.content.assessment'}
-        brains = assessments_folder.getFolderContents(contentFilter)      
+        brains = assessments_folder.getFolderContents(contentFilter)
 
-        activity_id = self.request.get('activity_id', '')
         available_assessments = []
         for brain in brains:
-            obj = brain.getObject()
+            assessment = brain.getObject()
             # for each assessment object, go through list of assessment_items
-            ids_list = [x.to_object.id for x in obj.assessment_items]
+            ids_list = [x.to_object.id for x in assessment.assessment_items]
             if not activity_id in ids_list:
-                available_assessments.append(brain)                
+                available_assessments.append(brain)
 
         return available_assessments

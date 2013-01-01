@@ -6,5 +6,5 @@ class TestActivities(TarmiiThemeTestBase):
 
     def test_activities(self):
         view = self.activities.restrictedTraverse('@@activities')
-        self.assertEqual(len(view.activities()), 3)
+        self.assertEqual(len(view.activities()), 4)
 

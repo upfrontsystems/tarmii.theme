@@ -9,15 +9,15 @@
 <body>
     <metal:main fill-slot="main">
             
-        <h3 i18n:translate="heading_add_to_assessment"> Add activity to assessment</h3>
+        <h3 i18n:translate="heading_add_to_assessment">Add activity to assessment</h3>
         <br />
         
         <form name="add-to-assessment-form" tal:attributes="action string:${view/__name__}?activity_id=${view/activity_id}" method="post">
                 
-            <div id="formfield-choose-assessment" tal:condition="view/assessments">
+            <div id="formfield-choose-assessment" tal:condition="view/available_assessments">
                 <label for="formfield-choose-assessment" i18n:translate="label_choose_assessment">Choose existing assessment: </label>
                 <select name="assessment_uid_selected">
-                    <option tal:repeat="assessment view/assessments"
+                    <option tal:repeat="assessment view/available_assessments"
                             tal:attributes="value assessment/UID"
                             tal:content="assessment/Title">
                     </option>
