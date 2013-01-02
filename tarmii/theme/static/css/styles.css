@@ -366,3 +366,20 @@ div.edit_areas div {
 div.help_text {
     clear: both;
 }
+
+/* assessments view - add underling to 'remove from assessments link',
+  'move-up' and 'move-down */
+a.remove-from-assessment,
+a.move-up,
+a.move-down {
+    border-bottom: 0.1em solid #CCCCCC;
+}
+
+a.remove-from-assessment:hover,
+a.move-up:hover,
+a.move-down:hover {
+    cursor: hand;
+    cursor: pointer;
+}
+
+
