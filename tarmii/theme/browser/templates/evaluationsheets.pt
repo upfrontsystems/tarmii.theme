@@ -26,8 +26,9 @@
                 <table id="evaluationsheet-listing" class="listing">
                     <tr>
                         <th></th>
-                        <th>Assessment</th>
-                        <th>Class list</th>
+                        <th i18n:translate="heading_assessment">Assessment</th>
+                        <th i18n:translate="heading_classlist">Class list</th>
+                        <th></th>
                     </tr>
                     <tr tal:repeat="evaluationsheet view/evaluationsheets">
                         <td><input type="checkbox" name="paths:list" class="noborder"
@@ -37,6 +38,8 @@
                                             id string:cb_${evaluationsheet/getId}"></td>
                         <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
                         <td tal:content="python:evaluationsheet.getObject().classlist.to_object.title"></td>
+                        <td><a tal:attributes="href python:evaluationsheet.getObject().absolute_url()" 
+                               i18n:translate="label_view">View</a></td>
                     </tr>
                 </table>
                 <input type="submit" value="Delete" name="folder_delete:method" class="context">

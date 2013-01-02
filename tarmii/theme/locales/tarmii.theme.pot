@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-02 12:39+0000\n"
+"POT-Creation-Date: 2013-01-02 19:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -201,6 +201,16 @@ msgstr ""
 msgid "heading_add_user_form"
 msgstr ""
 
+#. Default: "Assessment"
+#: ./browser/templates/evaluationsheets.pt:29
+msgid "heading_assessment"
+msgstr ""
+
+#. Default: "Class list"
+#: ./browser/templates/evaluationsheets.pt:30
+msgid "heading_classlist"
+msgstr ""
+
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:12
 msgid "heading_select_profile"
@@ -253,6 +263,7 @@ msgstr ""
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:38
+#: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr ""
 

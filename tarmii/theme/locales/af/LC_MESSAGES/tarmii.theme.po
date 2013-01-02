@@ -198,6 +198,16 @@ msgstr "Voeg aktiwiteit by assessering"
 msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
+#. Default: "Assessment"
+#: ./browser/templates/evaluationsheets.pt:29
+msgid "heading_assessment"
+msgstr "Assessering"
+
+#. Default: "Class list"
+#: ./browser/templates/evaluationsheets.pt:30
+msgid "heading_classlist"
+msgstr "Klas lys"
+
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:12
 msgid "heading_select_profile"
@@ -250,6 +260,7 @@ msgstr "Registreer"
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:38
+#: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr "Sien"
 
