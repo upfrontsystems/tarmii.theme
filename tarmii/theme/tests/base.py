@@ -185,3 +185,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
                             ]
         notify(ObjectModifiedEvent(self.assessment1))
 
+        self.activities.invokeFactory('upfront.assessmentitem.content.assessmentitem',
+                                      'assessmentitem4', title='Activity4')
+        self.activity4 = self.activities._getOb('assessmentitem4')
+
