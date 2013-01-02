@@ -22,6 +22,8 @@
 
     <plone:static type="theme" directory="static" />
 
+    <i18n:registerTranslations directory="locales" />
+
     <include package="collective.monkeypatcher" />
 
     <monkey:patch
