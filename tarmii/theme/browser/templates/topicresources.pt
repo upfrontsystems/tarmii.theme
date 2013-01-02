@@ -9,7 +9,7 @@
 <body>
     <metal:main fill-slot="content-core">
             
-        <h3 i18n:translate="heading_teacher_resource_title">Teacher resources for <span tal:content="view/topictitle"> </span></h3>
+        <h3 i18n:translate="heading_teacher_resource_title">Teacher resources for <span i18n:name="topictitle" tal:content="view/topictitle"> </span></h3>
         <span tal:content="view/itemcount"/><span i18n:translate="desc_resources_for_topic"> resources for this topic.</span>
 
         <div tal:repeat="resource view/resources">

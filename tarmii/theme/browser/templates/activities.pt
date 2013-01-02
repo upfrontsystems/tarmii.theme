@@ -42,7 +42,7 @@
                             <a class="add_to_assessment" tal:attributes="href string:${item/absolute_url}/@@add-to-assessment?activity_id=${item/id}" 
                                i18n:translate="label_addtoassessment">Add to Assessment</a>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
-                               i18n:translate="label_edit">Feedback</a>
+                               i18n:translate="label_feedback">Feedback</a>
                         </div>
                         <hr class="item-separator"/>
                     </tal:item>
