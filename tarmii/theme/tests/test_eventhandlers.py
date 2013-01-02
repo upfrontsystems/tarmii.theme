@@ -92,7 +92,7 @@ class TestEventhandlers(TarmiiThemeTestBase):
         self.assertEquals(brains[3].getObject().getLayout(),'@@classlists')
         self.assertEquals(brains[4].getObject().id,'assessments')
         self.assertEquals(brains[4].getObject().getLayout(),'@@assessments')
-        self.assertEquals(brains[5].getObject().id,'evaluation')
+        self.assertEquals(brains[5].getObject().id,'evaluations')
         self.assertEquals(brains[5].getObject().getLayout(),'@@evaluationsheets')
 
 

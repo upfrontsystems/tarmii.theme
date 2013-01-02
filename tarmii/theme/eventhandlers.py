@@ -79,9 +79,9 @@ def on_user_initial_login(user, event):
     assessments_folder.setLayout('@@assessments')
 
     # create evaluation folder in members folder
-    members_folder.invokeFactory(type_name='Folder', id='evaluation',
-                                 title='Evaluation')
-    evaluation_folder = members_folder._getOb('evaluation')
+    members_folder.invokeFactory(type_name='Folder', id='evaluations',
+                                 title='Evaluations')
+    evaluation_folder = members_folder._getOb('evaluations')
     allowed_types = ['upfront.assessment.content.evaluationsheet']
     evaluation_folder.setConstrainTypesMode(ENABLED)
     evaluation_folder.setLocallyAllowedTypes(allowed_types)
