@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-02 19:07+0000\n"
+"POT-Creation-Date: 2013-01-02 19:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Add Topic Tree"
 msgstr ""
 
-#: ./browser/templates/classlists.pt:13
+#: ./browser/templates/classlists.pt:17
 msgid "Add class list"
 msgstr ""
 
@@ -191,6 +191,11 @@ msgstr ""
 msgid "description_assesments"
 msgstr ""
 
+#. Default: "Here you can add new class lists or"
+#: ./browser/templates/classlists.pt:12
+msgid "description_classlists_add"
+msgstr ""
+
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
 msgid "heading_add_to_assessment"
@@ -267,6 +272,11 @@ msgstr ""
 msgid "label_view"
 msgstr ""
 
+#. Default: "import learners to an existing/new class list."
+#: ./browser/templates/classlists.pt:13
+msgid "link_importclasslist"
+msgstr ""
+
 #: ./browser/custom_quick_upload.py:375
 msgid "maximum file size is:"
 msgstr ""
@@ -287,7 +297,7 @@ msgid "message_no_assesments_exist"
 msgstr ""
 
 #. Default: "No class lists have been created yet."
-#: ./browser/templates/classlists.pt:19
+#: ./browser/templates/classlists.pt:23
 msgid "message_no_classlists_exist"
 msgstr ""
 

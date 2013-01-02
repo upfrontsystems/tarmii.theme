@@ -10,6 +10,11 @@ class TestClassLists(TarmiiThemeTestBase):
         view = self.classlists.restrictedTraverse('@@classlists')
         self.assertEqual(len(view.classlists()), 2)
 
+    def test_import_learners_url(self):
+        view = self.classlists.restrictedTraverse('@@classlists')
+        self.assertEqual(view.import_learners_url(), 
+            "%s/@@import-learners" % self.classlists.absolute_url())
+
     def test_add_classlist_url(self):
         view = self.classlists.restrictedTraverse('@@classlists')
         self.assertEqual(view.add_classlist_url(), 

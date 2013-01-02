@@ -18,6 +18,11 @@ class ClassListsView(grok.View):
             'portal_type': 'upfront.classlist.content.classlist'}
         return self.context.getFolderContents(contentFilter)
 
+    def import_learners_url(self):
+        """ URL for importing a new classlist via import-learners view
+        """
+        return "%s/@@import-learners" % self.context.absolute_url()
+
     def add_classlist_url(self):
         """ URL for classlist add form
         """

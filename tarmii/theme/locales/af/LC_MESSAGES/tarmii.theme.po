@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-01-02 12:39+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"PO-Revision-Date: 2013-01-02 21:45+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -188,6 +188,11 @@ msgstr "hulpbronne vir hierdie onderwerp."
 msgid "description_assesments"
 msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die naam van die assessering om dit te redigeer."
 
+#. Default: "Here you can add new class lists or"
+#: ./browser/templates/classlists.pt:12
+msgid "description_classlists_add"
+msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
+
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
 msgid "heading_add_to_assessment"
@@ -263,6 +268,11 @@ msgstr "Registreer"
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr "Sien"
+
+#. Default: "import learners to an existing/new class list."
+#: ./browser/templates/classlists.pt:13
+msgid "link_importclasslist"
+msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
 
 #: ./browser/custom_quick_upload.py:375
 msgid "maximum file size is:"
