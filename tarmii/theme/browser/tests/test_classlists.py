@@ -38,9 +38,27 @@ class TestClassListAddForm(TarmiiThemeTestBase):
         self.assertEquals(len(classlists_after),len(classlists_before)+1)
 
     def test_nextURL(self):
+        # save
         form = ClassListAddForm(self.classlists, self.request)
         form.classlist = self.classlist1
         nextURL = form.nextURL()
-        path = '%s' % self.classlist1.absolute_url()
+        path = self.classlist1.absolute_url()
         self.assertEquals(path,nextURL)
+
+        # cancel
+        self.request.form['form.buttons.cancel'] = 'aplaceholder'
+        nextURL = form.nextURL()
+        path = self.classlists.absolute_url()
+        self.assertEquals(path,nextURL)
+
+
+
+
+
+
+
+
+
+
+
 

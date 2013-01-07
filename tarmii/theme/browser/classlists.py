@@ -42,15 +42,8 @@ class ClassListAddForm(dexterity.AddForm):
         return self.classlist
 
     def nextURL(self):
-        return '%s' % self.classlist.absolute_url()
-
-
-
-
-
-
-
-
-
-
+        if self.request.form.has_key('form.buttons.cancel'):
+            return self.context.absolute_url()
+        else:
+            return self.classlist.absolute_url()
 
