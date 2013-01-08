@@ -36,7 +36,7 @@
                         <a tal:attributes="href string:${classlist/getURL}" tal:content="classlist/Title"></a>
                     </li>
                 </ul>
-                <input type="submit" value="Delete" name="folder_delete:method" class="context">
+                <input type="submit" value="Delete" name="folder_delete:method" class="context" i18n:attributes="value">
                 <input type="hidden" name="orig_template" value="classlists"/>
                 <input tal:replace="structure context/@@authenticator/authenticator" />
             </form>

@@ -46,7 +46,7 @@
                         <td></td>
                     </tr>
                 </table>
-                <input type="submit" value="Delete" name="folder_delete:method" class="context">
+                <input type="submit" value="Delete" name="folder_delete:method" class="context" i18n:attributes="value">
                 <input type="hidden" name="orig_template" value="assessments"/>
                 <input tal:replace="structure context/@@authenticator/authenticator" />
             </form>

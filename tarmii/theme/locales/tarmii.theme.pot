@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-02 19:44+0000\n"
+"POT-Creation-Date: 2013-01-08 14:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,12 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:301
 msgid "Choose video files to upload"
+msgstr ""
+
+#: ./browser/templates/assessments.pt:49
+#: ./browser/templates/classlists.pt:39
+#: ./browser/templates/evaluationsheets.pt:45
+msgid "Delete"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:365
