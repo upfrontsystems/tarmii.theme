@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-08 14:38+0000\n"
+"POT-Creation-Date: 2013-01-09 11:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,6 +81,10 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
+#: ./browser/feedback.py:44
+msgid "Contact Us"
+msgstr ""
+
 #: ./browser/templates/assessments.pt:49
 #: ./browser/templates/classlists.pt:39
 #: ./browser/templates/evaluationsheets.pt:45
@@ -99,6 +103,10 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
+#: ./browser/feedback.py:83
+msgid "Feedback"
+msgstr ""
+
 #: ./browser/custom_quick_upload.py:89
 msgid "Files Quick Upload"
 msgstr ""
@@ -109,6 +117,10 @@ msgstr ""
 
 #: ./interfaces.py:14
 msgid "Last version number"
+msgstr ""
+
+#: ./browser/feedback.py:26
+msgid "Message"
 msgstr ""
 
 #: ./userdataschema.py:42
@@ -157,6 +169,10 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:382
 msgid "Server error, please contact support and/or try again."
+msgstr ""
+
+#: ./browser/feedback.py:27
+msgid "The message body"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
@@ -348,5 +364,9 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:371
 msgid "please try again."
+msgstr ""
+
+#: ./browser/feedback.py:48
+msgid "send"
 msgstr ""
 

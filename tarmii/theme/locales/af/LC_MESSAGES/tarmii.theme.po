@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-08 14:38+0000\n"
-"PO-Revision-Date: 2013-01-08 16:58+0200\n"
+"POT-Creation-Date: 2013-01-09 11:48+0000\n"
+"PO-Revision-Date: 2013-01-09 13:45+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,6 +78,10 @@ msgstr "Verkis die beelde om te laai"
 msgid "Choose video files to upload"
 msgstr "Verkies die video lêers om te laai"
 
+#: ./browser/feedback.py:44
+msgid "Contact Us"
+msgstr "Kontak Ons"
+
 #: ./browser/templates/assessments.pt:49
 #: ./browser/templates/classlists.pt:39
 #: ./browser/templates/evaluationsheets.pt:45
@@ -96,6 +100,10 @@ msgstr "EMIS"
 msgid "Failed"
 msgstr "Versium"
 
+#: ./browser/feedback.py:83
+msgid "Feedback"
+msgstr "Terugvoer"
+
 #: ./browser/custom_quick_upload.py:89
 msgid "Files Quick Upload"
 msgstr "Lêers vinnig oplaai"
@@ -107,6 +115,10 @@ msgstr "Beedle vinnig oplaai"
 #: ./interfaces.py:14
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
+
+#: ./browser/feedback.py:26
+msgid "Message"
+msgstr "Boodskap"
 
 #: ./userdataschema.py:42
 msgid "Number of years teaching foundation phase."
@@ -155,6 +167,10 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 #: ./browser/custom_quick_upload.py:382
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
+
+#: ./browser/feedback.py:27
+msgid "The message body"
+msgstr "Die boodskap teks"
 
 #: ./browser/custom_quick_upload.py:380
 msgid "This file already exists with the same name on server:"
@@ -287,7 +303,7 @@ msgstr "maksimum lêer grootte is:"
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
-msgstr "Dankie vir U terugvoer oor die ${assessment_item_id}."
+msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
 
 #. Default: "No activities have been created yet."
 #: ./browser/templates/activities.pt:18
@@ -346,4 +362,8 @@ msgstr "kies asseblief lêers weer sonder dit."
 #: ./browser/custom_quick_upload.py:371
 msgid "please try again."
 msgstr "probeer asseblief weer"
+
+#: ./browser/feedback.py:48
+msgid "send"
+msgstr "stuur"
 

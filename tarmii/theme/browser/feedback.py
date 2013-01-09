@@ -13,6 +13,8 @@ from zope.app.intid.interfaces import IIntIds
 
 from zc.relation.interfaces import ICatalog
 
+from tarmii.theme import MessageFactory as _
+
 class IFeedbackForm(Interface):
     """ Contact us form schema
     """
@@ -21,8 +23,8 @@ class IFeedbackForm(Interface):
                        description=u'Subject',
                        required=True)
 
-    message = Text(title=u'Message',
-                   description=u'The message body',
+    message = Text(title=_(u'Message'),
+                   description=_(u'The message body'),
                    required=True)
             
 
@@ -39,11 +41,11 @@ Message:
 %s
 """
 
-    label = u'Contact Us'
+    label = msg = _(u'Contact Us')
     form_fields = form.Fields(IFeedbackForm)
     result_template = ViewPageTemplateFile('templates/feedback_result.pt')
 
-    @form.action("send")
+    @form.action(_(u'send'))
     def action_send(self, action, data):
 
         mhost = getToolByName(self.context, 'MailHost')
@@ -78,8 +80,8 @@ class IAssessmentItemFeedbackForm(Interface):
                        description=u'Subject',
                        required=True)
 
-    feedback = Text(title=u'Feedback',
-                   description=u'The message body',
+    feedback = Text(title=_(u'Feedback'),
+                   description=_(u'The message body'),
                    required=True)
 
 
@@ -101,12 +103,12 @@ Topics associated with this item:
 
 """
 
-    label = u'Feedback'
+    label = _(u'Feedback')
     form_fields = form.Fields(IAssessmentItemFeedbackForm)
     result_template = ViewPageTemplateFile(
         'templates/assessmentitem_feedback_result.pt')
 
-    @form.action("send")
+    @form.action(_(u'send'))
     def action_send(self, action, data):
 
         mhost = getToolByName(self.context, 'MailHost')
