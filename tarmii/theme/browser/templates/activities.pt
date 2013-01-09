@@ -14,6 +14,7 @@
             <input class="allowMultiSubmit" type="submit" value="Add Activity" i18n:attributes="value">
         </form>
 
+        <div>&nbsp;</div>
         <tal:topictrees tal:condition="not:view/activities">
             <div i18n:translate="message_no_activities_exist">No activities have been created yet.</div>
         </tal:topictrees>
