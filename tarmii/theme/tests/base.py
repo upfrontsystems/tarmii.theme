@@ -25,11 +25,13 @@ class TestCase(PloneSandboxLayer):
         import upfront.assessmentitem
         import upfront.assessment
         import upfront.classlist
+        import upfront.pagetracker
         import tarmii.theme
         self.loadZCML(package=collective.topictree)
         self.loadZCML(package=upfront.assessmentitem)
         self.loadZCML(package=upfront.assessment)
         self.loadZCML(package=upfront.classlist)
+        self.loadZCML(package=upfront.pagetracker)
         self.loadZCML(package=tarmii.theme)
         z2.installProduct(app, PROJECTNAME) 
 
