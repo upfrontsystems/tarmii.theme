@@ -68,7 +68,7 @@ class ExportUserProfilesView(grok.View):
             profiles_csv.close()
 
             now = DateTime()
-            nice_filename = '%s_%s' % ('requestlog_', now.strftime('%Y%m%d'))
+            nice_filename = '%s_%s' % ('userprofiles_', now.strftime('%Y%m%d'))
 
             self.request.response.setHeader("Content-Disposition",
                                             "attachment; filename=%s.csv" % 
