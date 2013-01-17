@@ -81,6 +81,11 @@ def setupPortalContent(portal):
         langtree.invokeFactory('collective.topictree.topic',
                                 'xhosa', title='Xhosa')
 
+    # set cookie auth url
+    acl = getToolByName(portal, 'acl_users')
+    acl.credentials_cookie_auth.login_path = '@@select-profile'
+
+
 def setup(context):
     # Only run step if a flag file is present
     if context.readDataFile('tarmii.theme_marker.txt') is None:
