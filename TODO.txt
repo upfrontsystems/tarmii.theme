@@ -1,5 +1,3 @@
-Selectprofile view is not creating members folders upon initial login - at the end of the method the user is still in an anonymous state.
-
 User Avatars for logging in functionality.
 
 Outstanding interface translations including JS Tree based translations.

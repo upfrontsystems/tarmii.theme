@@ -24,9 +24,8 @@ class SelectProfileView(grok.View):
             username = self.request.form['buttons.profile.login.submit']
             self.context.acl_users.session._setupSession(username,
                                                 self.context.REQUEST.RESPONSE)
-            self.request.RESPONSE.redirect(self.context.absolute_url())
-            acl = getSite().acl_users
-            acl.credentials_cookie_auth.login_path = '@@select-profile'
+            portal_url = getToolByName(self.context, 'portal_url')()
+            self.request.RESPONSE.redirect('%s/logged_in' % portal_url)
 
     def profiles(self):
         """ Return all non-admin users in the system.
