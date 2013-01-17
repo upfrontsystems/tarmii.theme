@@ -48,7 +48,6 @@ class TARMIIAddUserForm(AddUserForm):
         newFields = newFields.omit('home_page')
         newFields = newFields.omit('description')
         newFields = newFields.omit('location')
-        newFields = newFields.omit('portrait')
         newFields = newFields.omit('pdelete')
 
         # merge 

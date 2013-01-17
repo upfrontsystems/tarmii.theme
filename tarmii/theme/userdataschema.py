@@ -32,7 +32,6 @@ class ITARMIIUserDataSchema(IUserDataSchema):
             required=True,
         )
 
-
     qualification = schema.TextLine(
             title=_(u"Qualification"),
             required=True,
