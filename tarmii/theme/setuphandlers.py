@@ -6,6 +6,8 @@ from Products.CMFDynamicViewFTI.permissions import ModifyViewTemplate
 from Products.ATContentTypes.permission import ModifyConstrainTypes
 from Products.ATContentTypes.lib.constraintypes import ENABLED
 
+from Products.CMFCore.WorkflowCore import WorkflowException
+
 PROFILE_ID = 'profile-tarmii.theme.theme:default'
 
 log = logging.getLogger('tarmii.theme-setuphandlers')
@@ -30,6 +32,8 @@ def setupPortalContent(portal):
     pprop = getToolByName(portal, 'portal_properties')
     pprop.site_properties._updateProperty('disable_folder_sections', True)
 
+    pw = getToolByName(portal, 'portal_workflow')
+
     for folder_id, layout, title, allowed_types in sitefolders:
         if not portal.hasObject(folder_id):
             portal.invokeFactory(type_name='Folder', id=folder_id, title=title)
@@ -44,6 +48,19 @@ def setupPortalContent(portal):
         # display here
         folder.manage_permission(ModifyConstrainTypes, roles=[])
         folder.manage_permission(ModifyViewTemplate, roles=[])
+
+        # transition top level folder to the "internally published" state.
+        state = pw.getStatusOf('intranet_workflow',folder)['review_state']
+        if state == 'private':
+            try:
+                pw.doActionFor(folder, "show_internally")
+            except WorkflowException:
+                pass
+        if state == 'internal' or state == 'pending':
+            try:
+                pw.doActionFor(folder, "publish_internally")
+            except WorkflowException:
+                pass
 
     # allow member folders to be created
     security_adapter =  ISecuritySchema(portal)
