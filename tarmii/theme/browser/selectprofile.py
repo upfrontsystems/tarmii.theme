@@ -33,8 +33,15 @@ class SelectProfileView(grok.View):
 
         pm = getToolByName(self.context, 'portal_membership')
 
-        #get all users that are do not have the Site Administrator role.
+        # get all users that are do not have the Site Administrator role.
         non_admins = [member for member in pm.listMembers()
                 if not member.has_role('Site Administrator')]
 
         return non_admins
+
+    def create_profile_link(self):
+        """ Return url to view used for creating new profiles
+        """
+        return '%s/@@tarmii-new-user' % self.context.absolute_url()
+
+

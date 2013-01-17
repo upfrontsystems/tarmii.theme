@@ -10,7 +10,7 @@
     <metal:main fill-slot="main">
 
         <h1 i18n:translate="heading_select_profile"> Select your profile</h1>
-    
+   
         <tal:profiles tal:condition="not:view/profiles">
             <div i18n:translate="message_no_profiles_exist">No profiles have been created yet.</div>
         </tal:profiles>
@@ -19,6 +19,11 @@
             <form id="profile-login-form" action="@@select-profile" method="post" name="profile-login-form"> 
                 <input type="submit" tal:attributes="value profile" name="buttons.profile.login.submit" id="buttons.profile.login.submit"/>
             </form>
+        </div>
+
+        <div>&nbsp;</div>
+        <div>
+            <a i18n:translate="link_create_new_profile" tal:attributes="href view/create_profile_link">Create a new profile</a>
         </div>
 
     </metal:main>
