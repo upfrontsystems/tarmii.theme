@@ -9,7 +9,7 @@ class ActivitiesView(grok.View):
     grok.context(Interface)
     grok.name('activities')
     grok.template('activities')
-    grok.require('cmf.AddPortalContent')
+    grok.require('zope2.View')
 
     def activities(self):
         """ Return all the activities in the current folder

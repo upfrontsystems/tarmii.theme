@@ -9,7 +9,7 @@ class EvaluationSheetsView(grok.View):
     grok.context(Interface)
     grok.name('evaluationsheets')
     grok.template('evaluationsheets')
-    grok.require('cmf.ModifyPortalContent')
+    grok.require('zope2.View')
 
     def evaluationsheets(self):
         """ Return all the evaluationsheets in the current folder

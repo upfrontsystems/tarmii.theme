@@ -9,7 +9,7 @@ class ClassListsView(grok.View):
     grok.context(Interface)
     grok.name('classlists')
     grok.template('classlists')
-    grok.require('cmf.ModifyPortalContent')
+    grok.require('zope2.View')
 
     def classlists(self):
         """ Return all the classlists in the current folder
