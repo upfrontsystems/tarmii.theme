@@ -38,6 +38,11 @@ class SelectProfileView(grok.View):
         non_admins = [member for member in pm.listMembers()
                 if not member.has_role('Site Administrator')]
 
+        # add extra parameter 'avatar' that is the url to the profile image
+        for nonadmin in non_admins:
+            nonadmin.avatar = pm.getPersonalPortrait(id=nonadmin.id)\
+                              .absolute_url()
+
         return non_admins
 
     def create_profile_link(self):
@@ -49,17 +54,6 @@ class SelectProfileView(grok.View):
         """ Return url to self
         """
         return self.context.absolute_url()
-
-    def random_avatar_path(self):
-        """ Return url to random avatar
-        """
-        num = str(random.randint(1,24))
-        return '%s/++theme++tarmii.theme/images/avatars/avatar%s.png' %\
-               (self.context.absolute_url(),num)
-
-
-
-
 
 
 
