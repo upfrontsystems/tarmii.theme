@@ -382,4 +382,17 @@ a.move-down:hover {
     cursor: pointer;
 }
 
+/* select profile view */
+a.select-avatar img {
+    padding-top: 5px;
+}
+
+a.select-avatar {
+    border-bottom: 0em !important;
+}
+
+a.select-text {
+    padding-left: 5px;
+    border-bottom: 0em !important;
+}
 

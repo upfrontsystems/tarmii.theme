@@ -17,10 +17,10 @@
 
         <div tal:repeat="profile view/profiles">
 
-            <a tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}">
+            <a class="select-avatar" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}">
                 <img tal:attributes="src profile/avatar" />
             </a>    
-            <a tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}"
+            <a class="select-text" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}"
                tal:content="profile">
             </a>
 
