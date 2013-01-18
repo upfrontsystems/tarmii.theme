@@ -16,9 +16,12 @@
         </tal:profiles>
 
         <div tal:repeat="profile view/profiles">
-            <form id="profile-login-form" action="@@select-profile" method="post" name="profile-login-form"> 
-                <input type="submit" tal:attributes="value profile" name="buttons.profile.login.submit" id="buttons.profile.login.submit"/>
-            </form>
+            <a tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}">
+                <img tal:attributes="src view/random_avatar_path" />
+            </a>
+            <a tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}"
+               tal:content="profile">
+            </a>
         </div>
 
         <div>&nbsp;</div>
