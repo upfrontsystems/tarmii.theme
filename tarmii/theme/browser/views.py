@@ -1,10 +1,10 @@
-import os
 import random
 from OFS.Image import Image
 from cStringIO import StringIO
 from zope.formlib import form
 from zope.event import notify
 
+from plone.resource.file import rawReadFile
 from plone.app.form.validators import null_validator
 from plone.app.users.browser.register import AddUserForm
 from plone.app.users.browser.personalpreferences import UserDataConfiglet
@@ -89,15 +89,14 @@ class TARMIIAddUserForm(AddUserForm):
         # if no custom user portrait has been supplied
         if pm.getPersonalPortrait(id=user_id).id == 'defaultUser.png':
             # set the portrait to one of a few random avatars in tarmii theme
+            avatar_data = StringIO()
             num = str(random.randint(1,24))
             path = '++theme++tarmii.theme/images/avatars/avatar' + num + '.png'
             image = self.context.restrictedTraverse(path)
-            fullpath = image.path
-            f = open(fullpath, "rb")
-            fileRawData = f.read()
-            portrait = Image(id=user_id, file=fileRawData, title='')
+            avatar_data.write(rawReadFile(image).read())
+            portrait = Image(id=user_id, file=avatar_data, title='')
             pmdata._setPortrait(portrait, user_id)
-            f.close()
+            avatar_data.close()
 
         IStatusMessage(self.request).addStatusMessage(
             _(u"Profile created."), type='info')
