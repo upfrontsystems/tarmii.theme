@@ -9,3 +9,67 @@ Jquery portal_javascripts bundles, incorporating into setuphandler or something 
 We need to make sure that the views that return feedback using portal messages are doing so correctly. Some views need to only show an error message if there was an AJAX error.
 
 Translation issue - Custom portal messages are not being translated.
+
+
+
+
+Translations:
+
+---------- upfront.assessmentitem -----------
+
+Edit Assessment Item:
+
+    Content heading
+    Add new introduction button button
+    Select existing introduction button
+    Edit introduction, Remove introduction buttons
+
+    TinyMCE - Edit without visual editor link
+
+    Answers heading
+    Save, Cancel buttons
+    Topics heading
+    Browse button
+
+Select existing introduction
+    No introductions exist.
+    Select an introduction heading
+
+----------- upfront.classlist ---------
+
+Import learners
+    Browse button
+
+--------- TOPIC TREES & JS TREE translations ---
+
+---------- uncategorized -----------
+
+Videos
+    Add Video button
+
+Teacher resources
+    Add resource button
+
+Add file (Teacher resources)
+    Browse button
+
+Add Activities (Assessment Item)
+    heading
+
+Add Evaluation Sheet
+    heading
+
+Add Classlist
+    Save, Cancel buttons
+
+Add Assessment
+     heading
+     Topics
+     Search, Save, Cancel buttons
+
+Add to assessment
+     Save, Cancel buttons
+
+Add introduction overlay
+    Save button
+    Cancel button
