@@ -1,3 +1,4 @@
+import random
 from zope.interface import Interface
 from five import grok
 
@@ -20,8 +21,8 @@ class SelectProfileView(grok.View):
         """ if one of the select profile buttons has been submitted, log that 
             user in
         """
-        if self.request.form.has_key('buttons.profile.login.submit'):
-            username = self.request.form['buttons.profile.login.submit']
+        username = self.request.get('username', '')
+        if username != '':
             self.context.acl_users.session._setupSession(username,
                                                 self.context.REQUEST.RESPONSE)
             portal_url = getToolByName(self.context, 'portal_url')()
@@ -43,5 +44,22 @@ class SelectProfileView(grok.View):
         """ Return url to view used for creating new profiles
         """
         return '%s/@@tarmii-new-user' % self.context.absolute_url()
+
+    def select_profile_url(self):
+        """ Return url to self
+        """
+        return self.context.absolute_url()
+
+    def random_avatar_path(self):
+        """ Return url to random avatar
+        """
+        num = str(random.randint(1,24))
+        return '%s/++theme++tarmii.theme/images/avatars/avatar%s.png' %\
+               (self.context.absolute_url(),num)
+
+
+
+
+
 
 
