@@ -1,5 +1,3 @@
-User Avatars for logging in functionality.
-
 Outstanding interface translations including JS Tree based translations.
 
 Edge cases for creating evaluationsheets when classlists is empty, or not activities are associated with the relevant assessment

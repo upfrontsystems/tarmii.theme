@@ -1,3 +1,7 @@
+import os
+import random
+from OFS.Image import Image
+from cStringIO import StringIO
 from zope.formlib import form
 from zope.event import notify
 
@@ -79,6 +83,21 @@ class TARMIIAddUserForm(AddUserForm):
         except (AttributeError, ValueError), err:
             IStatusMessage(self.request).addStatusMessage(err, type="error")
             return
+
+        pm = getToolByName(self.context, 'portal_membership')
+        pmdata = getToolByName(self.context, 'portal_memberdata')
+        # if no custom user portrait has been supplied
+        if pm.getPersonalPortrait(id=user_id).id == 'defaultUser.png':
+            # set the portrait to one of a few random avatars in tarmii theme
+            num = str(random.randint(1,24))
+            path = '++theme++tarmii.theme/images/avatars/avatar' + num + '.png'
+            image = self.context.restrictedTraverse(path)
+            fullpath = image.path
+            f = open(fullpath, "rb")
+            fileRawData = f.read()
+            portrait = Image(id=user_id, file=fileRawData, title='')
+            pmdata._setPortrait(portrait, user_id)
+            f.close()
 
         IStatusMessage(self.request).addStatusMessage(
             _(u"Profile created."), type='info')
