@@ -1,6 +1,20 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
 
+
+    <!-- plone.app.jquery puts this in the jquery bundle, but due to a
+        Plone bug it's not yet possible to add the jquery bundle to the
+        default theme -->
+    <javascript cacheable="True"
+                compression="none"
+                cookable="True"
+                enabled="True"
+                inline="False"
+                expression=""
+                insert-before="*"
+                bundle="default"
+                id="++resource++plone.app.jquery.js" />
+
     <javascript cacheable="True"
                 compression="none"
                 cookable="True"
