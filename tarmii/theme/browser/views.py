@@ -1,6 +1,7 @@
 import random
 from OFS.Image import Image
 from cStringIO import StringIO
+from five import grok
 from zope.formlib import form
 from zope.event import notify
 
@@ -8,6 +9,11 @@ from plone.resource.file import rawReadFile
 from plone.app.form.validators import null_validator
 from plone.app.users.browser.register import AddUserForm
 from plone.app.users.browser.personalpreferences import UserDataConfiglet
+
+from plone.z3cform import layout
+from Products.CMFCore.interfaces import ISiteRoot
+from plone.app.registry.browser.controlpanel import RegistryEditForm
+from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 
 from AccessControl import getSecurityManager
 from Products.statusmessages.interfaces import IStatusMessage
@@ -19,6 +25,7 @@ from zExceptions import Forbidden
 
 from tarmii.theme import MessageFactory as _
 from tarmii.theme.userdataschema import ITARMIIUserDataSchema
+from tarmii.theme.interfaces import ITARMIIRemoveServerSettings
 
 class TARMIIUserDataConfiglet(UserDataConfiglet):
 
@@ -108,4 +115,30 @@ class TARMIIAddUserForm(AddUserForm):
 
         # XXX CHANGE REDIRECT TO PROFILES LISTING
         self.request.response.redirect(self.context.absolute_url())
+
+
+class TARMIIRemoveServerSettingsForm(RegistryEditForm):
+
+    schema = ITARMIIRemoveServerSettings
+    label = _(u'TARMII Remote Server Settings')
+    description = _(u"Use the settings below to configure "
+                    u"tarmii remove server for this site")
+
+    def updateFields(self):
+        super(TARMIIRemoveServerSettingsForm, self).updateFields()
+    
+    def updateWidgets(self):
+        super(TARMIIRemoveServerSettingsForm, self).updateWidgets()
+
+
+class TARMIIRemoveServerControlPanel(grok.CodeView):
+
+    grok.name("remove-server-settings")
+    grok.context(ISiteRoot)
+
+    def render(self):
+        view_factor = layout.wrap_form(TARMIIRemoveServerSettingsForm,
+                                       ControlPanelFormWrapper)
+        view = view_factor(self.context, self.request)
+        return view()
 
