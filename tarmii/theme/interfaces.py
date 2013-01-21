@@ -27,12 +27,12 @@ class IItemVersion(Interface):
         """
 
 
-class ITARMIIRemoveServerSettings(Interface):
-    """ So we can store some settings for the remove server
+class ITARMIIRemoteServerSettings(Interface):
+    """ So we can store some settings for the remote server
     """
 
     server_url = TextLine(
-        title=_(u'Remove Server Url'),
+        title=_(u'Remote Server Url'),
         description=_(u'Define the url where the logs can be uploaded.'),
         required=True
     )

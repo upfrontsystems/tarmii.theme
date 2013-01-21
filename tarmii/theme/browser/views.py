@@ -25,7 +25,7 @@ from zExceptions import Forbidden
 
 from tarmii.theme import MessageFactory as _
 from tarmii.theme.userdataschema import ITARMIIUserDataSchema
-from tarmii.theme.interfaces import ITARMIIRemoveServerSettings
+from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 
 class TARMIIUserDataConfiglet(UserDataConfiglet):
 
@@ -117,27 +117,27 @@ class TARMIIAddUserForm(AddUserForm):
         self.request.response.redirect(self.context.absolute_url())
 
 
-class TARMIIRemoveServerSettingsForm(RegistryEditForm):
+class TARMIIRemoteServerSettingsForm(RegistryEditForm):
 
-    schema = ITARMIIRemoveServerSettings
+    schema = ITARMIIRemoteServerSettings
     label = _(u'TARMII Remote Server Settings')
     description = _(u"Use the settings below to configure "
-                    u"tarmii remove server for this site")
+                    u"tarmii remote server for this site")
 
     def updateFields(self):
-        super(TARMIIRemoveServerSettingsForm, self).updateFields()
+        super(TARMIIRemoteServerSettingsForm, self).updateFields()
     
     def updateWidgets(self):
-        super(TARMIIRemoveServerSettingsForm, self).updateWidgets()
+        super(TARMIIRemoteServerSettingsForm, self).updateWidgets()
 
 
-class TARMIIRemoveServerControlPanel(grok.CodeView):
+class TARMIIRemoteServerControlPanel(grok.CodeView):
 
-    grok.name("remove-server-settings")
+    grok.name("remote-server-settings")
     grok.context(ISiteRoot)
 
     def render(self):
-        view_factor = layout.wrap_form(TARMIIRemoveServerSettingsForm,
+        view_factor = layout.wrap_form(TARMIIRemoteServerSettingsForm,
                                        ControlPanelFormWrapper)
         view = view_factor(self.context, self.request)
         return view()
