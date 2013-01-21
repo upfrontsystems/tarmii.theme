@@ -70,10 +70,7 @@ class ExportUserProfilesView(grok.View):
         return csv_content
 
     def __call__(self):
-        """ Export all user profiles with columns for all fields captured during 
-            registration as well as the first time the user logged as well as 
-            the last login time.
-            Return content as http response or return info IStatusMessage
+        """ Return csv content as http response or return info IStatusMessage
         """
 
         csv_content = self.user_profiles_csv()
