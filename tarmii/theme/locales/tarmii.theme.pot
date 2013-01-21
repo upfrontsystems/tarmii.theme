@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-09 11:48+0000\n"
+"POT-Creation-Date: 2013-01-21 19:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tarmii.theme\n"
 
-#: ./browser/custom_quick_upload.py:367
+#: ./browser/custom_quick_upload.py:369
 msgid " files uploaded with success, "
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:368
+#: ./browser/custom_quick_upload.py:370
 msgid " uploads return an error."
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:381
+#: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
@@ -49,11 +49,15 @@ msgstr ""
 msgid "Add evaluation sheet"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:364
-msgid "Add video "
+#: ./browser/templates/resources.pt:14
+msgid "Add resource"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:366
+msgid "Add video "
+msgstr ""
+
+#: ./browser/custom_quick_upload.py:368
 msgid "All files uploaded with success."
 msgstr ""
 
@@ -61,28 +65,32 @@ msgstr ""
 msgid "Check list"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:304
+#: ./browser/custom_quick_upload.py:306
 msgid "Choose audio files to upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:318
+#: ./browser/custom_quick_upload.py:320
 msgid "Choose file for upload: ${ext}"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:307
+#: ./browser/custom_quick_upload.py:309
 msgid "Choose flash files to upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:298
+#: ./browser/custom_quick_upload.py:300
 msgid "Choose images to upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:301
+#: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
 msgstr ""
 
 #: ./browser/feedback.py:44
 msgid "Contact Us"
+msgstr ""
+
+#: ./interfaces.py:36
+msgid "Define the url where the logs can be uploaded."
 msgstr ""
 
 #: ./browser/templates/assessments.pt:49
@@ -91,7 +99,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:365
+#: ./browser/custom_quick_upload.py:367
 msgid "Drag and drop files to upload"
 msgstr ""
 
@@ -99,7 +107,7 @@ msgstr ""
 msgid "EMIS"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:369
+#: ./browser/custom_quick_upload.py:371
 msgid "Failed"
 msgstr ""
 
@@ -107,15 +115,15 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:89
+#: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:91
+#: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
 msgstr ""
 
-#: ./interfaces.py:14
+#: ./interfaces.py:15
 msgid "Last version number"
 msgstr ""
 
@@ -123,7 +131,11 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ./userdataschema.py:42
+#: ./browser/exportuserprofiles.py:93
+msgid "No user profiles exist"
+msgstr ""
+
+#: ./userdataschema.py:41
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
@@ -131,11 +143,11 @@ msgstr ""
 msgid "Observation Sheet"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:377
+#: ./browser/custom_quick_upload.py:379
 msgid "Only allowed:"
 msgstr ""
 
-#: ./browser/views.py:85
+#: ./browser/views.py:109
 msgid "Profile created."
 msgstr ""
 
@@ -143,8 +155,16 @@ msgstr ""
 msgid "Province"
 msgstr ""
 
-#: ./userdataschema.py:37
+#: ./userdataschema.py:36
 msgid "Qualification"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+msgid "Remote Server Settings"
+msgstr ""
+
+#: ./interfaces.py:35
+msgid "Remote Server Url"
 msgstr ""
 
 #: ./behaviors.py:25
@@ -163,35 +183,39 @@ msgstr ""
 msgid "School Email"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:372
+#: ./browser/custom_quick_upload.py:374
 msgid "Selected elements contain an empty file or a folder:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:382
+#: ./browser/custom_quick_upload.py:384
 msgid "Server error, please contact support and/or try again."
+msgstr ""
+
+#: ./browser/views.py:123
+msgid "TARMII Remote Server Settings"
 msgstr ""
 
 #: ./browser/feedback.py:27
 msgid "The message body"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:380
+#: ./browser/custom_quick_upload.py:382
 msgid "This file already exists with the same name on server:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:376
+#: ./browser/custom_quick_upload.py:378
 msgid "This file has invalid extension:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:373
+#: ./browser/custom_quick_upload.py:375
 msgid "This file has no extension:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:374
+#: ./browser/custom_quick_upload.py:376
 msgid "This file is too large:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:379
+#: ./browser/custom_quick_upload.py:381
 msgid "This type of element is not allowed in this folder."
 msgstr ""
 
@@ -199,7 +223,11 @@ msgstr ""
 msgid "Thumbnail generation failed"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:378
+#: ./browser/views.py:124
+msgid "Use the settings below to configure tarmii remote server for this site"
+msgstr ""
+
+#: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
 msgstr ""
 
@@ -224,7 +252,7 @@ msgid "heading_add_to_assessment"
 msgstr ""
 
 #. Default: "Create Profile"
-#: ./browser/views.py:32
+#: ./browser/views.py:43
 msgid "heading_add_user_form"
 msgstr ""
 
@@ -254,7 +282,7 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:42
+#: ./browser/templates/activities.pt:43
 msgid "label_addtoassessment"
 msgstr ""
 
@@ -269,29 +297,34 @@ msgid "label_choose_assessment"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:40
+#: ./browser/templates/activities.pt:41
 msgid "label_edit"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:44
+#: ./browser/templates/activities.pt:45
 msgid "label_feedback"
 msgstr ""
 
 #. Default: "${medialabel} Quick Upload"
-#: ./browser/custom_quick_upload.py:93
+#: ./browser/custom_quick_upload.py:95
 msgid "label_media_quickupload"
 msgstr ""
 
 #. Default: "Register"
-#: ./browser/views.py:58
+#: ./browser/views.py:68
 msgid "label_register"
 msgstr ""
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:38
+#: ./browser/templates/activities.pt:39
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
+msgstr ""
+
+#. Default: "Create a new profile"
+#: ./browser/templates/selectprofile.pt:31
+msgid "link_create_new_profile"
 msgstr ""
 
 #. Default: "import learners to an existing/new class list."
@@ -299,7 +332,7 @@ msgstr ""
 msgid "link_importclasslist"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:375
+#: ./browser/custom_quick_upload.py:377
 msgid "maximum file size is:"
 msgstr ""
 
@@ -309,7 +342,7 @@ msgid "message_feedback_thankyou"
 msgstr ""
 
 #. Default: "No activities have been created yet."
-#: ./browser/templates/activities.pt:18
+#: ./browser/templates/activities.pt:19
 msgid "message_no_activities_exist"
 msgstr ""
 
@@ -358,11 +391,11 @@ msgstr ""
 msgid "message_willreply"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:370
+#: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:371
+#: ./browser/custom_quick_upload.py:373
 msgid "please try again."
 msgstr ""
 

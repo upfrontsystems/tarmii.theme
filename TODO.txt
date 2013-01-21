@@ -5,6 +5,7 @@ Edge cases for creating evaluationsheets when classlists is empty, or not activi
 We need to make sure that the views that return feedback using portal messages are doing so correctly. Some views need to only show an error message if there was an AJAX error.
 
 Translation issue - Custom portal messages are not being translated.
+Translation issue - when uploading the same video again - "x has been replaced" status message needs translating
 
 Outstanding interface translations including JS Tree based translations:
 
@@ -35,13 +36,13 @@ Import learners
 
 --------- TOPIC TREES & JS TREE translations ---
 
----------- uncategorized -----------
+---------- collective.quickupload (or tarmii.theme) ---
 
 Videos
-    Add Video button
+    Upload Files
+    Clear Queue
 
-Teacher resources
-    Add resource button
+--------- plone add form -----------
 
 Add file (Teacher resources)
     Browse button

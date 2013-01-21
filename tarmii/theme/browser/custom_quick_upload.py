@@ -33,7 +33,7 @@ except pkg_resources.DistributionNotFound:
     HAS_UUID = False
 
 import collective.quickupload.browser.ticket as ticketmod
-from collective.quickupload import siteMessageFactory as _
+#from collective.quickupload import siteMessageFactory as _
 from collective.quickupload import logger
 from collective.quickupload.browser.quickupload_settings import IQuickUploadControlPanel
 from collective.quickupload.interfaces import (
@@ -51,6 +51,8 @@ try :
 except ImportError:
     # plone 3.3
     import simplejson as json
+
+from tarmii.theme import MessageFactory as _
 
 class CustomQuickUploadView(QuickUploadView):
     """ Custom Quick Upload View

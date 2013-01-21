@@ -11,7 +11,7 @@
             
         <tal:addresource_visible condition="view/addresource_visible">
             <form id="add-button-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
-                <input class="allowMultiSubmit" type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path">
+                <input class="allowMultiSubmit" type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path" i18n:attributes="value">
             </form>
         </tal:addresource_visible>
 

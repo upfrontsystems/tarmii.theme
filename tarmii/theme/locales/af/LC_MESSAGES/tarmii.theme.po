@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-09 11:48+0000\n"
-"PO-Revision-Date: 2013-01-09 13:45+0200\n"
+"POT-Creation-Date: 2013-01-21 19:20+0000\n"
+"PO-Revision-Date: 2013-01-21 21:25+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -14,15 +14,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tarmii.theme\n"
 
-#: ./browser/custom_quick_upload.py:367
+#: ./browser/custom_quick_upload.py:369
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/custom_quick_upload.py:368
+#: ./browser/custom_quick_upload.py:370
 msgid " uploads return an error."
 msgstr "oplaai rapporteer 'n fout."
 
-#: ./browser/custom_quick_upload.py:381
+#: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
 msgstr "'n data basis konflik fout het gebeur toe die oplaai van die lêer:"
 
@@ -46,11 +46,15 @@ msgstr "Voeg Klaslys by"
 msgid "Add evaluation sheet"
 msgstr "Voeg evalueringsblad by"
 
-#: ./browser/custom_quick_upload.py:364
+#: ./browser/templates/resources.pt:14
+msgid "Add resource"
+msgstr "Voeg hulpbron by"
+
+#: ./browser/custom_quick_upload.py:366
 msgid "Add video "
 msgstr "Voeg video by"
 
-#: ./browser/custom_quick_upload.py:366
+#: ./browser/custom_quick_upload.py:368
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
@@ -58,23 +62,23 @@ msgstr "Alle lêers suksesvol gelaai is."
 msgid "Check list"
 msgstr "Kontrolelys"
 
-#: ./browser/custom_quick_upload.py:304
+#: ./browser/custom_quick_upload.py:306
 msgid "Choose audio files to upload"
 msgstr "Verkies die audio lêers om te laai"
 
-#: ./browser/custom_quick_upload.py:318
+#: ./browser/custom_quick_upload.py:320
 msgid "Choose file for upload: ${ext}"
 msgstr "Verkies die lêer om te laai: ${ext}"
 
-#: ./browser/custom_quick_upload.py:307
+#: ./browser/custom_quick_upload.py:309
 msgid "Choose flash files to upload"
 msgstr "Verkies die flash lêers om te laai"
 
-#: ./browser/custom_quick_upload.py:298
+#: ./browser/custom_quick_upload.py:300
 msgid "Choose images to upload"
 msgstr "Verkis die beelde om te laai"
 
-#: ./browser/custom_quick_upload.py:301
+#: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
 msgstr "Verkies die video lêers om te laai"
 
@@ -82,13 +86,17 @@ msgstr "Verkies die video lêers om te laai"
 msgid "Contact Us"
 msgstr "Kontak Ons"
 
+#: ./interfaces.py:36
+msgid "Define the url where the logs can be uploaded."
+msgstr "Definieer die url waar die logs kan opgelaai word"
+
 #: ./browser/templates/assessments.pt:49
 #: ./browser/templates/classlists.pt:39
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr "Verwyder"
 
-#: ./browser/custom_quick_upload.py:365
+#: ./browser/custom_quick_upload.py:367
 msgid "Drag and drop files to upload"
 msgstr "Sleep en die lêers te laai"
 
@@ -96,7 +104,7 @@ msgstr "Sleep en die lêers te laai"
 msgid "EMIS"
 msgstr "EMIS"
 
-#: ./browser/custom_quick_upload.py:369
+#: ./browser/custom_quick_upload.py:371
 msgid "Failed"
 msgstr "Versium"
 
@@ -104,15 +112,15 @@ msgstr "Versium"
 msgid "Feedback"
 msgstr "Terugvoer"
 
-#: ./browser/custom_quick_upload.py:89
+#: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
 msgstr "Lêers vinnig oplaai"
 
-#: ./browser/custom_quick_upload.py:91
+#: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
 msgstr "Beedle vinnig oplaai"
 
-#: ./interfaces.py:14
+#: ./interfaces.py:15
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
@@ -120,7 +128,11 @@ msgstr "Laaste veergawe nommer"
 msgid "Message"
 msgstr "Boodskap"
 
-#: ./userdataschema.py:42
+#: ./browser/exportuserprofiles.py:93
+msgid "No user profiles exist"
+msgstr "Geen gebruiker profile bestaan"
+
+#: ./userdataschema.py:41
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig grondslagfase"
 
@@ -128,11 +140,11 @@ msgstr "Aantal jare onderrig grondslagfase"
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
-#: ./browser/custom_quick_upload.py:377
+#: ./browser/custom_quick_upload.py:379
 msgid "Only allowed:"
 msgstr "Slegs toegelaat"
 
-#: ./browser/views.py:85
+#: ./browser/views.py:109
 msgid "Profile created."
 msgstr "Profiel geskep"
 
@@ -140,9 +152,17 @@ msgstr "Profiel geskep"
 msgid "Province"
 msgstr "Provinsie"
 
-#: ./userdataschema.py:37
+#: ./userdataschema.py:36
 msgid "Qualification"
 msgstr "Kwalifikasie"
+
+#: ./profiles/default/controlpanel.xml
+msgid "Remote Server Settings"
+msgstr "Remote Server Stellings"
+
+#: ./interfaces.py:35
+msgid "Remote Server Url"
+msgstr "Remote Server Url"
 
 #: ./behaviors.py:25
 msgid "Rubric"
@@ -160,35 +180,39 @@ msgstr "Skool Kontak Nommer"
 msgid "School Email"
 msgstr "Skool Email"
 
-#: ./browser/custom_quick_upload.py:372
+#: ./browser/custom_quick_upload.py:374
 msgid "Selected elements contain an empty file or a folder:"
 msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 
-#: ./browser/custom_quick_upload.py:382
+#: ./browser/custom_quick_upload.py:384
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
+
+#: ./browser/views.py:123
+msgid "TARMII Remote Server Settings"
+msgstr "TARMII Remove Server Stellings"
 
 #: ./browser/feedback.py:27
 msgid "The message body"
 msgstr "Die boodskap teks"
 
-#: ./browser/custom_quick_upload.py:380
+#: ./browser/custom_quick_upload.py:382
 msgid "This file already exists with the same name on server:"
 msgstr "Hierdie lêer reeds bestaan met dieselfde naam op die bediener:"
 
-#: ./browser/custom_quick_upload.py:376
+#: ./browser/custom_quick_upload.py:378
 msgid "This file has invalid extension:"
 msgstr "Hierdie lêer het 'n ongeldige uitbreiding:"
 
-#: ./browser/custom_quick_upload.py:373
+#: ./browser/custom_quick_upload.py:375
 msgid "This file has no extension:"
 msgstr "Hierdie lêer het geen uitbreiding:"
 
-#: ./browser/custom_quick_upload.py:374
+#: ./browser/custom_quick_upload.py:376
 msgid "This file is too large:"
 msgstr "Hierdie lêer is te groot:"
 
-#: ./browser/custom_quick_upload.py:379
+#: ./browser/custom_quick_upload.py:381
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
@@ -196,7 +220,11 @@ msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
 
-#: ./browser/custom_quick_upload.py:378
+#: ./browser/views.py:124
+msgid "Use the settings below to configure tarmii remote server for this site"
+msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
+
+#: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
 msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
 
@@ -221,7 +249,7 @@ msgid "heading_add_to_assessment"
 msgstr "Voeg aktiwiteit by assessering"
 
 #. Default: "Create Profile"
-#: ./browser/views.py:32
+#: ./browser/views.py:43
 msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
@@ -251,7 +279,7 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:42
+#: ./browser/templates/activities.pt:43
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -266,37 +294,42 @@ msgid "label_choose_assessment"
 msgstr "Kies bestaande assessering:"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:40
+#: ./browser/templates/activities.pt:41
 msgid "label_edit"
 msgstr "Redigeer"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:44
+#: ./browser/templates/activities.pt:45
 msgid "label_feedback"
 msgstr "Terugvoer"
 
 #. Default: "${medialabel} Quick Upload"
-#: ./browser/custom_quick_upload.py:93
+#: ./browser/custom_quick_upload.py:95
 msgid "label_media_quickupload"
 msgstr "${medialabel} Vinnig Oplaai"
 
 #. Default: "Register"
-#: ./browser/views.py:58
+#: ./browser/views.py:68
 msgid "label_register"
 msgstr "Registreer"
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:38
+#: ./browser/templates/activities.pt:39
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr "Sien"
+
+#. Default: "Create a new profile"
+#: ./browser/templates/selectprofile.pt:31
+msgid "link_create_new_profile"
+msgstr "Skep 'n nuwe profil"
 
 #. Default: "import learners to an existing/new class list."
 #: ./browser/templates/classlists.pt:13
 msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
 
-#: ./browser/custom_quick_upload.py:375
+#: ./browser/custom_quick_upload.py:377
 msgid "maximum file size is:"
 msgstr "maksimum lêer grootte is:"
 
@@ -306,7 +339,7 @@ msgid "message_feedback_thankyou"
 msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
 
 #. Default: "No activities have been created yet."
-#: ./browser/templates/activities.pt:18
+#: ./browser/templates/activities.pt:19
 msgid "message_no_activities_exist"
 msgstr "Geen aktiwiteite is nog geskep."
 
@@ -355,11 +388,11 @@ msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 msgid "message_willreply"
 msgstr "Ons sal binnekort antwoord."
 
-#: ./browser/custom_quick_upload.py:370
+#: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."
 msgstr "kies asseblief lêers weer sonder dit."
 
-#: ./browser/custom_quick_upload.py:371
+#: ./browser/custom_quick_upload.py:373
 msgid "please try again."
 msgstr "probeer asseblief weer"
 
