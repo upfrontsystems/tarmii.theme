@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-21 19:20+0000\n"
+"POT-Creation-Date: 2013-01-21 19:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,6 +296,21 @@ msgstr ""
 msgid "label_choose_assessment"
 msgstr ""
 
+#. Default: "Drag and drop or choose your files:"
+#: ./browser/templates/quick_upload.pt:19
+msgid "label_choose_your_files"
+msgstr ""
+
+#. Default: "Choose your files:"
+#: ./browser/templates/quick_upload.pt:22
+msgid "label_choose_your_files_nodrag"
+msgstr ""
+
+#. Default: "Clear Queue"
+#: ./browser/templates/quick_upload.pt:47
+msgid "label_clear_queue"
+msgstr ""
+
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:41
 msgid "label_edit"
@@ -314,6 +329,11 @@ msgstr ""
 #. Default: "Register"
 #: ./browser/views.py:68
 msgid "label_register"
+msgstr ""
+
+#. Default: "Upload Files"
+#: ./browser/templates/quick_upload.pt:41
+msgid "label_upload_files"
 msgstr ""
 
 #. Default: "View"

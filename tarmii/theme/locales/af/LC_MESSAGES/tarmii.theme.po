@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-21 19:20+0000\n"
-"PO-Revision-Date: 2013-01-21 21:25+0200\n"
+"POT-Creation-Date: 2013-01-21 19:56+0000\n"
+"PO-Revision-Date: 2013-01-21 22:00+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -293,6 +293,21 @@ msgstr "bytes"
 msgid "label_choose_assessment"
 msgstr "Kies bestaande assessering:"
 
+#. Default: "Drag and drop or choose your files:"
+#: ./browser/templates/quick_upload.pt:19
+msgid "label_choose_your_files"
+msgstr "Sleep en neersit of kies jou lêers:"
+
+#. Default: "Choose your files:"
+#: ./browser/templates/quick_upload.pt:22
+msgid "label_choose_your_files_nodrag"
+msgstr "Kies jou lêers:"
+
+#. Default: "Clear Queue"
+#: ./browser/templates/quick_upload.pt:47
+msgid "label_clear_queue"
+msgstr "Maak die tou skoon"
+
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:41
 msgid "label_edit"
@@ -312,6 +327,11 @@ msgstr "${medialabel} Vinnig Oplaai"
 #: ./browser/views.py:68
 msgid "label_register"
 msgstr "Registreer"
+
+#. Default: "Upload Files"
+#: ./browser/templates/quick_upload.pt:41
+msgid "label_upload_files"
+msgstr "Laai 'n lêer"
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:39

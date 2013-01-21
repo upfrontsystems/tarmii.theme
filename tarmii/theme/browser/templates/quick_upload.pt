@@ -10,7 +10,7 @@
 
 
 <div class="quick-uploader"
-     i18n:domain="collective.quickupload">
+     i18n:domain="tarmii.theme">
     <div tal:define="uploader_id view/uploader_id">
       <h4 class="pannelHeader"
           tal:content="view/header_upload">
