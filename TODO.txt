@@ -1,4 +1,4 @@
-Outstanding interface translations including JS Tree based translations.
+Select profile is currently not acting as the default page when one is not-logged in
 
 Edge cases for creating evaluationsheets when classlists is empty, or not activities are associated with the relevant assessment
 
@@ -6,10 +6,7 @@ We need to make sure that the views that return feedback using portal messages a
 
 Translation issue - Custom portal messages are not being translated.
 
-
-
-
-Translations:
+Outstanding interface translations including JS Tree based translations:
 
 ---------- upfront.assessmentitem -----------
 
