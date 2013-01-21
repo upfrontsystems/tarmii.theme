@@ -36,12 +36,6 @@ Import learners
 
 --------- TOPIC TREES & JS TREE translations ---
 
----------- collective.quickupload (or tarmii.theme) ---
-
-Videos
-    Upload Files
-    Clear Queue
-
 --------- plone add form -----------
 
 Add file (Teacher resources)
