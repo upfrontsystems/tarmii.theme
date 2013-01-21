@@ -9,7 +9,7 @@ from plone.registry.interfaces import IRegistry
 
 from Products.CMFPlone.utils import getToolByName
 
-from tarmii.theme.interfaces import ITARMIIRemoveServerSettings
+from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
 
 class UploadToServerView(grok.View):
