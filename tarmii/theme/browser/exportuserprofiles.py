@@ -19,7 +19,7 @@ class ExportUserProfilesView(grok.View):
     grok.name('export-user-profiles')
     grok.require('zope2.View')
 
-    def __call__(self):
+    def user_profiles_csv(self):
         """ Export all user profiles with columns for all fields captured during 
             registration as well as the first time the user logged as well as 
             the last login time.
@@ -67,6 +67,18 @@ class ExportUserProfilesView(grok.View):
             csv_content = profiles_csv.getvalue()
             profiles_csv.close()
 
+        return csv_content
+
+    def __call__(self):
+        """ Export all user profiles with columns for all fields captured during 
+            registration as well as the first time the user logged as well as 
+            the last login time.
+            Return content as http response or return info IStatusMessage
+        """
+
+        csv_content = self.user_profiles_csv()
+
+        if csv_content is not None:
             now = DateTime()
             nice_filename = '%s_%s' % ('userprofiles_', now.strftime('%Y%m%d'))
 
@@ -79,12 +91,14 @@ class ExportUserProfilesView(grok.View):
                                             DateTime.rfc822(DateTime()))
             self.request.response.setHeader("Cache-Control", "no-store")
             self.request.response.setHeader("Pragma", "no-cache")
-
             self.request.response.write(csv_content)
-
         else:
             msg = _('No user profiles exist')
             IStatusMessage(self.request).addStatusMessage(msg,"info")
+
+        # redirect to show the info message
+        self.request.response.redirect(
+                '/'.join(self.context.getPhysicalPath()))
 
         return csv_content
 
