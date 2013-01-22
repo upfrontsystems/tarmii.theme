@@ -1,5 +1,6 @@
 from cStringIO import StringIO
 from DateTime import DateTime
+import httplib
 import zipfile
 
 from five import grok
@@ -79,11 +80,26 @@ class UploadToServerView(grok.View):
         
         # get settings
         registry = getUtility(IRegistry)
-        settings = registry.forInterface(ITARMIIRemoveServerSettings)
-        # settings.server_url
+        settings = registry.forInterface(ITARMIIRemoteServerSettings)
+        host = settings.server_url
 
-        # send zip data to server 
+        # send zip data to server
+        h = httplib.HTTP(host)
+        h.putrequest('POST', selector)
+        now = DateTime()
+        nice_filename = '%s_%s' % ('tarmii_logs_',now.strftime('%Y%m%d'))
+        h.putheader("Content-Disposition", "attachment; filename=%s.zip" % 
+                                            nice_filename)
+        h.putheader('Content-Type', 'application/octet-stream')
+        h.putheader('Content-Length', str(len(zip_data)))
+        h.putheader('Last-Modified', DateTime.rfc822(DateTime()))
+        h.endheaders()
 
+        body = '\r\n' + zip_data
+        h.send(body)
+        errcode, errmsg, headers = h.getreply()
+
+        return h.file.read()
 
 
     def render(self):
