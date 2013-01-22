@@ -38,7 +38,7 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
         acl.session._setupSession(username,self.request.RESPONSE)
 
         view = self.portal.restrictedTraverse('@@export-user-profiles')
-        test_out = view()
+        test_out = view.user_profiles_csv()
 
         csv_ref = 'test_user_1_,,,,,,,,,,01/01/2000 00:00:00\r\n' +\
                   'testuser2,Test User2,testuser2@email.com,CoolSchool,' +\
@@ -65,7 +65,7 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
                       'years_teaching': '2',
                      }                       
 
-        security_adapter =  ISecuritySchema(self.portal)
+        security_adapter     =  ISecuritySchema(self.portal)
         # enable self-registration of users
         security_adapter.set_enable_self_reg(True)
 
