@@ -9,5 +9,6 @@
         <dependency>profile-upfront.pagetracker:default</dependency>
         <dependency>profile-collective.topictree:default</dependency>
         <dependency>profile-collective.quickupload:default</dependency>
+        <dependency>profile-collective.z3cform.datagridfield:default</dependency>
     </dependencies>
 </metadata>
