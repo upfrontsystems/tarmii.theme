@@ -7,6 +7,12 @@ We need to make sure that the views that return feedback using portal messages a
 Translation issue - Custom portal messages are not being translated.
 Translation issue - when uploading the same video again - "x has been replaced" status message needs translating
 
+Validation messages need translating (while adding assessment items)
+- Fout: there were some errors
+- Required input is missing.
+
+All User interface that is coming out of the theme - needs translations
+
 Outstanding interface translations including JS Tree based translations:
 
 ---------- upfront.assessmentitem -----------
@@ -20,9 +26,7 @@ Edit Assessment Item:
 
     TinyMCE - Edit without visual editor link
 
-    Answers heading
     Save, Cancel buttons
-    Topics heading
     Browse button
 
 Select existing introduction

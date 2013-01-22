@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-21 19:56+0000\n"
+"POT-Creation-Date: 2013-01-22 17:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:20
+#: ./behaviors.py:22
 msgid "Check list"
 msgstr ""
 
@@ -123,6 +123,10 @@ msgstr ""
 msgid "Images Quick Upload"
 msgstr ""
 
+#: ./behaviors.py:36
+msgid "Label"
+msgstr ""
+
 #: ./interfaces.py:15
 msgid "Last version number"
 msgstr ""
@@ -139,7 +143,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:15
+#: ./behaviors.py:17
 msgid "Observation Sheet"
 msgstr ""
 
@@ -159,6 +163,14 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
+#: ./behaviors.py:37
+msgid "Rating"
+msgstr ""
+
+#: ./behaviors.py:50
+msgid "Rating scale"
+msgstr ""
+
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
 msgstr ""
@@ -167,7 +179,7 @@ msgstr ""
 msgid "Remote Server Url"
 msgstr ""
 
-#: ./behaviors.py:25
+#: ./behaviors.py:27
 msgid "Rubric"
 msgstr ""
 

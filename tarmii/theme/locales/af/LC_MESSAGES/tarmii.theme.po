@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-21 19:56+0000\n"
-"PO-Revision-Date: 2013-01-21 22:00+0200\n"
+"POT-Creation-Date: 2013-01-22 17:53+0000\n"
+"PO-Revision-Date: 2013-01-22 20:00+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
-#: ./behaviors.py:20
+#: ./behaviors.py:22
 msgid "Check list"
 msgstr "Kontrolelys"
 
@@ -120,6 +120,10 @@ msgstr "Lêers vinnig oplaai"
 msgid "Images Quick Upload"
 msgstr "Beedle vinnig oplaai"
 
+#: ./behaviors.py:36
+msgid "Label"
+msgstr "Etiket"
+
 #: ./interfaces.py:15
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
@@ -136,7 +140,7 @@ msgstr "Geen gebruiker profile bestaan"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig grondslagfase"
 
-#: ./behaviors.py:15
+#: ./behaviors.py:17
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
@@ -156,6 +160,14 @@ msgstr "Provinsie"
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
+#: ./behaviors.py:37
+msgid "Rating"
+msgstr "Gradering"
+
+#: ./behaviors.py:50
+msgid "Rating scale"
+msgstr "Graderingskaal"
+
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
 msgstr "Remote Server Stellings"
@@ -164,7 +176,7 @@ msgstr "Remote Server Stellings"
 msgid "Remote Server Url"
 msgstr "Remote Server Url"
 
-#: ./behaviors.py:25
+#: ./behaviors.py:27
 msgid "Rubric"
 msgstr "Rubriek"
 

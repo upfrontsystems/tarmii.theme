@@ -33,21 +33,21 @@ class IRatingFieldSchema(Interface):
         value.
     """
 
-    label = schema.TextLine(title=u"Label")
-    rating = schema.Int(title=u"Rating")
+    label = schema.TextLine(title=_(u"Label"))
+    rating = schema.Int(title=_(u"Rating"))
 
 class IRating(form.Schema):
     """ Behavior that enables each assessmentitem to set its rating scale/range.
     """
 
     form.fieldset('rating',
-            label=u"Rating",
+            label=_(u"Rating"),
             fields=['rating_scale']
         )
 
     form.widget(rating_scale=DataGridFieldFactory)
     rating_scale = schema.List(
-            title=u"Rating scale",
+            title=_(u"Rating scale"),
             value_type=DictRow(title=u"tablerow", schema=IRatingFieldSchema)
         )
 
