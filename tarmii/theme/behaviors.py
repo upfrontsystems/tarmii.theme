@@ -49,10 +49,10 @@ class IRating(form.Schema):
     rating_scale = schema.List(
             title=_(u"Rating scale"),
             value_type=DictRow(title=u"tablerow", schema=IRatingFieldSchema),
-            default= [{'rating': 4, 'label': u'Excellent'},
-                      {'rating': 3, 'label': u'Good'},
-                      {'rating': 2, 'label': u'Satisfactory'},
-                      {'rating': 1, 'label': u'Need improvement'}]
+            default= [{'rating': 4, 'label': _(u'Excellent')},
+                      {'rating': 3, 'label': _(u'Good')},
+                      {'rating': 2, 'label': _(u'Satisfactory')},
+                      {'rating': 1, 'label': _(u'Needs improvement')}]
         )
 
 

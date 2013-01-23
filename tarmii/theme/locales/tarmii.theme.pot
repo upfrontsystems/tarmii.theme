@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-22 17:53+0000\n"
+"POT-Creation-Date: 2013-01-23 12:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,6 +107,10 @@ msgstr ""
 msgid "EMIS"
 msgstr ""
 
+#: ./behaviors.py:52
+msgid "Excellent"
+msgstr ""
+
 #: ./browser/custom_quick_upload.py:371
 msgid "Failed"
 msgstr ""
@@ -117,6 +121,10 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
+msgstr ""
+
+#: ./behaviors.py:53
+msgid "Good"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:93
@@ -133,6 +141,10 @@ msgstr ""
 
 #: ./browser/feedback.py:26
 msgid "Message"
+msgstr ""
+
+#: ./behaviors.py:55
+msgid "Needs improvement"
 msgstr ""
 
 #: ./browser/exportuserprofiles.py:93
@@ -181,6 +193,10 @@ msgstr ""
 
 #: ./behaviors.py:27
 msgid "Rubric"
+msgstr ""
+
+#: ./behaviors.py:54
+msgid "Satisfactory"
 msgstr ""
 
 #: ./userdataschema.py:11

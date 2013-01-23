@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-22 17:53+0000\n"
+"POT-Creation-Date: 2013-01-23 12:17+0000\n"
 "PO-Revision-Date: 2013-01-22 20:00+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +104,10 @@ msgstr "Sleep en die lêers te laai"
 msgid "EMIS"
 msgstr "EMIS"
 
+#: ./behaviors.py:52
+msgid "Excellent"
+msgstr "Uitstekend"
+
 #: ./browser/custom_quick_upload.py:371
 msgid "Failed"
 msgstr "Versium"
@@ -115,6 +119,10 @@ msgstr "Terugvoer"
 #: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
 msgstr "Lêers vinnig oplaai"
+
+#: ./behaviors.py:53
+msgid "Good"
+msgstr "Goed"
 
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
@@ -131,6 +139,10 @@ msgstr "Laaste veergawe nommer"
 #: ./browser/feedback.py:26
 msgid "Message"
 msgstr "Boodskap"
+
+#: ./behaviors.py:55
+msgid "Needs improvement"
+msgstr "Benodig verbetering"
 
 #: ./browser/exportuserprofiles.py:93
 msgid "No user profiles exist"
@@ -179,6 +191,10 @@ msgstr "Remote Server Url"
 #: ./behaviors.py:27
 msgid "Rubric"
 msgstr "Rubriek"
+
+#: ./behaviors.py:54
+msgid "Satisfactory"
+msgstr "Bevredigend"
 
 #: ./userdataschema.py:11
 msgid "School"
