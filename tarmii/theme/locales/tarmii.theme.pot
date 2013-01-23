@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-23 12:17+0000\n"
+"POT-Creation-Date: 2013-01-23 20:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,15 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:22
+#: ./behaviors.py:75
+msgid "All rating values must be positive and larger than zero."
+msgstr ""
+
+#: ./behaviors.py:78
+msgid "All rating values must be unique."
+msgstr ""
+
+#: ./behaviors.py:25
 msgid "Check list"
 msgstr ""
 
@@ -107,7 +115,7 @@ msgstr ""
 msgid "EMIS"
 msgstr ""
 
-#: ./behaviors.py:52
+#: ./behaviors.py:55
 msgid "Excellent"
 msgstr ""
 
@@ -123,7 +131,7 @@ msgstr ""
 msgid "Files Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:53
+#: ./behaviors.py:56
 msgid "Good"
 msgstr ""
 
@@ -131,7 +139,7 @@ msgstr ""
 msgid "Images Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:36
+#: ./behaviors.py:39
 msgid "Label"
 msgstr ""
 
@@ -143,7 +151,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ./behaviors.py:55
+#: ./behaviors.py:58
 msgid "Needs improvement"
 msgstr ""
 
@@ -155,7 +163,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:17
+#: ./behaviors.py:20
 msgid "Observation Sheet"
 msgstr ""
 
@@ -175,11 +183,11 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
-#: ./behaviors.py:37
+#: ./behaviors.py:40
 msgid "Rating"
 msgstr ""
 
-#: ./behaviors.py:50
+#: ./behaviors.py:53
 msgid "Rating scale"
 msgstr ""
 
@@ -191,11 +199,11 @@ msgstr ""
 msgid "Remote Server Url"
 msgstr ""
 
-#: ./behaviors.py:27
+#: ./behaviors.py:30
 msgid "Rubric"
 msgstr ""
 
-#: ./behaviors.py:54
+#: ./behaviors.py:57
 msgid "Satisfactory"
 msgstr ""
 
