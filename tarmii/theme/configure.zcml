@@ -47,4 +47,11 @@
         for="plone.dexterity.interfaces.IDexterityContent"
         />
 
+    <plone:behavior
+        title="Behavior that allows a custom rating scale to be set"
+        description="Behavior that allows a custom rating scale to be set"
+        provides=".behaviors.IRating"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
 </configure>
