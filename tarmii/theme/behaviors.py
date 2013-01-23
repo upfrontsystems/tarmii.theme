@@ -48,8 +48,14 @@ class IRating(form.Schema):
     form.widget(rating_scale=DataGridFieldFactory)
     rating_scale = schema.List(
             title=_(u"Rating scale"),
-            value_type=DictRow(title=u"tablerow", schema=IRatingFieldSchema)
+            value_type=DictRow(title=u"tablerow", schema=IRatingFieldSchema),
+            default= [{'rating': 4, 'label': u'Excellent'},
+                      {'rating': 3, 'label': u'Good'},
+                      {'rating': 2, 'label': u'Satisfactory'},
+                      {'rating': 1, 'label': u'Need improvement'}]
         )
+
+
 
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
