@@ -10,6 +10,7 @@ Translation issue - when uploading the same video again - "x has been replaced" 
 Validation messages need translating (while adding assessment items)
 - Fout: there were some errors
 - Required input is missing.
+- When IRating Validator throw invalid it causes two portal messages to appear (also untranslated)
 
 All User interface that is coming out of the theme - needs translations
 
