@@ -13,6 +13,8 @@ Validation messages need translating (while adding assessment items)
 
 All User interface that is coming out of the theme - needs translations
 
+Default content of rating_scale datagridfield is not being translated.
+
 Outstanding interface translations including JS Tree based translations:
 
 ---------- upfront.assessmentitem -----------
