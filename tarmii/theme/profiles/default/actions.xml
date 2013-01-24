@@ -11,7 +11,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
@@ -35,7 +35,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
@@ -47,7 +47,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
@@ -59,7 +59,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
@@ -71,7 +71,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
@@ -83,7 +83,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
@@ -95,7 +95,7 @@
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">
-                <element value="View"/>
+                <element value="Set own properties"/>
             </property>
             <property name="visible">True</property>
         </object>
