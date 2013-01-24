@@ -48,7 +48,8 @@ class SelectProfileView(grok.View):
     def create_profile_link(self):
         """ Return url to view used for creating new profiles
         """
-        return '%s/@@tarmii-new-user' % self.context.absolute_url()
+        portal_url = getToolByName(self.context, 'portal_url')()
+        return '%s/@@tarmii-new-user' % portal_url
 
     def select_profile_url(self):
         """ Return url to self
