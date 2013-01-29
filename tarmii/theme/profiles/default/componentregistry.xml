@@ -5,5 +5,9 @@
             interface="plone.app.users.userdataschema.IUserDataSchemaProvider"
             factory="tarmii.theme.userdataschema.UserDataSchemaProvider"
             />
+        <utility
+            interface="tarmii.theme.interfaces.ISiteData"
+            factory="tarmii.theme.utilities.SiteData"
+            />
     </utilities>
 </componentregistry>

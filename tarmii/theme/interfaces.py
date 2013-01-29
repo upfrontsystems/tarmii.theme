@@ -36,3 +36,11 @@ class ITARMIIRemoteServerSettings(Interface):
         description=_(u'Define the url where the logs can be uploaded.'),
         required=True
     )
+
+
+class ISiteData(Interface):
+    """ A utility used to extract data from a zip file on the request, store it,
+        and return sorted contents in a dictionary format
+    """
+
+
