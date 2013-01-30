@@ -9,6 +9,10 @@ We need to make sure that the views that return feedback using portal messages a
 Translation issue - Custom portal messages are not being translated.
 Translation issue - when uploading the same video again - "x has been replaced" status message needs translating
 
+Translation issue - When assessment item is created correctly - info message is in english: 'Item Created'
+Translation issue - Upon creating of assessment item the month of creating is in english as is the workflow_state ('internally_published')
+30 January 2013 0 punte 0 minute internally_published
+
 Validation messages need translating (while adding assessment items)
 - Fout: there were some errors
 - Required input is missing.
