@@ -53,7 +53,8 @@ class UploadToServerView(grok.View):
 
         return in_memory_zip.read()
 
-    def __call__(self):
+    # XXX - temporarily bypassed
+    def no__call__(self):
         """ Return zip content as http response
         """
 
@@ -72,7 +73,8 @@ class UploadToServerView(grok.View):
         self.request.response.setHeader("Pragma", "no-cache")
         self.request.response.write(zip_data)
 
-    def upload_to_server(self):
+    def __call__(self):
+#    def upload_to_server(self): # XXX temporarily used as __call__ method
         """ Post the zipfile to the remote url as set up in the configlet.
         """
 
@@ -81,7 +83,14 @@ class UploadToServerView(grok.View):
         # get settings
         registry = getUtility(IRegistry)
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
-        host = settings.server_url
+
+        delimiter_index = settings.server_url.find('/')
+        if delimiter_index != -1:
+            host = settings.server_url[0:delimiter_index]
+            selector = settings.server_url[delimiter_index:]
+        else:
+            host = settings.server_url[0:]
+            selector = ''
 
         # send zip data to server
         h = httplib.HTTP(host)
@@ -98,8 +107,6 @@ class UploadToServerView(grok.View):
         body = '\r\n' + zip_data
         h.send(body)
         errcode, errmsg, headers = h.getreply()
-
-        return h.file.read()
 
 
     def render(self):
