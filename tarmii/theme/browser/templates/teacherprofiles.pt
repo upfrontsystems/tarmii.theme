@@ -11,7 +11,56 @@
     
         <h1>TEACHER PROFILES</h1>
 
-        <div>here we will display the teacher data</div>
+        <tal:showprovinces tal:condition="view/show_provinces">
+            <div>Provinces:</div>
+            <ul tal:repeat="province view/provinces">
+                <a tal:content="province" tal:attributes="href string:${view/context_path}/@@teacher-profiles?province=${province}">
+                </a>
+            </ul>
+        </tal:showprovinces>
+
+        <tal:showschools tal:condition="view/show_schools">
+            <a tal:attributes="href string:${view/context_path}/@@teacher-profiles">Back to provinces</a>
+            <div>&nbsp;</div>
+            <div>Schools:</div>            
+            <ul tal:repeat="school view/schools">
+                <a tal:content="school" tal:attributes="href string:${view/context_path}/@@teacher-profiles?province=${view/province_request}&school=${school}">
+                </a>
+            </ul>
+        </tal:showschools>
+
+        <tal:showteachers tal:condition="view/show_teachers">
+            <a tal:attributes="href string:${view/context_path}/@@teacher-profiles?province=${view/province_request}">Back to schools</a>
+            <div>&nbsp;</div>
+            <div>Teachers:</div>
+            <table class="listing">
+                <tr> 
+                    <th>Full Name</th>
+                    <th>Teacher EMIS</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Qualification</th>
+                    <th>Years teaching</th>
+                    <th>Last Login time</th>
+                </tr>
+                <tr tal:repeat="teacher view/teachers">
+                    <td tal:content="teacher/fullname">
+                    </td>
+                    <td tal:content="teacher/EMIS">
+                    </td>
+                    <td tal:content="teacher/username">
+                    </td>
+                    <td tal:content="teacher/email">
+                    </td>                        
+                    <td tal:content="teacher/qualification">
+                    </td>
+                    <td tal:content="teacher/years_teaching">
+                    </td>
+                    <td tal:content="teacher/last_login">
+                    </td>                       
+                </tr>  
+            </table>
+        </tal:showteachers>
 
     </metal:main>
 </body>

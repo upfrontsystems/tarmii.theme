@@ -55,9 +55,7 @@ class SiteData(Persistent):
         users = StringIO()
         for filename in zf.namelist():
             if filename == 'users.csv':
-                print filename
                 bytes = zf.read(filename)
-                print len(bytes)
                 users.write(bytes)
 
         users.seek(0)
