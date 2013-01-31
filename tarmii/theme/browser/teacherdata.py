@@ -1,4 +1,3 @@
-from cStringIO import StringIO
 from five import grok
 from zope.interface import Interface
 from zope.component import getUtility
@@ -15,7 +14,6 @@ class TeacherDataView(grok.View):
     def __call__(self):
         """ store a file that is present on the request in a persistent utility
         """
-
         zipped_data = self.request.get('BODY')
         sitedata = getUtility(ISiteData)
         sitedata.store_data(zipped_data)
