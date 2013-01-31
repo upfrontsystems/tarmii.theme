@@ -377,7 +377,7 @@ msgstr "Redigeer"
 #. Default: "Email"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_email"
-msgstr "e-pos"
+msgstr "E-pos"
 
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:45

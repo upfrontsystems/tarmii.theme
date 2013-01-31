@@ -9,12 +9,8 @@ from tarmii.theme.interfaces import ISiteData
 
 grok.templatedir('templates')
 
-class Teacher:
-    def __init__(self):
-        self.data = []
-
 class TeacherProfilesView(grok.View):
-    """ View for teacher profiles
+    """ View to display teacher profile organised by province and school
     """
     grok.context(Interface)
     grok.name('teacher-profiles')
@@ -22,9 +18,9 @@ class TeacherProfilesView(grok.View):
     grok.require('zope2.View')
 
     def update(self, **kwargs):
+        """ get teacher data from utility each time the template is rendered """
 
         sitedata = getUtility(ISiteData)
-
         # display the dictionary nicely
 #        self.teacher_data = sitedata.extract_teacher_data()
 
@@ -36,22 +32,19 @@ class TeacherProfilesView(grok.View):
         return
 
     def show_provinces(self):
-        """ show teachers if both province and school are NOT on the request 
-        """
+        """ show teachers if both province and school are NOT on the request """
         province = bool(self.request.has_key('province'))
         school = bool(self.request.has_key('school'))
         return not province and not school
 
     def show_schools(self):
-        """ show schools if province are on and schools are NOT on the request 
-        """
+        """ show schools if province is on and school is NOT on the request """
         province = bool(self.request.has_key('province'))
         school = bool(self.request.has_key('school'))
         return province and not school
 
     def show_teachers(self):
-        """ show teachers if both province and school are on the request 
-        """
+        """ show teachers if both province and school are on the request """
         province = bool(self.request.has_key('province'))
         school = bool(self.request.has_key('school'))
         return province and school
@@ -69,8 +62,7 @@ class TeacherProfilesView(grok.View):
         return self.request.get('school')
 
     def provinces(self):
-        """ return all provinces from teacher_data object
-        """
+        """ return all provinces from teacher_data object """
         province_list = []
         for province in range(len(self.teacher_data.items())):
             province_list.append(self.teacher_data.items()[province][0])
@@ -78,8 +70,7 @@ class TeacherProfilesView(grok.View):
         return province_list
 
     def schools(self):
-        """ return all schools in current province from teacher_data object
-        """
+        """ return all schools in current province from teacher_data object """
         school_list = []
         province = self.request.get('province')
         for school in range(len(self.teacher_data[province].items())):
@@ -88,7 +79,7 @@ class TeacherProfilesView(grok.View):
         return school_list
 
     def teachers(self):
-        """ return all teachers in current school+provinces from teacher_data
+        """ return all teachers in current school+provinces from teacher_data 
             object
         """
         teacher_list = []
@@ -106,4 +97,12 @@ class TeacherProfilesView(grok.View):
             t_obj.last_login = t_data[teacher][1]['last_login_time']
             teacher_list.append(t_obj)
         return teacher_list
+
+
+class Teacher:
+    """ A class that is used to store teacher attributes for displaying
+        in a template. Attributes are defined dynamically in the method
+    """
+    def __init__(self):
+        pass
 
