@@ -41,7 +41,7 @@
                     <th i18n:translate="label_email">Email</th>
                     <th i18n:translate="label_qualification">Qualification</th>
                     <th i18n:translate="label_years_teaching">Years teaching</th>
-                    <th i18n:translate="label_last_login_time">Last Login time</th>
+                    <th i18n:translate="label_last_login_time">Last login time</th>
                 </tr>
                 <tr tal:repeat="teacher view/teachers">
                     <td tal:content="teacher/fullname">

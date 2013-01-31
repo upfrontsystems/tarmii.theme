@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-23 20:00+0000\n"
+"POT-Creation-Date: 2013-01-31 11:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -302,6 +302,16 @@ msgstr ""
 msgid "heading_classlist"
 msgstr ""
 
+#. Default: "Provinces:"
+#: ./browser/templates/teacherprofiles.pt:15
+msgid "heading_provinces"
+msgstr ""
+
+#. Default: "Schools:"
+#: ./browser/templates/teacherprofiles.pt:25
+msgid "heading_schools"
+msgstr ""
+
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:12
 msgid "heading_select_profile"
@@ -310,6 +320,21 @@ msgstr ""
 #. Default: "Teacher resources for ${topictitle}"
 #: ./browser/templates/topicresources.pt:12
 msgid "heading_teacher_resource_title"
+msgstr ""
+
+#. Default: "TEACHER PROFILES"
+#: ./browser/templates/teacherprofiles.pt:12
+msgid "heading_teacherprofiles"
+msgstr ""
+
+#. Default: "Teachers:"
+#: ./browser/templates/teacherprofiles.pt:35
+msgid "heading_teachers"
+msgstr ""
+
+#. Default: "EMIS"
+#: ./browser/templates/teacherprofiles.pt:39
+msgid "label_EMIS"
 msgstr ""
 
 #. Default: "Or enter the name of a new assessment:"
@@ -352,14 +377,34 @@ msgstr ""
 msgid "label_edit"
 msgstr ""
 
+#. Default: "Email"
+#: ./browser/templates/teacherprofiles.pt:41
+msgid "label_email"
+msgstr ""
+
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:45
 msgid "label_feedback"
 msgstr ""
 
+#. Default: "Full Name"
+#: ./browser/templates/teacherprofiles.pt:38
+msgid "label_fullname"
+msgstr ""
+
+#. Default: "Last login time"
+#: ./browser/templates/teacherprofiles.pt:44
+msgid "label_last_login_time"
+msgstr ""
+
 #. Default: "${medialabel} Quick Upload"
 #: ./browser/custom_quick_upload.py:95
 msgid "label_media_quickupload"
+msgstr ""
+
+#. Default: "Qualification"
+#: ./browser/templates/teacherprofiles.pt:42
+msgid "label_qualification"
 msgstr ""
 
 #. Default: "Register"
@@ -372,10 +417,30 @@ msgstr ""
 msgid "label_upload_files"
 msgstr ""
 
+#. Default: "User name"
+#: ./browser/templates/teacherprofiles.pt:40
+msgid "label_username"
+msgstr ""
+
 #. Default: "View"
 #: ./browser/templates/activities.pt:39
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
+msgstr ""
+
+#. Default: "Years teaching"
+#: ./browser/templates/teacherprofiles.pt:43
+msgid "label_years_teaching"
+msgstr ""
+
+#. Default: "Back to provinces"
+#: ./browser/templates/teacherprofiles.pt:23
+msgid "link_back_to_provinces"
+msgstr ""
+
+#. Default: "Back to schools"
+#: ./browser/templates/teacherprofiles.pt:33
+msgid "link_back_to_schools"
 msgstr ""
 
 #. Default: "Create a new profile"

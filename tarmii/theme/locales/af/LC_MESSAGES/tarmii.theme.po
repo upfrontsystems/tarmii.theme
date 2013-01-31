@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-23 20:00+0000\n"
-"PO-Revision-Date: 2013-01-23 22:05+0200\n"
+"POT-Creation-Date: 2013-01-31 11:23+0000\n"
+"PO-Revision-Date: 2013-01-31 13:25+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -299,6 +299,16 @@ msgstr "Assessering"
 msgid "heading_classlist"
 msgstr "Klas lys"
 
+#. Default: "Provinces:"
+#: ./browser/templates/teacherprofiles.pt:15
+msgid "heading_provinces"
+msgstr "Provinsies:"
+
+#. Default: "Schools:"
+#: ./browser/templates/teacherprofiles.pt:25
+msgid "heading_schools"
+msgstr "Skole:"
+
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:12
 msgid "heading_select_profile"
@@ -308,6 +318,21 @@ msgstr "Kies U Profil"
 #: ./browser/templates/topicresources.pt:12
 msgid "heading_teacher_resource_title"
 msgstr "Onderwyser hulpbronne vir ${topictitle}"
+
+#. Default: "TEACHER PROFILES"
+#: ./browser/templates/teacherprofiles.pt:12
+msgid "heading_teacherprofiles"
+msgstr "ONDERWYSER PROFILES"
+
+#. Default: "Teachers:"
+#: ./browser/templates/teacherprofiles.pt:35
+msgid "heading_teachers"
+msgstr "Onderwysers:"
+
+#. Default: "EMIS"
+#: ./browser/templates/teacherprofiles.pt:39
+msgid "label_EMIS"
+msgstr "EMIS"
 
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:30
@@ -349,15 +374,35 @@ msgstr "Maak die tou skoon"
 msgid "label_edit"
 msgstr "Redigeer"
 
+#. Default: "Email"
+#: ./browser/templates/teacherprofiles.pt:41
+msgid "label_email"
+msgstr "e-pos"
+
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:45
 msgid "label_feedback"
 msgstr "Terugvoer"
 
+#. Default: "Full Name"
+#: ./browser/templates/teacherprofiles.pt:38
+msgid "label_fullname"
+msgstr "Volle naam"
+
+#. Default: "Last login time"
+#: ./browser/templates/teacherprofiles.pt:44
+msgid "label_last_login_time"
+msgstr "Laaste aanmelding tyd"
+
 #. Default: "${medialabel} Quick Upload"
 #: ./browser/custom_quick_upload.py:95
 msgid "label_media_quickupload"
 msgstr "${medialabel} Vinnig Oplaai"
+
+#. Default: "Qualification"
+#: ./browser/templates/teacherprofiles.pt:42
+msgid "label_qualification"
+msgstr "Kwalifikasie"
 
 #. Default: "Register"
 #: ./browser/views.py:68
@@ -369,11 +414,31 @@ msgstr "Registreer"
 msgid "label_upload_files"
 msgstr "Laai 'n lêer"
 
+#. Default: "User name"
+#: ./browser/templates/teacherprofiles.pt:40
+msgid "label_username"
+msgstr "Gebruikersnaam"
+
 #. Default: "View"
 #: ./browser/templates/activities.pt:39
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr "Sien"
+
+#. Default: "Years teaching"
+#: ./browser/templates/teacherprofiles.pt:43
+msgid "label_years_teaching"
+msgstr "Jaar onderwyservaring"
+
+#. Default: "Back to provinces"
+#: ./browser/templates/teacherprofiles.pt:23
+msgid "link_back_to_provinces"
+msgstr "Terug na provinsies"
+
+#. Default: "Back to schools"
+#: ./browser/templates/teacherprofiles.pt:33
+msgid "link_back_to_schools"
+msgstr "Terug na skoole"
 
 #. Default: "Create a new profile"
 #: ./browser/templates/selectprofile.pt:31
