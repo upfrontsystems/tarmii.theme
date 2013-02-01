@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-31 11:23+0000\n"
+"POT-Creation-Date: 2013-02-01 10:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/templates/topictrees.pt:13
+#: ./browser/templates/topictrees.pt:17
 msgid "Add Topic Tree"
 msgstr ""
 
@@ -127,6 +127,10 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
+#: ./browser/uploadtoserver.py:97
+msgid "File sent to server"
+msgstr ""
+
 #: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
 msgstr ""
@@ -153,6 +157,10 @@ msgstr ""
 
 #: ./behaviors.py:58
 msgid "Needs improvement"
+msgstr ""
+
+#: ./browser/teacherprofiles.py:104
+msgid "Never"
 msgstr ""
 
 #: ./browser/exportuserprofiles.py:93
@@ -257,6 +265,10 @@ msgstr ""
 
 #: ./eventhandlers.py:48
 msgid "Thumbnail generation failed"
+msgstr ""
+
+#: ./browser/uploadtoserver.py:75
+msgid "Upload Server not specified in settings"
 msgstr ""
 
 #: ./browser/views.py:124
@@ -493,7 +505,7 @@ msgid "message_no_resources"
 msgstr ""
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:18
+#: ./browser/templates/topictrees.pt:22
 msgid "message_no_topictrees_exist"
 msgstr ""
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-31 11:23+0000\n"
-"PO-Revision-Date: 2013-01-31 13:25+0200\n"
+"POT-Creation-Date: 2013-02-01 10:21+0000\n"
+"PO-Revision-Date: 2013-02-01 12:25+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Voeg Aktiwiteit by"
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
 
-#: ./browser/templates/topictrees.pt:13
+#: ./browser/templates/topictrees.pt:17
 msgid "Add Topic Tree"
 msgstr "Voeg Onderwerp Boom by"
 
@@ -124,6 +124,10 @@ msgstr "Versium"
 msgid "Feedback"
 msgstr "Terugvoer"
 
+#: ./browser/uploadtoserver.py:97
+msgid "File sent to server"
+msgstr "Lêer na bediener gestuur"
+
 #: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
 msgstr "Lêers vinnig oplaai"
@@ -151,6 +155,10 @@ msgstr "Boodskap"
 #: ./behaviors.py:58
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
+
+#: ./browser/teacherprofiles.py:104
+msgid "Never"
+msgstr "Nooit"
 
 #: ./browser/exportuserprofiles.py:93
 msgid "No user profiles exist"
@@ -255,6 +263,10 @@ msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 #: ./eventhandlers.py:48
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
+
+#: ./browser/uploadtoserver.py:75
+msgid "Upload Server not specified in settings"
+msgstr "Oplaai bediener nie in instellings"
 
 #: ./browser/views.py:124
 msgid "Use the settings below to configure tarmii remote server for this site"
@@ -490,7 +502,7 @@ msgid "message_no_resources"
 msgstr "Geen hulpbronne gevind in die stelsel."
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:18
+#: ./browser/templates/topictrees.pt:22
 msgid "message_no_topictrees_exist"
 msgstr "Geen onderwyser boome is nog geskep."
 

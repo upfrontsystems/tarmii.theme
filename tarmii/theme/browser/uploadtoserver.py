@@ -72,7 +72,7 @@ class UploadToServerView(grok.View):
                 host = settings.server_url[0:]
                 selector = ''
         else:
-            msg = _('Upload Server not specified in @@remote-server-settings')
+            msg = _('Upload Server not specified in settings')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
             # redirect to show the error message
             return self.request.response.redirect(
