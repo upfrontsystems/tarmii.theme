@@ -28,7 +28,6 @@
 
         <drop css:theme="#personaltools"
               css:if-not-content="#user-name" />
-        <drop css:theme="#login_form" css:if-content="#user-name" />
 
         <!-- copy logged in username from Plone to theme -->
         <replace content="//a[@id='user-name']/text()" theme="//span[@id='user-name']" />
