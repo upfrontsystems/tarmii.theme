@@ -318,6 +318,18 @@ div.item-actions-left a {
     margin-right: 1em;
 }
 
+#content a.link-button {
+    background: none repeat scroll 0 0 darkgreen;
+    border-radius: 5px;
+    color: White;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.8em;
+}
+#content a.link-button:hover {
+    color: White !important;
+}
+
 /* videos view */
 
 .thumb {
@@ -383,16 +395,22 @@ a.move-down:hover {
 }
 
 /* select profile view */
+div.select-profile {
+    margin-bottom: 12em;
+}
 a.select-avatar img {
     padding-top: 5px;
 }
 
 a.select-avatar {
     border-bottom: 0em !important;
+    float: left;
 }
 
 a.select-text {
-    padding-left: 5px;
+    float: left;
+    padding-left: 1em;
+    margin-top: 35px;
     border-bottom: 0em !important;
 }
 
