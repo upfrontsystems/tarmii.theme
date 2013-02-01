@@ -12,7 +12,7 @@
         <h1 i18n:translate="heading_teacherprofiles">TEACHER PROFILES</h1>
 
         <tal:showprovinces tal:condition="view/show_provinces">
-            <div i18n:translate="heading_provinces">Provinces:</div>
+            <h3 i18n:translate="heading_provinces">Provinces:</h3>
             <ul tal:repeat="province view/provinces">
                 <a tal:content="province" tal:attributes="href string:${view/context_path}/@@teacher-profiles?province=${province}">
                 </a>
@@ -22,7 +22,7 @@
         <tal:showschools tal:condition="view/show_schools">
             <a tal:attributes="href string:${view/context_path}/@@teacher-profiles" i18n:translate="link_back_to_provinces">Back to provinces</a>
             <div>&nbsp;</div>
-            <div i18n:translate="heading_schools">Schools:</div>            
+            <h3 i18n:translate="heading_schools">Schools:</h3>            
             <ul tal:repeat="school view/schools">
                 <a tal:content="school" tal:attributes="href string:${view/context_path}/@@teacher-profiles?province=${view/province_request}&school=${school}">
                 </a>
@@ -32,7 +32,7 @@
         <tal:showteachers tal:condition="view/show_teachers">
             <a tal:attributes="href string:${view/context_path}/@@teacher-profiles?province=${view/province_request}" i18n:translate="link_back_to_schools">Back to schools</a>
             <div>&nbsp;</div>
-            <div i18n:translate="heading_teachers">Teachers:</div>
+            <h3 i18n:translate="heading_teachers">Teachers:</h3>
             <table class="listing">
                 <tr> 
                     <th i18n:translate="label_fullname">Full Name</th>

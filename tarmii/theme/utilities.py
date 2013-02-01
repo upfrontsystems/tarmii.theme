@@ -35,14 +35,13 @@ class SiteData(Persistent):
         users = StringIO()
         for filename in zf.namelist():
             if filename == 'users.csv':
-                print filename
                 bytes = zf.read(filename)
-                print len(bytes)
                 users.write(bytes)
 
+        # XXX after unzip is working (above), code from extract_test can be 
+        # be filled in below to complete the functionality.
+
         # extract and grab the users
-
-
         # process and sort
 
         zf.close()

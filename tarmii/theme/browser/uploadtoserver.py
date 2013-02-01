@@ -7,8 +7,7 @@ from five import grok
 from zope.interface import Interface
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
-
-from Products.CMFPlone.utils import getToolByName
+from Products.statusmessages.interfaces import IStatusMessage
 
 from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
@@ -53,28 +52,7 @@ class UploadToServerView(grok.View):
 
         return in_memory_zip.read()
 
-    # XXX - temporarily bypassed
-    def no__call__(self):
-        """ Return zip content as http response
-        """
-
-        zip_data = self.zip_csv()
-        now = DateTime()
-        nice_filename = '%s_%s' % ('tarmii_logs_',now.strftime('%Y%m%d'))
-        self.request.response.setHeader("Content-Disposition",
-                                        "attachment; filename=%s.zip" % 
-                                         nice_filename)
-        self.request.response.setHeader("Content-Type", 
-                                        'application/octet-stream')
-        self.request.response.setHeader("Content-Length", len(zip_data))
-        self.request.response.setHeader('Last-Modified',
-                                         DateTime.rfc822(DateTime()))
-        self.request.response.setHeader("Cache-Control", "no-store")
-        self.request.response.setHeader("Pragma", "no-cache")
-        self.request.response.write(zip_data)
-
     def __call__(self):
-#    def upload_to_server(self): # XXX temporarily used as __call__ method
         """ Post the zipfile to the remote url as set up in the configlet.
         """
 
@@ -84,13 +62,21 @@ class UploadToServerView(grok.View):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
 
-        delimiter_index = settings.server_url.find('/')
-        if delimiter_index != -1:
-            host = settings.server_url[0:delimiter_index]
-            selector = settings.server_url[delimiter_index:]
+        # make sure that a server has been specified
+        if settings.server_url != None: 
+            delimiter_index = settings.server_url.find('/')
+            if delimiter_index != -1:
+                host = settings.server_url[0:delimiter_index]
+                selector = settings.server_url[delimiter_index:]
+            else:
+                host = settings.server_url[0:]
+                selector = ''
         else:
-            host = settings.server_url[0:]
-            selector = ''
+            msg = _('Upload Server not specified in settings')
+            IStatusMessage(self.request).addStatusMessage(msg,"error")
+            # redirect to show the error message
+            return self.request.response.redirect(
+                   '/'.join(self.context.getPhysicalPath()))            
 
         # send zip data to server
         h = httplib.HTTP(host)
@@ -107,6 +93,12 @@ class UploadToServerView(grok.View):
         body = '\r\n' + zip_data
         h.send(body)
         errcode, errmsg, headers = h.getreply()
+
+        msg = _('File sent to server')
+        IStatusMessage(self.request).addStatusMessage(msg,"info")
+        # redirect to show the error message
+        return self.request.response.redirect(
+               '/'.join(self.context.getPhysicalPath()))  
 
 
     def render(self):
