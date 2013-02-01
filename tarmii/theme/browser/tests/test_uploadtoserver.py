@@ -30,3 +30,38 @@ class TestUploadToServerView(TarmiiThemeTestBase):
         view = self.portal.restrictedTraverse('@@upload-to-server')
         test_out = view.zip_csv()
         self.assertEqual(test_out,in_memory_zip.read())
+
+    def test_upload_to_server(self):
+
+        # XXX this test is incomplete
+
+        # test with nothing in configlet
+        view = self.portal.restrictedTraverse('@@upload-to-server')
+        view()
+        test = IStatusMessage(self.request).show()
+        self.assertEqual(test[0].type,'error')
+        self.assertEqual(test[0].message,
+                         'Upload Server not specified in settings')
+
+        # set a test server address in the configlet
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(ITARMIIRemoteServerSettings)
+        settings.server_url = u'localhost:9000/'
+
+        # XXX this test is incomplete - a server needs to be setup to catch the 
+        # data sent
+
+#        import pdb; pdb.set_trace()
+#        server_class = HTTPServer(settings.server_url, RequestHandlerClass)
+#        handler_class = BaseHTTPRequestHandler(add parameters)
+
+#        server_address = ('', 9000)
+#        httpd = server_class(server_address, handler_class)
+#        httpd.serve_forever()
+
+#        view()
+#        test = IStatusMessage(self.request).show()
+#        self.assertEqual(test[1].type,'info')
+#        self.assertEqual(test[1].message,'File sent to server')
+
+
