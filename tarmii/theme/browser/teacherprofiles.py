@@ -1,11 +1,14 @@
 from cStringIO import StringIO
+from datetime import datetime
 from five import grok
 from zope.interface import Interface
+
 from zope.component import getUtility
 from plone.directives import dexterity
 from Products.CMFCore.utils import getToolByName
 
 from tarmii.theme.interfaces import ISiteData
+from tarmii.theme import MessageFactory as _
 
 grok.templatedir('templates')
 
@@ -17,11 +20,10 @@ class TeacherProfilesView(grok.View):
     grok.template('teacherprofiles')
     grok.require('zope2.View')
 
+
     def update(self, **kwargs):
         """ get teacher data from utility each time the template is rendered """
-
         sitedata = getUtility(ISiteData)
-        # display the dictionary nicely
 #        self.teacher_data = sitedata.extract_teacher_data()
 
         # XXX debug - currently calling directly
@@ -67,6 +69,7 @@ class TeacherProfilesView(grok.View):
         for province in range(len(self.teacher_data.items())):
             province_list.append(self.teacher_data.items()[province][0])
         province_list.sort()
+
         return province_list
 
     def schools(self):
@@ -94,7 +97,12 @@ class TeacherProfilesView(grok.View):
             t_obj.email = t_data[teacher][1]['email']
             t_obj.qualification = t_data[teacher][1]['qualification']
             t_obj.years_teaching = t_data[teacher][1]['years_teaching']
-            t_obj.last_login = t_data[teacher][1]['last_login_time']
+            # make date human readable
+            date_str = datetime.strptime(t_data[teacher][1]['last_login_time'],
+                             '%d/%m/%Y %H:%M:%S').strftime('%d %B %Y')
+            if date_str == '01 January 2000':
+                date_str = _('Never')
+            t_obj.last_login = date_str
             teacher_list.append(t_obj)
         return teacher_list
 
