@@ -34,14 +34,16 @@ class SelectProfileView(grok.View):
 
         pm = getToolByName(self.context, 'portal_membership')
 
-        # get all users that are do not have the Site Administrator role.
-        non_admins = [member for member in pm.listMembers()
-                if not member.has_role('Site Administrator')]
-
-        # add extra parameter 'avatar' that is the url to the profile image
-        for nonadmin in non_admins:
-            nonadmin.avatar = pm.getPersonalPortrait(id=nonadmin.id)\
-                              .absolute_url()
+        # get all users that do not have the Site Administrator role.
+        non_admins = []
+        for member in pm.listMembers():
+            if not member.has_role('Site Administrator'):
+                non_admins.append(
+                    {'username': member.getId(),
+                     'fullname': member.getProperty('fullname'),
+                     'avatar': pm.getPersonalPortrait(id=member.getId()
+                        ).absolute_url()
+                    })
 
         return non_admins
 
