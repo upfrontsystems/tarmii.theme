@@ -12,16 +12,16 @@
         <h1 i18n:translate="heading_select_profile" tal:condition="view/profiles"> Select your profile</h1>
    
         <tal:profiles tal:condition="not:view/profiles">
-            <div i18n:translate="message_no_profiles_exist">No profiles have been created yet.</div>
+            <p i18n:translate="message_no_profiles_exist">No profiles have been created yet.</p>
         </tal:profiles>
 
         <div class="select-profile" tal:repeat="profile view/profiles">
 
-            <a class="select-avatar" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}">
+            <a class="select-avatar" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile/username}">
                 <img tal:attributes="src profile/avatar" />
             </a>    
-            <a class="select-text" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile}"
-               tal:content="profile">
+            <a class="select-text" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile/username}"
+               tal:content="profile/fullname">
             </a>
 
         </div>
