@@ -47,6 +47,10 @@ def setupPortalContent(portal):
         folder.manage_permission(ModifyConstrainTypes, roles=[])
         folder.manage_permission(ModifyViewTemplate, roles=[])
 
+    # allow members to create activities
+    portal.activities.manage_setLocalRoles('AuthenticatedUsers',
+        ['Contributor', 'Editor', 'Reader'])
+
     # allow member folders to be created
     security_adapter =  ISecuritySchema(portal)
     security_adapter.set_enable_user_folders(True)
@@ -60,11 +64,57 @@ def setupPortalContent(portal):
                                   'language', title='Language')
         langtree = topicfolder._getOb('language')
         langtree.invokeFactory('collective.topictree.topic',
-                                'afrikaans', title='Afrikaans')
+                               'afrikaans', title='Afrikaans')
         langtree.invokeFactory('collective.topictree.topic',
-                                'english', title='English')
+                               'english', title='English')
         langtree.invokeFactory('collective.topictree.topic',
-                                'xhosa', title='Xhosa')
+                               'isixhosa', title='IsiXhosa')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'sepedi', title='Sepedi')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'sesotho', title='Sesotho')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'setswana', title='Setswana')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'siswati', title='Siswati')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'tshivenda', title='Tshivenda')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'xitsonga', title='Xitsonga')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'isindebele', title='Isindebele')
+
+    if not topicfolder.hasObject('grade'):
+        topicfolder.invokeFactory('collective.topictree.topictree',
+                                  'grade', title='Grade')
+        tree = topicfolder._getOb('grade')
+        for i in range(1,5):
+            grade_id = 'grade%s' % i
+            grade_title = 'Grade %s' % i
+            tree.invokeFactory('collective.topictree.topic',
+                               grade_id, title=grade_title)
+
+    if not topicfolder.hasObject('term'):
+        topicfolder.invokeFactory('collective.topictree.topictree',
+                                  'term', title='Term')
+        tree = topicfolder._getOb('term')
+        for i in range(1,5):
+            term_id = 'term%s' % i
+            term_title = 'Term %s' % i
+            tree.invokeFactory('collective.topictree.topic',
+                               term_id, title=term_title)
+
+    if not topicfolder.hasObject('subject'):
+        topicfolder.invokeFactory('collective.topictree.topictree',
+                                  'subject', title='Subject')
+        tree = topicfolder._getOb('subject')
+        tree.invokeFactory('collective.topictree.topic',
+                           'lang', title='Language')
+        tree.invokeFactory('collective.topictree.topic',
+                           'mathematics', title='Mathematics')
+        tree.invokeFactory('collective.topictree.topic',
+                           'lifeskills', title='Life Skills')
+
 
     # set cookie auth url
     acl = getToolByName(portal, 'acl_users')
