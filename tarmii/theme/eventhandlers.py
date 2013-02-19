@@ -89,7 +89,7 @@ def on_user_initial_login(user, event):
     # set default view to @@evaluationsheets view
     evaluation_folder.setLayout('@@evaluationsheets')
 
-    # invokefactory is not setting folder titles correctly, so set the manually
+    # invokefactory is not setting folder titles correctly, so set them manually
     classlists_folder.title = 'Class Lists'
     assessments_folder.title = 'Assessments'
     evaluation_folder.title = 'Evaluations'
