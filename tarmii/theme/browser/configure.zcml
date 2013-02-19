@@ -7,6 +7,8 @@
 
     <grok:grok package="." />
 
+    <include file="topicswidget.zcml" />
+
     <browser:page
             name="feedback"
             for="Products.CMFPlone.Portal.PloneSite"

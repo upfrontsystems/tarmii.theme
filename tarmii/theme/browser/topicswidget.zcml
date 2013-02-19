@@ -1,0 +1,35 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="z3c.form">
+
+  <class class=".topicswidget.TopicsWidget">
+    <require
+        permission="zope.Public"
+        interface=".topicswidget.ITopicsWidget"
+        />
+  </class>
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget=".topicswidget.ITopicsWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="templates/topicswidget_display.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="input"
+      widget=".topicswidget.ITopicsWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="templates/topicswidget_input.pt"
+      />
+
+<!--  <z3c:widgetTemplate
+      mode="hidden"
+      widget=".topicswidget.ITopicsWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="templates/topicswidget_hidden.pt"
+      /> 
+-->
+
+</configure>
