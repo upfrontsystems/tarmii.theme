@@ -3,12 +3,16 @@ from five import grok
 from zope.interface import Interface, alsoProvides, Invalid
 from zope import schema
 from z3c.form import validator
+from z3c.relationfield.schema import RelationChoice, RelationList
+
 from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.namedfile.field import NamedBlobFile
 
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
+from tarmii.theme.browser.topicswidget import TopicsFieldWidget
 from tarmii.theme import MessageFactory as _
 
 class IAssessmentItemBlobs(form.Schema):
@@ -31,6 +35,7 @@ class IAssessmentItemBlobs(form.Schema):
             required=False,
         )
 
+
 class IRatingFieldSchema(Interface):
     """ Schema for rating scale datagrid field, stores the label and rating
         value.
@@ -38,6 +43,7 @@ class IRatingFieldSchema(Interface):
 
     label = schema.TextLine(title=_(u"Label"))
     rating = schema.Int(title=_(u"Rating"))
+
 
 class IRating(form.Schema):
     """ Behavior that enables each assessmentitem to set its rating scale/range.
@@ -59,8 +65,26 @@ class IRating(form.Schema):
         )
 
 
+class ITopicTags(form.Schema):
+    """ Behavior that enables tagging content with topics in a topic
+        tree, using a custom TopicsWidget
+    """
+
+    form.widget(topics=TopicsFieldWidget)
+    topics = RelationList(
+        title=_(u"Topics"),
+        default=[],
+        value_type=RelationChoice(title=_(u"Related"),
+                                  source=ObjPathSourceBinder(
+                                  object_provides=
+                                      'collective.topictree.topic.ITopic')
+                                  ),
+        required=False,
+    )
+
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
+alsoProvides(ITopicTags, IFormFieldProvider)
 
 
 class RatingValidator(validator.SimpleFieldValidator):
@@ -83,5 +107,3 @@ class RatingValidator(validator.SimpleFieldValidator):
 validator.WidgetValidatorDiscriminators(RatingValidator,
                                         field=IRating['rating_scale'])
 grok.global_adapter(RatingValidator)
-
-
