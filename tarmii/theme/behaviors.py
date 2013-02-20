@@ -12,6 +12,8 @@ from plone.namedfile.field import NamedBlobFile
 
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
+from upfront.assessmentitem.behaviors import IMarks, IResponseTime
+
 from tarmii.theme.browser.topicswidget import TopicsFieldWidget
 from tarmii.theme import MessageFactory as _
 
@@ -82,9 +84,22 @@ class ITopicTags(form.Schema):
         required=False,
     )
 
+
+class IItemMetadata(IMarks, IResponseTime, ITopicTags):
+    """ Combine IMarks, IResponseTime and ITopicTags
+    """
+
+    form.fieldset(
+        'categorization',
+        label=_(u'Categorization'),
+        fields=['marks', 'responsetime', 'topics'],
+        )
+
+
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
 alsoProvides(ITopicTags, IFormFieldProvider)
+alsoProvides(IItemMetadata, IFormFieldProvider)
 
 
 class RatingValidator(validator.SimpleFieldValidator):
