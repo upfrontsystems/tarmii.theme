@@ -3,7 +3,7 @@ from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from z3c.form import interfaces
 from z3c.form import widget
 
-from plone.formwidget.contenttree.widget import ContentTreeWidget
+from plone.formwidget.contenttree.widget import MultiContentTreeWidget
 
 from tarmii.theme import MessageFactory as _
 
@@ -12,7 +12,7 @@ class ITopicsWidget(interfaces.IWidget):
     """
 
 
-class TopicsWidget(ContentTreeWidget):
+class TopicsWidget(MultiContentTreeWidget):
     """ Extend content tree widget """
 
     zope.interface.implements(ITopicsWidget)
