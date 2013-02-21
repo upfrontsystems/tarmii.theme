@@ -1,21 +1,23 @@
 <div class="topics-widget" >
 
-    <div tal:repeat="topictree view/topictrees">
+    <div class="topictree-filter">
+        <tal:topictree tal:repeat="topictree view/topictrees">
+            <div class="filter-block">
+                <div tal:content="string:${topictree/id}"></div>
+                <select size="1" class="select-widget required" 
+                        tal:attributes="id string:select-${topictree/id};
+                                        name string:select-${topictree/id}"
+                        tal:define="treedata python:topictree.getObject().getFolderContents()">
 
-        <select size="1" class="select-widget required" 
-                tal:attributes="id string:select-${topictree/id};
-                                name string:select-${topictree/id}"
-                tal:define="treedata python:topictree.getObject().getFolderContents()">
-
-            <tal:item tal:repeat="item treedata">
-                <option tal:content="item/id" 
-                        tal:attributes="value python:'/'.join(item.getObject().getPhysicalPath());
-                                        id string:${item/id}">
-                </option>
-            </tal:item>
-
-        </select>
-
+                    <tal:item tal:repeat="item treedata">
+                        <option tal:content="item/id" 
+                                tal:attributes="value python:'/'.join(item.getObject().getPhysicalPath());
+                                                id string:${item/id}">
+                        </option>
+                    </tal:item>
+                </select>
+            </div>
+        </tal:topictree>
     </div>
 
 </div>
