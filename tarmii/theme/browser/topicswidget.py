@@ -1,5 +1,6 @@
 import zope.interface
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.component.hooks import getSite
 from z3c.form import interfaces
 from z3c.form import widget
 
@@ -28,6 +29,11 @@ class TopicsWidget(MultiContentTreeWidget):
             return self.input_template(self)
         else:
             return ContentTreeWidget.render(self)
+
+    def topictrees(self):
+        """ return the contents of the topictrees folder.
+        """
+        return getSite().topictrees.getFolderContents()
 
 
 @zope.interface.implementer(interfaces.IFieldWidget)

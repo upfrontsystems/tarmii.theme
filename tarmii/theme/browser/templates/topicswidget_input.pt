@@ -1,3 +1,21 @@
 <div class="topics-widget" >
-    <h1>TOPICSWIDGET INPUT TEMPLATE</h1>
+
+    <div tal:repeat="topictree view/topictrees">
+
+        <select size="1" class="select-widget required" 
+                tal:attributes="id string:select-${topictree/id};
+                                name string:select-${topictree/id}"
+                tal:define="treedata python:topictree.getObject().getFolderContents()">
+
+            <tal:item tal:repeat="item treedata">
+                <option tal:content="item/id" 
+                        tal:attributes="value python:'/'.join(item.getObject().getPhysicalPath());
+                                        id string:${item/id}">
+                </option>
+            </tal:item>
+
+        </select>
+
+    </div>
+
 </div>
