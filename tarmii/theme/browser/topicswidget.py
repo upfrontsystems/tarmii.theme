@@ -3,9 +3,8 @@ from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component.hooks import getSite
 from z3c.form import interfaces
 from z3c.form import widget
-
 from plone.formwidget.contenttree.widget import MultiContentTreeWidget
-
+from Products.CMFCore.utils import getToolByName
 from tarmii.theme import MessageFactory as _
 
 class ITopicsWidget(interfaces.IWidget):
@@ -31,9 +30,9 @@ class TopicsWidget(MultiContentTreeWidget):
             return ContentTreeWidget.render(self)
 
     def topictrees(self):
-        """ return the contents of the topictrees folder.
-        """
-        return getSite().topictrees.getFolderContents()
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(portal_type='collective.topictree.topictree')
+        return brains
 
 
 @zope.interface.implementer(interfaces.IFieldWidget)
