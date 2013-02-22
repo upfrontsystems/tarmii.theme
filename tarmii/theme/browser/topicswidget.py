@@ -34,6 +34,9 @@ class TopicsWidget(MultiContentTreeWidget):
         brains = catalog(portal_type='collective.topictree.topictree')
         return brains
 
+    def topic_selected(self, topic):
+        return topic.getPath() in self.value
+
 
 @zope.interface.implementer(interfaces.IFieldWidget)
 def topicsFieldWidgetFactory(field, request):
