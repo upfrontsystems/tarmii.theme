@@ -6,13 +6,14 @@
                 <div tal:content="string:${topictree/id}"></div>
                 <select size="1" class="select-widget required" 
                         tal:attributes="id string:select-${topictree/id};
-                                        name string:select-${topictree/id}"
-                        tal:define="treedata python:topictree.getObject().getFolderContents()">
+                                        name string:${view/name}:list"
+                        tal:define="topics python:topictree.getObject().getFolderContents()">
 
-                    <tal:item tal:repeat="item treedata">
+                    <tal:item tal:repeat="item topics">
                         <option tal:content="item/id" 
-                                tal:attributes="value python:'/'.join(item.getObject().getPhysicalPath());
-                                                id string:${item/id}">
+                                tal:attributes="value item/getPath;
+                                                id string:${item/id};
+                                                selected python:view.topic_selected(item)">
                         </option>
                     </tal:item>
                 </select>
@@ -20,4 +21,6 @@
         </tal:topictree>
     </div>
 
+    <input name="field-empty-marker" type="hidden" value="1"
+        tal:attributes="name string:${view/name}-empty-marker" />
 </div>
