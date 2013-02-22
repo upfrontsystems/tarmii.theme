@@ -3,14 +3,17 @@
     <div class="topictree-filter">
         <tal:topictree tal:repeat="topictree view/topictrees">
             <div class="filter-block">
-                <div tal:content="string:${topictree/id}"></div>
+                <div>
+                    <label class="horizontal" tal:attributes="for string:form-widgets-${view/name}-${topictree/id}" tal:content="topictree/Title">Language
+                    </label>
+                </div>
                 <select size="1" class="select-widget required" 
                         tal:attributes="id string:select-${topictree/id};
                                         name string:${view/name}:list"
                         tal:define="topics python:topictree.getObject().getFolderContents()">
 
                     <tal:item tal:repeat="item topics">
-                        <option tal:content="item/id" 
+                        <option tal:content="item/Title" 
                                 tal:attributes="value item/getPath;
                                                 id string:${item/id};
                                                 selected python:view.topic_selected(item)">
