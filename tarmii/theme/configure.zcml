@@ -48,8 +48,8 @@
         />
 
     <plone:behavior
-        title="Behavior that allows a custom rating scale to be set"
-        description="Behavior that allows a custom rating scale to be set"
+        title="Behavior that groups the marks, response and topics behaviors in one"
+        description="Behavior that groups the marks, response and topics behaviors in one"
         provides=".behaviors.IItemMetadata"
         for="plone.dexterity.interfaces.IDexterityContent"
         />
