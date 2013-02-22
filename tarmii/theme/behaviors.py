@@ -95,7 +95,6 @@ class IItemMetadata(IMarks, IResponseTime, ITopicTags):
         fields=['marks', 'responsetime', 'topics'],
         )
 
-
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
 alsoProvides(ITopicTags, IFormFieldProvider)

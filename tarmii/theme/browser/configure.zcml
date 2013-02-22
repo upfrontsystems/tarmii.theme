@@ -54,13 +54,4 @@
             permission="zope2.Public"
             />
 
-    <browser:page
-        name="assessmentitemform-macros"
-        for="*"
-        class="plone.z3cform.templates.Macros"
-        template="templates/addassessmentitem.pt"
-        allowed_interface="zope.interface.common.mapping.IItemMapping"
-        permission="zope.Public"
-        />
-
 </configure>
