@@ -7,21 +7,68 @@
       lang="en">
 
 <body>
-    <metal:main fill-slot="content-core">
+    <metal:main fill-slot="content-core"
+        tal:define="batch view/resources">
             
         <tal:addresource_visible condition="view/addresource_visible">
             <form id="add-button-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
-                <input class="allowMultiSubmit" type="submit" value="Add resource" tal:attributes="action view/add_resource_button_path" i18n:attributes="value">
+                <input class="allowMultiSubmit" type="submit" value="Add resource" 
+                       tal:attributes="action view/add_resource_button_path" i18n:attributes="value">
             </form>
         </tal:addresource_visible>
 
+        <div>&nbsp;</div>
         <tal:topictrees tal:condition="not:view/topictrees">
             <div i18n:translate="message_no_resources">No resources found in the system.</div>
         </tal:topictrees>
 
-        <div tal:repeat="topictree view/topictrees">
-            <div class="resourcetree" tal:attributes="uid topictree/UID"/>
+        <form id="filter-results-form" name="filter-result-form" tal:attributes="action string:${here/absolute_url}">
+
+            <div class="topictree-filter">
+                <tal:topictree tal:repeat="topictree view/topictrees">
+                    <div class="filter-block">
+                        <div>
+                            <label class="horizontal" tal:attributes="for string:form-widgets-${topictree/id}" 
+                                   tal:content="topictree/Title">Language
+                            </label>
+                        </div>
+                        <select size="1" class="select-widget required" 
+                                tal:attributes="id string:select-${topictree/id};
+                                                name string:select-${topictree/id}"
+                                tal:define="topics python:topictree.getObject().getFolderContents()">
+                                <option value=""></option>
+                                <option tal:repeat="item topics"
+                                        tal:content="item/id" 
+                                        tal:attributes="value python:'/'.join(item.getObject().getPhysicalPath());
+                                                        id string:${item/id}">
+                                </option>
+                        </select>   
+                    </div>
+                </tal:topictree>
+            </div>
+
+            <div>&nbsp;</div>
+            <input class="allowMultiSubmit" type="submit" value="Filter Results" tal:attributes="action string:${here/absolute_url}" 
+                   i18n:attributes="value">
+        </form>
+
+        <div>&nbsp;</div>
+        <div>
+            <span tal:content="view/resource_count">0</span>
+            <span i18n:translate="message_resources_found"> Resources Found</span>
         </div>
+        <div>&nbsp;</div>
+
+        <tal:listing tal:condition="batch">
+            <tal:item tal:repeat="item batch">
+                <div>
+                    <span tal:content="repeat/item/number"></span><span>. </span>
+                    <span tal:content="python:item.getObject().Title()">Title</span>
+                </div>
+                <div tal:content="python:item.getObject().Description()">Description</div>
+            </tal:item>
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+        </tal:listing>
 
     </metal:main>
 </body>
