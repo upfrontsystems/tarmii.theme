@@ -57,7 +57,7 @@
         <div>&nbsp;</div>
         <div>
             <span tal:content="view/resource_count">0</span>
-            <span i18n:translate="message_resources_found"> Resource(s) Found</span>
+            <span i18n:translate="message_resources_found"> Resource(s) found</span>
         </div>
         <div>&nbsp;</div>
 
