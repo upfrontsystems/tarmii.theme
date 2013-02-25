@@ -56,7 +56,7 @@
         <div>&nbsp;</div>
         <div>
             <span tal:content="view/resource_count">0</span>
-            <span i18n:translate="message_resources_found"> Resources Found</span>
+            <span i18n:translate="message_resources_found"> Resource(s) Found</span>
         </div>
         <div>&nbsp;</div>
 
@@ -64,9 +64,10 @@
             <tal:item tal:repeat="item batch">
                 <div>
                     <span tal:content="repeat/item/number"></span><span>. </span>
-                    <a tal:content="python:item.getObject().Title()" >Title</a>
+                    <a tal:content="python:item.Title()" 
+                       tal:attributes="href string:${item/absolute_url}/at_download/file" >Title</a>
                 </div>
-                <div tal:content="python:item.getObject().Description()">Description</div>
+                <div tal:content="python:item.Description()">Description</div>
             </tal:item>
             <div metal:use-macro="context/batch_macros/macros/navigation" />
         </tal:listing>

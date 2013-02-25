@@ -70,18 +70,17 @@ class ResourcesView(grok.View):
             # more than one filter selected, show all options
             brains = rc(targetUID=self.topics[0], relationship='topics')
             UID_set = Set([ x.getObject().sourceUID for x in brains ])
-            print UID_set
             for x in range(len(self.topics)-1):
                 brains = rc(targetUID=self.topics[x+1], relationship='topics')
                 next_set = Set([ x.getObject().sourceUID for x in brains ])
                 UID_set = UID_set.intersection(Set(next_set))
-                print UID_set
             UID_list = list(UID_set)
             results = catalog(UID=UID_list)
 
+        data = [ x.getObject() for x in results]
         b_size = 10
         b_start = self.request.get('b_start', 0)
-        return Batch(results, b_size, int(b_start), orphan=0)
+        return Batch(data, b_size, int(b_start), orphan=0)
 
     def resource_count(self):
         """ Return number of resource items that match current filter criteria
