@@ -42,7 +42,7 @@
                                         tal:content="item/Title" 
                                         tal:attributes="value item/UID;
                                                         id string:${item/id};
-                                                        selected python:item.UID == request.get(selected_id)">
+                                                        selected python:item.UID == request.get(selected_id)">Title
                                 </option>
                         </select>
                     </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div>&nbsp;</div>
-            <input class="allowMultiSubmit" type="submit" value="Filter Results" tal:attributes="action string:${here/absolute_url}" 
+            <input class="allowMultiSubmit" type="submit" value="Filter results" tal:attributes="action string:${here/absolute_url}" 
                    i18n:attributes="value">
         </form>
 

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-01 10:21+0000\n"
+"POT-Creation-Date: 2013-02-25 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/templates/topictrees.pt:17
+#: ./browser/templates/topictrees.pt:13
 msgid "Add Topic Tree"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Add evaluation sheet"
 msgstr ""
 
-#: ./browser/templates/resources.pt:14
+#: ./browser/templates/resources.pt:15
 msgid "Add resource"
 msgstr ""
 
@@ -61,15 +61,19 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:75
+#: ./behaviors.py:113
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:78
+#: ./behaviors.py:116
 msgid "All rating values must be unique."
 msgstr ""
 
-#: ./behaviors.py:25
+#: ./behaviors.py:94
+msgid "Categorization"
+msgstr ""
+
+#: ./behaviors.py:31
 msgid "Check list"
 msgstr ""
 
@@ -115,7 +119,7 @@ msgstr ""
 msgid "EMIS"
 msgstr ""
 
-#: ./behaviors.py:55
+#: ./behaviors.py:63
 msgid "Excellent"
 msgstr ""
 
@@ -135,7 +139,11 @@ msgstr ""
 msgid "Files Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:56
+#: ./browser/templates/resources.pt:53
+msgid "Filter results"
+msgstr ""
+
+#: ./behaviors.py:64
 msgid "Good"
 msgstr ""
 
@@ -143,7 +151,7 @@ msgstr ""
 msgid "Images Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:39
+#: ./behaviors.py:46
 msgid "Label"
 msgstr ""
 
@@ -155,7 +163,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ./behaviors.py:58
+#: ./behaviors.py:66
 msgid "Needs improvement"
 msgstr ""
 
@@ -171,7 +179,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:20
+#: ./behaviors.py:26
 msgid "Observation Sheet"
 msgstr ""
 
@@ -191,12 +199,16 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
-#: ./behaviors.py:40
+#: ./behaviors.py:47
 msgid "Rating"
 msgstr ""
 
-#: ./behaviors.py:53
+#: ./behaviors.py:61
 msgid "Rating scale"
+msgstr ""
+
+#: ./behaviors.py:79
+msgid "Related"
 msgstr ""
 
 #: ./profiles/default/controlpanel.xml
@@ -207,11 +219,11 @@ msgstr ""
 msgid "Remote Server Url"
 msgstr ""
 
-#: ./behaviors.py:30
+#: ./behaviors.py:36
 msgid "Rubric"
 msgstr ""
 
-#: ./behaviors.py:57
+#: ./behaviors.py:65
 msgid "Satisfactory"
 msgstr ""
 
@@ -267,6 +279,10 @@ msgstr ""
 msgid "Thumbnail generation failed"
 msgstr ""
 
+#: ./behaviors.py:77
+msgid "Topics"
+msgstr ""
+
 #: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
 msgstr ""
@@ -277,11 +293,6 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
-msgstr ""
-
-#. Default: "resources for this topic."
-#: ./browser/templates/topicresources.pt:13
-msgid "desc_resources_for_topic"
 msgstr ""
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
@@ -329,11 +340,6 @@ msgstr ""
 msgid "heading_select_profile"
 msgstr ""
 
-#. Default: "Teacher resources for ${topictitle}"
-#: ./browser/templates/topicresources.pt:12
-msgid "heading_teacher_resource_title"
-msgstr ""
-
 #. Default: "TEACHER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:12
 msgid "heading_teacherprofiles"
@@ -357,11 +363,6 @@ msgstr ""
 #. Default: "Add to Assessment"
 #: ./browser/templates/activities.pt:43
 msgid "label_addtoassessment"
-msgstr ""
-
-#. Default: "bytes"
-#: ./browser/templates/topicresources.pt:19
-msgid "label_bytes"
 msgstr ""
 
 #. Default: "Choose existing assessment:"
@@ -500,18 +501,23 @@ msgid "message_no_profiles_exist"
 msgstr ""
 
 #. Default: "No resources found in the system."
-#: ./browser/templates/resources.pt:19
+#: ./browser/templates/resources.pt:22
 msgid "message_no_resources"
 msgstr ""
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:22
+#: ./browser/templates/topictrees.pt:18
 msgid "message_no_topictrees_exist"
 msgstr ""
 
 #. Default: "No videos found in the system."
 #: ./browser/templates/videos.pt:19
 msgid "message_no_videos"
+msgstr ""
+
+#. Default: "Resource(s) Found"
+#: ./browser/templates/resources.pt:60
+msgid "message_resources_found"
 msgstr ""
 
 #. Default: "Thank you for your request about ${subject}, ${customer_email}."

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-01 10:21+0000\n"
-"PO-Revision-Date: 2013-02-01 12:25+0200\n"
+"POT-Creation-Date: 2013-02-25 13:30+0000\n"
+"PO-Revision-Date: 2013-02-25 15:25+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Voeg Aktiwiteit by"
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
 
-#: ./browser/templates/topictrees.pt:17
+#: ./browser/templates/topictrees.pt:13
 msgid "Add Topic Tree"
 msgstr "Voeg Onderwerp Boom by"
 
@@ -46,7 +46,7 @@ msgstr "Voeg Klaslys by"
 msgid "Add evaluation sheet"
 msgstr "Voeg evalueringsblad by"
 
-#: ./browser/templates/resources.pt:14
+#: ./browser/templates/resources.pt:15
 msgid "Add resource"
 msgstr "Voeg hulpbron by"
 
@@ -58,15 +58,19 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
-#: ./behaviors.py:75
+#: ./behaviors.py:113
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle gradering waardes moet positief en groter as nul wees."
 
-#: ./behaviors.py:78
+#: ./behaviors.py:116
 msgid "All rating values must be unique."
 msgstr "Alle gradering waardes moet uniek wees."
 
-#: ./behaviors.py:25
+#: ./behaviors.py:94
+msgid "Categorization"
+msgstr "Kategorisering"
+
+#: ./behaviors.py:31
 msgid "Check list"
 msgstr "Kontrolelys"
 
@@ -112,7 +116,7 @@ msgstr "Sleep en die lêers te laai"
 msgid "EMIS"
 msgstr "EMIS"
 
-#: ./behaviors.py:55
+#: ./behaviors.py:63
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -132,7 +136,11 @@ msgstr "Lêer na bediener gestuur"
 msgid "Files Quick Upload"
 msgstr "Lêers vinnig oplaai"
 
-#: ./behaviors.py:56
+#: ./browser/templates/resources.pt:53
+msgid "Filter results"
+msgstr "Filtreer resultate"
+
+#: ./behaviors.py:64
 msgid "Good"
 msgstr "Goed"
 
@@ -140,7 +148,7 @@ msgstr "Goed"
 msgid "Images Quick Upload"
 msgstr "Beedle vinnig oplaai"
 
-#: ./behaviors.py:39
+#: ./behaviors.py:46
 msgid "Label"
 msgstr "Etiket"
 
@@ -152,7 +160,7 @@ msgstr "Laaste veergawe nommer"
 msgid "Message"
 msgstr "Boodskap"
 
-#: ./behaviors.py:58
+#: ./behaviors.py:66
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -168,7 +176,7 @@ msgstr "Geen gebruiker profile bestaan"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig grondslagfase"
 
-#: ./behaviors.py:20
+#: ./behaviors.py:26
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
@@ -188,13 +196,17 @@ msgstr "Provinsie"
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
-#: ./behaviors.py:40
+#: ./behaviors.py:47
 msgid "Rating"
 msgstr "Gradering"
 
-#: ./behaviors.py:53
+#: ./behaviors.py:61
 msgid "Rating scale"
 msgstr "Graderingskaal"
+
+#: ./behaviors.py:79
+msgid "Related"
+msgstr "Verwant"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
@@ -204,11 +216,11 @@ msgstr "Remote Server Stellings"
 msgid "Remote Server Url"
 msgstr "Remote Server Url"
 
-#: ./behaviors.py:30
+#: ./behaviors.py:36
 msgid "Rubric"
 msgstr "Rubriek"
 
-#: ./behaviors.py:57
+#: ./behaviors.py:65
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
@@ -264,6 +276,10 @@ msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
 
+#: ./behaviors.py:77
+msgid "Topics"
+msgstr "Onderwerpe"
+
 #: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
@@ -275,11 +291,6 @@ msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te ste
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
 msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
-
-#. Default: "resources for this topic."
-#: ./browser/templates/topicresources.pt:13
-msgid "desc_resources_for_topic"
-msgstr "hulpbronne vir hierdie onderwerp."
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
 #: ./browser/templates/assessments.pt:12
@@ -326,11 +337,6 @@ msgstr "Skole:"
 msgid "heading_select_profile"
 msgstr "Kies U Profil"
 
-#. Default: "Teacher resources for ${topictitle}"
-#: ./browser/templates/topicresources.pt:12
-msgid "heading_teacher_resource_title"
-msgstr "Onderwyser hulpbronne vir ${topictitle}"
-
 #. Default: "TEACHER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:12
 msgid "heading_teacherprofiles"
@@ -355,11 +361,6 @@ msgstr "Of tik die naam van 'n nuwe assessering in:"
 #: ./browser/templates/activities.pt:43
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
-
-#. Default: "bytes"
-#: ./browser/templates/topicresources.pt:19
-msgid "label_bytes"
-msgstr "bytes"
 
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
@@ -497,12 +498,12 @@ msgid "message_no_profiles_exist"
 msgstr "Geen profile is nog geskep."
 
 #. Default: "No resources found in the system."
-#: ./browser/templates/resources.pt:19
+#: ./browser/templates/resources.pt:22
 msgid "message_no_resources"
 msgstr "Geen hulpbronne gevind in die stelsel."
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:22
+#: ./browser/templates/topictrees.pt:18
 msgid "message_no_topictrees_exist"
 msgstr "Geen onderwyser boome is nog geskep."
 
@@ -510,6 +511,11 @@ msgstr "Geen onderwyser boome is nog geskep."
 #: ./browser/templates/videos.pt:19
 msgid "message_no_videos"
 msgstr "Geen videos gevind in die stelsel."
+
+#. Default: "Resource(s) Found"
+#: ./browser/templates/resources.pt:60
+msgid "message_resources_found"
+msgstr "Hulpbronne gevind"
 
 #. Default: "Thank you for your request about ${subject}, ${customer_email}."
 #: ./browser/templates/feedback_result.pt:15
