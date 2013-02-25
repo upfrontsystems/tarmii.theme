@@ -11,14 +11,13 @@
                         tal:attributes="id string:select-${topictree/id};
                                         name string:${view/name}:list"
                         tal:define="topics python:topictree.getObject().getFolderContents()">
-
-                    <tal:item tal:repeat="item topics">
-                        <option tal:content="item/Title" 
+                        <option value=""></option>
+                        <option tal:repeat="item topics"
+                                tal:content="item/Title" 
                                 tal:attributes="value item/getPath;
                                                 id string:${item/id};
                                                 selected python:view.topic_selected(item)">
                         </option>
-                    </tal:item>
                 </select>
             </div>
         </tal:topictree>
