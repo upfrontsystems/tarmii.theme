@@ -1,3 +1,4 @@
+from sets import Set
 from five import grok
 
 from AccessControl import getSecurityManager
@@ -18,19 +19,32 @@ class ResourcesView(grok.View):
     grok.template('resources')
     grok.require('zope2.View')
 
+    def update(self, **kwargs):
+        """ store all filter selections that were made in self.topics
+        """
+        # get all the select-dropdowns from the request, we dont know how many
+        # there might be so  get all request keys that start with 'select'
+        keys = filter(lambda item: item[0:6] == 'select', self.request.keys())
+        self.topics = []
+        for x in range(len(keys)):
+            if self.request.get(keys[x]) != '':
+                self.topics.append(self.request.get(keys[x]))
+
     def addresource_visible(self):
         """ test if add resource button can be shown based on whether the user
-            has "AddPortalContent" Permission on the resouces folder
+            has "AddPortalContent" Permission on the resouces folder 
         """
         return getSecurityManager().checkPermission(AddPortalContent,
                                                     self.context)
 
     def add_resource_button_path(self):
-        """ Path string for the Add Resource button
+        """ Path string for the Add Resource button 
         """
         return '%s/createObject?type_name=File' % self.context.absolute_url()
 
     def topictrees(self):
+        """ Return all topic trees in the system
+        """
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(portal_type='collective.topictree.topictree')
         return brains
@@ -39,9 +53,32 @@ class ResourcesView(grok.View):
         """ Return resource items that match current filter criteria.
             Batch the result.
         """
+
         catalog = getToolByName(self.context, 'portal_catalog')
-        folder_path = '/'.join(self.context.getPhysicalPath())
-        results = catalog(path={'query': folder_path, 'depth': 1})
+        rc = getToolByName(self.context, 'reference_catalog')
+
+        if len(self.topics) == 0:
+            # no filter selected, show all options
+            folder_path = '/'.join(self.context.getPhysicalPath())
+            results = catalog(path={'query': folder_path, 'depth': 1})
+        elif len(self.topics) == 1:
+            # one filter selected, show all options
+            brains = rc(targetUID=self.topics, relationship='topics')
+            UID_list = [ x.getObject().sourceUID for x in brains ]
+            results = catalog(UID=UID_list)
+        else:
+            # more than one filter selected, show all options
+            brains = rc(targetUID=self.topics[0], relationship='topics')
+            UID_set = Set([ x.getObject().sourceUID for x in brains ])
+            print UID_set
+            for x in range(len(self.topics)-1):
+                brains = rc(targetUID=self.topics[x+1], relationship='topics')
+                next_set = Set([ x.getObject().sourceUID for x in brains ])
+                UID_set = UID_set.intersection(Set(next_set))
+                print UID_set
+            UID_list = list(UID_set)
+            results = catalog(UID=UID_list)
+
         b_size = 10
         b_start = self.request.get('b_start', 0)
         return Batch(results, b_size, int(b_start), orphan=0)
@@ -49,8 +86,5 @@ class ResourcesView(grok.View):
     def resource_count(self):
         """ Return number of resource items that match current filter criteria
         """
-        catalog = getToolByName(self.context, 'portal_catalog')
-        folder_path = '/'.join(self.context.getPhysicalPath())
-        results = catalog(path={'query': folder_path, 'depth': 1})
-        return len(results)
+        return len(self.resources())
 

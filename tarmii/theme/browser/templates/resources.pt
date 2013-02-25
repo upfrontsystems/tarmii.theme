@@ -25,8 +25,9 @@
         <form id="filter-results-form" name="filter-result-form" tal:attributes="action string:${here/absolute_url}">
 
             <div class="topictree-filter">
-                <tal:topictree tal:repeat="topictree view/topictrees">
-                    <div class="filter-block">
+                <tal:topictree tal:repeat="topictree view/topictrees">                               
+                    <div class="filter-block"
+                         tal:define="selected-id string:selected-${topictree/id}">
                         <div>
                             <label class="horizontal" tal:attributes="for string:form-widgets-${topictree/id}" 
                                    tal:content="topictree/Title">Language
@@ -39,10 +40,10 @@
                                 <option value=""></option>
                                 <option tal:repeat="item topics"
                                         tal:content="item/id" 
-                                        tal:attributes="value python:'/'.join(item.getObject().getPhysicalPath());
+                                        tal:attributes="value item/UID;
                                                         id string:${item/id}">
                                 </option>
-                        </select>   
+                        </select>
                     </div>
                 </tal:topictree>
             </div>
@@ -63,7 +64,7 @@
             <tal:item tal:repeat="item batch">
                 <div>
                     <span tal:content="repeat/item/number"></span><span>. </span>
-                    <span tal:content="python:item.getObject().Title()">Title</span>
+                    <a tal:content="python:item.getObject().Title()" >Title</a>
                 </div>
                 <div tal:content="python:item.getObject().Description()">Description</div>
             </tal:item>
