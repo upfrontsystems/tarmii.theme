@@ -27,7 +27,7 @@
             <div class="topictree-filter">
                 <tal:topictree tal:repeat="topictree view/topictrees">                               
                     <div class="filter-block"
-                         tal:define="selected-id string:selected-${topictree/id}">
+                         tal:define="selected_id string:select-${topictree/id}">
                         <div>
                             <label class="horizontal" tal:attributes="for string:form-widgets-${topictree/id}" 
                                    tal:content="topictree/Title">Language
@@ -41,7 +41,8 @@
                                 <option tal:repeat="item topics"
                                         tal:content="item/id" 
                                         tal:attributes="value item/UID;
-                                                        id string:${item/id}">
+                                                        id string:${item/id};
+                                                        selected python:item.UID == request.get(selected_id)">
                                 </option>
                         </select>
                     </div>
@@ -62,8 +63,7 @@
 
         <tal:listing tal:condition="batch">
             <tal:item tal:repeat="item batch">
-                <div>
-                    <span tal:content="repeat/item/number"></span><span>. </span>
+                <div>                    
                     <a tal:content="python:item.Title()" 
                        tal:attributes="href string:${item/absolute_url}/at_download/file" >Title</a>
                 </div>
