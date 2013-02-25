@@ -39,7 +39,7 @@
                                 tal:define="topics python:topictree.getObject().getFolderContents()">
                                 <option value=""></option>
                                 <option tal:repeat="item topics"
-                                        tal:content="item/id" 
+                                        tal:content="item/Title" 
                                         tal:attributes="value item/UID;
                                                         id string:${item/id};
                                                         selected python:item.UID == request.get(selected_id)">
