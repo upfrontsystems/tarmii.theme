@@ -74,7 +74,6 @@ class ITopicTags(form.Schema):
 
     form.widget(topics=TopicsFieldWidget)
     topics = RelationList(
-        title=_(u"Topics"),
         default=[],
         value_type=RelationChoice(title=_(u"Related"),
                                   source=ObjPathSourceBinder(
