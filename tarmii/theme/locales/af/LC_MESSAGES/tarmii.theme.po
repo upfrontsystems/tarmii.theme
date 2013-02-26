@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-25 13:30+0000\n"
+"POT-Creation-Date: 2013-02-25 14:15+0000\n"
 "PO-Revision-Date: 2013-02-25 15:25+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,7 +112,7 @@ msgstr "Verwyder"
 msgid "Drag and drop files to upload"
 msgstr "Sleep en die lêers te laai"
 
-#: ./userdataschema.py:21
+#: ./userdataschema.py:26
 msgid "EMIS"
 msgstr "EMIS"
 
@@ -172,7 +172,7 @@ msgstr "Nooit"
 msgid "No user profiles exist"
 msgstr "Geen gebruiker profile bestaan"
 
-#: ./userdataschema.py:41
+#: ./userdataschema.py:46
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig grondslagfase"
 
@@ -188,11 +188,11 @@ msgstr "Slegs toegelaat"
 msgid "Profile created."
 msgstr "Profiel geskep"
 
-#: ./userdataschema.py:16
+#: ./userdataschema.py:21
 msgid "Province"
 msgstr "Provinsie"
 
-#: ./userdataschema.py:36
+#: ./userdataschema.py:41
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
@@ -224,15 +224,15 @@ msgstr "Rubriek"
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
-#: ./userdataschema.py:11
+#: ./userdataschema.py:16
 msgid "School"
 msgstr "Skool"
 
-#: ./userdataschema.py:26
+#: ./userdataschema.py:31
 msgid "School Contact Number"
 msgstr "Skool Kontak Nommer"
 
-#: ./userdataschema.py:31
+#: ./userdataschema.py:36
 msgid "School Email"
 msgstr "Skool Email"
 
@@ -247,6 +247,10 @@ msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 #: ./browser/views.py:123
 msgid "TARMII Remote Server Settings"
 msgstr "TARMII Remove Server Stellings"
+
+#: ./userdataschema.py:11
+msgid "Teacher Cellphone Number"
+msgstr "Onderwyser Selfoon Nommer"
 
 #: ./browser/feedback.py:27
 msgid "The message body"
@@ -512,7 +516,7 @@ msgstr "Geen onderwyser boome is nog geskep."
 msgid "message_no_videos"
 msgstr "Geen videos gevind in die stelsel."
 
-#. Default: "Resource(s) Found"
+#. Default: "Resource(s) found"
 #: ./browser/templates/resources.pt:60
 msgid "message_resources_found"
 msgstr "Hulpbronne gevind"

@@ -2,6 +2,12 @@ from plone.app.users.browser.personalpreferences import UserDataPanelAdapter
 
 class TARMIIUserDataPanelAdapter(UserDataPanelAdapter):
 
+    def get_teacher_mobile_number(self):
+        return self.context.getProperty('teacher_mobile_number', '')
+    def set_teacher_mobile_number(self, value):
+        return self.context.setMemberProperties({'teacher_mobile_number': value})
+    teacher_mobile_number = property(get_teacher_mobile_number, set_teacher_mobile_number)
+
     def get_school(self):
         return self.context.getProperty('school', '')
     def set_school(self, value):

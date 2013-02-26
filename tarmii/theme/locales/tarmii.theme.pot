@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-25 13:30+0000\n"
+"POT-Creation-Date: 2013-02-25 14:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Drag and drop files to upload"
 msgstr ""
 
-#: ./userdataschema.py:21
+#: ./userdataschema.py:26
 msgid "EMIS"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "No user profiles exist"
 msgstr ""
 
-#: ./userdataschema.py:41
+#: ./userdataschema.py:46
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
@@ -191,11 +191,11 @@ msgstr ""
 msgid "Profile created."
 msgstr ""
 
-#: ./userdataschema.py:16
+#: ./userdataschema.py:21
 msgid "Province"
 msgstr ""
 
-#: ./userdataschema.py:36
+#: ./userdataschema.py:41
 msgid "Qualification"
 msgstr ""
 
@@ -227,15 +227,15 @@ msgstr ""
 msgid "Satisfactory"
 msgstr ""
 
-#: ./userdataschema.py:11
+#: ./userdataschema.py:16
 msgid "School"
 msgstr ""
 
-#: ./userdataschema.py:26
+#: ./userdataschema.py:31
 msgid "School Contact Number"
 msgstr ""
 
-#: ./userdataschema.py:31
+#: ./userdataschema.py:36
 msgid "School Email"
 msgstr ""
 
@@ -249,6 +249,10 @@ msgstr ""
 
 #: ./browser/views.py:123
 msgid "TARMII Remote Server Settings"
+msgstr ""
+
+#: ./userdataschema.py:11
+msgid "Teacher Cellphone Number"
 msgstr ""
 
 #: ./browser/feedback.py:27
@@ -515,7 +519,7 @@ msgstr ""
 msgid "message_no_videos"
 msgstr ""
 
-#. Default: "Resource(s) Found"
+#. Default: "Resource(s) found"
 #: ./browser/templates/resources.pt:60
 msgid "message_resources_found"
 msgstr ""
