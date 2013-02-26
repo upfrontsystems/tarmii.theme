@@ -15,7 +15,8 @@ class ClassListsView(grok.View):
         """ Return all the classlists in the current folder
         """
         contentFilter = {
-            'portal_type': 'upfront.classlist.content.classlist'}
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
         return self.context.getFolderContents(contentFilter)
 
     def import_learners_url(self):
