@@ -28,12 +28,16 @@ class TestClassListAddForm(TarmiiThemeTestBase):
 
     def test_createAndAdd(self):
         data = {'IBasic.title': u'List1', 'IBasic.description': u''}
-        contentFilter = {'portal_type':'upfront.classlist.content.classlist'}
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
         classlists_before = self.classlists.getFolderContents(contentFilter)
         form = ClassListAddForm(self.classlists, self.request)
         form.portal_type = 'upfront.classlist.content.classlist'
         createAndAdd = form.createAndAdd(data)
-        contentFilter = {'portal_type':'upfront.classlist.content.classlist'}
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
         classlists_after = self.classlists.getFolderContents(contentFilter)
         self.assertEquals(len(classlists_after),len(classlists_before)+1)
 
