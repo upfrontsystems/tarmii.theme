@@ -1,5 +1,3 @@
-Make 'Full Name' field a required for all users that are self-registering themselves.
-
 Edge cases for creating evaluationsheets when classlists is empty, or not activities are associated with the relevant assessment
 
 We need to make sure that the views that return feedback using portal messages are doing so correctly. Some views need to only show an error message if there was an AJAX error.

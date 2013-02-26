@@ -49,6 +49,7 @@ class TARMIIAddUserForm(AddUserForm):
         originalFields = originalFields.omit('password')
         originalFields = originalFields.omit('password_ctl')
         originalFields = originalFields.omit('groups')
+        originalFields['fullname'].field.required = True
 
         # use TARMIIUserDataSchema (that also inherits from UserDataSchema)
         # but remove fields that would cause duplicate field errors.
@@ -60,6 +61,8 @@ class TARMIIAddUserForm(AddUserForm):
         newFields = newFields.omit('description')
         newFields = newFields.omit('location')
         newFields = newFields.omit('pdelete')
+ 
+
 
         # merge 
         allFields = originalFields + newFields
