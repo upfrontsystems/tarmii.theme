@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-26 07:03+0000\n"
+"POT-Creation-Date: 2013-02-26 10:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,15 +61,15 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:113
+#: ./behaviors.py:112
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:116
+#: ./behaviors.py:115
 msgid "All rating values must be unique."
 msgstr ""
 
-#: ./behaviors.py:94
+#: ./behaviors.py:93
 msgid "Categorization"
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Rating scale"
 msgstr ""
 
-#: ./behaviors.py:79
+#: ./behaviors.py:78
 msgid "Related"
 msgstr ""
 
@@ -281,10 +281,6 @@ msgstr ""
 
 #: ./eventhandlers.py:48
 msgid "Thumbnail generation failed"
-msgstr ""
-
-#: ./behaviors.py:77
-msgid "Topics"
 msgstr ""
 
 #: ./browser/uploadtoserver.py:75

@@ -9,28 +9,39 @@
 <body>
     <metal:main fill-slot="main">
 
-        <h1 i18n:translate="heading_select_profile" tal:condition="view/profiles"> Select your profile</h1>
-   
-        <tal:profiles tal:condition="not:view/profiles">
-            <p i18n:translate="message_no_profiles_exist">No profiles have been created yet.</p>
-        </tal:profiles>
 
-        <div class="select-profile" tal:repeat="profile view/profiles">
+        <h1 i18n:translate="heading_select_language" tal:condition="not:view/language_cookie_status"> Select your language</h1>
+    
+        <div tal:condition="not:view/language_cookie_status">SURFACE THE LANGUAGE CHOICE SELECTOR HERE</div>
 
-            <a class="select-avatar" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile/username}">
-                <img tal:attributes="src profile/avatar" />
-            </a>    
-            <a class="select-text" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile/username}"
-               tal:content="profile/fullname">
-            </a>
+        <ul id="portal-languageselector">
+        </ul>
 
-        </div>
 
-        <div class="visualClear"/>
-        <div id="create-new-profile">
-            <a class="link-button" i18n:translate="link_create_new_profile" 
-               tal:attributes="href view/create_profile_link">Create a new profile</a>
-        </div>
+        <tal:languagechosen tal:condition="view/language_cookie_status">
+            <h1 i18n:translate="heading_select_profile" tal:condition="view/profiles"> Select your profile</h1>
+       
+            <tal:profiles tal:condition="not:view/profiles">
+                <p i18n:translate="message_no_profiles_exist">No profiles have been created yet.</p>
+            </tal:profiles>
+
+            <div class="select-profile" tal:repeat="profile view/profiles">
+
+                <a class="select-avatar" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile/username}">
+                    <img tal:attributes="src profile/avatar" />
+                </a>    
+                <a class="select-text" tal:attributes="href string:${view/select_profile_url}/@@select-profile?username=${profile/username}"
+                   tal:content="profile/fullname">
+                </a>
+
+            </div>
+
+            <div class="visualClear"/>
+            <div id="create-new-profile">
+                <a class="link-button" i18n:translate="link_create_new_profile" 
+                   tal:attributes="href view/create_profile_link">Create a new profile</a>
+            </div>
+        </tal:languagechosen>
 
     </metal:main>
 </body>

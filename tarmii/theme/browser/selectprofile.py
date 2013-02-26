@@ -58,5 +58,11 @@ class SelectProfileView(grok.View):
         """
         return self.context.absolute_url()
 
+    def language_cookie_status(self):
+        """ Return True if the language cookie has been set """
+     
+        if self.request.cookies.get("I18N_LANGUAGE", "") == "":
+            return False
+        return True
 
 

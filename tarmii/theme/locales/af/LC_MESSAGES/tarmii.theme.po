@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-26 07:03+0000\n"
+"POT-Creation-Date: 2013-02-26 10:09+0000\n"
 "PO-Revision-Date: 2013-02-26 09:04+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,15 +58,15 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
-#: ./behaviors.py:113
+#: ./behaviors.py:112
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle gradering waardes moet positief en groter as nul wees."
 
-#: ./behaviors.py:116
+#: ./behaviors.py:115
 msgid "All rating values must be unique."
 msgstr "Alle gradering waardes moet uniek wees."
 
-#: ./behaviors.py:94
+#: ./behaviors.py:93
 msgid "Categorization"
 msgstr "Kategorisering"
 
@@ -208,7 +208,7 @@ msgstr "Gradering"
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./behaviors.py:79
+#: ./behaviors.py:78
 msgid "Related"
 msgstr "Verwant"
 
@@ -279,10 +279,6 @@ msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 #: ./eventhandlers.py:48
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
-
-#: ./behaviors.py:77
-msgid "Topics"
-msgstr "Onderwerpe"
 
 #: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
