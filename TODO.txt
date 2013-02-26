@@ -1,16 +1,8 @@
-Select profile is currently not acting as the default page when one is not-logged in
-
 Make 'Full Name' field a required for all users that are self-registering themselves.
 
 Edge cases for creating evaluationsheets when classlists is empty, or not activities are associated with the relevant assessment
 
 We need to make sure that the views that return feedback using portal messages are doing so correctly. Some views need to only show an error message if there was an AJAX error.
-
-Translation issue - Custom portal messages are not being translated:
-Info - New learner added
-Error - Student code not unique
-Error - Field cannot be empty 
-Info - Learner(s) removed from Classlist Class1
 
 Translation issue - when uploading the same video again - "x has been replaced" status message needs translating
 
@@ -28,11 +20,8 @@ All User interface that is coming out of the theme - needs translations
 Default content of rating_scale datagridfield is not being translated.
 
 Outstanding interface translations including JS Tree based translations:
-
 ---------- upfront.assessmentitem -----------
-
 Edit Assessment Item:
-
     Content heading
     Add new introduction button button
     Select existing introduction button
@@ -48,14 +37,12 @@ Select existing introduction
     Select an introduction heading
 
 ----------- upfront.classlist ---------
-
 Import learners
     Browse button
 
 --------- TOPIC TREES & JS TREE translations ---
 
 --------- plone add form -----------
-
 Add file (Teacher resources)
     Browse button
 
