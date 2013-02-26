@@ -27,8 +27,10 @@
         </div>
 
         <div class="visualClear"/>
-
-        <a class="link-button" i18n:translate="link_create_new_profile" tal:attributes="href view/create_profile_link">Create a new profile</a>
+        <div id="create-new-profile">
+            <a class="link-button" i18n:translate="link_create_new_profile" 
+               tal:attributes="href view/create_profile_link">Create a new profile</a>
+        </div>
 
     </metal:main>
 </body>

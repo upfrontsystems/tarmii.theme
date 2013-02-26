@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-25 14:15+0000\n"
-"PO-Revision-Date: 2013-02-25 15:25+0200\n"
+"POT-Creation-Date: 2013-02-26 07:03+0000\n"
+"PO-Revision-Date: 2013-02-26 09:04+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,10 @@ msgstr "Alle gradering waardes moet uniek wees."
 #: ./behaviors.py:94
 msgid "Categorization"
 msgstr "Kategorisering"
+
+#: ./userdataschema.py:11
+msgid "Cellphone Number"
+msgstr "Selfoon Nommer"
 
 #: ./behaviors.py:31
 msgid "Check list"
@@ -247,10 +251,6 @@ msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 #: ./browser/views.py:123
 msgid "TARMII Remote Server Settings"
 msgstr "TARMII Remove Server Stellings"
-
-#: ./userdataschema.py:11
-msgid "Teacher Cellphone Number"
-msgstr "Onderwyser Selfoon Nommer"
 
 #: ./browser/feedback.py:27
 msgid "The message body"

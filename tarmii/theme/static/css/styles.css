@@ -395,8 +395,14 @@ a.move-down:hover {
 }
 
 /* select profile view */
+#create-new-profile {
+    margin-top: 15px;
+}
+
 div.select-profile {
-    margin-bottom: 12em;
+    width: 500px;
+    height: 100px;
+    display: block;
 }
 a.select-avatar img {
     padding-top: 5px;

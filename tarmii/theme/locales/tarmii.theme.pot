@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-25 14:15+0000\n"
+"POT-Creation-Date: 2013-02-26 07:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,6 +71,10 @@ msgstr ""
 
 #: ./behaviors.py:94
 msgid "Categorization"
+msgstr ""
+
+#: ./userdataschema.py:11
+msgid "Cellphone Number"
 msgstr ""
 
 #: ./behaviors.py:31
@@ -249,10 +253,6 @@ msgstr ""
 
 #: ./browser/views.py:123
 msgid "TARMII Remote Server Settings"
-msgstr ""
-
-#: ./userdataschema.py:11
-msgid "Teacher Cellphone Number"
 msgstr ""
 
 #: ./browser/feedback.py:27
