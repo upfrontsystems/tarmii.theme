@@ -433,8 +433,10 @@ a.select-text {
     padding: 0 3px 0 3px;
 }
 
-
-
+/* topic trees view */
+.jstree-icon {
+    cursor: pointer;
+}
 
 
 
