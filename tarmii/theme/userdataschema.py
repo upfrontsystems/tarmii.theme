@@ -8,7 +8,7 @@ from tarmii.theme import MessageFactory as _
 class ITARMIIUserDataSchema(IUserDataSchema):
 
     teacher_mobile_number = schema.TextLine(
-            title=_(u"Cellphone Number"),
+            title=_(u"Cell Phone Number"),
             required=True,
         )
 
