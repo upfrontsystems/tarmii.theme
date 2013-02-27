@@ -1,6 +1,8 @@
 import logging
-
+from zope.component import getUtility
+from zope.component.hooks import getSite
 from plone.app.controlpanel.security import ISecuritySchema
+from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.permissions import ModifyViewTemplate
 from Products.ATContentTypes.permission import ModifyConstrainTypes
@@ -119,6 +121,9 @@ def setupPortalContent(portal):
     # set cookie auth url
     acl = getToolByName(portal, 'acl_users')
     acl.credentials_cookie_auth.login_path = '@@select-profile'
+
+    # set TinyMCE link using UIDs
+    getSite().portal_tinymce.link_using_uids = True
 
 
 def setup(context):
