@@ -2,7 +2,12 @@ from sets import Set
 from five import grok
 
 from AccessControl import getSecurityManager
+from zope.app.intid.interfaces import IIntIds
+from zope.component import getUtility
 from zope.interface import Interface
+from zc.relation.interfaces import ICatalog
+from plone.uuid.interfaces import IUUID
+from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import AddPortalContent
 from Products.CMFPlone.PloneBatch import Batch
@@ -50,34 +55,52 @@ class ResourcesView(grok.View):
         brains = catalog(portal_type='collective.topictree.topictree')
         return brains
 
+    def relations_lookup(self,topic_uid):
+        """ return a list of object uids that are referrencing the topic_uid
+        """
+        ref_catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
+        result = ref_catalog.findRelations(
+                            {'to_id': intids.getId(uuidToObject(topic_uid))})
+        rel_list = []
+        notfinished = True;
+        while notfinished:            
+            try:
+                rel = result.next()
+                if rel.from_object.portal_type ==\
+                                         'tarmii.theme.content.teacherresource':
+                # only track references from teacherresource objects.
+                     rel_list.append(IUUID(rel.from_object))
+            except StopIteration:
+                notfinished = False;
+
+        return rel_list
+
     def resources(self):
         """ Return resource items that match current filter criteria.
         """
-
         catalog = getToolByName(self.context, 'portal_catalog')
-        rc = getToolByName(self.context, 'reference_catalog')
 
         if len(self.topics) == 0:
             # no filter selected, show all options
             folder_path = '/'.join(self.context.getPhysicalPath())
             results = catalog(path={'query': folder_path, 'depth': 1})
+            data = [ x.getObject() for x in results]
         elif len(self.topics) == 1:
             # one filter selected, show all options
-            brains = rc(targetUID=self.topics, relationship='topics')
-            UID_list = [ x.getObject().sourceUID for x in brains ]
-            results = catalog(UID=UID_list)
+            rel_list = self.relations_lookup(self.topics[0])
+            results = catalog(UID=rel_list)
+            data = [ x.getObject() for x in results ]
         else:
             # more than one filter selected, show all options
-            brains = rc(targetUID=self.topics[0], relationship='topics')
-            UID_set = Set([ x.getObject().sourceUID for x in brains ])
+            UID_set = Set(self.relations_lookup(self.topics[0]))
             for x in range(len(self.topics)-1):
-                brains = rc(targetUID=self.topics[x+1], relationship='topics')
-                next_set = Set([ x.getObject().sourceUID for x in brains ])
+                next_set = Set(self.relations_lookup(self.topics[x+1]))
                 UID_set = UID_set.intersection(Set(next_set))
             UID_list = list(UID_set)
             results = catalog(UID=UID_list)
+            data = [ x.getObject() for x in results]
 
-        data = [ x.getObject() for x in results]
         return data
 
     def resources_batch(self):
