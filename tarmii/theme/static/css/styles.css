@@ -433,6 +433,11 @@ a.select-text {
     padding: 0 3px 0 3px;
 }
 
+.topics-widget {
+    display: block;
+    height: 50px;
+}
+
 /* topic trees view */
 .jstree-icon {
     cursor: pointer;
