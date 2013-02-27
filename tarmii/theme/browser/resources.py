@@ -40,7 +40,8 @@ class ResourcesView(grok.View):
     def add_resource_button_path(self):
         """ Path string for the Add Resource button 
         """
-        return '%s/createObject?type_name=File' % self.context.absolute_url()
+        return "%s/++add++tarmii.theme.content.teacherresource" % (
+                self.context.absolute_url())
 
     def topictrees(self):
         """ Return all topic trees in the system
@@ -51,7 +52,6 @@ class ResourcesView(grok.View):
 
     def resources(self):
         """ Return resource items that match current filter criteria.
-            Batch the result.
         """
 
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -78,9 +78,15 @@ class ResourcesView(grok.View):
             results = catalog(UID=UID_list)
 
         data = [ x.getObject() for x in results]
+        return data
+
+    def resources_batch(self):
+        """ Return resource items that match current filter criteria.
+            Return batched.
+        """
         b_size = 10
         b_start = self.request.get('b_start', 0)
-        return Batch(data, b_size, int(b_start), orphan=0)
+        return Batch(self.resources(), b_size, int(b_start), orphan=0)
 
     def resource_count(self):
         """ Return number of resource items that match current filter criteria

@@ -27,7 +27,7 @@ class TopicsWidget(MultiContentTreeWidget):
         if self.mode == interfaces.INPUT_MODE:
             return self.input_template(self)
         else:
-            return ContentTreeWidget.render(self)
+            return MultiContentTreeWidget.render(self)
 
     def topictrees(self):
         catalog = getToolByName(self.context, 'portal_catalog')
