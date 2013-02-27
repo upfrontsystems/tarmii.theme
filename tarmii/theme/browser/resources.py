@@ -25,7 +25,7 @@ class ResourcesView(grok.View):
     grok.require('zope2.View')
 
     def update(self, **kwargs):
-        """ store all filter selections that were made in self.topics
+        """ Store all filter selections that were made in self.topics
         """
         # get all the select-dropdowns from the request, we dont know how many
         # there might be so  get all request keys that start with 'select'
@@ -36,7 +36,7 @@ class ResourcesView(grok.View):
                 self.topics.append(self.request.get(keys[x]))
 
     def addresource_visible(self):
-        """ test if add resource button can be shown based on whether the user
+        """ Test if add resource button can be shown based on whether the user
             has "AddPortalContent" Permission on the resouces folder 
         """
         return getSecurityManager().checkPermission(AddPortalContent,
@@ -56,7 +56,7 @@ class ResourcesView(grok.View):
         return brains
 
     def relations_lookup(self,topic_uid):
-        """ return a list of object uids that are referrencing the topic_uid
+        """ Return a list of object uids that are referrencing the topic_uid
         """
         ref_catalog = getUtility(ICatalog)
         intids = getUtility(IIntIds)
