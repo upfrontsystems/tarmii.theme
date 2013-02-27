@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-26 10:09+0000\n"
-"PO-Revision-Date: 2013-02-26 09:04+0200\n"
+"POT-Creation-Date: 2013-02-27 08:54+0000\n"
+"PO-Revision-Date: 2013-02-27 10:57+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +188,7 @@ msgstr "Waarnemingsblad"
 msgid "Only allowed:"
 msgstr "Slegs toegelaat"
 
-#: ./browser/views.py:109
+#: ./browser/views.py:112
 msgid "Profile created."
 msgstr "Profiel geskep"
 
@@ -220,6 +220,10 @@ msgstr "Remote Server Stellings"
 msgid "Remote Server Url"
 msgstr "Remote Server Url"
 
+#: ./content/teacherresource.py:14
+msgid "Resource File"
+msgstr "Hulpbron Lęer"
+
 #: ./behaviors.py:36
 msgid "Rubric"
 msgstr "Rubriek"
@@ -248,9 +252,13 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
-#: ./browser/views.py:123
+#: ./browser/views.py:126
 msgid "TARMII Remote Server Settings"
 msgstr "TARMII Remove Server Stellings"
+
+#: ./profiles/default/types/tarmii.theme.content.teacherresource.xml
+msgid "Teacher Resource"
+msgstr "Onderwyser Hulpbron"
 
 #: ./browser/feedback.py:27
 msgid "The message body"
@@ -284,7 +292,7 @@ msgstr "Verkleinde prentjie generering het misluk"
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
-#: ./browser/views.py:124
+#: ./browser/views.py:127
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
@@ -332,8 +340,13 @@ msgstr "Provinsies:"
 msgid "heading_schools"
 msgstr "Skole:"
 
+#. Default: "Select your language"
+#: ./browser/templates/selectprofile.pt:13
+msgid "heading_select_language"
+msgstr "Kies U Taal"
+
 #. Default: "Select your profile"
-#: ./browser/templates/selectprofile.pt:12
+#: ./browser/templates/selectprofile.pt:22
 msgid "heading_select_profile"
 msgstr "Kies U Profil"
 
@@ -358,9 +371,24 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:43
+#: ./browser/templates/activities.pt:44
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
+
+#. Default: "Date"
+#: ./browser/templates/assessments.pt:33
+msgid "label_assessment_date"
+msgstr "Datum"
+
+#. Default: "Assessment name"
+#: ./browser/templates/assessments.pt:32
+msgid "label_assessment_name"
+msgstr "Assessering naam"
+
+#. Default: "Assessment PDF"
+#: ./browser/templates/assessments.pt:34
+msgid "label_assessment_pdf"
+msgstr "Assessering PDF"
 
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
@@ -383,7 +411,7 @@ msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:41
+#: ./browser/templates/activities.pt:42
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -393,7 +421,7 @@ msgid "label_email"
 msgstr "E-pos"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:45
+#: ./browser/templates/activities.pt:46
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -412,13 +440,18 @@ msgstr "Laaste aanmelding tyd"
 msgid "label_media_quickupload"
 msgstr "${medialabel} Vinnig Oplaai"
 
+#. Default: "Memo PDF"
+#: ./browser/templates/assessments.pt:35
+msgid "label_memo_pdf"
+msgstr "Memo PDF"
+
 #. Default: "Qualification"
 #: ./browser/templates/teacherprofiles.pt:42
 msgid "label_qualification"
 msgstr "Kwalifikasie"
 
 #. Default: "Register"
-#: ./browser/views.py:68
+#: ./browser/views.py:71
 msgid "label_register"
 msgstr "Registreer"
 
@@ -433,7 +466,7 @@ msgid "label_username"
 msgstr "Gebruikersnaam"
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:39
+#: ./browser/templates/activities.pt:40
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr "Sien"
@@ -454,7 +487,7 @@ msgid "link_back_to_schools"
 msgstr "Terug na skoole"
 
 #. Default: "Create a new profile"
-#: ./browser/templates/selectprofile.pt:31
+#: ./browser/templates/selectprofile.pt:41
 msgid "link_create_new_profile"
 msgstr "Skep 'n nuwe profil"
 
@@ -493,7 +526,7 @@ msgid "message_no_evaluationsheets_exist"
 msgstr "Geen evaluaringsblade is nog geskep."
 
 #. Default: "No profiles have been created yet."
-#: ./browser/templates/selectprofile.pt:15
+#: ./browser/templates/selectprofile.pt:25
 msgid "message_no_profiles_exist"
 msgstr "Geen profile is nog geskep."
 

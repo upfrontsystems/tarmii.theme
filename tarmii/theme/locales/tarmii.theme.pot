@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-26 10:09+0000\n"
+"POT-Creation-Date: 2013-02-27 08:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
-#: ./browser/views.py:109
+#: ./browser/views.py:112
 msgid "Profile created."
 msgstr ""
 
@@ -223,6 +223,10 @@ msgstr ""
 msgid "Remote Server Url"
 msgstr ""
 
+#: ./content/teacherresource.py:14
+msgid "Resource File"
+msgstr ""
+
 #: ./behaviors.py:36
 msgid "Rubric"
 msgstr ""
@@ -251,8 +255,12 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/views.py:123
+#: ./browser/views.py:126
 msgid "TARMII Remote Server Settings"
+msgstr ""
+
+#: ./profiles/default/types/tarmii.theme.content.teacherresource.xml
+msgid "Teacher Resource"
 msgstr ""
 
 #: ./browser/feedback.py:27
@@ -287,7 +295,7 @@ msgstr ""
 msgid "Upload Server not specified in settings"
 msgstr ""
 
-#: ./browser/views.py:124
+#: ./browser/views.py:127
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
@@ -335,8 +343,13 @@ msgstr ""
 msgid "heading_schools"
 msgstr ""
 
+#. Default: "Select your language"
+#: ./browser/templates/selectprofile.pt:13
+msgid "heading_select_language"
+msgstr ""
+
 #. Default: "Select your profile"
-#: ./browser/templates/selectprofile.pt:12
+#: ./browser/templates/selectprofile.pt:22
 msgid "heading_select_profile"
 msgstr ""
 
@@ -361,8 +374,23 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:43
+#: ./browser/templates/activities.pt:44
 msgid "label_addtoassessment"
+msgstr ""
+
+#. Default: "Date"
+#: ./browser/templates/assessments.pt:33
+msgid "label_assessment_date"
+msgstr ""
+
+#. Default: "Assessment name"
+#: ./browser/templates/assessments.pt:32
+msgid "label_assessment_name"
+msgstr ""
+
+#. Default: "Assessment PDF"
+#: ./browser/templates/assessments.pt:34
+msgid "label_assessment_pdf"
 msgstr ""
 
 #. Default: "Choose existing assessment:"
@@ -386,7 +414,7 @@ msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:41
+#: ./browser/templates/activities.pt:42
 msgid "label_edit"
 msgstr ""
 
@@ -396,7 +424,7 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:45
+#: ./browser/templates/activities.pt:46
 msgid "label_feedback"
 msgstr ""
 
@@ -415,13 +443,18 @@ msgstr ""
 msgid "label_media_quickupload"
 msgstr ""
 
+#. Default: "Memo PDF"
+#: ./browser/templates/assessments.pt:35
+msgid "label_memo_pdf"
+msgstr ""
+
 #. Default: "Qualification"
 #: ./browser/templates/teacherprofiles.pt:42
 msgid "label_qualification"
 msgstr ""
 
 #. Default: "Register"
-#: ./browser/views.py:68
+#: ./browser/views.py:71
 msgid "label_register"
 msgstr ""
 
@@ -436,7 +469,7 @@ msgid "label_username"
 msgstr ""
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:39
+#: ./browser/templates/activities.pt:40
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr ""
@@ -457,7 +490,7 @@ msgid "link_back_to_schools"
 msgstr ""
 
 #. Default: "Create a new profile"
-#: ./browser/templates/selectprofile.pt:31
+#: ./browser/templates/selectprofile.pt:41
 msgid "link_create_new_profile"
 msgstr ""
 
@@ -496,7 +529,7 @@ msgid "message_no_evaluationsheets_exist"
 msgstr ""
 
 #. Default: "No profiles have been created yet."
-#: ./browser/templates/selectprofile.pt:15
+#: ./browser/templates/selectprofile.pt:25
 msgid "message_no_profiles_exist"
 msgstr ""
 
