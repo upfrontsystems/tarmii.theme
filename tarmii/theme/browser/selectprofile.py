@@ -62,12 +62,7 @@ class SelectProfileView(grok.View):
         """ Return True if the language cookie has been set """
      
         if self.request.cookies.get("PREFERRED_LANGUAGE", "") == "":
-#            print 'OUT WITH FALSE'
             return False
-#        i18code = self.request.cookies.get("I18N_LANGUAGE", "")
-#        self.request.response.setCookie("PREFERRED_LANGUAGE", i18code)
-#        print 'OUT WITH TRUE'
-#        print self.request.cookies.get("PREFERRED_LANGUAGE", "")
         return True
 
     def languages(self):
@@ -86,12 +81,5 @@ class SelectProfileView(grok.View):
                {'setlink': link,
                 'link': x[1]
                })
-#        self.request.response.setCookie("PREFERRED_LANGUAGE", "XX")
         return lang_data
-
-
-
-
-
-
 
