@@ -9,14 +9,18 @@
 <body>
     <metal:main fill-slot="main">
 
-
-        <h1 i18n:translate="heading_select_language" tal:condition="not:view/language_cookie_status"> Select your language</h1>
-    
-        <div tal:condition="not:view/language_cookie_status">SURFACE THE LANGUAGE CHOICE SELECTOR HERE</div>
-
-        <ul id="portal-languageselector">
-        </ul>
-
+        <tal:nolanguagechosen tal:condition="not:view/language_cookie_status">
+            <h1 i18n:translate="heading_select_language"> Select your language</h1>
+            <ul id="languageselector">
+                <tal:lang tal:repeat="lang view/languages">              
+                <li>
+                    <a tal:content="lang/link"
+                       tal:attributes="href lang/setlink;
+                                       title lang/link">Language</a>
+                </li>
+                </tal:lang>
+            </ul>
+        </tal:nolanguagechosen>
 
         <tal:languagechosen tal:condition="view/language_cookie_status">
             <h1 i18n:translate="heading_select_profile" tal:condition="view/profiles"> Select your profile</h1>

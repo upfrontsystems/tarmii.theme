@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="main">
+
+            <h1 i18n:translate="heading_select_language"> Select your language</h1>
+            <ul id="languageselector">
+                <tal:lang tal:repeat="lang view/languages">              
+                <li>
+                    <a tal:content="lang/link"
+                       tal:attributes="href lang/setlink;
+                                       title lang/link">Language</a>
+                </li>
+                </tal:lang>
+            </ul>
+
+    </metal:main>
+</body>
+</html>

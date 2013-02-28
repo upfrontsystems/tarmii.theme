@@ -1,9 +1,8 @@
-import random
 from zope.interface import Interface
 from five import grok
 
+from plone.app.layout.navigation.interfaces import INavigationRoot
 from Products.CMFCore.utils import getToolByName
-from zope.component.hooks import getSite
 
 grok.templatedir('templates')
 
@@ -45,6 +44,7 @@ class SelectProfileView(grok.View):
                         ).absolute_url()
                     })
 
+
         return non_admins
 
     def create_profile_link(self):
@@ -61,8 +61,37 @@ class SelectProfileView(grok.View):
     def language_cookie_status(self):
         """ Return True if the language cookie has been set """
      
-        if self.request.cookies.get("I18N_LANGUAGE", "") == "":
+        if self.request.cookies.get("PREFERRED_LANGUAGE", "") == "":
+#            print 'OUT WITH FALSE'
             return False
+#        i18code = self.request.cookies.get("I18N_LANGUAGE", "")
+#        self.request.response.setCookie("PREFERRED_LANGUAGE", i18code)
+#        print 'OUT WITH TRUE'
+#        print self.request.cookies.get("PREFERRED_LANGUAGE", "")
         return True
+
+    def languages(self):
+        """ Data to populate language switcher 
+        """
+        pl = getToolByName(self.context, 'portal_languages')        
+        languages = pl.listSupportedLanguages()
+        lang_data = []
+        context = self.context
+        while INavigationRoot.providedBy(context) == False:
+            context = context.aq_parent
+        for x in languages:
+            link = '%s/@@set-language?set_language=%s' %\
+                    (context.absolute_url(),x[0])
+            lang_data.append(
+               {'setlink': link,
+                'link': x[1]
+               })
+#        self.request.response.setCookie("PREFERRED_LANGUAGE", "XX")
+        return lang_data
+
+
+
+
+
 
 
