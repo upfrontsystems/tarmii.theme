@@ -50,3 +50,9 @@ class TARMIIUserDataPanelAdapter(UserDataPanelAdapter):
         return self.context.setMemberProperties({'years_teaching': value})
     years_teaching = property(get_years_teaching, set_years_teaching)
 
+    def get_preferred_language(self):
+        return self.context.getProperty('preferred_language', '')
+    def set_preferred_language(self, value):
+        return self.context.setMemberProperties({'preferred_language': value})
+    preferred_language = property(get_preferred_language, set_preferred_language)
+
