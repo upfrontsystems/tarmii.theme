@@ -100,10 +100,10 @@
             <property name="visible">True</property>
         </object>
     </object>
-    <object name="portal-personaltools" meta_type="CMF Action Category">
+    <object name="user" meta_type="CMF Action Category">
         <property name="title"></property>
         <object name="portal-personalinformation" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Personal Stuff</property>
+            <property name="title" i18n:translate="">Personal Information</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/@@personal-information</property>
