@@ -18,7 +18,8 @@ sitefolders = (
     ('activities', 'activities', 'Activities', 
         ['upfront.assessmentitem.content.assessmentitem',
          'upfront.assessmentitem.content.introtext']),
-    ('resources', 'resources', 'Teacher Resources', ['File']),
+    ('resources', 'resources', 'Teacher Resources',
+        ['tarmii.theme.content.teacherresource']),
     ('videos', 'videos', 'Videos', ['File','Image']),
 )
 
@@ -70,7 +71,11 @@ def setupPortalContent(portal):
         langtree.invokeFactory('collective.topictree.topic',
                                'english', title='English')
         langtree.invokeFactory('collective.topictree.topic',
+                               'isindebele', title='Isindebele')
+        langtree.invokeFactory('collective.topictree.topic',
                                'isixhosa', title='IsiXhosa')
+        langtree.invokeFactory('collective.topictree.topic',
+                               'isizulu', title='IsiZulu')
         langtree.invokeFactory('collective.topictree.topic',
                                'sepedi', title='Sepedi')
         langtree.invokeFactory('collective.topictree.topic',
@@ -83,8 +88,6 @@ def setupPortalContent(portal):
                                'tshivenda', title='Tshivenda')
         langtree.invokeFactory('collective.topictree.topic',
                                'xitsonga', title='Xitsonga')
-        langtree.invokeFactory('collective.topictree.topic',
-                               'isindebele', title='Isindebele')
 
     if not topicfolder.hasObject('grade'):
         topicfolder.invokeFactory('collective.topictree.topictree',
@@ -128,16 +131,17 @@ def setupPortalContent(portal):
 
     # language settings
     pl = getToolByName(portal, 'portal_languages')
-    # xh - xhosa
+    # xh - isixhosa
     # st - sesotho
     # ss - siswati
     # ve - tsivenda
     # ts - xisonga
-    # zu - zulu
+    # tn - setswana
+    # zu - isizulu
     # nd - ndebele north
     # nr - isindebele (ndebele south)
     # set allowed languages
-    pl.supported_langs = ['af','en','xh','st','ss','tn','ve','ts','zu','nd','nr']
+    pl.supported_langs = ['af','en','nr','xh','zu','st','tn','ss','ve','ts']
 
     # Use cookie for manual override. 
     pl.use_cookie_negotiation = True
