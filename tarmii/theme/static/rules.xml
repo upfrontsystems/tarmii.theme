@@ -32,6 +32,7 @@
         <!-- copy logged in username from Plone to theme -->
         <replace content="//a[@id='user-name']/text()" theme="//span[@id='user-name']" />
         <copy attributes="href" css:content="#personaltools-portal-personalinformation a" css:theme="#personaltools-personalinformation" />
+        <copy attributes="href" css:content="#personaltools-portal-selectlanguage a" css:theme="#personaltools-selectlanguage" />
         <copy attributes="href" css:content="#personaltools-logout a" css:theme="#personaltools-logout" />
 
         <!-- copy href of logo from plone to theme -->
@@ -43,9 +44,6 @@
 
         <!-- main menu navigation -->
         <replace css:content-children="#portal-globalnav" css:theme-children="#menu-globalnav" /> 
-
-        <!-- language selector -->        
-        <replace css:content="#portal-languageselector" css:theme="#portal-languageselector" />
 
         <!-- footer links -->
             <!-- home -->
