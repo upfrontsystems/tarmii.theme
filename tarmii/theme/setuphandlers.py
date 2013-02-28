@@ -123,7 +123,26 @@ def setupPortalContent(portal):
     acl.credentials_cookie_auth.login_path = '@@select-profile'
 
     # set TinyMCE link using UIDs
-    getSite().portal_tinymce.link_using_uids = True
+    ptmce = getToolByName(portal, 'portal_tinymce')
+    ptmce.link_using_uids = True
+
+    # language settings
+    pl = getToolByName(portal, 'portal_languages')
+    # xh - xhosa
+    # st - sesotho
+    # ss - siswati
+    # ve - tsivenda
+    # ts - xisonga
+    # zu - zulu
+    # nd - ndebele north
+    # nr - isindebele (ndebele south)
+    # set allowed languages
+    pl.supported_langs = ['af','en','xh','st','ss','tn','ve','ts','zu','nd','nr']
+
+    # Use cookie for manual override. 
+    pl.use_cookie_negotiation = True
+    # Set the language cookie always
+    pl.set_cookie_everywhere = True
 
 
 def setup(context):
