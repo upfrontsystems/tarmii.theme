@@ -24,7 +24,7 @@
 
         <form id="filter-results-form" name="filter-result-form" tal:attributes="action string:${here/absolute_url}">
 
-            <div class="topictree-filter">
+            <div>
                 <tal:topictree tal:repeat="topictree view/topictrees">                               
                     <div class="filter-block"
                          tal:define="selected_id string:select-${topictree/id}">

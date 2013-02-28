@@ -424,18 +424,20 @@ a.select-text {
 /* topicswidget input */
 
 .topictree-filter {
+
     display: block;
+    width: 100px;
 }
 
 .filter-block {
     float: left;
-    display: inline-block;
-    padding: 0 3px 0 3px;
+    display: block;
+    padding: 0px 3px 5px 0px;
 }
 
 .topics-widget {
     display: block;
-    height: 50px;
+    height: 180px;
 }
 
 /* topic trees view */
