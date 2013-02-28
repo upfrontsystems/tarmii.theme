@@ -61,7 +61,6 @@ class TARMIIAddUserForm(AddUserForm):
         newFields = newFields.omit('description')
         newFields = newFields.omit('location')
         newFields = newFields.omit('pdelete')
-        newFields = newFields.omit('preferred_language')
 
         # merge 
         allFields = originalFields + newFields

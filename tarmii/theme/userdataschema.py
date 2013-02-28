@@ -47,13 +47,6 @@ class ITARMIIUserDataSchema(IUserDataSchema):
             required=True,
         )
 
-    preferred_language = schema.Bool(
-            title=_(u"Preferred language"),
-            default=False,
-            required=True,
-        )
-
-
 class UserDataSchemaProvider(object):
     implements(IUserDataSchemaProvider)
 
