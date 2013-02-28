@@ -13,7 +13,7 @@
             <property name="permissions">
                 <element value="Set own properties"/>
             </property>
-            <property name="visible">True</property>
+            <property name="visible">False</property>
         </object>
         <object name="topictrees" meta_type="CMF Action" i18n:domain="plone">
             <property name="title" i18n:translate="">Topic Trees</property>
@@ -40,7 +40,7 @@
             <property name="visible">True</property>
         </object>
         <object name="resources" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Teacher Resources</property>
+            <property name="title" i18n:translate="">Resources</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/resources</property>
