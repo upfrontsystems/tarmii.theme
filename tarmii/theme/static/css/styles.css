@@ -439,6 +439,10 @@ a.select-text {
     height: 180px;
 }
 
+.resource-description {
+    padding: 0px 0px 5px 0px;
+}
+
 /* topic trees view */
 .jstree-icon {
     cursor: pointer;

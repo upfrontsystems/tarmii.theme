@@ -63,11 +63,11 @@
 
         <tal:listing tal:condition="batch">
             <tal:item tal:repeat="item batch">
-                <div>                    
+                <div class="resource-title">                    
                     <a tal:content="python:item.Title()" 
                        tal:attributes="href string:${item/absolute_url}/at_download/file" >Title</a>
                 </div>
-                <div tal:content="python:item.Description()">Description</div>
+                <div class="resource-description" tal:content="python:item.Description()">Description</div>
             </tal:item>
             <div metal:use-macro="context/batch_macros/macros/navigation" />
         </tal:listing>
