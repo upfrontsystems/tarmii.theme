@@ -3,8 +3,8 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
     <object name="portal_tabs" meta_type="CMF Action Category">
         <property name="title"></property>
-        <object name="index_html" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Home</property>
+        <object name="index_html" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_home">Home</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}</property>
@@ -15,8 +15,8 @@
             </property>
             <property name="visible">False</property>
         </object>
-        <object name="topictrees" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Topic Trees</property>
+        <object name="topictrees" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_topictrees">Topic Trees</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/topictrees</property>
@@ -27,8 +27,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="activities" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Activities</property>
+        <object name="activities" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_activities">Activities</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/activities</property>
@@ -39,8 +39,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="resources" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Resources</property>
+        <object name="resources" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_resources">Resources</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/resources</property>
@@ -51,8 +51,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="videos" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Videos</property>
+        <object name="videos" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_videos">Videos</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/videos</property>
@@ -63,8 +63,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="classlists" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Classlists</property>
+        <object name="classlists" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_classlists">Classlists</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${context/portal_membership/getHomeUrl}/classlists</property>
@@ -75,8 +75,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="assessments" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Assessments</property>
+        <object name="assessments" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_assessments">Assessments</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${context/portal_membership/getHomeUrl}/assessments</property>
@@ -87,8 +87,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="evaluations" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Evaluations</property>
+        <object name="evaluations" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="action_evaluations">Evaluations</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${context/portal_membership/getHomeUrl}/evaluations</property>
@@ -102,8 +102,8 @@
     </object>
     <object name="user" meta_type="CMF Action Category">
         <property name="title"></property>
-        <object name="portal-personalinformation" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Personal Information</property>
+        <object name="portal-personalinformation" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="actions_personalinformation">Personal Information</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/@@personal-information</property>
@@ -114,8 +114,8 @@
             </property>
             <property name="visible">True</property>
         </object>
-        <object name="portal-selectlanguage" meta_type="CMF Action" i18n:domain="plone">
-            <property name="title" i18n:translate="">Select Language</property>
+        <object name="portal-selectlanguage" meta_type="CMF Action" i18n:domain="tarmii.theme">
+            <property name="title" i18n:translate="actions_selectlanguage">Select Language</property>
             <property name="description" i18n:translate=""></property>
             <property
                 name="url_expr">string:${globals_view/navigationRootUrl}/@@select-language</property>

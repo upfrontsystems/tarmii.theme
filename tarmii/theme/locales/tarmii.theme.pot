@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-27 08:54+0000\n"
+"POT-Creation-Date: 2013-02-28 13:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgid "Categorization"
 msgstr ""
 
 #: ./userdataschema.py:11
-msgid "Cellphone Number"
+msgid "Cell Phone Number"
 msgstr ""
 
 #: ./behaviors.py:31
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
-#: ./browser/views.py:112
+#: ./browser/views.py:110
 msgid "Profile created."
 msgstr ""
 
@@ -255,7 +255,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/views.py:126
+#: ./browser/views.py:124
 msgid "TARMII Remote Server Settings"
 msgstr ""
 
@@ -295,12 +295,62 @@ msgstr ""
 msgid "Upload Server not specified in settings"
 msgstr ""
 
-#: ./browser/views.py:127
+#: ./browser/views.py:125
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
+msgstr ""
+
+#. Default: "Activities"
+#: ./profiles/default/actions.xml
+msgid "action_activities"
+msgstr ""
+
+#. Default: "Assessments"
+#: ./profiles/default/actions.xml
+msgid "action_assessments"
+msgstr ""
+
+#. Default: "Classlists"
+#: ./profiles/default/actions.xml
+msgid "action_classlists"
+msgstr ""
+
+#. Default: "Evaluations"
+#: ./profiles/default/actions.xml
+msgid "action_evaluations"
+msgstr ""
+
+#. Default: "Home"
+#: ./profiles/default/actions.xml
+msgid "action_home"
+msgstr ""
+
+#. Default: "Resources"
+#: ./profiles/default/actions.xml
+msgid "action_resources"
+msgstr ""
+
+#. Default: "Topic Trees"
+#: ./profiles/default/actions.xml
+msgid "action_topictrees"
+msgstr ""
+
+#. Default: "Videos"
+#: ./profiles/default/actions.xml
+msgid "action_videos"
+msgstr ""
+
+#. Default: "Personal Information"
+#: ./profiles/default/actions.xml
+msgid "actions_personalinformation"
+msgstr ""
+
+#. Default: "Select Language"
+#: ./profiles/default/actions.xml
+msgid "actions_selectlanguage"
 msgstr ""
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
@@ -344,12 +394,14 @@ msgid "heading_schools"
 msgstr ""
 
 #. Default: "Select your language"
+#: ./browser/templates/select-language.pt:12
+#: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
 msgid "heading_select_language"
 msgstr ""
 
 #. Default: "Select your profile"
-#: ./browser/templates/selectprofile.pt:22
+#: ./browser/templates/selectprofile.pt:26
 msgid "heading_select_profile"
 msgstr ""
 
@@ -454,7 +506,7 @@ msgid "label_qualification"
 msgstr ""
 
 #. Default: "Register"
-#: ./browser/views.py:71
+#: ./browser/views.py:69
 msgid "label_register"
 msgstr ""
 
@@ -490,7 +542,7 @@ msgid "link_back_to_schools"
 msgstr ""
 
 #. Default: "Create a new profile"
-#: ./browser/templates/selectprofile.pt:41
+#: ./browser/templates/selectprofile.pt:45
 msgid "link_create_new_profile"
 msgstr ""
 
@@ -529,7 +581,7 @@ msgid "message_no_evaluationsheets_exist"
 msgstr ""
 
 #. Default: "No profiles have been created yet."
-#: ./browser/templates/selectprofile.pt:25
+#: ./browser/templates/selectprofile.pt:29
 msgid "message_no_profiles_exist"
 msgstr ""
 
