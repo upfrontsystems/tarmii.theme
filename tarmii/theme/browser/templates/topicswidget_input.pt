@@ -9,7 +9,7 @@
                 </div>
                 <select size="1" class="select-widget required" 
                         tal:attributes="id string:select-${topictree/id};
-                                        name string:${view/name}:list"
+                                        name string:${view/name}:list:ignore_empty"
                         tal:define="topics python:topictree.getObject().getFolderContents()">
                         <option value=""></option>
                         <option tal:repeat="item topics"
