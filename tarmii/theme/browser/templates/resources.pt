@@ -24,7 +24,7 @@
 
         <form id="filter-results-form" name="filter-result-form" tal:attributes="action string:${here/absolute_url}">
 
-            <div class="topictree-filter">
+            <div>
                 <tal:topictree tal:repeat="topictree view/topictrees">                               
                     <div class="filter-block"
                          tal:define="selected_id string:select-${topictree/id}">
@@ -63,11 +63,11 @@
 
         <tal:listing tal:condition="batch">
             <tal:item tal:repeat="item batch">
-                <div>                    
+                <div class="resource-title">                    
                     <a tal:content="python:item.Title()" 
                        tal:attributes="href string:${item/absolute_url}/at_download/file" >Title</a>
                 </div>
-                <div tal:content="python:item.Description()">Description</div>
+                <div class="resource-description" tal:content="python:item.Description()">Description</div>
             </tal:item>
             <div metal:use-macro="context/batch_macros/macros/navigation" />
         </tal:listing>
