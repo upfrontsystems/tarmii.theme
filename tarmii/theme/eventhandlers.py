@@ -33,9 +33,9 @@ def on_video_added(video, event):
     finally:
         infile.close()
 
-    cmdargs = ['avconv', '-loglevel', 'error' , '-itsoffset', '-5', '-i', 
+    cmdargs = ['avconv', '-loglevel', 'error' , '-ss', '30', '-i', 
                infilename, '-vcodec', 'mjpeg', '-y', '-vframes', '1', '-an', 
-               '-f', 'rawvideo', '-s', '265x150', outfilename]
+               '-f', 'image2', '-s', '265x150', outfilename]
     process = subprocess.Popen(cmdargs)
     stdout, stderr = process.communicate()
     
