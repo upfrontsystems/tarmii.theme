@@ -1,4 +1,6 @@
+import os
 import subprocess
+import tempfile
 from five import grok
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -22,19 +24,31 @@ def on_video_added(video, event):
     # and not for files uploaded elsewhere like teacher resources
     if video.aq_parent.Title() != 'Videos':
         return
-    
+
+    fd, infilename = tempfile.mkstemp()
+    fd, outfilename = tempfile.mkstemp()
+    try:
+        infile = open(infilename, 'w+')
+        infile.write(video.data)
+    finally:
+        infile.close()
+
     cmdargs = ['avconv', '-loglevel', 'error' , '-itsoffset', '-5', '-i', 
-               'pipe:0', '-vcodec', 'mjpeg', '-y', '-vframes', '1', '-an', 
-               '-f', 'rawvideo', '-s', '265x150', 'pipe:1']
-    process = subprocess.Popen(cmdargs,
-        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = process.communicate(video.data)
+               infilename, '-vcodec', 'mjpeg', '-y', '-vframes', '1', '-an', 
+               '-f', 'rawvideo', '-s', '265x150', outfilename]
+    process = subprocess.Popen(cmdargs)
+    stdout, stderr = process.communicate()
     
-    if stderr == '':
+    if stderr is None:
         #if no errors from avconv - create thumbnail image
         video_id = video.id + '-thumb'
+        f = open(outfilename)
+        try:
+            image_data = f.read()
+        finally:
+            f.close()
         video.aq_parent.invokeFactory('Image', video_id, title=video.title,
-                                      image=stdout)
+                                      image=image_data)
 
         # generate link so that we can get the video url from its thumbnail obj
         thumb_obj = video.aq_parent._getOb(video_id)
@@ -47,6 +61,9 @@ def on_video_added(video, event):
         IStatusMessage(request).addStatusMessage(
                                     _(u"Thumbnail generation failed"),"error")
         IStatusMessage(request).addStatusMessage(stderr,"info")
+
+    os.remove(infilename)
+    os.remove(outfilename)
 
     return
 
