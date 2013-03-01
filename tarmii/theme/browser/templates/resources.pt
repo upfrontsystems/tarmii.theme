@@ -65,7 +65,7 @@
             <tal:item tal:repeat="item batch">
                 <div class="resource-title">                    
                     <a tal:content="python:item.Title()" 
-                       tal:attributes="href string:${item/absolute_url}/at_download/file" >Title</a>
+                       tal:attributes="href string:${item/absolute_url}/@@download/resource/${item/resource/filename}">Title</a>
                 </div>
                 <div class="resource-description" tal:content="python:item.Description()">Description</div>
             </tal:item>
