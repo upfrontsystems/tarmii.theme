@@ -8,6 +8,7 @@ from zc.relation.interfaces import ICatalog
 from plone.uuid.interfaces import IUUID
 from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.PloneBatch import Batch
 
 from tarmii.theme import MessageFactory as _
 
@@ -84,6 +85,14 @@ class ActivitiesView(grok.View):
             results = catalog(UID=UID_list)
 
         return results
+
+    def activities_batch(self):
+        """ Return activities that match current filter criteria.
+            Return batched.
+        """
+        b_size = 10
+        b_start = self.request.get('b_start', 0)
+        return Batch(self.activities(), b_size, int(b_start), orphan=0)
 
     def activities_count(self):
         """ Return number of activities that match current filter criteria

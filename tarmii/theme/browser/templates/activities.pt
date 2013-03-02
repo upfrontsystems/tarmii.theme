@@ -7,7 +7,8 @@
       lang="en">
 
 <body>
-    <metal:main fill-slot="content-core">
+    <metal:main fill-slot="content-core"
+        tal:define="batch view/activities_batch">
     
         <form id="add-button-form" name="add-activity-form"
             action="++add++upfront.assessmentitem.content.assessmentitem">
@@ -60,13 +61,10 @@
 
         <tal:activities
             condition="view/activities"
-            define="template_id string:${view/__name__};
-                    Batch python:modules['Products.CMFPlone'].Batch;
-                    b_start python:int(request.get('b_start', 0));
-                    batch python:Batch(view.activities(), 10, b_start, orphan=0)">
+            define="template_id string:${view/__name__}">
 
             <div id="activities-list">
-                <tal:brains repeat="brain view/activities">
+                <tal:brains repeat="brain view/activities_batch">
                     <tal:item tal:define="item brain/getObject">
                         <h1 tal:content="item/id"></h1>
                         <div class="introduction" tal:content="structure item/introduction/output|nothing">
