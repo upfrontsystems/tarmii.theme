@@ -42,7 +42,7 @@
 
      <browser:page
             for="plone.app.layout.navigation.interfaces.INavigationRoot"
-            name="tarmii-user-info"
+            name="tarmii-user-information"
             class=".views.TARMIIUserDataConfiglet"
             permission="cmf.SetOwnProperties"
             />
@@ -54,11 +54,11 @@
             permission="zope2.Public"
             />
 
-    <browser:viewlet
-        name="plone.global_sections"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".viewlets.TARMIIGlobalSectionsViewlet"
-        permission="zope2.View"
-        />
+     <browser:viewlet
+            name="plone.global_sections"
+            manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+            class=".viewlets.TARMIIGlobalSectionsViewlet"
+            permission="zope2.View"
+            />
 
 </configure>

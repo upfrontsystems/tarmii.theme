@@ -49,3 +49,11 @@ class TARMIIUserDataPanelAdapter(UserDataPanelAdapter):
     def set_years_teaching(self, value):
         return self.context.setMemberProperties({'years_teaching': value})
     years_teaching = property(get_years_teaching, set_years_teaching)
+
+    def get_uuid(self):
+        return self.context.getProperty('uuid', '')
+    def set_uuid(self, value):
+        return self.context.setMemberProperties({'uuid': value})
+    uuid = property(get_uuid, set_uuid)
+
+

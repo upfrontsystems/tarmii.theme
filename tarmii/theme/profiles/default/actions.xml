@@ -106,7 +106,7 @@
             <property name="title" i18n:translate="actions_personalinformation">Personal Information</property>
             <property name="description" i18n:translate=""></property>
             <property
-                name="url_expr">string:${globals_view/navigationRootUrl}/@@personal-information</property>
+                name="url_expr">string:${globals_view/navigationRootUrl}/@@tarmii-user-information</property>
             <property name="icon_expr"></property>
             <property name="available_expr"></property>
             <property name="permissions">

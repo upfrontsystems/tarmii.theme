@@ -8,6 +8,7 @@ from zope.event import notify
 from plone.resource.file import rawReadFile
 from plone.app.form.validators import null_validator
 from plone.app.users.browser.register import AddUserForm
+from plone.app.users.browser.account import AccountPanelForm
 from plone.app.users.browser.personalpreferences import UserDataConfiglet
 
 from plone.z3cform import layout
@@ -19,6 +20,7 @@ from AccessControl import getSecurityManager
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import ManagePortal
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.PluggableAuthService.events import PropertiesUpdated 
 
 from zExceptions import Forbidden
@@ -29,13 +31,14 @@ from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 
 class TARMIIUserDataConfiglet(UserDataConfiglet):
 
+    template = ViewPageTemplateFile('templates/account-configlet.pt')
+
     def __init__(self, context, request):
         super(TARMIIUserDataConfiglet, self).__init__(context, request)
         self.form_fields = self.form_fields.omit('home_page')
         self.form_fields = self.form_fields.omit('description')
         self.form_fields = self.form_fields.omit('location')
-        self.form_fields = self.form_fields.omit('portrait')
-        self.form_fields = self.form_fields.omit('pdelete')
+        self.form_fields = self.form_fields.omit('uuid')
 
 
 class TARMIIAddUserForm(AddUserForm):
@@ -61,6 +64,7 @@ class TARMIIAddUserForm(AddUserForm):
         newFields = newFields.omit('description')
         newFields = newFields.omit('location')
         newFields = newFields.omit('pdelete')
+        newFields = newFields.omit('uuid')
 
         # merge 
         allFields = originalFields + newFields
