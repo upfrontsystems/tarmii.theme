@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-28 13:33+0000\n"
+"POT-Creation-Date: 2013-03-02 09:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,6 +143,7 @@ msgstr ""
 msgid "Files Quick Upload"
 msgstr ""
 
+#: ./browser/templates/activities.pt:46
 #: ./browser/templates/resources.pt:53
 msgid "Filter results"
 msgstr ""
@@ -287,7 +288,7 @@ msgstr ""
 msgid "This type of element is not allowed in this folder."
 msgstr ""
 
-#: ./eventhandlers.py:48
+#: ./eventhandlers.py:62
 msgid "Thumbnail generation failed"
 msgstr ""
 
@@ -394,7 +395,6 @@ msgid "heading_schools"
 msgstr ""
 
 #. Default: "Select your language"
-#: ./browser/templates/select-language.pt:12
 #: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
 msgid "heading_select_language"
@@ -426,7 +426,7 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:44
+#: ./browser/templates/activities.pt:83
 msgid "label_addtoassessment"
 msgstr ""
 
@@ -466,7 +466,7 @@ msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:42
+#: ./browser/templates/activities.pt:81
 msgid "label_edit"
 msgstr ""
 
@@ -476,7 +476,7 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:46
+#: ./browser/templates/activities.pt:85
 msgid "label_feedback"
 msgstr ""
 
@@ -521,7 +521,7 @@ msgid "label_username"
 msgstr ""
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:40
+#: ./browser/templates/activities.pt:79
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr ""
@@ -555,13 +555,18 @@ msgstr ""
 msgid "maximum file size is:"
 msgstr ""
 
+#. Default: "Activities found"
+#: ./browser/templates/activities.pt:54
+msgid "message_activities_found"
+msgstr ""
+
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
 msgstr ""
 
 #. Default: "No activities have been created yet."
-#: ./browser/templates/activities.pt:19
+#: ./browser/templates/activities.pt:58
 msgid "message_no_activities_exist"
 msgstr ""
 
