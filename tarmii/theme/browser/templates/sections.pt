@@ -4,16 +4,18 @@
     <h5 class="hiddenStructure" i18n:translate="heading_sections">Sections</h5>
 
     <ul id="portal-globalnav"
-        tal:define="selected_tab python:view.selected_portal_tab"
-        ><tal:tabs tal:repeat="tab portal_tabs"
-        ><li tal:define="tid tab/id"
+        tal:define="selected_tab python:view.selected_portal_tab">
+        <tal:tabs tal:repeat="tab portal_tabs">
+        <li tal:define="tid tab/id"
              tal:attributes="id string:portaltab-${tid};
-                            class python:selected_tab==tid and 'selected' or 'plain'"
-            ><a href=""
+                            class python:selected_tab==tid and 'selected' or 'plain'">
+            <a href=""
                i18n:translate=""
                tal:content="tab/name"
                tal:attributes="href tab/url;
-                               title tab/description|nothing;">
-            Tab Name
-            </a></li></tal:tabs></ul>
+                               title tab/description|nothing;">Tab Name
+            </a>
+        </li>
+        </tal:tabs
+    ></ul>
 </tal:sections>
