@@ -34,7 +34,7 @@ class TestDownloadTeacherDataView(TarmiiThemeTestBase):
         csv_ref = 'Status: 200 OK\r\n' +\
                   'X-Powered-By: Zope (www.zope.org), ' +\
                   'Python (www.python.org)\r\n' +\
-                  'Content-Length: 159\r\n' +\
+                  'Content-Length: 161\r\n' +\
                   'Content-Disposition: attachment; filename=' +\
                    filename + '.zip\r\n' +\
                   'Last-Modified: ' + date_time +'\r\n' +\

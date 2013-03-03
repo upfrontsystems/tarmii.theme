@@ -31,8 +31,11 @@ class TestEventhandlers(TarmiiThemeTestBase):
         self.assertEqual(test[0].type,'error')
         self.assertEqual(test[0].message,'Thumbnail generation failed')
         self.assertEqual(test[1].type,'info')
-        self.assertEqual(test[1].message,
-                         'pipe:0: Invalid data found when processing input\n')
+        # the last part of the error message should be 
+        # 'Invalid data found when processing input\n'
+        # Before that it mentions a specific temporary file path
+        self.assertEqual(test[1].message[-41:],
+                                'Invalid data found when processing input\n')
 
         # test that thumbnail was correctly created from a supplied video file
         path = os.path.join(testpath,'test_video.flv')
@@ -52,6 +55,7 @@ class TestEventhandlers(TarmiiThemeTestBase):
         
         #assert that another thumbnail has been created
         self.assertEqual(len(self.videos.getFolderContents(contentFilter)),3)
+        
         thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
         self.assertEqual(thumb.id,'vid2-thumb')
 
@@ -94,5 +98,6 @@ class TestEventhandlers(TarmiiThemeTestBase):
         self.assertEquals(brains[4].getObject().getLayout(),'@@assessments')
         self.assertEquals(brains[5].getObject().id,'evaluations')
         self.assertEquals(brains[5].getObject().getLayout(),'@@evaluationsheets')
+
 
 
