@@ -1,4 +1,5 @@
 import random
+import uuid
 from OFS.Image import Image
 from cStringIO import StringIO
 from five import grok
@@ -109,6 +110,10 @@ class TARMIIAddUserForm(AddUserForm):
             portrait = Image(id=user_id, file=avatar_data, title='')
             pmdata._setPortrait(portrait, user_id)
             avatar_data.close()
+
+        # generate UUID for the user
+        member = pm.getMemberById(user_id)
+        member.setMemberProperties(mapping={"uuid":str(uuid.uuid1())})
 
         IStatusMessage(self.request).addStatusMessage(
             _(u"Profile created."), type='info')

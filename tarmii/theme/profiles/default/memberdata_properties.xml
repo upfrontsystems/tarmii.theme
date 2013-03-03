@@ -3,6 +3,7 @@
     <property name="fullname" type="string"></property> 
     <property name="username" type="string"></property> 
     <property name="email" type="string"></property>
+    <property name="teacher_mobile_number" type="string"></property>
     <property name="school" type="string"></property>
     <property name="province" type="string"></property>
     <property name="EMIS" type="string"></property>
@@ -10,4 +11,5 @@
     <property name="school_email" type="string"></property>
     <property name="qualification" type="string"></property>
     <property name="years_teaching" type="string"></property>
+    <property name="uuid" type="string"></property>
 </object>
