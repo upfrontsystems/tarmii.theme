@@ -84,20 +84,25 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.topic3 = topictree._getOb('xhosa')       
 
         # add 2 resources
-        self.resources.invokeFactory('File','resource1', title='Resource1')
+        self.resources.invokeFactory('tarmii.theme.content.teacherresource',
+                                      'resource1', title='Resource1')
         self.res1 = self.resources._getOb('resource1')
-        self.resources.invokeFactory('File','resource2', title='Resource2')
+        self.resources.invokeFactory('tarmii.theme.content.teacherresource',
+                                      'resource2', title='Resource2')
         self.res2 = self.resources._getOb('resource2')
+       
+        # XXX THESE NEED TO BE REPLACED BY dexterity relationships
+        # fortunately at the moment they are not required by any tests
 
-        # link resource1 to topics1 and topics2
-        topicsfield = self.res1.Schema().get('topics')
-        mutator = topicsfield.getMutator(self.res1)
-        mutator([self.topic1, self.topic2])
+#        # link resource1 to topics1 and topics2
+#        topicsfield = self.res1.Schema().get('topics')
+#        mutator = topicsfield.getMutator(self.res1)
+#        mutator([self.topic1, self.topic2])
 
-        # link resource2 to topic2
-        topicsfield = self.res2.Schema().get('topics')
-        mutator = topicsfield.getMutator(self.res2)
-        mutator([self.topic2])
+#        # link resource2 to topic2
+#        topicsfield = self.res2.Schema().get('topics')
+#        mutator = topicsfield.getMutator(self.res2)
+#        mutator([self.topic2])
 
         # add 2 video thumbnails
         self.videos.invokeFactory('Image','vid1thumb', title='Video1')
