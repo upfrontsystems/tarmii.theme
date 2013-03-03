@@ -17,6 +17,7 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
         properties = {'username' : username,
                       'fullname' : title.encode("utf-8"),
                       'email' : 'testuser2@email.com',   
+                      'teacher_mobile_number': '0821111222',
                       'school': 'CoolSchool',
                       'province': 'WC',
                       'EMIS': '12345',
@@ -24,6 +25,7 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
                       'school_email': 'coolschool@schools.com',
                       'qualification': 'Teacher',
                       'years_teaching': '2',
+                      'uuid' : 'qwerty-001',
                      }                       
 
         security_adapter =  ISecuritySchema(self.portal)
@@ -40,10 +42,10 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
         view = self.portal.restrictedTraverse('@@export-user-profiles')
         test_out = view.user_profiles_csv()
 
-        csv_ref = 'test_user_1_,,,,,,,,,,01/01/2000 00:00:00\r\n' +\
-                  'testuser2,Test User2,testuser2@email.com,CoolSchool,' +\
-                  'WC,12345,1111,coolschool@schools.com,Teacher,' +\
-                  '2,01/01/2000 00:00:00\r\n'
+        csv_ref = 'test_user_1_,,,,,,,,,,,01/01/2000 00:00:00,\r\n' +\
+                  'testuser2,Test User2,testuser2@email.com,0821111222,' +\
+                  'CoolSchool,WC,12345,1111,coolschool@schools.com,Teacher,' +\
+                  '2,01/01/2000 00:00:00,qwerty-001\r\n'
 
         self.assertEqual(test_out,csv_ref)
 
@@ -56,6 +58,7 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
         properties = {'username' : username,
                       'fullname' : title.encode("utf-8"),
                       'email' : 'testuser2@email.com',   
+                      'teacher_mobile_number': '0821111222',
                       'school': 'CoolSchool',
                       'province': 'WC',
                       'EMIS': '12345',
@@ -63,9 +66,10 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
                       'school_email': 'coolschool@schools.com',
                       'qualification': 'Teacher',
                       'years_teaching': '2',
+                      'uuid' : 'qwerty-001',
                      }                       
 
-        security_adapter     =  ISecuritySchema(self.portal)
+        security_adapter =  ISecuritySchema(self.portal)
         # enable self-registration of users
         security_adapter.set_enable_self_reg(True)
 
@@ -79,10 +83,10 @@ class TestExportUserProfilesView(TarmiiThemeTestBase):
         view = self.portal.restrictedTraverse('@@export-user-profiles')
         test_out = view()
 
-        csv_ref = 'test_user_1_,,,,,,,,,,01/01/2000 00:00:00\r\n' +\
-                  'testuser2,Test User2,testuser2@email.com,CoolSchool,' +\
-                  'WC,12345,1111,coolschool@schools.com,Teacher,' +\
-                  '2,01/01/2000 00:00:00\r\n'
+        csv_ref = 'test_user_1_,,,,,,,,,,,01/01/2000 00:00:00,\r\n' +\
+                  'testuser2,Test User2,testuser2@email.com,0821111222,' +\
+                  'CoolSchool,WC,12345,1111,coolschool@schools.com,Teacher,' +\
+                  '2,01/01/2000 00:00:00,qwerty-001\r\n'
 
         self.assertEqual(test_out,csv_ref)
         ct = self.request.response.getHeader("Content-Type")

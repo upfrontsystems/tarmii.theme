@@ -35,10 +35,12 @@ class ExportUserProfilesView(grok.View):
         if user_profiles is not None and len(user_profiles) > 0:
             writer = DictWriter(profiles_csv,
                                 fieldnames=['username', 'fullname', 'email',
-                                            'school', 'province', 'EMIS',
+                                            'teacher_mobile_number', 'school',
+                                            'province', 'EMIS',
                                             'school_contact_number',
                                             'school_email', 'qualification',
-                                            'years_teaching','last_login_time'],
+                                            'years_teaching','last_login_time',
+                                            'uuid'],
                                 restval='',
                                 extrasaction='ignore',
                                 dialect='excel'
@@ -48,6 +50,7 @@ class ExportUserProfilesView(grok.View):
                 ldict={'username': user.id,
                        'fullname': user.getProperty('fullname'),
                        'email': user.getProperty('email'),
+                       'teacher_mobile_number': user.getProperty('teacher_mobile_number'),
                        'school': user.getProperty('school'),
                        'province': user.getProperty('province'),
                        'EMIS': user.getProperty('EMIS'),
@@ -58,6 +61,7 @@ class ExportUserProfilesView(grok.View):
                        'years_teaching': user.getProperty('years_teaching'),
                        'last_login_time': 
                    user.getProperty('login_time').strftime('%d/%m/%Y %H:%M:%S'),
+                       'uuid': user.getProperty('uuid'),
                         # 'login_time' is really the latest login
                         # 'last_login_time' is the time user was logged in the
                         # time before 'login_time'
