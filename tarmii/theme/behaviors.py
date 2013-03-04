@@ -112,10 +112,29 @@ class IItemMetadata(IMarks, IResponseTime, ITopicTags):
         )
 
 
+class IFilterSelect(form.Schema):
+    """ Behavior that enables a topic tree to select on which content types it 
+        is to be used. At the moment we have two options Activities and Teacher
+        Resources.
+    """
+
+    use_with_activities = schema.Bool(
+            title=_(u"Use with Activities"),
+            default=False,
+            required=True,
+        )
+
+    use_with_resources = schema.Bool(
+            title=_(u"Use with Teacher Resources"),
+            default=False,
+            required=True,
+        )
+
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
 alsoProvides(ITopicTags, IFormFieldProvider)
 alsoProvides(IItemMetadata, IFormFieldProvider)
+alsoProvides(IFilterSelect, IFormFieldProvider)
 
 
 class RatingValidator(validator.SimpleFieldValidator):

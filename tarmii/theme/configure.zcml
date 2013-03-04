@@ -68,4 +68,11 @@
         for="plone.dexterity.interfaces.IDexterityContent"
         />
 
+    <plone:behavior
+        title="Enables a topic tree to select on which content types it is to be used."
+        description="Enables a topic tree to select on which content types it is to be used."
+        provides=".behaviors.IFilterSelect"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
 </configure>
