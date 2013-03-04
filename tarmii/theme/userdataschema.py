@@ -48,7 +48,7 @@ class ITARMIIUserDataSchema(IUserDataSchema):
         )
 
     uuid = schema.TextLine(
-            title=_(u"IUUID"),
+            title=_(u"UUID"),
         )
 
 class UserDataSchemaProvider(object):

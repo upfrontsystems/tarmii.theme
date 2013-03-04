@@ -1,6 +1,7 @@
 from sets import Set
 from five import grok
 
+from AccessControl import getSecurityManager
 from zope.app.intid.interfaces import IIntIds
 from zope.component import getUtility
 from zope.interface import Interface
@@ -9,6 +10,7 @@ from plone.uuid.interfaces import IUUID
 from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
+from Products.CMFCore.permissions import ManagePortal
 
 from tarmii.theme import MessageFactory as _
 
@@ -32,6 +34,12 @@ class ActivitiesView(grok.View):
         for x in range(len(keys)):
             if self.request.get(keys[x]) != '':
                 self.topics.append(self.request.get(keys[x]))
+
+    def addbutton_admin(self):
+        """ test if add activity is accessed by an admin user
+            has "ManagePortal" Permission on the activities folder
+        """
+        return getSecurityManager().checkPermission(ManagePortal,self.context)
 
     def topictrees(self):
         """ Return all topic trees in the system

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-02 09:31+0000\n"
+"POT-Creation-Date: 2013-03-04 10:56+0000\n"
 "PO-Revision-Date: 2013-02-28 15:35+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "oplaai rapporteer 'n fout."
 msgid "A data base conflict error happened when uploading this file:"
 msgstr "'n data basis konflik fout het gebeur toe die oplaai van die lêer:"
 
-#: ./browser/templates/activities.pt:14
+#: ./browser/templates/activities.pt:16
 msgid "Add Activity"
 msgstr "Voeg Aktiwiteit by"
 
@@ -58,15 +58,15 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
-#: ./behaviors.py:112
+#: ./behaviors.py:130
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle gradering waardes moet positief en groter as nul wees."
 
-#: ./behaviors.py:115
+#: ./behaviors.py:133
 msgid "All rating values must be unique."
 msgstr "Alle gradering waardes moet uniek wees."
 
-#: ./behaviors.py:93
+#: ./behaviors.py:94
 msgid "Categorization"
 msgstr "Kategorisering"
 
@@ -74,7 +74,7 @@ msgstr "Kategorisering"
 msgid "Cell Phone Number"
 msgstr "Selfoon Nommer"
 
-#: ./behaviors.py:31
+#: ./behaviors.py:32
 msgid "Check list"
 msgstr "Kontrolelys"
 
@@ -102,6 +102,14 @@ msgstr "Verkies die video lêers om te laai"
 msgid "Contact Us"
 msgstr "Kontak Ons"
 
+#: ./behaviors.py:103
+msgid "Content/Concept/Skills Assessed"
+msgstr "Inhoud/Konsep/Vaardighede geassesseer"
+
+#: ./browser/templates/activities.pt:23
+msgid "Contribute own activity"
+msgstr "Dra eie aktiwiteit by"
+
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die url waar die logs kan opgelaai word"
@@ -120,7 +128,11 @@ msgstr "Sleep en die lêers te laai"
 msgid "EMIS"
 msgstr "EMIS"
 
-#: ./behaviors.py:63
+#: ./behaviors.py:111
+msgid "Equipment and Administration (For the teacher)"
+msgstr "Toerusting en Administrasie (Vir die onderwyser)"
+
+#: ./behaviors.py:64
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -140,20 +152,24 @@ msgstr "Lêer na bediener gestuur"
 msgid "Files Quick Upload"
 msgstr "Lêers vinnig oplaai"
 
-#: ./browser/templates/activities.pt:46
+#: ./browser/templates/activities.pt:57
 #: ./browser/templates/resources.pt:53
 msgid "Filter results"
 msgstr "Filtreer resultate"
 
-#: ./behaviors.py:64
+#: ./behaviors.py:65
 msgid "Good"
 msgstr "Goed"
+
+#: ./userdataschema.py:51
+msgid "UUID"
+msgstr "UUID"
 
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
 msgstr "Beedle vinnig oplaai"
 
-#: ./behaviors.py:46
+#: ./behaviors.py:47
 msgid "Label"
 msgstr "Etiket"
 
@@ -161,11 +177,15 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
+#: ./behaviors.py:99
+msgid "Learner Task/Activity"
+msgstr "Leerder Taak/Aktiwiteit"
+
 #: ./browser/feedback.py:26
 msgid "Message"
 msgstr "Boodskap"
 
-#: ./behaviors.py:66
+#: ./behaviors.py:67
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -173,7 +193,7 @@ msgstr "Benodig verbetering"
 msgid "Never"
 msgstr "Nooit"
 
-#: ./browser/exportuserprofiles.py:93
+#: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
 msgstr "Geen gebruiker profile bestaan"
 
@@ -181,7 +201,7 @@ msgstr "Geen gebruiker profile bestaan"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig grondslagfase"
 
-#: ./behaviors.py:26
+#: ./behaviors.py:27
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
@@ -189,7 +209,11 @@ msgstr "Waarnemingsblad"
 msgid "Only allowed:"
 msgstr "Slegs toegelaat"
 
-#: ./browser/views.py:110
+#: ./behaviors.py:107
+msgid "Prior Knowledge or Skill(s) Assessed"
+msgstr "oor kennis of vaardigheid(e) geassesseer"
+
+#: ./browser/views.py:119
 msgid "Profile created."
 msgstr "Profiel geskep"
 
@@ -201,15 +225,15 @@ msgstr "Provinsie"
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
-#: ./behaviors.py:47
+#: ./behaviors.py:48
 msgid "Rating"
 msgstr "Gradering"
 
-#: ./behaviors.py:61
+#: ./behaviors.py:62
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./behaviors.py:78
+#: ./behaviors.py:79
 msgid "Related"
 msgstr "Verwant"
 
@@ -225,11 +249,11 @@ msgstr "Remote Server Url"
 msgid "Resource File"
 msgstr "Hulpbron Lęer"
 
-#: ./behaviors.py:36
+#: ./behaviors.py:37
 msgid "Rubric"
 msgstr "Rubriek"
 
-#: ./behaviors.py:65
+#: ./behaviors.py:66
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
@@ -253,7 +277,7 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
-#: ./browser/views.py:124
+#: ./browser/views.py:133
 msgid "TARMII Remote Server Settings"
 msgstr "TARMII Remove Server Stellings"
 
@@ -285,7 +309,7 @@ msgstr "Hierdie lêer is te groot:"
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
-#: ./eventhandlers.py:62
+#: ./eventhandlers.py:72
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
 
@@ -293,7 +317,7 @@ msgstr "Verkleinde prentjie generering het misluk"
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
-#: ./browser/views.py:125
+#: ./browser/views.py:134
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
@@ -367,7 +391,7 @@ msgid "heading_add_to_assessment"
 msgstr "Voeg aktiwiteit by assessering"
 
 #. Default: "Create Profile"
-#: ./browser/views.py:43
+#: ./browser/views.py:47
 msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
@@ -390,6 +414,11 @@ msgstr "Provinsies:"
 #: ./browser/templates/teacherprofiles.pt:25
 msgid "heading_schools"
 msgstr "Skole:"
+
+#. Default: "Sections"
+#: ./browser/templates/sections.pt:4
+msgid "heading_sections"
+msgstr "Afdelings"
 
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
@@ -423,7 +452,7 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:83
+#: ./browser/templates/activities.pt:91
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -463,7 +492,7 @@ msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:81
+#: ./browser/templates/activities.pt:89
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -473,7 +502,7 @@ msgid "label_email"
 msgstr "E-pos"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:85
+#: ./browser/templates/activities.pt:93
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -503,7 +532,7 @@ msgid "label_qualification"
 msgstr "Kwalifikasie"
 
 #. Default: "Register"
-#: ./browser/views.py:69
+#: ./browser/views.py:74
 msgid "label_register"
 msgstr "Registreer"
 
@@ -518,7 +547,7 @@ msgid "label_username"
 msgstr "Gebruikersnaam"
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:79
+#: ./browser/templates/activities.pt:87
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr "Sien"
@@ -553,7 +582,7 @@ msgid "maximum file size is:"
 msgstr "maksimum lêer grootte is:"
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:54
+#: ./browser/templates/activities.pt:65
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
@@ -563,7 +592,7 @@ msgid "message_feedback_thankyou"
 msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
 
 #. Default: "No activities have been created yet."
-#: ./browser/templates/activities.pt:58
+#: ./browser/templates/activities.pt:69
 msgid "message_no_activities_exist"
 msgstr "Geen aktiwiteite is nog geskep."
 

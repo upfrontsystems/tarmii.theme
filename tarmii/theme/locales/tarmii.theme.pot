@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-02 09:31+0000\n"
+"POT-Creation-Date: 2013-03-04 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
-#: ./browser/templates/activities.pt:14
+#: ./browser/templates/activities.pt:16
 msgid "Add Activity"
 msgstr ""
 
@@ -61,15 +61,15 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:112
+#: ./behaviors.py:130
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:115
+#: ./behaviors.py:133
 msgid "All rating values must be unique."
 msgstr ""
 
-#: ./behaviors.py:93
+#: ./behaviors.py:94
 msgid "Categorization"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Cell Phone Number"
 msgstr ""
 
-#: ./behaviors.py:31
+#: ./behaviors.py:32
 msgid "Check list"
 msgstr ""
 
@@ -105,6 +105,14 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
+#: ./behaviors.py:103
+msgid "Content/Concept/Skills Assessed"
+msgstr ""
+
+#: ./browser/templates/activities.pt:23
+msgid "Contribute own activity"
+msgstr ""
+
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
 msgstr ""
@@ -123,7 +131,11 @@ msgstr ""
 msgid "EMIS"
 msgstr ""
 
-#: ./behaviors.py:63
+#: ./behaviors.py:111
+msgid "Equipment and Administration (For the teacher)"
+msgstr ""
+
+#: ./behaviors.py:64
 msgid "Excellent"
 msgstr ""
 
@@ -143,20 +155,24 @@ msgstr ""
 msgid "Files Quick Upload"
 msgstr ""
 
-#: ./browser/templates/activities.pt:46
+#: ./browser/templates/activities.pt:57
 #: ./browser/templates/resources.pt:53
 msgid "Filter results"
 msgstr ""
 
-#: ./behaviors.py:64
+#: ./behaviors.py:65
 msgid "Good"
+msgstr ""
+
+#: ./userdataschema.py:51
+msgid "UUID"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:46
+#: ./behaviors.py:47
 msgid "Label"
 msgstr ""
 
@@ -164,11 +180,15 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
+#: ./behaviors.py:99
+msgid "Learner Task/Activity"
+msgstr ""
+
 #: ./browser/feedback.py:26
 msgid "Message"
 msgstr ""
 
-#: ./behaviors.py:66
+#: ./behaviors.py:67
 msgid "Needs improvement"
 msgstr ""
 
@@ -176,7 +196,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: ./browser/exportuserprofiles.py:93
+#: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
 msgstr ""
 
@@ -184,7 +204,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:26
+#: ./behaviors.py:27
 msgid "Observation Sheet"
 msgstr ""
 
@@ -192,7 +212,11 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
-#: ./browser/views.py:110
+#: ./behaviors.py:107
+msgid "Prior Knowledge or Skill(s) Assessed"
+msgstr ""
+
+#: ./browser/views.py:119
 msgid "Profile created."
 msgstr ""
 
@@ -204,15 +228,15 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
-#: ./behaviors.py:47
+#: ./behaviors.py:48
 msgid "Rating"
 msgstr ""
 
-#: ./behaviors.py:61
+#: ./behaviors.py:62
 msgid "Rating scale"
 msgstr ""
 
-#: ./behaviors.py:78
+#: ./behaviors.py:79
 msgid "Related"
 msgstr ""
 
@@ -228,11 +252,11 @@ msgstr ""
 msgid "Resource File"
 msgstr ""
 
-#: ./behaviors.py:36
+#: ./behaviors.py:37
 msgid "Rubric"
 msgstr ""
 
-#: ./behaviors.py:65
+#: ./behaviors.py:66
 msgid "Satisfactory"
 msgstr ""
 
@@ -256,7 +280,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/views.py:124
+#: ./browser/views.py:133
 msgid "TARMII Remote Server Settings"
 msgstr ""
 
@@ -288,7 +312,7 @@ msgstr ""
 msgid "This type of element is not allowed in this folder."
 msgstr ""
 
-#: ./eventhandlers.py:62
+#: ./eventhandlers.py:72
 msgid "Thumbnail generation failed"
 msgstr ""
 
@@ -296,7 +320,7 @@ msgstr ""
 msgid "Upload Server not specified in settings"
 msgstr ""
 
-#: ./browser/views.py:125
+#: ./browser/views.py:134
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
@@ -370,7 +394,7 @@ msgid "heading_add_to_assessment"
 msgstr ""
 
 #. Default: "Create Profile"
-#: ./browser/views.py:43
+#: ./browser/views.py:47
 msgid "heading_add_user_form"
 msgstr ""
 
@@ -392,6 +416,11 @@ msgstr ""
 #. Default: "Schools:"
 #: ./browser/templates/teacherprofiles.pt:25
 msgid "heading_schools"
+msgstr ""
+
+#. Default: "Sections"
+#: ./browser/templates/sections.pt:4
+msgid "heading_sections"
 msgstr ""
 
 #. Default: "Select your language"
@@ -426,7 +455,7 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:83
+#: ./browser/templates/activities.pt:91
 msgid "label_addtoassessment"
 msgstr ""
 
@@ -466,7 +495,7 @@ msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:81
+#: ./browser/templates/activities.pt:89
 msgid "label_edit"
 msgstr ""
 
@@ -476,7 +505,7 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:85
+#: ./browser/templates/activities.pt:93
 msgid "label_feedback"
 msgstr ""
 
@@ -506,7 +535,7 @@ msgid "label_qualification"
 msgstr ""
 
 #. Default: "Register"
-#: ./browser/views.py:69
+#: ./browser/views.py:74
 msgid "label_register"
 msgstr ""
 
@@ -521,7 +550,7 @@ msgid "label_username"
 msgstr ""
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:79
+#: ./browser/templates/activities.pt:87
 #: ./browser/templates/evaluationsheets.pt:41
 msgid "label_view"
 msgstr ""
@@ -556,7 +585,7 @@ msgid "maximum file size is:"
 msgstr ""
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:54
+#: ./browser/templates/activities.pt:65
 msgid "message_activities_found"
 msgstr ""
 
@@ -566,7 +595,7 @@ msgid "message_feedback_thankyou"
 msgstr ""
 
 #. Default: "No activities have been created yet."
-#: ./browser/templates/activities.pt:58
+#: ./browser/templates/activities.pt:69
 msgid "message_no_activities_exist"
 msgstr ""
 
