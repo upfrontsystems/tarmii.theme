@@ -9,4 +9,5 @@ from plone.autoform.interfaces import OMITTED_KEY
 
 IAssessmentItem.setTaggedValue(OMITTED_KEY,
                                [(Interface, 'introduction', 'true'),
+                                (Interface, 'question', 'true'),
                                 (Interface, 'answers', 'true')])

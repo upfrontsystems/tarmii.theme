@@ -6,6 +6,7 @@ from z3c.form import validator
 from z3c.relationfield.schema import RelationChoice, RelationList
 
 from plone.directives import form
+from plone.app.textfield import RichText
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.namedfile.field import NamedBlobFile
@@ -93,6 +94,23 @@ class IItemMetadata(IMarks, IResponseTime, ITopicTags):
         label=_(u'Categorization'),
         fields=['marks', 'responsetime', 'topics'],
         )
+
+    activity = RichText(
+            title=_(u"Learner Task/Activity")
+        )
+
+    content_concept_skills = RichText(
+            title=_(u"Content/Concept/Skills Assessed")
+        )
+
+    prior_knowledge_skills = RichText(
+            title=_(u"Prior Knowledge or Skill(s) Assessed")
+        )
+
+    equipment_and_administration = RichText(
+            title=_(u"Equipment and Administration (For the teacher)")
+        )
+
 
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
