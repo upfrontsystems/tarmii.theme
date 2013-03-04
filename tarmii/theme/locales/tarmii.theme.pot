@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-04 10:56+0000\n"
+"POT-Creation-Date: 2013-03-04 15:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:130
+#: ./behaviors.py:149
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:133
+#: ./behaviors.py:152
 msgid "All rating values must be unique."
 msgstr ""
 
@@ -162,10 +162,6 @@ msgstr ""
 
 #: ./behaviors.py:65
 msgid "Good"
-msgstr ""
-
-#: ./userdataschema.py:51
-msgid "UUID"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:93
@@ -312,8 +308,12 @@ msgstr ""
 msgid "This type of element is not allowed in this folder."
 msgstr ""
 
-#: ./eventhandlers.py:72
+#: ./eventhandlers.py:62
 msgid "Thumbnail generation failed"
+msgstr ""
+
+#: ./userdataschema.py:51
+msgid "UUID"
 msgstr ""
 
 #: ./browser/uploadtoserver.py:75
@@ -322,6 +322,14 @@ msgstr ""
 
 #: ./browser/views.py:134
 msgid "Use the settings below to configure tarmii remote server for this site"
+msgstr ""
+
+#: ./behaviors.py:122
+msgid "Use with Activities"
+msgstr ""
+
+#: ./behaviors.py:128
+msgid "Use with Teacher Resources"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
@@ -496,6 +504,7 @@ msgstr ""
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/topictrees.pt:32
 msgid "label_edit"
 msgstr ""
 

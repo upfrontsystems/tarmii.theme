@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-04 10:56+0000\n"
-"PO-Revision-Date: 2013-02-28 15:35+0200\n"
+"POT-Creation-Date: 2013-03-04 15:33+0000\n"
+"PO-Revision-Date: 2013-03-05 17:35+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,11 +58,11 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
-#: ./behaviors.py:130
+#: ./behaviors.py:149
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle gradering waardes moet positief en groter as nul wees."
 
-#: ./behaviors.py:133
+#: ./behaviors.py:152
 msgid "All rating values must be unique."
 msgstr "Alle gradering waardes moet uniek wees."
 
@@ -160,10 +160,6 @@ msgstr "Filtreer resultate"
 #: ./behaviors.py:65
 msgid "Good"
 msgstr "Goed"
-
-#: ./userdataschema.py:51
-msgid "UUID"
-msgstr "UUID"
 
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
@@ -309,9 +305,13 @@ msgstr "Hierdie lêer is te groot:"
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
-#: ./eventhandlers.py:72
+#: ./eventhandlers.py:62
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
+
+#: ./userdataschema.py:51
+msgid "UUID"
+msgstr "UUID"
 
 #: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
@@ -320,6 +320,14 @@ msgstr "Oplaai bediener nie in instellings"
 #: ./browser/views.py:134
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
+
+#: ./behaviors.py:122
+msgid "Use with Activities"
+msgstr "Gebruik met Aktiwiteite"
+
+#: ./behaviors.py:128
+msgid "Use with Teacher Resources"
+msgstr "Gebruik met Onderwyser Hulpbronne"
 
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
@@ -493,6 +501,7 @@ msgstr "Maak die tou skoon"
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/topictrees.pt:32
 msgid "label_edit"
 msgstr "Redigeer"
 

@@ -29,7 +29,8 @@
                                             value topictree/getPath;
                                             id string:cb_${topictree/getId}">
                         <span><a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
-                              <a class="edit_link" tal:attributes="href string:${topictree/getURL}/edit">Edit</a>
+                              <a class="edit_link" tal:attributes="href string:${topictree/getURL}/edit"        
+                                 i18n:translate="label_edit">Edit</a>
                         </span>
                     </li>
                 </ul>
