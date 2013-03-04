@@ -66,6 +66,8 @@ def setupPortalContent(portal):
         topicfolder.invokeFactory('collective.topictree.topictree',
                                   'language', title='Language')
         langtree = topicfolder._getOb('language')
+        langtree.use_with_activities = True
+        langtree.use_with_resources = True
         langtree.invokeFactory('collective.topictree.topic',
                                'afrikaans', title='Afrikaans')
         langtree.invokeFactory('collective.topictree.topic',
@@ -93,6 +95,8 @@ def setupPortalContent(portal):
         topicfolder.invokeFactory('collective.topictree.topictree',
                                   'grade', title='Grade')
         tree = topicfolder._getOb('grade')
+        tree.use_with_activities = True
+        tree.use_with_resources = True
         for i in range(1,5):
             grade_id = 'grade%s' % i
             grade_title = 'Grade %s' % i
@@ -103,6 +107,8 @@ def setupPortalContent(portal):
         topicfolder.invokeFactory('collective.topictree.topictree',
                                   'term', title='Term')
         tree = topicfolder._getOb('term')
+        tree.use_with_activities = True
+        tree.use_with_resources = False
         for i in range(1,5):
             term_id = 'term%s' % i
             term_title = 'Term %s' % i
@@ -113,6 +119,8 @@ def setupPortalContent(portal):
         topicfolder.invokeFactory('collective.topictree.topictree',
                                   'subject', title='Subject')
         tree = topicfolder._getOb('subject')
+        tree.use_with_activities = True
+        tree.use_with_resources = True
         tree.invokeFactory('collective.topictree.topic',
                            'lang', title='Language')
         tree.invokeFactory('collective.topictree.topic',
