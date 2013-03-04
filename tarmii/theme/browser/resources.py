@@ -49,11 +49,16 @@ class ResourcesView(grok.View):
                 self.context.absolute_url())
 
     def topictrees(self):
-        """ Return all topic trees in the system
+        """ Return all topic trees in the system that are tagged to be used 
+            with resources view.
         """
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(portal_type='collective.topictree.topictree')
-        return brains
+        topictree_list = []
+        for x in brains:
+            if x.getObject().use_with_resources:
+                topictree_list.append(x)
+        return topictree_list
 
     def relations_lookup(self,topic_uid):
         """ Return a list of object uids that are referrencing the topic_uid
