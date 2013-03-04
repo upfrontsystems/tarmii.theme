@@ -28,7 +28,9 @@
                                             alt string:Select ${topictree/Title};
                                             value topictree/getPath;
                                             id string:cb_${topictree/getId}">
-                        <a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
+                        <span><a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
+                              <a class="edit_link" tal:attributes="href string:${topictree/getURL}/edit">Edit</a>
+                        </span>
                     </li>
                 </ul>
                 <input type="submit" value="Delete" name="folder_delete:method" class="context">
