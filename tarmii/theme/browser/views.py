@@ -123,7 +123,6 @@ class TARMIIAddUserForm(AddUserForm):
         user = acl_users.getUser(user_id)
         notify(PropertiesUpdated(user, {}))
 
-        # XXX CHANGE REDIRECT TO PROFILES LISTING
         self.request.response.redirect(self.context.absolute_url())
 
 
