@@ -35,8 +35,8 @@ class ActivitiesView(grok.View):
             if self.request.get(keys[x]) != '':
                 self.topics.append(self.request.get(keys[x]))
 
-    def addbutton_admin(self):
-        """ test if add activity is accessed by an admin user
+    def user_is_admin(self):
+        """ Test if add activity is accessed by an admin user
             has "ManagePortal" Permission on the activities folder
         """
         return getSecurityManager().checkPermission(ManagePortal,self.context)

@@ -10,12 +10,12 @@
     <metal:main fill-slot="content-core"
         tal:define="batch view/resources_batch">
             
-        <tal:addresource_visible condition="view/addresource_visible">
+        <tal:addresource_addportalcontent condition="view/addresource_addportalcontent">
             <form id="add-button-form" name="add-resource-form" tal:attributes="action view/add_resource_button_path">
                 <input class="allowMultiSubmit" type="submit" value="Add resource" 
                        tal:attributes="action view/add_resource_button_path" i18n:attributes="value">
             </form>
-        </tal:addresource_visible>
+        </tal:addresource_addportalcontent>
 
         <div>&nbsp;</div>
         <tal:topictrees tal:condition="not:view/topictrees">
@@ -66,6 +66,12 @@
                 <div class="resource-title">                    
                     <a tal:content="python:item.Title()" 
                        tal:attributes="href string:${item/absolute_url}/@@download/resource/${item/resource/filename}">Title</a>
+                    <tal:user_is_admin condition="view/user_is_admin">
+                       <a tal:attributes="href string:${item/absolute_url}/edit"
+                          i18n:translate="label_edit">Edit</a>
+                       <a class="delete_confirmation" tal:attributes="href string:${item/absolute_url}/delete_confirmation"
+                          i18n:translate="label_delete">Delete</a>
+                    </tal:user_is_admin>
                 </div>
                 <div class="resource-description" tal:content="python:item.Description()">Description</div>
             </tal:item>

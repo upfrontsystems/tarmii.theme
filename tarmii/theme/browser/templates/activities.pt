@@ -10,19 +10,19 @@
     <metal:main fill-slot="content-core"
         tal:define="batch view/activities_batch">
     
-        <tal:addbutton_admin condition="view/addbutton_admin">
+        <tal:user_is_admin condition="view/user_is_admin">
             <form id="add-button-admin-form" name="add-activity-admin-form"
                 action="++add++upfront.assessmentitem.content.assessmentitem">
                 <input class="allowMultiSubmit" type="submit" value="Add Activity" i18n:attributes="value">
             </form>
-        </tal:addbutton_admin>
+        </tal:user_is_admin>
 
-        <tal:not_addbutton_admin condition="not:view/addbutton_admin">
+        <tal:not_user_is_admin condition="not:view/user_is_admin">
             <form id="add-button-form" name="add-activity-form"
                 action="++add++upfront.assessmentitem.content.assessmentitem">
                 <input class="allowMultiSubmit" type="submit" value="Contribute own activity" i18n:attributes="value">
             </form>
-        </tal:not_addbutton_admin>
+        </tal:not_user_is_admin>
 
 
         <div>&nbsp;</div>

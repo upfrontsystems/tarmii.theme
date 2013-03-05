@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-04 15:33+0000\n"
+"POT-Creation-Date: 2013-03-05 09:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -276,7 +276,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/views.py:133
+#: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
 msgstr ""
 
@@ -320,7 +320,7 @@ msgstr ""
 msgid "Upload Server not specified in settings"
 msgstr ""
 
-#: ./browser/views.py:134
+#: ./browser/views.py:133
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
@@ -502,8 +502,14 @@ msgstr ""
 msgid "label_clear_queue"
 msgstr ""
 
+#. Default: "Delete"
+#: ./browser/templates/resources.pt:72
+msgid "label_delete"
+msgstr ""
+
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/resources.pt:70
 #: ./browser/templates/topictrees.pt:32
 msgid "label_edit"
 msgstr ""

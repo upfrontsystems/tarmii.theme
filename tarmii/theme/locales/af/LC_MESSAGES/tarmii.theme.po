@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-04 15:33+0000\n"
-"PO-Revision-Date: 2013-03-05 17:35+0200\n"
+"POT-Creation-Date: 2013-03-05 09:47+0000\n"
+"PO-Revision-Date: 2013-03-05 11:48+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -273,7 +273,7 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
-#: ./browser/views.py:133
+#: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
 msgstr "TARMII Remove Server Stellings"
 
@@ -317,7 +317,7 @@ msgstr "UUID"
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
-#: ./browser/views.py:134
+#: ./browser/views.py:133
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
@@ -499,8 +499,14 @@ msgstr "Kies jou lêers:"
 msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
+#. Default: "Delete"
+#: ./browser/templates/resources.pt:72
+msgid "label_delete"
+msgstr "Werwyder"
+
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/resources.pt:70
 #: ./browser/templates/topictrees.pt:32
 msgid "label_edit"
 msgstr "Redigeer"

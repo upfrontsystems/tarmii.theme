@@ -10,6 +10,7 @@ from plone.uuid.interfaces import IUUID
 from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import AddPortalContent
+from Products.CMFCore.permissions import ManagePortal
 from Products.CMFPlone.PloneBatch import Batch
 
 from tarmii.theme import MessageFactory as _
@@ -35,12 +36,18 @@ class ResourcesView(grok.View):
             if self.request.get(keys[x]) != '':
                 self.topics.append(self.request.get(keys[x]))
 
-    def addresource_visible(self):
+    def addresource_addportalcontent(self):
         """ Test if add resource button can be shown based on whether the user
             has "AddPortalContent" Permission on the resouces folder 
         """
         return getSecurityManager().checkPermission(AddPortalContent,
                                                     self.context)
+
+    def user_is_admin(self):
+        """ Test if the current user is an admin user, test this by checking if
+            they have "ManagePortal" Permission on the context
+        """
+        return getSecurityManager().checkPermission(ManagePortal,self.context)
 
     def add_resource_button_path(self):
         """ Path string for the Add Resource button 
