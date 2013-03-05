@@ -7,9 +7,9 @@ class TestResourcesView(TarmiiThemeTestBase):
 
     def test_topictrees(self):
         view = self.topictrees.restrictedTraverse('@@resources')
-        self.assertEqual(len(view.topictrees()), 4)        
+        self.assertEqual(len(view.topictrees()), 3)        
         self.assertEqual([obj.id for obj in view.topictrees()],
-            ['language', 'grade', 'term', 'subject'])
+            ['language', 'grade', 'subject'])
 
     def test_add_resource_button_path(self):
         view = self.topictrees.restrictedTraverse('@@resources')
