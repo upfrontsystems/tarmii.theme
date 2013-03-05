@@ -17,6 +17,7 @@ class TeacherResourceAddForm(dexterity.AddForm):
         site = getSite()
         return '%s/resources' % (site.absolute_url())
 
+
 class TeacherResourceAddForm(dexterity.EditForm):
     grok.name('edit')
     grok.context(ITeacherResource)
