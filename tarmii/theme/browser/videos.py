@@ -6,6 +6,7 @@ from zope.interface import Interface
 
 from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.permissions import AddPortalContent
+from Products.CMFCore.permissions import ManagePortal
 
 from tarmii.theme import MessageFactory as _
 
@@ -34,6 +35,12 @@ class VideosView(grok.View):
         """
         return getSecurityManager().checkPermission(AddPortalContent,
                                                     self.context)
+
+    def user_is_admin(self):
+        """ Test if the current user is an admin user, test this by checking if
+            they have "ManagePortal" Permission on the context
+        """
+        return getSecurityManager().checkPermission(ManagePortal,self.context)
 
 class VideoView(grok.View):
     """ A view to display a single video

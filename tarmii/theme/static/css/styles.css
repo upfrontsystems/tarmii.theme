@@ -332,12 +332,65 @@ div.item-actions-left a {
 
 /* videos view */
 
-.thumb {
+.thumb,
+.thumb:hover {
     display: inline-block;
     padding: 5px 21px 5px 21px;
     width: 265px;
     word-wrap: break-word;
     vertical-align: top;
+    position: relative;
+}
+
+.thumb-link {
+    height: inherit;
+}
+
+.edit-hover-link,
+.delete-hover-link {
+    color : #eee;
+    background-color : #222;
+    background-color : #000;
+    background-color : rgba(0,0,0,0.6);
+    text-align : center;
+    -moz-border-radius : 4px;
+    -webkit-border-radius : 4px;
+    border-radius : 4px;
+    display: block;
+    font-size : 16px;
+    padding: 4px;
+    width: 100px;
+    position: absolute;
+    top: 70px;
+    border-bottom : none !important;
+    display : none;
+}
+
+.edit-hover-link {
+    left: 45px;
+}
+
+.delete-hover-link {
+    right: 45px;
+}
+
+.edit-hover-link:hover,
+.delete-hover-link:hover {
+    background-color : #0063CA;
+    background-color : rgba(0,99,202,0.95);
+
+    color : #fff;
+}
+#content .thumb a.link-overlay {
+    border-bottom : none !important;
+}
+
+.thumb:hover .edit-hover-link,
+.thumb .edit-hover-link:hover,
+.thumb:hover .delete-hover-link,
+.thumb .delete-hover-link:hover {
+    text-decoration : none;
+    display : block;
 }
 
 /* quick upload button */
