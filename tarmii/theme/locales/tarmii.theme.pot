@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-05 09:47+0000\n"
+"POT-Creation-Date: 2013-03-05 17:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,7 +188,7 @@ msgstr ""
 msgid "Needs improvement"
 msgstr ""
 
-#: ./browser/teacherprofiles.py:104
+#: ./browser/teacherprofiles.py:105
 msgid "Never"
 msgstr ""
 
@@ -452,11 +452,6 @@ msgstr ""
 msgid "heading_teachers"
 msgstr ""
 
-#. Default: "EMIS"
-#: ./browser/templates/teacherprofiles.pt:39
-msgid "label_EMIS"
-msgstr ""
-
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:30
 msgid "label_add_new_assessment"
@@ -504,6 +499,7 @@ msgstr ""
 
 #. Default: "Delete"
 #: ./browser/templates/resources.pt:72
+#: ./browser/templates/videos.pt:35
 msgid "label_delete"
 msgstr ""
 
@@ -515,7 +511,7 @@ msgid "label_edit"
 msgstr ""
 
 #. Default: "Email"
-#: ./browser/templates/teacherprofiles.pt:41
+#: ./browser/templates/teacherprofiles.pt:40
 msgid "label_email"
 msgstr ""
 
@@ -544,6 +540,11 @@ msgstr ""
 msgid "label_memo_pdf"
 msgstr ""
 
+#. Default: "Cell phone"
+#: ./browser/templates/teacherprofiles.pt:41
+msgid "label_mobile"
+msgstr ""
+
 #. Default: "Qualification"
 #: ./browser/templates/teacherprofiles.pt:42
 msgid "label_qualification"
@@ -560,7 +561,7 @@ msgid "label_upload_files"
 msgstr ""
 
 #. Default: "User name"
-#: ./browser/templates/teacherprofiles.pt:40
+#: ./browser/templates/teacherprofiles.pt:39
 msgid "label_username"
 msgstr ""
 

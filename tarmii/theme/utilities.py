@@ -60,15 +60,24 @@ class SiteData(Persistent):
         users.seek(0)
         user_data = users.getvalue().splitlines()
 
+        # as a reference from export-user-profiles view:
+        #       fieldnames=['username', 'fullname', 'email',
+        #                   'teacher_mobile_number', 'school',
+        #                   'province', 'EMIS',
+        #                   'school_contact_number',
+        #                   'school_email', 'qualification',
+        #                   'years_teaching','last_login_time',
+        #                   'uuid'],
+
         # sort data by province, school and teacher
-        user_data.sort(key= lambda line: ( line.split(",")[4],
-                                           line.split(",")[3],
+        user_data.sort(key= lambda line: ( line.split(",")[5],
+                                           line.split(",")[4],
                                            line.split(",")[1]))
 
         # place data in an organised dictionary
         province_dict = {}
         for user in user_data:
-            province_name = user.split(',')[4]
+            province_name = user.split(',')[5]
 
             try:
                 x = province_dict[province_name]
@@ -78,7 +87,7 @@ class SiteData(Persistent):
                 province_dict.update({province_name:{}})
 
             school_dict = province_dict[province_name]
-            school_name = user.split(',')[3]
+            school_name = user.split(',')[4]
 
             try:
                 x = school_dict[school_name]
@@ -88,15 +97,16 @@ class SiteData(Persistent):
                 school_dict.update({school_name: {}})
 
             teacher_dict = school_dict[school_name]
-            teacher_EMIS = user.split(',')[5]
+            teacher_uuid = user.split(',')[12]
             teacher_data = { 'username' : user.split(',')[0],
                              'fullname' : user.split(',')[1],
-                             'email' : user.split(',')[2], 
-                             'qualification' : user.split(',')[8],
-                             'years_teaching' : user.split(',')[9],
-                             'last_login_time' : user.split(',')[10],
+                             'email' : user.split(',')[2],
+                             'mobile' : user.split(',')[3],
+                             'qualification' : user.split(',')[9],
+                             'years_teaching' : user.split(',')[10],
+                             'last_login_time' : user.split(',')[11],
                            }
-            teacher_dict.update({teacher_EMIS: teacher_data})
+            teacher_dict.update({teacher_uuid: teacher_data})
 
         zf.close()
         return province_dict

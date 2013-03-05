@@ -36,9 +36,9 @@
             <table class="listing">
                 <tr> 
                     <th i18n:translate="label_fullname">Full Name</th>
-                    <th i18n:translate="label_EMIS">EMIS</th>
                     <th i18n:translate="label_username">User name</th>
                     <th i18n:translate="label_email">Email</th>
+                    <th i18n:translate="label_mobile">Cell phone</th>
                     <th i18n:translate="label_qualification">Qualification</th>
                     <th i18n:translate="label_years_teaching">Years teaching</th>
                     <th i18n:translate="label_last_login_time">Last login time</th>
@@ -46,12 +46,12 @@
                 <tr tal:repeat="teacher view/teachers">
                     <td tal:content="teacher/fullname">
                     </td>
-                    <td tal:content="teacher/EMIS">
-                    </td>
                     <td tal:content="teacher/username">
                     </td>
                     <td tal:content="teacher/email">
                     </td>                        
+                    <td tal:content="teacher/mobile">
+                    </td>
                     <td tal:content="teacher/qualification">
                     </td>
                     <td tal:content="teacher/years_teaching">

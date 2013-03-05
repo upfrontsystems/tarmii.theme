@@ -91,10 +91,10 @@ class TeacherProfilesView(grok.View):
         t_data = self.teacher_data[province][school].items()
         for teacher in range(len(t_data)):
             t_obj = Teacher()
-            t_obj.EMIS = t_data[teacher][0]
             t_obj.fullname = t_data[teacher][1]['fullname']
             t_obj.username = t_data[teacher][1]['username']
             t_obj.email = t_data[teacher][1]['email']
+            t_obj.mobile = t_data[teacher][1]['mobile']
             t_obj.qualification = t_data[teacher][1]['qualification']
             t_obj.years_teaching = t_data[teacher][1]['years_teaching']
             # make date human readable
@@ -113,4 +113,3 @@ class Teacher:
     """
     def __init__(self):
         pass
-

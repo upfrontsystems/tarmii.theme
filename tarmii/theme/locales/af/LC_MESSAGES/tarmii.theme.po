@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-05 09:47+0000\n"
-"PO-Revision-Date: 2013-03-05 11:48+0200\n"
+"POT-Creation-Date: 2013-03-05 17:38+0000\n"
+"PO-Revision-Date: 2013-03-05 19:40+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -185,7 +185,7 @@ msgstr "Boodskap"
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
-#: ./browser/teacherprofiles.py:104
+#: ./browser/teacherprofiles.py:105
 msgid "Never"
 msgstr "Nooit"
 
@@ -449,11 +449,6 @@ msgstr "ONDERWYSER PROFILES"
 msgid "heading_teachers"
 msgstr "Onderwysers:"
 
-#. Default: "EMIS"
-#: ./browser/templates/teacherprofiles.pt:39
-msgid "label_EMIS"
-msgstr "EMIS"
-
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:30
 msgid "label_add_new_assessment"
@@ -501,6 +496,7 @@ msgstr "Maak die tou skoon"
 
 #. Default: "Delete"
 #: ./browser/templates/resources.pt:72
+#: ./browser/templates/videos.pt:35
 msgid "label_delete"
 msgstr "Werwyder"
 
@@ -512,7 +508,7 @@ msgid "label_edit"
 msgstr "Redigeer"
 
 #. Default: "Email"
-#: ./browser/templates/teacherprofiles.pt:41
+#: ./browser/templates/teacherprofiles.pt:40
 msgid "label_email"
 msgstr "E-pos"
 
@@ -541,6 +537,11 @@ msgstr "${medialabel} Vinnig Oplaai"
 msgid "label_memo_pdf"
 msgstr "Memo PDF"
 
+#. Default: "Cell phone"
+#: ./browser/templates/teacherprofiles.pt:41
+msgid "label_mobile"
+msgstr "Selfoon"
+
 #. Default: "Qualification"
 #: ./browser/templates/teacherprofiles.pt:42
 msgid "label_qualification"
@@ -557,7 +558,7 @@ msgid "label_upload_files"
 msgstr "Laai 'n lêer"
 
 #. Default: "User name"
-#: ./browser/templates/teacherprofiles.pt:40
+#: ./browser/templates/teacherprofiles.pt:39
 msgid "label_username"
 msgstr "Gebruikersnaam"
 
