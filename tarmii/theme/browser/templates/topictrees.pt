@@ -18,26 +18,30 @@
             <div i18n:translate="message_no_topictrees_exist">No topic trees have been created yet.</div>
         </tal:topictrees>
 
+        <div>&nbsp;</div>
         <tal:listing tal:condition="view/topictrees">
-            <form method="post" name="listTopicTreesForm"
-                    tal:attributes="action context/absolute_url">
-                <ul class="list">
-                    <li tal:repeat="topictree view/topictrees">
-                        <input type="checkbox" name="paths:list" class="noborder"
-                            tal:attributes="title string:Select ${topictree/Title};
-                                            alt string:Select ${topictree/Title};
-                                            value topictree/getPath;
-                                            id string:cb_${topictree/getId}">
-                        <span><a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>
-                              <a class="edit_link" tal:attributes="href string:${topictree/getURL}/edit"        
-                                 i18n:translate="label_edit">Edit</a>
-                        </span>
-                    </li>
-                </ul>
-                <input type="submit" value="Delete" name="folder_delete:method" class="context">
-                <input type="hidden" name="orig_template" value="topictrees"/>
-                <input tal:replace="structure context/@@authenticator/authenticator" />
-            </form>
+                <table class="listing">
+                    <tr> 
+                        <th>Topic Tree</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr tal:repeat="topictree view/topictrees">
+                        <td>
+                            <a tal:attributes="href string:${topictree/getURL}" tal:content="topictree/Title"></a>                        
+                        </td>
+                        <td>
+                            <div class="edit-anchor">
+                                <a class="pencil edit_link" tal:attributes="href string:${topictree/getURL}/edit"></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-anchor">
+                                <a class="trashcan edit_link" tal:attributes="href string:${topictree/getURL}/delete_confirmation"></a>
+                            </div>
+                        </td>
+                    </tr>  
+                </table>
         </tal:listing>
 
     </metal:main>

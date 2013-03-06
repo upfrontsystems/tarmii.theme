@@ -502,18 +502,39 @@ a.select-text {
 }
 
 
+/* edit button on topictree listing */
+.pencil {
+    background: url("../images/pencil.png");
+    height: 13px;	
+    width: 13px;
+    margin: 1px;
+    display: block;
+}
 
+.edit-anchor {    
+    background: #b9def6;
+    border: 1px solid #dceef8;
+    border-radius: 0.3em;       
+    height: 15px;	
+    width: 15px;
+    margin: auto;
+}
 
+/* delete button on topictree listing */
+.trashcan {
+    background: url("../images/trashcan.png");
+    height: 16px;	
+    width: 16px;
+    display: block;
+}
 
+.delete-anchor {    
+    height: 16px;	
+    width: 16px;
+    margin: auto;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+#content .edit-anchor a.link-overlay,
+#content .delete-anchor a.link-overlay {
+    border-bottom : none !important;
+}
