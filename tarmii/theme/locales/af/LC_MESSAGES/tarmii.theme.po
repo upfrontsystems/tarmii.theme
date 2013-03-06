@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 07:42+0000\n"
+"POT-Creation-Date: 2013-03-06 07:58+0000\n"
 "PO-Revision-Date: 2013-03-06 9:00+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -358,6 +358,10 @@ msgstr "Evaluerings"
 msgid "action_home"
 msgstr "Tuis"
 
+#: ./browser/viewlets.py:14
+msgid "action_id"
+msgstr ""
+
 #. Default: "Resources"
 #: ./profiles/default/actions.xml
 msgid "action_resources"
@@ -496,7 +500,7 @@ msgstr "Maak die tou skoon"
 
 #. Default: "Delete"
 #: ./browser/templates/resources.pt:72
-#: ./browser/templates/videos.pt:35
+#: ./browser/templates/videos.pt:40
 msgid "label_delete"
 msgstr "Werwyder"
 
@@ -565,6 +569,7 @@ msgstr "Gebruikersnaam"
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
 #: ./browser/templates/evaluationsheets.pt:41
+#: ./browser/templates/videos.pt:38
 msgid "label_view"
 msgstr "Sien"
 
@@ -661,10 +666,6 @@ msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 #: ./browser/templates/feedback_result.pt:16
 msgid "message_willreply"
 msgstr "Ons sal binnekort antwoord."
-
-#: ./browser/viewlets.py:15
-msgid "name"
-msgstr ""
 
 #: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."

@@ -24,14 +24,19 @@
                 
                 <tal:fill tal:repeat="brain batch">
                     <div class="thumb" tal:define="thumb brain/getObject">
-
-                        <a class="thumb-link" tal:attributes="href string:${thumb/link}/@@video">
-                        <img tal:attributes="src string:${thumb/absolute_url}/image;
-                                             alt thumb/Title" />
-                        </a>
+                        <tal:not_user_is_admin condition="not:view/user_is_admin">            
+                            <a class="thumb-link" tal:attributes="href string:${thumb/link}/@@video">
+                            <img tal:attributes="src string:${thumb/absolute_url}/image;
+                                                 alt thumb/Title" />
+                            </a>
+                        </tal:not_user_is_admin>
                         <tal:user_is_admin condition="view/user_is_admin">
-                           <a class="edit-hover-link" tal:attributes="href string:${thumb/absolute_url}/edit"
-                              i18n:translate="label_edit">Edit</a>
+                            <a class="thumb-link">
+                            <img tal:attributes="src string:${thumb/absolute_url}/image;
+                                                 alt thumb/Title" />
+                            </a>
+                           <a class="edit-hover-link" tal:attributes="href string:${thumb/absolute_url}/@@video"
+                              i18n:translate="label_view">View</a>
                            <a class="delete_confirmation delete-hover-link"
                               tal:attributes="href string:${thumb/absolute_url}/delete_confirmation"
                               i18n:translate="label_delete">Delete</a>

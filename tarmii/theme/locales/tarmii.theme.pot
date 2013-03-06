@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 07:42+0000\n"
+"POT-Creation-Date: 2013-03-06 07:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -361,6 +361,10 @@ msgstr ""
 msgid "action_home"
 msgstr ""
 
+#: ./browser/viewlets.py:14
+msgid "action_id"
+msgstr ""
+
 #. Default: "Resources"
 #: ./profiles/default/actions.xml
 msgid "action_resources"
@@ -499,7 +503,7 @@ msgstr ""
 
 #. Default: "Delete"
 #: ./browser/templates/resources.pt:72
-#: ./browser/templates/videos.pt:35
+#: ./browser/templates/videos.pt:40
 msgid "label_delete"
 msgstr ""
 
@@ -568,6 +572,7 @@ msgstr ""
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
 #: ./browser/templates/evaluationsheets.pt:41
+#: ./browser/templates/videos.pt:38
 msgid "label_view"
 msgstr ""
 
@@ -663,10 +668,6 @@ msgstr ""
 #. Default: "We will reply to it shortly."
 #: ./browser/templates/feedback_result.pt:16
 msgid "message_willreply"
-msgstr ""
-
-#: ./browser/viewlets.py:15
-msgid "name"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:372
