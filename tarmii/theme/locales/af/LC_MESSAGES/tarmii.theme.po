@@ -672,7 +672,7 @@ msgstr "stuur"
 #. Default: "Topic Trees"
 #: ./profiles/default/actions.xml
 msgid "topictrees"
-msgstr "Hulpbronne Boome"
+msgstr "Onderwerp Bome"
 
 #. Default: "Videos"
 #: ./profiles/default/actions.xml
