@@ -96,19 +96,23 @@ class IItemMetadata(IMarks, IResponseTime, ITopicTags):
         )
 
     activity = RichText(
-            title=_(u"Learner Task/Activity")
+            title=_(u"Learner Task/Activity"),
+            required=True,
         )
 
     content_concept_skills = RichText(
-            title=_(u"Content/Concept/Skills Assessed")
+            title=_(u"Content/Concept/Skills Assessed"),
+            required=False,
         )
 
     prior_knowledge_skills = RichText(
-            title=_(u"Prior Knowledge or Skill(s) Assessed")
+            title=_(u"Prior Knowledge or Skill(s) Assessed"),
+            required=False,
         )
 
     equipment_and_administration = RichText(
-            title=_(u"Equipment and Administration (For the teacher)")
+            title=_(u"Equipment and Administration (For the teacher)"),
+            required=False,
         )
 
 
