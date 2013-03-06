@@ -38,7 +38,7 @@
                            <a class="edit-hover-link" tal:attributes="href string:${thumb/absolute_url}/@@video"
                               i18n:translate="label_view">View</a>
                            <a class="delete_confirmation delete-hover-link"
-                              tal:attributes="href string:${thumb/absolute_url}/delete_confirmation"
+                              tal:attributes="href string:${thumb/link}/delete_confirmation"
                               i18n:translate="label_delete">Delete</a>
                         </tal:user_is_admin>
                         <p tal:content="thumb/Title"></p>

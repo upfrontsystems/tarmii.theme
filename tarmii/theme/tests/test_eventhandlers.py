@@ -55,10 +55,9 @@ class TestEventhandlers(TarmiiThemeTestBase):
         
         #assert that another thumbnail has been created
         self.assertEqual(len(self.videos.getFolderContents(contentFilter)),3)
-        
+       
         thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
         self.assertEqual(thumb.id,'vid2-thumb')
-
 
     def test_on_user_initial_login(self):
 

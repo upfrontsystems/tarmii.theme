@@ -36,9 +36,9 @@ def on_video_added(video, event):
     cmdargs = ['avconv', '-loglevel', 'error' , '-ss', '30', '-i', 
                infilename, '-vcodec', 'mjpeg', '-y', '-vframes', '1', '-an', 
                '-f', 'image2', '-s', '265x150', outfilename]
-    process = subprocess.Popen(cmdargs, stdin=subprocess.PIPE,
-                                        stdout=subprocess.PIPE,
-                                        stderr=subprocess.PIPE)
+    process = subprocess.Popen(cmdargs, 
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
 
     if stderr == '':
