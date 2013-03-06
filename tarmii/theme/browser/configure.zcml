@@ -28,7 +28,7 @@
             name="quick_upload"
             class=".custom_quick_upload.CustomQuickUploadView"
             permission="cmf.AddPortalContent"
-            layer="..interfaces.ITARMIIThemeLayer"
+            layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
 
      <!-- Quick Upload javascript Init -->
@@ -37,7 +37,7 @@
             name="quick_upload_init"
             class=".custom_quick_upload.CustomQuickUploadInit"
             permission="cmf.AddPortalContent"
-            layer="..interfaces.ITARMIIThemeLayer"
+            layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
 
      <browser:page
@@ -59,6 +59,7 @@
             manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
             class=".viewlets.TARMIIGlobalSectionsViewlet"
             permission="zope2.View"
+            layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
 
 </configure>
