@@ -80,7 +80,7 @@
                         <div class="introduction" tal:content="structure item/introduction/output|nothing">
                             Optional Activity Introduction
                         </div>
-                        <div class="activity" tal:content="structure item/question/output|nothing">
+                        <div class="activity" tal:content="structure item/activity/output|nothing">
                             The Activity
                         </div>
                         <div class="item-actions-left">
