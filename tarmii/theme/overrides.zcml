@@ -8,4 +8,11 @@
         factory=".adapters.TARMIIUserDataPanelAdapter"
         />
 
+     <browser:viewlet
+            name="plone.global_sections"
+            manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+            class=".browser.viewlets.TARMIIGlobalSectionsViewlet"
+            permission="zope2.View"
+            />
+
 </configure>
