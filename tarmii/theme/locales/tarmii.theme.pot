@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-05 17:38+0000\n"
+"POT-Creation-Date: 2013-03-06 07:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,10 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
+msgstr ""
+
+#: ./browser/viewlets.py:19
+msgid "Actvities"
 msgstr ""
 
 #: ./browser/templates/activities.pt:16
@@ -69,6 +73,10 @@ msgstr ""
 msgid "All rating values must be unique."
 msgstr ""
 
+#: ./browser/viewlets.py:23
+msgid "Assessments"
+msgstr ""
+
 #: ./behaviors.py:94
 msgid "Categorization"
 msgstr ""
@@ -99,6 +107,10 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
+msgstr ""
+
+#: ./browser/viewlets.py:22
+msgid "Classlists"
 msgstr ""
 
 #: ./browser/feedback.py:44
@@ -133,6 +145,10 @@ msgstr ""
 
 #: ./behaviors.py:111
 msgid "Equipment and Administration (For the teacher)"
+msgstr ""
+
+#: ./browser/viewlets.py:24
+msgid "Evaluations"
 msgstr ""
 
 #: ./behaviors.py:64
@@ -188,7 +204,7 @@ msgstr ""
 msgid "Needs improvement"
 msgstr ""
 
-#: ./browser/teacherprofiles.py:105
+#: ./browser/teacherprofiles.py:104
 msgid "Never"
 msgstr ""
 
@@ -246,6 +262,10 @@ msgstr ""
 
 #: ./content/teacherresource.py:14
 msgid "Resource File"
+msgstr ""
+
+#: ./browser/viewlets.py:20
+msgid "Resources"
 msgstr ""
 
 #: ./behaviors.py:37
@@ -330,6 +350,10 @@ msgstr ""
 
 #: ./behaviors.py:128
 msgid "Use with Teacher Resources"
+msgstr ""
+
+#: ./browser/viewlets.py:21
+msgid "Videos"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
