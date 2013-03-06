@@ -4,6 +4,7 @@ import tempfile
 from five import grok
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+from zope.lifecycleevent.interfaces import IObjectRemovedEvent
 from zope.component.hooks import getSite
 
 from Products.ATContentTypes.interfaces.file import IFileContent
@@ -11,6 +12,7 @@ from Products.Archetypes.interfaces import IObjectInitializedEvent
 from Products.ATContentTypes.lib.constraintypes import ENABLED
 from Products.PluggableAuthService.interfaces.authservice import IPropertiedUser
 from Products.PlonePAS.interfaces.events import IUserInitialLoginInEvent
+
 from Products.statusmessages.interfaces import IStatusMessage
 
 from tarmii.theme import MessageFactory as _
@@ -22,7 +24,7 @@ def on_video_added(video, event):
 
     # Only create thumbnails for Files uploaded to the videos folder
     # and not for files uploaded elsewhere like teacher resources
-    if video.aq_parent.Title() != 'Videos':
+    if video.aq_parent.id != 'videos':
         return
 
     fd, infilename = tempfile.mkstemp()
@@ -68,6 +70,25 @@ def on_video_added(video, event):
     os.remove(outfilename)
 
     return
+
+@grok.subscribe(IFileContent, IObjectRemovedEvent)
+def on_video_deleted(video, event):
+    """ Delete the corresponding thumbnail when a video has been deleted.
+    """
+
+    # We only want to take action when a video file has being deleted
+    if video.aq_parent.id != 'videos' or video.portal_type != 'File':
+        return
+
+    # find the corresponding thumbnail object
+    contentFilter = {"portal_type" : "Image"}    
+    thumbname = video.id + '-thumb'
+    thumb_obj =  filter(lambda x: x.id == thumbname,
+      [x.getObject() for x in video.aq_parent.getFolderContents(contentFilter)])
+
+    # delete the thumbnail object
+    parent = thumb_obj[0].aq_parent
+    parent.manage_delObjects(thumb_obj[0].getId())
 
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
 def on_user_initial_login(user, event):
