@@ -36,6 +36,8 @@ class ResourcesView(grok.View):
             if self.request.get(keys[x]) != '':
                 self.topics.append(self.request.get(keys[x]))
 
+        return self.topics
+
     def addresource_addportalcontent(self):
         """ Test if add resource button can be shown based on whether the user
             has "AddPortalContent" Permission on the resouces folder 

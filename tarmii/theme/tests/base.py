@@ -91,18 +91,16 @@ class TarmiiThemeTestBase(unittest.TestCase):
                                       'resource2', title='Resource2')
         self.res2 = self.resources._getOb('resource2')
        
-        # XXX THESE NEED TO BE REPLACED BY dexterity relationships
-        # fortunately at the moment they are not required by any tests
+        # link resource1 to topic1 and topic2
+        topic_list = [RelationValue(self.intids.getId(self.topic1)),
+                      RelationValue(self.intids.getId(self.topic2))]
+        self.res1.topics = topic_list
+        notify(ObjectModifiedEvent(self.res1))
 
-#        # link resource1 to topics1 and topics2
-#        topicsfield = self.res1.Schema().get('topics')
-#        mutator = topicsfield.getMutator(self.res1)
-#        mutator([self.topic1, self.topic2])
-
-#        # link resource2 to topic2
-#        topicsfield = self.res2.Schema().get('topics')
-#        mutator = topicsfield.getMutator(self.res2)
-#        mutator([self.topic2])
+        # link resource1 to topic2
+        topic_list = [RelationValue(self.intids.getId(self.topic2))]
+        self.res2.topics = topic_list
+        notify(ObjectModifiedEvent(self.res2))
 
         # add 2 video thumbnails
         self.videos.invokeFactory('Image','vid1thumb', title='Video1')
