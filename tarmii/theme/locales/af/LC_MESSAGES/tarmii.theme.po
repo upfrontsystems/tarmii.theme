@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 07:00+0000\n"
+"POT-Creation-Date: 2013-03-06 07:42+0000\n"
 "PO-Revision-Date: 2013-03-06 9:00+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,10 +25,6 @@ msgstr "oplaai rapporteer 'n fout."
 #: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
 msgstr "'n data basis konflik fout het gebeur toe die oplaai van die lêer:"
-
-#: ./browser/viewlets.py:19
-msgid "Actvities"
-msgstr "Aktiwiteite"
 
 #: ./browser/templates/activities.pt:16
 msgid "Add Activity"
@@ -70,10 +66,6 @@ msgstr "Alle gradering waardes moet positief en groter as nul wees."
 msgid "All rating values must be unique."
 msgstr "Alle gradering waardes moet uniek wees."
 
-#: ./browser/viewlets.py:23
-msgid "Assessments"
-msgstr "Assesserings"
-
 #: ./behaviors.py:94
 msgid "Categorization"
 msgstr "Kategorisering"
@@ -105,10 +97,6 @@ msgstr "Verkis die beelde om te laai"
 #: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
 msgstr "Verkies die video lêers om te laai"
-
-#: ./browser/viewlets.py:22
-msgid "Classlists"
-msgstr "Klaslyste"
 
 #: ./browser/feedback.py:44
 msgid "Contact Us"
@@ -143,10 +131,6 @@ msgstr "EMIS"
 #: ./behaviors.py:111
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
-
-#: ./browser/viewlets.py:24
-msgid "Evaluations"
-msgstr "Evaluerings"
 
 #: ./behaviors.py:64
 msgid "Excellent"
@@ -261,10 +245,6 @@ msgstr "Remote Server Url"
 msgid "Resource File"
 msgstr "Hulpbron Lęer"
 
-#: ./browser/viewlets.py:20
-msgid "Resources"
-msgstr "Hulpbronne"
-
 #: ./behaviors.py:37
 msgid "Rubric"
 msgstr "Rubriek"
@@ -348,10 +328,6 @@ msgstr "Gebruik met Aktiwiteite"
 #: ./behaviors.py:128
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
-
-#: ./browser/viewlets.py:21
-msgid "Videos"
-msgstr "Videos"
 
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
@@ -685,6 +661,10 @@ msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 #: ./browser/templates/feedback_result.pt:16
 msgid "message_willreply"
 msgstr "Ons sal binnekort antwoord."
+
+#: ./browser/viewlets.py:15
+msgid "name"
+msgstr ""
 
 #: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."

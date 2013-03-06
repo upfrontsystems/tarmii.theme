@@ -8,10 +8,9 @@ class TARMIIGlobalSectionsViewlet(GlobalSectionsViewlet):
 
     def update(self):
         super(TARMIIGlobalSectionsViewlet, self).update()
-
-        self.portal_tabs[0]['name'] = self.context.translate(_(u'Actvities'))
-        self.portal_tabs[1]['name'] = self.context.translate(_(u'Resources'))
-        self.portal_tabs[2]['name'] = self.context.translate(_(u'Videos'))
-        self.portal_tabs[3]['name'] = self.context.translate(_(u'Classlists'))
-        self.portal_tabs[4]['name'] = self.context.translate(_(u'Assessments'))
-        self.portal_tabs[5]['name'] = self.context.translate(_(u'Evaluations'))
+        
+        for x in range(len(self.portal_tabs)):
+            self.portal_tabs[x]['name'] =\
+                self.context.translate(_('action_' + self.portal_tabs[x]['id']))
+                # the translations labels: action_topictree, action_evaluations
+                # etc, are defined in actions.xml
