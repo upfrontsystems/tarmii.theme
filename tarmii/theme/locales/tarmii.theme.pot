@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 07:58+0000\n"
+"POT-Creation-Date: 2013-03-06 12:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:149
+#: ./behaviors.py:153
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:152
+#: ./behaviors.py:156
 msgid "All rating values must be unique."
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: ./behaviors.py:103
+#: ./behaviors.py:104
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "EMIS"
 msgstr ""
 
-#: ./behaviors.py:111
+#: ./behaviors.py:114
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
@@ -208,7 +208,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
-#: ./behaviors.py:107
+#: ./behaviors.py:109
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "This type of element is not allowed in this folder."
 msgstr ""
 
-#: ./eventhandlers.py:62
+#: ./eventhandlers.py:66
 msgid "Thumbnail generation failed"
 msgstr ""
 
@@ -324,11 +324,11 @@ msgstr ""
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
-#: ./behaviors.py:122
+#: ./behaviors.py:126
 msgid "Use with Activities"
 msgstr ""
 
-#: ./behaviors.py:128
+#: ./behaviors.py:132
 msgid "Use with Teacher Resources"
 msgstr ""
 
@@ -338,56 +338,17 @@ msgstr ""
 
 #. Default: "Activities"
 #: ./profiles/default/actions.xml
-msgid "action_activities"
+msgid "activities"
 msgstr ""
 
 #. Default: "Assessments"
 #: ./profiles/default/actions.xml
-msgid "action_assessments"
+msgid "assessments"
 msgstr ""
 
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
-msgid "action_classlists"
-msgstr ""
-
-#. Default: "Evaluations"
-#: ./profiles/default/actions.xml
-msgid "action_evaluations"
-msgstr ""
-
-#. Default: "Home"
-#: ./profiles/default/actions.xml
-msgid "action_home"
-msgstr ""
-
-#: ./browser/viewlets.py:14
-msgid "action_id"
-msgstr ""
-
-#. Default: "Resources"
-#: ./profiles/default/actions.xml
-msgid "action_resources"
-msgstr ""
-
-#. Default: "Topic Trees"
-#: ./profiles/default/actions.xml
-msgid "action_topictrees"
-msgstr ""
-
-#. Default: "Videos"
-#: ./profiles/default/actions.xml
-msgid "action_videos"
-msgstr ""
-
-#. Default: "Personal Information"
-#: ./profiles/default/actions.xml
-msgid "actions_personalinformation"
-msgstr ""
-
-#. Default: "Select Language"
-#: ./profiles/default/actions.xml
-msgid "actions_selectlanguage"
+msgid "classlists"
 msgstr ""
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
@@ -398,6 +359,11 @@ msgstr ""
 #. Default: "Here you can add new class lists or"
 #: ./browser/templates/classlists.pt:12
 msgid "description_classlists_add"
+msgstr ""
+
+#. Default: "Evaluations"
+#: ./profiles/default/actions.xml
+msgid "evaluations"
 msgstr ""
 
 #. Default: "Add activity to assessment"
@@ -454,6 +420,15 @@ msgstr ""
 #. Default: "Teachers:"
 #: ./browser/templates/teacherprofiles.pt:35
 msgid "heading_teachers"
+msgstr ""
+
+#. Default: "Home"
+#: ./profiles/default/actions.xml
+msgid "home"
+msgstr ""
+
+#: ./browser/viewlets.py:14
+msgid "id"
 msgstr ""
 
 #. Default: "Or enter the name of a new assessment:"
@@ -670,6 +645,11 @@ msgstr ""
 msgid "message_willreply"
 msgstr ""
 
+#. Default: "Personal Information"
+#: ./profiles/default/actions.xml
+msgid "personalinformation"
+msgstr ""
+
 #: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."
 msgstr ""
@@ -678,7 +658,27 @@ msgstr ""
 msgid "please try again."
 msgstr ""
 
+#. Default: "Resources"
+#: ./profiles/default/actions.xml
+msgid "resources"
+msgstr ""
+
+#. Default: "Select Language"
+#: ./profiles/default/actions.xml
+msgid "selectlanguage"
+msgstr ""
+
 #: ./browser/feedback.py:48
 msgid "send"
+msgstr ""
+
+#. Default: "Topic Trees"
+#: ./profiles/default/actions.xml
+msgid "topictrees"
+msgstr ""
+
+#. Default: "Videos"
+#: ./profiles/default/actions.xml
+msgid "videos"
 msgstr ""
 

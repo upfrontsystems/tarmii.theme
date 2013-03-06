@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 07:58+0000\n"
-"PO-Revision-Date: 2013-03-06 9:00+0200\n"
+"POT-Creation-Date: 2013-03-06 12:57+0000\n"
+"PO-Revision-Date: 2013-03-06 15:00+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,11 +58,11 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers suksesvol gelaai is."
 
-#: ./behaviors.py:149
+#: ./behaviors.py:153
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle gradering waardes moet positief en groter as nul wees."
 
-#: ./behaviors.py:152
+#: ./behaviors.py:156
 msgid "All rating values must be unique."
 msgstr "Alle gradering waardes moet uniek wees."
 
@@ -102,7 +102,7 @@ msgstr "Verkies die video lêers om te laai"
 msgid "Contact Us"
 msgstr "Kontak Ons"
 
-#: ./behaviors.py:103
+#: ./behaviors.py:104
 msgid "Content/Concept/Skills Assessed"
 msgstr "Inhoud/Konsep/Vaardighede geassesseer"
 
@@ -128,7 +128,7 @@ msgstr "Sleep en die lêers te laai"
 msgid "EMIS"
 msgstr "EMIS"
 
-#: ./behaviors.py:111
+#: ./behaviors.py:114
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
@@ -205,7 +205,7 @@ msgstr "Waarnemingsblad"
 msgid "Only allowed:"
 msgstr "Slegs toegelaat"
 
-#: ./behaviors.py:107
+#: ./behaviors.py:109
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr "oor kennis of vaardigheid(e) geassesseer"
 
@@ -305,7 +305,7 @@ msgstr "Hierdie lêer is te groot:"
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
-#: ./eventhandlers.py:62
+#: ./eventhandlers.py:66
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
 
@@ -321,11 +321,11 @@ msgstr "Oplaai bediener nie in instellings"
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
-#: ./behaviors.py:122
+#: ./behaviors.py:126
 msgid "Use with Activities"
 msgstr "Gebruik met Aktiwiteite"
 
-#: ./behaviors.py:128
+#: ./behaviors.py:132
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
 
@@ -335,57 +335,18 @@ msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
 
 #. Default: "Activities"
 #: ./profiles/default/actions.xml
-msgid "action_activities"
-msgstr "Aktiwiteite"
+msgid "activities"
+msgstr "Aktiviteite"
 
 #. Default: "Assessments"
 #: ./profiles/default/actions.xml
-msgid "action_assessments"
+msgid "assessments"
 msgstr "Assesserings"
 
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
-msgid "action_classlists"
+msgid "classlists"
 msgstr "Klaslyste"
-
-#. Default: "Evaluations"
-#: ./profiles/default/actions.xml
-msgid "action_evaluations"
-msgstr "Evaluerings"
-
-#. Default: "Home"
-#: ./profiles/default/actions.xml
-msgid "action_home"
-msgstr "Tuis"
-
-#: ./browser/viewlets.py:14
-msgid "action_id"
-msgstr ""
-
-#. Default: "Resources"
-#: ./profiles/default/actions.xml
-msgid "action_resources"
-msgstr "Hulpbronne"
-
-#. Default: "Topic Trees"
-#: ./profiles/default/actions.xml
-msgid "action_topictrees"
-msgstr "Onderwerp Bome"
-
-#. Default: "Videos"
-#: ./profiles/default/actions.xml
-msgid "action_videos"
-msgstr "Videos"
-
-#. Default: "Personal Information"
-#: ./profiles/default/actions.xml
-msgid "actions_personalinformation"
-msgstr "Persoonlike Informasie"
-
-#. Default: "Select Language"
-#: ./profiles/default/actions.xml
-msgid "actions_selectlanguage"
-msgstr "Kies U Taal"
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
 #: ./browser/templates/assessments.pt:12
@@ -396,6 +357,11 @@ msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die na
 #: ./browser/templates/classlists.pt:12
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
+
+#. Default: "Evaluations"
+#: ./profiles/default/actions.xml
+msgid "evaluations"
+msgstr "Evaluerings"
 
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
@@ -452,6 +418,15 @@ msgstr "ONDERWYSER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:35
 msgid "heading_teachers"
 msgstr "Onderwysers:"
+
+#. Default: "Home"
+#: ./profiles/default/actions.xml
+msgid "home"
+msgstr "Tuis"
+
+#: ./browser/viewlets.py:14
+msgid "id"
+msgstr ""
 
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:30
@@ -667,6 +642,11 @@ msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 msgid "message_willreply"
 msgstr "Ons sal binnekort antwoord."
 
+#. Default: "Personal Information"
+#: ./profiles/default/actions.xml
+msgid "personalinformation"
+msgstr "Persoonlike informasie"
+
 #: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."
 msgstr "kies asseblief lêers weer sonder dit."
@@ -675,7 +655,27 @@ msgstr "kies asseblief lêers weer sonder dit."
 msgid "please try again."
 msgstr "probeer asseblief weer"
 
+#. Default: "Resources"
+#: ./profiles/default/actions.xml
+msgid "resources"
+msgstr "Hulpbronne"
+
+#. Default: "Select Language"
+#: ./profiles/default/actions.xml
+msgid "selectlanguage"
+msgstr "Kies U Taal"
+
 #: ./browser/feedback.py:48
 msgid "send"
 msgstr "stuur"
+
+#. Default: "Topic Trees"
+#: ./profiles/default/actions.xml
+msgid "topictrees"
+msgstr "Hulpbronne Boome"
+
+#. Default: "Videos"
+#: ./profiles/default/actions.xml
+msgid "videos"
+msgstr "Videos"
 
