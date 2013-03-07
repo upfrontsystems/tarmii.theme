@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 12:57+0000\n"
+"POT-Creation-Date: 2013-03-07 05:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Categorization"
 msgstr ""
 
-#: ./userdataschema.py:11
+#: ./userdataschema.py:12
 msgid "Cell Phone Number"
 msgstr ""
 
@@ -127,8 +127,12 @@ msgstr ""
 msgid "Drag and drop files to upload"
 msgstr ""
 
-#: ./userdataschema.py:26
+#: ./userdataschema.py:28
 msgid "EMIS"
+msgstr ""
+
+#: ./vocabs.py:9
+msgid "Eastern Cape"
 msgstr ""
 
 #: ./behaviors.py:114
@@ -160,12 +164,24 @@ msgstr ""
 msgid "Filter results"
 msgstr ""
 
+#: ./vocabs.py:10
+msgid "Free State"
+msgstr ""
+
+#: ./vocabs.py:11
+msgid "Gauteng"
+msgstr ""
+
 #: ./behaviors.py:65
 msgid "Good"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
+msgstr ""
+
+#: ./vocabs.py:12
+msgid "Kwazulu-Natal"
 msgstr ""
 
 #: ./behaviors.py:47
@@ -180,8 +196,16 @@ msgstr ""
 msgid "Learner Task/Activity"
 msgstr ""
 
+#: ./vocabs.py:13
+msgid "Limpopo"
+msgstr ""
+
 #: ./browser/feedback.py:26
 msgid "Message"
+msgstr ""
+
+#: ./vocabs.py:14
+msgid "Mpumalanga"
 msgstr ""
 
 #: ./behaviors.py:67
@@ -196,7 +220,15 @@ msgstr ""
 msgid "No user profiles exist"
 msgstr ""
 
-#: ./userdataschema.py:46
+#: ./vocabs.py:16
+msgid "North West"
+msgstr ""
+
+#: ./vocabs.py:15
+msgid "Northern Cape"
+msgstr ""
+
+#: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
@@ -216,11 +248,11 @@ msgstr ""
 msgid "Profile created."
 msgstr ""
 
-#: ./userdataschema.py:21
+#: ./userdataschema.py:22
 msgid "Province"
 msgstr ""
 
-#: ./userdataschema.py:41
+#: ./userdataschema.py:43
 msgid "Qualification"
 msgstr ""
 
@@ -256,15 +288,15 @@ msgstr ""
 msgid "Satisfactory"
 msgstr ""
 
-#: ./userdataschema.py:16
+#: ./userdataschema.py:17
 msgid "School"
 msgstr ""
 
-#: ./userdataschema.py:31
+#: ./userdataschema.py:33
 msgid "School Contact Number"
 msgstr ""
 
-#: ./userdataschema.py:36
+#: ./userdataschema.py:38
 msgid "School Email"
 msgstr ""
 
@@ -312,7 +344,7 @@ msgstr ""
 msgid "Thumbnail generation failed"
 msgstr ""
 
-#: ./userdataschema.py:51
+#: ./userdataschema.py:53
 msgid "UUID"
 msgstr ""
 
@@ -330,6 +362,10 @@ msgstr ""
 
 #: ./behaviors.py:132
 msgid "Use with Teacher Resources"
+msgstr ""
+
+#: ./vocabs.py:17
+msgid "Western Cape"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
@@ -396,11 +432,6 @@ msgstr ""
 msgid "heading_schools"
 msgstr ""
 
-#. Default: "Sections"
-#: ./browser/templates/sections.pt:4
-msgid "heading_sections"
-msgstr ""
-
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
@@ -427,7 +458,7 @@ msgstr ""
 msgid "home"
 msgstr ""
 
-#: ./browser/viewlets.py:14
+#: ./browser/viewlets.py:12
 msgid "id"
 msgstr ""
 
@@ -485,7 +516,6 @@ msgstr ""
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
 #: ./browser/templates/resources.pt:70
-#: ./browser/templates/topictrees.pt:32
 msgid "label_edit"
 msgstr ""
 

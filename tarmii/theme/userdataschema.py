@@ -3,6 +3,7 @@ from zope.interface import implements
 from zope.schema import TextLine
 from plone.app.users.userdataschema import IUserDataSchemaProvider
 from plone.app.users.userdataschema import IUserDataSchema
+from tarmii.theme.vocabs import PROVINCES
 from tarmii.theme import MessageFactory as _
 
 class ITARMIIUserDataSchema(IUserDataSchema):
@@ -17,9 +18,10 @@ class ITARMIIUserDataSchema(IUserDataSchema):
             required=True,
         )
 
-    province = schema.TextLine(
+    province = schema.Choice(
             title=_(u"Province"),
             required=True,
+            vocabulary=PROVINCES,
         )
 
     EMIS = schema.TextLine(

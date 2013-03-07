@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 12:57+0000\n"
-"PO-Revision-Date: 2013-03-06 15:00+0200\n"
+"POT-Creation-Date: 2013-03-07 05:32+0000\n"
+"PO-Revision-Date: 2013-03-07 07:40+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgstr "Alle gradering waardes moet uniek wees."
 msgid "Categorization"
 msgstr "Kategorisering"
 
-#: ./userdataschema.py:11
+#: ./userdataschema.py:12
 msgid "Cell Phone Number"
 msgstr "Selfoon Nommer"
 
@@ -124,9 +124,13 @@ msgstr "Verwyder"
 msgid "Drag and drop files to upload"
 msgstr "Sleep en die lêers te laai"
 
-#: ./userdataschema.py:26
+#: ./userdataschema.py:28
 msgid "EMIS"
 msgstr "EMIS"
+
+#: ./vocabs.py:9
+msgid "Eastern Cape"
+msgstr "Oos-Kaap"
 
 #: ./behaviors.py:114
 msgid "Equipment and Administration (For the teacher)"
@@ -157,6 +161,14 @@ msgstr "Lêers vinnig oplaai"
 msgid "Filter results"
 msgstr "Filtreer resultate"
 
+#: ./vocabs.py:10
+msgid "Free State"
+msgstr "Vrystaat"
+
+#: ./vocabs.py:11
+msgid "Gauteng"
+msgstr "Gauteng"
+
 #: ./behaviors.py:65
 msgid "Good"
 msgstr "Goed"
@@ -164,6 +176,10 @@ msgstr "Goed"
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
 msgstr "Beedle vinnig oplaai"
+
+#: ./vocabs.py:12
+msgid "Kwazulu-Natal"
+msgstr "Kwazulu-Natal"
 
 #: ./behaviors.py:47
 msgid "Label"
@@ -177,9 +193,17 @@ msgstr "Laaste veergawe nommer"
 msgid "Learner Task/Activity"
 msgstr "Leerder Taak/Aktiwiteit"
 
+#: ./vocabs.py:13
+msgid "Limpopo"
+msgstr "Limpopo"
+
 #: ./browser/feedback.py:26
 msgid "Message"
 msgstr "Boodskap"
+
+#: ./vocabs.py:14
+msgid "Mpumalanga"
+msgstr "Mpumalanga"
 
 #: ./behaviors.py:67
 msgid "Needs improvement"
@@ -193,7 +217,15 @@ msgstr "Nooit"
 msgid "No user profiles exist"
 msgstr "Geen gebruiker profile bestaan"
 
-#: ./userdataschema.py:46
+#: ./vocabs.py:16
+msgid "North West"
+msgstr "Noordwes"
+
+#: ./vocabs.py:15
+msgid "Northern Cape"
+msgstr "Noord-Kaap"
+
+#: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig grondslagfase"
 
@@ -213,11 +245,11 @@ msgstr "oor kennis of vaardigheid(e) geassesseer"
 msgid "Profile created."
 msgstr "Profiel geskep"
 
-#: ./userdataschema.py:21
+#: ./userdataschema.py:22
 msgid "Province"
 msgstr "Provinsie"
 
-#: ./userdataschema.py:41
+#: ./userdataschema.py:43
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
@@ -253,15 +285,15 @@ msgstr "Rubriek"
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
-#: ./userdataschema.py:16
+#: ./userdataschema.py:17
 msgid "School"
 msgstr "Skool"
 
-#: ./userdataschema.py:31
+#: ./userdataschema.py:33
 msgid "School Contact Number"
 msgstr "Skool Kontak Nommer"
 
-#: ./userdataschema.py:36
+#: ./userdataschema.py:38
 msgid "School Email"
 msgstr "Skool Email"
 
@@ -309,7 +341,7 @@ msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
 
-#: ./userdataschema.py:51
+#: ./userdataschema.py:53
 msgid "UUID"
 msgstr "UUID"
 
@@ -328,6 +360,10 @@ msgstr "Gebruik met Aktiwiteite"
 #: ./behaviors.py:132
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
+
+#: ./vocabs.py:17
+msgid "Western Cape"
+msgstr "Wes-Kaap"
 
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
@@ -393,11 +429,6 @@ msgstr "Provinsies:"
 msgid "heading_schools"
 msgstr "Skole:"
 
-#. Default: "Sections"
-#: ./browser/templates/sections.pt:4
-msgid "heading_sections"
-msgstr "Afdelings"
-
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
@@ -424,7 +455,7 @@ msgstr "Onderwysers:"
 msgid "home"
 msgstr "Tuis"
 
-#: ./browser/viewlets.py:14
+#: ./browser/viewlets.py:12
 msgid "id"
 msgstr ""
 
@@ -482,7 +513,6 @@ msgstr "Werwyder"
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
 #: ./browser/templates/resources.pt:70
-#: ./browser/templates/topictrees.pt:32
 msgid "label_edit"
 msgstr "Redigeer"
 
