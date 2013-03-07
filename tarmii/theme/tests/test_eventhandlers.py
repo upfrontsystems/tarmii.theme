@@ -7,7 +7,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
 from base import TarmiiThemeTestBase
-from tarmii.theme.eventhandlers import on_user_initial_login, on_video_added
+from tarmii.theme.eventhandlers import on_user_initial_login, on_video_added,\
+                                       on_video_deleted
 
 class TestEventhandlers(TarmiiThemeTestBase):
     """ Test event handlers """
@@ -59,9 +60,41 @@ class TestEventhandlers(TarmiiThemeTestBase):
         thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
         self.assertEqual(thumb.id,'vid2-thumb')
 
+
+    def test_on_video_deleted(self):
+
+        # add a video to the system and create thumbnail
+        testpath = os.path.dirname(__file__)
+        path = os.path.join(testpath,'test_video.flv')
+        video_data = open(path,'rb')
+        self.videos.invokeFactory('File', 'vid2', title='Vid2')
+        self.vid2 = self.videos._getOb('vid2')
+        self.vid2.data=video_data.read()
+        notify(ObjectModifiedEvent(self.vid2))
+        video_data.close()
+        contentFilter = {"portal_type" : "Image"}
+        # 2 thumbnails that are in base.py
+        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),2)
+        on_video_added(self.vid2, None)        
+        # assert that another thumbnail has been created
+        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),3)       
+        thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
+        self.assertEqual(thumb.id,'vid2-thumb')
+
+        # delete the thumbnail of self.vid2
+        on_video_deleted(self.vid2, None)
+        # thumbnail has been deleted - only 2 thumbnails remain
+        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),2)
+        ref = [x.id for x in self.videos.getFolderContents(contentFilter)]
+        self.assertEqual(ref,['vid1thumb','vid2thumb'])
+        # self.vid2 has not been deleted because the eventhandler only deletes
+        # the thumbnail
+        self.assertEqual(self.videos.getFolderContents()[2].getObject(),
+                         self.vid2)
+
     def test_on_user_initial_login(self):
 
-        #create user
+        # create user
         username = 'testuser1'
         passwd = username
         email = 'testuser1@email.com'
@@ -97,6 +130,4 @@ class TestEventhandlers(TarmiiThemeTestBase):
         self.assertEquals(brains[4].getObject().getLayout(),'@@assessments')
         self.assertEquals(brains[5].getObject().id,'evaluations')
         self.assertEquals(brains[5].getObject().getLayout(),'@@evaluationsheets')
-
-
 
