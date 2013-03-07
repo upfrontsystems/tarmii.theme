@@ -17,7 +17,7 @@ class ExportUserProfilesView(grok.View):
     """
     grok.context(Interface)
     grok.name('export-user-profiles')
-    grok.require('zope2.View')
+    grok.require('cmf.ManagePortal')
 
     def user_profiles_csv(self):
         """ Export all user profiles with columns for all fields captured during 

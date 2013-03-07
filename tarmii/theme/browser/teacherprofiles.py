@@ -18,8 +18,7 @@ class TeacherProfilesView(grok.View):
     grok.context(Interface)
     grok.name('teacher-profiles')
     grok.template('teacherprofiles')
-    grok.require('zope2.View')
-
+    grok.require('cmf.ManagePortal')
 
     def update(self, **kwargs):
         """ get teacher data from utility each time the template is rendered """

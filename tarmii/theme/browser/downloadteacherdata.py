@@ -9,7 +9,7 @@ class DownloadTeacherDataView(grok.View):
     """
     grok.context(Interface)
     grok.name('download-teacher-data')
-    grok.require('zope2.View')
+    grok.require('cmf.ManagePortal')
 
     def __call__(self):
         """ Return zip content as http response

@@ -19,11 +19,12 @@ class UploadToServerView(grok.View):
     """
     grok.context(Interface)
     grok.name('upload-to-server')
-    grok.require('zope2.View')
+    grok.require('cmf.ManagePortal')
 
     def zip_csv(self):
         """ Create a zip file in memory of the CSV files for logged requests, 
-            evaluations sheets and user profiles for the last 30 days.
+            evaluations sheets and user profiles for the last 3
+0 days.
         """
 
         # get todays date + date 30 days ago

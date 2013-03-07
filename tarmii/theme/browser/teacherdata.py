@@ -9,7 +9,7 @@ class TeacherDataView(grok.View):
     """
     grok.context(Interface)
     grok.name('teacher-data')
-    grok.require('zope2.View')
+    grok.require('cmf.ManagePortal')
 
     def __call__(self):
         """ store a file that is present on the request in a persistent utility
