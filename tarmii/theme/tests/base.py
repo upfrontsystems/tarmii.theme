@@ -68,6 +68,9 @@ class TarmiiThemeTestBase(unittest.TestCase):
             self.topictrees.invokeFactory('collective.topictree.topictree',
                                           'language', title='Language')
         topictree = self.topictrees._getOb('language')
+        topictree.use_with_activities = True
+        topictree.use_with_resources = True
+
         if not topictree.hasObject('afrikaans'):
             topictree.invokeFactory('collective.topictree.topic',
                                     'afrikaans', title='Afrikaans')
@@ -78,10 +81,34 @@ class TarmiiThemeTestBase(unittest.TestCase):
             topictree.invokeFactory('collective.topictree.topic',
                                     'xhosa', title='Xhosa')
 
+        # add topictree 2 for grades with topic grade1
+        if not self.topictrees.hasObject('grade'):
+            self.topictrees.invokeFactory('collective.topictree.topictree',
+                                          'grade', title='Grade')
+        topictree2 = self.topictrees._getOb('grade')
+        topictree2.use_with_activities = True
+        topictree2.use_with_resources = True
+
+        if not topictree2.hasObject('grade1'):
+            topictree2.invokeFactory('collective.topictree.topic',
+                                    'grade1', title='Grade1')
+
+        # add topictree 3 for subjects with topic mathematics
+        if not self.topictrees.hasObject('subject'):
+            self.topictrees.invokeFactory('collective.topictree.topictree',
+                                          'subject', title='Subject')
+        topictree3 = self.topictrees._getOb('subject')
+        topictree3.use_with_activities = True
+        topictree3.use_with_resources = True
+
+        if not topictree3.hasObject('mathematics'):
+            topictree2.invokeFactory('collective.topictree.topic',
+                                    'mathematics', title='Mathematics')
+
         self.topictree = topictree
         self.topic1 = topictree._getOb('afrikaans')
-        self.topic2 = topictree._getOb('english')
-        self.topic3 = topictree._getOb('xhosa')       
+        self.topic2 = topictree2._getOb('grade1')
+        self.topic3 = topictree3._getOb('mathematics')       
 
         # add 2 resources
         self.resources.invokeFactory('tarmii.theme.content.teacherresource',
@@ -97,7 +124,7 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.res1.topics = topic_list
         notify(ObjectModifiedEvent(self.res1))
 
-        # link resource1 to topic2
+        # link resource2 to topic2
         topic_list = [RelationValue(self.intids.getId(self.topic2))]
         self.res2.topics = topic_list
         notify(ObjectModifiedEvent(self.res2))
@@ -181,6 +208,19 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.activities.invokeFactory('upfront.assessmentitem.content.assessmentitem',
                                       'assessmentitem3', title='Activity3')
         self.activity3 = self.activities._getOb('assessmentitem3')
+
+        # link activity1 to topic1, topic2, topic3
+        topic_list = [RelationValue(self.intids.getId(self.topic1)),
+                      RelationValue(self.intids.getId(self.topic2)),
+                      RelationValue(self.intids.getId(self.topic3))]
+        self.activity1.topics = topic_list
+        notify(ObjectModifiedEvent(self.activity1))
+
+        # link activity2 to topic2 and topic3
+        topic_list = [RelationValue(self.intids.getId(self.topic2)),
+                      RelationValue(self.intids.getId(self.topic3))]
+        self.activity2.topics = topic_list
+        notify(ObjectModifiedEvent(self.activity2))
 
         # add activities to assessment1
         self.assessment1.assessment_items = [
