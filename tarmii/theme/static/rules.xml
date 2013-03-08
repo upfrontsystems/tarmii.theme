@@ -55,7 +55,8 @@
         <drop css:content="#plone-document-byline" />
 
         <!-- THEME -->
-        <rules css:if-not-content="body.section-front-page">
+       <!-- <rules css:if-not-content="body.section-front-page"> -->
+       <rules css:if-not-content="body.template-login_success">
             <theme href="theme.html" />
 
             <!-- content core -->
@@ -66,7 +67,8 @@
         </rules>
 
         <!-- HOME -->
-        <rules css:if-content="body.section-front-page">
+       <!-- <rules css:if-content="body.section-front-page"> -->
+        <rules css:if-content="body.template-login_success">
             <theme href="home.html" />
  
             <drop css:theme="#signup" css:if-content="#user-name" />

@@ -116,7 +116,7 @@ table {
 }
 
 #actions_pane_home_page {
-    height: 300px;
+    height: 220px;
     padding-left: 3em;
 }
 
@@ -242,6 +242,14 @@ div#content {
 .content_pane_outer_table a {
     text-decoration: none;
     color:#333333;
+}
+
+#content .content_pane_outer_table a:link {
+    border-bottom: none !important;
+}
+
+.content_pane_outer_table img {
+    padding: 8px;
 }
 
 #content_pane h3 {

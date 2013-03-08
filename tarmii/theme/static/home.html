@@ -8,31 +8,14 @@
     </div>
 
     <div id="personal_pane">  
-        <form id="login_form" action="login_form" method="POST"> 
-            <table>
-                <tbody>
-                    <tr>
-                    <td>USERNAME <input id="__ac_name" name="__ac_name"></td>
-                    <td>PASSWORD <input id="__ac_password" name="__ac_password" type="password"></td>
-                    <td><button id="login_button" name="login_button" type="submit"><img src="images/login.png" alt="LOGIN:"></button></td>
-                    <td>
-                        <a href="../portal_url/mail_password_form"><u>forgot your password?</u></a>
-                    </td>
-                    </tr>
-                </tbody>
-            </table>
-            <input type="hidden" value="1" name="form.submitted">
-            <input type="hidden" name="came_from" value="http://tarmii.co.za">
-        </form> 
-
-        <div id="personal_pane_logged_in">
-            <span class="visualCaseSensitive">Logged in as <i><span id="username">Logged_in_user</span></i>
+        <div id="personaltools">
+            <span id="personaltools-username" class="visualCaseSensitive">
+                Logged in as <i><span id="user-name">username</span></i>
             </span>
             <a id="personaltools-personalinformation" href="@@personal-information">Update user profile</a>
             <a id="personaltools-selectlanguage" href="@@select-language">Select Language</a>
             <a id="personaltools-logout" href="logout">Logout</a>
         </div>
-
     </div>
 
     <div id="actions_pane_home_page">
@@ -74,13 +57,13 @@
             </table>
         </div>
        
-<!--        <div id="context_image">
-           <img src="images/books_small.png">
-        </div>      -->
-
-        <div id="books">
+<!--        <div id="books">
             <img src="images/books.png" />
-        </div>
+        </div> -->
+
+        <div id="context_image">
+           <img src="images/chalkboard.png">
+        </div>       
     
        
         <div id="overview">
@@ -105,12 +88,10 @@
 
     </div>
 
-    
     <div id="portal-content">
-      <div id="content_pane">
+      <div id="content">
 
-        <div style="display: none;">     
-
+        <div style="display: none;">
             <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
                 <dt>Info</dt>
                 <dd></dd>
@@ -138,11 +119,10 @@
                 <table>
                   <tr>
                     <td><a href="http://tarmii.co.za/login_form"> 
-                          <img src="images/grade_test.png" /></a></td>
+                          <img src="images/activities.png" /></a></td>
                     <td>
-                      <h3><a href="http://tarmii.co.za/login_form">ENTER MARKS</a></h3>
-                      <p>This section allows you to enter marks of tests
-                      already administered to the whole class. </p>
+                      <h3><a href="http://tarmii.co.za/login_form">CREATE ACTIVITIES</a></h3>
+                      <p>This section allows you to create activities.</p>
                     </td>
                   </tr>
                 </table>
@@ -166,13 +146,54 @@
                 <table>
                   <tr>
                     <td><a href="http://tarmii.co.za/login_form"> 
+                          <img src="images/videos.png" /></a></td>
+                    <td>
+                      <h3><a href="http://tarmii.co.za/login_form">SHOW VIDEOS</a></h3>
+                      <p>This section allows you to add and watch videos.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table>
+                  <tr>
+                    <td><a href="http://tarmii.co.za/login_form"> 
+                          <img src="images/grade_test.png" /></a></td>
+                    <td>
+                      <h3><a href="http://tarmii.co.za/login_form">ENTER MARKS</a></h3>
+                      <p>This section allows you to enter marks of tests
+                      already administered to the whole class. </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td><a href="http://tarmii.co.za/login_form"> 
+                          <img src="images/teacher_resources.png" /></a></td>
+                    <td>
+                      <h3><a href="http://tarmii.co.za/login_form">ADD TEACHER RESOURCES</a></h3>
+                      <p>This section allows you to add teacher resources. TEXT TEXT TEXT TEXT TEXT TEXT
+                         TEXT TEXT TEXTTEXT TEXT TEXTTEXT TEXT TEXT</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table>
+                  <tr>
+                    <td><a href="http://tarmii.co.za/login_form"> 
                           <img src="images/outcomes.png" /></a></td>
                     <td>
                       <h3><a href="http://tarmii.co.za/login_form">GENERATE REPORTS</a></h3>
                       <p>This section allows you to generate various
                       assessment reports for tests you have administered,
                       marked and entered into the system.</p>
-
                     </td>
                   </tr>
                 </table>
@@ -182,8 +203,7 @@
 
         <div style="text-align: center">
             <img size="" src="images/logo_dept_education.png" />
-        </div>
-
+        </div> 
 
       </div>
     </div>
@@ -197,6 +217,7 @@
           <p id="rights">All rights reserved 2013</p>
         </div>
     </div>
+
 
 </body>
 </html>
