@@ -12,7 +12,7 @@ class HomeView(grok.View):
     grok.context(Interface)
     grok.name('home')
     grok.template('home')
-    grok.require('zope2.View')
+    grok.require('cmf.SetOwnProperties')
 
     def portal_root(self):
         """ URL for the portal
