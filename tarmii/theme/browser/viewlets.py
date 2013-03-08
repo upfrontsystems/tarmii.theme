@@ -9,6 +9,6 @@ class TARMIIGlobalSectionsViewlet(GlobalSectionsViewlet):
         
         for x in range(len(self.portal_tabs)):
             self.portal_tabs[x]['name'] =\
-                self.context.translate(_(self.portal_tabs[x]['id']))
-                # the translations labels: action_topictree, action_evaluations
+                self.context.translate(_(self.portal_tabs[x]['name']))
+                # the translations labels: Topic Trees, Evaluations
                 # etc, are defined in actions.xml

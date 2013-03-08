@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-08 11:05+0000\n"
+"POT-Creation-Date: 2013-03-08 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,11 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
+msgstr ""
+
+#. Default: "Activities"
+#: ./profiles/default/actions.xml
+msgid "Activities"
 msgstr ""
 
 #: ./browser/templates/activities.pt:16
@@ -69,6 +74,11 @@ msgstr ""
 msgid "All rating values must be unique."
 msgstr ""
 
+#. Default: "Assessments"
+#: ./profiles/default/actions.xml
+msgid "Assessments"
+msgstr ""
+
 #: ./behaviors.py:94
 msgid "Categorization"
 msgstr ""
@@ -99,6 +109,11 @@ msgstr ""
 
 #: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
+msgstr ""
+
+#. Default: "Classlists"
+#: ./profiles/default/actions.xml
+msgid "Classlists"
 msgstr ""
 
 #: ./browser/feedback.py:44
@@ -139,6 +154,11 @@ msgstr ""
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
+#. Default: "Evaluations"
+#: ./profiles/default/actions.xml
+msgid "Evaluations"
+msgstr ""
+
 #: ./behaviors.py:64
 msgid "Excellent"
 msgstr ""
@@ -174,6 +194,11 @@ msgstr ""
 
 #: ./behaviors.py:65
 msgid "Good"
+msgstr ""
+
+#. Default: "Home"
+#: ./profiles/default/actions.xml
+msgid "Home"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:93
@@ -240,6 +265,11 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
+#. Default: "Personal Information"
+#: ./profiles/default/actions.xml
+msgid "Personal Information"
+msgstr ""
+
 #: ./behaviors.py:109
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr ""
@@ -280,6 +310,11 @@ msgstr ""
 msgid "Resource File"
 msgstr ""
 
+#. Default: "Resources"
+#: ./profiles/default/actions.xml
+msgid "Resources"
+msgstr ""
+
 #: ./behaviors.py:37
 msgid "Rubric"
 msgstr ""
@@ -298,6 +333,11 @@ msgstr ""
 
 #: ./userdataschema.py:38
 msgid "School Email"
+msgstr ""
+
+#. Default: "Select Language"
+#: ./profiles/default/actions.xml
+msgid "Select Language"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:374
@@ -344,6 +384,11 @@ msgstr ""
 msgid "Thumbnail generation failed"
 msgstr ""
 
+#. Default: "Topic Trees"
+#: ./profiles/default/actions.xml
+msgid "Topic Trees"
+msgstr ""
+
 #: ./userdataschema.py:53
 msgid "UUID"
 msgstr ""
@@ -364,27 +409,17 @@ msgstr ""
 msgid "Use with Teacher Resources"
 msgstr ""
 
+#. Default: "Videos"
+#: ./profiles/default/actions.xml
+msgid "Videos"
+msgstr ""
+
 #: ./vocabs.py:17
 msgid "Western Cape"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
-msgstr ""
-
-#. Default: "Activities"
-#: ./profiles/default/actions.xml
-msgid "activities"
-msgstr ""
-
-#. Default: "Assessments"
-#: ./profiles/default/actions.xml
-msgid "assessments"
-msgstr ""
-
-#. Default: "Classlists"
-#: ./profiles/default/actions.xml
-msgid "classlists"
 msgstr ""
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
@@ -395,11 +430,6 @@ msgstr ""
 #. Default: "Here you can add new class lists or"
 #: ./browser/templates/classlists.pt:12
 msgid "description_classlists_add"
-msgstr ""
-
-#. Default: "Evaluations"
-#: ./profiles/default/actions.xml
-msgid "evaluations"
 msgstr ""
 
 #. Default: "Add activity to assessment"
@@ -453,17 +483,12 @@ msgstr ""
 msgid "heading_teachers"
 msgstr ""
 
-#. Default: "Home"
-#: ./profiles/default/actions.xml
-msgid "home"
-msgstr ""
-
-#. Default: "This section allows you to create activities."
+#. Default: "This section allows you to use existing activites in your class room or create your own activities."
 #: ./browser/templates/home.pt:38
 msgid "home_description_activities"
 msgstr ""
 
-#. Default: "This section enables you to generate tests for your class for the unit of work completed."
+#. Default: "This section enables you to create formal and informal assessments."
 #: ./browser/templates/home.pt:53
 msgid "home_description_assessments"
 msgstr ""
@@ -473,32 +498,32 @@ msgstr ""
 msgid "home_description_classlists"
 msgstr ""
 
-#. Default: "This section allows you to enter marks of tests already administered to the whole class."
-#: ./browser/templates/home.pt:82
+#. Default: "This section allows you to create evaluation sheets and rate how learners perform on assessments."
+#: ./browser/templates/home.pt:66
 msgid "home_description_evaluations"
 msgstr ""
 
-#. Default: "This section allows you to generate various assessment reports for tests you have administered, marked and entered into the system."
-#: ./browser/templates/home.pt:112
+#. Default: "This section allows you to generate various assessment reports for assessments you have administered."
+#: ./browser/templates/home.pt:109
 msgid "home_description_reports"
 msgstr ""
 
-#. Default: "This section allows you to add teacher resources. TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXTTEXT TEXT TEXT TEXT TEXT TEXT"
-#: ./browser/templates/home.pt:96
+#. Default: "This section contains resources that you can use in the class room."
+#: ./browser/templates/home.pt:94
 msgid "home_description_teacherresources"
 msgstr ""
 
-#. Default: "This section allows you to add and watch videos."
-#: ./browser/templates/home.pt:67
+#. Default: "This section contains video tutorials."
+#: ./browser/templates/home.pt:81
 msgid "home_description_videos"
 msgstr ""
 
-#. Default: "CREATE ACTIVITIES"
+#. Default: "ACTIVITIES"
 #: ./browser/templates/home.pt:36
 msgid "home_heading_activities"
 msgstr ""
 
-#. Default: "GENERATE TESTS"
+#. Default: "ASSESSMENTS"
 #: ./browser/templates/home.pt:51
 msgid "home_heading_assessments"
 msgstr ""
@@ -509,27 +534,23 @@ msgid "home_heading_classlists"
 msgstr ""
 
 #. Default: "EVALUATE LEARNERS"
-#: ./browser/templates/home.pt:80
+#: ./browser/templates/home.pt:64
 msgid "home_heading_evaluations"
 msgstr ""
 
 #. Default: "GENERATE REPORTS"
-#: ./browser/templates/home.pt:110
+#: ./browser/templates/home.pt:107
 msgid "home_heading_reports"
 msgstr ""
 
-#. Default: "ADD TEACHER RESOURCES"
-#: ./browser/templates/home.pt:94
+#. Default: "TEACHER RESOURCES"
+#: ./browser/templates/home.pt:92
 msgid "home_heading_teacherresources"
 msgstr ""
 
-#. Default: "SHOW VIDEOS"
-#: ./browser/templates/home.pt:65
+#. Default: "VIDEOS"
+#: ./browser/templates/home.pt:79
 msgid "home_heading_videos"
-msgstr ""
-
-#: ./browser/viewlets.py:12
-msgid "id"
 msgstr ""
 
 #. Default: "Or enter the name of a new assessment:"
@@ -745,9 +766,8 @@ msgstr ""
 msgid "message_willreply"
 msgstr ""
 
-#. Default: "Personal Information"
-#: ./profiles/default/actions.xml
-msgid "personalinformation"
+#: ./browser/viewlets.py:12
+msgid "name"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:372
@@ -758,27 +778,7 @@ msgstr ""
 msgid "please try again."
 msgstr ""
 
-#. Default: "Resources"
-#: ./profiles/default/actions.xml
-msgid "resources"
-msgstr ""
-
-#. Default: "Select Language"
-#: ./profiles/default/actions.xml
-msgid "selectlanguage"
-msgstr ""
-
 #: ./browser/feedback.py:48
 msgid "send"
-msgstr ""
-
-#. Default: "Topic Trees"
-#: ./profiles/default/actions.xml
-msgid "topictrees"
-msgstr ""
-
-#. Default: "Videos"
-#: ./profiles/default/actions.xml
-msgid "videos"
 msgstr ""
 
