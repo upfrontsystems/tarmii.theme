@@ -10,6 +10,7 @@ from zope.component.hooks import getSite
 from Products.ATContentTypes.interfaces.file import IFileContent
 from Products.Archetypes.interfaces import IObjectInitializedEvent
 from Products.ATContentTypes.lib.constraintypes import ENABLED
+from Products.CMFCore.utils import getToolByName
 from Products.PluggableAuthService.interfaces.authservice import IPropertiedUser
 from Products.PlonePAS.interfaces.events import IUserInitialLoginInEvent
 
@@ -75,6 +76,10 @@ def on_video_added(video, event):
 def on_video_deleted(video, event):
     """ Delete the corresponding thumbnail when a video has been deleted.
     """
+
+    portal = getToolByName(video, 'portal_url').getPortalObject()
+    if portal.removal_inprogress:
+        return
 
     # We only want to take action when a video file has being deleted
     if video.aq_parent.id != 'videos' or video.portal_type != 'File':
