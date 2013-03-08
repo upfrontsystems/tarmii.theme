@@ -24,7 +24,7 @@ msgstr "oplaai rapporteer 'n fout."
 
 #: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
-msgstr "'n data basis konflik fout het gebeur toe die oplaai van die lêer:"
+msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 
 #. Default: "Activities"
 #: ./profiles/default/actions.xml
@@ -41,7 +41,7 @@ msgstr "Voeg Assessering by"
 
 #: ./browser/templates/topictrees.pt:13
 msgid "Add Topic Tree"
-msgstr "Voeg Onderwerp Boom by"
+msgstr "Voeg Onderwerpboom by"
 
 #: ./browser/templates/classlists.pt:17
 msgid "Add class list"
@@ -49,7 +49,7 @@ msgstr "Voeg Klaslys by"
 
 #: ./browser/templates/evaluationsheets.pt:13
 msgid "Add evaluation sheet"
-msgstr "Voeg evalueringsblad by"
+msgstr "Voeg evaluasievorm by"
 
 #: ./browser/templates/resources.pt:15
 msgid "Add resource"
@@ -61,15 +61,15 @@ msgstr "Voeg video by"
 
 #: ./browser/custom_quick_upload.py:368
 msgid "All files uploaded with success."
-msgstr "Alle lêers suksesvol gelaai is."
+msgstr "Alle lêers het suksesvol opgelaai."
 
 #: ./behaviors.py:153
 msgid "All rating values must be positive and larger than zero."
-msgstr "Alle gradering waardes moet positief en groter as nul wees."
+msgstr "Alle graderings moet positief en groter as nul wees."
 
 #: ./behaviors.py:156
 msgid "All rating values must be unique."
-msgstr "Alle gradering waardes moet uniek wees."
+msgstr "Elke gradering moet uniek wees."
 
 #. Default: "Assessments"
 #: ./profiles/default/actions.xml
@@ -82,7 +82,7 @@ msgstr "Kategorisering"
 
 #: ./userdataschema.py:12
 msgid "Cell Phone Number"
-msgstr "Selfoon Nommer"
+msgstr "Selfoonnommer"
 
 #: ./behaviors.py:32
 msgid "Check list"
@@ -90,23 +90,23 @@ msgstr "Kontrolelys"
 
 #: ./browser/custom_quick_upload.py:306
 msgid "Choose audio files to upload"
-msgstr "Verkies die audio lêers om te laai"
+msgstr "Kies die klanklêers om op te laai"
 
 #: ./browser/custom_quick_upload.py:320
 msgid "Choose file for upload: ${ext}"
-msgstr "Verkies die lêer om te laai: ${ext}"
+msgstr "Kies die lêer om op te laai: ${ext}"
 
 #: ./browser/custom_quick_upload.py:309
 msgid "Choose flash files to upload"
-msgstr "Verkies die flash lêers om te laai"
+msgstr "Kies die flash lêers om op te laai"
 
 #: ./browser/custom_quick_upload.py:300
 msgid "Choose images to upload"
-msgstr "Verkis die beelde om te laai"
+msgstr "Kies die prente om op te laai"
 
 #: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
-msgstr "Verkies die video lêers om te laai"
+msgstr "Kies die video lêers om op te laai"
 
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
@@ -119,15 +119,15 @@ msgstr "Kontak Ons"
 
 #: ./behaviors.py:104
 msgid "Content/Concept/Skills Assessed"
-msgstr "Inhoud/Konsep/Vaardighede geassesseer"
+msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
 #: ./browser/templates/activities.pt:23
 msgid "Contribute own activity"
-msgstr "Dra eie aktiwiteit by"
+msgstr "Dra jou eie aktiwiteit by"
 
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
-msgstr "Definieer die url waar die logs kan opgelaai word"
+msgstr "Definieer die URL waar die logs opgelaai kan word."
 
 #: ./browser/templates/assessments.pt:49
 #: ./browser/templates/classlists.pt:39
@@ -137,7 +137,7 @@ msgstr "Verwyder"
 
 #: ./browser/custom_quick_upload.py:367
 msgid "Drag and drop files to upload"
-msgstr "Sleep en die lêers te laai"
+msgstr "Sleep en los die lêers om op te laai"
 
 #: ./userdataschema.py:28
 msgid "EMIS"
@@ -154,7 +154,7 @@ msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 #. Default: "Evaluations"
 #: ./profiles/default/actions.xml
 msgid "Evaluations"
-msgstr "Evalueerings"
+msgstr "Evaluasies"
 
 #: ./behaviors.py:64
 msgid "Excellent"
@@ -162,7 +162,7 @@ msgstr "Uitstekend"
 
 #: ./browser/custom_quick_upload.py:371
 msgid "Failed"
-msgstr "Versium"
+msgstr "Nie gewerk nie"
 
 #: ./browser/feedback.py:83
 msgid "Feedback"
@@ -174,12 +174,12 @@ msgstr "Lêer na bediener gestuur"
 
 #: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
-msgstr "Lêers vinnig oplaai"
+msgstr "Vinnige Lêers Oplaai"
 
 #: ./browser/templates/activities.pt:57
 #: ./browser/templates/resources.pt:53
 msgid "Filter results"
-msgstr "Filtreer resultate"
+msgstr "Filter resultate"
 
 #: ./vocabs.py:10
 msgid "Free State"
@@ -200,7 +200,7 @@ msgstr "Tuis"
 
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
-msgstr "Beedle vinnig oplaai"
+msgstr "Vinnige Prent Oplaai"
 
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
@@ -240,7 +240,7 @@ msgstr "Nooit"
 
 #: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
-msgstr "Geen gebruiker profile bestaan"
+msgstr "Geen gebruiker profiel bestaan"
 
 #: ./vocabs.py:15
 msgid "North West"
@@ -252,7 +252,7 @@ msgstr "Noord-Kaap"
 
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
-msgstr "Aantal jare onderrig grondslagfase"
+msgstr "Aantal jare onderrig van grondslagfase"
 
 #: ./behaviors.py:27
 msgid "Observation Sheet"
@@ -260,20 +260,20 @@ msgstr "Waarnemingsblad"
 
 #: ./browser/custom_quick_upload.py:379
 msgid "Only allowed:"
-msgstr "Slegs toegelaat"
+msgstr "Slegs toegelaat:"
 
 #. Default: "Personal Information"
 #: ./profiles/default/actions.xml
 msgid "Personal Information"
-msgstr "Persoonlike Informasie"
+msgstr "Persoonlike Inligting"
 
 #: ./behaviors.py:109
 msgid "Prior Knowledge or Skill(s) Assessed"
-msgstr "oor kennis of vaardigheid(e) geassesseer"
+msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
 #: ./browser/views.py:119
 msgid "Profile created."
-msgstr "Profiel geskep"
+msgstr "Profiel geskep."
 
 #: ./userdataschema.py:22
 msgid "Province"
@@ -297,15 +297,15 @@ msgstr "Verwant"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
-msgstr "Remote Server Stellings"
+msgstr "Databediener konfigurasie"
 
 #: ./interfaces.py:35
 msgid "Remote Server Url"
-msgstr "Remote Server Url"
+msgstr "Databediener URL"
 
 #: ./content/teacherresource.py:14
 msgid "Resource File"
-msgstr "Hulpbron Lęer"
+msgstr "Hulpbron Lêer"
 
 #. Default: "Resources"
 #: ./profiles/default/actions.xml
