@@ -4,6 +4,9 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+    <!-- The default theme, used for standard Plone web pages -->
+    <theme href="theme.html" css:if-content="#visual-portal-wrapper" />
+
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
@@ -45,6 +48,9 @@
         <!-- main menu navigation -->
         <replace css:content-children="#portal-globalnav" css:theme-children="#menu-globalnav" /> 
 
+        <!-- content core -->
+        <replace css:content-children="#content" css:theme="#content-core" />
+
         <!-- footer links -->
             <!-- home -->
             <copy attributes="href" css:content="#portal-logo" css:theme="#footer_home_link" />
@@ -53,27 +59,7 @@
             <copy attributes="href" css:content="#siteaction-contact a" css:theme="#footer_contact_link" />
 
         <drop css:content="#plone-document-byline" />
-
-        <!-- THEME -->
-       <!-- <rules css:if-not-content="body.section-front-page"> -->
-       <rules css:if-not-content="body.template-login_success">
-            <theme href="theme.html" />
-
-            <!-- content core -->
-            <replace
-                css:content-children="#content"
-                css:theme="#content-core" />
-
-        </rules>
-
-        <!-- HOME -->
-       <!-- <rules css:if-content="body.section-front-page"> -->
-        <rules css:if-content="body.template-login_success">
-            <theme href="home.html" />
- 
-            <drop css:theme="#signup" css:if-content="#user-name" />
-
-        </rules>
+   
     </rules>
 
 </rules>

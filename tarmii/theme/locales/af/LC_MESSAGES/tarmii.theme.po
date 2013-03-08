@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-07 05:32+0000\n"
+"POT-Creation-Date: 2013-03-08 11:05+0000\n"
 "PO-Revision-Date: 2013-03-07 07:40+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,7 +148,7 @@ msgstr "Versium"
 msgid "Feedback"
 msgstr "Terugvoer"
 
-#: ./browser/uploadtoserver.py:97
+#: ./browser/uploadtoserver.py:98
 msgid "File sent to server"
 msgstr "Lêer na bediener gestuur"
 
@@ -209,7 +209,7 @@ msgstr "Mpumalanga"
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
-#: ./browser/teacherprofiles.py:104
+#: ./browser/teacherprofiles.py:103
 msgid "Never"
 msgstr "Nooit"
 
@@ -217,11 +217,11 @@ msgstr "Nooit"
 msgid "No user profiles exist"
 msgstr "Geen gebruiker profile bestaan"
 
-#: ./vocabs.py:16
+#: ./vocabs.py:15
 msgid "North West"
 msgstr "Noordwes"
 
-#: ./vocabs.py:15
+#: ./vocabs.py:16
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
@@ -337,7 +337,7 @@ msgstr "Hierdie lêer is te groot:"
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
-#: ./eventhandlers.py:66
+#: ./eventhandlers.py:67
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
 
@@ -345,7 +345,7 @@ msgstr "Verkleinde prentjie generering het misluk"
 msgid "UUID"
 msgstr "UUID"
 
-#: ./browser/uploadtoserver.py:75
+#: ./browser/uploadtoserver.py:76
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
@@ -454,6 +454,76 @@ msgstr "Onderwysers:"
 #: ./profiles/default/actions.xml
 msgid "home"
 msgstr "Tuis"
+
+#. Default: "This section allows you to create activities."
+#: ./browser/templates/home.pt:38
+msgid "home_description_activities"
+msgstr ""
+
+#. Default: "This section enables you to generate tests for your class for the unit of work completed."
+#: ./browser/templates/home.pt:53
+msgid "home_description_assessments"
+msgstr ""
+
+#. Default: "This section allows you to manage your class lists. Here you can create or delete, import or export your class lists."
+#: ./browser/templates/home.pt:23
+msgid "home_description_classlists"
+msgstr ""
+
+#. Default: "This section allows you to enter marks of tests already administered to the whole class."
+#: ./browser/templates/home.pt:82
+msgid "home_description_evaluations"
+msgstr ""
+
+#. Default: "This section allows you to generate various assessment reports for tests you have administered, marked and entered into the system."
+#: ./browser/templates/home.pt:112
+msgid "home_description_reports"
+msgstr ""
+
+#. Default: "This section allows you to add teacher resources. TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXTTEXT TEXT TEXT TEXT TEXT TEXT"
+#: ./browser/templates/home.pt:96
+msgid "home_description_teacherresources"
+msgstr ""
+
+#. Default: "This section allows you to add and watch videos."
+#: ./browser/templates/home.pt:67
+msgid "home_description_videos"
+msgstr ""
+
+#. Default: "CREATE ACTIVITIES"
+#: ./browser/templates/home.pt:36
+msgid "home_heading_activities"
+msgstr "SKEP AKTIWITEITE"
+
+#. Default: "GENERATE TESTS"
+#: ./browser/templates/home.pt:51
+msgid "home_heading_assessments"
+msgstr "GENEREER TOETSE"
+
+#. Default: "CREATE CLASS LISTS"
+#: ./browser/templates/home.pt:21
+msgid "home_heading_classlists"
+msgstr "GENEREER KLASLYSTE"
+
+#. Default: "EVALUATE LEARNERS"
+#: ./browser/templates/home.pt:80
+msgid "home_heading_evaluations"
+msgstr "EVALUEER LEERDERS"
+
+#. Default: "GENERATE REPORTS"
+#: ./browser/templates/home.pt:110
+msgid "home_heading_reports"
+msgstr "GENEREER VERSLAE"
+
+#. Default: "ADD TEACHER RESOURCES"
+#: ./browser/templates/home.pt:94
+msgid "home_heading_teacherresources"
+msgstr "VOEG ONDERWYSER HULPBRONNE BY"
+
+#. Default: "SHOW VIDEOS"
+#: ./browser/templates/home.pt:65
+msgid "home_heading_videos"
+msgstr "WYS VIDEOS"
 
 #: ./browser/viewlets.py:12
 msgid "id"
