@@ -78,8 +78,9 @@ def on_video_deleted(video, event):
     """
 
     portal = getToolByName(video, 'portal_url').getPortalObject()
-    if portal.removal_inprogress:
-        return
+    if portal.hasProperty('removal_inprogress'):
+        if portal.removal_inprogress:
+            return
 
     # We only want to take action when a video file has being deleted
     if video.aq_parent.id != 'videos' or video.portal_type != 'File':
