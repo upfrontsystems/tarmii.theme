@@ -4,7 +4,6 @@ from xhtml2pdf import pisa
 from five import grok
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from upfront.assessment.content.assessment import IAssessment
 from tarmii.theme import MessageFactory as _
