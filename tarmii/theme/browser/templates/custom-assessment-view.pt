@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="upfront.assessment">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="content-core">
+
+        <h1 i18n:translate="heading_assessment">Assessment: <span i18n:name="assessment_title" tal:content="view/assessment"> </span></h1>
+
+        <form id="add-button-form" name="add-activities-form" tal:attributes="action view/add_activities_url">
+            <input class="allowMultiSubmit" type="submit" value="Add Activities" i18n:attributes="value">
+        </form>
+
+        <div>&nbsp;</div>
+        <tal:activities tal:condition="not:view/activities">
+            <div i18n:translate="message_no_activities_added">No activities have been added yet.</div>
+        </tal:activities>
+
+        <tal:topics condition="view/topics">
+            <div i18n:translate="message_topics_covered_by_activities">Topics covered by activities:</div>
+            <div class="topics-container">
+               <tal:item repeat="item view/topics">
+                    <span tal:content="item"/>,
+               </tal:item>
+            </div>
+        </tal:topics>
+
+        <tal:activities condition="view/activities">
+            <div id="activities-list">
+                <tal:brains repeat="item view/activities">
+                    <div class="activity-container">
+                        <h1 tal:content="item/id"></h1>
+                        <div class="introduction" tal:content="structure item/introduction/output|nothing">
+                            Optional Activity Introduction
+                        </div>
+                        <div class="activity" tal:content="structure item/activity/output|nothing">
+                            The Activity
+                        </div>
+                        <div class="item-actions-left">
+                            <tal:first condition="python:item != view.first_activity()">
+                                <a class="move-up" tal:attributes="id string:${item/id}"
+                                   i18n:translate="label_up">Move up</a>
+                            </tal:first>
+                            <tal:last condition="python:item != view.last_activity()">
+                                <a class="move-down" tal:attributes="id string:${item/id}"
+                                   i18n:translate="label_down">Move down</a>
+                            </tal:last>
+                            <a tal:attributes="href item/absolute_url"
+                               i18n:translate="label_view">View</a>
+                            <a tal:attributes="href string:${item/absolute_url}/edit"
+                               i18n:translate="label_edit">Edit</a>
+                            <a class="remove-from-assessment" tal:attributes="value string:${item/id}"
+                               i18n:translate="label_removefromassessment">Remove from Assessment</a>
+                            <a tal:attributes="href string:${item/absolute_url}/feedback"
+                               i18n:translate="label_feedback">Feedback</a>
+                        </div>
+                        <hr class="item-separator"/>
+                    </div>
+                </tal:brains>
+            </div>
+
+        </tal:activities>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

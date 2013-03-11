@@ -15,4 +15,12 @@
             permission="zope2.View"
             />
 
+     <browser:page
+            for="upfront.assessment.content.assessment.IAssessment"
+            name="view"
+            class="tarmii.theme.browser.custom_assessment.View"
+            permission="cmf.AddPortalContent"
+            layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
+            />
+
 </configure>
