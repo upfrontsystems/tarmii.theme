@@ -108,3 +108,24 @@ class EvaluationSheetPDF(grok.View):
             'portal_type': 'upfront.assessment.content.evaluation'}
         return self.context.getFolderContents(contentFilter)
 
+    def evaluation_data(self):
+        """ For each activity return the learners being evaluated and their 
+            score, sorted by activity 1,2,3 etc.
+        """
+        data = []
+        activity_entry = []
+        # for each activity
+        for x in range(len(self.context.activities.getFolderContents())):
+
+            # for each learner
+            activity_entry = []
+            for lrnr in range(len(self.context.getFolderContents())):
+                evaluation = self.context.getFolderContents()[lrnr].getObject()
+                activity_entry.append(
+                    {'learner': evaluation.learner.to_object.Title(),
+                    'rating': evaluation.evaluation[x]['rating']
+                    })
+            data.append(activity_entry)
+            activity_entry = []
+        return data
+

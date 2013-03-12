@@ -92,21 +92,29 @@
     <h1 class="mainheader"><span>Evaluation Sheet for </span><span tal:content="python:view.assessment().Title()"></span></h1>
 
     <div tal:repeat="item view/activities">
+        <tal:def tal:define="act_index python:int(repeat['item'].index)">
         <h1 tal:content="item/id"></h1>
-            <table class="listing">
+            <table class="listing"
+                   tal:define="data view/evaluation_data">
                     <tr>
                         <th>Learner Name</th>
                         <div tal:repeat="rating item/rating_scale">
                             <th tal:content="python:rating['label']">Scale Heading</th>
                         </div>
                     </tr>
-                    <tr tal:repeat="evaluation view/evaluations">
-                        <td tal:content="python:evaluation.getObject().learner.to_object.name">
+                    <tr tal:repeat="data_entry python:data[act_index]">
+                        <td tal:content="python:data_entry['learner']">
                         </td>
+                        <div tal:repeat="rating item/rating_scale">
+                            <td tal:condition="python:data_entry['rating'] == repeat['rating'].number()">X</td>
+                            <td tal:condition="not:python:data_entry['rating'] == repeat['rating'].number()"></td>
+                        </div> -->
                     </tr>
                 </table>
 
+
         <hr class="item-separator"/>
+        </tal:def>
     </div>
 
     <div id="pageNumber">
