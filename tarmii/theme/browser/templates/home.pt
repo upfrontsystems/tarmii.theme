@@ -11,8 +11,8 @@
     
       <table class="content_pane_outer_table"
                cellspacing="10px">
-            <tr>
-              <td>
+            <tr class="outer">
+              <td class="outer">
                 <table>
                   <tr>
                     <td><a tal:attributes="href string:${view/members_folder}/classlists"> 
@@ -27,7 +27,7 @@
                   </tr>
                 </table>
               </td>
-              <td>
+              <td class="outer">
                 <table>
                   <tr>
                     <td><a tal:attributes="href string:${view/portal_root}/activities"> 
@@ -41,21 +41,21 @@
                 </table>
               </td>
             </tr>
-            <tr>
-              <td>
+            <tr class="outer">
+              <td class="outer">
                 <table>
                   <tr>
                     <td><a tal:attributes="href string:${view/members_folder}/assessments"> 
                           <img src="++theme++tarmii.theme/images/generate_test.png" /></a></td>
                     <td>
                       <h3><a tal:attributes="href string:${view/members_folder}/assessments"
-                             i18n:translate="home_heading_assessments">ASSESSMENTS</a></h3>
+                             i18n:translate="home_heading_assessments">GENERATE ASSESSMENT ACTIVITIES</a></h3>
                       <p i18n:translate="home_description_assessments">This section enables you to create formal and informal assessments.</p>
                     </td>
                   </tr>
                 </table>
               </td>
-              <td>
+              <td class="outer">
                 <table>
                   <tr>
                     <td><a tal:attributes="href string:${view/members_folder}/evaluations"> 
@@ -69,8 +69,24 @@
                 </table>
               </td>
             </tr>
-            <tr>
-              <td>
+            <tr class="outer">
+              <td class="outer">
+                <table>
+                  <tr>
+                    <td><a tal:attributes="href string:${view/portal_root}/reports"> 
+                          <img src="++theme++tarmii.theme/images/outcomes.png" /></a></td>
+                    <td>
+                      <h3><a tal:attributes="href string:${view/portal_root}/reports" 
+                             i18n:translate="home_heading_reports">GENERATE REPORTS</a></h3>
+                      <p i18n:translate="home_description_reports">This section allows you to generate various
+                      assessment reports for assessments you have administered.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="outer">
+              <td class="outer">
                 <table>
                   <tr>
                     <td><a tal:attributes="href string:${view/portal_root}/videos">
@@ -83,7 +99,7 @@
                   </tr>
                 </table>
               </td>
-              <td>
+              <td class="outer">
                 <table>
                   <tr>
                     <td><a tal:attributes="href string:${view/portal_root}/resources"> 
@@ -92,22 +108,6 @@
                       <h3><a tal:attributes="href string:${view/portal_root}/resources"
                              i18n:translate="home_heading_teacherresources">TEACHER RESOURCES</a></h3>
                       <p i18n:translate="home_description_teacherresources">This section contains resources that you can use in the class room.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table>
-                  <tr>
-                    <td><a tal:attributes="href string:${view/portal_root}/reports"> 
-                          <img src="++theme++tarmii.theme/images/outcomes.png" /></a></td>
-                    <td>
-                      <h3><a tal:attributes="href string:${view/portal_root}/reports" 
-                             i18n:translate="home_heading_reports">GENERATE REPORTS</a></h3>
-                      <p i18n:translate="home_description_reports">This section allows you to generate various
-                      assessment reports for assessments you have administered.</p>
                     </td>
                   </tr>
                 </table>

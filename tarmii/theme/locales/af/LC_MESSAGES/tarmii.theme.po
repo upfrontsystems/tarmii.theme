@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-08 13:08+0000\n"
-"PO-Revision-Date: 2013-03-07 07:40+0200\n"
+"POT-Creation-Date: 2013-03-13 12:47+0000\n"
+"PO-Revision-Date: 2013-03-13 14:48+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -501,17 +501,17 @@ msgid "home_description_evaluations"
 msgstr "Hierdie rubriek laat jou evaluering velle en koers hoe leerders presteer op assesserings te skep."
 
 #. Default: "This section allows you to generate various assessment reports for assessments you have administered."
-#: ./browser/templates/home.pt:109
+#: ./browser/templates/home.pt:81
 msgid "home_description_reports"
 msgstr "Hierdie artikel stel jou in staat om verskeie assesseringspraktyke te genereer verslae vir assesserings wat jy toegedien het."
 
 #. Default: "This section contains resources that you can use in the class room."
-#: ./browser/templates/home.pt:94
+#: ./browser/templates/home.pt:110
 msgid "home_description_teacherresources"
 msgstr "Hierdie afdeling bevat hulpbronne wat jy kan gebruik in die klaskamer."
 
 #. Default: "This section contains video tutorials."
-#: ./browser/templates/home.pt:81
+#: ./browser/templates/home.pt:97
 msgid "home_description_videos"
 msgstr "Hierdie afdeling bevat video tutoriale."
 
@@ -520,10 +520,10 @@ msgstr "Hierdie afdeling bevat video tutoriale."
 msgid "home_heading_activities"
 msgstr "AKTIWITEITE"
 
-#. Default: "ASSESSMENTS"
+#. Default: "GENERATE ASSESSMENT ACTIVITIES"
 #: ./browser/templates/home.pt:51
 msgid "home_heading_assessments"
-msgstr "ASSESSERINGS"
+msgstr "GENEREER ASSESSERING AKTIWITEITE"
 
 #. Default: "CREATE CLASS LISTS"
 #: ./browser/templates/home.pt:21
@@ -536,17 +536,17 @@ msgid "home_heading_evaluations"
 msgstr "EVALUEER LEERDERS"
 
 #. Default: "GENERATE REPORTS"
-#: ./browser/templates/home.pt:107
+#: ./browser/templates/home.pt:79
 msgid "home_heading_reports"
 msgstr "GENEREER VERSLAE"
 
 #. Default: "TEACHER RESOURCES"
-#: ./browser/templates/home.pt:92
+#: ./browser/templates/home.pt:108
 msgid "home_heading_teacherresources"
 msgstr "ONDERWYSER HULPBRONNE"
 
 #. Default: "VIDEOS"
-#: ./browser/templates/home.pt:79
+#: ./browser/templates/home.pt:95
 msgid "home_heading_videos"
 msgstr "VIDEOS"
 
