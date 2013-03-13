@@ -102,17 +102,15 @@
                             <th tal:content="python:rating['label']">Scale Heading</th>
                         </div>
                     </tr>
-                    <tr tal:repeat="data_entry python:data[act_index]">
-                        <td tal:content="python:data_entry['learner']">
+                    <tr tal:repeat="data_item python:data[act_index]">
+                        <td tal:content="python:data_item['learner']">                           
                         </td>
-                        <div tal:repeat="rating item/rating_scale">
-                            <td tal:condition="python:data_entry['rating'] == repeat['rating'].number()">X</td>
-                            <td tal:condition="not:python:data_entry['rating'] == repeat['rating'].number()"></td>
-                        </div> -->
+                        <div tal:repeat="rating_scale_item python:data_item['rating_scale']">
+                            <td tal:condition="python:data_item['rating'] == rating_scale_item['rating']">X</td>
+                            <td tal:condition="not:python:data_item['rating'] == rating_scale_item['rating']"></td>
+                        </div>
                     </tr>
-                </table>
-
-
+            </table>
         <hr class="item-separator"/>
         </tal:def>
     </div>
