@@ -4,16 +4,13 @@ from reportlab.graphics.charts.piecharts import Pie
 from reportlab.graphics.charts.textlabels import Label
 from reportlab.graphics.charts.legends import Legend
 
-from Products.assessmentbank.browser.reports.config import GraphConfig
-
 class BaseChart(Drawing):
 
-    def __init__(self, chart, data_dict, width=600, height=450, colorscheme='color'):
+    def __init__(self, chart, data_dict, width=600, height=450,
+                 colorscheme='color'):
         """ Initialize the basic graphing class.
             Set the chart, data, width, height and color scheme.
         """
-
-        self._graphConfig = GraphConfig(colorscheme=colorscheme)
         self._data_dict = data_dict
 
         Drawing.__init__(self, width, height)
@@ -24,6 +21,8 @@ class BaseChart(Drawing):
         self._chart.x = 50
         self._chart.y = 40
         self._chart.fillColor = colors.white
+        self.fontname = 'Helvetica-Bold'
+        self.fontsize = 12
         self.setTitle()
 
         # Add some data to the chart
@@ -34,8 +33,8 @@ class BaseChart(Drawing):
 
     def setTitle(self):
         title = Label()        
-        title.fontName = self._graphConfig.getFontName()
-        title.fontSize = self._graphConfig.getFontSize()
+        title.fontName = self.fontname
+        title.fontSize = self.fontsize
         title.x = 300
         title.y = 335
         title._text = self._data_dict.get('title', '')
@@ -47,8 +46,8 @@ class BaseChart(Drawing):
     def setLegend(self):
         legend = Legend()
         legend.colorNamePairs = []
-        legend.fontName = self._graphConfig.getFontName()
-        legend.fontSize = self._graphConfig.getFontSize()
+        legend.fontName = self.fontname
+        legend.fontSize = self.fontsize
         legend.x = 100
         legend.y = 310
         legend.dxTextSpace = 5
@@ -83,8 +82,8 @@ class ClassPerformanceForActivity(BaseChart):
         self.Legend.x = 400
         self.Legend.y = 200
         self.Legend.columnMaximum = len(self._data_dict['value_labels'])
-        color0 = self._graphConfig.getColorByName('green')
-        color1 = self._graphConfig.getColorByName('red')
+        color0 = colors.green
+        color1 = colors.red
         self.Legend.colorNamePairs = \
                 [
                 (color0, self._data_dict['value_labels'][0]),
@@ -93,9 +92,9 @@ class ClassPerformanceForActivity(BaseChart):
 
     def setChartColors(self):
         self._chart.slices.fontSize = 30
-        self._chart.slices.fontColor = self._graphConfig.getColorByName('white')
-        self._chart.slices[0].fillColor = self._graphConfig.getColorByName('green')
-        self._chart.slices[1].fillColor = self._graphConfig.getColorByName('red')
+        self._chart.slices.fontColor = colors.white
+        self._chart.slices[0].fillColor = colors.green
+        self._chart.slices[1].fillColor = colors.red
 
     def setLabels(self):
         self._chart.labels = self._data_dict['category_labels']
