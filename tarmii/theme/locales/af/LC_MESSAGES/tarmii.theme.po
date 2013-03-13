@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-07 05:32+0000\n"
+"POT-Creation-Date: 2013-03-08 13:08+0000\n"
 "PO-Revision-Date: 2013-03-07 07:40+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,12 @@ msgstr "oplaai rapporteer 'n fout."
 
 #: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
-msgstr "'n data basis konflik fout het gebeur toe die oplaai van die lêer:"
+msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
+
+#. Default: "Activities"
+#: ./profiles/default/actions.xml
+msgid "Activities"
+msgstr "Aktiwiteite"
 
 #: ./browser/templates/activities.pt:16
 msgid "Add Activity"
@@ -36,7 +41,7 @@ msgstr "Voeg Assessering by"
 
 #: ./browser/templates/topictrees.pt:13
 msgid "Add Topic Tree"
-msgstr "Voeg Onderwerp Boom by"
+msgstr "Voeg Onderwerpboom by"
 
 #: ./browser/templates/classlists.pt:17
 msgid "Add class list"
@@ -44,7 +49,7 @@ msgstr "Voeg Klaslys by"
 
 #: ./browser/templates/evaluationsheets.pt:13
 msgid "Add evaluation sheet"
-msgstr "Voeg evalueringsblad by"
+msgstr "Voeg evaluasievorm by"
 
 #: ./browser/templates/resources.pt:15
 msgid "Add resource"
@@ -56,15 +61,20 @@ msgstr "Voeg video by"
 
 #: ./browser/custom_quick_upload.py:368
 msgid "All files uploaded with success."
-msgstr "Alle lêers suksesvol gelaai is."
+msgstr "Alle lêers het suksesvol opgelaai."
 
 #: ./behaviors.py:153
 msgid "All rating values must be positive and larger than zero."
-msgstr "Alle gradering waardes moet positief en groter as nul wees."
+msgstr "Alle graderings moet positief en groter as nul wees."
 
 #: ./behaviors.py:156
 msgid "All rating values must be unique."
-msgstr "Alle gradering waardes moet uniek wees."
+msgstr "Elke gradering moet uniek wees."
+
+#. Default: "Assessments"
+#: ./profiles/default/actions.xml
+msgid "Assessments"
+msgstr "Assesserings"
 
 #: ./behaviors.py:94
 msgid "Categorization"
@@ -72,7 +82,7 @@ msgstr "Kategorisering"
 
 #: ./userdataschema.py:12
 msgid "Cell Phone Number"
-msgstr "Selfoon Nommer"
+msgstr "Selfoonnommer"
 
 #: ./behaviors.py:32
 msgid "Check list"
@@ -80,23 +90,28 @@ msgstr "Kontrolelys"
 
 #: ./browser/custom_quick_upload.py:306
 msgid "Choose audio files to upload"
-msgstr "Verkies die audio lêers om te laai"
+msgstr "Kies die klanklêers om op te laai"
 
 #: ./browser/custom_quick_upload.py:320
 msgid "Choose file for upload: ${ext}"
-msgstr "Verkies die lêer om te laai: ${ext}"
+msgstr "Kies die lêer om op te laai: ${ext}"
 
 #: ./browser/custom_quick_upload.py:309
 msgid "Choose flash files to upload"
-msgstr "Verkies die flash lêers om te laai"
+msgstr "Kies die flash lêers om op te laai"
 
 #: ./browser/custom_quick_upload.py:300
 msgid "Choose images to upload"
-msgstr "Verkis die beelde om te laai"
+msgstr "Kies die prente om op te laai"
 
 #: ./browser/custom_quick_upload.py:303
 msgid "Choose video files to upload"
-msgstr "Verkies die video lêers om te laai"
+msgstr "Kies die video lêers om op te laai"
+
+#. Default: "Classlists"
+#: ./profiles/default/actions.xml
+msgid "Classlists"
+msgstr "Klaslyste"
 
 #: ./browser/feedback.py:44
 msgid "Contact Us"
@@ -104,15 +119,15 @@ msgstr "Kontak Ons"
 
 #: ./behaviors.py:104
 msgid "Content/Concept/Skills Assessed"
-msgstr "Inhoud/Konsep/Vaardighede geassesseer"
+msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
 #: ./browser/templates/activities.pt:23
 msgid "Contribute own activity"
-msgstr "Dra eie aktiwiteit by"
+msgstr "Dra jou eie aktiwiteit by"
 
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
-msgstr "Definieer die url waar die logs kan opgelaai word"
+msgstr "Definieer die URL waar die logs opgelaai kan word."
 
 #: ./browser/templates/assessments.pt:49
 #: ./browser/templates/classlists.pt:39
@@ -122,7 +137,7 @@ msgstr "Verwyder"
 
 #: ./browser/custom_quick_upload.py:367
 msgid "Drag and drop files to upload"
-msgstr "Sleep en die lêers te laai"
+msgstr "Sleep en los die lêers om op te laai"
 
 #: ./userdataschema.py:28
 msgid "EMIS"
@@ -136,30 +151,35 @@ msgstr "Oos-Kaap"
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
+#. Default: "Evaluations"
+#: ./profiles/default/actions.xml
+msgid "Evaluations"
+msgstr "Evaluasies"
+
 #: ./behaviors.py:64
 msgid "Excellent"
 msgstr "Uitstekend"
 
 #: ./browser/custom_quick_upload.py:371
 msgid "Failed"
-msgstr "Versium"
+msgstr "Nie gewerk nie"
 
 #: ./browser/feedback.py:83
 msgid "Feedback"
 msgstr "Terugvoer"
 
-#: ./browser/uploadtoserver.py:97
+#: ./browser/uploadtoserver.py:98
 msgid "File sent to server"
 msgstr "Lêer na bediener gestuur"
 
 #: ./browser/custom_quick_upload.py:91
 msgid "Files Quick Upload"
-msgstr "Lêers vinnig oplaai"
+msgstr "Vinnige Lêers Oplaai"
 
 #: ./browser/templates/activities.pt:57
 #: ./browser/templates/resources.pt:53
 msgid "Filter results"
-msgstr "Filtreer resultate"
+msgstr "Filter resultate"
 
 #: ./vocabs.py:10
 msgid "Free State"
@@ -173,9 +193,14 @@ msgstr "Gauteng"
 msgid "Good"
 msgstr "Goed"
 
+#. Default: "Home"
+#: ./profiles/default/actions.xml
+msgid "Home"
+msgstr "Tuis"
+
 #: ./browser/custom_quick_upload.py:93
 msgid "Images Quick Upload"
-msgstr "Beedle vinnig oplaai"
+msgstr "Vinnige Prent Oplaai"
 
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
@@ -209,25 +234,25 @@ msgstr "Mpumalanga"
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
-#: ./browser/teacherprofiles.py:104
+#: ./browser/teacherprofiles.py:103
 msgid "Never"
 msgstr "Nooit"
 
 #: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
-msgstr "Geen gebruiker profile bestaan"
+msgstr "Geen gebruiker profiel bestaan"
 
-#: ./vocabs.py:16
+#: ./vocabs.py:15
 msgid "North West"
 msgstr "Noordwes"
 
-#: ./vocabs.py:15
+#: ./vocabs.py:16
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
-msgstr "Aantal jare onderrig grondslagfase"
+msgstr "Aantal jare onderrig van grondslagfase"
 
 #: ./behaviors.py:27
 msgid "Observation Sheet"
@@ -235,15 +260,20 @@ msgstr "Waarnemingsblad"
 
 #: ./browser/custom_quick_upload.py:379
 msgid "Only allowed:"
-msgstr "Slegs toegelaat"
+msgstr "Slegs toegelaat:"
+
+#. Default: "Personal Information"
+#: ./profiles/default/actions.xml
+msgid "Personal Information"
+msgstr "Persoonlike Inligting"
 
 #: ./behaviors.py:109
 msgid "Prior Knowledge or Skill(s) Assessed"
-msgstr "oor kennis of vaardigheid(e) geassesseer"
+msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
 #: ./browser/views.py:119
 msgid "Profile created."
-msgstr "Profiel geskep"
+msgstr "Profiel geskep."
 
 #: ./userdataschema.py:22
 msgid "Province"
@@ -267,15 +297,20 @@ msgstr "Verwant"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
-msgstr "Remote Server Stellings"
+msgstr "Databediener konfigurasie"
 
 #: ./interfaces.py:35
 msgid "Remote Server Url"
-msgstr "Remote Server Url"
+msgstr "Databediener URL"
 
 #: ./content/teacherresource.py:14
 msgid "Resource File"
-msgstr "Hulpbron Lęer"
+msgstr "Hulpbron Lêer"
+
+#. Default: "Resources"
+#: ./profiles/default/actions.xml
+msgid "Resources"
+msgstr "Hulpbronne"
 
 #: ./behaviors.py:37
 msgid "Rubric"
@@ -296,6 +331,11 @@ msgstr "Skool Kontak Nommer"
 #: ./userdataschema.py:38
 msgid "School Email"
 msgstr "Skool Email"
+
+#. Default: "Select Language"
+#: ./profiles/default/actions.xml
+msgid "Select Language"
+msgstr "Kies U Taal"
 
 #: ./browser/custom_quick_upload.py:374
 msgid "Selected elements contain an empty file or a folder:"
@@ -337,15 +377,20 @@ msgstr "Hierdie lêer is te groot:"
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
-#: ./eventhandlers.py:66
+#: ./eventhandlers.py:67
 msgid "Thumbnail generation failed"
 msgstr "Verkleinde prentjie generering het misluk"
+
+#. Default: "Topic Trees"
+#: ./profiles/default/actions.xml
+msgid "Topic Trees"
+msgstr "Onderwerp Bome"
 
 #: ./userdataschema.py:53
 msgid "UUID"
 msgstr "UUID"
 
-#: ./browser/uploadtoserver.py:75
+#: ./browser/uploadtoserver.py:76
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
@@ -361,6 +406,11 @@ msgstr "Gebruik met Aktiwiteite"
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
 
+#. Default: "Videos"
+#: ./profiles/default/actions.xml
+msgid "Videos"
+msgstr "Videos"
+
 #: ./vocabs.py:17
 msgid "Western Cape"
 msgstr "Wes-Kaap"
@@ -368,21 +418,6 @@ msgstr "Wes-Kaap"
 #: ./browser/custom_quick_upload.py:380
 msgid "You don't have permission to add this content in this place."
 msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
-
-#. Default: "Activities"
-#: ./profiles/default/actions.xml
-msgid "activities"
-msgstr "Aktiviteite"
-
-#. Default: "Assessments"
-#: ./profiles/default/actions.xml
-msgid "assessments"
-msgstr "Assesserings"
-
-#. Default: "Classlists"
-#: ./profiles/default/actions.xml
-msgid "classlists"
-msgstr "Klaslyste"
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
 #: ./browser/templates/assessments.pt:12
@@ -393,11 +428,6 @@ msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die na
 #: ./browser/templates/classlists.pt:12
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
-
-#. Default: "Evaluations"
-#: ./profiles/default/actions.xml
-msgid "evaluations"
-msgstr "Evaluerings"
 
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
@@ -450,14 +480,75 @@ msgstr "ONDERWYSER PROFILES"
 msgid "heading_teachers"
 msgstr "Onderwysers:"
 
-#. Default: "Home"
-#: ./profiles/default/actions.xml
-msgid "home"
-msgstr "Tuis"
+#. Default: "This section allows you to use existing activites in your class room or create your own activities."
+#: ./browser/templates/home.pt:38
+msgid "home_description_activities"
+msgstr "Hierdie afdeling kan u bestaande aktiwiteite in jou klaskamer te gebruik of jou eie aktiwiteite te skep."
 
-#: ./browser/viewlets.py:12
-msgid "id"
-msgstr ""
+#. Default: "This section enables you to create formal and informal assessments."
+#: ./browser/templates/home.pt:53
+msgid "home_description_assessments"
+msgstr "Hierdie artikel stel jou in staat om formele en informele assessering te skep."
+
+#. Default: "This section allows you to manage your class lists. Here you can create or delete, import or export your class lists."
+#: ./browser/templates/home.pt:23
+msgid "home_description_classlists"
+msgstr "Hierdie artikel stel jou in staat om te skep formele en informele assessments.This artikel stel jou in staat om jou klaslyste te bestuur. Hier kan jy skep of verwyder, invoer of uitvoer van jou klaslyste."
+
+#. Default: "This section allows you to create evaluation sheets and rate how learners perform on assessments."
+#: ./browser/templates/home.pt:66
+msgid "home_description_evaluations"
+msgstr "Hierdie rubriek laat jou evaluering velle en koers hoe leerders presteer op assesserings te skep."
+
+#. Default: "This section allows you to generate various assessment reports for assessments you have administered."
+#: ./browser/templates/home.pt:109
+msgid "home_description_reports"
+msgstr "Hierdie artikel stel jou in staat om verskeie assesseringspraktyke te genereer verslae vir assesserings wat jy toegedien het."
+
+#. Default: "This section contains resources that you can use in the class room."
+#: ./browser/templates/home.pt:94
+msgid "home_description_teacherresources"
+msgstr "Hierdie afdeling bevat hulpbronne wat jy kan gebruik in die klaskamer."
+
+#. Default: "This section contains video tutorials."
+#: ./browser/templates/home.pt:81
+msgid "home_description_videos"
+msgstr "Hierdie afdeling bevat video tutoriale."
+
+#. Default: "ACTIVITIES"
+#: ./browser/templates/home.pt:36
+msgid "home_heading_activities"
+msgstr "AKTIWITEITE"
+
+#. Default: "ASSESSMENTS"
+#: ./browser/templates/home.pt:51
+msgid "home_heading_assessments"
+msgstr "ASSESSERINGS"
+
+#. Default: "CREATE CLASS LISTS"
+#: ./browser/templates/home.pt:21
+msgid "home_heading_classlists"
+msgstr "GENEREER KLASLYSTE"
+
+#. Default: "EVALUATE LEARNERS"
+#: ./browser/templates/home.pt:64
+msgid "home_heading_evaluations"
+msgstr "EVALUEER LEERDERS"
+
+#. Default: "GENERATE REPORTS"
+#: ./browser/templates/home.pt:107
+msgid "home_heading_reports"
+msgstr "GENEREER VERSLAE"
+
+#. Default: "TEACHER RESOURCES"
+#: ./browser/templates/home.pt:92
+msgid "home_heading_teacherresources"
+msgstr "ONDERWYSER HULPBRONNE"
+
+#. Default: "VIDEOS"
+#: ./browser/templates/home.pt:79
+msgid "home_heading_videos"
+msgstr "VIDEOS"
 
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:30
@@ -672,10 +763,9 @@ msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 msgid "message_willreply"
 msgstr "Ons sal binnekort antwoord."
 
-#. Default: "Personal Information"
-#: ./profiles/default/actions.xml
-msgid "personalinformation"
-msgstr "Persoonlike informasie"
+#: ./browser/viewlets.py:12
+msgid "name"
+msgstr ""
 
 #: ./browser/custom_quick_upload.py:372
 msgid "please select files again without it."
@@ -685,27 +775,7 @@ msgstr "kies asseblief lêers weer sonder dit."
 msgid "please try again."
 msgstr "probeer asseblief weer"
 
-#. Default: "Resources"
-#: ./profiles/default/actions.xml
-msgid "resources"
-msgstr "Hulpbronne"
-
-#. Default: "Select Language"
-#: ./profiles/default/actions.xml
-msgid "selectlanguage"
-msgstr "Kies U Taal"
-
 #: ./browser/feedback.py:48
 msgid "send"
 msgstr "stuur"
-
-#. Default: "Topic Trees"
-#: ./profiles/default/actions.xml
-msgid "topictrees"
-msgstr "Onderwerp Bome"
-
-#. Default: "Videos"
-#: ./profiles/default/actions.xml
-msgid "videos"
-msgstr "Videos"
 

@@ -252,14 +252,13 @@ div#content {
     padding: 8px;
 }
 
-#content_pane h3 {
-    font-size: 16px;
+.content_pane_outer_table td {
+    vertical-align: top;
 }
 
-#content_pane img {
+.content_pane_outer_table img {
     border-style: hidden;
 }
-
 
 #content ul.list {
     margin: 1em 0.5em;
