@@ -60,6 +60,14 @@ def setupPortalContent(portal):
     # enable self-registration of users
     security_adapter.set_enable_self_reg(True)
 
+    # create howto and pedagogic folders in videos folder
+    videosfolder = portal._getOb('videos')
+    if not videosfolder.hasObject('howto'):
+        videosfolder.invokeFactory(type_name='Folder', id='howto',
+                                   title='How To')
+    if not videosfolder.hasObject('pedagogic'):
+        videosfolder.invokeFactory(type_name='Folder', id='pedagogic',
+                                   title='Pedagogic')
     # create basic language topictree
     topicfolder = portal._getOb('topictrees')
     if not topicfolder.hasObject('language'):
