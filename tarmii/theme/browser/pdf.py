@@ -56,12 +56,12 @@ class AssessmentPDF(grok.View):
         return [x.to_object for x in self.context.assessment_items]
 
 
-class EvaluationSheetPDF(grok.View):
-    """ Evaluation Sheet PDF view
+class ScoreSheetPDF(grok.View):
+    """ Score Sheet PDF view
     """
     grok.context(IEvaluationSheet)
-    grok.name('evaluationsheet-pdf')
-    grok.template('evaluationsheet-pdf')
+    grok.name('pdf')
+    grok.template('scoresheet-pdf')
     grok.require('cmf.ModifyPortalContent')
 
     def __call__(self):
