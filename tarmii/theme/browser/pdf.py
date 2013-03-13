@@ -104,8 +104,7 @@ class EvaluationSheetPDF(grok.View):
     def evaluations(self):
         """ Return all evaluations in the current folder
         """
-        contentFilter = {
-            'portal_type': 'upfront.assessment.content.evaluation'}
+        contentFilter = {'portal_type': 'upfront.assessment.content.evaluation'}
         return self.context.getFolderContents(contentFilter)
 
     def evaluation_data(self):
@@ -115,7 +114,8 @@ class EvaluationSheetPDF(grok.View):
         data = []
         activity_entry = []
         # for each activity
-        for x in range(len(self.context.activities.getFolderContents())):
+        activities = self.context.activities.getFolderContents()
+        for x in range(len(activities)):
 
             # for each learner
             activity_entry = []
@@ -123,9 +123,11 @@ class EvaluationSheetPDF(grok.View):
                 evaluation = self.context.getFolderContents()[lrnr].getObject()
                 activity_entry.append(
                     {'learner': evaluation.learner.to_object.Title(),
-                    'rating': evaluation.evaluation[x]['rating']
+                     'rating' : evaluation.evaluation[x]['rating'],
+                     'rating_scale' : activities[x].getObject().rating_scale
                     })
             data.append(activity_entry)
             activity_entry = []
+
         return data
 
