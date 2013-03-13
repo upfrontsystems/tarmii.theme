@@ -20,7 +20,7 @@ sitefolders = (
          'upfront.assessmentitem.content.introtext']),
     ('resources', 'resources', 'Teacher Resources',
         ['tarmii.theme.content.teacherresource']),
-    ('videos', 'videos', 'Videos', ['File','Image']),
+    ('videos', 'videos', 'Videos', ['File','Image','Folder']),
 )
 
 def setupPortalContent(portal):
