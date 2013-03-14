@@ -75,4 +75,11 @@
         for="plone.dexterity.interfaces.IDexterityContent"
         />
 
+    <plone:behavior
+        title="Enables a content type to reference a classlist object"
+        description="Enables a content type to reference a classlist object"
+        provides=".behaviors.IClasslistRelation"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
 </configure>

@@ -5,7 +5,7 @@ from zope import schema
 from z3c.form import validator
 from z3c.relationfield.schema import RelationChoice, RelationList
 
-from plone.directives import form
+from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.formwidget.contenttree import ObjPathSourceBinder
@@ -14,6 +14,7 @@ from plone.namedfile.field import NamedBlobFile
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
 from upfront.assessmentitem.behaviors import IMarks, IResponseTime
+from upfront.classlist.content.classlist import IClassList
 
 from tarmii.theme.browser.topicswidget import TopicsFieldWidget
 from tarmii.theme import MessageFactory as _
@@ -134,11 +135,25 @@ class IFilterSelect(form.Schema):
             required=True,
         )
 
+
+class IClasslistRelation(form.Schema):
+    """ Behavior that enables a content type to reference a classlist object
+    """
+
+    form.omitted('classlist')
+    classlist = RelationChoice(
+          title=_(u"ClassList"),            
+          source=ObjPathSourceBinder(object_provides=IClassList.__identifier__),
+          required=False,
+        )
+
+
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
 alsoProvides(ITopicTags, IFormFieldProvider)
 alsoProvides(IItemMetadata, IFormFieldProvider)
 alsoProvides(IFilterSelect, IFormFieldProvider)
+alsoProvides(IClasslistRelation, IFormFieldProvider)
 
 
 class RatingValidator(validator.SimpleFieldValidator):
