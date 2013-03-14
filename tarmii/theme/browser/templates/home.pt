@@ -115,8 +115,12 @@
             </tr>
         </table>
 
-        <div style="text-align: center">
-            <img size="" src="++theme++tarmii.theme/images/logo_dept_education.png" />
+        <div class="footer-logos" style="text-align: center">
+            <img size="" src="++theme++tarmii.theme/images/logo_HSRC.png" />
+            <img size="" src="++theme++tarmii.theme/images/logo_USAID.png" />
+            <img size="" src="++theme++tarmii.theme/images/logo_ELMA.png" />
+            <img size="" src="++theme++tarmii.theme/images/logo_JPM.png" />
+            <img size="" src="++theme++tarmii.theme/images/logo_DBE.png" />
         </div> 
 
 

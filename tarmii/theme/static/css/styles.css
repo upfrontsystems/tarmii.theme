@@ -261,6 +261,14 @@ div#content {
     width: 50%;
 }
 
+.footer-logos {
+    padding-top: 60px;
+}
+
+.footer-logos img {
+    padding: 15px;
+}
+
 #content ul.list {
     margin: 1em 0.5em;
 }
