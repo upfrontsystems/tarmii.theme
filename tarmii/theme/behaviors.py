@@ -1,7 +1,8 @@
 from sets import Set
 from five import grok
-from zope.interface import Interface, alsoProvides, Invalid
 from zope import schema
+from zope.component import getUtility
+from zope.interface import Interface, alsoProvides, Invalid
 from z3c.form import validator
 from z3c.relationfield.schema import RelationChoice, RelationList
 
@@ -9,6 +10,7 @@ from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.i18n.normalizer.interfaces import IURLNormalizer
 from plone.namedfile.field import NamedBlobFile
 
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
@@ -182,3 +184,26 @@ class RatingValidator(validator.SimpleFieldValidator):
 validator.WidgetValidatorDiscriminators(RatingValidator,
                                         field=IRating['rating_scale'])
 grok.global_adapter(RatingValidator)
+
+class ItemIdValidator(validator.SimpleFieldValidator):
+    
+    def validate(self, value):
+        super(ItemIdValidator, self).validate(value)
+
+        # check that id is unique 
+        # (all ids when created are URLNormalized)
+        normalizer = getUtility(IURLNormalizer)
+        normalized_value = normalizer.normalize(value)        
+        contentFilter =\
+             {"portal_type" : "upfront.assessmentitem.content.assessmentitem"}
+        existing_ids = Set([x.getObject().id for x
+                            in self.context.getFolderContents(contentFilter)])
+        if normalized_value in existing_ids:
+                raise Invalid(_(u"This Item ID is already in use."))
+      
+
+validator.WidgetValidatorDiscriminators(ItemIdValidator,
+                                        field=IItemMetadata['item_id'])
+grok.global_adapter(ItemIdValidator)
+
+
