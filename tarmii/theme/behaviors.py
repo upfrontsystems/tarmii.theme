@@ -96,6 +96,12 @@ class IItemMetadata(IMarks, IResponseTime, ITopicTags):
         fields=['marks', 'responsetime', 'topics'],
         )
 
+    dexterity.write_permission(item_id='cmf.ManagePortal')
+    item_id = schema.TextLine(
+            title=_(u"Item ID"),
+            required=False,
+        )
+
     activity = RichText(
             title=_(u"Learner Task/Activity"),
             required=True,
