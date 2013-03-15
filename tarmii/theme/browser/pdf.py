@@ -56,6 +56,40 @@ class AssessmentPDF(grok.View):
         return [x.to_object for x in self.context.assessment_items]
 
 
+class EvaluationSheetPDF(grok.View):
+    """ Evaluation Sheet PDF view
+    """
+    grok.context(IAssessment)
+    grok.name('evaluationsheet-pdf')
+    grok.template('evaluationsheet-pdf')
+    grok.require('cmf.ModifyPortalContent')
+
+    def __call__(self):
+        pdf = StringIO()
+        html = StringIO(self._render_template())
+
+        # Construct a trojan horse and hide context inside it
+        path = ContextString(self.context.absolute_url())
+        path.context = self.context
+
+        # Generate the pdf
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        self.request.response.setHeader("Content-Disposition",
+                                        "attachment; filename=%s.pdf" % 
+                                         self.context.id)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent
+
+
 class ScoreSheetPDF(grok.View):
     """ Score Sheet PDF view
     """

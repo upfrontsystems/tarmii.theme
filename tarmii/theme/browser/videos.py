@@ -23,8 +23,23 @@ class VideosView(grok.View):
     def videos(self):
         """ query for contents of videos folder and return as batch
         """
+
         contentFilter = {"portal_type" : "Image"}
-        brains = self.context.getFolderContents(contentFilter)
+        category = self.request.get('category', "")
+
+        if category == '':
+            # check cookie first
+            cookie = self.request.cookies.get("VIDEO_PAGE", "")
+            if cookie == "" or cookie == "Howto":
+                brains = self.context.howto.getFolderContents(contentFilter)
+            else:
+                brains = self.context.pedagogic.getFolderContents(contentFilter)
+
+        if category == 'howto':
+            brains = self.context.howto.getFolderContents(contentFilter)
+        elif category == 'pedagogic':
+            brains = self.context.pedagogic.getFolderContents(contentFilter)
+
         b_size = 9
         b_start = self.request.get('b_start', 0)
         return Batch(brains, b_size, int(b_start), orphan=0)
@@ -42,6 +57,29 @@ class VideosView(grok.View):
         """
         return getSecurityManager().checkPermission(ManagePortal,self.context)
 
+    def display_howto_videos(self):
+        """ Check which video page to display based on VIDEO_PAGE cookie and 
+            the category parameter on the request (which takes precedence)".
+        """
+
+        category = self.request.get('category', "")
+
+        if category == '':
+            # check the cookie
+            cookie = self.request.cookies.get("VIDEO_PAGE", "")
+            if cookie == "" or cookie == "Howto":
+                return True
+            else:
+                return False
+
+        if category == 'howto':
+            self.request.response.setCookie("VIDEO_PAGE", 'Howto')
+            return True
+        else:
+            self.request.response.setCookie("VIDEO_PAGE", 'Pedagogic')
+            return False
+
+
 class VideoView(grok.View):
     """ A view to display a single video
     """
@@ -54,4 +92,3 @@ class VideoView(grok.View):
         """ return the download url of a video 
         """
         return '%s/at_download/file' % self.context.absolute_url()
-

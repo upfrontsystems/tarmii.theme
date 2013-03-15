@@ -25,7 +25,7 @@ def on_video_added(video, event):
 
     # Only create thumbnails for Files uploaded to the videos folder
     # and not for files uploaded elsewhere like teacher resources
-    if video.aq_parent.id != 'videos':
+    if video.aq_parent.aq_parent.id != 'videos':
         return
 
     fd, infilename = tempfile.mkstemp()

@@ -9,14 +9,37 @@
 <body>
     <metal:main fill-slot="content-core"
         tal:define="batch view/videos">
-            
+
+            <ul>
+                <li>        
+                    <a tal:attributes="href string:${context/absolute_url}/videos?category=howto">
+                        <span>How to</span>
+                    </a>
+                </li>
+                <li>
+                    <a tal:attributes="href string:${context/absolute_url}/videos?category=pedagogic">
+                        <span>Pedagogic</span>
+                    </a>
+                </li>
+            </ul>
+
         <tal:addvideo_visible condition="view/addvideo_visible">
-            <tal:quickupload  tal:content="structure context/@@quick_upload">
-            </tal:quickupload>
+            <tal:howto condition="view/display_howto_videos">
+                <tal:quickupload  tal:content="structure context/howto/@@quick_upload">
+                </tal:quickupload>
+            </tal:howto>
+        </tal:addvideo_visible>
+
+        <tal:addvideo_visible condition="view/addvideo_visible">
+            <tal:pedagogic condition="not:view/display_howto_videos">
+                <tal:quickupload  tal:content="structure context/pedagogic/@@quick_upload">
+                </tal:quickupload>
+            </tal:pedagogic>
         </tal:addvideo_visible>
 
         <tal:listing tal:condition="not:batch">
-            <div i18n:translate="message_no_videos">No videos found in the system.</div>
+            <div>&nbsp;</div>
+            <div i18n:translate="message_no_videos">No videos found in this category.</div>
         </tal:listing>
 
         <tal:listing tal:condition="batch">
