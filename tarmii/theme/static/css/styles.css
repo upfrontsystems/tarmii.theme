@@ -419,6 +419,36 @@ div.item-actions-left a {
     float: none !important;
 }
 
+/* video category selection links */
+#content ul.video-category {
+    display: block;
+    margin: 0px;
+}
+
+#content li.video-category {
+    display: inline-block;
+}
+
+#content a.video-category-link {
+    height: 29px;
+    line-height: 29px;
+    vertical-align: top;
+    color: #9c9c9c; 
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#content a.video-category-link.selected,
+#content a.video-category-link:hover {
+    color: #333  !important;
+    border-bottom: 3px solid;
+    border-color: #b00;
+}
+
+
 /* class listing view */
 /* assessment listing view */
 /* evaluationsheets listing view */

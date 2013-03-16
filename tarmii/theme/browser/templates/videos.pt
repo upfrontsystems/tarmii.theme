@@ -10,16 +10,34 @@
     <metal:main fill-slot="content-core"
         tal:define="batch view/videos">
 
-            <ul>
-                <li>        
-                    <a tal:attributes="href string:${context/absolute_url}/videos?category=howto">
-                        <span>How to</span>
-                    </a>
+            <ul class="list video-category">
+                <li class="video-category">
+                    <tal:howto condition="view/display_howto_videos">      
+                        <a class="video-category-link selected" 
+                           tal:attributes="href string:${context/absolute_url}/videos?category=howto">
+                            <span>How to</span>
+                        </a>
+                    </tal:howto>
+                    <tal:pedagogic condition="not:view/display_howto_videos">      
+                        <a class="video-category-link" 
+                           tal:attributes="href string:${context/absolute_url}/videos?category=howto">
+                            <span>How to</span>
+                        </a>
+                    </tal:pedagogic>
                 </li>
-                <li>
-                    <a tal:attributes="href string:${context/absolute_url}/videos?category=pedagogic">
-                        <span>Pedagogic</span>
-                    </a>
+                <li class="video-category">
+                    <tal:howto condition="view/display_howto_videos">      
+                        <a class="video-category-link" 
+                           tal:attributes="href string:${context/absolute_url}/videos?category=pedagogic">
+                            <span>Pedagogic</span>
+                        </a>
+                    </tal:howto>
+                    <tal:pedagogic condition="not:view/display_howto_videos">      
+                        <a class="video-category-link selected" 
+                           tal:attributes="href string:${context/absolute_url}/videos?category=pedagogic">
+                            <span>Pedagogic</span>
+                        </a>
+                    </tal:pedagogic>
                 </li>
             </ul>
 
