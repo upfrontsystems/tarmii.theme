@@ -17,8 +17,16 @@ class SelectLanguageView(grok.View):
     def languages(self):
         """ Data to populate language switcher 
         """
-        pl = getToolByName(self.context, 'portal_languages')        
-        languages = pl.listSupportedLanguages()
+        languages = [('af', u'Afrikaans'),
+                     ('en', u'English'),
+                     ('nr', u'IsiNdebele'),
+                     ('xh', u'IsiXhosa'),
+                     ('zu', u'IsiZulu'),
+                     ('st', u'seSotho sa Leboa (Sepedi)'),
+                     ('tn', u'Setswana'),
+                     ('ss', u'SiSwati'),
+                     ('ve', u'Tshivenda'),
+                     ('ts', u'Xitsonga')]
         lang_data = []
         context = self.context
         while INavigationRoot.providedBy(context) == False:

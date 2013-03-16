@@ -81,19 +81,17 @@ def setupPortalContent(portal):
         langtree.invokeFactory('collective.topictree.topic',
                                'english', title='English')
         langtree.invokeFactory('collective.topictree.topic',
-                               'isindebele', title='Isindebele')
+                               'isindebele', title='IsiNdebele')
         langtree.invokeFactory('collective.topictree.topic',
                                'isixhosa', title='IsiXhosa')
         langtree.invokeFactory('collective.topictree.topic',
                                'isizulu', title='IsiZulu')
         langtree.invokeFactory('collective.topictree.topic',
-                               'sepedi', title='Sepedi')
-        langtree.invokeFactory('collective.topictree.topic',
-                               'sesotho', title='Sesotho')
+                               'sepedi', title='seSotho sa Leboa (Sepedi)')
         langtree.invokeFactory('collective.topictree.topic',
                                'setswana', title='Setswana')
         langtree.invokeFactory('collective.topictree.topic',
-                               'siswati', title='Siswati')
+                               'siswati', title='SiSwati')
         langtree.invokeFactory('collective.topictree.topic',
                                'tshivenda', title='Tshivenda')
         langtree.invokeFactory('collective.topictree.topic',
@@ -147,15 +145,17 @@ def setupPortalContent(portal):
 
     # language settings
     pl = getToolByName(portal, 'portal_languages')
-    # xh - isixhosa
-    # st - sesotho
-    # ss - siswati
-    # ve - tsivenda
-    # ts - xisonga
-    # tn - setswana
-    # zu - isizulu
+    # nr - IsiNdebele
+    # xh - IsiXhosa
+    # zu - IsiZulu
+    # st - seSotho sa Leboa (Sepedi)
+    # tn - Setswana
+    # ss - SiSwati
+    # ve - Tshivenda
+    # ts - Xitsonga
+
     # nd - ndebele north
-    # nr - isindebele (ndebele south)
+
     # set allowed languages
     pl.supported_langs = ['af','en','nr','xh','zu','st','tn','ss','ve','ts']
 
