@@ -61,22 +61,46 @@
         </div>
         <div>&nbsp;</div>
 
-        <tal:listing tal:condition="batch">
-            <tal:item tal:repeat="item batch">
-                <div class="resource-title">                    
-                    <a tal:content="python:item.Title()" 
-                       tal:attributes="href string:${item/absolute_url}/@@download/resource/${item/resource/filename}">Title</a>
-                    <tal:user_is_admin condition="view/user_is_admin">
-                       <a tal:attributes="href string:${item/absolute_url}/edit"
-                          i18n:translate="label_edit">Edit</a>
-                       <a class="delete_confirmation" tal:attributes="href string:${item/absolute_url}/delete_confirmation"
-                          i18n:translate="label_delete">Delete</a>
-                    </tal:user_is_admin>
-                </div>
-                <div class="resource-description" tal:content="python:item.Description()">Description</div>
-            </tal:item>
-            <div metal:use-macro="context/batch_macros/macros/navigation" />
-        </tal:listing>
+        <tal:user_is_not_admin condition="not:view/user_is_admin">
+            <tal:listing tal:condition="batch">
+                <tal:item tal:repeat="item batch">
+                    <div class="resource-title">                    
+                        <a tal:content="python:item.Title()" 
+                           tal:attributes="href string:${item/absolute_url}/@@download/resource/${item/resource/filename}">Title</a>
+                    </div>
+                    <div class="resource-description" tal:content="python:item.Description()">Description</div>
+                </tal:item>
+                <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </tal:listing>
+        </tal:user_is_not_admin>
+
+        <tal:user_is_admin condition="view/user_is_admin">
+            <tal:listing tal:condition="batch">
+                <table class="listing admin-table">
+                    <tr> 
+                        <th i18n:translate="label_resource">Resource</th>
+                        <th i18n:translate="label_edit">Edit</th>
+                        <th i18n:translate="label_delete">Delete</th>
+                    </tr>
+                    <tr tal:repeat="item batch">
+                        <td>
+                            <a tal:content="python:item.Title()" 
+                               tal:attributes="href string:${item/absolute_url}/@@download/resource/${item/resource/filename}">Title</a>
+                        </td>
+                        <td>
+                            <div class="edit-anchor">
+                                <a class="pencil edit_link" tal:attributes="href string:${item/absolute_url}/edit"></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-anchor">
+                                <a class="trashcan edit_link" tal:attributes="href string:${item/absolute_url}/delete_confirmation"></a>
+                            </div>
+                        </td>
+                    </tr>  
+                </table>
+            </tal:listing>
+        </tal:user_is_admin>
 
     </metal:main>
 </body>
