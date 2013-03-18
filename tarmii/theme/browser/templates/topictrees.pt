@@ -14,17 +14,17 @@
                 tal:attributes="href view/add_topictree_url">
         </form>
 
+        <div>&nbsp;</div>
         <tal:topictrees tal:condition="not:view/topictrees">
             <div i18n:translate="message_no_topictrees_exist">No topic trees have been created yet.</div>
         </tal:topictrees>
 
-        <div>&nbsp;</div>
         <tal:listing tal:condition="view/topictrees">
-                <table class="listing">
+                <table class="listing admin-table">
                     <tr> 
-                        <th>Topic Tree</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th i18n:translate="label_topictree">Topic Tree</th>
+                        <th i18n:translate="label_edit">Edit</th>
+                        <th i18n:translate="label_delete">Delete</th>
                     </tr>
                     <tr tal:repeat="topictree view/topictrees">
                         <td>

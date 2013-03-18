@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-13 12:47+0000\n"
-"PO-Revision-Date: 2013-03-13 14:48+0200\n"
+"POT-Creation-Date: 2013-03-18 08:23+0000\n"
+"PO-Revision-Date: 2013-03-18 10:26+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,11 +63,11 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers het suksesvol opgelaai."
 
-#: ./behaviors.py:153
+#: ./behaviors.py:176
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle graderings moet positief en groter as nul wees."
 
-#: ./behaviors.py:156
+#: ./behaviors.py:179
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
@@ -76,7 +76,7 @@ msgstr "Elke gradering moet uniek wees."
 msgid "Assessments"
 msgstr "Assesserings"
 
-#: ./behaviors.py:94
+#: ./behaviors.py:97
 msgid "Categorization"
 msgstr "Kategorisering"
 
@@ -84,7 +84,7 @@ msgstr "Kategorisering"
 msgid "Cell Phone Number"
 msgstr "Selfoonnommer"
 
-#: ./behaviors.py:32
+#: ./behaviors.py:35
 msgid "Check list"
 msgstr "Kontrolelys"
 
@@ -108,6 +108,10 @@ msgstr "Kies die prente om op te laai"
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
+#: ./behaviors.py:153
+msgid "ClassList"
+msgstr "Klaslys"
+
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
 msgid "Classlists"
@@ -117,7 +121,7 @@ msgstr "Klaslyste"
 msgid "Contact Us"
 msgstr "Kontak Ons"
 
-#: ./behaviors.py:104
+#: ./behaviors.py:113
 msgid "Content/Concept/Skills Assessed"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
@@ -130,7 +134,6 @@ msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
 
 #: ./browser/templates/assessments.pt:49
-#: ./browser/templates/classlists.pt:39
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr "Verwyder"
@@ -147,7 +150,7 @@ msgstr "EMIS"
 msgid "Eastern Cape"
 msgstr "Oos-Kaap"
 
-#: ./behaviors.py:114
+#: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
@@ -156,7 +159,7 @@ msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 msgid "Evaluations"
 msgstr "Evaluasies"
 
-#: ./behaviors.py:64
+#: ./behaviors.py:67
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -189,7 +192,7 @@ msgstr "Vrystaat"
 msgid "Gauteng"
 msgstr "Gauteng"
 
-#: ./behaviors.py:65
+#: ./behaviors.py:68
 msgid "Good"
 msgstr "Goed"
 
@@ -202,11 +205,15 @@ msgstr "Tuis"
 msgid "Images Quick Upload"
 msgstr "Vinnige Prent Oplaai"
 
+#: ./behaviors.py:103
+msgid "Item ID"
+msgstr "Item ID"
+
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
 msgstr "Kwazulu-Natal"
 
-#: ./behaviors.py:47
+#: ./behaviors.py:50
 msgid "Label"
 msgstr "Etiket"
 
@@ -214,7 +221,7 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
-#: ./behaviors.py:99
+#: ./behaviors.py:108
 msgid "Learner Task/Activity"
 msgstr "Leerder Taak/Aktiwiteit"
 
@@ -230,7 +237,7 @@ msgstr "Boodskap"
 msgid "Mpumalanga"
 msgstr "Mpumalanga"
 
-#: ./behaviors.py:67
+#: ./behaviors.py:70
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -254,7 +261,7 @@ msgstr "Noord-Kaap"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig van grondslagfase"
 
-#: ./behaviors.py:27
+#: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
@@ -267,7 +274,7 @@ msgstr "Slegs toegelaat:"
 msgid "Personal Information"
 msgstr "Persoonlike Inligting"
 
-#: ./behaviors.py:109
+#: ./behaviors.py:118
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
@@ -283,15 +290,15 @@ msgstr "Provinsie"
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
-#: ./behaviors.py:48
+#: ./behaviors.py:51
 msgid "Rating"
 msgstr "Gradering"
 
-#: ./behaviors.py:62
+#: ./behaviors.py:65
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./behaviors.py:79
+#: ./behaviors.py:82
 msgid "Related"
 msgstr "Verwant"
 
@@ -312,11 +319,11 @@ msgstr "Hulpbron Lêer"
 msgid "Resources"
 msgstr "Hulpbronne"
 
-#: ./behaviors.py:37
+#: ./behaviors.py:40
 msgid "Rubric"
 msgstr "Rubriek"
 
-#: ./behaviors.py:66
+#: ./behaviors.py:69
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
@@ -356,6 +363,10 @@ msgstr "Onderwyser Hulpbron"
 #: ./browser/feedback.py:27
 msgid "The message body"
 msgstr "Die boodskap teks"
+
+#: ./behaviors.py:202
+msgid "This Item ID is already in use."
+msgstr "Hierdie Item ID is reeds gebruik."
 
 #: ./browser/custom_quick_upload.py:382
 msgid "This file already exists with the same name on server:"
@@ -398,11 +409,11 @@ msgstr "Oplaai bediener nie in instellings"
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
-#: ./behaviors.py:126
+#: ./behaviors.py:135
 msgid "Use with Activities"
 msgstr "Gebruik met Aktiwiteite"
 
-#: ./behaviors.py:132
+#: ./behaviors.py:141
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
 
@@ -590,19 +601,26 @@ msgstr "Sleep en neersit of kies jou lêers:"
 msgid "label_choose_your_files_nodrag"
 msgstr "Kies jou lêers:"
 
+#. Default: "Classlist"
+#: ./browser/templates/classlists.pt:29
+msgid "label_classlist"
+msgstr "Klaslys"
+
 #. Default: "Clear Queue"
 #: ./browser/templates/quick_upload.pt:47
 msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
 #. Default: "Delete"
+#: ./browser/templates/classlists.pt:31
 #: ./browser/templates/resources.pt:72
-#: ./browser/templates/videos.pt:40
+#: ./browser/templates/topictrees.pt:27
 msgid "label_delete"
 msgstr "Werwyder"
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/classlists.pt:30
 #: ./browser/templates/resources.pt:70
 msgid "label_edit"
 msgstr "Redigeer"
@@ -652,6 +670,11 @@ msgstr "Kwalifikasie"
 msgid "label_register"
 msgstr "Registreer"
 
+#. Default: "Topic Tree"
+#: ./browser/templates/topictrees.pt:25
+msgid "label_topictree"
+msgstr "Onderwerp boom"
+
 #. Default: "Upload Files"
 #: ./browser/templates/quick_upload.pt:41
 msgid "label_upload_files"
@@ -665,7 +688,7 @@ msgstr "Gebruikersnaam"
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
 #: ./browser/templates/evaluationsheets.pt:41
-#: ./browser/templates/videos.pt:38
+#: ./browser/templates/videos.pt:79
 msgid "label_view"
 msgstr "Sien"
 
@@ -739,12 +762,13 @@ msgid "message_no_resources"
 msgstr "Geen hulpbronne gevind in die stelsel."
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:18
+#: ./browser/templates/topictrees.pt:19
 msgid "message_no_topictrees_exist"
 msgstr "Geen onderwyser boome is nog geskep."
 
-#. Default: "No videos found in the system."
-#: ./browser/templates/videos.pt:19
+#. Default: "No videos found in this category."
+#: ./browser/templates/videos.pt:60
+#, fuzzy
 msgid "message_no_videos"
 msgstr "Geen videos gevind in die stelsel."
 

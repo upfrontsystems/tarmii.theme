@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-13 12:47+0000\n"
+"POT-Creation-Date: 2013-03-18 08:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,11 +66,11 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:153
+#: ./behaviors.py:176
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:156
+#: ./behaviors.py:179
 msgid "All rating values must be unique."
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Assessments"
 msgstr ""
 
-#: ./behaviors.py:94
+#: ./behaviors.py:97
 msgid "Categorization"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Cell Phone Number"
 msgstr ""
 
-#: ./behaviors.py:32
+#: ./behaviors.py:35
 msgid "Check list"
 msgstr ""
 
@@ -111,6 +111,10 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
+#: ./behaviors.py:153
+msgid "ClassList"
+msgstr ""
+
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
 msgid "Classlists"
@@ -120,7 +124,7 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: ./behaviors.py:104
+#: ./behaviors.py:113
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
@@ -133,7 +137,6 @@ msgid "Define the url where the logs can be uploaded."
 msgstr ""
 
 #: ./browser/templates/assessments.pt:49
-#: ./browser/templates/classlists.pt:39
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr ""
@@ -150,7 +153,7 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./behaviors.py:114
+#: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
@@ -159,7 +162,7 @@ msgstr ""
 msgid "Evaluations"
 msgstr ""
 
-#: ./behaviors.py:64
+#: ./behaviors.py:67
 msgid "Excellent"
 msgstr ""
 
@@ -192,7 +195,7 @@ msgstr ""
 msgid "Gauteng"
 msgstr ""
 
-#: ./behaviors.py:65
+#: ./behaviors.py:68
 msgid "Good"
 msgstr ""
 
@@ -205,11 +208,15 @@ msgstr ""
 msgid "Images Quick Upload"
 msgstr ""
 
+#: ./behaviors.py:103
+msgid "Item ID"
+msgstr ""
+
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
 msgstr ""
 
-#: ./behaviors.py:47
+#: ./behaviors.py:50
 msgid "Label"
 msgstr ""
 
@@ -217,7 +224,7 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./behaviors.py:99
+#: ./behaviors.py:108
 msgid "Learner Task/Activity"
 msgstr ""
 
@@ -233,7 +240,7 @@ msgstr ""
 msgid "Mpumalanga"
 msgstr ""
 
-#: ./behaviors.py:67
+#: ./behaviors.py:70
 msgid "Needs improvement"
 msgstr ""
 
@@ -257,7 +264,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:27
+#: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr ""
 
@@ -270,7 +277,7 @@ msgstr ""
 msgid "Personal Information"
 msgstr ""
 
-#: ./behaviors.py:109
+#: ./behaviors.py:118
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr ""
 
@@ -286,15 +293,15 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
-#: ./behaviors.py:48
+#: ./behaviors.py:51
 msgid "Rating"
 msgstr ""
 
-#: ./behaviors.py:62
+#: ./behaviors.py:65
 msgid "Rating scale"
 msgstr ""
 
-#: ./behaviors.py:79
+#: ./behaviors.py:82
 msgid "Related"
 msgstr ""
 
@@ -315,11 +322,11 @@ msgstr ""
 msgid "Resources"
 msgstr ""
 
-#: ./behaviors.py:37
+#: ./behaviors.py:40
 msgid "Rubric"
 msgstr ""
 
-#: ./behaviors.py:66
+#: ./behaviors.py:69
 msgid "Satisfactory"
 msgstr ""
 
@@ -358,6 +365,10 @@ msgstr ""
 
 #: ./browser/feedback.py:27
 msgid "The message body"
+msgstr ""
+
+#: ./behaviors.py:202
+msgid "This Item ID is already in use."
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:382
@@ -401,11 +412,11 @@ msgstr ""
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
-#: ./behaviors.py:126
+#: ./behaviors.py:135
 msgid "Use with Activities"
 msgstr ""
 
-#: ./behaviors.py:132
+#: ./behaviors.py:141
 msgid "Use with Teacher Resources"
 msgstr ""
 
@@ -593,19 +604,26 @@ msgstr ""
 msgid "label_choose_your_files_nodrag"
 msgstr ""
 
+#. Default: "Classlist"
+#: ./browser/templates/classlists.pt:29
+msgid "label_classlist"
+msgstr ""
+
 #. Default: "Clear Queue"
 #: ./browser/templates/quick_upload.pt:47
 msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Delete"
+#: ./browser/templates/classlists.pt:31
 #: ./browser/templates/resources.pt:72
-#: ./browser/templates/videos.pt:40
+#: ./browser/templates/topictrees.pt:27
 msgid "label_delete"
 msgstr ""
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/classlists.pt:30
 #: ./browser/templates/resources.pt:70
 msgid "label_edit"
 msgstr ""
@@ -655,6 +673,11 @@ msgstr ""
 msgid "label_register"
 msgstr ""
 
+#. Default: "Topic Tree"
+#: ./browser/templates/topictrees.pt:25
+msgid "label_topictree"
+msgstr ""
+
 #. Default: "Upload Files"
 #: ./browser/templates/quick_upload.pt:41
 msgid "label_upload_files"
@@ -668,7 +691,7 @@ msgstr ""
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
 #: ./browser/templates/evaluationsheets.pt:41
-#: ./browser/templates/videos.pt:38
+#: ./browser/templates/videos.pt:79
 msgid "label_view"
 msgstr ""
 
@@ -742,12 +765,12 @@ msgid "message_no_resources"
 msgstr ""
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:18
+#: ./browser/templates/topictrees.pt:19
 msgid "message_no_topictrees_exist"
 msgstr ""
 
-#. Default: "No videos found in the system."
-#: ./browser/templates/videos.pt:19
+#. Default: "No videos found in this category."
+#: ./browser/templates/videos.pt:60
 msgid "message_no_videos"
 msgstr ""
 

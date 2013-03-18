@@ -584,3 +584,9 @@ a.select-text {
 #content .delete-anchor a.link-overlay {
     border-bottom : none !important;
 }
+
+table.listing.admin-table td,
+table.listing.admin-table th {
+    vertical-align: middle;
+}
+

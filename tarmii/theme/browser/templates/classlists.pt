@@ -24,22 +24,28 @@
         </tal:classlists>
 
         <tal:listing tal:condition="view/classlists">
-            <form method="post" name="listClassListsForm"
-                    tal:attributes="action context/absolute_url">
-                <ul class="list">
-                    <li tal:repeat="classlist view/classlists">
-                        <input type="checkbox" name="paths:list" class="noborder"
-                            tal:attributes="title string:Select ${classlist/Title};
-                                            alt string:Select ${classlist/Title};
-                                            value classlist/getPath;
-                                            id string:cb_${classlist/getId}">
-                        <a tal:attributes="href string:${classlist/getURL}" tal:content="classlist/Title"></a>
-                    </li>
-                </ul>
-                <input type="submit" value="Delete" name="folder_delete:method" class="context" i18n:attributes="value">
-                <input type="hidden" name="orig_template" value="classlists"/>
-                <input tal:replace="structure context/@@authenticator/authenticator" />
-            </form>
+                <table class="listing admin-table">
+                    <tr> 
+                        <th i18n:translate="label_classlist">Classlist</th>
+                        <th i18n:translate="label_edit">Edit</th>
+                        <th i18n:translate="label_delete">Delete</th>
+                    </tr>
+                    <tr tal:repeat="classlist view/classlists">
+                        <td>
+                            <a tal:attributes="href string:${classlist/getURL}" tal:content="classlist/Title"></a>                        
+                        </td>
+                        <td>
+                            <div class="edit-anchor">
+                                <a class="pencil edit_link" tal:attributes="href string:${classlist/getURL}/edit"></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-anchor">
+                                <a class="trashcan edit_link" tal:attributes="href string:${classlist/getURL}/delete_confirmation"></a>
+                            </div>
+                        </td>
+                    </tr>  
+                </table>
         </tal:listing>
 
     </metal:main>
