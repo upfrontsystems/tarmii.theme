@@ -24,7 +24,7 @@
             />
 
      <browser:page
-            for="upfront.assessment.content.assessment.IAssessmentItem"
+            for="upfront.assessmentitem.content.assessmentitem.IAssessmentItem"
             name="view"
             class="tarmii.theme.browser.custom_assessmentitem.View"
             permission="cmf.AddPortalContent"
