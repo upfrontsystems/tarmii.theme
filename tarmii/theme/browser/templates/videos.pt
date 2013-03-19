@@ -76,7 +76,7 @@
                             <img tal:attributes="src string:${thumb/absolute_url}/image;
                                                  alt thumb/Title" />
                             </a>
-                           <a class="edit-hover-link" tal:attributes="href string:${thumb/absolute_url}/@@video"
+                           <a class="edit-hover-link" tal:attributes="href string:${thumb/link}/@@video"
                               i18n:translate="label_view">View</a>
                            <a class="delete_confirmation delete-hover-link"
                               tal:attributes="href string:${thumb/link}/delete_confirmation"
