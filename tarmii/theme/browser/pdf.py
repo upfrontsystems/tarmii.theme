@@ -132,8 +132,8 @@ class ScoreSheetPDF(grok.View):
     def activities(self):
         """ Return all the activities that this evaluation sheet references
         """
-        return [x.getObject() for x in 
-                self.context.activities.getFolderContents()]
+        return [x.to_object for x in 
+                self.context.assessment.to_object.assessment_items]
 
     def evaluations(self):
         """ Return all evaluations in the current folder
@@ -148,9 +148,8 @@ class ScoreSheetPDF(grok.View):
         data = []
         activity_entry = []
         # for each activity
-        activities = self.context.activities.getFolderContents()
+        activities = self.context.assessment.to_object.assessment_items
         for x in range(len(activities)):
-
             # for each learner
             activity_entry = []
             for lrnr in range(len(self.context.getFolderContents())):
@@ -158,7 +157,7 @@ class ScoreSheetPDF(grok.View):
                 activity_entry.append(
                     {'learner': evaluation.learner.to_object.Title(),
                      'rating' : evaluation.evaluation[x]['rating'],
-                     'rating_scale' : activities[x].getObject().rating_scale
+                     'rating_scale' : activities[x].to_object.rating_scale
                     })
             data.append(activity_entry)
             activity_entry = []
