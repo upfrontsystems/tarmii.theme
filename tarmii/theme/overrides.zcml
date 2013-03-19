@@ -23,4 +23,12 @@
             layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
 
+     <browser:page
+            for="upfront.assessment.content.assessment.IAssessmentItem"
+            name="view"
+            class="tarmii.theme.browser.custom_assessmentitem.View"
+            permission="cmf.AddPortalContent"
+            layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
+            />
+
 </configure>

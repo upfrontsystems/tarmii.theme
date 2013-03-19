@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-18 08:23+0000\n"
-"PO-Revision-Date: 2013-03-18 10:26+0200\n"
+"POT-Creation-Date: 2013-03-19 11:57+0000\n"
+"PO-Revision-Date: 2013-03-19 14:06+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,14 @@ msgstr "lêers opgelaai met sukses,"
 msgid " uploads return an error."
 msgstr "oplaai rapporteer 'n fout."
 
+#: ./browser/templates/custom-assessmentitem-view.pt:33
+msgid "${marks} marks"
+msgstr "${marks} punte"
+
+#: ./browser/templates/custom-assessmentitem-view.pt:34
+msgid "${responsetime} mins"
+msgstr "${responsetime} minute"
+
 #: ./browser/custom_quick_upload.py:383
 msgid "A data base conflict error happened when uploading this file:"
 msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
@@ -30,6 +38,10 @@ msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr "Aktiwiteite"
+
+#: ./browser/templates/custom-assessment-view.pt:16
+msgid "Add Activities"
+msgstr "Voeg Aktiwiteite by"
 
 #: ./browser/templates/activities.pt:16
 msgid "Add Activity"
@@ -452,6 +464,7 @@ msgstr "Skep Profil"
 
 #. Default: "Assessment"
 #: ./browser/templates/evaluationsheets.pt:29
+#, fuzzy
 msgid "heading_assessment"
 msgstr "Assessering"
 
@@ -613,15 +626,20 @@ msgstr "Maak die tou skoon"
 
 #. Default: "Delete"
 #: ./browser/templates/classlists.pt:31
-#: ./browser/templates/resources.pt:72
-#: ./browser/templates/topictrees.pt:27
+#: ./browser/templates/custom-assessmentitem-view.pt:47
+#: ./browser/templates/resources.pt:83
 msgid "label_delete"
 msgstr "Werwyder"
+
+#. Default: "Move down"
+#: ./browser/templates/custom-assessment-view.pt:50
+msgid "label_down"
+msgstr "Skuif af"
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
 #: ./browser/templates/classlists.pt:30
-#: ./browser/templates/resources.pt:70
+#: ./browser/templates/custom-assessment-view.pt:55
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -632,6 +650,7 @@ msgstr "E-pos"
 
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:93
+#: ./browser/templates/custom-assessment-view.pt:59
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -670,10 +689,25 @@ msgstr "Kwalifikasie"
 msgid "label_register"
 msgstr "Registreer"
 
+#. Default: "Remove from Assessment"
+#: ./browser/templates/custom-assessment-view.pt:57
+msgid "label_removefromassessment"
+msgstr "Verwyder van assesserng"
+
+#. Default: "Resource"
+#: ./browser/templates/resources.pt:81
+msgid "label_resource"
+msgstr "Hulbron"
+
 #. Default: "Topic Tree"
 #: ./browser/templates/topictrees.pt:25
 msgid "label_topictree"
 msgstr "Onderwerp boom"
+
+#. Default: "Move up"
+#: ./browser/templates/custom-assessment-view.pt:46
+msgid "label_up"
+msgstr "Skyf op"
 
 #. Default: "Upload Files"
 #: ./browser/templates/quick_upload.pt:41
@@ -687,8 +721,8 @@ msgstr "Gebruikersnaam"
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
+#: ./browser/templates/custom-assessment-view.pt:53
 #: ./browser/templates/evaluationsheets.pt:41
-#: ./browser/templates/videos.pt:79
 msgid "label_view"
 msgstr "Sien"
 
@@ -726,10 +760,25 @@ msgstr "maksimum lêer grootte is:"
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
+#. Default: "This activity is used in one or more assessments."
+#: ./browser/templates/custom-assessmentitem-view.pt:17
+msgid "message_activity_used_in_assessment"
+msgstr "Hierdie aktiwiteit is deur een of meer assesserings gebruik."
+
+#. Default: "Edit and Delete disabled"
+#: ./browser/templates/custom-assessmentitem-view.pt:40
+msgid "message_edit_delete_disabled"
+msgstr "Redigeer en Verwyder is afgeskakel"
+
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
 msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
+
+#. Default: "No activities have been added yet."
+#: ./browser/templates/custom-assessment-view.pt:21
+msgid "message_no_activities_added"
+msgstr "Geen aktiwiteite is nog nie bygevoeg nie."
 
 #. Default: "No activities have been created yet."
 #: ./browser/templates/activities.pt:69
@@ -782,6 +831,11 @@ msgstr "Hulpbronne gevind"
 msgid "message_thankyou"
 msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 
+#. Default: "Topics covered by activities:"
+#: ./browser/templates/custom-assessment-view.pt:25
+msgid "message_topics_covered_by_activities"
+msgstr "Onderwerpe wat deur die aktiwiteite gedek word:"
+
 #. Default: "We will reply to it shortly."
 #: ./browser/templates/feedback_result.pt:16
 msgid "message_willreply"
@@ -802,4 +856,9 @@ msgstr "probeer asseblief weer"
 #: ./browser/feedback.py:48
 msgid "send"
 msgstr "stuur"
+
+#. Default: "Assessment: ${assessment_title}"
+#: ./browser/templates/custom-assessment-view.pt:13
+msgid "title_assessment"
+msgstr "Assessering: ${assessment_title}"
 

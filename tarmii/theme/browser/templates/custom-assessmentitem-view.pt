@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tarmii.theme">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 tal:content="view/assessmentitem"></h1>
+        <tal:used_in_assessments condition="view/used_in_assessments">
+            <div i18n:translate="message_activity_used_in_assessment">
+               This activity is used in one or more assessments.
+            </div>
+        <div>&nbsp;</div>
+        </tal:used_in_assessments>
+
+        <div class="introduction" tal:content="structure context/introduction/output|nothing">
+            Optional Question Introduction
+        </div>
+        <div class="question" tal:content="structure context/question/output|nothing">
+            The question
+        </div>
+
+        <div id="actions-and-info">
+            <div class="item-info">
+                <span class="item-info" tal:content="view/creationdate"/>
+                <span class="item-info" i18n:translate=""><span i18n:name="marks" tal:content="context/marks">2</span> marks</span>
+                <span class="item-info" i18n:translate=""><span i18n:name="responsetime" tal:content="context/responsetime">5</span> mins</span>
+                <span class="state-draft" tal:attributes="class string:item-info state-${view/review_state}" tal:content="view/review_state" i18n:translate=""></span>
+
+            </div>
+            <tal:used_in_assessments condition="view/used_in_assessments">
+                <div class="item-actions">
+                    <span i18n:translate="message_edit_delete_disabled">Edit and Delete disabled</span>
+                </div>
+            </tal:used_in_assessments>
+            <tal:not_used_in_assessments condition="not:view/used_in_assessments">
+                <div class="item-actions">
+                    <a tal:attributes="href string:${context/absolute_url}/edit"
+                        i18n:translate="label_edit">Edit</a>
+                    <a class="delete_confirmation" tal:attributes="href string:${context/absolute_url}/delete_confirmation"
+                        i18n:translate="label_delete">Delete</a>
+                </div>
+            </tal:not_used_in_assessments>
+        </div>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
