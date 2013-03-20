@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-20 09:20+0000\n"
+"POT-Creation-Date: 2013-03-20 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,11 +78,11 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:176
+#: ./behaviors.py:163
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:179
+#: ./behaviors.py:166
 msgid "All rating values must be unique."
 msgstr ""
 
@@ -123,10 +123,6 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./behaviors.py:153
-msgid "ClassList"
-msgstr ""
-
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
 msgid "Classlists"
@@ -148,7 +144,7 @@ msgstr ""
 msgid "Define the url where the logs can be uploaded."
 msgstr ""
 
-#: ./browser/templates/assessments.pt:53
+#: ./browser/templates/assessments.pt:57
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr ""
@@ -383,7 +379,7 @@ msgstr ""
 msgid "The message body"
 msgstr ""
 
-#: ./behaviors.py:202
+#: ./behaviors.py:189
 msgid "This Item ID is already in use."
 msgstr ""
 
@@ -675,6 +671,11 @@ msgstr ""
 msgid "label_fullname"
 msgstr ""
 
+#. Default: "How to"
+#: ./browser/templates/videos.pt:18
+msgid "label_how_to"
+msgstr ""
+
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
@@ -693,6 +694,11 @@ msgstr ""
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
+msgstr ""
+
+#. Default: "Pedagogic"
+#: ./browser/templates/videos.pt:32
+msgid "label_pedagogic"
 msgstr ""
 
 #. Default: "Qualification"

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-20 09:20+0000\n"
-"PO-Revision-Date: 2013-03-20 11:22+0200\n"
+"POT-Creation-Date: 2013-03-20 18:33+0000\n"
+"PO-Revision-Date: 2013-03-20 20:35+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,11 +75,11 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers het suksesvol opgelaai."
 
-#: ./behaviors.py:176
+#: ./behaviors.py:163
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle graderings moet positief en groter as nul wees."
 
-#: ./behaviors.py:179
+#: ./behaviors.py:166
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
@@ -120,10 +120,6 @@ msgstr "Kies die prente om op te laai"
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
-#: ./behaviors.py:153
-msgid "ClassList"
-msgstr "Klaslys"
-
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
 msgid "Classlists"
@@ -145,7 +141,7 @@ msgstr "Dra jou eie aktiwiteit by"
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
 
-#: ./browser/templates/assessments.pt:53
+#: ./browser/templates/assessments.pt:57
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr "Verwyder"
@@ -380,7 +376,7 @@ msgstr "Onderwyser Hulpbron"
 msgid "The message body"
 msgstr "Die boodskap teks"
 
-#: ./behaviors.py:202
+#: ./behaviors.py:189
 msgid "This Item ID is already in use."
 msgstr "Hierdie Item ID is reeds gebruik."
 
@@ -672,6 +668,11 @@ msgstr "Terugvoer"
 msgid "label_fullname"
 msgstr "Volle naam"
 
+#. Default: "How to"
+#: ./browser/templates/videos.pt:18
+msgid "label_how_to"
+msgstr "Hoe om"
+
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
@@ -691,6 +692,11 @@ msgstr "Memo PDF"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
 msgstr "Selfoon"
+
+#. Default: "Pedagogic"
+#: ./browser/templates/videos.pt:32
+msgid "label_pedagogic"
+msgstr "Pedagogiese"
 
 #. Default: "Qualification"
 #: ./browser/templates/teacherprofiles.pt:42
