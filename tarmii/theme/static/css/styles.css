@@ -596,7 +596,8 @@ a.select-text {
 }
 
 #content .edit-anchor a.link-overlay,
-#content .delete-anchor a.link-overlay {
+#content .delete-anchor a.link-overlay,
+#content .pdf-anchor a.link-overlay {
     border-bottom : none !important;
 }
 

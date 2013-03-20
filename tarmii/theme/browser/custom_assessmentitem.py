@@ -8,7 +8,6 @@ from zc.relation.interfaces import ICatalog
 from plone.directives import dexterity
 from plone.uuid.interfaces import IUUID
 
-#from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
