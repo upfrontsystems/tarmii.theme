@@ -12,9 +12,15 @@
 
         <h1 i18n:translate="title_assessment">Assessment: <span i18n:name="assessment_title" tal:content="view/assessment"> </span></h1>
 
-        <form id="add-button-form" name="add-activities-form" tal:attributes="action view/add_activities_url">
-            <input class="allowMultiSubmit" type="submit" value="Add Activities" i18n:attributes="value">
-        </form>
+        <tal:assessment_editable condition="view/assessment_editable">    
+            <form id="add-button-form" name="add-activities-form" tal:attributes="action view/add_activities_url">
+                <input class="allowMultiSubmit" type="submit" value="Add Activities" i18n:attributes="value">
+            </form>
+        </tal:assessment_editable>
+
+        <tal:assessment_not_editable condition="not:view/assessment_editable">
+            <div i18n:translate="message_assessment_frozen">This assessment is used by existing evaluationsheet(s) and cannot be modified.</div>
+        </tal:assessment_not_editable>
 
         <div>&nbsp;</div>
         <tal:activities tal:condition="not:view/activities">
@@ -42,20 +48,24 @@
                             The Activity
                         </div>
                         <div class="item-actions-left">
-                            <tal:first condition="python:item != view.first_activity()">
-                                <a class="move-up" tal:attributes="id string:${item/id}"
-                                   i18n:translate="label_up">Move up</a>
-                            </tal:first>
-                            <tal:last condition="python:item != view.last_activity()">
-                                <a class="move-down" tal:attributes="id string:${item/id}"
-                                   i18n:translate="label_down">Move down</a>
-                            </tal:last>
+                            <tal:assessment_editable condition="view/assessment_editable">    
+                                <tal:first condition="python:item != view.first_activity()">
+                                    <a class="move-up" tal:attributes="id string:${item/id}"
+                                       i18n:translate="label_up">Move up</a>
+                                </tal:first>
+                                <tal:last condition="python:item != view.last_activity()">
+                                    <a class="move-down" tal:attributes="id string:${item/id}"
+                                       i18n:translate="label_down">Move down</a>
+                                </tal:last>
+                            </tal:assessment_editable>
                             <a tal:attributes="href item/absolute_url"
                                i18n:translate="label_view">View</a>
-                            <a tal:attributes="href string:${item/absolute_url}/edit"
-                               i18n:translate="label_edit">Edit</a>
-                            <a class="remove-from-assessment" tal:attributes="value string:${item/id}"
-                               i18n:translate="label_removefromassessment">Remove from Assessment</a>
+                            <tal:assessment_editable condition="view/assessment_editable">    
+                                <a tal:attributes="href string:${item/absolute_url}/edit"
+                                   i18n:translate="label_edit">Edit</a>
+                                <a class="remove-from-assessment" tal:attributes="value string:${item/id}"
+                                   i18n:translate="label_removefromassessment">Remove from Assessment</a>
+                            </tal:assessment_editable>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
                                i18n:translate="label_feedback">Feedback</a>
                         </div>

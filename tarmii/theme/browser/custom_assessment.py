@@ -62,3 +62,17 @@ class View(dexterity.DisplayForm):
         """        
         last_index = len(self.context.assessment_items)-1
         return self.context.assessment_items[last_index].to_object
+
+    def assessment_editable(self):
+        """ Check whether the assessment can be edited ie. it is not in use
+            by evaluationsheets.
+        """
+        pw = getSite().portal_workflow
+        import pdb; pdb.set_trace()
+        state = pw.getStatusOf('assessment_workflow',self.context)['state']
+        if state == 'editable':
+            return True
+        return False
+
+
+
