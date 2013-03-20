@@ -144,24 +144,11 @@ class IFilterSelect(form.Schema):
         )
 
 
-class IClasslistRelation(form.Schema):
-    """ Behavior that enables a content type to reference a classlist object
-    """
-
-    form.omitted('classlist')
-    classlist = RelationChoice(
-          title=_(u"ClassList"),            
-          source=ObjPathSourceBinder(object_provides=IClassList.__identifier__),
-          required=False,
-        )
-
-
 alsoProvides(IAssessmentItemBlobs, IFormFieldProvider)
 alsoProvides(IRating, IFormFieldProvider)
 alsoProvides(ITopicTags, IFormFieldProvider)
 alsoProvides(IItemMetadata, IFormFieldProvider)
 alsoProvides(IFilterSelect, IFormFieldProvider)
-alsoProvides(IClasslistRelation, IFormFieldProvider)
 
 
 class RatingValidator(validator.SimpleFieldValidator):

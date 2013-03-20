@@ -35,11 +35,15 @@
                         <th i18n:translate="label_memo_pdf">Memo PDF</th>
                     </tr>
                     <tr tal:repeat="assessment view/assessments">
-                        <td><input type="checkbox" name="paths:list" class="noborder"
-                            tal:attributes="title string:Select ${assessment/Title};
-                                            alt string:Select ${assessment/Title};
-                                            value assessment/getPath;
-                                            id string:cb_${assessment/getId}"></td>
+                        <td>
+                            <tal:is_editable tal:condition="python:assessment.getObject().is_editable()">                
+                                <input type="checkbox" name="paths:list" class="noborder"
+                                tal:attributes="title string:Select ${assessment/Title};
+                                                alt string:Select ${assessment/Title};
+                                                value assessment/getPath;
+                                                id string:cb_${assessment/getId}">
+                            </tal:is_editable>
+                        </td>
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
                         <td tal:content="python:assessment.created.strftime('%d %B %Y')"></td>
                         <td>

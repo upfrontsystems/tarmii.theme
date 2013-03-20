@@ -68,7 +68,6 @@ class View(dexterity.DisplayForm):
             by evaluationsheets.
         """
         pw = getSite().portal_workflow
-        import pdb; pdb.set_trace()
         state = pw.getStatusOf('assessment_workflow',self.context)['state']
         if state == 'editable':
             return True
