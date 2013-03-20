@@ -12,7 +12,7 @@
         <h3 i18n:translate="heading_select_classlist">Assessment PDF</h3>
         <br />
 
-        <form name="select-classlist-form" tal:attributes="action string:${view/__name__}" method="post">
+        <form name="select-classlist-form" tal:attributes="action view/evaluation_sheet_pdf_path" method="post">
                 
             <div id="formfield-choose-classlist" tal:condition="view/classlists">
                 <label for="formfield-choose-classlist" i18n:translate="label_choose_classlist">Choose classlist: </label>

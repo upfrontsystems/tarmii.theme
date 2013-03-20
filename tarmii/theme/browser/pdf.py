@@ -3,6 +3,8 @@ from xhtml2pdf import pisa
 
 from five import grok
 from zope.interface import Interface
+from plone.app.uuid.utils import uuidToObject
+from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 
 from upfront.assessment.content.assessment import IAssessment
@@ -72,6 +74,9 @@ class SelectClasslistForEvaluationPDF(grok.View):
         classlists = self.context.aq_parent.aq_parent.classlists
         return classlists.getFolderContents(contentFilter)
 
+    def evaluation_sheet_pdf_path(self):
+        return '%s/@@evaluationsheet-pdf' % self.context.absolute_url()
+
 
 class EvaluationSheetPDF(grok.View):
     """ Evaluation Sheet PDF view
@@ -105,6 +110,25 @@ class EvaluationSheetPDF(grok.View):
         self.request.response.setHeader("Pragma", "no-cache")
         self.request.response.write(pdfcontent)
         return pdfcontent
+
+    def assessment_title(self):
+        return self.context.Title()
+
+    def activities(self):
+        """ Return all the activities in this  evaluations in the current folder
+        """
+        return [x.to_object for x in self.context.assessment_items]
+
+    def learners(self):    
+        """ Return all learners for the selected classlist
+        """
+
+        classlist_uid = self.request['classlist_uid_selected']
+        classlist = uuidToObject(classlist_uid)
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.learner'}
+        return [x.getObject() for x in\
+                                     classlist.getFolderContents(contentFilter)]
 
 
 class ScoreSheetPDF(grok.View):
