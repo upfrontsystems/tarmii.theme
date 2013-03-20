@@ -56,6 +56,23 @@ class AssessmentPDF(grok.View):
         return [x.to_object for x in self.context.assessment_items]
 
 
+class SelectClasslistForEvaluationPDF(grok.View):
+    """ Select Classlist for Evaluation PDF view
+    """
+    grok.context(IAssessment)
+    grok.name('select-classlist-for-evaluationsheet-pdf')
+    grok.template('select-classlist-for-evaluationsheet-pdf')
+    grok.require('cmf.ModifyPortalContent')
+
+    def classlists(self):
+        """ Return all the classlists in the current user's member folder
+        """
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist'}
+        classlists = self.context.aq_parent.aq_parent.classlists
+        return classlists.getFolderContents(contentFilter)
+
+
 class EvaluationSheetPDF(grok.View):
     """ Evaluation Sheet PDF view
     """

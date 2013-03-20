@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-19 11:57+0000\n"
+"POT-Creation-Date: 2013-03-20 02:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Define the url where the logs can be uploaded."
 msgstr ""
 
-#: ./browser/templates/assessments.pt:49
+#: ./browser/templates/assessments.pt:53
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr ""
@@ -205,6 +205,10 @@ msgstr ""
 
 #: ./vocabs.py:11
 msgid "Gauteng"
+msgstr ""
+
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:29
+msgid "Generate Report"
 msgstr ""
 
 #: ./behaviors.py:68
@@ -485,6 +489,11 @@ msgstr ""
 msgid "heading_schools"
 msgstr ""
 
+#. Default: "Assessment PDF"
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
+msgid "heading_select_classlist"
+msgstr ""
+
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
@@ -604,6 +613,11 @@ msgstr ""
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
 msgid "label_choose_assessment"
+msgstr ""
+
+#. Default: "Choose classlist:"
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:18
+msgid "label_choose_classlist"
 msgstr ""
 
 #. Default: "Drag and drop or choose your files:"

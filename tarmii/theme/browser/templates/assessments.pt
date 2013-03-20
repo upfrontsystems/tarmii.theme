@@ -42,7 +42,11 @@
                                             id string:cb_${assessment/getId}"></td>
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
                         <td tal:content="python:assessment.created.strftime('%d %B %Y')"></td>
-                        <td></td>
+                        <td>
+                            <div class="pdf-anchor">
+                                <a class="pdf-small edit_link" tal:attributes="href string:${assessment/getURL}/select-classlist-for-evaluationsheet-pdf"></a>
+                            </div>
+                        </td>
                         <td></td>
                     </tr>
                 </table>

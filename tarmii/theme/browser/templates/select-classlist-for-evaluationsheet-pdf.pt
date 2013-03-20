@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="main">
+            
+        <h3 i18n:translate="heading_select_classlist">Assessment PDF</h3>
+        <br />
+
+        <form name="select-classlist-form" tal:attributes="action string:${view/__name__}" method="post">
+                
+            <div id="formfield-choose-classlist" tal:condition="view/classlists">
+                <label for="formfield-choose-classlist" i18n:translate="label_choose_classlist">Choose classlist: </label>
+                <select name="classlist_uid_selected">
+                    <option tal:repeat="classlist view/classlists"
+                            tal:attributes="value classlist/UID"
+                            tal:content="classlist/Title">
+                    </option>
+                </select>
+            </div>
+
+            <br />
+            <div>
+                <input id="buttons-select-classlist-submit" name="buttons.select.classlist.submit"
+                      value="Generate Report" type="submit" i18n:attributes="value">
+            </div>
+ 
+        </form>
+
+    </metal:main>
+</body>
+</html>
+

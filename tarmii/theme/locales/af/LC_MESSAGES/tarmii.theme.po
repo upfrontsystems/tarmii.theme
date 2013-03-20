@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-19 11:57+0000\n"
-"PO-Revision-Date: 2013-03-19 14:06+0200\n"
+"POT-Creation-Date: 2013-03-20 02:15+0000\n"
+"PO-Revision-Date: 2013-03-20 04:17+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,7 +145,7 @@ msgstr "Dra jou eie aktiwiteit by"
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
 
-#: ./browser/templates/assessments.pt:49
+#: ./browser/templates/assessments.pt:53
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr "Verwyder"
@@ -203,6 +203,10 @@ msgstr "Vrystaat"
 #: ./vocabs.py:11
 msgid "Gauteng"
 msgstr "Gauteng"
+
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:29
+msgid "Generate Report"
+msgstr "Genereer Verslag"
 
 #: ./behaviors.py:68
 msgid "Good"
@@ -464,7 +468,6 @@ msgstr "Skep Profil"
 
 #. Default: "Assessment"
 #: ./browser/templates/evaluationsheets.pt:29
-#, fuzzy
 msgid "heading_assessment"
 msgstr "Assessering"
 
@@ -482,6 +485,11 @@ msgstr "Provinsies:"
 #: ./browser/templates/teacherprofiles.pt:25
 msgid "heading_schools"
 msgstr "Skole:"
+
+#. Default: "Assessment PDF"
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
+msgid "heading_select_classlist"
+msgstr "Assessering PDF"
 
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
@@ -603,6 +611,11 @@ msgstr "Assessering PDF"
 #: ./browser/templates/addtoassessment.pt:18
 msgid "label_choose_assessment"
 msgstr "Kies bestaande assessering:"
+
+#. Default: "Choose classlist:"
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:18
+msgid "label_choose_classlist"
+msgstr "Kies klaslys"
 
 #. Default: "Drag and drop or choose your files:"
 #: ./browser/templates/quick_upload.pt:19
@@ -817,7 +830,6 @@ msgstr "Geen onderwyser boome is nog geskep."
 
 #. Default: "No videos found in this category."
 #: ./browser/templates/videos.pt:60
-#, fuzzy
 msgid "message_no_videos"
 msgstr "Geen videos gevind in die stelsel."
 

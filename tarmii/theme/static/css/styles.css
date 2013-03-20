@@ -548,7 +548,7 @@ a.select-text {
 }
 
 
-/* edit button on topictree listing */
+/* edit button on topictree/classlist/resources listing */
 .pencil {
     background: url("../images/pencil.png");
     height: 13px;	
@@ -566,7 +566,7 @@ a.select-text {
     margin: auto;
 }
 
-/* delete button on topictree listing */
+/* delete button on topictree/classlist/resources listing */
 .trashcan {
     background: url("../images/trashcan.png");
     height: 16px;	
@@ -577,6 +577,21 @@ a.select-text {
 .delete-anchor {    
     height: 16px;	
     width: 16px;
+    margin: auto;
+}
+
+/* pdf button on assessment listing */
+.pdf-small {
+    background: url("../images/pdf-small.png");
+    height: 18px;	
+    width: 41px;
+    margin: 1px;
+    display: block;
+}
+
+.pdf-anchor {    
+    height: 18px;	
+    width: 41px;
     margin: auto;
 }
 
