@@ -8,6 +8,7 @@ from Acquisition import aq_base
 from Products.CMFCore.interfaces import IFolderish
 
 from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
+from upfront.assessment.content.evaluationsheet import IEvaluationSheet
 from tarmii.theme.interfaces import IItemVersion   
 
 class AssessmentItemNameChooser(grok.Adapter, NormalizingNameChooser):
@@ -18,12 +19,10 @@ class AssessmentItemNameChooser(grok.Adapter, NormalizingNameChooser):
     grok.context(IFolderish)
 
     def chooseName(self, name, object):
-        if not IAssessmentItem.providedBy(object):
-            return super(AssessmentItemNameChooser, self).chooseName(
-                name, object)
-        else:
-            normalizer = getUtility(IURLNormalizer)
 
+        # AssessmentItem
+        if IAssessmentItem.providedBy(object):
+            normalizer = getUtility(IURLNormalizer)
             # check if admin user specified a custom item_id
             if hasattr(object, 'item_id'):
                 if object.item_id is not None:
@@ -37,3 +36,20 @@ class AssessmentItemNameChooser(grok.Adapter, NormalizingNameChooser):
                 if not name:
                     name = 'Q%03d' % utility.next_version()
             return normalizer.normalize(name)
+        # EvaluationSheet
+        elif IEvaluationSheet.providedBy(object):
+            normalizer = getUtility(IURLNormalizer)
+            if not name:
+                # first check if object has an id
+                name = getattr(aq_base(object), 'id', None)
+                if not name:
+                    name = 'evaluationsheet-%s-%s' %\
+                           (object.assessment.to_object.id,
+                            object.classlist.to_object.id)
+                name = self._findUniqueName(name,object)
+            return normalizer.normalize(name)
+        # All other objects
+        else:
+            return super(AssessmentItemNameChooser, self).chooseName(
+                name, object)
+
