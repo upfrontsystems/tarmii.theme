@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-21 09:23+0000\n"
-"PO-Revision-Date: 2013-03-21 11:25+0200\n"
+"POT-Creation-Date: 2013-03-21 19:50+0000\n"
+"PO-Revision-Date: 2013-03-21 21:52+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,11 +75,11 @@ msgstr "Voeg video by"
 msgid "All files uploaded with success."
 msgstr "Alle lêers het suksesvol opgelaai."
 
-#: ./behaviors.py:163
+#: ./behaviors.py:167
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle graderings moet positief en groter as nul wees."
 
-#: ./behaviors.py:166
+#: ./behaviors.py:170
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
@@ -88,7 +88,7 @@ msgstr "Elke gradering moet uniek wees."
 msgid "Assessments"
 msgstr "Assesserings"
 
-#: ./behaviors.py:97
+#: ./behaviors.py:101
 msgid "Categorization"
 msgstr "Kategorisering"
 
@@ -96,7 +96,7 @@ msgstr "Kategorisering"
 msgid "Cell Phone Number"
 msgstr "Selfoonnommer"
 
-#: ./behaviors.py:35
+#: ./behaviors.py:36
 msgid "Check list"
 msgstr "Kontrolelys"
 
@@ -129,7 +129,7 @@ msgstr "Klaslyste"
 msgid "Contact Us"
 msgstr "Kontak Ons"
 
-#: ./behaviors.py:113
+#: ./behaviors.py:117
 msgid "Content/Concept/Skills Assessed"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
@@ -140,11 +140,6 @@ msgstr "Dra jou eie aktiwiteit by"
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
-
-#: ./browser/templates/assessments.pt:59
-#: ./browser/templates/evaluationsheets.pt:45
-msgid "Delete"
-msgstr "Verwyder"
 
 #: ./browser/custom_quick_upload.py:367
 msgid "Drag and drop files to upload"
@@ -158,7 +153,7 @@ msgstr "EMIS"
 msgid "Eastern Cape"
 msgstr "Oos-Kaap"
 
-#: ./behaviors.py:123
+#: ./behaviors.py:127
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
@@ -167,7 +162,7 @@ msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 msgid "Evaluations"
 msgstr "Evaluasies"
 
-#: ./behaviors.py:67
+#: ./behaviors.py:68
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -204,7 +199,7 @@ msgstr "Gauteng"
 msgid "Generate Report"
 msgstr "Genereer Verslag"
 
-#: ./behaviors.py:68
+#: ./behaviors.py:69
 msgid "Good"
 msgstr "Goed"
 
@@ -217,7 +212,7 @@ msgstr "Tuis"
 msgid "Images Quick Upload"
 msgstr "Vinnige Prent Oplaai"
 
-#: ./behaviors.py:103
+#: ./behaviors.py:107
 msgid "Item ID"
 msgstr "Item ID"
 
@@ -225,7 +220,7 @@ msgstr "Item ID"
 msgid "Kwazulu-Natal"
 msgstr "Kwazulu-Natal"
 
-#: ./behaviors.py:50
+#: ./behaviors.py:51
 msgid "Label"
 msgstr "Etiket"
 
@@ -233,7 +228,7 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
-#: ./behaviors.py:108
+#: ./behaviors.py:112
 msgid "Learner Task/Activity"
 msgstr "Leerder Taak/Aktiwiteit"
 
@@ -249,7 +244,7 @@ msgstr "Boodskap"
 msgid "Mpumalanga"
 msgstr "Mpumalanga"
 
-#: ./behaviors.py:70
+#: ./behaviors.py:71
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -273,7 +268,7 @@ msgstr "Noord-Kaap"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig van grondslagfase"
 
-#: ./behaviors.py:30
+#: ./behaviors.py:31
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
@@ -286,7 +281,7 @@ msgstr "Slegs toegelaat:"
 msgid "Personal Information"
 msgstr "Persoonlike Inligting"
 
-#: ./behaviors.py:118
+#: ./behaviors.py:122
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
@@ -302,15 +297,15 @@ msgstr "Provinsie"
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
-#: ./behaviors.py:51
+#: ./behaviors.py:52
 msgid "Rating"
 msgstr "Gradering"
 
-#: ./behaviors.py:65
+#: ./behaviors.py:66
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./behaviors.py:82
+#: ./behaviors.py:86
 msgid "Related"
 msgstr "Verwant"
 
@@ -331,11 +326,11 @@ msgstr "Hulpbron Lêer"
 msgid "Resources"
 msgstr "Hulpbronne"
 
-#: ./behaviors.py:40
+#: ./behaviors.py:41
 msgid "Rubric"
 msgstr "Rubriek"
 
-#: ./behaviors.py:69
+#: ./behaviors.py:70
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
@@ -376,7 +371,7 @@ msgstr "Onderwyser Hulpbron"
 msgid "The message body"
 msgstr "Die boodskap teks"
 
-#: ./behaviors.py:189
+#: ./behaviors.py:193
 msgid "This Item ID is already in use."
 msgstr "Hierdie Item ID is reeds gebruik."
 
@@ -421,11 +416,11 @@ msgstr "Oplaai bediener nie in instellings"
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
-#: ./behaviors.py:135
+#: ./behaviors.py:139
 msgid "Use with Activities"
 msgstr "Gebruik met Aktiwiteite"
 
-#: ./behaviors.py:141
+#: ./behaviors.py:145
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
 
@@ -463,14 +458,19 @@ msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
 #. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:29
+#: ./browser/templates/evaluationsheets.pt:26
 msgid "heading_assessment"
 msgstr "Assessering"
 
 #. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:30
+#: ./browser/templates/evaluationsheets.pt:27
 msgid "heading_classlist"
 msgstr "Klas lys"
+
+#. Default: "Evaluation Sheet for"
+#: ./browser/templates/evaluationsheet-pdf.pt:102
+msgid "heading_evaluationsheet_pdf"
+msgstr "Evalueringsblad vir"
 
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
@@ -589,17 +589,18 @@ msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
 #. Default: "Date"
-#: ./browser/templates/assessments.pt:33
+#: ./browser/templates/assessments.pt:30
 msgid "label_assessment_date"
 msgstr "Datum"
 
-#. Default: "Assessment name"
-#: ./browser/templates/assessments.pt:32
+#. Default: "Assessment"
+#: ./browser/templates/assessments.pt:29
+#, fuzzy
 msgid "label_assessment_name"
 msgstr "Assessering naam"
 
 #. Default: "Assessment PDF"
-#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/assessments.pt:33
 msgid "label_assessment_pdf"
 msgstr "Assessering PDF"
 
@@ -634,9 +635,9 @@ msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
 #. Default: "Delete"
+#: ./browser/templates/assessments.pt:32
 #: ./browser/templates/classlists.pt:31
 #: ./browser/templates/custom-assessmentitem-view.pt:47
-#: ./browser/templates/resources.pt:83
 msgid "label_delete"
 msgstr "Werwyder"
 
@@ -647,8 +648,8 @@ msgstr "Skuif af"
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/assessments.pt:31
 #: ./browser/templates/classlists.pt:30
-#: ./browser/templates/custom-assessment-view.pt:64
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -658,7 +659,7 @@ msgid "label_email"
 msgstr "E-pos"
 
 #. Default: "Evaluation Sheet PDF"
-#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/assessments.pt:34
 msgid "label_evaluationsheet_pdf"
 msgstr "Evalueringsblad PDF"
 
@@ -682,6 +683,11 @@ msgstr "Hoe om"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
 msgstr "Laaste aanmelding tyd"
+
+#. Default: "Learner Name"
+#: ./browser/templates/evaluationsheet-pdf.pt:108
+msgid "label_learner_name"
+msgstr "Leerder Naam"
 
 #. Default: "${medialabel} Quick Upload"
 #: ./browser/custom_quick_upload.py:95
@@ -719,7 +725,7 @@ msgid "label_resource"
 msgstr "Hulbron"
 
 #. Default: "Teacher Info PDF"
-#: ./browser/templates/assessments.pt:36
+#: ./browser/templates/assessments.pt:35
 msgid "label_teacherinfo_pdf"
 msgstr "Onderwyser Informasie PDF"
 
@@ -746,7 +752,7 @@ msgstr "Gebruikersnaam"
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
 #: ./browser/templates/custom-assessment-view.pt:61
-#: ./browser/templates/evaluationsheets.pt:41
+#: ./browser/templates/evaluationsheets.pt:39
 msgid "label_view"
 msgstr "Sien"
 

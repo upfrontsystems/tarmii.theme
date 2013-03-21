@@ -1,5 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-<html>
+<html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      lang="en">
 <head>
     <base tal:attributes="href string:${here/portal_url}/" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -97,13 +99,13 @@
 <body>
     <pdf:spacer height="1cm">
 
-    <h1 class="mainheader"><span>Evaluation Sheet for </span><span tal:content="view/assessment_title"></span></h1>
+    <h1 class="mainheader"><span i18n:translate="heading_evaluationsheet_pdf">Evaluation Sheet for </span><span tal:content="view/assessment_title"></span></h1>
 
     <div tal:repeat="item view/activities">
         <h2 class="questionheader" tal:content="item/id"></h2>
             <table border="1" class="frontpage">
                 <tr>
-                   <th>Learner Name</th>
+                   <th i18n:translate="label_learner_name">Learner Name</th>
                    <div tal:repeat="rating item/rating_scale">
                        <th tal:content="python:rating['label']">Scale Heading</th>
                    </div>

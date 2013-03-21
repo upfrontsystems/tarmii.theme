@@ -51,7 +51,11 @@
                                 </div>
                             </tal:is_editable>
                         </td>
-                        <td></td>
+                        <td>
+                            <div class="pdf-anchor">
+                                <a class="pdf-small" tal:attributes="href string:${assessment/getURL}/@@assessment-pdf"></a>
+                            </div>
+                        </td>
                         <td>
                             <div class="pdf-anchor">
                                 <a class="pdf-small edit_link" tal:attributes="href string:${assessment/getURL}/select-classlist-for-evaluationsheet-pdf"></a>

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-21 09:23+0000\n"
+"POT-Creation-Date: 2013-03-21 19:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,11 +78,11 @@ msgstr ""
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:163
+#: ./behaviors.py:167
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:166
+#: ./behaviors.py:170
 msgid "All rating values must be unique."
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Assessments"
 msgstr ""
 
-#: ./behaviors.py:97
+#: ./behaviors.py:101
 msgid "Categorization"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Cell Phone Number"
 msgstr ""
 
-#: ./behaviors.py:35
+#: ./behaviors.py:36
 msgid "Check list"
 msgstr ""
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: ./behaviors.py:113
+#: ./behaviors.py:117
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
@@ -142,11 +142,6 @@ msgstr ""
 
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
-msgstr ""
-
-#: ./browser/templates/assessments.pt:59
-#: ./browser/templates/evaluationsheets.pt:45
-msgid "Delete"
 msgstr ""
 
 #: ./browser/custom_quick_upload.py:367
@@ -161,7 +156,7 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./behaviors.py:123
+#: ./behaviors.py:127
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
@@ -170,7 +165,7 @@ msgstr ""
 msgid "Evaluations"
 msgstr ""
 
-#: ./behaviors.py:67
+#: ./behaviors.py:68
 msgid "Excellent"
 msgstr ""
 
@@ -207,7 +202,7 @@ msgstr ""
 msgid "Generate Report"
 msgstr ""
 
-#: ./behaviors.py:68
+#: ./behaviors.py:69
 msgid "Good"
 msgstr ""
 
@@ -220,7 +215,7 @@ msgstr ""
 msgid "Images Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:103
+#: ./behaviors.py:107
 msgid "Item ID"
 msgstr ""
 
@@ -228,7 +223,7 @@ msgstr ""
 msgid "Kwazulu-Natal"
 msgstr ""
 
-#: ./behaviors.py:50
+#: ./behaviors.py:51
 msgid "Label"
 msgstr ""
 
@@ -236,7 +231,7 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./behaviors.py:108
+#: ./behaviors.py:112
 msgid "Learner Task/Activity"
 msgstr ""
 
@@ -252,7 +247,7 @@ msgstr ""
 msgid "Mpumalanga"
 msgstr ""
 
-#: ./behaviors.py:70
+#: ./behaviors.py:71
 msgid "Needs improvement"
 msgstr ""
 
@@ -276,7 +271,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:30
+#: ./behaviors.py:31
 msgid "Observation Sheet"
 msgstr ""
 
@@ -289,7 +284,7 @@ msgstr ""
 msgid "Personal Information"
 msgstr ""
 
-#: ./behaviors.py:118
+#: ./behaviors.py:122
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr ""
 
@@ -305,15 +300,15 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
-#: ./behaviors.py:51
+#: ./behaviors.py:52
 msgid "Rating"
 msgstr ""
 
-#: ./behaviors.py:65
+#: ./behaviors.py:66
 msgid "Rating scale"
 msgstr ""
 
-#: ./behaviors.py:82
+#: ./behaviors.py:86
 msgid "Related"
 msgstr ""
 
@@ -334,11 +329,11 @@ msgstr ""
 msgid "Resources"
 msgstr ""
 
-#: ./behaviors.py:40
+#: ./behaviors.py:41
 msgid "Rubric"
 msgstr ""
 
-#: ./behaviors.py:69
+#: ./behaviors.py:70
 msgid "Satisfactory"
 msgstr ""
 
@@ -379,7 +374,7 @@ msgstr ""
 msgid "The message body"
 msgstr ""
 
-#: ./behaviors.py:189
+#: ./behaviors.py:193
 msgid "This Item ID is already in use."
 msgstr ""
 
@@ -424,11 +419,11 @@ msgstr ""
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
-#: ./behaviors.py:135
+#: ./behaviors.py:139
 msgid "Use with Activities"
 msgstr ""
 
-#: ./behaviors.py:141
+#: ./behaviors.py:145
 msgid "Use with Teacher Resources"
 msgstr ""
 
@@ -466,13 +461,18 @@ msgid "heading_add_user_form"
 msgstr ""
 
 #. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:29
+#: ./browser/templates/evaluationsheets.pt:26
 msgid "heading_assessment"
 msgstr ""
 
 #. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:30
+#: ./browser/templates/evaluationsheets.pt:27
 msgid "heading_classlist"
+msgstr ""
+
+#. Default: "Evaluation Sheet for"
+#: ./browser/templates/evaluationsheet-pdf.pt:102
+msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Provinces:"
@@ -592,17 +592,17 @@ msgid "label_addtoassessment"
 msgstr ""
 
 #. Default: "Date"
-#: ./browser/templates/assessments.pt:33
+#: ./browser/templates/assessments.pt:30
 msgid "label_assessment_date"
 msgstr ""
 
-#. Default: "Assessment name"
-#: ./browser/templates/assessments.pt:32
+#. Default: "Assessment"
+#: ./browser/templates/assessments.pt:29
 msgid "label_assessment_name"
 msgstr ""
 
 #. Default: "Assessment PDF"
-#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/assessments.pt:33
 msgid "label_assessment_pdf"
 msgstr ""
 
@@ -637,9 +637,9 @@ msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Delete"
+#: ./browser/templates/assessments.pt:32
 #: ./browser/templates/classlists.pt:31
 #: ./browser/templates/custom-assessmentitem-view.pt:47
-#: ./browser/templates/resources.pt:83
 msgid "label_delete"
 msgstr ""
 
@@ -650,8 +650,8 @@ msgstr ""
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:89
+#: ./browser/templates/assessments.pt:31
 #: ./browser/templates/classlists.pt:30
-#: ./browser/templates/custom-assessment-view.pt:64
 msgid "label_edit"
 msgstr ""
 
@@ -661,7 +661,7 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Evaluation Sheet PDF"
-#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/assessments.pt:34
 msgid "label_evaluationsheet_pdf"
 msgstr ""
 
@@ -684,6 +684,11 @@ msgstr ""
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
+msgstr ""
+
+#. Default: "Learner Name"
+#: ./browser/templates/evaluationsheet-pdf.pt:108
+msgid "label_learner_name"
 msgstr ""
 
 #. Default: "${medialabel} Quick Upload"
@@ -722,7 +727,7 @@ msgid "label_resource"
 msgstr ""
 
 #. Default: "Teacher Info PDF"
-#: ./browser/templates/assessments.pt:36
+#: ./browser/templates/assessments.pt:35
 msgid "label_teacherinfo_pdf"
 msgstr ""
 
@@ -749,7 +754,7 @@ msgstr ""
 #. Default: "View"
 #: ./browser/templates/activities.pt:87
 #: ./browser/templates/custom-assessment-view.pt:61
-#: ./browser/templates/evaluationsheets.pt:41
+#: ./browser/templates/evaluationsheets.pt:39
 msgid "label_view"
 msgstr ""
 
