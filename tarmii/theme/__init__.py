@@ -1,4 +1,5 @@
 from zope.i18nmessageid import MessageFactory
+from plone.i18n.locales.languages import _languagelist
 
 # Set up the i18n message factory for our package
 MessageFactory = MessageFactory('tarmii.theme')
@@ -11,3 +12,5 @@ IAssessmentItem.setTaggedValue(OMITTED_KEY,
                                [(Interface, 'introduction', 'true'),
                                 (Interface, 'question', 'true'),
                                 (Interface, 'answers', 'true')])
+
+_languagelist[u'x-nso'] = {u'native' : 'Sepedi', u'name' : 'Northern Sotho'}

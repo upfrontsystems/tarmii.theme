@@ -157,7 +157,8 @@ def setupPortalContent(portal):
     # nd - ndebele north
 
     # set allowed languages
-    pl.supported_langs = ['af','en','nr','xh','zu','st','tn','ss','ve','ts']
+    pl.supported_langs = ['af','en','nr','xh','zu','x-nso','st','tn','ss','ve',
+                          'ts']
 
     # Use cookie for manual override. 
     pl.use_cookie_negotiation = True

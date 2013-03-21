@@ -70,12 +70,13 @@ class SelectProfileView(grok.View):
         """
         languages = [('af', u'Afrikaans'),
                      ('en', u'English'),
-                     ('nr', u'IsiNdebele'),
-                     ('xh', u'IsiXhosa'),
-                     ('zu', u'IsiZulu'),
-                     ('st', u'seSotho sa Leboa (Sepedi)'),
+                     ('nr', u'isiNdebele'),
+                     ('xh', u'isiXhosa'),
+                     ('zu', u'isiZulu'),
+                     ('st', u'SeSotho'),
+                     ('x-nso', u'SePedi'),
                      ('tn', u'Setswana'),
-                     ('ss', u'SiSwati'),
+                     ('ss', u'siSwati'),
                      ('ve', u'Tshivenda'),
                      ('ts', u'Xitsonga')]
         lang_data = []
