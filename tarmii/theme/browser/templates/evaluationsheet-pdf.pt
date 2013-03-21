@@ -40,7 +40,7 @@
         
         table.frontpage td,
         table.frontpage th {
-            padding: 3px 0 3px 0;
+            padding: 2px 0 1px 0;
             margin: 0px;
             text-align: center;
         }
@@ -49,10 +49,12 @@
             margin-left: 1cm;
             margin-right: 1cm;
             border: 1px;
+            page-break-after: always;
+
         }
 
         table.frontpage td:first-child {
-            width: 30%;
+            width: 40%;
         }
 
         div#footerContent h3 {
@@ -69,8 +71,7 @@
         /* The default style */
         @page {
             @frame {
-                margin: 2cm;
-                -pdf-frame-border: 1;
+                margin: 2cm;               
             }
             @frame footer {
                 -pdf-frame-content: footerContent;
