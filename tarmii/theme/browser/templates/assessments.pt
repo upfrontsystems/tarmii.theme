@@ -24,29 +24,33 @@
 
         <div id="div-assessment-listing">
         <tal:listing tal:condition="view/assessments">
-            <form method="post" name="listAssessmentsForm"
-                    tal:attributes="action context/absolute_url">
-                <table id="assessment-listing" class="listing">
-                    <tr>
-                        <th></th>
-                        <th i18n:translate="label_assessment_name">Assessment name</th>
+                <table class="listing admin-table">
+                    <tr> 
+                        <th i18n:translate="label_assessment_name">Assessment</th>
                         <th i18n:translate="label_assessment_date">Date</th>
+                        <th i18n:translate="label_edit">Edit</th>
+                        <th i18n:translate="label_delete">Delete</th>
                         <th i18n:translate="label_assessment_pdf">Assessment PDF</th>
                         <th i18n:translate="label_evaluationsheet_pdf">Evaluation Sheet PDF</th>
                         <th i18n:translate="label_teacherinfo_pdf">Teacher Info PDF</th>
                     </tr>
                     <tr tal:repeat="assessment view/assessments">
-                        <td>
-                            <tal:is_editable tal:condition="python:assessment.getObject().is_editable()">                
-                                <input type="checkbox" name="paths:list" class="noborder"
-                                tal:attributes="title string:Select ${assessment/Title};
-                                                alt string:Select ${assessment/Title};
-                                                value assessment/getPath;
-                                                id string:cb_${assessment/getId}">
-                            </tal:is_editable>
-                        </td>
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
                         <td tal:content="python:assessment.created.strftime('%d %B %Y')"></td>
+                        <td>
+                            <tal:is_editable tal:condition="python:assessment.getObject().is_editable()"> 
+                                <div class="edit-anchor">
+                                    <a class="pencil edit_link" tal:attributes="href string:${assessment/getURL}/edit"></a>
+                                </div>               
+                            </tal:is_editable>
+                        </td>
+                        <td>
+                            <tal:is_editable tal:condition="python:assessment.getObject().is_editable()">                
+                                <div class="delete-anchor">
+                                    <a class="trashcan edit_link" tal:attributes="href string:${assessment/getURL}/delete_confirmation"></a>
+                                </div>
+                            </tal:is_editable>
+                        </td>
                         <td></td>
                         <td>
                             <div class="pdf-anchor">
@@ -54,14 +58,19 @@
                             </div>
                         </td>
                         <td></td>
-                    </tr>
+                    </tr>  
                 </table>
-                <input type="submit" value="Delete" name="folder_delete:method" class="context" i18n:attributes="value">
-                <input type="hidden" name="orig_template" value="assessments"/>
-                <input tal:replace="structure context/@@authenticator/authenticator" />
-            </form>
         </tal:listing>
         </div>
+
+
+
+
+
+
+
+
+
 
     </metal:main>
 </body>

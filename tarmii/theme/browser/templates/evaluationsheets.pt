@@ -21,31 +21,25 @@
 
         <div id="div-evaluationsheet-listing">
         <tal:listing tal:condition="view/evaluationsheets">
-            <form method="post" name="listEvaluationSheetsForm"
-                    tal:attributes="action context/absolute_url">
-                <table id="evaluationsheet-listing" class="listing">
-                    <tr>
-                        <th></th>
+                <table class="listing admin-table">
+                    <tr> 
                         <th i18n:translate="heading_assessment">Assessment</th>
                         <th i18n:translate="heading_classlist">Class list</th>
+                        <th i18n:translate="label_delete">Delete</th>
                         <th></th>
                     </tr>
                     <tr tal:repeat="evaluationsheet view/evaluationsheets">
-                        <td><input type="checkbox" name="paths:list" class="noborder"
-                            tal:attributes="title string:Select ${evaluationsheet/Title};
-                                            alt string:Select ${evaluationsheet/Title};
-                                            value evaluationsheet/getPath;
-                                            id string:cb_${evaluationsheet/getId}"></td>
                         <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
                         <td tal:content="python:evaluationsheet.getObject().classlist.to_object.title"></td>
-                        <td><a tal:attributes="href python:evaluationsheet.getObject().absolute_url()" 
+                        <td>
+                            <div class="delete-anchor">
+                               <a class="trashcan edit_link" tal:attributes="href string:${evaluationsheet/getURL}/delete_confirmation"></a>
+                            </div>
+                        </td>
+                        <td><a tal:attributes="href python:evaluationsheet.getObject().absolute_url()"
                                i18n:translate="label_view">View</a></td>
                     </tr>
                 </table>
-                <input type="submit" value="Delete" name="folder_delete:method" class="context" i18n:attributes="value">
-                <input type="hidden" name="orig_template" value="evaluationsheets"/>
-                <input tal:replace="structure context/@@authenticator/authenticator" />
-            </form>
         </tal:listing>
         </div>
 
