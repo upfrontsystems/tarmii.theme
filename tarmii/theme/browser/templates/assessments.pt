@@ -32,7 +32,8 @@
                         <th i18n:translate="label_assessment_name">Assessment name</th>
                         <th i18n:translate="label_assessment_date">Date</th>
                         <th i18n:translate="label_assessment_pdf">Assessment PDF</th>
-                        <th i18n:translate="label_memo_pdf">Memo PDF</th>
+                        <th i18n:translate="label_evaluationsheet_pdf">Evaluation Sheet PDF</th>
+                        <th i18n:translate="label_teacherinfo_pdf">Teacher Info PDF</th>
                     </tr>
                     <tr tal:repeat="assessment view/assessments">
                         <td>
@@ -46,6 +47,7 @@
                         </td>
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
                         <td tal:content="python:assessment.created.strftime('%d %B %Y')"></td>
+                        <td></td>
                         <td>
                             <div class="pdf-anchor">
                                 <a class="pdf-small edit_link" tal:attributes="href string:${assessment/getURL}/select-classlist-for-evaluationsheet-pdf"></a>

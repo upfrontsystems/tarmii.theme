@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-20 18:33+0000\n"
+"POT-Creation-Date: 2013-03-21 09:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Define the url where the logs can be uploaded."
 msgstr ""
 
-#: ./browser/templates/assessments.pt:57
+#: ./browser/templates/assessments.pt:59
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr ""
@@ -660,6 +660,11 @@ msgstr ""
 msgid "label_email"
 msgstr ""
 
+#. Default: "Evaluation Sheet PDF"
+#: ./browser/templates/assessments.pt:35
+msgid "label_evaluationsheet_pdf"
+msgstr ""
+
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:93
 #: ./browser/templates/custom-assessment-view.pt:69
@@ -684,11 +689,6 @@ msgstr ""
 #. Default: "${medialabel} Quick Upload"
 #: ./browser/custom_quick_upload.py:95
 msgid "label_media_quickupload"
-msgstr ""
-
-#. Default: "Memo PDF"
-#: ./browser/templates/assessments.pt:35
-msgid "label_memo_pdf"
 msgstr ""
 
 #. Default: "Cell phone"
@@ -719,6 +719,11 @@ msgstr ""
 #. Default: "Resource"
 #: ./browser/templates/resources.pt:81
 msgid "label_resource"
+msgstr ""
+
+#. Default: "Teacher Info PDF"
+#: ./browser/templates/assessments.pt:36
+msgid "label_teacherinfo_pdf"
 msgstr ""
 
 #. Default: "Topic Tree"

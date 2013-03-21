@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-20 18:33+0000\n"
-"PO-Revision-Date: 2013-03-20 20:35+0200\n"
+"POT-Creation-Date: 2013-03-21 09:23+0000\n"
+"PO-Revision-Date: 2013-03-21 11:25+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -141,7 +141,7 @@ msgstr "Dra jou eie aktiwiteit by"
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
 
-#: ./browser/templates/assessments.pt:57
+#: ./browser/templates/assessments.pt:59
 #: ./browser/templates/evaluationsheets.pt:45
 msgid "Delete"
 msgstr "Verwyder"
@@ -657,6 +657,11 @@ msgstr "Redigeer"
 msgid "label_email"
 msgstr "E-pos"
 
+#. Default: "Evaluation Sheet PDF"
+#: ./browser/templates/assessments.pt:35
+msgid "label_evaluationsheet_pdf"
+msgstr "Evalueringsblad PDF"
+
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:93
 #: ./browser/templates/custom-assessment-view.pt:69
@@ -682,11 +687,6 @@ msgstr "Laaste aanmelding tyd"
 #: ./browser/custom_quick_upload.py:95
 msgid "label_media_quickupload"
 msgstr "${medialabel} Vinnig Oplaai"
-
-#. Default: "Memo PDF"
-#: ./browser/templates/assessments.pt:35
-msgid "label_memo_pdf"
-msgstr "Memo PDF"
 
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
@@ -717,6 +717,11 @@ msgstr "Verwyder van assesserng"
 #: ./browser/templates/resources.pt:81
 msgid "label_resource"
 msgstr "Hulbron"
+
+#. Default: "Teacher Info PDF"
+#: ./browser/templates/assessments.pt:36
+msgid "label_teacherinfo_pdf"
+msgstr "Onderwyser Informasie PDF"
 
 #. Default: "Topic Tree"
 #: ./browser/templates/topictrees.pt:25
