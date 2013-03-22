@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-21 19:50+0000\n"
-"PO-Revision-Date: 2013-03-21 21:52+0200\n"
+"POT-Creation-Date: 2013-03-22 08:29+0000\n"
+"PO-Revision-Date: 2013-03-22 10:32+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -462,6 +462,11 @@ msgstr "Skep Profil"
 msgid "heading_assessment"
 msgstr "Assessering"
 
+#. Default: "Assessment Task"
+#: ./browser/templates/assessment-pdf.pt:101
+msgid "heading_assessment_pdf"
+msgstr "Assessering Taak"
+
 #. Default: "Class list"
 #: ./browser/templates/evaluationsheets.pt:27
 msgid "heading_classlist"
@@ -481,6 +486,11 @@ msgstr "Provinsies:"
 #: ./browser/templates/teacherprofiles.pt:25
 msgid "heading_schools"
 msgstr "Skole:"
+
+#. Default: "Score Sheet for"
+#: ./browser/templates/scoresheet-pdf.pt:100
+msgid "heading_scoresheet_pdf"
+msgstr "Verslagsblad vir "
 
 #. Default: "Assessment PDF"
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
@@ -634,6 +644,11 @@ msgstr "Klaslys"
 msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
+#. Default: "Date"
+#: ./browser/templates/assessment-pdf.pt:114
+msgid "label_date"
+msgstr "Datum"
+
 #. Default: "Delete"
 #: ./browser/templates/assessments.pt:32
 #: ./browser/templates/classlists.pt:31
@@ -674,6 +689,11 @@ msgstr "Terugvoer"
 msgid "label_fullname"
 msgstr "Volle naam"
 
+#. Default: "Grade"
+#: ./browser/templates/assessment-pdf.pt:111
+msgid "label_grade"
+msgstr "Graad"
+
 #. Default: "How to"
 #: ./browser/templates/videos.pt:18
 msgid "label_how_to"
@@ -686,7 +706,13 @@ msgstr "Laaste aanmelding tyd"
 
 #. Default: "Learner Name"
 #: ./browser/templates/evaluationsheet-pdf.pt:108
+#: ./browser/templates/scoresheet-pdf.pt:108
 msgid "label_learner_name"
+msgstr "Leerder Naam"
+
+#. Default: "Learner Name"
+#: ./browser/templates/assessment-pdf.pt:105
+msgid "label_learner_name_colon"
 msgstr "Leerder Naam"
 
 #. Default: "${medialabel} Quick Upload"
@@ -724,10 +750,20 @@ msgstr "Verwyder van assesserng"
 msgid "label_resource"
 msgstr "Hulbron"
 
+#. Default: "School Name"
+#: ./browser/templates/assessment-pdf.pt:108
+msgid "label_school_name"
+msgstr "Skool Naam"
+
 #. Default: "Teacher Info PDF"
 #: ./browser/templates/assessments.pt:35
 msgid "label_teacherinfo_pdf"
 msgstr "Onderwyser Informasie PDF"
+
+#. Default: "Term"
+#: ./browser/templates/assessment-pdf.pt:112
+msgid "label_term"
+msgstr "Termyn"
 
 #. Default: "Topic Tree"
 #: ./browser/templates/topictrees.pt:25
