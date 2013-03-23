@@ -34,18 +34,22 @@
             margin-top: 0cm;
             padding-top: 0cm;
             margin-bottom: 0cm;
-            padding-bottom: 0cm;
-            
+            padding-bottom: 0cm;            
         }
 
         table.frontpage,
         div.activities {
             margin-left: 1cm;
             margin-right: 1cm;
+            page-break-after: always;
         }
 
-        table.frontpage td {
-            line-height: 3em;
+
+        table.frontpage td,
+        table.frontpage th {
+            padding: 2px 0 1px 0;
+            margin: 0px;
+            text-align: center;
         }
 
         table.frontpage td:first-child {
@@ -67,12 +71,12 @@
             margin-left: 1cm;
             margin-right: 1cm;
             text-align: center;
+            page-break-after: always;
         }
         /* The default style */
         @page {
             @frame {
                 margin: 2cm;
-                -pdf-frame-border: 1;
             }
             @frame footer {
                 -pdf-frame-content: footerContent;
@@ -98,8 +102,9 @@
 <body>
     <pdf:spacer height="1cm">
 
-    <h1 class="mainheader"><span i18n:translate="heading_teacher_info_pdf">Teacher Information</span>
+    <h1 class="mainheader"><span i18n:translate="heading_assessment_pdf">Assessment Task</span>
     </h1>
+    <div>&nbsp;</div>
 
     <div class="learner-info">
         <h3><span i18n:translate="label_school_name">School Name</span>
@@ -114,15 +119,30 @@
         <h3><span i18n:translate="label_subject">Subject</span>
             <span> : _________________________________________________</span>
         </h3>
-        <h3><span i18n:translate="label_language_components">Language Components</span>
+        <h3><span i18n:translate="label_language_components">Language Component(s)</span>
             <span> : ____________________________________</span>
         </h3>
 
     </div>
  
     <div>&nbsp;</div>
-
-
+    <div>
+        <table border="1" class="frontpage">
+            <tr>
+               <th></th>
+               <div tal:repeat="activity view/activities">
+                    <th><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></th>
+                </div>
+            </tr>
+            <tr tal:repeat="topictree view/topictrees">
+                <td tal:content="topictree/title">
+                </td>
+                <div tal:repeat="activity view/activities">
+                    <th></th>
+                </div>
+            </tr>
+        </table>
+    </div>
 
     <div id="pageNumber">
         <pdf:pagenumber>

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-22 08:29+0000\n"
+"POT-Creation-Date: 2013-03-23 18:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -467,6 +467,7 @@ msgstr ""
 
 #. Default: "Assessment Task"
 #: ./browser/templates/assessment-pdf.pt:101
+#: ./browser/templates/teacher-info-pdf.pt:105
 msgid "heading_assessment_pdf"
 msgstr ""
 
@@ -476,7 +477,7 @@ msgid "heading_classlist"
 msgstr ""
 
 #. Default: "Evaluation Sheet for"
-#: ./browser/templates/evaluationsheet-pdf.pt:102
+#: ./browser/templates/evaluationsheet-pdf.pt:100
 msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
@@ -648,6 +649,7 @@ msgstr ""
 
 #. Default: "Date"
 #: ./browser/templates/assessment-pdf.pt:114
+#: ./browser/templates/teacher-info-pdf.pt:113
 msgid "label_date"
 msgstr ""
 
@@ -693,6 +695,7 @@ msgstr ""
 
 #. Default: "Grade"
 #: ./browser/templates/assessment-pdf.pt:111
+#: ./browser/templates/teacher-info-pdf.pt:116
 msgid "label_grade"
 msgstr ""
 
@@ -701,13 +704,18 @@ msgstr ""
 msgid "label_how_to"
 msgstr ""
 
+#. Default: "Language Component(s)"
+#: ./browser/templates/teacher-info-pdf.pt:122
+msgid "label_language_components"
+msgstr ""
+
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner Name"
-#: ./browser/templates/evaluationsheet-pdf.pt:108
+#: ./browser/templates/evaluationsheet-pdf.pt:106
 #: ./browser/templates/scoresheet-pdf.pt:108
 msgid "label_learner_name"
 msgstr ""
@@ -754,7 +762,13 @@ msgstr ""
 
 #. Default: "School Name"
 #: ./browser/templates/assessment-pdf.pt:108
+#: ./browser/templates/teacher-info-pdf.pt:110
 msgid "label_school_name"
+msgstr ""
+
+#. Default: "Subject"
+#: ./browser/templates/teacher-info-pdf.pt:119
+msgid "label_subject"
 msgstr ""
 
 #. Default: "Teacher Info PDF"
@@ -764,6 +778,7 @@ msgstr ""
 
 #. Default: "Term"
 #: ./browser/templates/assessment-pdf.pt:112
+#: ./browser/templates/teacher-info-pdf.pt:117
 msgid "label_term"
 msgstr ""
 
