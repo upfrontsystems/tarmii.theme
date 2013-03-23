@@ -61,7 +61,11 @@
                                 <a class="pdf-small edit_link" tal:attributes="href string:${assessment/getURL}/select-classlist-for-evaluationsheet-pdf"></a>
                             </div>
                         </td>
-                        <td></td>
+                        <td>
+                            <div class="pdf-anchor">
+                                <a class="pdf-small" tal:attributes="href string:${assessment/getURL}/@@teacher-info-pdf"></a>
+                            </div>
+                        </td>
                     </tr>  
                 </table>
         </tal:listing>

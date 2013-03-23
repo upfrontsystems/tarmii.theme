@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      lang="en">
+<head>
+    <base tal:attributes="href string:${here/portal_url}/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <span tal:replace='structure string:<style>'/>
+        <!-- Style for draft -->
+        body{
+            font-size:12pt;
+        }
+
+        h1.mainheader{
+            font-size:160%;
+            font-weight:bold;
+            text-decoration:underline;
+            text-align:center;
+        }
+        h2.questionheader{
+            font-size:120%;
+            font-weight:bold;
+            margin-bottom: 0cm;
+            padding-bottom: 0cm;
+        }
+
+        .questionoption{
+            font-size:10pt;
+            font-weight:bold;
+        }
+
+        p{
+            font-size: 10pt;
+            margin-top: 0cm;
+            padding-top: 0cm;
+            margin-bottom: 0cm;
+            padding-bottom: 0cm;
+            
+        }
+
+        table.frontpage,
+        div.activities {
+            margin-left: 1cm;
+            margin-right: 1cm;
+        }
+
+        table.frontpage td {
+            line-height: 3em;
+        }
+
+        table.frontpage td:first-child {
+            width: 35%;
+        }
+
+        div#footerContent h3 {
+            text-align: center;
+        }
+
+        div#pageNumber {
+            text-align: center;
+        }
+
+        div.itemnumber {
+            margin-left: -1cm;
+        }
+        div.learner-info {
+            margin-left: 1cm;
+            margin-right: 1cm;
+            text-align: center;
+        }
+        /* The default style */
+        @page {
+            @frame {
+                margin: 2cm;
+                -pdf-frame-border: 1;
+            }
+            @frame footer {
+                -pdf-frame-content: footerContent;
+                margin-left: 3cm;
+                margin-right: 3cm;
+                height: 5cm;
+                bottom: 2cm;
+            }
+        }
+        @page notfirst {
+            top: 1cm;
+            left: 2cm;
+            right: 1cm;
+            bottom: 2cm;
+            @frame footer {
+                -pdf-frame-content: pageNumber;
+                height: 1cm;
+                bottom: 1cm;
+            }
+        }
+    <span tal:replace='structure string:</style>'/>
+</head>
+<body>
+    <pdf:spacer height="1cm">
+
+    <h1 class="mainheader"><span i18n:translate="heading_teacher_info_pdf">Teacher Information</span>
+    </h1>
+
+    <div class="learner-info">
+        <h3><span i18n:translate="label_school_name">School Name</span>
+            <span> : ____________________________________________</span>
+        </h3>
+        <h3><span i18n:translate="label_date">Date</span>
+            <span> : ___________________________________________________</span>
+        </h3>
+        <h3><span i18n:translate="label_grade">Grade</span><span> : _____________________</span>
+            <span i18n:translate="label_term">Term</span><span> : ______________________</span>
+        </h3>
+        <h3><span i18n:translate="label_subject">Subject</span>
+            <span> : _________________________________________________</span>
+        </h3>
+        <h3><span i18n:translate="label_language_components">Language Components</span>
+            <span> : ____________________________________</span>
+        </h3>
+
+    </div>
+ 
+    <div>&nbsp;</div>
+
+
+
+    <div id="pageNumber">
+        <pdf:pagenumber>
+    </div>
+</body>
+</html>
