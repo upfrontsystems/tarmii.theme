@@ -3,6 +3,7 @@ from xhtml2pdf import pisa
 
 from five import grok
 from zope.interface import Interface
+from zope.component.hooks import getSite
 from plone.app.uuid.utils import uuidToObject
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
@@ -204,4 +205,51 @@ class ScoreSheetPDF(grok.View):
             activity_entry = []
 
         return data
+
+
+class TeacherInformationPDF(grok.View):
+    """ Teacher Information PDF view
+    """
+    grok.context(IAssessment)
+    grok.name('teacher-info-pdf')
+    grok.template('teacher-info-pdf')
+    grok.require('cmf.ModifyPortalContent')
+
+    def __call__(self):
+        pdf = StringIO()
+        html = StringIO(self._render_template())
+
+        # Construct a trojan horse and hide context inside it
+        path = ContextString(self.context.absolute_url())
+        path.context = self.context
+
+        # Generate the pdf
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        self.request.response.setHeader("Content-Disposition",
+                                        "attachment; filename=%s.pdf" % 
+                                         self.context.id)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent
+
+    def activities(self):
+        """ Return all the activities that this assessment references
+        """
+        return [x.to_object for x in self.context.assessment_items]
+
+    def topictrees(self):
+        """ Return all the topic trees in the system
+        """
+        contentFilter={'portal_type': 'collective.topictree.topictree'}
+        self.topictrees = getSite().topictrees
+        return [x.getObject()\
+                    for x in self.topictrees.getFolderContents(contentFilter)]
 
