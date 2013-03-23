@@ -121,7 +121,7 @@
     <hr class="item-separator"/>
     <div class="activities"
          tal:repeat="item view/activities">
-        <h1 tal:content="item/id"></h1>
+        <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
         </div>
