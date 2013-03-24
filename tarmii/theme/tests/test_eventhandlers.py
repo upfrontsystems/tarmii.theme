@@ -20,8 +20,8 @@ class TestEventhandlers(TarmiiThemeTestBase):
         path = os.path.join(testpath,'test_fakevideo.flv')
         video_data = open(path,'rb')
 
-        self.videos.invokeFactory('File', 'vid1', title='Vid1')
-        self.vid1 = self.videos._getOb('vid1')
+        self.videos_howto.invokeFactory('File', 'vid1', title='Vid1')
+        self.vid1 = self.videos_howto._getOb('vid1')
         self.vid1.data=video_data.read()
         notify(ObjectModifiedEvent(self.vid1))
         video_data.close() 
@@ -42,22 +42,22 @@ class TestEventhandlers(TarmiiThemeTestBase):
         path = os.path.join(testpath,'test_video.flv')
         video_data = open(path,'rb')
 
-        self.videos.invokeFactory('File', 'vid2', title='Vid2')
-        self.vid2 = self.videos._getOb('vid2')
+        self.videos_howto.invokeFactory('File', 'vid2', title='Vid2')
+        self.vid2 = self.videos_howto._getOb('vid2')
         self.vid2.data=video_data.read()
         notify(ObjectModifiedEvent(self.vid2))
         video_data.close()
 
-        contentFilter = {"portal_type" : "Image"}
+        cFilter = {"portal_type" : "Image"}
         # 2 thumbnails that are in base.py
-        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),2)
+        self.assertEqual(len(self.videos_howto.getFolderContents(cFilter)),2)
 
         on_video_added(self.vid2, None)
         
         #assert that another thumbnail has been created
-        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),3)
+        self.assertEqual(len(self.videos_howto.getFolderContents(cFilter)),3)
        
-        thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
+        thumb = self.videos_howto.getFolderContents(cFilter)[2].getObject()
         self.assertEqual(thumb.id,'vid2-thumb')
 
 
@@ -67,29 +67,29 @@ class TestEventhandlers(TarmiiThemeTestBase):
         testpath = os.path.dirname(__file__)
         path = os.path.join(testpath,'test_video.flv')
         video_data = open(path,'rb')
-        self.videos.invokeFactory('File', 'vid2', title='Vid2')
-        self.vid2 = self.videos._getOb('vid2')
+        self.videos_howto.invokeFactory('File', 'vid2', title='Vid2')
+        self.vid2 = self.videos_howto._getOb('vid2')
         self.vid2.data=video_data.read()
         notify(ObjectModifiedEvent(self.vid2))
         video_data.close()
-        contentFilter = {"portal_type" : "Image"}
+        cFilter = {"portal_type" : "Image"}
         # 2 thumbnails that are in base.py
-        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),2)
+        self.assertEqual(len(self.videos_howto.getFolderContents(cFilter)),2)
         on_video_added(self.vid2, None)        
         # assert that another thumbnail has been created
-        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),3)       
-        thumb = self.videos.getFolderContents(contentFilter)[2].getObject()
+        self.assertEqual(len(self.videos_howto.getFolderContents(cFilter)),3)       
+        thumb = self.videos_howto.getFolderContents(cFilter)[2].getObject()
         self.assertEqual(thumb.id,'vid2-thumb')
 
         # delete the thumbnail of self.vid2
         on_video_deleted(self.vid2, None)
         # thumbnail has been deleted - only 2 thumbnails remain
-        self.assertEqual(len(self.videos.getFolderContents(contentFilter)),2)
-        ref = [x.id for x in self.videos.getFolderContents(contentFilter)]
+        self.assertEqual(len(self.videos_howto.getFolderContents(cFilter)),2)
+        ref = [x.id for x in self.videos_howto.getFolderContents(cFilter)]
         self.assertEqual(ref,['vid1thumb','vid2thumb'])
         # self.vid2 has not been deleted because the eventhandler only deletes
         # the thumbnail
-        self.assertEqual(self.videos.getFolderContents()[2].getObject(),
+        self.assertEqual(self.videos_howto.getFolderContents()[2].getObject(),
                          self.vid2)
 
     def test_on_user_initial_login(self):

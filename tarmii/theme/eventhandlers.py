@@ -83,7 +83,7 @@ def on_video_deleted(video, event):
             return
 
     # We only want to take action when a video file has being deleted
-    if video.aq_parent.id != 'videos' or video.portal_type != 'File':
+    if video.aq_parent.aq_parent.id != 'videos' or video.portal_type != 'File':
         return
 
     # find the corresponding thumbnail object

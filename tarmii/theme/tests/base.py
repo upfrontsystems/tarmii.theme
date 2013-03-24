@@ -56,6 +56,8 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.activities = self.portal.activities
         self.resources = self.portal.resources
         self.videos = self.portal.videos
+        self.videos_howto = self.portal.videos.howto
+        self.videos_pedagogic = self.portal.videos.pedagogic
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.intids = getUtility(IIntIds)
 
@@ -130,10 +132,10 @@ class TarmiiThemeTestBase(unittest.TestCase):
         notify(ObjectModifiedEvent(self.res2))
 
         # add 2 video thumbnails
-        self.videos.invokeFactory('Image','vid1thumb', title='Video1')
-        self.vid1thumb = self.videos._getOb('vid1thumb')
-        self.videos.invokeFactory('Image','vid2thumb', title='Video2')
-        self.vid2thumb = self.videos._getOb('vid2thumb')
+        self.videos_howto.invokeFactory('Image','vid1thumb', title='Video1')
+        self.vid1thumb = self.videos_howto._getOb('vid1thumb')
+        self.videos_howto.invokeFactory('Image','vid2thumb', title='Video2')
+        self.vid2thumb = self.videos_howto._getOb('vid2thumb')
 
 
         # allow member folders to be created
