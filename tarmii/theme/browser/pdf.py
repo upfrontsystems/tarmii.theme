@@ -68,11 +68,6 @@ class SelectClasslistForEvaluationPDF(grok.View):
     grok.require('cmf.ModifyPortalContent')
 
     #  __call__ calls update before generating the template
-    def view_url(self):
-        return '%s/select-classlist-for-evaluationsheet-pdf' %\
-               self.context.absolute_url()
-
-    #  __call__ calls update before generating the template
     def update(self, **kwargs):
 
         if self.request.form.has_key('buttons.select.classlist.submit'):
@@ -97,6 +92,10 @@ class SelectClasslistForEvaluationPDF(grok.View):
 
     def evaluation_sheet_pdf_path(self):
         return '%s/@@evaluationsheet-pdf' % self.context.absolute_url()
+
+    def view_url(self):
+        return '%s/select-classlist-for-evaluationsheet-pdf' %\
+               self.context.absolute_url()
 
 
 class EvaluationSheetPDF(grok.View):
