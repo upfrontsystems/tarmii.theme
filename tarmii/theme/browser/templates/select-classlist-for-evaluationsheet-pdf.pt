@@ -12,7 +12,7 @@
         <h3 i18n:translate="heading_select_classlist">Assessment PDF</h3>
         <br />
 
-        <form name="select-classlist-form" tal:attributes="action view/evaluation_sheet_pdf_path" method="post">
+        <form name="select-classlist-form" tal:attributes="action view/view_url" method="post">
                 
             <div id="formfield-choose-classlist" tal:condition="view/classlists">
                 <label for="formfield-choose-classlist" i18n:translate="label_choose_classlist">Choose classlist: </label>
@@ -28,6 +28,8 @@
             <div>
                 <input id="buttons-select-classlist-submit" name="buttons.select.classlist.submit"
                       value="Generate Report" type="submit" i18n:attributes="value">
+                <input id="buttons-select-classlist-cancel" name="buttons.select.classlist.cancel"
+                      value="Cancel" type="submit" i18n:attributes="value">
             </div>
  
         </form>
@@ -35,4 +37,5 @@
     </metal:main>
 </body>
 </html>
+
 

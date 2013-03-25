@@ -67,6 +67,26 @@ class SelectClasslistForEvaluationPDF(grok.View):
     grok.template('select-classlist-for-evaluationsheet-pdf')
     grok.require('cmf.ModifyPortalContent')
 
+    #  __call__ calls update before generating the template
+    def view_url(self):
+        return '%s/select-classlist-for-evaluationsheet-pdf' %\
+               self.context.absolute_url()
+
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+
+        if self.request.form.has_key('buttons.select.classlist.submit'):
+            classlist_uid = self.request['classlist_uid_selected']
+            # Redirect to evaluationsheet pdf
+            url = '%s/@@evaluationsheet-pdf?classlist_uid_selected=%s' %\
+                  (self.context.absolute_url(),classlist_uid)
+            return self.request.RESPONSE.redirect(url)
+
+        if self.request.form.has_key('buttons.select.classlist.cancel'):
+            # Redirect to the assessments listing
+            url = self.context.aq_parent.absolute_url()
+            return self.request.RESPONSE.redirect(url)
+
     def classlists(self):
         """ Return all the classlists in the current user's member folder
         """
