@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 08:56+0000\n"
+"POT-Creation-Date: 2013-03-26 14:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,27 +46,27 @@ msgstr ""
 msgid "Add Activities"
 msgstr ""
 
-#: ./browser/templates/activities.pt:16
+#: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr ""
 
-#: ./browser/templates/assessments.pt:16
+#: ./browser/templates/assessments.pt:19
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/templates/topictrees.pt:13
+#: ./browser/templates/topictrees.pt:16
 msgid "Add Topic Tree"
 msgstr ""
 
-#: ./browser/templates/classlists.pt:17
+#: ./browser/templates/classlists.pt:20
 msgid "Add class list"
 msgstr ""
 
-#: ./browser/templates/evaluationsheets.pt:13
+#: ./browser/templates/evaluationsheets.pt:16
 msgid "Add evaluation sheet"
 msgstr ""
 
-#: ./browser/templates/resources.pt:15
+#: ./browser/templates/resources.pt:18
 msgid "Add resource"
 msgstr ""
 
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
-#: ./browser/templates/activities.pt:23
+#: ./browser/templates/activities.pt:26
 msgid "Contribute own activity"
 msgstr ""
 
@@ -189,8 +189,8 @@ msgstr ""
 msgid "Files Quick Upload"
 msgstr ""
 
-#: ./browser/templates/activities.pt:57
-#: ./browser/templates/resources.pt:53
+#: ./browser/templates/activities.pt:60
+#: ./browser/templates/resources.pt:56
 msgid "Filter results"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "School Email"
 msgstr ""
 
-#: ./browser/templates/activities.pt:67
+#: ./browser/templates/activities.pt:70
 msgid "Search"
 msgstr ""
 
@@ -449,13 +449,18 @@ msgid "You don't have permission to add this content in this place."
 msgstr ""
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
-#: ./browser/templates/assessments.pt:12
+#: ./browser/templates/assessments.pt:15
 msgid "description_assesments"
 msgstr ""
 
 #. Default: "Here you can add new class lists or"
-#: ./browser/templates/classlists.pt:12
+#: ./browser/templates/classlists.pt:15
 msgid "description_classlists_add"
+msgstr ""
+
+#. Default: "Activities"
+#: ./browser/templates/activities.pt:11
+msgid "heading_activities"
 msgstr ""
 
 #. Default: "Add activity to assessment"
@@ -469,7 +474,7 @@ msgid "heading_add_user_form"
 msgstr ""
 
 #. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:26
+#: ./browser/templates/evaluationsheets.pt:29
 msgid "heading_assessment"
 msgstr ""
 
@@ -479,9 +484,24 @@ msgstr ""
 msgid "heading_assessment_pdf"
 msgstr ""
 
+#. Default: "Assessments"
+#: ./browser/templates/assessments.pt:11
+msgid "heading_assessments"
+msgstr ""
+
 #. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:27
+#: ./browser/templates/evaluationsheets.pt:30
 msgid "heading_classlist"
+msgstr ""
+
+#. Default: "Classlists"
+#: ./browser/templates/classlists.pt:11
+msgid "heading_classlists"
+msgstr ""
+
+#. Default: "Evaluations"
+#: ./browser/templates/evaluationsheets.pt:11
+msgid "heading_evaluations"
 msgstr ""
 
 #. Default: "Evaluation Sheet for"
@@ -520,6 +540,11 @@ msgstr ""
 msgid "heading_select_profile"
 msgstr ""
 
+#. Default: "Teacher Resources"
+#: ./browser/templates/resources.pt:11
+msgid "heading_teacher_resources"
+msgstr ""
+
 #. Default: "TEACHER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:12
 msgid "heading_teacherprofiles"
@@ -528,6 +553,16 @@ msgstr ""
 #. Default: "Teachers:"
 #: ./browser/templates/teacherprofiles.pt:35
 msgid "heading_teachers"
+msgstr ""
+
+#. Default: "Topic Trees"
+#: ./browser/templates/topictrees.pt:11
+msgid "heading_topic_trees"
+msgstr ""
+
+#. Default: "Videos"
+#: ./browser/templates/videos.pt:11
+msgid "heading_videos"
 msgstr ""
 
 #. Default: "This section allows you to use existing activites in your class room or create your own activities."
@@ -606,22 +641,22 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:103
+#: ./browser/templates/activities.pt:106
 msgid "label_addtoassessment"
 msgstr ""
 
 #. Default: "Date"
-#: ./browser/templates/assessments.pt:30
+#: ./browser/templates/assessments.pt:33
 msgid "label_assessment_date"
 msgstr ""
 
 #. Default: "Assessment"
-#: ./browser/templates/assessments.pt:29
+#: ./browser/templates/assessments.pt:32
 msgid "label_assessment_name"
 msgstr ""
 
 #. Default: "Assessment PDF"
-#: ./browser/templates/assessments.pt:33
+#: ./browser/templates/assessments.pt:36
 msgid "label_assessment_pdf"
 msgstr ""
 
@@ -646,7 +681,7 @@ msgid "label_choose_your_files_nodrag"
 msgstr ""
 
 #. Default: "Classlist"
-#: ./browser/templates/classlists.pt:29
+#: ./browser/templates/classlists.pt:32
 msgid "label_classlist"
 msgstr ""
 
@@ -662,8 +697,8 @@ msgid "label_date"
 msgstr ""
 
 #. Default: "Delete"
-#: ./browser/templates/assessments.pt:32
-#: ./browser/templates/classlists.pt:31
+#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/classlists.pt:34
 #: ./browser/templates/custom-assessmentitem-view.pt:47
 msgid "label_delete"
 msgstr ""
@@ -674,9 +709,9 @@ msgid "label_down"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:101
-#: ./browser/templates/assessments.pt:31
-#: ./browser/templates/classlists.pt:30
+#: ./browser/templates/activities.pt:104
+#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/classlists.pt:33
 msgid "label_edit"
 msgstr ""
 
@@ -686,12 +721,12 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Evaluation Sheet PDF"
-#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/assessments.pt:37
 msgid "label_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:105
+#: ./browser/templates/activities.pt:108
 #: ./browser/templates/custom-assessment-view.pt:69
 msgid "label_feedback"
 msgstr ""
@@ -708,7 +743,7 @@ msgid "label_grade"
 msgstr ""
 
 #. Default: "How to"
-#: ./browser/templates/videos.pt:18
+#: ./browser/templates/videos.pt:21
 msgid "label_how_to"
 msgstr ""
 
@@ -744,7 +779,7 @@ msgid "label_mobile"
 msgstr ""
 
 #. Default: "Pedagogic"
-#: ./browser/templates/videos.pt:32
+#: ./browser/templates/videos.pt:35
 msgid "label_pedagogic"
 msgstr ""
 
@@ -764,7 +799,7 @@ msgid "label_removefromassessment"
 msgstr ""
 
 #. Default: "Resource"
-#: ./browser/templates/resources.pt:81
+#: ./browser/templates/resources.pt:84
 msgid "label_resource"
 msgstr ""
 
@@ -775,7 +810,7 @@ msgid "label_school_name"
 msgstr ""
 
 #. Default: "Search for an activity :"
-#: ./browser/templates/activities.pt:63
+#: ./browser/templates/activities.pt:66
 msgid "label_search_activity"
 msgstr ""
 
@@ -785,7 +820,7 @@ msgid "label_subject"
 msgstr ""
 
 #. Default: "Teacher Info PDF"
-#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/assessments.pt:38
 msgid "label_teacherinfo_pdf"
 msgstr ""
 
@@ -796,7 +831,7 @@ msgid "label_term"
 msgstr ""
 
 #. Default: "Topic Tree"
-#: ./browser/templates/topictrees.pt:25
+#: ./browser/templates/topictrees.pt:28
 msgid "label_topictree"
 msgstr ""
 
@@ -816,9 +851,9 @@ msgid "label_username"
 msgstr ""
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:99
+#: ./browser/templates/activities.pt:102
 #: ./browser/templates/custom-assessment-view.pt:61
-#: ./browser/templates/evaluationsheets.pt:39
+#: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr ""
 
@@ -843,7 +878,7 @@ msgid "link_create_new_profile"
 msgstr ""
 
 #. Default: "import learners to an existing/new class list."
-#: ./browser/templates/classlists.pt:13
+#: ./browser/templates/classlists.pt:16
 msgid "link_importclasslist"
 msgstr ""
 
@@ -852,7 +887,7 @@ msgid "maximum file size is:"
 msgstr ""
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:77
+#: ./browser/templates/activities.pt:80
 msgid "message_activities_found"
 msgstr ""
 
@@ -882,22 +917,22 @@ msgid "message_no_activities_added"
 msgstr ""
 
 #. Default: "No activities found."
-#: ./browser/templates/activities.pt:81
+#: ./browser/templates/activities.pt:84
 msgid "message_no_activities_found"
 msgstr ""
 
 #. Default: "No assessments have been created yet."
-#: ./browser/templates/assessments.pt:22
+#: ./browser/templates/assessments.pt:25
 msgid "message_no_assesments_exist"
 msgstr ""
 
 #. Default: "No class lists have been created yet."
-#: ./browser/templates/classlists.pt:23
+#: ./browser/templates/classlists.pt:26
 msgid "message_no_classlists_exist"
 msgstr ""
 
 #. Default: "No evaluation sheets have been created yet."
-#: ./browser/templates/evaluationsheets.pt:19
+#: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
 msgstr ""
 
@@ -907,22 +942,22 @@ msgid "message_no_profiles_exist"
 msgstr ""
 
 #. Default: "No resources found in the system."
-#: ./browser/templates/resources.pt:22
+#: ./browser/templates/resources.pt:25
 msgid "message_no_resources"
 msgstr ""
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:19
+#: ./browser/templates/topictrees.pt:22
 msgid "message_no_topictrees_exist"
 msgstr ""
 
 #. Default: "No videos found in this category."
-#: ./browser/templates/videos.pt:60
+#: ./browser/templates/videos.pt:63
 msgid "message_no_videos"
 msgstr ""
 
 #. Default: "Resource(s) found"
-#: ./browser/templates/resources.pt:60
+#: ./browser/templates/resources.pt:63
 msgid "message_resources_found"
 msgstr ""
 

@@ -7,6 +7,9 @@
       lang="en">
 
 <body>
+    <metal:main fill-slot="content-title">
+        <h1 class="documentFirstHeading" i18n:translate="heading_assessments">Assessments</h1>
+    </metal:main>
     <metal:main fill-slot="content-core">
     
         <p i18n:translate="description_assesments">This section lists assessments created by you. Click on the name of the assessment to edit it.
@@ -70,15 +73,6 @@
                 </table>
         </tal:listing>
         </div>
-
-
-
-
-
-
-
-
-
 
     </metal:main>
 </body>

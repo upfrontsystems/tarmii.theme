@@ -7,6 +7,9 @@
       lang="en">
 
 <body>
+    <metal:main fill-slot="content-title">
+        <h1 class="documentFirstHeading" i18n:translate="heading_topic_trees">Topic Trees</h1>
+    </metal:main>
     <metal:main fill-slot="content-core">
     
         <form id="add-button-form" name="add-topictree-form" tal:attributes="action view/add_topictree_url">

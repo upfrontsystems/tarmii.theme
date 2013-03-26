@@ -7,6 +7,9 @@
       lang="en">
 
 <body>
+    <metal:main fill-slot="content-title">
+        <h1 class="documentFirstHeading" i18n:translate="heading_classlists">Classlists</h1>
+    </metal:main>
     <metal:main fill-slot="content-core">
     
         <span i18n:translate="description_classlists_add">Here you can add new class lists or </span>

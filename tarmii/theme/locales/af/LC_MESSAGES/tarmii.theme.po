@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 08:56+0000\n"
-"PO-Revision-Date: 2013-03-26 10:58+0200\n"
+"POT-Creation-Date: 2013-03-26 14:15+0000\n"
+"PO-Revision-Date: 2013-03-26 16:17+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,27 +43,27 @@ msgstr "Aktiwiteite"
 msgid "Add Activities"
 msgstr "Voeg Aktiwiteite by"
 
-#: ./browser/templates/activities.pt:16
+#: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr "Voeg Aktiwiteit by"
 
-#: ./browser/templates/assessments.pt:16
+#: ./browser/templates/assessments.pt:19
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
 
-#: ./browser/templates/topictrees.pt:13
+#: ./browser/templates/topictrees.pt:16
 msgid "Add Topic Tree"
 msgstr "Voeg Onderwerpboom by"
 
-#: ./browser/templates/classlists.pt:17
+#: ./browser/templates/classlists.pt:20
 msgid "Add class list"
 msgstr "Voeg Klaslys by"
 
-#: ./browser/templates/evaluationsheets.pt:13
+#: ./browser/templates/evaluationsheets.pt:16
 msgid "Add evaluation sheet"
 msgstr "Voeg evaluasievorm by"
 
-#: ./browser/templates/resources.pt:15
+#: ./browser/templates/resources.pt:18
 msgid "Add resource"
 msgstr "Voeg hulpbron by"
 
@@ -137,7 +137,7 @@ msgstr "Kontak Ons"
 msgid "Content/Concept/Skills Assessed"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
-#: ./browser/templates/activities.pt:23
+#: ./browser/templates/activities.pt:26
 msgid "Contribute own activity"
 msgstr "Dra jou eie aktiwiteit by"
 
@@ -186,8 +186,8 @@ msgstr "Lêer na bediener gestuur"
 msgid "Files Quick Upload"
 msgstr "Vinnige Lêers Oplaai"
 
-#: ./browser/templates/activities.pt:57
-#: ./browser/templates/resources.pt:53
+#: ./browser/templates/activities.pt:60
+#: ./browser/templates/resources.pt:56
 msgid "Filter results"
 msgstr "Filter resultate"
 
@@ -350,7 +350,7 @@ msgstr "Skool Kontak Nommer"
 msgid "School Email"
 msgstr "Skool Email"
 
-#: ./browser/templates/activities.pt:67
+#: ./browser/templates/activities.pt:70
 msgid "Search"
 msgstr "Soek"
 
@@ -446,14 +446,19 @@ msgid "You don't have permission to add this content in this place."
 msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
-#: ./browser/templates/assessments.pt:12
+#: ./browser/templates/assessments.pt:15
 msgid "description_assesments"
 msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die naam van die assessering om dit te redigeer."
 
 #. Default: "Here you can add new class lists or"
-#: ./browser/templates/classlists.pt:12
+#: ./browser/templates/classlists.pt:15
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
+
+#. Default: "Activities"
+#: ./browser/templates/activities.pt:11
+msgid "heading_activities"
+msgstr "Aktiwiteite"
 
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
@@ -466,7 +471,7 @@ msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
 #. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:26
+#: ./browser/templates/evaluationsheets.pt:29
 msgid "heading_assessment"
 msgstr "Assessering"
 
@@ -476,10 +481,25 @@ msgstr "Assessering"
 msgid "heading_assessment_pdf"
 msgstr "Assessering Taak"
 
+#. Default: "Assessments"
+#: ./browser/templates/assessments.pt:11
+msgid "heading_assessments"
+msgstr "Assesserings"
+
 #. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:27
+#: ./browser/templates/evaluationsheets.pt:30
 msgid "heading_classlist"
 msgstr "Klas lys"
+
+#. Default: "Classlists"
+#: ./browser/templates/classlists.pt:11
+msgid "heading_classlists"
+msgstr "Klaslyste"
+
+#. Default: "Evaluations"
+#: ./browser/templates/evaluationsheets.pt:11
+msgid "heading_evaluations"
+msgstr "Evaluerings"
 
 #. Default: "Evaluation Sheet for"
 #: ./browser/templates/evaluationsheet-pdf.pt:100
@@ -517,6 +537,11 @@ msgstr "Kies U Taal"
 msgid "heading_select_profile"
 msgstr "Kies U Profil"
 
+#. Default: "Teacher Resources"
+#: ./browser/templates/resources.pt:11
+msgid "heading_teacher_resources"
+msgstr "Onderwyser Hulpbronne"
+
 #. Default: "TEACHER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:12
 msgid "heading_teacherprofiles"
@@ -526,6 +551,16 @@ msgstr "ONDERWYSER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:35
 msgid "heading_teachers"
 msgstr "Onderwysers:"
+
+#. Default: "Topic Trees"
+#: ./browser/templates/topictrees.pt:11
+msgid "heading_topic_trees"
+msgstr "Onderwerp Bome"
+
+#. Default: "Videos"
+#: ./browser/templates/videos.pt:11
+msgid "heading_videos"
+msgstr "Videos"
 
 #. Default: "This section allows you to use existing activites in your class room or create your own activities."
 #: ./browser/templates/home.pt:38
@@ -603,22 +638,22 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:103
+#: ./browser/templates/activities.pt:106
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
 #. Default: "Date"
-#: ./browser/templates/assessments.pt:30
+#: ./browser/templates/assessments.pt:33
 msgid "label_assessment_date"
 msgstr "Datum"
 
 #. Default: "Assessment"
-#: ./browser/templates/assessments.pt:29
+#: ./browser/templates/assessments.pt:32
 msgid "label_assessment_name"
 msgstr "Assessering naam"
 
 #. Default: "Assessment PDF"
-#: ./browser/templates/assessments.pt:33
+#: ./browser/templates/assessments.pt:36
 msgid "label_assessment_pdf"
 msgstr "Assessering PDF"
 
@@ -643,7 +678,7 @@ msgid "label_choose_your_files_nodrag"
 msgstr "Kies jou lêers:"
 
 #. Default: "Classlist"
-#: ./browser/templates/classlists.pt:29
+#: ./browser/templates/classlists.pt:32
 msgid "label_classlist"
 msgstr "Klaslys"
 
@@ -659,8 +694,8 @@ msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Delete"
-#: ./browser/templates/assessments.pt:32
-#: ./browser/templates/classlists.pt:31
+#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/classlists.pt:34
 #: ./browser/templates/custom-assessmentitem-view.pt:47
 msgid "label_delete"
 msgstr "Werwyder"
@@ -671,9 +706,9 @@ msgid "label_down"
 msgstr "Skuif af"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:101
-#: ./browser/templates/assessments.pt:31
-#: ./browser/templates/classlists.pt:30
+#: ./browser/templates/activities.pt:104
+#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/classlists.pt:33
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -683,12 +718,12 @@ msgid "label_email"
 msgstr "E-pos"
 
 #. Default: "Evaluation Sheet PDF"
-#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/assessments.pt:37
 msgid "label_evaluationsheet_pdf"
 msgstr "Evalueringsblad PDF"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:105
+#: ./browser/templates/activities.pt:108
 #: ./browser/templates/custom-assessment-view.pt:69
 msgid "label_feedback"
 msgstr "Terugvoer"
@@ -705,7 +740,7 @@ msgid "label_grade"
 msgstr "Graad"
 
 #. Default: "How to"
-#: ./browser/templates/videos.pt:18
+#: ./browser/templates/videos.pt:21
 msgid "label_how_to"
 msgstr "Hoe om"
 
@@ -741,7 +776,7 @@ msgid "label_mobile"
 msgstr "Selfoon"
 
 #. Default: "Pedagogic"
-#: ./browser/templates/videos.pt:32
+#: ./browser/templates/videos.pt:35
 msgid "label_pedagogic"
 msgstr "Pedagogiese"
 
@@ -761,7 +796,7 @@ msgid "label_removefromassessment"
 msgstr "Verwyder van assesserng"
 
 #. Default: "Resource"
-#: ./browser/templates/resources.pt:81
+#: ./browser/templates/resources.pt:84
 msgid "label_resource"
 msgstr "Hulbron"
 
@@ -772,7 +807,7 @@ msgid "label_school_name"
 msgstr "Skool Naam"
 
 #. Default: "Search for an activity :"
-#: ./browser/templates/activities.pt:63
+#: ./browser/templates/activities.pt:66
 msgid "label_search_activity"
 msgstr "Soek vir 'n aktiwiteit :"
 
@@ -782,7 +817,7 @@ msgid "label_subject"
 msgstr "Vak"
 
 #. Default: "Teacher Info PDF"
-#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/assessments.pt:38
 msgid "label_teacherinfo_pdf"
 msgstr "Onderwyser Informasie PDF"
 
@@ -793,7 +828,7 @@ msgid "label_term"
 msgstr "Termyn"
 
 #. Default: "Topic Tree"
-#: ./browser/templates/topictrees.pt:25
+#: ./browser/templates/topictrees.pt:28
 msgid "label_topictree"
 msgstr "Onderwerp boom"
 
@@ -813,9 +848,9 @@ msgid "label_username"
 msgstr "Gebruikersnaam"
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:99
+#: ./browser/templates/activities.pt:102
 #: ./browser/templates/custom-assessment-view.pt:61
-#: ./browser/templates/evaluationsheets.pt:39
+#: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr "Sien"
 
@@ -840,7 +875,7 @@ msgid "link_create_new_profile"
 msgstr "Skep 'n nuwe profil"
 
 #. Default: "import learners to an existing/new class list."
-#: ./browser/templates/classlists.pt:13
+#: ./browser/templates/classlists.pt:16
 msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
 
@@ -849,7 +884,7 @@ msgid "maximum file size is:"
 msgstr "maksimum lêer grootte is:"
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:77
+#: ./browser/templates/activities.pt:80
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
@@ -879,22 +914,22 @@ msgid "message_no_activities_added"
 msgstr "Geen aktiwiteite is nog nie bygevoeg nie."
 
 #. Default: "No activities found."
-#: ./browser/templates/activities.pt:81
+#: ./browser/templates/activities.pt:84
 msgid "message_no_activities_found"
 msgstr "Geen aktiwiteite is gevind."
 
 #. Default: "No assessments have been created yet."
-#: ./browser/templates/assessments.pt:22
+#: ./browser/templates/assessments.pt:25
 msgid "message_no_assesments_exist"
 msgstr "Geen assesserings is nog geskep."
 
 #. Default: "No class lists have been created yet."
-#: ./browser/templates/classlists.pt:23
+#: ./browser/templates/classlists.pt:26
 msgid "message_no_classlists_exist"
 msgstr "Geen klaslyse is nog geskep."
 
 #. Default: "No evaluation sheets have been created yet."
-#: ./browser/templates/evaluationsheets.pt:19
+#: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
 msgstr "Geen evaluaringsblade is nog geskep."
 
@@ -904,22 +939,22 @@ msgid "message_no_profiles_exist"
 msgstr "Geen profile is nog geskep."
 
 #. Default: "No resources found in the system."
-#: ./browser/templates/resources.pt:22
+#: ./browser/templates/resources.pt:25
 msgid "message_no_resources"
 msgstr "Geen hulpbronne gevind in die stelsel."
 
 #. Default: "No topic trees have been created yet."
-#: ./browser/templates/topictrees.pt:19
+#: ./browser/templates/topictrees.pt:22
 msgid "message_no_topictrees_exist"
 msgstr "Geen onderwyser boome is nog geskep."
 
 #. Default: "No videos found in this category."
-#: ./browser/templates/videos.pt:60
+#: ./browser/templates/videos.pt:63
 msgid "message_no_videos"
 msgstr "Geen videos gevind in die stelsel."
 
 #. Default: "Resource(s) found"
-#: ./browser/templates/resources.pt:60
+#: ./browser/templates/resources.pt:63
 msgid "message_resources_found"
 msgstr "Hulpbronne gevind"
 

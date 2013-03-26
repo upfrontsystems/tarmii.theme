@@ -7,6 +7,9 @@
       lang="en">
 
 <body>
+    <metal:main fill-slot="content-title">
+        <h1 class="documentFirstHeading" i18n:translate="heading_activities">Activities</h1>
+    </metal:main>
     <metal:main fill-slot="content-core"
         tal:define="batch view/activities_batch">
     
