@@ -56,6 +56,18 @@
             <div>&nbsp;</div>
             <input class="allowMultiSubmit" type="submit" value="Filter results" tal:attributes="action string:${here/absolute_url}" 
                    i18n:attributes="value">
+
+            <tal:user_is_admin condition="view/user_is_admin">
+                <br />
+                <br />
+                <label for="formfield-add-new-assessment" i18n:translate="label_search_activity">Search for an activity :</label>
+                <input id="buttons-search-activity-input" name="buttons.search.activity.input"
+                       class="text-widget required textline-field" type="text" i18n:attributes="value"
+                       tal:attributes="value view/search_value">
+                <input id="buttons-search-activity-submit" name="buttons.search.activity.submit"
+                       value="Search" type="submit" i18n:attributes="value">
+            </tal:user_is_admin>
+
         </form>
 
         <div>&nbsp;</div>
@@ -66,7 +78,7 @@
         </div>
         </tal:activities>
         <tal:noactivities tal:condition="not:view/activities">
-            <div i18n:translate="message_no_activities_exist">No activities have been created yet.</div>
+            <div i18n:translate="message_no_activities_found">No activities found.</div>
         </tal:noactivities>
 
         <tal:activities

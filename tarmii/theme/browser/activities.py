@@ -5,9 +5,12 @@ from AccessControl import getSecurityManager
 from zope.app.intid.interfaces import IIntIds
 from zope.component import getUtility
 from zope.interface import Interface
+from zope.container.interfaces import INameChooser
+
 from zc.relation.interfaces import ICatalog
-from plone.uuid.interfaces import IUUID
 from plone.app.uuid.utils import uuidToObject
+from plone.uuid.interfaces import IUUID
+from plone.i18n.normalizer.interfaces import IURLNormalizer
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.permissions import ManagePortal
@@ -81,7 +84,12 @@ class ActivitiesView(grok.View):
         """
         catalog = getToolByName(self.context, 'portal_catalog')
 
-        if len(self.topics) == 0:
+        if self.request.form.has_key('buttons.search.activity.submit'):
+            search_id = self.request.form['buttons.search.activity.input']
+            normalizer = getUtility(IURLNormalizer)
+            item_id = normalizer.normalize(str(search_id))
+            results = catalog(id=item_id)
+        elif len(self.topics) == 0:
             # no filter selected, show all options
             contentFilter = {
                 'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
@@ -113,3 +121,11 @@ class ActivitiesView(grok.View):
         """ Return number of activities that match current filter criteria
         """
         return len(self.activities())
+
+    def search_value(self):
+        """ Return the id of the activity that the user searched for
+        """
+        if self.request.form.has_key('buttons.search.activity.submit'):
+            return self.request.form['buttons.search.activity.input']
+        return ''
+

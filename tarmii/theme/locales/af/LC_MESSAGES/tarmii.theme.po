@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-23 18:15+0000\n"
-"PO-Revision-Date: 2013-03-23 20:15+0200\n"
+"POT-Creation-Date: 2013-03-26 08:56+0000\n"
+"PO-Revision-Date: 2013-03-26 10:58+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -87,6 +87,10 @@ msgstr "Elke gradering moet uniek wees."
 #: ./profiles/default/actions.xml
 msgid "Assessments"
 msgstr "Assesserings"
+
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:31
+msgid "Cancel"
+msgstr "Kanseleer"
 
 #: ./behaviors.py:101
 msgid "Categorization"
@@ -346,6 +350,10 @@ msgstr "Skool Kontak Nommer"
 msgid "School Email"
 msgstr "Skool Email"
 
+#: ./browser/templates/activities.pt:67
+msgid "Search"
+msgstr "Soek"
+
 #. Default: "Select Language"
 #: ./profiles/default/actions.xml
 msgid "Select Language"
@@ -595,7 +603,7 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:91
+#: ./browser/templates/activities.pt:103
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -606,7 +614,6 @@ msgstr "Datum"
 
 #. Default: "Assessment"
 #: ./browser/templates/assessments.pt:29
-#, fuzzy
 msgid "label_assessment_name"
 msgstr "Assessering naam"
 
@@ -664,7 +671,7 @@ msgid "label_down"
 msgstr "Skuif af"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:89
+#: ./browser/templates/activities.pt:101
 #: ./browser/templates/assessments.pt:31
 #: ./browser/templates/classlists.pt:30
 msgid "label_edit"
@@ -681,7 +688,7 @@ msgid "label_evaluationsheet_pdf"
 msgstr "Evalueringsblad PDF"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:93
+#: ./browser/templates/activities.pt:105
 #: ./browser/templates/custom-assessment-view.pt:69
 msgid "label_feedback"
 msgstr "Terugvoer"
@@ -704,7 +711,6 @@ msgstr "Hoe om"
 
 #. Default: "Language Component(s)"
 #: ./browser/templates/teacher-info-pdf.pt:122
-#, fuzzy
 msgid "label_language_components"
 msgstr "Taal Komponent(e)"
 
@@ -765,6 +771,11 @@ msgstr "Hulbron"
 msgid "label_school_name"
 msgstr "Skool Naam"
 
+#. Default: "Search for an activity :"
+#: ./browser/templates/activities.pt:63
+msgid "label_search_activity"
+msgstr "Soek vir 'n aktiwiteit :"
+
 #. Default: "Subject"
 #: ./browser/templates/teacher-info-pdf.pt:119
 msgid "label_subject"
@@ -802,7 +813,7 @@ msgid "label_username"
 msgstr "Gebruikersnaam"
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:87
+#: ./browser/templates/activities.pt:99
 #: ./browser/templates/custom-assessment-view.pt:61
 #: ./browser/templates/evaluationsheets.pt:39
 msgid "label_view"
@@ -838,7 +849,7 @@ msgid "maximum file size is:"
 msgstr "maksimum lêer grootte is:"
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:65
+#: ./browser/templates/activities.pt:77
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
@@ -867,10 +878,10 @@ msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
 msgid "message_no_activities_added"
 msgstr "Geen aktiwiteite is nog nie bygevoeg nie."
 
-#. Default: "No activities have been created yet."
-#: ./browser/templates/activities.pt:69
-msgid "message_no_activities_exist"
-msgstr "Geen aktiwiteite is nog geskep."
+#. Default: "No activities found."
+#: ./browser/templates/activities.pt:81
+msgid "message_no_activities_found"
+msgstr "Geen aktiwiteite is gevind."
 
 #. Default: "No assessments have been created yet."
 #: ./browser/templates/assessments.pt:22
