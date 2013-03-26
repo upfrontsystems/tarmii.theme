@@ -896,7 +896,7 @@ msgstr "Hierdie aktiwiteit is deur een of meer assesserings gebruik."
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
 #: ./browser/templates/custom-assessment-view.pt:22
 msgid "message_assessment_frozen"
-msgstr "Hierdie assessering word gebruik deur bestaande evaluaringsblad(e) en kan nie verander word nie."
+msgstr "Hierdie assessering word gebruik deur bestaande evalueringsblad(e) en kan nie verander word nie."
 
 #. Default: "Edit and Delete disabled"
 #: ./browser/templates/custom-assessmentitem-view.pt:40
@@ -931,7 +931,7 @@ msgstr "Geen klaslyse is nog geskep."
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
-msgstr "Geen evaluaringsblade is nog geskep."
+msgstr "Geen evalueringsblade is nog geskep."
 
 #. Default: "No profiles have been created yet."
 #: ./browser/templates/selectprofile.pt:29
