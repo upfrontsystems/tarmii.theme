@@ -19,7 +19,7 @@ $(function($) {
         closeselector: '[name="form.button.Cancel"]',
         });
 
-    $('a.add_to_assessment').prepOverlay({
+        $('a.add_to_assessment').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
@@ -37,4 +37,11 @@ $(function($) {
         closeselector: '[name="form.button.Cancel"]',
         });
 
+});
+
+// disable multi submit on add forms (save button)
+$(function() {
+    $("#form-buttons-save").live("click", function() {
+        $('.formControls').addClass('hidden');
+    });
 });

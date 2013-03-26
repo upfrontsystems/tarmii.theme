@@ -606,3 +606,8 @@ table.listing.admin-table th {
     vertical-align: middle;
 }
 
+.hidden {
+    display: none;
+}
+
+
