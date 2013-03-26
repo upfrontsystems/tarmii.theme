@@ -61,7 +61,7 @@ msgstr "Voeg Klaslys by"
 
 #: ./browser/templates/evaluationsheets.pt:16
 msgid "Add evaluation sheet"
-msgstr "Voeg evaluasievorm by"
+msgstr "Voeg evalueringsvorm by"
 
 #: ./browser/templates/resources.pt:18
 msgid "Add resource"
@@ -164,7 +164,7 @@ msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 #. Default: "Evaluations"
 #: ./profiles/default/actions.xml
 msgid "Evaluations"
-msgstr "Evaluasies"
+msgstr "Evaluerings"
 
 #: ./behaviors.py:68
 msgid "Excellent"
