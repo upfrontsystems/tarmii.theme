@@ -18,7 +18,7 @@
      <browser:page
             for="upfront.assessment.content.assessment.IAssessment"
             name="view"
-            class="tarmii.theme.browser.custom_assessment.View"
+            class="tarmii.theme.browser.assessment.View"
             permission="cmf.AddPortalContent"
             layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
@@ -26,7 +26,7 @@
      <browser:page
             for="upfront.assessmentitem.content.assessmentitem.IAssessmentItem"
             name="view"
-            class="tarmii.theme.browser.custom_assessmentitem.View"
+            class="tarmii.theme.browser.assessmentitem.View"
             permission="cmf.AddPortalContent"
             layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
