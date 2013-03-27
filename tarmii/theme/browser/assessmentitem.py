@@ -21,7 +21,7 @@ class View(dexterity.DisplayForm):
     grok.layer(ITARMIIThemeLayer)
     grok.context(IAssessmentItem)
     grok.require('zope2.View')
-    grok.template('custom-assessmentitem-view')
+    grok.template('assessmentitem-view')
 
     def assessmentitem(self):
         """ Return the currently selected assessmentitem id
