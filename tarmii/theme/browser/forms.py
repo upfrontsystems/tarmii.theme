@@ -37,14 +37,15 @@ class ActivityAddForm(dexterity.AddForm):
         """ Customize widget options before rendering the form. """
         super(ActivityAddForm, self).updateWidgets()
 
-        if 'IRating.rating_scale' in Set(self.widgets.keys()):
-            self.widgets['IRating.rating_scale'].field.default =\
-                [{'rating': 4,
-                  'label': self.context.translate(_(u'Excellent'))},
-                 {'rating': 3,
-                  'label': self.context.translate(_(u'Good'))},
-                 {'rating': 2,
-                  'label': self.context.translate(_(u'Satisfactory'))},
-                 {'rating': 1,
-                  'label': self.context.translate(_(u'Needs improvement'))}]
+        for x in range(len(self.groups)):
+            if 'IRating.rating_scale' in Set(self.groups[x].fields.keys()):            
+                self.groups[x].fields['IRating.rating_scale'].field.default =\
+                    [{'rating': 4,
+                      'label': self.context.translate(_(u'Excellent'))},
+                     {'rating': 3,
+                      'label': self.context.translate(_(u'Good'))},
+                     {'rating': 2,
+                      'label': self.context.translate(_(u'Satisfactory'))},
+                     {'rating': 1,
+                      'label': self.context.translate(_(u'Needs improvement'))}]
 
