@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-03-26 14:15+0000\n"
-"PO-Revision-Date: 2013-03-26 20:40+0200\n"
+"PO-Revision-Date: 2013-03-27 10:51+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -793,7 +793,7 @@ msgstr "Registreer"
 #. Default: "Remove from Assessment"
 #: ./browser/templates/custom-assessment-view.pt:66
 msgid "label_removefromassessment"
-msgstr "Verwyder van assesserng"
+msgstr "Verwyder van assessering"
 
 #. Default: "Resource"
 #: ./browser/templates/resources.pt:84
