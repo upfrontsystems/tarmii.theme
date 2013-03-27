@@ -129,3 +129,21 @@ class ActivitiesView(grok.View):
             return self.request.form['buttons.search.activity.input']
         return ''
 
+    def activity_not_used(self,activity):
+        """ Check if activity is used in any assessments.
+        """
+        catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
+
+        result = catalog.findRelations({
+            'to_id': intids.getId(activity),
+            'from_attribute': 'assessment_items'
+            })
+        try:
+            rel = result.next()
+            activity_unwrapped = rel.from_object
+        except StopIteration:
+            return True
+
+        return False
+

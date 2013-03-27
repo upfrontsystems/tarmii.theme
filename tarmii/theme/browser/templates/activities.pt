@@ -101,8 +101,10 @@
                         <div class="item-actions-left">
                             <a tal:attributes="href item/absolute_url"
                                i18n:translate="label_view">View</a>
-                            <a tal:attributes="href string:${item/absolute_url}/edit"
-                               i18n:translate="label_edit">Edit</a>
+                            <tal:activity_not_in_use tal:condition="python:view.activity_not_used(item)">
+                                <a tal:attributes="href string:${item/absolute_url}/edit"
+                                   i18n:translate="label_edit">Edit</a>
+                            </tal:activity_not_in_use>
                             <a class="add_to_assessment" tal:attributes="href string:${item/absolute_url}/@@add-to-assessment?activity_id=${item/id}" 
                                i18n:translate="label_addtoassessment">Add to Assessment</a>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
