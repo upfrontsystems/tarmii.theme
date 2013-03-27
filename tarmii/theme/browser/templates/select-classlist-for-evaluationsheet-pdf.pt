@@ -9,7 +9,7 @@
 <body>
     <metal:main fill-slot="main">
             
-        <h3 i18n:translate="heading_select_classlist">Assessment PDF</h3>
+        <h3 i18n:translate="label_evaluationsheet_pdf">Evaluation Sheet PDF</h3>
         <br />
 
         <form name="select-classlist-form" tal:attributes="action view/view_url" method="post">

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 14:15+0000\n"
+"POT-Creation-Date: 2013-03-27 11:44+0000\n"
 "PO-Revision-Date: 2013-03-27 10:51+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,23 +14,23 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tarmii.theme\n"
 
-#: ./browser/custom_quick_upload.py:369
+#: ./browser/quickupload.py:369
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/custom_quick_upload.py:370
+#: ./browser/quickupload.py:370
 msgid " uploads return an error."
 msgstr "oplaai rapporteer 'n fout."
 
-#: ./browser/templates/custom-assessmentitem-view.pt:33
+#: ./browser/templates/assessmentitem-view.pt:33
 msgid "${marks} marks"
 msgstr "${marks} punte"
 
-#: ./browser/templates/custom-assessmentitem-view.pt:34
+#: ./browser/templates/assessmentitem-view.pt:34
 msgid "${responsetime} mins"
 msgstr "${responsetime} minute"
 
-#: ./browser/custom_quick_upload.py:383
+#: ./browser/quickupload.py:383
 msgid "A data base conflict error happened when uploading this file:"
 msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 
@@ -39,7 +39,7 @@ msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 msgid "Activities"
 msgstr "Aktiwiteite"
 
-#: ./browser/templates/custom-assessment-view.pt:17
+#: ./browser/templates/assessment-view.pt:17
 msgid "Add Activities"
 msgstr "Voeg Aktiwiteite by"
 
@@ -67,19 +67,19 @@ msgstr "Voeg evaluasiesblad by"
 msgid "Add resource"
 msgstr "Voeg hulpbron by"
 
-#: ./browser/custom_quick_upload.py:366
+#: ./browser/quickupload.py:366
 msgid "Add video "
 msgstr "Voeg video by"
 
-#: ./browser/custom_quick_upload.py:368
+#: ./browser/quickupload.py:368
 msgid "All files uploaded with success."
 msgstr "Alle lêers het suksesvol opgelaai."
 
-#: ./behaviors.py:167
+#: ./behaviors.py:163
 msgid "All rating values must be positive and larger than zero."
 msgstr "Alle graderings moet positief en groter as nul wees."
 
-#: ./behaviors.py:170
+#: ./behaviors.py:166
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
@@ -92,7 +92,7 @@ msgstr "Assesserings"
 msgid "Cancel"
 msgstr "Kanseleer"
 
-#: ./behaviors.py:101
+#: ./behaviors.py:97
 msgid "Categorization"
 msgstr "Kategorisering"
 
@@ -100,27 +100,27 @@ msgstr "Kategorisering"
 msgid "Cell Phone Number"
 msgstr "Selfoonnommer"
 
-#: ./behaviors.py:36
+#: ./behaviors.py:35
 msgid "Check list"
 msgstr "Kontrolelys"
 
-#: ./browser/custom_quick_upload.py:306
+#: ./browser/quickupload.py:306
 msgid "Choose audio files to upload"
 msgstr "Kies die klanklêers om op te laai"
 
-#: ./browser/custom_quick_upload.py:320
+#: ./browser/quickupload.py:320
 msgid "Choose file for upload: ${ext}"
 msgstr "Kies die lêer om op te laai: ${ext}"
 
-#: ./browser/custom_quick_upload.py:309
+#: ./browser/quickupload.py:309
 msgid "Choose flash files to upload"
 msgstr "Kies die flash lêers om op te laai"
 
-#: ./browser/custom_quick_upload.py:300
+#: ./browser/quickupload.py:300
 msgid "Choose images to upload"
 msgstr "Kies die prente om op te laai"
 
-#: ./browser/custom_quick_upload.py:303
+#: ./browser/quickupload.py:303
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
@@ -133,7 +133,7 @@ msgstr "Klaslyste"
 msgid "Contact Us"
 msgstr "Kontak Ons"
 
-#: ./behaviors.py:117
+#: ./behaviors.py:113
 msgid "Content/Concept/Skills Assessed"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
@@ -145,7 +145,7 @@ msgstr "Dra jou eie aktiwiteit by"
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
 
-#: ./browser/custom_quick_upload.py:367
+#: ./browser/quickupload.py:367
 msgid "Drag and drop files to upload"
 msgstr "Sleep en los die lêers om op te laai"
 
@@ -157,7 +157,7 @@ msgstr "EMIS"
 msgid "Eastern Cape"
 msgstr "Oos-Kaap"
 
-#: ./behaviors.py:127
+#: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
@@ -166,11 +166,12 @@ msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 msgid "Evaluations"
 msgstr "Evaluasies"
 
-#: ./behaviors.py:68
+#: ./behaviors.py:67
+#: ./browser/forms.py:44
 msgid "Excellent"
 msgstr "Uitstekend"
 
-#: ./browser/custom_quick_upload.py:371
+#: ./browser/quickupload.py:371
 msgid "Failed"
 msgstr "Nie gewerk nie"
 
@@ -182,7 +183,7 @@ msgstr "Terugvoer"
 msgid "File sent to server"
 msgstr "Lêer na bediener gestuur"
 
-#: ./browser/custom_quick_upload.py:91
+#: ./browser/quickupload.py:91
 msgid "Files Quick Upload"
 msgstr "Vinnige Lêers Oplaai"
 
@@ -203,7 +204,8 @@ msgstr "Gauteng"
 msgid "Generate Report"
 msgstr "Genereer Verslag"
 
-#: ./behaviors.py:69
+#: ./behaviors.py:68
+#: ./browser/forms.py:46
 msgid "Good"
 msgstr "Goed"
 
@@ -212,11 +214,11 @@ msgstr "Goed"
 msgid "Home"
 msgstr "Tuis"
 
-#: ./browser/custom_quick_upload.py:93
+#: ./browser/quickupload.py:93
 msgid "Images Quick Upload"
 msgstr "Vinnige Prent Oplaai"
 
-#: ./behaviors.py:107
+#: ./behaviors.py:103
 msgid "Item ID"
 msgstr "Item ID"
 
@@ -224,7 +226,7 @@ msgstr "Item ID"
 msgid "Kwazulu-Natal"
 msgstr "Kwazulu-Natal"
 
-#: ./behaviors.py:51
+#: ./behaviors.py:50
 msgid "Label"
 msgstr "Etiket"
 
@@ -232,7 +234,7 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
-#: ./behaviors.py:112
+#: ./behaviors.py:108
 msgid "Learner Task/Activity"
 msgstr "Leerder Taak/Aktiwiteit"
 
@@ -248,7 +250,8 @@ msgstr "Boodskap"
 msgid "Mpumalanga"
 msgstr "Mpumalanga"
 
-#: ./behaviors.py:71
+#: ./behaviors.py:70
+#: ./browser/forms.py:50
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -272,11 +275,11 @@ msgstr "Noord-Kaap"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig van grondslagfase"
 
-#: ./behaviors.py:31
+#: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
-#: ./browser/custom_quick_upload.py:379
+#: ./browser/quickupload.py:379
 msgid "Only allowed:"
 msgstr "Slegs toegelaat:"
 
@@ -285,7 +288,7 @@ msgstr "Slegs toegelaat:"
 msgid "Personal Information"
 msgstr "Persoonlike Inligting"
 
-#: ./behaviors.py:122
+#: ./behaviors.py:118
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
@@ -301,15 +304,15 @@ msgstr "Provinsie"
 msgid "Qualification"
 msgstr "Kwalifikasie"
 
-#: ./behaviors.py:52
+#: ./behaviors.py:51
 msgid "Rating"
 msgstr "Gradering"
 
-#: ./behaviors.py:66
+#: ./behaviors.py:65
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./behaviors.py:86
+#: ./behaviors.py:82
 msgid "Related"
 msgstr "Verwant"
 
@@ -330,11 +333,12 @@ msgstr "Hulpbron Lêer"
 msgid "Resources"
 msgstr "Hulpbronne"
 
-#: ./behaviors.py:41
+#: ./behaviors.py:40
 msgid "Rubric"
 msgstr "Rubriek"
 
-#: ./behaviors.py:70
+#: ./behaviors.py:69
+#: ./browser/forms.py:48
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
@@ -359,11 +363,11 @@ msgstr "Soek"
 msgid "Select Language"
 msgstr "Kies U Taal"
 
-#: ./browser/custom_quick_upload.py:374
+#: ./browser/quickupload.py:374
 msgid "Selected elements contain an empty file or a folder:"
 msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 
-#: ./browser/custom_quick_upload.py:384
+#: ./browser/quickupload.py:384
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
@@ -379,27 +383,27 @@ msgstr "Onderwyser Hulpbron"
 msgid "The message body"
 msgstr "Die boodskap teks"
 
-#: ./behaviors.py:193
+#: ./behaviors.py:189
 msgid "This Item ID is already in use."
 msgstr "Hierdie Item ID is reeds gebruik."
 
-#: ./browser/custom_quick_upload.py:382
+#: ./browser/quickupload.py:382
 msgid "This file already exists with the same name on server:"
 msgstr "Hierdie lêer reeds bestaan met dieselfde naam op die bediener:"
 
-#: ./browser/custom_quick_upload.py:378
+#: ./browser/quickupload.py:378
 msgid "This file has invalid extension:"
 msgstr "Hierdie lêer het 'n ongeldige uitbreiding:"
 
-#: ./browser/custom_quick_upload.py:375
+#: ./browser/quickupload.py:375
 msgid "This file has no extension:"
 msgstr "Hierdie lêer het geen uitbreiding:"
 
-#: ./browser/custom_quick_upload.py:376
+#: ./browser/quickupload.py:376
 msgid "This file is too large:"
 msgstr "Hierdie lêer is te groot:"
 
-#: ./browser/custom_quick_upload.py:381
+#: ./browser/quickupload.py:381
 msgid "This type of element is not allowed in this folder."
 msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
 
@@ -424,11 +428,11 @@ msgstr "Oplaai bediener nie in instellings"
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr "Gebruik die onderstaande stellings om die tarmii remote server op te stel vir hierdie webwerf"
 
-#: ./behaviors.py:139
+#: ./behaviors.py:135
 msgid "Use with Activities"
 msgstr "Gebruik met Aktiwiteite"
 
-#: ./behaviors.py:145
+#: ./behaviors.py:141
 msgid "Use with Teacher Resources"
 msgstr "Gebruik met Onderwyser Hulpbronne"
 
@@ -441,7 +445,7 @@ msgstr "Videos"
 msgid "Western Cape"
 msgstr "Wes-Kaap"
 
-#: ./browser/custom_quick_upload.py:380
+#: ./browser/quickupload.py:380
 msgid "You don't have permission to add this content in this place."
 msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
 
@@ -520,11 +524,6 @@ msgstr "Skole:"
 #: ./browser/templates/scoresheet-pdf.pt:100
 msgid "heading_scoresheet_pdf"
 msgstr "Verslagsblad vir "
-
-#. Default: "Assessment PDF"
-#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
-msgid "heading_select_classlist"
-msgstr "Assessering PDF"
 
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
@@ -638,7 +637,7 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:106
+#: ./browser/templates/activities.pt:108
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -694,21 +693,21 @@ msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Delete"
+#: ./browser/templates/assessmentitem-view.pt:47
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
-#: ./browser/templates/custom-assessmentitem-view.pt:47
 msgid "label_delete"
 msgstr "Werwyder"
 
 #. Default: "Move down"
-#: ./browser/templates/custom-assessment-view.pt:57
+#: ./browser/templates/assessment-view.pt:57
 msgid "label_down"
 msgstr "Skuif af"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:104
-#: ./browser/templates/assessments.pt:34
-#: ./browser/templates/classlists.pt:33
+#: ./browser/templates/activities.pt:105
+#: ./browser/templates/assessment-view.pt:64
+#: ./browser/templates/assessmentitem-view.pt:45
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -719,12 +718,13 @@ msgstr "E-pos"
 
 #. Default: "Evaluation Sheet PDF"
 #: ./browser/templates/assessments.pt:37
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasiesblad PDF"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:108
-#: ./browser/templates/custom-assessment-view.pt:69
+#: ./browser/templates/activities.pt:110
+#: ./browser/templates/assessment-view.pt:69
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -766,7 +766,7 @@ msgid "label_learner_name_colon"
 msgstr "Leerder Naam"
 
 #. Default: "${medialabel} Quick Upload"
-#: ./browser/custom_quick_upload.py:95
+#: ./browser/quickupload.py:95
 msgid "label_media_quickupload"
 msgstr "${medialabel} Vinnig Oplaai"
 
@@ -791,7 +791,7 @@ msgid "label_register"
 msgstr "Registreer"
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/custom-assessment-view.pt:66
+#: ./browser/templates/assessment-view.pt:66
 msgid "label_removefromassessment"
 msgstr "Verwyder van assessering"
 
@@ -833,7 +833,7 @@ msgid "label_topictree"
 msgstr "Onderwerp boom"
 
 #. Default: "Move up"
-#: ./browser/templates/custom-assessment-view.pt:53
+#: ./browser/templates/assessment-view.pt:53
 msgid "label_up"
 msgstr "Skyf op"
 
@@ -849,7 +849,7 @@ msgstr "Gebruikersnaam"
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:102
-#: ./browser/templates/custom-assessment-view.pt:61
+#: ./browser/templates/assessment-view.pt:61
 #: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr "Sien"
@@ -879,7 +879,7 @@ msgstr "Skep 'n nuwe profil"
 msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
 
-#: ./browser/custom_quick_upload.py:377
+#: ./browser/quickupload.py:377
 msgid "maximum file size is:"
 msgstr "maksimum lêer grootte is:"
 
@@ -889,17 +889,17 @@ msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
 #. Default: "This activity is used in one or more assessments."
-#: ./browser/templates/custom-assessmentitem-view.pt:17
+#: ./browser/templates/assessmentitem-view.pt:17
 msgid "message_activity_used_in_assessment"
 msgstr "Hierdie aktiwiteit is deur een of meer assesserings gebruik."
 
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
-#: ./browser/templates/custom-assessment-view.pt:22
+#: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
 msgstr "Hierdie assessering word gebruik deur bestaande evaluasiesblad(e) en kan nie verander word nie."
 
 #. Default: "Edit and Delete disabled"
-#: ./browser/templates/custom-assessmentitem-view.pt:40
+#: ./browser/templates/assessmentitem-view.pt:40
 msgid "message_edit_delete_disabled"
 msgstr "Redigeer en Verwyder is afgeskakel"
 
@@ -909,7 +909,7 @@ msgid "message_feedback_thankyou"
 msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
 
 #. Default: "No activities have been added yet."
-#: ./browser/templates/custom-assessment-view.pt:27
+#: ./browser/templates/assessment-view.pt:27
 msgid "message_no_activities_added"
 msgstr "Geen aktiwiteite is nog nie bygevoeg nie."
 
@@ -964,7 +964,7 @@ msgid "message_thankyou"
 msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 
 #. Default: "Topics covered by activities:"
-#: ./browser/templates/custom-assessment-view.pt:31
+#: ./browser/templates/assessment-view.pt:31
 msgid "message_topics_covered_by_activities"
 msgstr "Onderwerpe wat deur die aktiwiteite gedek word:"
 
@@ -977,11 +977,11 @@ msgstr "Ons sal binnekort antwoord."
 msgid "name"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:372
+#: ./browser/quickupload.py:372
 msgid "please select files again without it."
 msgstr "kies asseblief lêers weer sonder dit."
 
-#: ./browser/custom_quick_upload.py:373
+#: ./browser/quickupload.py:373
 msgid "please try again."
 msgstr "probeer asseblief weer"
 
@@ -990,7 +990,7 @@ msgid "send"
 msgstr "stuur"
 
 #. Default: "Assessment: ${assessment_title}"
-#: ./browser/templates/custom-assessment-view.pt:13
+#: ./browser/templates/assessment-view.pt:13
 msgid "title_assessment"
 msgstr "Assessering: ${assessment_title}"
 

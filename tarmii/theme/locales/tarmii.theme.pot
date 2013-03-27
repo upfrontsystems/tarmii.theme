@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 14:15+0000\n"
+"POT-Creation-Date: 2013-03-27 11:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tarmii.theme\n"
 
-#: ./browser/custom_quick_upload.py:369
+#: ./browser/quickupload.py:369
 msgid " files uploaded with success, "
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:370
+#: ./browser/quickupload.py:370
 msgid " uploads return an error."
 msgstr ""
 
-#: ./browser/templates/custom-assessmentitem-view.pt:33
+#: ./browser/templates/assessmentitem-view.pt:33
 msgid "${marks} marks"
 msgstr ""
 
-#: ./browser/templates/custom-assessmentitem-view.pt:34
+#: ./browser/templates/assessmentitem-view.pt:34
 msgid "${responsetime} mins"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:383
+#: ./browser/quickupload.py:383
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: ./browser/templates/custom-assessment-view.pt:17
+#: ./browser/templates/assessment-view.pt:17
 msgid "Add Activities"
 msgstr ""
 
@@ -70,19 +70,19 @@ msgstr ""
 msgid "Add resource"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:366
+#: ./browser/quickupload.py:366
 msgid "Add video "
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:368
+#: ./browser/quickupload.py:368
 msgid "All files uploaded with success."
 msgstr ""
 
-#: ./behaviors.py:167
+#: ./behaviors.py:163
 msgid "All rating values must be positive and larger than zero."
 msgstr ""
 
-#: ./behaviors.py:170
+#: ./behaviors.py:166
 msgid "All rating values must be unique."
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ./behaviors.py:101
+#: ./behaviors.py:97
 msgid "Categorization"
 msgstr ""
 
@@ -103,27 +103,27 @@ msgstr ""
 msgid "Cell Phone Number"
 msgstr ""
 
-#: ./behaviors.py:36
+#: ./behaviors.py:35
 msgid "Check list"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:306
+#: ./browser/quickupload.py:306
 msgid "Choose audio files to upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:320
+#: ./browser/quickupload.py:320
 msgid "Choose file for upload: ${ext}"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:309
+#: ./browser/quickupload.py:309
 msgid "Choose flash files to upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:300
+#: ./browser/quickupload.py:300
 msgid "Choose images to upload"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:303
+#: ./browser/quickupload.py:303
 msgid "Choose video files to upload"
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: ./behaviors.py:117
+#: ./behaviors.py:113
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Define the url where the logs can be uploaded."
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:367
+#: ./browser/quickupload.py:367
 msgid "Drag and drop files to upload"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./behaviors.py:127
+#: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
@@ -169,11 +169,12 @@ msgstr ""
 msgid "Evaluations"
 msgstr ""
 
-#: ./behaviors.py:68
+#: ./behaviors.py:67
+#: ./browser/forms.py:44
 msgid "Excellent"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:371
+#: ./browser/quickupload.py:371
 msgid "Failed"
 msgstr ""
 
@@ -185,7 +186,7 @@ msgstr ""
 msgid "File sent to server"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:91
+#: ./browser/quickupload.py:91
 msgid "Files Quick Upload"
 msgstr ""
 
@@ -206,7 +207,8 @@ msgstr ""
 msgid "Generate Report"
 msgstr ""
 
-#: ./behaviors.py:69
+#: ./behaviors.py:68
+#: ./browser/forms.py:46
 msgid "Good"
 msgstr ""
 
@@ -215,11 +217,11 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:93
+#: ./browser/quickupload.py:93
 msgid "Images Quick Upload"
 msgstr ""
 
-#: ./behaviors.py:107
+#: ./behaviors.py:103
 msgid "Item ID"
 msgstr ""
 
@@ -227,7 +229,7 @@ msgstr ""
 msgid "Kwazulu-Natal"
 msgstr ""
 
-#: ./behaviors.py:51
+#: ./behaviors.py:50
 msgid "Label"
 msgstr ""
 
@@ -235,7 +237,7 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./behaviors.py:112
+#: ./behaviors.py:108
 msgid "Learner Task/Activity"
 msgstr ""
 
@@ -251,7 +253,8 @@ msgstr ""
 msgid "Mpumalanga"
 msgstr ""
 
-#: ./behaviors.py:71
+#: ./behaviors.py:70
+#: ./browser/forms.py:50
 msgid "Needs improvement"
 msgstr ""
 
@@ -275,11 +278,11 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./behaviors.py:31
+#: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:379
+#: ./browser/quickupload.py:379
 msgid "Only allowed:"
 msgstr ""
 
@@ -288,7 +291,7 @@ msgstr ""
 msgid "Personal Information"
 msgstr ""
 
-#: ./behaviors.py:122
+#: ./behaviors.py:118
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr ""
 
@@ -304,15 +307,15 @@ msgstr ""
 msgid "Qualification"
 msgstr ""
 
-#: ./behaviors.py:52
+#: ./behaviors.py:51
 msgid "Rating"
 msgstr ""
 
-#: ./behaviors.py:66
+#: ./behaviors.py:65
 msgid "Rating scale"
 msgstr ""
 
-#: ./behaviors.py:86
+#: ./behaviors.py:82
 msgid "Related"
 msgstr ""
 
@@ -333,11 +336,12 @@ msgstr ""
 msgid "Resources"
 msgstr ""
 
-#: ./behaviors.py:41
+#: ./behaviors.py:40
 msgid "Rubric"
 msgstr ""
 
-#: ./behaviors.py:70
+#: ./behaviors.py:69
+#: ./browser/forms.py:48
 msgid "Satisfactory"
 msgstr ""
 
@@ -362,11 +366,11 @@ msgstr ""
 msgid "Select Language"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:374
+#: ./browser/quickupload.py:374
 msgid "Selected elements contain an empty file or a folder:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:384
+#: ./browser/quickupload.py:384
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
@@ -382,27 +386,27 @@ msgstr ""
 msgid "The message body"
 msgstr ""
 
-#: ./behaviors.py:193
+#: ./behaviors.py:189
 msgid "This Item ID is already in use."
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:382
+#: ./browser/quickupload.py:382
 msgid "This file already exists with the same name on server:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:378
+#: ./browser/quickupload.py:378
 msgid "This file has invalid extension:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:375
+#: ./browser/quickupload.py:375
 msgid "This file has no extension:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:376
+#: ./browser/quickupload.py:376
 msgid "This file is too large:"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:381
+#: ./browser/quickupload.py:381
 msgid "This type of element is not allowed in this folder."
 msgstr ""
 
@@ -427,11 +431,11 @@ msgstr ""
 msgid "Use the settings below to configure tarmii remote server for this site"
 msgstr ""
 
-#: ./behaviors.py:139
+#: ./behaviors.py:135
 msgid "Use with Activities"
 msgstr ""
 
-#: ./behaviors.py:145
+#: ./behaviors.py:141
 msgid "Use with Teacher Resources"
 msgstr ""
 
@@ -444,7 +448,7 @@ msgstr ""
 msgid "Western Cape"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:380
+#: ./browser/quickupload.py:380
 msgid "You don't have permission to add this content in this place."
 msgstr ""
 
@@ -522,11 +526,6 @@ msgstr ""
 #. Default: "Score Sheet for"
 #: ./browser/templates/scoresheet-pdf.pt:100
 msgid "heading_scoresheet_pdf"
-msgstr ""
-
-#. Default: "Assessment PDF"
-#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
-msgid "heading_select_classlist"
 msgstr ""
 
 #. Default: "Select your language"
@@ -641,7 +640,7 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:106
+#: ./browser/templates/activities.pt:108
 msgid "label_addtoassessment"
 msgstr ""
 
@@ -697,21 +696,21 @@ msgid "label_date"
 msgstr ""
 
 #. Default: "Delete"
+#: ./browser/templates/assessmentitem-view.pt:47
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
-#: ./browser/templates/custom-assessmentitem-view.pt:47
 msgid "label_delete"
 msgstr ""
 
 #. Default: "Move down"
-#: ./browser/templates/custom-assessment-view.pt:57
+#: ./browser/templates/assessment-view.pt:57
 msgid "label_down"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:104
-#: ./browser/templates/assessments.pt:34
-#: ./browser/templates/classlists.pt:33
+#: ./browser/templates/activities.pt:105
+#: ./browser/templates/assessment-view.pt:64
+#: ./browser/templates/assessmentitem-view.pt:45
 msgid "label_edit"
 msgstr ""
 
@@ -722,12 +721,13 @@ msgstr ""
 
 #. Default: "Evaluation Sheet PDF"
 #: ./browser/templates/assessments.pt:37
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:108
-#: ./browser/templates/custom-assessment-view.pt:69
+#: ./browser/templates/activities.pt:110
+#: ./browser/templates/assessment-view.pt:69
 msgid "label_feedback"
 msgstr ""
 
@@ -769,7 +769,7 @@ msgid "label_learner_name_colon"
 msgstr ""
 
 #. Default: "${medialabel} Quick Upload"
-#: ./browser/custom_quick_upload.py:95
+#: ./browser/quickupload.py:95
 msgid "label_media_quickupload"
 msgstr ""
 
@@ -794,7 +794,7 @@ msgid "label_register"
 msgstr ""
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/custom-assessment-view.pt:66
+#: ./browser/templates/assessment-view.pt:66
 msgid "label_removefromassessment"
 msgstr ""
 
@@ -836,7 +836,7 @@ msgid "label_topictree"
 msgstr ""
 
 #. Default: "Move up"
-#: ./browser/templates/custom-assessment-view.pt:53
+#: ./browser/templates/assessment-view.pt:53
 msgid "label_up"
 msgstr ""
 
@@ -852,7 +852,7 @@ msgstr ""
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:102
-#: ./browser/templates/custom-assessment-view.pt:61
+#: ./browser/templates/assessment-view.pt:61
 #: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr ""
@@ -882,7 +882,7 @@ msgstr ""
 msgid "link_importclasslist"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:377
+#: ./browser/quickupload.py:377
 msgid "maximum file size is:"
 msgstr ""
 
@@ -892,17 +892,17 @@ msgid "message_activities_found"
 msgstr ""
 
 #. Default: "This activity is used in one or more assessments."
-#: ./browser/templates/custom-assessmentitem-view.pt:17
+#: ./browser/templates/assessmentitem-view.pt:17
 msgid "message_activity_used_in_assessment"
 msgstr ""
 
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
-#: ./browser/templates/custom-assessment-view.pt:22
+#: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
 msgstr ""
 
 #. Default: "Edit and Delete disabled"
-#: ./browser/templates/custom-assessmentitem-view.pt:40
+#: ./browser/templates/assessmentitem-view.pt:40
 msgid "message_edit_delete_disabled"
 msgstr ""
 
@@ -912,7 +912,7 @@ msgid "message_feedback_thankyou"
 msgstr ""
 
 #. Default: "No activities have been added yet."
-#: ./browser/templates/custom-assessment-view.pt:27
+#: ./browser/templates/assessment-view.pt:27
 msgid "message_no_activities_added"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgid "message_thankyou"
 msgstr ""
 
 #. Default: "Topics covered by activities:"
-#: ./browser/templates/custom-assessment-view.pt:31
+#: ./browser/templates/assessment-view.pt:31
 msgid "message_topics_covered_by_activities"
 msgstr ""
 
@@ -980,11 +980,11 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:372
+#: ./browser/quickupload.py:372
 msgid "please select files again without it."
 msgstr ""
 
-#: ./browser/custom_quick_upload.py:373
+#: ./browser/quickupload.py:373
 msgid "please try again."
 msgstr ""
 
@@ -993,7 +993,7 @@ msgid "send"
 msgstr ""
 
 #. Default: "Assessment: ${assessment_title}"
-#: ./browser/templates/custom-assessment-view.pt:13
+#: ./browser/templates/assessment-view.pt:13
 msgid "title_assessment"
 msgstr ""
 

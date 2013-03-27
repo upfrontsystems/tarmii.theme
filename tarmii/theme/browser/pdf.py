@@ -44,8 +44,8 @@ class AssessmentPDF(grok.View):
         pdf.close()
 
         self.request.response.setHeader("Content-Disposition",
-                                        "attachment; filename=%s.pdf" % 
-                                         self.context.id)
+                                        "attachment; filename=assessment-%s.pdf" 
+                                         % self.context.id)
         self.request.response.setHeader("Content-Type", "application/pdf")
         self.request.response.setHeader("Content-Length", len(pdfcontent))
         self.request.response.setHeader("Cache-Control", "no-store")
@@ -122,8 +122,8 @@ class EvaluationSheetPDF(grok.View):
         pdf.close()
 
         self.request.response.setHeader("Content-Disposition",
-                                        "attachment; filename=%s.pdf" % 
-                                         self.context.id)
+                                        "attachment; filename=evaluation-%s.pdf"
+                                         % self.context.id)
         self.request.response.setHeader("Content-Type", "application/pdf")
         self.request.response.setHeader("Content-Length", len(pdfcontent))
         self.request.response.setHeader("Cache-Control", "no-store")
@@ -250,8 +250,8 @@ class TeacherInformationPDF(grok.View):
         pdf.close()
 
         self.request.response.setHeader("Content-Disposition",
-                                        "attachment; filename=%s.pdf" % 
-                                         self.context.id)
+                                       "attachment; filename=teacherinfo-%s.pdf" 
+                                        % self.context.id)
         self.request.response.setHeader("Content-Type", "application/pdf")
         self.request.response.setHeader("Content-Length", len(pdfcontent))
         self.request.response.setHeader("Cache-Control", "no-store")
