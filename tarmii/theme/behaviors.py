@@ -88,14 +88,14 @@ class ITopicTags(form.Schema):
     )
 
 
-class IItemMetadata(IMarks, IResponseTime, ITopicTags):
-    """ Combine IMarks, IResponseTime and ITopicTags
+class IItemMetadata(ITopicTags):
+    """ Combine extra activity fields with ITopicTags
     """
 
     form.fieldset(
         'categorization',
         label=_(u'Categorization'),
-        fields=['marks', 'responsetime', 'topics'],
+        fields=['topics'],
         )
 
     dexterity.write_permission(item_id='cmf.ManagePortal')
