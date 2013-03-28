@@ -53,8 +53,11 @@
             page-break-after: always;
         }
 
-        table.frontpage td:first-child {
+        table.frontpage td:first-child,
+        table.frontpage th:first-child {
             width: 40%;
+            text-align: left;
+            padding-top: 4px;
         }
 
         div#footerContent h3 {
@@ -100,7 +103,7 @@
     <h1 class="mainheader"><span i18n:translate="heading_evaluationsheet_pdf">Evaluation Sheet for </span><span tal:content="view/assessment_title"></span></h1>
 
     <div tal:repeat="item view/activities">
-        <h2 class="questionheader" tal:content="item/id"></h2>
+        <h2 class="questionheader"><span i18n:translate="heading_activity_id">Activity ID: </span><span tal:content="item/id"></span></h2>
             <table border="1" class="frontpage">
                 <tr>
                    <th i18n:translate="label_learner_name">Learner Name</th>

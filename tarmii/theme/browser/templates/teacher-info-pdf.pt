@@ -44,7 +44,6 @@
             page-break-after: always;
         }
 
-
         table.frontpage td,
         table.frontpage th {
             padding: 2px 0 1px 0;
@@ -54,6 +53,12 @@
 
         table.frontpage td:first-child {
             width: 35%;
+        }
+
+        table.information td {
+            padding-top: 5px;
+            line-height: 3em;
+            text-align: left;
         }
 
         div#footerContent h3 {
@@ -106,25 +111,48 @@
     </h1>
     <div>&nbsp;</div>
 
-    <div class="learner-info">
-        <h3><span i18n:translate="label_school_name">School Name</span>
-            <span> : ____________________________________________</span>
-        </h3>
-        <h3><span i18n:translate="label_date">Date</span>
-            <span> : ___________________________________________________</span>
-        </h3>
-        <h3><span i18n:translate="label_grade">Grade</span><span> : _____________________</span>
-            <span i18n:translate="label_term">Term</span><span> : ______________________</span>
-        </h3>
-        <h3><span i18n:translate="label_subject">Subject</span>
-            <span> : _________________________________________________</span>
-        </h3>
-        <h3><span i18n:translate="label_language_components">Language Component(s)</span>
-            <span> : ____________________________________</span>
-        </h3>
 
+   <div>&nbsp;</div>
+    <div class="learner-info">
+        <table border="0" class="information">
+            <tr>
+                <td>
+                <h3><span i18n:translate="label_school_name">School Name</span>
+                    <span> : </span>
+                </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <h3><span i18n:translate="label_date">Date</span>
+                    <span> : </span><span tal:content="python:modules['DateTime'].DateTime().strftime('%d %B %Y')"></span>
+                </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <h3><span i18n:translate="label_grade">Grade</span><span> : _____________________</span>
+                    <span i18n:translate="label_term">Term</span><span> : ______________________</span>
+                </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <h3><span i18n:translate="label_subject">Subject</span>
+                    <span> : _________________________________________________</span>
+                </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <h3><span i18n:translate="label_language_components">Language Component(s)</span>
+                    <span> : ____________________________________</span>
+                </h3>
+                </td>
+            </tr>
+        </table>
     </div>
- 
+
     <div>&nbsp;</div>
     <div>
         <table border="1" class="frontpage">

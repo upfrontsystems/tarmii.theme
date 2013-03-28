@@ -145,8 +145,9 @@ class EvaluationSheetPDF(grok.View):
 
         classlist_uid = self.request['classlist_uid_selected']
         classlist = uuidToObject(classlist_uid)
-        contentFilter = {
-            'portal_type': 'upfront.classlist.content.learner'}
+        contentFilter = {'portal_type': 'upfront.classlist.content.learner',
+                         'sort_on': 'sortable_title'}
+
         return [x.getObject() for x in\
                                      classlist.getFolderContents(contentFilter)]
 
@@ -258,6 +259,7 @@ class TeacherInformationPDF(grok.View):
         self.request.response.setHeader("Pragma", "no-cache")
         self.request.response.write(pdfcontent)
         return pdfcontent
+
 
     def activities(self):
         """ Return all the activities that this assessment references

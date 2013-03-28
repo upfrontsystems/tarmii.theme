@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-27 11:44+0000\n"
+"POT-Creation-Date: 2013-03-27 12:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -467,6 +467,11 @@ msgstr ""
 msgid "heading_activities"
 msgstr ""
 
+#. Default: "Activity ID:"
+#: ./browser/templates/evaluationsheet-pdf.pt:103
+msgid "heading_activity_id"
+msgstr ""
+
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
 msgid "heading_add_to_assessment"
@@ -690,7 +695,7 @@ msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Date"
-#: ./browser/templates/assessment-pdf.pt:114
+#: ./browser/templates/assessment-pdf.pt:129
 #: ./browser/templates/teacher-info-pdf.pt:113
 msgid "label_date"
 msgstr ""
@@ -737,7 +742,7 @@ msgid "label_fullname"
 msgstr ""
 
 #. Default: "Grade"
-#: ./browser/templates/assessment-pdf.pt:111
+#: ./browser/templates/assessment-pdf.pt:122
 #: ./browser/templates/teacher-info-pdf.pt:116
 msgid "label_grade"
 msgstr ""
@@ -764,7 +769,7 @@ msgid "label_learner_name"
 msgstr ""
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:105
+#: ./browser/templates/assessment-pdf.pt:108
 msgid "label_learner_name_colon"
 msgstr ""
 
@@ -804,7 +809,7 @@ msgid "label_resource"
 msgstr ""
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:108
+#: ./browser/templates/assessment-pdf.pt:115
 #: ./browser/templates/teacher-info-pdf.pt:110
 msgid "label_school_name"
 msgstr ""
@@ -825,7 +830,7 @@ msgid "label_teacherinfo_pdf"
 msgstr ""
 
 #. Default: "Term"
-#: ./browser/templates/assessment-pdf.pt:112
+#: ./browser/templates/assessment-pdf.pt:123
 #: ./browser/templates/teacher-info-pdf.pt:117
 msgid "label_term"
 msgstr ""

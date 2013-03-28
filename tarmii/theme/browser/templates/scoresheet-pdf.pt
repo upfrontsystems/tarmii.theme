@@ -36,8 +36,7 @@
             margin-top: 0cm;
             padding-top: 0cm;
             margin-bottom: 0cm;
-            padding-bottom: 0cm;
-            
+            padding-bottom: 0cm;            
         }
         
         table.frontpage td,
@@ -52,8 +51,15 @@
             margin-right: 1cm;
         }
 
-        table.frontpage td:first-child {
-            width: 30%;
+        table.frontpage td:first-child,
+        table.frontpage th:first-child {
+            width: 40%;
+            text-align: left;
+        }
+
+        table.frontpage td,
+        table.frontpage th {
+            padding-top: 4px;
         }
 
         div#footerContent h3 {
@@ -71,7 +77,6 @@
         @page {
             @frame {
                 margin: 2cm;
-                -pdf-frame-border: 1;
             }
             @frame footer {
                 -pdf-frame-content: footerContent;
@@ -99,11 +104,10 @@
 
     <h1 class="mainheader"><span i18n:translate="heading_scoresheet_pdf">Score Sheet for </span><span tal:content="python:view.assessment().Title()"></span></h1>
 
-    <hr class="item-separator"/>
     <div tal:repeat="item view/activities">
-        <tal:def tal:define="act_index python:int(repeat['item'].index)">
-        <h2 class="questionheader" tal:content="item/id"></h2>
-            <table class="frontpage" tal:define="data view/evaluation_data">
+        <tal:def tal:define="act_index python:int(repeat['item'].index)">        
+        <h2 class="questionheader"><span i18n:translate="heading_activity_id">Activity ID: </span><span tal:content="item/id"></span></h2>
+            <table border="1" class="frontpage" tal:define="data view/evaluation_data">
                 <tr>
                    <th i18n:translate="label_learner_name">Learner Name</th>
                    <div tal:repeat="rating item/rating_scale">
@@ -119,7 +123,6 @@
                    </div>
                 </tr>
             </table>
-        <hr class="item-separator"/>
         </tal:def>
     </div>
 
