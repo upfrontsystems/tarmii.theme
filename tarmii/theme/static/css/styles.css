@@ -586,7 +586,7 @@ a.select-text {
     height: 18px;	
     width: 41px;
     margin: 1px;
-    display: block;
+    display: inline-block;
 }
 
 .pdf-anchor {    
@@ -595,9 +595,30 @@ a.select-text {
     margin: auto;
 }
 
+/* csv button on activities listing */
+.csv-small {
+    background: url("../images/csv-small.png");
+    height: 18px;	
+    width: 41px;
+    margin: 1px;
+    display: inline-block;
+}
+
+.csv-anchor {    
+    height: 18px;	
+    width: 41px;
+    margin: auto;
+}
+
+.activities-export-links {
+    display: inline-block;
+    float: right;
+}
+
 #content .edit-anchor a.link-overlay,
 #content .delete-anchor a.link-overlay,
-#content .pdf-anchor a.link-overlay {
+#content .pdf-anchor a.link-overlay,
+#content .csv-anchor a.link-overlay {
     border-bottom : none !important;
 }
 

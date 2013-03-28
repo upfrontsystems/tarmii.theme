@@ -17,6 +17,14 @@
             <form id="add-button-admin-form" name="add-activity-admin-form"
                 action="++add++upfront.assessmentitem.content.assessmentitem">
                 <input class="allowMultiSubmit" type="submit" value="Add Activity" i18n:attributes="value">
+                <div class="activities-export-links">
+                    <span class="csv-anchor">
+                        <a class="csv-small" tal:attributes="href view/export_csv_url"></a>
+                    </span>
+                    <span class="pdf-anchor">
+                        <a class="pdf-small" tal:attributes="href view/export_pdf_url"></a>
+                    </span>
+                </div>
             </form>
         </tal:user_is_admin>
 

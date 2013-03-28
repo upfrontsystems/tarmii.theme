@@ -46,6 +46,14 @@ class ActivitiesView(grok.View):
         """
         return getSecurityManager().checkPermission(ManagePortal,self.context)
 
+    def export_csv_url(self):
+        """ return link to export activities view """
+        return '%s/@@export-activities' % self.context.absolute_url()
+
+    def export_pdf_url(self):
+        """ return link to export activities pdf """
+        return '%s/@@activities-pdf' % self.context.absolute_url()
+
     def topictrees(self):
         """ Return all topic trees in the system that are tagged to be used 
             with activities view.
