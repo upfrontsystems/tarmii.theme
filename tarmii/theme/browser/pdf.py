@@ -1,3 +1,4 @@
+from DateTime import DateTime
 from StringIO import StringIO
 from xhtml2pdf import pisa
 
@@ -19,6 +20,51 @@ grok.templatedir('templates')
 # use/abuse it.
 class ContextString(str):
     context = None
+
+class ActivitiesPDF(grok.View):
+    """ Activities PDF view
+    """
+    grok.context(Interface)
+    grok.name('activities-pdf')
+    grok.template('activities-pdf')
+    grok.require('cmf.ModifyPortalContent')
+
+    def __call__(self):
+        pdf = StringIO()
+        html = StringIO(self._render_template())
+
+        # Construct a trojan horse and hide context inside it
+        path = ContextString(self.context.absolute_url())
+        path.context = self.context
+
+        # Generate the pdf
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        now = DateTime()
+        nice_filename = '%s_%s' % ('activities', now.strftime('%Y%m%d'))
+        self.request.response.setHeader("Content-Disposition",
+                                            "attachment; filename=%s.pdf" % 
+                                             nice_filename)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent
+
+    def activities(self):
+        """ Return all the activities that this assessment references
+        """
+
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(portal_type=\
+                                'upfront.assessmentitem.content.assessmentitem')
+        return [x.getObject() for x in brains]
+
 
 class AssessmentPDF(grok.View):
     """ Assessment PDF view
@@ -273,4 +319,11 @@ class TeacherInformationPDF(grok.View):
         self.topictrees = getSite().topictrees
         return [x.getObject()\
                     for x in self.topictrees.getFolderContents(contentFilter)]
+
+
+    def school_name(self):
+        """ Return the school name of the current logged in teacher
+        """
+        pm = getToolByName(self.context, 'portal_membership')
+        return pm.getAuthenticatedMember().getProperty('school')
 

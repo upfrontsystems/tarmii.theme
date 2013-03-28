@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      lang="en">
+<head>
+    <base tal:attributes="href string:${here/portal_url}/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <span tal:replace='structure string:<style>'/>
+        <!-- Style for draft -->
+        body{
+            font-size:12pt;
+        }
+
+        h1.mainheader{
+            font-size:160%;
+            font-weight:bold;
+            text-decoration:underline;
+            text-align:center;
+        }
+        h2.questionheader{
+            font-size:120%;
+            font-weight:bold;
+            margin-bottom: 0cm;
+            padding-bottom: 0cm;
+        }
+
+        .questionoption{
+            font-size:10pt;
+            font-weight:bold;
+        }
+
+        p{
+            font-size: 10pt;
+            margin-top: 0cm;
+            padding-top: 0cm;
+            margin-bottom: 0cm;
+            padding-bottom: 0cm;
+            
+        }
+
+        table.frontpage,
+        div.activities {
+            margin-left: 1cm;
+            margin-right: 1cm;
+        }
+
+        table.frontpage td {
+            line-height: 3em;
+        }
+
+        table.frontpage td:first-child {
+            width: 35%;
+        }
+
+        table.information td {
+            padding-top: 5px;
+            line-height: 3em;
+            text-align: left;
+        }
+
+        div#footerContent h3 {
+            text-align: center;
+        }
+
+        div#pageNumber {
+            text-align: center;
+        }
+
+        div.itemnumber {
+            margin-left: -1cm;
+        }
+        div.learner-info {
+            margin-left: 1cm;
+            margin-right: 1cm;
+            text-align: center;
+        }
+        /* The default style */
+        @page {
+            @frame {
+                margin: 2cm;
+            }
+            @frame footer {
+                -pdf-frame-content: footerContent;
+                margin-left: 3cm;
+                margin-right: 3cm;
+                height: 5cm;
+                bottom: 2cm;
+            }
+        }
+        @page notfirst {
+            top: 1cm;
+            left: 2cm;
+            right: 1cm;
+            bottom: 2cm;
+            @frame footer {
+                -pdf-frame-content: pageNumber;
+                height: 1cm;
+                bottom: 1cm;
+            }
+        }
+    <span tal:replace='structure string:</style>'/>
+</head>
+<body>
+    <pdf:spacer height="1cm">
+
+    <h1 class="mainheader"><span i18n:translate="heading_activities_pdf">All Activities in the system</span>
+    </h1>  
+  
+    <div>&nbsp;</div>
+
+    <hr class="item-separator"/>
+    <div class="activities"
+         tal:repeat="item view/activities">
+        <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
+        <div class="activity" tal:content="structure item/activity/output|nothing">
+            The Activity
+        </div>
+        <hr class="item-separator"/>
+    </div>
+
+    <div id="pageNumber">
+        <pdf:pagenumber>
+    </div>
+</body>
+</html>
