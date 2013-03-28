@@ -26,7 +26,7 @@
      <browser:page
             for="..interfaces.IQuickUploadCapable"
             name="quick_upload"
-            class=".quick_upload.CustomQuickUploadView"
+            class=".quickupload.CustomQuickUploadView"
             permission="cmf.AddPortalContent"
             layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
@@ -35,7 +35,7 @@
      <browser:page
             for="*"
             name="quick_upload_init"
-            class=".quick_upload.CustomQuickUploadInit"
+            class=".quickupload.CustomQuickUploadInit"
             permission="cmf.AddPortalContent"
             layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
             />
