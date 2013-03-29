@@ -26,11 +26,9 @@ class View(dexterity.DisplayForm):
         """ url to activities view """
         return '%s/activities' % getSite().absolute_url()
 
-
     def topictrees(self):
         """ Return all the topic trees that are used for tagging activities
         """
-
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(portal_type='collective.topictree.topictree')
         topictree_list = []
@@ -39,29 +37,28 @@ class View(dexterity.DisplayForm):
                 topictree_list.append(x.getObject())
         return topictree_list
 
-#    def topics(self):
-#        """ Return all the topics in the activities that this assessment 
-#            references
-#        """
-#        activities = [x.to_object for x in self.context.assessment_items]
-#        topic_list = []
-#
-#        import pdb; pdb.set_trace()
-#        for activity in activities:
-#            if hasattr(activity,'topics'):
-#                topics = activity.topics
-#                for topic in topics:
-#                    if topic.to_object.title not in topic_list:
-#                        # convert to string from unicode if necessary
-#                        if isinstance(topic.to_object.title, unicode):    
-#                            topic_string = unicodedata.normalize('NFKD',
-#                                topic.to_object.title).encode('ascii','ignore')
-#                            topic_list.append(topic_string)
-#                        else:
-#                            topic_list.append(topic.to_object.title)
-#
-#        topic_list.sort(key=str.lower)
-#        return topic_list
+    def topics(self, topictree):
+        """ Return the topics in the activities that this assessment 
+            references, only return the ones matching the specified topictree
+        """
+        activities = [x.to_object for x in self.context.assessment_items]
+        topic_list = []
+
+        for activity in activities:
+            if hasattr(activity,'topics'):
+                topics = activity.topics
+                for topic in topics:
+                    if topic.to_object.aq_parent.id == topictree.id:
+                        if topic.to_object.title not in topic_list:
+                            # convert to string from unicode if necessary
+                            if isinstance(topic.to_object.title, unicode):    
+                                topic_string = unicodedata.normalize('NFKD',
+                                 topic.to_object.title).encode('ascii','ignore')
+                                topic_list.append(topic_string)
+                            else:
+                                topic_list.append(topic.to_object.title)
+
+        return ', '.join(map(str,topic_list))
 
     def activities(self):
         """ Return all the activities that this assessment references

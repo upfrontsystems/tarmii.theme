@@ -27,20 +27,19 @@
             <div i18n:translate="message_no_activities_added">No activities have been added yet.</div>
         </tal:activities>
 
-        <tal:topics condition="view/topictrees">
-            <div i18n:translate="message_topics_covered_by_activities">Topics covered by activities:</div>
-            <table>
-                <tr tal:repeat="topic view/topictrees">
-                    <td tal:content="topic/title"></td>                    
-                </tr>
-            </table>
-
-<!--            <div class="topics-container">
-               <tal:item repeat="item view/topics">
-                    <span tal:content="item"/>,
-               </tal:item>
-            </div> -->
-        </tal:topics>
+        <tal:activities tal:condition="view/activities">
+            <tal:topics condition="view/topictrees">
+                <div i18n:translate="message_topics_covered_by_activities">Topics covered by activities:</div>
+                <table>
+                    <tr tal:repeat="topictree view/topictrees">
+                        <tal:topics_not_empty condition="python:view.topics(topictree)">
+                            <th><span tal:content="topictree/title"></span><span> : </span>&nbsp;</th>
+                            <td tal:content="python:view.topics(topictree)"></td>
+                        </tal:topics_not_empty>
+                    </tr>
+                </table>
+            </tal:topics>
+        </tal:activities>
 
         <tal:activities condition="view/activities">
             <div id="activities-list">
