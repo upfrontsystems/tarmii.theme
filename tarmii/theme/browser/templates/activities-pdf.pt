@@ -104,17 +104,38 @@
     <pdf:spacer height="1cm">
 
     <h1 class="mainheader"><span i18n:translate="heading_activities_pdf">All Activities in the system</span>
+        <span> : </span>
+        <br />
+        <span tal:content="python:modules['DateTime'].DateTime().strftime('%d %m %Y')"></span>
     </h1>  
   
     <div>&nbsp;</div>
-
-    <hr class="item-separator"/>
     <div class="activities"
          tal:repeat="item view/activities">
         <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
         </div>
+        <div class="activity" tal:content="structure item/content_concept_skills/output|nothing">
+            The Content Concept Skills
+        </div>
+        <div class="activity" tal:content="structure item/prior_knowledge_skills/output|nothing">
+            The Prior Knowledge Skills
+        </div>
+        <div class="activity" tal:content="structure item/equipment_and_administration/output|nothing">
+            The Equipment and Administration
+        </div>
+
+        <p><span i18n:translate="label_topics_pdf">Topics : </span>
+        <span tal:repeat="topic python:view.topics(item)">
+            <span tal:content="topic"></span><span>,</span>
+        </span>
+        </p>
+        <p><span i18n:translate="label_rating_scale_pdf">Rating Scale : </span>
+        <span tal:content="python:view.rating_scale(item)">
+        </span>
+        </p>
+
         <hr class="item-separator"/>
     </div>
 

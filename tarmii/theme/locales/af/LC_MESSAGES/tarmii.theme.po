@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-29 05:42+0000\n"
+"POT-Creation-Date: 2013-03-29 07:25+0000\n"
 "PO-Revision-Date: 2013-03-29 8:38+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -251,7 +251,7 @@ msgstr "Benodig verbetering"
 msgid "Never"
 msgstr "Nooit"
 
-#: ./browser/exportactivities.py:92
+#: ./browser/exportactivities.py:96
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
@@ -792,6 +792,11 @@ msgstr "Pedagogiese"
 msgid "label_qualification"
 msgstr "Kwalifikasie"
 
+#. Default: "Rating Scale :"
+#: ./browser/templates/activities-pdf.pt:133
+msgid "label_rating_scale_pdf"
+msgstr "Graderingskaal :"
+
 #. Default: "Register"
 #: ./browser/views.py:74
 msgid "label_register"
@@ -833,6 +838,11 @@ msgstr "Onderwyser Informasie PDF"
 #: ./browser/templates/teacher-info-pdf.pt:135
 msgid "label_term"
 msgstr "Termyn"
+
+#. Default: "Topics :"
+#: ./browser/templates/activities-pdf.pt:128
+msgid "label_topics_pdf"
+msgstr "Onderwerpe :"
 
 #. Default: "Topic Tree"
 #: ./browser/templates/topictrees.pt:28

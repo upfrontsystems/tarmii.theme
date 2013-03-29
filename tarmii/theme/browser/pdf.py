@@ -59,11 +59,27 @@ class ActivitiesPDF(grok.View):
     def activities(self):
         """ Return all the activities that this assessment references
         """
-
         catalog = getToolByName(self.context, 'portal_catalog')
         brains = catalog(portal_type=\
-                                'upfront.assessmentitem.content.assessmentitem')
+                                'upfront.assessmentitem.content.assessmentitem',
+                                sort_on='id')
         return [x.getObject() for x in brains]
+
+    def topics(self, activity):
+        """ Return the categorization for a specific activity
+        """
+        if hasattr(activity,'topics'):
+            return [x.to_object.title for x in activity.topics]
+        return ''
+
+    def rating_scale(self, activity):
+        """ Return the rating scale for a specific activity
+        """
+        scale_str = ''
+        for x in range(len(activity.rating_scale)):
+            scale_str = scale_str + str(activity.rating_scale[x]['label']) +\
+                        ' = ' + str(activity.rating_scale[x]['rating']) + ', '
+        return scale_str
 
 
 class AssessmentPDF(grok.View):

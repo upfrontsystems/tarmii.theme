@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-29 05:42+0000\n"
+"POT-Creation-Date: 2013-03-29 07:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -254,7 +254,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: ./browser/exportactivities.py:92
+#: ./browser/exportactivities.py:96
 msgid "No activities exist"
 msgstr ""
 
@@ -795,6 +795,11 @@ msgstr ""
 msgid "label_qualification"
 msgstr ""
 
+#. Default: "Rating Scale :"
+#: ./browser/templates/activities-pdf.pt:133
+msgid "label_rating_scale_pdf"
+msgstr ""
+
 #. Default: "Register"
 #: ./browser/views.py:74
 msgid "label_register"
@@ -835,6 +840,11 @@ msgstr ""
 #: ./browser/templates/assessment-pdf.pt:129
 #: ./browser/templates/teacher-info-pdf.pt:135
 msgid "label_term"
+msgstr ""
+
+#. Default: "Topics :"
+#: ./browser/templates/activities-pdf.pt:128
+msgid "label_topics_pdf"
 msgstr ""
 
 #. Default: "Topic Tree"
