@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-27 12:08+0000\n"
-"PO-Revision-Date: 2013-03-27 10:51+0200\n"
+"POT-Creation-Date: 2013-03-29 05:42+0000\n"
+"PO-Revision-Date: 2013-03-29 8:38+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,14 +21,6 @@ msgstr "lêers opgelaai met sukses,"
 #: ./browser/quickupload.py:370
 msgid " uploads return an error."
 msgstr "oplaai rapporteer 'n fout."
-
-#: ./browser/templates/assessmentitem-view.pt:33
-msgid "${marks} marks"
-msgstr "${marks} punte"
-
-#: ./browser/templates/assessmentitem-view.pt:34
-msgid "${responsetime} mins"
-msgstr "${responsetime} minute"
 
 #: ./browser/quickupload.py:383
 msgid "A data base conflict error happened when uploading this file:"
@@ -137,7 +129,7 @@ msgstr "Kontak Ons"
 msgid "Content/Concept/Skills Assessed"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
-#: ./browser/templates/activities.pt:26
+#: ./browser/templates/activities.pt:34
 msgid "Contribute own activity"
 msgstr "Dra jou eie aktiwiteit by"
 
@@ -187,7 +179,7 @@ msgstr "Lêer na bediener gestuur"
 msgid "Files Quick Upload"
 msgstr "Vinnige Lêers Oplaai"
 
-#: ./browser/templates/activities.pt:60
+#: ./browser/templates/activities.pt:68
 #: ./browser/templates/resources.pt:56
 msgid "Filter results"
 msgstr "Filter resultate"
@@ -258,6 +250,10 @@ msgstr "Benodig verbetering"
 #: ./browser/teacherprofiles.py:103
 msgid "Never"
 msgstr "Nooit"
+
+#: ./browser/exportactivities.py:92
+msgid "No activities exist"
+msgstr "Geen aktiwiteite bestaan"
 
 #: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
@@ -354,7 +350,7 @@ msgstr "Skool Kontak Nommer"
 msgid "School Email"
 msgstr "Skool Email"
 
-#: ./browser/templates/activities.pt:70
+#: ./browser/templates/activities.pt:78
 msgid "Search"
 msgstr "Soek"
 
@@ -464,8 +460,14 @@ msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
 msgid "heading_activities"
 msgstr "Aktiwiteite"
 
+#. Default: "All Activities in the system"
+#: ./browser/templates/activities-pdf.pt:106
+msgid "heading_activities_pdf"
+msgstr "Alle aktiwiteite in die stelsel"
+
 #. Default: "Activity ID:"
-#: ./browser/templates/evaluationsheet-pdf.pt:103
+#: ./browser/templates/evaluationsheet-pdf.pt:106
+#: ./browser/templates/scoresheet-pdf.pt:109
 msgid "heading_activity_id"
 msgstr "Aktiwiteit ID: "
 
@@ -485,8 +487,8 @@ msgid "heading_assessment"
 msgstr "Assessering"
 
 #. Default: "Assessment Task"
-#: ./browser/templates/assessment-pdf.pt:101
-#: ./browser/templates/teacher-info-pdf.pt:105
+#: ./browser/templates/assessment-pdf.pt:106
+#: ./browser/templates/teacher-info-pdf.pt:110
 msgid "heading_assessment_pdf"
 msgstr "Assessering Taak"
 
@@ -511,7 +513,7 @@ msgid "heading_evaluations"
 msgstr "Evaluasies"
 
 #. Default: "Evaluation Sheet for"
-#: ./browser/templates/evaluationsheet-pdf.pt:100
+#: ./browser/templates/evaluationsheet-pdf.pt:103
 msgid "heading_evaluationsheet_pdf"
 msgstr "Evaluasiesblad vir "
 
@@ -526,7 +528,7 @@ msgid "heading_schools"
 msgstr "Skole:"
 
 #. Default: "Score Sheet for"
-#: ./browser/templates/scoresheet-pdf.pt:100
+#: ./browser/templates/scoresheet-pdf.pt:105
 msgid "heading_scoresheet_pdf"
 msgstr "Verslagsblad vir "
 
@@ -642,7 +644,7 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:108
+#: ./browser/templates/activities.pt:116
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -692,27 +694,27 @@ msgid "label_clear_queue"
 msgstr "Maak die tou skoon"
 
 #. Default: "Date"
-#: ./browser/templates/assessment-pdf.pt:129
-#: ./browser/templates/teacher-info-pdf.pt:113
+#: ./browser/templates/assessment-pdf.pt:135
+#: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Delete"
-#: ./browser/templates/assessmentitem-view.pt:47
+#: ./browser/templates/assessmentitem-view.pt:45
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
 msgid "label_delete"
 msgstr "Werwyder"
 
 #. Default: "Move down"
-#: ./browser/templates/assessment-view.pt:57
+#: ./browser/templates/assessment-view.pt:63
 msgid "label_down"
 msgstr "Skuif af"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:105
-#: ./browser/templates/assessment-view.pt:64
-#: ./browser/templates/assessmentitem-view.pt:45
+#: ./browser/templates/activities.pt:113
+#: ./browser/templates/assessmentitem-view.pt:43
+#: ./browser/templates/assessments.pt:34
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -728,8 +730,8 @@ msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasiesblad PDF"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:110
-#: ./browser/templates/assessment-view.pt:69
+#: ./browser/templates/activities.pt:118
+#: ./browser/templates/assessment-view.pt:73
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -739,8 +741,8 @@ msgid "label_fullname"
 msgstr "Volle naam"
 
 #. Default: "Grade"
-#: ./browser/templates/assessment-pdf.pt:122
-#: ./browser/templates/teacher-info-pdf.pt:116
+#: ./browser/templates/assessment-pdf.pt:128
+#: ./browser/templates/teacher-info-pdf.pt:134
 msgid "label_grade"
 msgstr "Graad"
 
@@ -750,7 +752,7 @@ msgid "label_how_to"
 msgstr "Hoe om"
 
 #. Default: "Language Component(s)"
-#: ./browser/templates/teacher-info-pdf.pt:122
+#: ./browser/templates/teacher-info-pdf.pt:148
 msgid "label_language_components"
 msgstr "Taal Komponent(e)"
 
@@ -760,13 +762,13 @@ msgid "label_last_login_time"
 msgstr "Laaste aanmelding tyd"
 
 #. Default: "Learner Name"
-#: ./browser/templates/evaluationsheet-pdf.pt:106
-#: ./browser/templates/scoresheet-pdf.pt:108
+#: ./browser/templates/evaluationsheet-pdf.pt:109
+#: ./browser/templates/scoresheet-pdf.pt:112
 msgid "label_learner_name"
 msgstr "Leerder Naam"
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:108
+#: ./browser/templates/assessment-pdf.pt:114
 msgid "label_learner_name_colon"
 msgstr "Leerder Naam"
 
@@ -796,7 +798,7 @@ msgid "label_register"
 msgstr "Registreer"
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/assessment-view.pt:66
+#: ./browser/templates/assessment-view.pt:70
 msgid "label_removefromassessment"
 msgstr "Verwyder van assessering"
 
@@ -806,18 +808,18 @@ msgid "label_resource"
 msgstr "Hulbron"
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:115
-#: ./browser/templates/teacher-info-pdf.pt:110
+#: ./browser/templates/assessment-pdf.pt:121
+#: ./browser/templates/teacher-info-pdf.pt:120
 msgid "label_school_name"
 msgstr "Skool Naam"
 
 #. Default: "Search for an activity :"
-#: ./browser/templates/activities.pt:66
+#: ./browser/templates/activities.pt:74
 msgid "label_search_activity"
 msgstr "Soek vir 'n aktiwiteit :"
 
 #. Default: "Subject"
-#: ./browser/templates/teacher-info-pdf.pt:119
+#: ./browser/templates/teacher-info-pdf.pt:141
 msgid "label_subject"
 msgstr "Vak"
 
@@ -827,8 +829,8 @@ msgid "label_teacherinfo_pdf"
 msgstr "Onderwyser Informasie PDF"
 
 #. Default: "Term"
-#: ./browser/templates/assessment-pdf.pt:123
-#: ./browser/templates/teacher-info-pdf.pt:117
+#: ./browser/templates/assessment-pdf.pt:129
+#: ./browser/templates/teacher-info-pdf.pt:135
 msgid "label_term"
 msgstr "Termyn"
 
@@ -838,7 +840,7 @@ msgid "label_topictree"
 msgstr "Onderwerp boom"
 
 #. Default: "Move up"
-#: ./browser/templates/assessment-view.pt:53
+#: ./browser/templates/assessment-view.pt:59
 msgid "label_up"
 msgstr "Skyf op"
 
@@ -853,8 +855,8 @@ msgid "label_username"
 msgstr "Gebruikersnaam"
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:102
-#: ./browser/templates/assessment-view.pt:61
+#: ./browser/templates/activities.pt:110
+#: ./browser/templates/assessment-view.pt:67
 #: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr "Sien"
@@ -889,7 +891,7 @@ msgid "maximum file size is:"
 msgstr "maksimum lêer grootte is:"
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:80
+#: ./browser/templates/activities.pt:88
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
@@ -904,7 +906,7 @@ msgid "message_assessment_frozen"
 msgstr "Hierdie assessering word gebruik deur bestaande evaluasiesblad(e) en kan nie verander word nie."
 
 #. Default: "Edit and Delete disabled"
-#: ./browser/templates/assessmentitem-view.pt:40
+#: ./browser/templates/assessmentitem-view.pt:38
 msgid "message_edit_delete_disabled"
 msgstr "Redigeer en Verwyder is afgeskakel"
 
@@ -919,7 +921,7 @@ msgid "message_no_activities_added"
 msgstr "Geen aktiwiteite is nog nie bygevoeg nie."
 
 #. Default: "No activities found."
-#: ./browser/templates/activities.pt:84
+#: ./browser/templates/activities.pt:92
 msgid "message_no_activities_found"
 msgstr "Geen aktiwiteite is gevind."
 

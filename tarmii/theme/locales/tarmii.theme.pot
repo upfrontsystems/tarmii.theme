@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-27 12:08+0000\n"
+"POT-Creation-Date: 2013-03-29 05:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,14 +23,6 @@ msgstr ""
 
 #: ./browser/quickupload.py:370
 msgid " uploads return an error."
-msgstr ""
-
-#: ./browser/templates/assessmentitem-view.pt:33
-msgid "${marks} marks"
-msgstr ""
-
-#: ./browser/templates/assessmentitem-view.pt:34
-msgid "${responsetime} mins"
 msgstr ""
 
 #: ./browser/quickupload.py:383
@@ -140,7 +132,7 @@ msgstr ""
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
-#: ./browser/templates/activities.pt:26
+#: ./browser/templates/activities.pt:34
 msgid "Contribute own activity"
 msgstr ""
 
@@ -190,7 +182,7 @@ msgstr ""
 msgid "Files Quick Upload"
 msgstr ""
 
-#: ./browser/templates/activities.pt:60
+#: ./browser/templates/activities.pt:68
 #: ./browser/templates/resources.pt:56
 msgid "Filter results"
 msgstr ""
@@ -260,6 +252,10 @@ msgstr ""
 
 #: ./browser/teacherprofiles.py:103
 msgid "Never"
+msgstr ""
+
+#: ./browser/exportactivities.py:92
+msgid "No activities exist"
 msgstr ""
 
 #: ./browser/exportuserprofiles.py:97
@@ -357,7 +353,7 @@ msgstr ""
 msgid "School Email"
 msgstr ""
 
-#: ./browser/templates/activities.pt:70
+#: ./browser/templates/activities.pt:78
 msgid "Search"
 msgstr ""
 
@@ -467,8 +463,14 @@ msgstr ""
 msgid "heading_activities"
 msgstr ""
 
+#. Default: "All Activities in the system"
+#: ./browser/templates/activities-pdf.pt:106
+msgid "heading_activities_pdf"
+msgstr ""
+
 #. Default: "Activity ID:"
-#: ./browser/templates/evaluationsheet-pdf.pt:103
+#: ./browser/templates/evaluationsheet-pdf.pt:106
+#: ./browser/templates/scoresheet-pdf.pt:109
 msgid "heading_activity_id"
 msgstr ""
 
@@ -488,8 +490,8 @@ msgid "heading_assessment"
 msgstr ""
 
 #. Default: "Assessment Task"
-#: ./browser/templates/assessment-pdf.pt:101
-#: ./browser/templates/teacher-info-pdf.pt:105
+#: ./browser/templates/assessment-pdf.pt:106
+#: ./browser/templates/teacher-info-pdf.pt:110
 msgid "heading_assessment_pdf"
 msgstr ""
 
@@ -514,7 +516,7 @@ msgid "heading_evaluations"
 msgstr ""
 
 #. Default: "Evaluation Sheet for"
-#: ./browser/templates/evaluationsheet-pdf.pt:100
+#: ./browser/templates/evaluationsheet-pdf.pt:103
 msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
@@ -529,7 +531,7 @@ msgid "heading_schools"
 msgstr ""
 
 #. Default: "Score Sheet for"
-#: ./browser/templates/scoresheet-pdf.pt:100
+#: ./browser/templates/scoresheet-pdf.pt:105
 msgid "heading_scoresheet_pdf"
 msgstr ""
 
@@ -645,7 +647,7 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:108
+#: ./browser/templates/activities.pt:116
 msgid "label_addtoassessment"
 msgstr ""
 
@@ -695,27 +697,27 @@ msgid "label_clear_queue"
 msgstr ""
 
 #. Default: "Date"
-#: ./browser/templates/assessment-pdf.pt:129
-#: ./browser/templates/teacher-info-pdf.pt:113
+#: ./browser/templates/assessment-pdf.pt:135
+#: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr ""
 
 #. Default: "Delete"
-#: ./browser/templates/assessmentitem-view.pt:47
+#: ./browser/templates/assessmentitem-view.pt:45
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
 msgid "label_delete"
 msgstr ""
 
 #. Default: "Move down"
-#: ./browser/templates/assessment-view.pt:57
+#: ./browser/templates/assessment-view.pt:63
 msgid "label_down"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:105
-#: ./browser/templates/assessment-view.pt:64
-#: ./browser/templates/assessmentitem-view.pt:45
+#: ./browser/templates/activities.pt:113
+#: ./browser/templates/assessmentitem-view.pt:43
+#: ./browser/templates/assessments.pt:34
 msgid "label_edit"
 msgstr ""
 
@@ -731,8 +733,8 @@ msgid "label_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:110
-#: ./browser/templates/assessment-view.pt:69
+#: ./browser/templates/activities.pt:118
+#: ./browser/templates/assessment-view.pt:73
 msgid "label_feedback"
 msgstr ""
 
@@ -742,8 +744,8 @@ msgid "label_fullname"
 msgstr ""
 
 #. Default: "Grade"
-#: ./browser/templates/assessment-pdf.pt:122
-#: ./browser/templates/teacher-info-pdf.pt:116
+#: ./browser/templates/assessment-pdf.pt:128
+#: ./browser/templates/teacher-info-pdf.pt:134
 msgid "label_grade"
 msgstr ""
 
@@ -753,7 +755,7 @@ msgid "label_how_to"
 msgstr ""
 
 #. Default: "Language Component(s)"
-#: ./browser/templates/teacher-info-pdf.pt:122
+#: ./browser/templates/teacher-info-pdf.pt:148
 msgid "label_language_components"
 msgstr ""
 
@@ -763,13 +765,13 @@ msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner Name"
-#: ./browser/templates/evaluationsheet-pdf.pt:106
-#: ./browser/templates/scoresheet-pdf.pt:108
+#: ./browser/templates/evaluationsheet-pdf.pt:109
+#: ./browser/templates/scoresheet-pdf.pt:112
 msgid "label_learner_name"
 msgstr ""
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:108
+#: ./browser/templates/assessment-pdf.pt:114
 msgid "label_learner_name_colon"
 msgstr ""
 
@@ -799,7 +801,7 @@ msgid "label_register"
 msgstr ""
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/assessment-view.pt:66
+#: ./browser/templates/assessment-view.pt:70
 msgid "label_removefromassessment"
 msgstr ""
 
@@ -809,18 +811,18 @@ msgid "label_resource"
 msgstr ""
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:115
-#: ./browser/templates/teacher-info-pdf.pt:110
+#: ./browser/templates/assessment-pdf.pt:121
+#: ./browser/templates/teacher-info-pdf.pt:120
 msgid "label_school_name"
 msgstr ""
 
 #. Default: "Search for an activity :"
-#: ./browser/templates/activities.pt:66
+#: ./browser/templates/activities.pt:74
 msgid "label_search_activity"
 msgstr ""
 
 #. Default: "Subject"
-#: ./browser/templates/teacher-info-pdf.pt:119
+#: ./browser/templates/teacher-info-pdf.pt:141
 msgid "label_subject"
 msgstr ""
 
@@ -830,8 +832,8 @@ msgid "label_teacherinfo_pdf"
 msgstr ""
 
 #. Default: "Term"
-#: ./browser/templates/assessment-pdf.pt:123
-#: ./browser/templates/teacher-info-pdf.pt:117
+#: ./browser/templates/assessment-pdf.pt:129
+#: ./browser/templates/teacher-info-pdf.pt:135
 msgid "label_term"
 msgstr ""
 
@@ -841,7 +843,7 @@ msgid "label_topictree"
 msgstr ""
 
 #. Default: "Move up"
-#: ./browser/templates/assessment-view.pt:53
+#: ./browser/templates/assessment-view.pt:59
 msgid "label_up"
 msgstr ""
 
@@ -856,8 +858,8 @@ msgid "label_username"
 msgstr ""
 
 #. Default: "View"
-#: ./browser/templates/activities.pt:102
-#: ./browser/templates/assessment-view.pt:61
+#: ./browser/templates/activities.pt:110
+#: ./browser/templates/assessment-view.pt:67
 #: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr ""
@@ -892,7 +894,7 @@ msgid "maximum file size is:"
 msgstr ""
 
 #. Default: "Activities found"
-#: ./browser/templates/activities.pt:80
+#: ./browser/templates/activities.pt:88
 msgid "message_activities_found"
 msgstr ""
 
@@ -907,7 +909,7 @@ msgid "message_assessment_frozen"
 msgstr ""
 
 #. Default: "Edit and Delete disabled"
-#: ./browser/templates/assessmentitem-view.pt:40
+#: ./browser/templates/assessmentitem-view.pt:38
 msgid "message_edit_delete_disabled"
 msgstr ""
 
@@ -922,7 +924,7 @@ msgid "message_no_activities_added"
 msgstr ""
 
 #. Default: "No activities found."
-#: ./browser/templates/activities.pt:84
+#: ./browser/templates/activities.pt:92
 msgid "message_no_activities_found"
 msgstr ""
 

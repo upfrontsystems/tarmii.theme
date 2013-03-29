@@ -27,20 +27,24 @@ class ExportActivitiesView(grok.View):
         # get all activities in the system
         catalog = getToolByName(self.context, 'portal_catalog')
         activities = catalog(portal_type=\
-                                'upfront.assessmentitem.content.assessmentitem')
+                                'upfront.assessmentitem.content.assessmentitem',
+                                sort_on='id')
 
         # need to iterate over list of topictrees
         brains = catalog(portal_type='collective.topictree.topictree')
         topictree_list = []
         for x in brains:
             if x.getObject().use_with_activities:
-                topictree_list.append(x.getObject().title)
+                topictree_list.append(x.getObject())
 
-        fieldnames = ['ItemID'] + topictree_list
+        fieldnames = ['ItemID'] + [x.title for x in topictree_list]
+
+        # use numbers 1 .. x as the titles
+        fieldindexes = [str(x) for x in range(1,len(fieldnames)+1)]
 
         if activities is not None and len(activities) > 0:
             writer = DictWriter(activities_csv,
-                                fieldnames,
+                                fieldindexes,
                                 restval='',
                                 extrasaction='ignore',
                                 dialect='excel'
@@ -48,7 +52,20 @@ class ExportActivitiesView(grok.View):
 
             for activity in activities:
                 ldict={}
-
+                # start indexing at '1' to keep dictionary entries in correct 
+                # order, for some reason 0 comes after 1 when used as index
+                # in a python dict.
+                ldict['1'] = activity.getObject().id
+                for tree_index in range(len(topictree_list)):
+                    ldict[str(tree_index+2)] = ''
+                    # if activity has topics, use the topics else ''
+                    if hasattr(activity.getObject(), 'topics'):
+                        topics = activity.getObject().topics
+                        for tag_index in range(len(topics)):
+                            if topics[tag_index].to_object.aq_parent.id ==\
+                                                 topictree_list[tree_index].id:
+                                ldict[str(tree_index+2)] =\
+                                              topics[tag_index].to_object.title
                 writer.writerow(ldict)
            
             csv_content = activities_csv.getvalue()
