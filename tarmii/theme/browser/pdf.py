@@ -1,3 +1,4 @@
+import unicodedata
 from DateTime import DateTime
 from StringIO import StringIO
 from xhtml2pdf import pisa
@@ -328,18 +329,43 @@ class TeacherInformationPDF(grok.View):
         """
         return [x.to_object for x in self.context.assessment_items]
 
-    def topictrees(self):
-        """ Return all the topic trees in the system
-        """
-        contentFilter={'portal_type': 'collective.topictree.topictree'}
-        self.topictrees = getSite().topictrees
-        return [x.getObject()\
-                    for x in self.topictrees.getFolderContents(contentFilter)]
-
-
     def school_name(self):
         """ Return the school name of the current logged in teacher
         """
         pm = getToolByName(self.context, 'portal_membership')
         return pm.getAuthenticatedMember().getProperty('school')
+
+    def topictrees(self):
+        """ Return all the topic trees that are used for tagging activities
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(portal_type='collective.topictree.topictree')
+        topictree_list = []
+        for x in brains:
+            if x.getObject().use_with_activities:
+                topictree_list.append(x.getObject())
+        return topictree_list
+
+    def topics(self, topictree):
+        """ Return the topics in the activities that this assessment 
+            references, only return the ones matching the specified topictree
+        """
+        activities = [x.to_object for x in self.context.assessment_items]
+        topic_list = []
+
+        for activity in activities:
+            if hasattr(activity,'topics'):
+                topics = activity.topics
+                for topic in topics:
+                    if topic.to_object.aq_parent.id == topictree.id:
+                        if topic.to_object.title not in topic_list:
+                            # convert to string from unicode if necessary
+                            if isinstance(topic.to_object.title, unicode):    
+                                topic_string = unicodedata.normalize('NFKD',
+                                 topic.to_object.title).encode('ascii','ignore')
+                                topic_list.append(topic_string)
+                            else:
+                                topic_list.append(topic.to_object.title)
+
+        return ', '.join(map(str,topic_list))
 
