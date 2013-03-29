@@ -49,6 +49,7 @@
         table.frontpage {
             margin-left: 1cm;
             margin-right: 1cm;
+            page-break-after: always;
         }
 
         table.frontpage td:first-child,

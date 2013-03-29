@@ -104,9 +104,8 @@
     <pdf:spacer height="1cm">
 
     <h1 class="mainheader"><span i18n:translate="heading_activities_pdf">All Activities in the system</span>
-        <span> : </span>
         <br />
-        <span tal:content="python:modules['DateTime'].DateTime().strftime('%d %m %Y')"></span>
+        <span tal:content="python:modules['DateTime'].DateTime().strftime('%d %B %Y')"></span>
     </h1>  
   
     <div>&nbsp;</div>

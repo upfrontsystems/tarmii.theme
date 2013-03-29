@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-29 07:25+0000\n"
-"PO-Revision-Date: 2013-03-29 8:38+0200\n"
+"POT-Creation-Date: 2013-03-29 18:36+0000\n"
+"PO-Revision-Date: 2013-03-29 20:38+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Voeg Klaslys by"
 
 #: ./browser/templates/evaluationsheets.pt:16
 msgid "Add evaluation sheet"
-msgstr "Voeg evaluasiesblad by"
+msgstr "Voeg evaluasieblad by"
 
 #: ./browser/templates/resources.pt:18
 msgid "Add resource"
@@ -467,7 +467,7 @@ msgstr "Alle aktiwiteite in die stelsel"
 
 #. Default: "Activity ID:"
 #: ./browser/templates/evaluationsheet-pdf.pt:106
-#: ./browser/templates/scoresheet-pdf.pt:109
+#: ./browser/templates/scoresheet-pdf.pt:110
 msgid "heading_activity_id"
 msgstr "Aktiwiteit ID: "
 
@@ -488,7 +488,6 @@ msgstr "Assessering"
 
 #. Default: "Assessment Task"
 #: ./browser/templates/assessment-pdf.pt:106
-#: ./browser/templates/teacher-info-pdf.pt:110
 msgid "heading_assessment_pdf"
 msgstr "Assessering Taak"
 
@@ -515,7 +514,7 @@ msgstr "Evaluasies"
 #. Default: "Evaluation Sheet for"
 #: ./browser/templates/evaluationsheet-pdf.pt:103
 msgid "heading_evaluationsheet_pdf"
-msgstr "Evaluasiesblad vir "
+msgstr "Evaluasieblad vir "
 
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
@@ -528,7 +527,7 @@ msgid "heading_schools"
 msgstr "Skole:"
 
 #. Default: "Score Sheet for"
-#: ./browser/templates/scoresheet-pdf.pt:105
+#: ./browser/templates/scoresheet-pdf.pt:106
 msgid "heading_scoresheet_pdf"
 msgstr "Verslagsblad vir "
 
@@ -542,6 +541,11 @@ msgstr "Kies U Taal"
 #: ./browser/templates/selectprofile.pt:26
 msgid "heading_select_profile"
 msgstr "Kies U Profil"
+
+#. Default: "Teacher Information for"
+#: ./browser/templates/teacher-info-pdf.pt:105
+msgid "heading_teacher_information_pdf"
+msgstr "Onderwyser Informasie vir"
 
 #. Default: "Teacher Resources"
 #: ./browser/templates/resources.pt:11
@@ -695,7 +699,7 @@ msgstr "Maak die tou skoon"
 
 #. Default: "Date"
 #: ./browser/templates/assessment-pdf.pt:135
-#: ./browser/templates/teacher-info-pdf.pt:127
+#: ./browser/templates/teacher-info-pdf.pt:123
 msgid "label_date"
 msgstr "Datum"
 
@@ -707,7 +711,7 @@ msgid "label_delete"
 msgstr "Werwyder"
 
 #. Default: "Move down"
-#: ./browser/templates/assessment-view.pt:63
+#: ./browser/templates/assessment-view.pt:62
 msgid "label_down"
 msgstr "Skuif af"
 
@@ -727,11 +731,11 @@ msgstr "E-pos"
 #: ./browser/templates/assessments.pt:37
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
-msgstr "Evaluasiesblad PDF"
+msgstr "Evaluasieblad PDF"
 
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:118
-#: ./browser/templates/assessment-view.pt:73
+#: ./browser/templates/assessment-view.pt:72
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -742,7 +746,6 @@ msgstr "Volle naam"
 
 #. Default: "Grade"
 #: ./browser/templates/assessment-pdf.pt:128
-#: ./browser/templates/teacher-info-pdf.pt:134
 msgid "label_grade"
 msgstr "Graad"
 
@@ -751,11 +754,6 @@ msgstr "Graad"
 msgid "label_how_to"
 msgstr "Hoe om"
 
-#. Default: "Language Component(s)"
-#: ./browser/templates/teacher-info-pdf.pt:148
-msgid "label_language_components"
-msgstr "Taal Komponent(e)"
-
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
@@ -763,7 +761,7 @@ msgstr "Laaste aanmelding tyd"
 
 #. Default: "Learner Name"
 #: ./browser/templates/evaluationsheet-pdf.pt:109
-#: ./browser/templates/scoresheet-pdf.pt:112
+#: ./browser/templates/scoresheet-pdf.pt:113
 msgid "label_learner_name"
 msgstr "Leerder Naam"
 
@@ -793,7 +791,7 @@ msgid "label_qualification"
 msgstr "Kwalifikasie"
 
 #. Default: "Rating Scale :"
-#: ./browser/templates/activities-pdf.pt:133
+#: ./browser/templates/activities-pdf.pt:134
 msgid "label_rating_scale_pdf"
 msgstr "Graderingskaal :"
 
@@ -803,7 +801,7 @@ msgid "label_register"
 msgstr "Registreer"
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/assessment-view.pt:70
+#: ./browser/templates/assessment-view.pt:69
 msgid "label_removefromassessment"
 msgstr "Verwyder van assessering"
 
@@ -814,7 +812,7 @@ msgstr "Hulbron"
 
 #. Default: "School Name"
 #: ./browser/templates/assessment-pdf.pt:121
-#: ./browser/templates/teacher-info-pdf.pt:120
+#: ./browser/templates/teacher-info-pdf.pt:115
 msgid "label_school_name"
 msgstr "Skool Naam"
 
@@ -823,11 +821,6 @@ msgstr "Skool Naam"
 msgid "label_search_activity"
 msgstr "Soek vir 'n aktiwiteit :"
 
-#. Default: "Subject"
-#: ./browser/templates/teacher-info-pdf.pt:141
-msgid "label_subject"
-msgstr "Vak"
-
 #. Default: "Teacher Info PDF"
 #: ./browser/templates/assessments.pt:38
 msgid "label_teacherinfo_pdf"
@@ -835,12 +828,11 @@ msgstr "Onderwyser Informasie PDF"
 
 #. Default: "Term"
 #: ./browser/templates/assessment-pdf.pt:129
-#: ./browser/templates/teacher-info-pdf.pt:135
 msgid "label_term"
 msgstr "Termyn"
 
 #. Default: "Topics :"
-#: ./browser/templates/activities-pdf.pt:128
+#: ./browser/templates/activities-pdf.pt:129
 msgid "label_topics_pdf"
 msgstr "Onderwerpe :"
 
@@ -850,7 +842,7 @@ msgid "label_topictree"
 msgstr "Onderwerp boom"
 
 #. Default: "Move up"
-#: ./browser/templates/assessment-view.pt:59
+#: ./browser/templates/assessment-view.pt:58
 msgid "label_up"
 msgstr "Skyf op"
 
@@ -866,7 +858,7 @@ msgstr "Gebruikersnaam"
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:110
-#: ./browser/templates/assessment-view.pt:67
+#: ./browser/templates/assessment-view.pt:66
 #: ./browser/templates/evaluationsheets.pt:42
 msgid "label_view"
 msgstr "Sien"
@@ -913,7 +905,7 @@ msgstr "Hierdie aktiwiteit is deur een of meer assesserings gebruik."
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
 #: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
-msgstr "Hierdie assessering word gebruik deur bestaande evaluasiesblad(e) en kan nie verander word nie."
+msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan nie verander word nie."
 
 #. Default: "Edit and Delete disabled"
 #: ./browser/templates/assessmentitem-view.pt:38
@@ -948,7 +940,7 @@ msgstr "Geen klaslyse is nog geskep."
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
-msgstr "Geen evaluasiesblade is nog geskep."
+msgstr "Geen evaluasieblaaie is nog geskep."
 
 #. Default: "No profiles have been created yet."
 #: ./browser/templates/selectprofile.pt:29
@@ -981,7 +973,7 @@ msgid "message_thankyou"
 msgstr "Dankie vir jou versoek oor die ${subject}, ${customer_email}."
 
 #. Default: "Topics covered by activities:"
-#: ./browser/templates/assessment-view.pt:31
+#: ./browser/templates/assessment-view.pt:32
 msgid "message_topics_covered_by_activities"
 msgstr "Onderwerpe wat deur die aktiwiteite gedek word:"
 

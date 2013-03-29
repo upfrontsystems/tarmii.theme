@@ -121,6 +121,12 @@ class AssessmentPDF(grok.View):
         """
         return [x.to_object for x in self.context.assessment_items]
 
+    def school_name(self):
+        """ Return the school name of the current logged in teacher
+        """
+        pm = getToolByName(self.context, 'portal_membership')
+        return pm.getAuthenticatedMember().getProperty('school')
+
 
 class SelectClasslistForEvaluationPDF(grok.View):
     """ Select Classlist for Evaluation PDF view
