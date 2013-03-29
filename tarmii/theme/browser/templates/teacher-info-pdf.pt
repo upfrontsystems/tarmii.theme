@@ -46,13 +46,9 @@
 
         table.frontpage td,
         table.frontpage th {
-            padding: 2px 0 1px 0;
+            padding: 4px 0 1px 0;
             margin: 0px;
             text-align: center;
-        }
-
-        table.frontpage td:first-child {
-            width: 35%;
         }
 
         table.information td {
@@ -76,7 +72,6 @@
             margin-left: 1cm;
             margin-right: 1cm;
             text-align: center;
-            page-break-after: always;
         }
         /* The default style */
         @page {
@@ -145,19 +140,20 @@
     </div>
 
     <div>&nbsp;</div>
+    <div>&nbsp;</div>
     <div>
         <table border="1" class="frontpage">
             <tr>
-               <th></th>
-               <div tal:repeat="activity view/activities">
-                    <th><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></th>
+               <th>Activity</th>
+               <div tal:repeat="topictree view/topictrees">
+                    <th><span tal:content="topictree/title"></span></th>
                 </div>
             </tr>
-            <tr tal:repeat="topictree view/topictrees">
-                <td tal:content="topictree/title">
+            <tr tal:repeat="activity view/activities">
+                <td><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span>
                 </td>
-                <div tal:repeat="activity view/activities">
-                    <th></th>
+                <div tal:repeat="topic python:view.topics_in_activity(activity)">
+                    <td tal:content="topic"></td>
                 </div>
             </tr>
         </table>

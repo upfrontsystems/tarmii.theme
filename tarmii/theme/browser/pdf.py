@@ -369,3 +369,23 @@ class TeacherInformationPDF(grok.View):
 
         return ', '.join(map(str,topic_list))
 
+    def topics_in_activity(self, activity):
+        """ Return a list of topics that an activity
+            Return format is a list of strings in the the order of 
+            topictrees in the system. Blanks are used if the activity does not
+            make use of a certain topictree category.
+        """
+
+        # init a blank topic list
+        topic_list = []
+        for x in range(len(self.topictrees())):
+            topic_list.append('')
+
+        # if activity has topics, place in correct positions in the topic list
+        if hasattr(activity,'topics'):
+            for x in range(len(self.topictrees())):
+                for topic in activity.topics:
+                    if topic.to_object.aq_parent.id == self.topictrees()[x].id:
+                        topic_list[x] = topic.to_object.title
+
+        return topic_list
