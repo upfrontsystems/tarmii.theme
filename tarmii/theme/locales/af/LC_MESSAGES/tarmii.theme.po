@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-30 11:30+0000\n"
-"PO-Revision-Date: 2013-03-30 12:45+0200\n"
+"POT-Creation-Date: 2013-03-30 13:08+0000\n"
+"PO-Revision-Date: 2013-03-30 15:08+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -487,7 +487,7 @@ msgid "heading_assessment"
 msgstr "Assessering"
 
 #. Default: "Assessment Task"
-#: ./browser/templates/assessment-pdf.pt:106
+#: ./browser/templates/assessment-pdf.pt:125
 msgid "heading_assessment_pdf"
 msgstr "Assessering Taak"
 
@@ -648,7 +648,8 @@ msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:116
+#: ./browser/templates/activities.pt:114
+#: ./browser/templates/assessmentitem-view.pt:48
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -699,17 +700,18 @@ msgstr "Maak die tou skoon"
 
 #. Default: "Content/Concept/Skills Assessed"
 #: ./browser/templates/activities-pdf.pt:120
-#: ./browser/templates/assessmentitem-view.pt:27
+#: ./browser/templates/assessmentitem-view.pt:21
 msgid "label_content_concept_skills"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
 #. Default: "Date"
+#: ./browser/templates/assessment-pdf.pt:159
 #: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Delete"
-#: ./browser/templates/assessmentitem-view.pt:60
+#: ./browser/templates/assessmentitem-view.pt:50
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
 msgid "label_delete"
@@ -721,9 +723,9 @@ msgid "label_down"
 msgstr "Skuif af"
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:113
-#: ./browser/templates/assessmentitem-view.pt:58
-#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/activities.pt:112
+#: ./browser/templates/assessment-view.pt:68
+#: ./browser/templates/assessmentitem-view.pt:46
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -734,7 +736,7 @@ msgstr "E-pos"
 
 #. Default: "Equipment and Administration (For the teacher)"
 #: ./browser/templates/activities-pdf.pt:128
-#: ./browser/templates/assessmentitem-view.pt:35
+#: ./browser/templates/assessmentitem-view.pt:29
 msgid "label_equipment_and_admin"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
@@ -745,8 +747,8 @@ msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasieblad PDF"
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:118
-#: ./browser/templates/assessment-view.pt:72
+#: ./browser/templates/activities.pt:116
+#: ./browser/templates/assessment-view.pt:74
 msgid "label_feedback"
 msgstr "Terugvoer"
 
@@ -766,7 +768,7 @@ msgid "label_last_login_time"
 msgstr "Laaste aanmelding tyd"
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:114
+#: ./browser/templates/assessment-pdf.pt:133
 #: ./browser/templates/evaluationsheet-pdf.pt:109
 #: ./browser/templates/scoresheet-pdf.pt:113
 msgid "label_learner_name"
@@ -774,7 +776,7 @@ msgstr "Leerder Naam"
 
 #. Default: "Learner Task/Activity"
 #: ./browser/templates/activities-pdf.pt:116
-#: ./browser/templates/assessmentitem-view.pt:23
+#: ./browser/templates/assessmentitem-view.pt:17
 msgid "label_learner_task"
 msgstr "Leerder Taak/Aktiwiteit"
 
@@ -795,7 +797,7 @@ msgstr "Pedagogiese"
 
 #. Default: "Prior Knowledge or Skill(s) Assessed"
 #: ./browser/templates/activities-pdf.pt:124
-#: ./browser/templates/assessmentitem-view.pt:31
+#: ./browser/templates/assessmentitem-view.pt:25
 msgid "label_prior_knowledge"
 msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
@@ -815,7 +817,7 @@ msgid "label_register"
 msgstr "Registreer"
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/assessment-view.pt:69
+#: ./browser/templates/assessment-view.pt:71
 msgid "label_removefromassessment"
 msgstr "Verwyder van assessering"
 
@@ -825,7 +827,7 @@ msgid "label_resource"
 msgstr "Hulbron"
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:124
+#: ./browser/templates/assessment-pdf.pt:141
 #: ./browser/templates/teacher-info-pdf.pt:119
 msgid "label_school_name"
 msgstr "Skool Naam"
@@ -842,7 +844,7 @@ msgstr "Onderwyser Informasie PDF"
 
 #. Default: "Topics:"
 #: ./browser/templates/activities-pdf.pt:133
-#: ./browser/templates/assessmentitem-view.pt:39
+#: ./browser/templates/assessmentitem-view.pt:33
 msgid "label_topics"
 msgstr "Onderwerpe:"
 
@@ -907,20 +909,10 @@ msgstr "maksimum lêer grootte is:"
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
-#. Default: "This activity is used in one or more assessments."
-#: ./browser/templates/assessmentitem-view.pt:17
-msgid "message_activity_used_in_assessment"
-msgstr "Hierdie aktiwiteit is deur een of meer assesserings gebruik."
-
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
 #: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
 msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan nie verander word nie."
-
-#. Default: "Edit and Delete disabled"
-#: ./browser/templates/assessmentitem-view.pt:53
-msgid "message_edit_delete_disabled"
-msgstr "Redigeer en Verwyder is afgeskakel"
 
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15

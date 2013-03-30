@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-30 11:30+0000\n"
+"POT-Creation-Date: 2013-03-30 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -490,7 +490,7 @@ msgid "heading_assessment"
 msgstr ""
 
 #. Default: "Assessment Task"
-#: ./browser/templates/assessment-pdf.pt:106
+#: ./browser/templates/assessment-pdf.pt:125
 msgid "heading_assessment_pdf"
 msgstr ""
 
@@ -651,7 +651,8 @@ msgid "label_add_new_assessment"
 msgstr ""
 
 #. Default: "Add to Assessment"
-#: ./browser/templates/activities.pt:116
+#: ./browser/templates/activities.pt:114
+#: ./browser/templates/assessmentitem-view.pt:48
 msgid "label_addtoassessment"
 msgstr ""
 
@@ -702,17 +703,18 @@ msgstr ""
 
 #. Default: "Content/Concept/Skills Assessed"
 #: ./browser/templates/activities-pdf.pt:120
-#: ./browser/templates/assessmentitem-view.pt:27
+#: ./browser/templates/assessmentitem-view.pt:21
 msgid "label_content_concept_skills"
 msgstr ""
 
 #. Default: "Date"
+#: ./browser/templates/assessment-pdf.pt:159
 #: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr ""
 
 #. Default: "Delete"
-#: ./browser/templates/assessmentitem-view.pt:60
+#: ./browser/templates/assessmentitem-view.pt:50
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
 msgid "label_delete"
@@ -724,9 +726,9 @@ msgid "label_down"
 msgstr ""
 
 #. Default: "Edit"
-#: ./browser/templates/activities.pt:113
-#: ./browser/templates/assessmentitem-view.pt:58
-#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/activities.pt:112
+#: ./browser/templates/assessment-view.pt:68
+#: ./browser/templates/assessmentitem-view.pt:46
 msgid "label_edit"
 msgstr ""
 
@@ -737,7 +739,7 @@ msgstr ""
 
 #. Default: "Equipment and Administration (For the teacher)"
 #: ./browser/templates/activities-pdf.pt:128
-#: ./browser/templates/assessmentitem-view.pt:35
+#: ./browser/templates/assessmentitem-view.pt:29
 msgid "label_equipment_and_admin"
 msgstr ""
 
@@ -748,8 +750,8 @@ msgid "label_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Feedback"
-#: ./browser/templates/activities.pt:118
-#: ./browser/templates/assessment-view.pt:72
+#: ./browser/templates/activities.pt:116
+#: ./browser/templates/assessment-view.pt:74
 msgid "label_feedback"
 msgstr ""
 
@@ -769,7 +771,7 @@ msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:114
+#: ./browser/templates/assessment-pdf.pt:133
 #: ./browser/templates/evaluationsheet-pdf.pt:109
 #: ./browser/templates/scoresheet-pdf.pt:113
 msgid "label_learner_name"
@@ -777,7 +779,7 @@ msgstr ""
 
 #. Default: "Learner Task/Activity"
 #: ./browser/templates/activities-pdf.pt:116
-#: ./browser/templates/assessmentitem-view.pt:23
+#: ./browser/templates/assessmentitem-view.pt:17
 msgid "label_learner_task"
 msgstr ""
 
@@ -798,7 +800,7 @@ msgstr ""
 
 #. Default: "Prior Knowledge or Skill(s) Assessed"
 #: ./browser/templates/activities-pdf.pt:124
-#: ./browser/templates/assessmentitem-view.pt:31
+#: ./browser/templates/assessmentitem-view.pt:25
 msgid "label_prior_knowledge"
 msgstr ""
 
@@ -818,7 +820,7 @@ msgid "label_register"
 msgstr ""
 
 #. Default: "Remove from Assessment"
-#: ./browser/templates/assessment-view.pt:69
+#: ./browser/templates/assessment-view.pt:71
 msgid "label_removefromassessment"
 msgstr ""
 
@@ -828,7 +830,7 @@ msgid "label_resource"
 msgstr ""
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:124
+#: ./browser/templates/assessment-pdf.pt:141
 #: ./browser/templates/teacher-info-pdf.pt:119
 msgid "label_school_name"
 msgstr ""
@@ -845,7 +847,7 @@ msgstr ""
 
 #. Default: "Topics:"
 #: ./browser/templates/activities-pdf.pt:133
-#: ./browser/templates/assessmentitem-view.pt:39
+#: ./browser/templates/assessmentitem-view.pt:33
 msgid "label_topics"
 msgstr ""
 
@@ -910,19 +912,9 @@ msgstr ""
 msgid "message_activities_found"
 msgstr ""
 
-#. Default: "This activity is used in one or more assessments."
-#: ./browser/templates/assessmentitem-view.pt:17
-msgid "message_activity_used_in_assessment"
-msgstr ""
-
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
 #: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
-msgstr ""
-
-#. Default: "Edit and Delete disabled"
-#: ./browser/templates/assessmentitem-view.pt:53
-msgid "message_edit_delete_disabled"
 msgstr ""
 
 #. Default: "Thank you for your feedback about ${assessment_item_id}."

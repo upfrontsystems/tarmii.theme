@@ -113,29 +113,29 @@
     <div class="activities"
          tal:repeat="item view/activities">
         <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
-        <h2 class="questionheader" i18n:translate="label_learner_task_pdf">Learner Task/Activity</h2>
+        <h2 class="questionheader" i18n:translate="label_learner_task">Learner Task/Activity</h2>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
         </div>
-        <h2 class="questionheader" i18n:translate="label_content_concept_skills_pdf">Content/Concept/Skills Assessed</h2>
+        <h2 class="questionheader" i18n:translate="label_content_concept_skills">Content/Concept/Skills Assessed</h2>
         <div class="activity" tal:content="structure item/content_concept_skills/output|nothing">
             The Content Concept Skills
         </div>
-        <h2 class="questionheader" i18n:translate="label_prior_knowledge_pdf">Prior Knowledge or Skill(s) Assessed</h2>
+        <h2 class="questionheader" i18n:translate="label_prior_knowledge">Prior Knowledge or Skill(s) Assessed</h2>
         <div class="activity" tal:content="structure item/prior_knowledge_skills/output|nothing">
             The Prior Knowledge Skills
         </div>
-        <h2 class="questionheader" i18n:translate="label_equipment_and_admin_pdf">Equipment and Administration (For the teacher)</h2>
+        <h2 class="questionheader" i18n:translate="label_equipment_and_admin">Equipment and Administration (For the teacher)</h2>
         <div class="activity" tal:content="structure item/equipment_and_administration/output|nothing">
             The Equipment and Administration
         </div>
         <br />
-        <p><span class="questionheader" i18n:translate="label_topics_pdf">Topics: </span>
+        <p><span class="questionheader" i18n:translate="label_topics">Topics: </span>
         <span tal:repeat="topic python:view.topics(item)">
             <span tal:content="topic"></span><span>,</span>
         </span>
         </p>
-        <p><span class="questionheader" i18n:translate="label_rating_scale_pdf">Rating Scale: </span>
+        <p><span class="questionheader" i18n:translate="label_rating_scale">Rating Scale: </span>
         <span tal:content="python:view.rating_scale(item)">
         </span>
         </p>

@@ -34,14 +34,7 @@
             margin-top: 0cm;
             padding-top: 0cm;
             margin-bottom: 0cm;
-            padding-bottom: 0cm;
-            
-        }
-
-        table.frontpage,
-        div.activities {
-            margin-left: 1cm;
-            margin-right: 1cm;
+            padding-bottom: 0cm;            
         }
 
         table.frontpage td {
@@ -50,12 +43,6 @@
 
         table.frontpage td:first-child {
             width: 35%;
-        }
-
-        table.information td {
-            padding-top: 5px;
-            line-height: 3em;
-            text-align: left;
         }
 
         div#footerContent h3 {
@@ -69,11 +56,44 @@
         div.itemnumber {
             margin-left: -1cm;
         }
+
         div.learner-info {
+            width:100%;
+            text-align:center;
+            display: block;
+            margin-left: 1cm;
+            margin-right: 0cm;
+        }
+
+        table.information {
+            width: 80%;
+            display: block;
+            margin: 0cm !important;
+        }
+
+        table.information th {
+            width: 20%;
+            text-align: left;
+            margin: 0cm !important;
+            font-size: 125%;
+        }
+        table.information td {
+            width: 40%;
+            text-align: left;
+            margin: 0cm !important;
+        }
+
+        div.activities {
             margin-left: 1cm;
             margin-right: 1cm;
-            text-align: center;
         }
+
+        div.activity-number {
+            display: block;
+            text-align: right;
+            color: #bbb
+        }
+
         /* The default style */
         @page {
             @frame {
@@ -105,50 +125,56 @@
 
     <h1 class="mainheader"><span i18n:translate="heading_assessment_pdf">Assessment Task</span>
     </h1>
-
-   <div>&nbsp;</div>
+    
+    <div>&nbsp;</div>
     <div class="learner-info">
         <table border="0" class="information">
             <tr>
+                <th>
+                    <span i18n:translate="label_learner_name">Learner Name</span><span>:</span>
+                </th>
                 <td>
-                <h3><span i18n:translate="label_learner_name_colon">Learner Name</span>
-                    <span> : __________________________________________</span>
-                </h3>
+                    <span>___________________________</span>
                 </td>
             </tr>
             <tr>
+                <th>                   
+                    <span i18n:translate="label_school_name">School Name</span><span>:</span>                  
+                </th>
                 <td>
-                <h3><span i18n:translate="label_school_name">School Name</span>
-                    <span> : __________________________________________</span>
-                </h3>
+                    <span tal:content="view/school_name"></span>
                 </td>
             </tr>
+            <tal:topics condition="view/topictrees">  
+            <tr tal:repeat="topictree view/topictrees">
+                <th>                   
+                    <span tal:content="topictree/title"></span><span>:</span>                  
+                </th>
+                <td>
+                    <span tal:content="python:view.topics(topictree)"></span>
+                </td>
+            </tr>
+            </tal:topics>
             <tr>
+                <th>                   
+                    <span i18n:translate="label_date">Date</span><span>:</span>
+                </th>
                 <td>
-                <h3><span i18n:translate="label_grade">Grade</span><span> : _____________________</span>
-                    <span i18n:translate="label_term">Term</span><span> : ______________________</span>
-                </h3>
-                </td>
+                    <span>___________________________</span>
+                </td> 
             </tr>
-            <tr>
-                <td>
-                <h3><span i18n:translate="label_date">Date</span>
-                    <span> : ___________________________________________________</span>
-                </h3>
-                </td>
-            </tr>
-
         </table>
     </div>
  
     <div>&nbsp;</div>
-
-    <hr class="item-separator"/>
     <div class="activities"
          tal:repeat="item view/activities">
-        <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
+        <h1><span tal:content="item/id"></span></h1>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
+        </div>
+        <div class="activity-number">
+            <span tal:content="repeat/item/number"></span><span>. </span>
         </div>
         <hr class="item-separator"/>
     </div>

@@ -127,6 +127,42 @@ class AssessmentPDF(grok.View):
         pm = getToolByName(self.context, 'portal_membership')
         return pm.getAuthenticatedMember().getProperty('school')
 
+    def topictrees(self):
+        """ Return all the topic trees that are used for tagging activities
+            Only return Grade and Term if present
+        """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(portal_type='collective.topictree.topictree')
+        topictree_list = []
+        for x in brains:
+            if x.getObject().use_with_activities:
+                if x.id in ['grade', 'term']:
+                    topictree_list.append(x.getObject())
+        return topictree_list
+
+    def topics(self, topictree):
+        """ Return the topics of the activities that this assessment 
+            references, only return the ones matching the specified topictree
+        """
+        activities = [x.to_object for x in self.context.assessment_items]
+        topic_list = []
+
+        for activity in activities:
+            if hasattr(activity,'topics'):
+                topics = activity.topics
+                for topic in topics:
+                    if topic.to_object.aq_parent.id == topictree.id:
+                        if topic.to_object.title not in topic_list:
+                            # convert to string from unicode if necessary
+                            if isinstance(topic.to_object.title, unicode):    
+                                topic_string = unicodedata.normalize('NFKD',
+                                 topic.to_object.title).encode('ascii','ignore')
+                                topic_list.append(topic_string)
+                            else:
+                                topic_list.append(topic.to_object.title)
+
+        return ', '.join(map(str,topic_list))
+
 
 class SelectClasslistForEvaluationPDF(grok.View):
     """ Select Classlist for Evaluation PDF view
@@ -353,7 +389,7 @@ class TeacherInformationPDF(grok.View):
         return topictree_list
 
     def topics(self, topictree):
-        """ Return the topics in the activities that this assessment 
+        """ Return the topics of the activities that this assessment 
             references, only return the ones matching the specified topictree
         """
         activities = [x.to_object for x in self.context.assessment_items]
