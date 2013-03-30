@@ -65,6 +65,8 @@
                             </tal:assessment_editable>
                             <a tal:attributes="href item/absolute_url"
                                i18n:translate="label_view">View</a>
+                            <a tal:attributes="href string:${item/absolute_url}/edit"
+                               i18n:translate="label_edit">Edit</a>
                             <tal:assessment_editable condition="view/assessment_editable">
                                 <a class="remove-from-assessment" tal:attributes="value string:${item/id}"
                                    i18n:translate="label_removefromassessment">Remove from Assessment</a>

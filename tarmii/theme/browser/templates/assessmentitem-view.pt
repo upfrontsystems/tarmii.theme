@@ -13,19 +13,28 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 tal:content="view/assessmentitem"></h1>
-        <tal:used_in_assessments condition="view/used_in_assessments">
-            <div i18n:translate="message_activity_used_in_assessment">
-               This activity is used in one or more assessments.
-            </div>
-        <div>&nbsp;</div>
-        </tal:used_in_assessments>
 
-        <div class="introduction" tal:content="structure context/introduction/output|nothing">
-            Optional Question Introduction
+        <h5 i18n:translate="label_learner_task">Learner Task/Activity</h5>
+        <div class="activity" tal:content="structure context/activity/output|nothing">
+            The Activity
         </div>
-        <div class="question" tal:content="structure context/question/output|nothing">
-            The question
+        <h5 i18n:translate="label_content_concept_skills">Content/Concept/Skills Assessed</h5>
+        <div class="activity" tal:content="structure context/content_concept_skills/output|nothing">
+            The Content Concept Skills
         </div>
+        <h5 i18n:translate="label_prior_knowledge">Prior Knowledge or Skill(s) Assessed</h5>
+        <div class="activity" tal:content="structure context/prior_knowledge_skills/output|nothing">
+            The Prior Knowledge Skills
+        </div>
+        <h5 i18n:translate="label_equipment_and_admin">Equipment and Administration (For the teacher)</h5>
+        <div class="activity" tal:content="structure context/equipment_and_administration/output|nothing">
+            The Equipment and Administration
+        </div>
+        <p><span class="bold" i18n:translate="label_topics">Topics: </span>
+            <span tal:repeat="topic view/topics">
+                <span tal:content="topic"></span><span>,</span>
+            </span>
+        </p>
 
         <div id="actions-and-info">
             <div class="item-info">
@@ -33,19 +42,14 @@
                 <span class="state-draft" tal:attributes="class string:item-info state-${view/review_state}" tal:content="view/review_state" i18n:translate=""></span>
 
             </div>
-            <tal:used_in_assessments condition="view/used_in_assessments">
-                <div class="item-actions">
-                    <span i18n:translate="message_edit_delete_disabled">Edit and Delete disabled</span>
-                </div>
-            </tal:used_in_assessments>
-            <tal:not_used_in_assessments condition="not:view/used_in_assessments">
-                <div class="item-actions">
-                    <a tal:attributes="href string:${context/absolute_url}/edit"
-                        i18n:translate="label_edit">Edit</a>
-                    <a class="delete_confirmation" tal:attributes="href string:${context/absolute_url}/delete_confirmation"
-                        i18n:translate="label_delete">Delete</a>
-                </div>
-            </tal:not_used_in_assessments>
+            <div class="item-actions">
+                <a tal:attributes="href string:${context/absolute_url}/edit"
+                    i18n:translate="label_edit">Edit</a>
+                <a class="delete_confirmation" tal:attributes="href string:${context/absolute_url}/delete_confirmation"
+                    i18n:translate="label_delete">Delete</a>
+                <a class="add_to_assessment" tal:attributes="href string:${context/absolute_url}/@@add-to-assessment?activity_id=${context/id}" 
+                    i18n:translate="label_addtoassessment">Add to Assessment</a>
+            </div>
         </div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

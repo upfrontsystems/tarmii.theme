@@ -35,19 +35,14 @@ class View(dexterity.DisplayForm):
         wftool = getToolByName(self.context, 'portal_workflow')
         return wftool.getInfoFor(self.context, 'review_state')
 
-    def used_in_assessments(self):
-        """ Check if activity is used in any assessments.
+    def topics(self):
+        """ Return the topics in this activity
         """
-        catalog = getUtility(ICatalog)
-        intids = getUtility(IIntIds)
-        result = catalog.findRelations({
-            'to_id': intids.getId(self.context),
-            'from_attribute': 'assessment_items'
-            })
-        try:
-            rel = result.next()
-            activity_unwrapped = rel.from_object
-        except StopIteration:
-            return False
+        topic_list = []
+        if hasattr(self.context,'topics'):
+           topics = self.context.topics
+           for topic in topics:
+               topic_list.append(topic.to_object.title)
 
-        return True
+        return topic_list
+

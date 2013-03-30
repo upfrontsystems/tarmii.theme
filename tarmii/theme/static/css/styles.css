@@ -631,4 +631,6 @@ table.listing.admin-table th {
     display: none;
 }
 
-
+.bold {
+    font-weight: bold;
+}

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-30 10:41+0000\n"
+"POT-Creation-Date: 2013-03-30 11:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -702,7 +702,8 @@ msgstr ""
 
 #. Default: "Content/Concept/Skills Assessed"
 #: ./browser/templates/activities-pdf.pt:120
-msgid "label_content_concept_skills_pdf"
+#: ./browser/templates/assessmentitem-view.pt:27
+msgid "label_content_concept_skills"
 msgstr ""
 
 #. Default: "Date"
@@ -711,7 +712,7 @@ msgid "label_date"
 msgstr ""
 
 #. Default: "Delete"
-#: ./browser/templates/assessmentitem-view.pt:45
+#: ./browser/templates/assessmentitem-view.pt:60
 #: ./browser/templates/assessments.pt:35
 #: ./browser/templates/classlists.pt:34
 msgid "label_delete"
@@ -724,7 +725,7 @@ msgstr ""
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:113
-#: ./browser/templates/assessmentitem-view.pt:43
+#: ./browser/templates/assessmentitem-view.pt:58
 #: ./browser/templates/assessments.pt:34
 msgid "label_edit"
 msgstr ""
@@ -736,7 +737,8 @@ msgstr ""
 
 #. Default: "Equipment and Administration (For the teacher)"
 #: ./browser/templates/activities-pdf.pt:128
-msgid "label_equipment_and_admin_pdf"
+#: ./browser/templates/assessmentitem-view.pt:35
+msgid "label_equipment_and_admin"
 msgstr ""
 
 #. Default: "Evaluation Sheet PDF"
@@ -775,7 +777,8 @@ msgstr ""
 
 #. Default: "Learner Task/Activity"
 #: ./browser/templates/activities-pdf.pt:116
-msgid "label_learner_task_pdf"
+#: ./browser/templates/assessmentitem-view.pt:23
+msgid "label_learner_task"
 msgstr ""
 
 #. Default: "${medialabel} Quick Upload"
@@ -795,7 +798,8 @@ msgstr ""
 
 #. Default: "Prior Knowledge or Skill(s) Assessed"
 #: ./browser/templates/activities-pdf.pt:124
-msgid "label_prior_knowledge_pdf"
+#: ./browser/templates/assessmentitem-view.pt:31
+msgid "label_prior_knowledge"
 msgstr ""
 
 #. Default: "Qualification"
@@ -805,7 +809,7 @@ msgstr ""
 
 #. Default: "Rating Scale:"
 #: ./browser/templates/activities-pdf.pt:138
-msgid "label_rating_scale_pdf"
+msgid "label_rating_scale"
 msgstr ""
 
 #. Default: "Register"
@@ -841,7 +845,8 @@ msgstr ""
 
 #. Default: "Topics:"
 #: ./browser/templates/activities-pdf.pt:133
-msgid "label_topics_pdf"
+#: ./browser/templates/assessmentitem-view.pt:39
+msgid "label_topics"
 msgstr ""
 
 #. Default: "Topic Tree"
@@ -916,7 +921,7 @@ msgid "message_assessment_frozen"
 msgstr ""
 
 #. Default: "Edit and Delete disabled"
-#: ./browser/templates/assessmentitem-view.pt:38
+#: ./browser/templates/assessmentitem-view.pt:53
 msgid "message_edit_delete_disabled"
 msgstr ""
 
