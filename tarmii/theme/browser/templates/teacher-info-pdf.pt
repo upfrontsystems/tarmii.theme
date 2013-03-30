@@ -51,6 +51,10 @@
             text-align: center;
         }
 
+        table.frontpage td:first-child {
+            text-align: left;
+        }
+
         table.information td {
             padding-top: 2px;
             line-height: 2em;
@@ -102,7 +106,8 @@
 <body>
     <pdf:spacer height="1cm">
 
-    <h1 class="mainheader"><span i18n:translate="heading_assessment_pdf">Assessment Task</span>
+    <h1 class="mainheader"><span i18n:translate="heading_teacher_information_pdf">Teacher Information for </span>
+        <span tal:content="view/context/title"></span>
     </h1>
     <div>&nbsp;</div>
 
@@ -120,7 +125,7 @@
                 <td>
                     <h3>
                         <span i18n:translate="label_date">Date</span>
-                        <span> : </span><span tal:content="python:modules['DateTime'].DateTime().strftime('%d %B %Y')"></span>
+                        <span> : </span><span tal:content="python:modules['DateTime'].DateTime().strftime('%d %M %Y')"></span>
                     </h3>
                 </td>
             </tr>
@@ -144,15 +149,15 @@
     <div>
         <table border="1" class="frontpage">
             <tr>
-               <th>Activity</th>
-               <div tal:repeat="topictree view/topictrees">
-                    <th><span tal:content="topictree/title"></span></th>
+               <th></th>
+               <div tal:repeat="activity view/activities">
+                    <th><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></th>
                 </div>
             </tr>
-            <tr tal:repeat="activity view/activities">
-                <td><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span>
+            <tr tal:repeat="topictree view/topictrees">
+                <td><span tal:content="topictree/title"></span>
                 </td>
-                <div tal:repeat="topic python:view.topics_in_activity(activity)">
+               <div tal:repeat="topic python:view.topics_per_topictree(topictree)">
                     <td tal:content="topic"></td>
                 </div>
             </tr>

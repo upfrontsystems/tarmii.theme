@@ -375,23 +375,30 @@ class TeacherInformationPDF(grok.View):
 
         return ', '.join(map(str,topic_list))
 
-    def topics_in_activity(self, activity):
-        """ Return a list of topics that an activity
-            Return format is a list of strings in the the order of 
-            topictrees in the system. Blanks are used if the activity does not
-            make use of a certain topictree category.
+    def topics_per_topictree(self, topictree):
+        """ For each topictree, check which activities in the assessment
+            use the provided topictree and return which topic they were tagged
+            with. eg. for Language topictree with 4 activities in an assessment:
+            this method will return ['English', "Xhosa', '', 'English'] for
+            instance.
         """
+
+        topictrees = self.topictrees()
+        activities = self.activities()
 
         # init a blank topic list
         topic_list = []
-        for x in range(len(self.topictrees())):
+        for x in range(len(activities)):
             topic_list.append('')
 
         # if activity has topics, place in correct positions in the topic list
-        if hasattr(activity,'topics'):
-            for x in range(len(self.topictrees())):
-                for topic in activity.topics:
-                    if topic.to_object.aq_parent.id == self.topictrees()[x].id:
-                        topic_list[x] = topic.to_object.title
+        for activity_index in range(len(activities)):
+            activity = activities[activity_index]
+            if hasattr(activity,'topics'):
+                for x in range(len(topictrees)):
+                    for topic in activity.topics:
+                        if topic.to_object.aq_parent.id == topictree.id:
+                            topic_list[activity_index] = topic.to_object.title
 
         return topic_list
+
