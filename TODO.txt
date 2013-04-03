@@ -1,66 +1,88 @@
-Edge cases for creating evaluationsheets when classlists is empty, or not activities are associated with the relevant assessment
+We need to make sure that the views that feedback to user via portal messages is
+done correctly. Some views need to only show an error message if there was an 
+AJAX error.
 
-We need to make sure that the views that return feedback using portal messages are doing so correctly. Some views need to only show an error message if there was an AJAX error.
 
-Translation issue - when uploading the same video again - "x has been replaced" status message needs translating
+Outstanding translations:
+========================
 
-Translation issue - When assessment item is created correctly - info message is in english: 'Item Created'
-Translation issue - Upon creating of assessment item the month of creating is in english as is the workflow_state ('internally_published')
-30 January 2013 0 punte 0 minute internally_published
+Black status tab:
+Logged in as _____
+Update user profile
+Select Language
+Logout
+
+Bottom:
+Home, Contact, All rights reserved 2013
+
+When registering a new user @@tarmii-new-user
+the provinces drop down says - Nothing selected (in english)
+Portrait browse button
+
+@@tarmii-user-information
+Portrait browse button
+
+----------- upfront.classlist ---------
+
+Import learners
+    Browse button
+
+----------- plone add forms -----------
+
+Add Assessment Item
+Edit Assessment Item
+    heading
+    content
+    TinyMCE - Edit without visual editor link
+    save, cancel buttons
+
+Add Evaluation Sheet
+    Assessment heading
+    Classlist heading
+    Save, cancel buttons
+
+Add Classlist
+Edit Class List
+    Save, Cancel buttons
+
+Add Assessment
+Edit Assessment
+    heading
+    Save, Cancel buttons
+
+
+Translation issues:
+
+* When assessment item is created correctly - portal message is in english:
+  'Info - Item Created'
+
+* Upon creating of assessment item the month of creating is in english as is 
+  the workflow_state ('internally_published')
+  30 January 2013 0 punte 0 minute internally_published
 
 Validation messages need translating (while adding assessment items)
 - Fout: there were some errors
 - Required input is missing.
-- When IRating Validator throw invalid it causes two portal messages to appear (also untranslated)
+- When IRating Validator throw invalid it causes two portal messages to appear 
+  (also untranslated)
 
-All User interface that is coming out of the theme - needs translations
 
-Default content of rating_scale datagridfield is not being translated.
+Translation issues that ADMIN ONLY will see (thus perhaps do not need
+translations if Admin will always use english?)
+----------------------------------------------------------------------
 
-Outstanding interface translations including JS Tree based translations:
----------- upfront.assessmentitem -----------
-Edit Assessment Item:
-    Content heading
-    Add new introduction button button
-    Select existing introduction button
-    Edit introduction, Remove introduction buttons
+Translation issues:
+* When uploading the same video again - "x file has been replaced"
+  status message needs translating
 
-    TinyMCE - Edit without visual editor link
-
-    Save, Cancel buttons
-    Browse button
-
-Select existing introduction
-    No introductions exist.
-    Select an introduction heading
-
------------ upfront.classlist ---------
-Import learners
-    Browse button
-
---------- TOPIC TREES & JS TREE translations ---
-
---------- plone add form -----------
-Add file (Teacher resources)
-    Browse button
-
-Add Activities (Assessment Item)
-    heading
-
-Add Evaluation Sheet
-    heading
-
-Add Classlist
+Add topic tree
+    A topic tree used for tagging content with topics
     Save, Cancel buttons
 
-Add Assessment
-     heading
-     Topics
-     Search, Save, Cancel buttons
+Add Teacher resource
+Edit Teacher Resource
+    Browse button
+    Save, Cancel buttons
 
-Add to assessment
-     Save, Cancel buttons
 
-Add introduction overlay
-    Save button
-    Cancel button
+

@@ -45,7 +45,7 @@ Message:
     form_fields = form.Fields(IFeedbackForm)
     result_template = ViewPageTemplateFile('templates/feedback_result.pt')
 
-    @form.action(_(u'send'))
+    @form.action(_(u'Send'))
     def action_send(self, action, data):
 
         mhost = getToolByName(self.context, 'MailHost')
@@ -108,7 +108,7 @@ Topics associated with this item:
     result_template = ViewPageTemplateFile(
         'templates/assessmentitem_feedback_result.pt')
 
-    @form.action(_(u'send'))
+    @form.action(_(u'Send'))
     def action_send(self, action, data):
 
         mhost = getToolByName(self.context, 'MailHost')

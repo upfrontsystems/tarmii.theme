@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-30 13:08+0000\n"
-"PO-Revision-Date: 2013-03-30 15:08+0200\n"
+"POT-Creation-Date: 2013-04-03 19:32+0000\n"
+"PO-Revision-Date: 2013-04-03 21:32+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -80,6 +80,7 @@ msgstr "Elke gradering moet uniek wees."
 msgid "Assessments"
 msgstr "Assesserings"
 
+#: ./browser/templates/addtoassessment.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:31
 msgid "Cancel"
 msgstr "Kanseleer"
@@ -338,6 +339,10 @@ msgstr "Rubriek"
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
+#: ./browser/templates/addtoassessment.pt:36
+msgid "Save"
+msgstr "Stoor"
+
 #: ./userdataschema.py:17
 msgid "School"
 msgstr "Skool"
@@ -362,6 +367,10 @@ msgstr "Kies U Taal"
 #: ./browser/quickupload.py:374
 msgid "Selected elements contain an empty file or a folder:"
 msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
+
+#: ./browser/feedback.py:48
+msgid "Send"
+msgstr "Stuur"
 
 #: ./browser/quickupload.py:384
 msgid "Server error, please contact support and/or try again."
@@ -487,7 +496,7 @@ msgid "heading_assessment"
 msgstr "Assessering"
 
 #. Default: "Assessment Task"
-#: ./browser/templates/assessment-pdf.pt:125
+#: ./browser/templates/assessment-pdf.pt:126
 msgid "heading_assessment_pdf"
 msgstr "Assessering Taak"
 
@@ -643,7 +652,7 @@ msgid "home_heading_videos"
 msgstr "VIDEOS"
 
 #. Default: "Or enter the name of a new assessment:"
-#: ./browser/templates/addtoassessment.pt:30
+#: ./browser/templates/addtoassessment.pt:29
 msgid "label_add_new_assessment"
 msgstr "Of tik die naam van 'n nuwe assessering in:"
 
@@ -705,7 +714,7 @@ msgid "label_content_concept_skills"
 msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 
 #. Default: "Date"
-#: ./browser/templates/assessment-pdf.pt:159
+#: ./browser/templates/assessment-pdf.pt:160
 #: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr "Datum"
@@ -768,7 +777,7 @@ msgid "label_last_login_time"
 msgstr "Laaste aanmelding tyd"
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:133
+#: ./browser/templates/assessment-pdf.pt:134
 #: ./browser/templates/evaluationsheet-pdf.pt:109
 #: ./browser/templates/scoresheet-pdf.pt:113
 msgid "label_learner_name"
@@ -827,7 +836,7 @@ msgid "label_resource"
 msgstr "Hulbron"
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:141
+#: ./browser/templates/assessment-pdf.pt:142
 #: ./browser/templates/teacher-info-pdf.pt:119
 msgid "label_school_name"
 msgstr "Skool Naam"
@@ -995,10 +1004,6 @@ msgstr "kies asseblief lêers weer sonder dit."
 #: ./browser/quickupload.py:373
 msgid "please try again."
 msgstr "probeer asseblief weer"
-
-#: ./browser/feedback.py:48
-msgid "send"
-msgstr "stuur"
 
 #. Default: "Assessment: ${assessment_title}"
 #: ./browser/templates/assessment-view.pt:13

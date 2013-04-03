@@ -26,18 +26,17 @@
 
             <br />
             <div id="formfield-add-new-assessment">
-
-                <label for="formfield-add-new-assessment" i18n:translate="label_add_new_assessment">Or enter the name of a new assessment: </label>
+                <label for="formfield-add-new-assessment" i18n:translate="label_add_new_assessment">Or enter the name of a new assessment: 
+                </label>
                 <input id="buttons-add-to-assessment-input" name="buttons.add.to.assessment.text.input"
                        class="text-widget required textline-field" value="" type="text">
                 <br />
                 <br />
-
                 <div>
                     <input id="buttons-add-to-assessment-submit" name="buttons.add.to.assessment.submit"
-                           value="Submit" type="submit">
+                           value="Save" type="submit" i18n:attributes="value">
                     <input id="buttons-add-to-assessment-cancel" name="buttons.add.to.assessment.cancel"
-                           value="Cancel" type="submit">
+                           value="Cancel" type="submit" i18n:attributes="value">
                 </div>
             </div>
 

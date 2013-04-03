@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-30 13:08+0000\n"
+"POT-Creation-Date: 2013-04-03 19:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,6 +83,7 @@ msgstr ""
 msgid "Assessments"
 msgstr ""
 
+#: ./browser/templates/addtoassessment.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:31
 msgid "Cancel"
 msgstr ""
@@ -341,6 +342,10 @@ msgstr ""
 msgid "Satisfactory"
 msgstr ""
 
+#: ./browser/templates/addtoassessment.pt:36
+msgid "Save"
+msgstr ""
+
 #: ./userdataschema.py:17
 msgid "School"
 msgstr ""
@@ -364,6 +369,10 @@ msgstr ""
 
 #: ./browser/quickupload.py:374
 msgid "Selected elements contain an empty file or a folder:"
+msgstr ""
+
+#: ./browser/feedback.py:48
+msgid "Send"
 msgstr ""
 
 #: ./browser/quickupload.py:384
@@ -490,7 +499,7 @@ msgid "heading_assessment"
 msgstr ""
 
 #. Default: "Assessment Task"
-#: ./browser/templates/assessment-pdf.pt:125
+#: ./browser/templates/assessment-pdf.pt:126
 msgid "heading_assessment_pdf"
 msgstr ""
 
@@ -646,7 +655,7 @@ msgid "home_heading_videos"
 msgstr ""
 
 #. Default: "Or enter the name of a new assessment:"
-#: ./browser/templates/addtoassessment.pt:30
+#: ./browser/templates/addtoassessment.pt:29
 msgid "label_add_new_assessment"
 msgstr ""
 
@@ -708,7 +717,7 @@ msgid "label_content_concept_skills"
 msgstr ""
 
 #. Default: "Date"
-#: ./browser/templates/assessment-pdf.pt:159
+#: ./browser/templates/assessment-pdf.pt:160
 #: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr ""
@@ -771,7 +780,7 @@ msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner Name"
-#: ./browser/templates/assessment-pdf.pt:133
+#: ./browser/templates/assessment-pdf.pt:134
 #: ./browser/templates/evaluationsheet-pdf.pt:109
 #: ./browser/templates/scoresheet-pdf.pt:113
 msgid "label_learner_name"
@@ -830,7 +839,7 @@ msgid "label_resource"
 msgstr ""
 
 #. Default: "School Name"
-#: ./browser/templates/assessment-pdf.pt:141
+#: ./browser/templates/assessment-pdf.pt:142
 #: ./browser/templates/teacher-info-pdf.pt:119
 msgid "label_school_name"
 msgstr ""
@@ -997,10 +1006,6 @@ msgstr ""
 
 #: ./browser/quickupload.py:373
 msgid "please try again."
-msgstr ""
-
-#: ./browser/feedback.py:48
-msgid "send"
 msgstr ""
 
 #. Default: "Assessment: ${assessment_title}"
