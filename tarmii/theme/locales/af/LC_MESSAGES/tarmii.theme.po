@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-03 19:32+0000\n"
-"PO-Revision-Date: 2013-04-03 21:32+0200\n"
+"POT-Creation-Date: 2013-04-04 08:33+0000\n"
+"PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -650,6 +650,11 @@ msgstr "ONDERWYSER HULPBRONNE"
 #: ./browser/templates/home.pt:95
 msgid "home_heading_videos"
 msgstr "VIDEOS"
+
+#. Default: "Activity"
+#: ./browser/templates/assessment-pdf.pt:172
+msgid "label_activity"
+msgstr "Aktiwiteit"
 
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:29

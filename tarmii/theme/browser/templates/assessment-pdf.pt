@@ -88,7 +88,7 @@
             margin-right: 1cm;
         }
 
-        div.activity-number {
+        div.activity-id {
             display: block;
             text-align: right;
             color: #bbb
@@ -169,12 +169,15 @@
     <div>&nbsp;</div>
     <div class="activities"
          tal:repeat="item view/activities">
-        <h1><span tal:content="item/id"></span></h1>
+        <h1><span i18n:translate="label_activity">Activity</span>
+            <span> </span>
+            <span tal:content="repeat/item/number"></span>
+        </h1>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
         </div>
-        <div class="activity-number">
-            <span tal:content="repeat/item/number"></span><span>. </span>
+        <div class="activity-id">
+            <span tal:content="item/id"></span>
         </div>
         <hr class="item-separator"/>
     </div>
