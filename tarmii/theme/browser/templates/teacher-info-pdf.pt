@@ -117,7 +117,7 @@
                 <td>
                     <h3>
                         <span i18n:translate="label_school_name">School Name</span>
-                        <span> : </span><span tal:content="view/school_name"></span>
+                        <span>: </span><span tal:content="view/school_name"></span>
                     </h3>
                 </td>
             </tr>
@@ -125,7 +125,7 @@
                 <td>
                     <h3>
                         <span i18n:translate="label_date">Date</span>
-                        <span> : </span><span tal:content="python:modules['DateTime'].DateTime().strftime('%d %M %Y')"></span>
+                        <span>: </span><span tal:content="python:modules['DateTime'].DateTime().strftime('%d %M %Y')"></span>
                     </h3>
                 </td>
             </tr>
@@ -134,7 +134,7 @@
                      <tr tal:repeat="topictree view/topictrees">
                         <td>
                             <h3>
-                                <span tal:content="topictree/title"></span><span> : </span>
+                                <span tal:content="topictree/title"></span><span>: </span>
                                 <span tal:content="python:view.topics(topictree)"></span>
                             </h3>
                         </td>
