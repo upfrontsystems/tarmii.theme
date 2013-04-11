@@ -32,14 +32,17 @@ class ActivitiesPDF(grok.View):
 
     def __call__(self):
         pdf = StringIO()
-        html = StringIO(self._render_template())
+        html = self._render_template()
+        html = StringIO(html.encode('utf-8'))
 
         # Construct a trojan horse and hide context inside it
         path = ContextString(self.context.absolute_url())
         path.context = self.context
 
         # Generate the pdf
-        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, encoding='utf-8',
+                                 raise_exception=False)
+        
         assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
         html.close()
         pdfcontent = pdf.getvalue()
@@ -93,14 +96,16 @@ class AssessmentPDF(grok.View):
 
     def __call__(self):
         pdf = StringIO()
-        html = StringIO(self._render_template())
+        html = self._render_template()
+        html = StringIO(html.encode('utf-8'))
 
         # Construct a trojan horse and hide context inside it
         path = ContextString(self.context.absolute_url())
         path.context = self.context
 
         # Generate the pdf
-        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, encoding='utf-8',
+                                 raise_exception=False)
         assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
         html.close()
         pdfcontent = pdf.getvalue()
@@ -213,14 +218,16 @@ class EvaluationSheetPDF(grok.View):
 
     def __call__(self):
         pdf = StringIO()
-        html = StringIO(self._render_template())
+        html = self._render_template()
+        html = StringIO(html.encode('utf-8'))
 
         # Construct a trojan horse and hide context inside it
         path = ContextString(self.context.absolute_url())
         path.context = self.context
 
         # Generate the pdf
-        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, encoding='utf-8',
+                                 raise_exception=False)
         assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
         html.close()
         pdfcontent = pdf.getvalue()
@@ -267,14 +274,16 @@ class ScoreSheetPDF(grok.View):
 
     def __call__(self):
         pdf = StringIO()
-        html = StringIO(self._render_template())
+        html = self._render_template()
+        html = StringIO(html.encode('utf-8'))
 
         # Construct a trojan horse and hide context inside it
         path = ContextString(self.context.absolute_url())
         path.context = self.context
 
         # Generate the pdf
-        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, encoding='utf-8',
+                                 raise_exception=False)
         assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
         html.close()
         pdfcontent = pdf.getvalue()
@@ -342,14 +351,16 @@ class TeacherInformationPDF(grok.View):
 
     def __call__(self):
         pdf = StringIO()
-        html = StringIO(self._render_template())
+        html = self._render_template()
+        html = StringIO(html.encode('utf-8'))
 
         # Construct a trojan horse and hide context inside it
         path = ContextString(self.context.absolute_url())
         path.context = self.context
 
         # Generate the pdf
-        pisadoc = pisa.CreatePDF(html, pdf, path=path, raise_exception=False)
+        pisadoc = pisa.CreatePDF(html, pdf, path=path, encoding='utf-8',
+                                 raise_exception=False)
         assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
         html.close()
         pdfcontent = pdf.getvalue()
