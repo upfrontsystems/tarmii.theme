@@ -1,6 +1,8 @@
 from five import grok
 from zope.interface import Interface
 from plone.directives import dexterity
+from tarmii.theme import MessageFactory as _
+
 grok.templatedir('templates')
 
 class AssessmentsView(grok.View):
@@ -27,5 +29,5 @@ class AssessmentsView(grok.View):
     def translated_date(self, date):
         """ Translate the month part of the date
         """
-        month = self.context.translate(date.strftime('%B'))
+        month = self.context.translate(_(date.strftime('%B')))
         return '%s %s %s' % (date.day(), month, date.year())

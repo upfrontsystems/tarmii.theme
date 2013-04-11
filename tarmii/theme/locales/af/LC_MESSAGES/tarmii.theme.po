@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-11 11:30+0000\n"
+"POT-Creation-Date: 2013-04-11 12:14+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,10 @@ msgstr "lêers opgelaai met sukses,"
 #: ./browser/quickupload.py:370
 msgid " uploads return an error."
 msgstr "oplaai rapporteer 'n fout."
+
+#: ./browser/assessments.py:32
+msgid "%B"
+msgstr ""
 
 #: ./browser/quickupload.py:383
 msgid "A data base conflict error happened when uploading this file:"
@@ -75,10 +79,16 @@ msgstr "Alle graderings moet positief en groter as nul wees."
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
+msgid "April"
+msgstr "April"
+
 #. Default: "Assessments"
 #: ./profiles/default/actions.xml
 msgid "Assessments"
 msgstr "Assesserings"
+
+msgid "August"
+msgstr "Augustus"
 
 #: ./browser/templates/addtoassessment.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:31
@@ -134,6 +144,9 @@ msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 msgid "Contribute own activity"
 msgstr "Dra jou eie aktiwiteit by"
 
+msgid "December"
+msgstr "Desember"
+
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
 msgstr "Definieer die URL waar die logs opgelaai kan word."
@@ -167,6 +180,9 @@ msgstr "Uitstekend"
 #: ./browser/quickupload.py:371
 msgid "Failed"
 msgstr "Nie gewerk nie"
+
+msgid "February"
+msgstr "Februarie"
 
 #: ./browser/feedback.py:83
 msgid "Feedback"
@@ -215,6 +231,15 @@ msgstr "Vinnige Prent Oplaai"
 msgid "Item ID"
 msgstr "Item ID"
 
+msgid "January"
+msgstr "Januarie"
+
+msgid "July"
+msgstr "Julie"
+
+msgid "June"
+msgstr "Junie"
+
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
 msgstr "Kwazulu-Natal"
@@ -234,6 +259,15 @@ msgstr "Leerder Taak/Aktiwiteit"
 #: ./vocabs.py:13
 msgid "Limpopo"
 msgstr "Limpopo"
+
+# This entry is used in gomobiletheme.mfabrik  templates for the campaign page header
+# It is not automatically picked, since it is referred from external package
+#. Default: "Watch video"
+msgid "March"
+msgstr "Maart"
+
+msgid "May"
+msgstr "Mei"
 
 #: ./browser/feedback.py:26
 msgid "Message"
@@ -268,6 +302,9 @@ msgstr "Noordwes"
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
+msgid "November"
+msgstr "November"
+
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig van grondslagfase"
@@ -275,6 +312,9 @@ msgstr "Aantal jare onderrig van grondslagfase"
 #: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
+
+msgid "October"
+msgstr "Oktober"
 
 #: ./browser/quickupload.py:379
 msgid "Only allowed:"
@@ -371,6 +411,9 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 #: ./browser/feedback.py:48
 msgid "Send"
 msgstr "Stuur"
+
+msgid "September"
+msgstr "September"
 
 #: ./browser/quickupload.py:384
 msgid "Server error, please contact support and/or try again."

@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-11 11:30+0000\n"
+"POT-Creation-Date: 2013-04-11 12:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +20,10 @@ msgstr ""
 
 #: ./browser/quickupload.py:370
 msgid " uploads return an error."
+msgstr ""
+
+#: ./browser/assessments.py:32
+msgid "%B"
 msgstr ""
 
 #: ./browser/quickupload.py:383
@@ -78,9 +79,15 @@ msgstr ""
 msgid "All rating values must be unique."
 msgstr ""
 
+msgid "April"
+msgstr ""
+
 #. Default: "Assessments"
 #: ./profiles/default/actions.xml
 msgid "Assessments"
+msgstr ""
+
+msgid "August"
 msgstr ""
 
 #: ./browser/templates/addtoassessment.pt:38
@@ -137,6 +144,9 @@ msgstr ""
 msgid "Contribute own activity"
 msgstr ""
 
+msgid "December"
+msgstr ""
+
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded."
 msgstr ""
@@ -169,6 +179,9 @@ msgstr ""
 
 #: ./browser/quickupload.py:371
 msgid "Failed"
+msgstr ""
+
+msgid "February"
 msgstr ""
 
 #: ./browser/feedback.py:83
@@ -218,6 +231,15 @@ msgstr ""
 msgid "Item ID"
 msgstr ""
 
+msgid "January"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
 msgstr ""
@@ -236,6 +258,12 @@ msgstr ""
 
 #: ./vocabs.py:13
 msgid "Limpopo"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "May"
 msgstr ""
 
 #: ./browser/feedback.py:26
@@ -271,12 +299,18 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
+msgid "November"
+msgstr ""
+
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
 #: ./behaviors.py:30
 msgid "Observation Sheet"
+msgstr ""
+
+msgid "October"
 msgstr ""
 
 #: ./browser/quickupload.py:379
@@ -373,6 +407,9 @@ msgstr ""
 
 #: ./browser/feedback.py:48
 msgid "Send"
+msgstr ""
+
+msgid "September"
 msgstr ""
 
 #: ./browser/quickupload.py:384
