@@ -23,3 +23,10 @@ class EvaluationSheetsView(grok.View):
         """
         return "%s/++add++upfront.assessment.content.evaluationsheet" % (
             self.context.absolute_url())
+
+    def evaluationsheet_title(self, evaluationsheet):
+        """ return title for specific evaluationsheet
+        """
+        return '%s %s' %\
+            (evaluationsheet.getObject().assessment.to_object.title,
+             evaluationsheet.getObject().classlist.to_object.title)

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-04 08:33+0000\n"
+"POT-Creation-Date: 2013-04-11 11:30+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,7 +172,7 @@ msgstr "Nie gewerk nie"
 msgid "Feedback"
 msgstr "Terugvoer"
 
-#: ./browser/uploadtoserver.py:98
+#: ./browser/uploadtoserver.py:97
 msgid "File sent to server"
 msgstr "Lêer na bediener gestuur"
 
@@ -425,7 +425,7 @@ msgstr "Onderwerp Bome"
 msgid "UUID"
 msgstr "UUID"
 
-#: ./browser/uploadtoserver.py:76
+#: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
@@ -491,7 +491,7 @@ msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
 #. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:29
+#: ./browser/templates/evaluationsheets.pt:30
 msgid "heading_assessment"
 msgstr "Assessering"
 
@@ -506,7 +506,7 @@ msgid "heading_assessments"
 msgstr "Assesserings"
 
 #. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:30
+#: ./browser/templates/evaluationsheets.pt:31
 msgid "heading_classlist"
 msgstr "Klas lys"
 
@@ -754,6 +754,11 @@ msgstr "E-pos"
 msgid "label_equipment_and_admin"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
+#. Default: "Evaluation Sheet"
+#: ./browser/templates/evaluationsheets.pt:29
+msgid "label_evaluationsheet"
+msgstr "Evaluasieblad"
+
 #. Default: "Evaluation Sheet PDF"
 #: ./browser/templates/assessments.pt:37
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
@@ -885,7 +890,7 @@ msgstr "Gebruikersnaam"
 #. Default: "View"
 #: ./browser/templates/activities.pt:110
 #: ./browser/templates/assessment-view.pt:66
-#: ./browser/templates/evaluationsheets.pt:42
+#: ./browser/templates/videos.pt:82
 msgid "label_view"
 msgstr "Sien"
 

@@ -26,12 +26,15 @@
         <tal:listing tal:condition="view/evaluationsheets">
                 <table class="listing admin-table">
                     <tr> 
+                        <th i18n:translate="label_evaluationsheet">Evaluation Sheet</th>
                         <th i18n:translate="heading_assessment">Assessment</th>
                         <th i18n:translate="heading_classlist">Class list</th>
                         <th i18n:translate="label_delete">Delete</th>
-                        <th></th>
+                        <th>PDF</th>
                     </tr>
                     <tr tal:repeat="evaluationsheet view/evaluationsheets">
+                        <td><a tal:content="python:view.evaluationsheet_title(evaluationsheet)"
+                               tal:attributes="href python:evaluationsheet.getObject().absolute_url()">View</a></td>
                         <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
                         <td tal:content="python:evaluationsheet.getObject().classlist.to_object.title"></td>
                         <td>
@@ -39,8 +42,11 @@
                                <a class="trashcan edit_link" tal:attributes="href string:${evaluationsheet/getURL}/delete_confirmation"></a>
                             </div>
                         </td>
-                        <td><a tal:attributes="href python:evaluationsheet.getObject().absolute_url()"
-                               i18n:translate="label_view">View</a></td>
+                        <td>
+                            <div class="pdf-anchor">
+                                <a class="pdf-small" tal:attributes="href string:${evaluationsheet/getURL}/pdf"></a>
+                            </div>
+                        </td>
                     </tr>
                 </table>
         </tal:listing>
