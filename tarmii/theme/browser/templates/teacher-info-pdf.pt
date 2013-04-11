@@ -125,7 +125,7 @@
                 <td>
                     <h3>
                         <span i18n:translate="label_date">Date</span>
-                        <span>: </span><span tal:content="python:modules['DateTime'].DateTime().strftime('%d %M %Y')"></span>
+                        <span>: </span><span tal:content="python:view.translated_date(modules['DateTime'].DateTime())"></span>
                     </h3>
                 </td>
             </tr>

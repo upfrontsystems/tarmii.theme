@@ -449,3 +449,10 @@ class TeacherInformationPDF(grok.View):
 
         return topic_list
 
+    def translated_date(self, date):
+        """ Translate the month part of the date
+        """
+        month = self.context.translate(_(date.strftime('%B')))
+        return '%s %s %s' % (date.day(), month, date.year())
+
+
