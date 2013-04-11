@@ -449,10 +449,13 @@ class TeacherInformationPDF(grok.View):
 
         return topic_list
 
-    def translated_date(self, date):
-        """ Translate the month part of the date
+    def assessment_date(self):
+        """ Return date that assessment was created with month translated
         """
-        month = self.context.translate(_(date.strftime('%B')))
-        return '%s %s %s' % (date.day(), month, date.year())
+
+        day = self.context.created().day()
+        month = self.context.translate(_(self.context.created().strftime('%B')))
+        year = self.context.created().year()
+        return '%s %s %s' % (day, month, year)
 
 
