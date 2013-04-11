@@ -23,3 +23,9 @@ class AssessmentsView(grok.View):
         """
         return "%s/++add++upfront.assessment.content.assessment" % (
             self.context.absolute_url())
+
+    def translated_date(self, date):
+        """ Translate the month part of the date
+        """
+        month = self.context.translate(date.strftime('%B'))
+        return '%s %s %s' % (date.day(), month, date.year())

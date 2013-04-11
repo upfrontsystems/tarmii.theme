@@ -39,7 +39,7 @@
                     </tr>
                     <tr tal:repeat="assessment view/assessments">
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
-                        <td tal:content="python:assessment.created.strftime('%d %B %Y')"></td>
+                        <td tal:content="python:view.translated_date(assessment.created)"></td>
                         <td>
                             <tal:is_editable tal:condition="python:assessment.getObject().is_editable()"> 
                                 <div class="edit-anchor">
