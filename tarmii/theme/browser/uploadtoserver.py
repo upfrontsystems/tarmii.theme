@@ -23,8 +23,7 @@ class UploadToServerView(grok.View):
 
     def zip_csv(self):
         """ Create a zip file in memory of the CSV files for logged requests, 
-            evaluations sheets and user profiles for the last 3
-0 days.
+            evaluations sheets and user profiles for the last 3 0 days.
         """
 
         # get todays date + date 30 days ago
