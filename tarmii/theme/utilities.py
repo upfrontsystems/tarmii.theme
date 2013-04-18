@@ -41,7 +41,7 @@ class SiteData(Persistent):
         # XXX after unzip is working (above), code from extract_test can be 
         # be filled in below to complete the functionality.
 
-        # extract and grab the users
+        # extract and grab data
         # process and sort
 
         zf.close()
@@ -110,4 +110,70 @@ class SiteData(Persistent):
 
         zf.close()
         return province_dict
+
+
+    def extract_logs(self):
+        zipped_data = self.sitedata.items()
+        zipped_file = StringIO()       
+        zipped_file.write(zipped_data[0][1][2:]) # [2:] removes leading '\r\n'
+        zipped_file.seek(0)
+        zf = zipfile.ZipFile(zipped_file, mode='r')
+        import pdb; pdb.set_trace()
+        logs = StringIO()
+        for filename in zf.namelist():
+            if filename == 'logs.csv':
+                bytes = zf.read(filename)
+                logs.write(bytes)
+
+        # XXX after unzip is working (above), code from extract_logs_test can be 
+        # be filled in below to complete the functionality.
+
+        # extract and grab the data
+        # process and sort
+
+        zf.close()
+
+    def extract_logs_test(self, zipped_data):
+        """ """
+        # get zip data
+        zipped_data.seek(0)
+        zf = zipfile.ZipFile(zipped_data, mode='r')
+        logs = StringIO()
+        for filename in zf.namelist():
+            if filename == 'logs.csv':
+                bytes = zf.read(filename)
+                logs.write(bytes)
+
+        logs.seek(0)
+        log_data = logs.getvalue().splitlines()
+    
+        # as reference from exportloggedrequests
+        # fieldnames=['time', 'path', 'username'],
+
+        # place data in an organised dictionary
+        log_dict = {}
+        datelist = []
+
+        for entry in log_data:
+            date_time = entry.split(',')[0]
+            date = date_time[:10]
+
+            try:
+                x = log_dict[date]
+                # if this date exists, we do not set it to blank
+            except KeyError:
+                # date entry did not yet exist, initialise to {}
+                log_dict.update({date:{}})
+                datelist.append(date)
+
+            path_data = log_dict[date]
+            path_entry = entry.split(',')[1]
+            if path_data == {}:
+                path_data = []
+            path_data.append(path_entry)
+            log_dict.update({date: path_data})
+
+        zf.close()
+        # log_dict[date] gives us a list of url paths accessed on that date.
+        return log_dict, datelist
 
