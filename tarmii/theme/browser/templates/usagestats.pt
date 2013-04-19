@@ -11,6 +11,72 @@
     
         <h1 i18n:translate="heading_usagestats">USAGE STATS</h1>
 
+
+        <form id="stat-select" name="stat-select" tal:attributes="action string:${view/__name__}" method="POST">
+             <table>
+                 <tbody>
+                    <tr>
+                        <th i18n:translate="title_month">MONTH</th>
+                        <th i18n:translate="title_year">YEAR</th>
+                    </tr>
+                    <tr>
+                        <td class="stats-month">
+                            <select name="month-select" id="stats-month">
+                                <option value="01" i18n:translate="January" 
+                                        tal:attributes="selected python:'01' == request.get('month-select', '')">January</option>
+                                <option value="02" i18n:translate="February"
+                                        tal:attributes="selected python:'02' == request.get('month-select', '')">February</option>
+                                <option value="03" i18n:translate="March"
+                                        tal:attributes="selected python:'03' == request.get('month-select', '')">March</option>
+                                <option value="04" i18n:translate="April"
+                                        tal:attributes="selected python:'04' == request.get('month-select', '')">April</option>
+                                <option value="05" i18n:translate="May"
+                                        tal:attributes="selected python:'05' == request.get('month-select', '')">May</option>
+                                <option value="06" i18n:translate="June"
+                                        tal:attributes="selected python:'06' == request.get('month-select', '')">June</option>
+                                <option value="07" i18n:translate="July"
+                                        tal:attributes="selected python:'07' == request.get('month-select', '')">July</option>
+                                <option value="08" i18n:translate="August"
+                                        tal:attributes="selected python:'08' == request.get('month-select', '')">August</option>
+                                <option value="09" i18n:translate="September"
+                                        tal:attributes="selected python:'09' == request.get('month-select', '')">September</option>
+                                <option value="10" i18n:translate="October"
+                                        tal:attributes="selected python:'10' == request.get('month-select', '')">October</option>
+                                <option value="11" i18n:translate="November"
+                                        tal:attributes="selected python:'11' == request.get('month-select', '')">November</option>
+                                <option value="12" i18n:translate="December"
+                                        tal:attributes="selected python:'12' == request.get('month-select', '')">December</option>
+                            </select>
+                        </td>
+                        <td class="stats-year">
+                            <select name="year-select" id="stats-year">
+                                <option value="2013" 
+                                        tal:attributes="selected python:'2013' == request.get('year-select', '')">2013</option>
+                                <option value="2014"
+                                        tal:attributes="selected python:'2014' == request.get('year-select', '')">2014</option>
+                                <option value="2015"
+                                        tal:attributes="selected python:'2015' == request.get('year-select', '')">2015</option>
+                                <option value="2016"
+                                        tal:attributes="selected python:'2016' == request.get('year-select', '')">2016</option>
+                                <option value="2017"
+                                        tal:attributes="selected python:'2017' == request.get('year-select', '')">2017</option>
+                                <option value="2018"
+                                        tal:attributes="selected python:'2018' == request.get('year-select', '')">2018</option>
+                                <option value="2019"
+                                        tal:attributes="selected python:'2019' == request.get('year-select', '')">2019</option>
+                                <option value="2020"
+                                        tal:attributes="selected python:'2020' == request.get('year-select', '')">2020</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="allowMultiSubmit" id="stat-select-submit" type="submit" value="OK" name="form.button.ok"
+                                   i18n:attributes="value">
+                        </td>
+                    </tr>
+                 </tbody>
+             </table>
+        </form>
+
         <tal:nostats tal:condition="not:view/stats">
             <p i18n:translate="description_nostats">No usage stats present.
             </p>

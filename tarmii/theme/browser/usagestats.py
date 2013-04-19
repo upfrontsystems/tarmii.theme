@@ -31,6 +31,19 @@ class UsageStatsView(grok.View):
         test_data.write(view.zip_csv())
         self.user_stats, self.stat_dates = sitedata.extract_logs_test(test_data)
 
+        self.month = self.request.get('month-select')
+        self.year = self.request.get('year-select')
+
+        # set defaults to current month and year
+        if self.month is None:
+            self.month = str(datetime.now().month)
+            if len(self.month) == 1:
+                self.month = '0' + self.month
+            self.request.set('month-select', self.month)
+        if self.year is None:
+            self.year = str(datetime.now().year)
+            self.request.set('year-select', self.year)
+
     def stats(self):
         """ return all the site usage stats
         """
@@ -46,34 +59,40 @@ class UsageStatsView(grok.View):
         self.stat_dates.reverse()
 
         stats = []
-        for date in self.stat_dates:            
-            date_data = self.user_stats[date]
-            stat_entry = { 'day' : date[0:2],
-                           'activities_viewed' : 0,
-                           'howto_clips_viewed' : 0,
-                           'pedagogical_clips_viewed' : 0,                  
-                           'teacher_resources_viewed' : 0,
-                           'activities_created' : 0,
-                           'assessment_created' : 0,
-                           'classlist_created' : 0,
-                           'evaluation_created' : 0,
-                    }
+        for date in self.stat_dates:
 
-            # parse all the url paths from a specific date
-            for entry in date_data:
-                if entry[-10:] == 'activities':
-                    stat_entry['activities_viewed'] += 1
-                if entry.find('howto') != -1 and entry[-7:] == '@@video':
-                    stat_entry['howto_clips_viewed'] += 1
-                if entry.find('pedagogic') != -1 and entry[-7:] == '@@video':
-                    stat_entry['pedagogical_clips_viewed'] += 1
-                if entry[-9:] == 'resources':
-                    stat_entry['teacher_resources_viewed'] += 1
+            # filter via month and year
+            # date format is: 19/04/2013
+            if self.month is None:
+                return []
+            if self.month in date[3:5] and self.year in date[6:10]:
+                date_data = self.user_stats[date]
+                stat_entry = { 'day' : date[0:2],
+                               'activities_viewed' : 0,
+                               'howto_clips_viewed' : 0,
+                               'pedagogical_clips_viewed' : 0,                  
+                               'teacher_resources_viewed' : 0,
+                               'activities_created' : 0,
+                               'assessment_created' : 0,
+                               'classlist_created' : 0,
+                               'evaluation_created' : 0,
+                        }
 
-                if entry.find(new_activity) != -1:
-                    stat_entry['activities_created'] += 1
+                # parse all the url paths from a specific date
+                for entry in date_data:
+                    if entry[-10:] == 'activities':
+                        stat_entry['activities_viewed'] += 1
+                    if entry.find('howto') != -1 and entry[-7:] == '@@video':
+                        stat_entry['howto_clips_viewed'] += 1
+                    if entry.find('pedagogic') != -1 and entry[-7:] == '@@video':
+                        stat_entry['pedagogical_clips_viewed'] += 1
+                    if entry[-9:] == 'resources':
+                        stat_entry['teacher_resources_viewed'] += 1
+    
+                    if entry.find(new_activity) != -1:
+                        stat_entry['activities_created'] += 1
 
-            stats.append(stat_entry)
+                stats.append(stat_entry)
 
         return stats
 

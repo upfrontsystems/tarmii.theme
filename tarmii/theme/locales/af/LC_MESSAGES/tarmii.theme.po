@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-11 12:14+0000\n"
+"POT-Creation-Date: 2013-04-19 13:55+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,7 @@ msgstr "Alle graderings moet positief en groter as nul wees."
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
+#: ./browser/templates/usagestats.pt:31
 msgid "April"
 msgstr "April"
 
@@ -87,6 +88,7 @@ msgstr "April"
 msgid "Assessments"
 msgstr "Assesserings"
 
+#: ./browser/templates/usagestats.pt:39
 msgid "August"
 msgstr "Augustus"
 
@@ -144,6 +146,7 @@ msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 msgid "Contribute own activity"
 msgstr "Dra jou eie aktiwiteit by"
 
+#: ./browser/templates/usagestats.pt:47
 msgid "December"
 msgstr "Desember"
 
@@ -181,6 +184,7 @@ msgstr "Uitstekend"
 msgid "Failed"
 msgstr "Nie gewerk nie"
 
+#: ./browser/templates/usagestats.pt:27
 msgid "February"
 msgstr "Februarie"
 
@@ -231,12 +235,15 @@ msgstr "Vinnige Prent Oplaai"
 msgid "Item ID"
 msgstr "Item ID"
 
+#: ./browser/templates/usagestats.pt:25
 msgid "January"
 msgstr "Januarie"
 
+#: ./browser/templates/usagestats.pt:37
 msgid "July"
 msgstr "Julie"
 
+#: ./browser/templates/usagestats.pt:35
 msgid "June"
 msgstr "Junie"
 
@@ -263,9 +270,11 @@ msgstr "Limpopo"
 # This entry is used in gomobiletheme.mfabrik  templates for the campaign page header
 # It is not automatically picked, since it is referred from external package
 #. Default: "Watch video"
+#: ./browser/templates/usagestats.pt:29
 msgid "March"
 msgstr "Maart"
 
+#: ./browser/templates/usagestats.pt:33
 msgid "May"
 msgstr "Mei"
 
@@ -302,6 +311,7 @@ msgstr "Noordwes"
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
+#: ./browser/templates/usagestats.pt:45
 msgid "November"
 msgstr "November"
 
@@ -309,10 +319,15 @@ msgstr "November"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig van grondslagfase"
 
+#: ./browser/templates/usagestats.pt:72
+msgid "OK"
+msgstr "OK"
+
 #: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
+#: ./browser/templates/usagestats.pt:43
 msgid "October"
 msgstr "Oktober"
 
@@ -412,6 +427,7 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 msgid "Send"
 msgstr "Stuur"
 
+#: ./browser/templates/usagestats.pt:41
 msgid "September"
 msgstr "September"
 
@@ -506,6 +522,11 @@ msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die na
 #: ./browser/templates/classlists.pt:15
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
+
+#. Default: "No usage stats present."
+#: ./browser/templates/usagestats.pt:81
+msgid "description_nostats"
+msgstr "Geen huidige gebruik statistieke."
 
 #. Default: "Activities"
 #: ./browser/templates/activities.pt:11
@@ -619,6 +640,11 @@ msgstr "Onderwysers:"
 msgid "heading_topic_trees"
 msgstr "Onderwerp Bome"
 
+#. Default: "USAGE STATS:"
+#: ./browser/templates/usagestats.pt:12
+msgid "heading_usagestats"
+msgstr "GEBRUIK STATISTIEKE"
+
 #. Default: "Videos"
 #: ./browser/templates/videos.pt:11
 msgid "heading_videos"
@@ -694,6 +720,16 @@ msgstr "ONDERWYSER HULPBRONNE"
 msgid "home_heading_videos"
 msgstr "VIDEOS"
 
+#. Default: "Activities Created"
+#: ./browser/templates/usagestats.pt:93
+msgid "label_activities_created"
+msgstr "Aktiwiteite Geskep"
+
+#. Default: "Activities Viewed"
+#: ./browser/templates/usagestats.pt:89
+msgid "label_activities_viewed"
+msgstr "Aktiwiteite Gesien"
+
 #. Default: "Activity"
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
@@ -725,6 +761,11 @@ msgstr "Assessering naam"
 msgid "label_assessment_pdf"
 msgstr "Assessering PDF"
 
+#. Default: "Assessments Created"
+#: ./browser/templates/usagestats.pt:94
+msgid "label_assessments_created"
+msgstr "Assesserings Geskep"
+
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
 msgid "label_choose_assessment"
@@ -750,6 +791,11 @@ msgstr "Kies jou lêers:"
 msgid "label_classlist"
 msgstr "Klaslys"
 
+#. Default: "Classlists Created"
+#: ./browser/templates/usagestats.pt:95
+msgid "label_classlists_created"
+msgstr "Klaslyste Geskep"
+
 #. Default: "Clear Queue"
 #: ./browser/templates/quick_upload.pt:47
 msgid "label_clear_queue"
@@ -766,6 +812,11 @@ msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 #: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
 msgstr "Datum"
+
+#. Default: "Day"
+#: ./browser/templates/usagestats.pt:88
+msgid "label_day"
+msgstr "Dag"
 
 #. Default: "Delete"
 #: ./browser/templates/assessmentitem-view.pt:50
@@ -797,6 +848,11 @@ msgstr "E-pos"
 msgid "label_equipment_and_admin"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
+#. Default: "Evaluations Created"
+#: ./browser/templates/usagestats.pt:96
+msgid "label_evaluations_created"
+msgstr "Evaluaskies Geskep"
+
 #. Default: "Evaluation Sheet"
 #: ./browser/templates/evaluationsheets.pt:29
 msgid "label_evaluationsheet"
@@ -823,6 +879,11 @@ msgstr "Volle naam"
 #: ./browser/templates/videos.pt:21
 msgid "label_how_to"
 msgstr "Hoe om"
+
+#. Default: "Howto Clips Viewed"
+#: ./browser/templates/usagestats.pt:90
+msgid "label_howto_clips_viewed"
+msgstr "Hoe om Videos Gesien"
 
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
@@ -856,6 +917,11 @@ msgstr "Selfoon"
 #: ./browser/templates/videos.pt:35
 msgid "label_pedagogic"
 msgstr "Pedagogiese"
+
+#. Default: "Pedagogic Clips Viewed"
+#: ./browser/templates/usagestats.pt:91
+msgid "label_pedagogic_clips_viewed"
+msgstr "Pedagogiese Videos Gesien"
 
 #. Default: "Prior Knowledge or Skill(s) Assessed"
 #: ./browser/templates/activities-pdf.pt:124
@@ -898,6 +964,11 @@ msgstr "Skool Naam"
 #: ./browser/templates/activities.pt:74
 msgid "label_search_activity"
 msgstr "Soek vir 'n aktiwiteit :"
+
+#. Default: "Teacher Resources Viewed"
+#: ./browser/templates/usagestats.pt:92
+msgid "label_teacher_resources_viewed"
+msgstr "Onderwyser Hulpbronne Gesien"
 
 #. Default: "Teacher Info PDF"
 #: ./browser/templates/assessments.pt:38
@@ -1062,4 +1133,14 @@ msgstr "probeer asseblief weer"
 #: ./browser/templates/assessment-view.pt:13
 msgid "title_assessment"
 msgstr "Assessering: ${assessment_title}"
+
+#. Default: "MONTH"
+#: ./browser/templates/usagestats.pt:19
+msgid "title_month"
+msgstr "MAAND"
+
+#. Default: "YEAR"
+#: ./browser/templates/usagestats.pt:20
+msgid "title_year"
+msgstr "JAAR"
 

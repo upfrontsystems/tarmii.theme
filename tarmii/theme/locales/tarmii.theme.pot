@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-11 12:14+0000\n"
+"POT-Creation-Date: 2013-04-19 13:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,7 @@ msgstr ""
 msgid "All rating values must be unique."
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:31
 msgid "April"
 msgstr ""
 
@@ -87,6 +88,7 @@ msgstr ""
 msgid "Assessments"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:39
 msgid "August"
 msgstr ""
 
@@ -144,6 +146,7 @@ msgstr ""
 msgid "Contribute own activity"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:47
 msgid "December"
 msgstr ""
 
@@ -181,6 +184,7 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:27
 msgid "February"
 msgstr ""
 
@@ -231,12 +235,15 @@ msgstr ""
 msgid "Item ID"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:25
 msgid "January"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:37
 msgid "July"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:35
 msgid "June"
 msgstr ""
 
@@ -260,9 +267,11 @@ msgstr ""
 msgid "Limpopo"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:29
 msgid "March"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:33
 msgid "May"
 msgstr ""
 
@@ -299,6 +308,7 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:45
 msgid "November"
 msgstr ""
 
@@ -306,10 +316,15 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:72
+msgid "OK"
+msgstr ""
+
 #: ./behaviors.py:30
 msgid "Observation Sheet"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:43
 msgid "October"
 msgstr ""
 
@@ -409,6 +424,7 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
+#: ./browser/templates/usagestats.pt:41
 msgid "September"
 msgstr ""
 
@@ -502,6 +518,11 @@ msgstr ""
 #. Default: "Here you can add new class lists or"
 #: ./browser/templates/classlists.pt:15
 msgid "description_classlists_add"
+msgstr ""
+
+#. Default: "No usage stats present."
+#: ./browser/templates/usagestats.pt:81
+msgid "description_nostats"
 msgstr ""
 
 #. Default: "Activities"
@@ -616,6 +637,11 @@ msgstr ""
 msgid "heading_topic_trees"
 msgstr ""
 
+#. Default: "USAGE STATS:"
+#: ./browser/templates/usagestats.pt:12
+msgid "heading_usagestats"
+msgstr ""
+
 #. Default: "Videos"
 #: ./browser/templates/videos.pt:11
 msgid "heading_videos"
@@ -691,6 +717,16 @@ msgstr ""
 msgid "home_heading_videos"
 msgstr ""
 
+#. Default: "Activities Created"
+#: ./browser/templates/usagestats.pt:93
+msgid "label_activities_created"
+msgstr ""
+
+#. Default: "Activities Viewed"
+#: ./browser/templates/usagestats.pt:89
+msgid "label_activities_viewed"
+msgstr ""
+
 #. Default: "Activity"
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
@@ -722,6 +758,11 @@ msgstr ""
 msgid "label_assessment_pdf"
 msgstr ""
 
+#. Default: "Assessments Created"
+#: ./browser/templates/usagestats.pt:94
+msgid "label_assessments_created"
+msgstr ""
+
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
 msgid "label_choose_assessment"
@@ -747,6 +788,11 @@ msgstr ""
 msgid "label_classlist"
 msgstr ""
 
+#. Default: "Classlists Created"
+#: ./browser/templates/usagestats.pt:95
+msgid "label_classlists_created"
+msgstr ""
+
 #. Default: "Clear Queue"
 #: ./browser/templates/quick_upload.pt:47
 msgid "label_clear_queue"
@@ -762,6 +808,11 @@ msgstr ""
 #: ./browser/templates/assessment-pdf.pt:160
 #: ./browser/templates/teacher-info-pdf.pt:127
 msgid "label_date"
+msgstr ""
+
+#. Default: "Day"
+#: ./browser/templates/usagestats.pt:88
+msgid "label_day"
 msgstr ""
 
 #. Default: "Delete"
@@ -794,6 +845,11 @@ msgstr ""
 msgid "label_equipment_and_admin"
 msgstr ""
 
+#. Default: "Evaluations Created"
+#: ./browser/templates/usagestats.pt:96
+msgid "label_evaluations_created"
+msgstr ""
+
 #. Default: "Evaluation Sheet"
 #: ./browser/templates/evaluationsheets.pt:29
 msgid "label_evaluationsheet"
@@ -819,6 +875,11 @@ msgstr ""
 #. Default: "How to"
 #: ./browser/templates/videos.pt:21
 msgid "label_how_to"
+msgstr ""
+
+#. Default: "Howto Clips Viewed"
+#: ./browser/templates/usagestats.pt:90
+msgid "label_howto_clips_viewed"
 msgstr ""
 
 #. Default: "Last login time"
@@ -852,6 +913,11 @@ msgstr ""
 #. Default: "Pedagogic"
 #: ./browser/templates/videos.pt:35
 msgid "label_pedagogic"
+msgstr ""
+
+#. Default: "Pedagogic Clips Viewed"
+#: ./browser/templates/usagestats.pt:91
+msgid "label_pedagogic_clips_viewed"
 msgstr ""
 
 #. Default: "Prior Knowledge or Skill(s) Assessed"
@@ -894,6 +960,11 @@ msgstr ""
 #. Default: "Search for an activity :"
 #: ./browser/templates/activities.pt:74
 msgid "label_search_activity"
+msgstr ""
+
+#. Default: "Teacher Resources Viewed"
+#: ./browser/templates/usagestats.pt:92
+msgid "label_teacher_resources_viewed"
 msgstr ""
 
 #. Default: "Teacher Info PDF"
@@ -1058,5 +1129,15 @@ msgstr ""
 #. Default: "Assessment: ${assessment_title}"
 #: ./browser/templates/assessment-view.pt:13
 msgid "title_assessment"
+msgstr ""
+
+#. Default: "MONTH"
+#: ./browser/templates/usagestats.pt:19
+msgid "title_month"
+msgstr ""
+
+#. Default: "YEAR"
+#: ./browser/templates/usagestats.pt:20
+msgid "title_year"
 msgstr ""
 
