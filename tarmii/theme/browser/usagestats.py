@@ -48,14 +48,11 @@ class UsageStatsView(grok.View):
         stats = []
         for date in self.stat_dates:            
             date_data = self.user_stats[date]
-            stat_entry = { 'date' : date,
-                           'activities_accessed' : 0,
-                           'assessments_accessed' : 0,
-                           'classlists_accessed' : 0,
-                           'evaluations_accessed' : 0,
-                           'howto_clips_accessed' : 0,
-                           'pedagogical_clips_accessed' : 0,                  
-                           'teacher_resources_accessed' : 0,
+            stat_entry = { 'day' : date[0:2],
+                           'activities_viewed' : 0,
+                           'howto_clips_viewed' : 0,
+                           'pedagogical_clips_viewed' : 0,                  
+                           'teacher_resources_viewed' : 0,
                            'activities_created' : 0,
                            'assessment_created' : 0,
                            'classlist_created' : 0,
@@ -65,15 +62,13 @@ class UsageStatsView(grok.View):
             # parse all the url paths from a specific date
             for entry in date_data:
                 if entry[-10:] == 'activities':
-                    stat_entry['activities_accessed'] += 1
-                if entry[-11:] == 'assessments':
-                    stat_entry['assessments_accessed'] += 1
-                if entry[-10:] == 'classlists':
-                    stat_entry['classlists_accessed'] += 1
-                if entry[-16:] == 'evaluationsheets':
-                    stat_entry['evaluations_accessed'] += 1
+                    stat_entry['activities_viewed'] += 1
+                if entry.find('howto') != -1 and entry[-7:] == '@@video':
+                    stat_entry['howto_clips_viewed'] += 1
+                if entry.find('pedagogic') != -1 and entry[-7:] == '@@video':
+                    stat_entry['pedagogical_clips_viewed'] += 1
                 if entry[-9:] == 'resources':
-                    stat_entry['teacher_resources_accessed'] += 1
+                    stat_entry['teacher_resources_viewed'] += 1
 
                 if entry.find(new_activity) != -1:
                     stat_entry['activities_created'] += 1
