@@ -17,14 +17,19 @@
         <div tal:condition="view/log_url">
         </div>
 
+        <label class="horizontal" for="form-widgets-classlist" i18n:translate="label_classlist">Classlist</label>
+            <span title="Required" style="color: red" class="required horizontal"> ■ </span>        
         <div tal:define="widget nocall:view/form_instance/widgets/classlist">
-            <metal:block use-macro="context/@@ploneform-macros/field" />
-        </div>
-        <div tal:define="widget nocall:view/form_instance/widgets/assessment">
-            <metal:block use-macro="context/@@ploneform-macros/field" />
+            <metal:block use-macro="context/@@tarmii-ploneform-macros/field" />
         </div>
 
-        <div class="action">
+        <label class="horizontal" for="form-widgets-classlist" i18n:translate="label_assessment">Assessment</label>
+        <span title="Required" style="color: red" class="required horizontal"> ■ </span>
+        <div tal:define="widget nocall:view/form_instance/widgets/assessment">
+            <metal:block use-macro="context/@@tarmii-ploneform-macros/field" />
+        </div>
+
+        <div class="action formControls">
             <input id="form-buttons-save" name="form.buttons.save" i18n:attributes="value" 
                     class="submit-widget button-field context allow-once" value="Save" type="submit">
             <input id="form-buttons-cancel" name="form.buttons.cancel" i18n:attributes="value"
