@@ -54,4 +54,22 @@
             permission="zope2.Public"
             />
 
+     <browser:page
+            name="classlistform-macros"
+            for="*"
+            class="plone.z3cform.templates.Macros"
+            template="templates/addclasslist.pt"
+            allowed_interface="zope.interface.common.mapping.IItemMapping"
+            permission="zope.Public"
+            />
+
+     <browser:page
+            name="evaluationsheetform-macros"
+            for="*"
+            class="plone.z3cform.templates.Macros"
+            template="templates/addevaluationsheet.pt"
+            allowed_interface="zope.interface.common.mapping.IItemMapping"
+            permission="zope.Public"
+            />
+
 </configure>

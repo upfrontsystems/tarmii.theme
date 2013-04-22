@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      tal:omit-tag="">
+
+<metal:form metal:define-macro="form">
+
+    <form action="." method="post" id="add-classlist-form"
+        tal:attributes="name view/formname;
+                        action request/getURL; enctype view/enctype;
+                        class view/kssformname">
+
+        <h1 class="mainheading" tal:content="view/mainheading">classlist</h1>
+
+        <div tal:condition="view/log_url">
+        </div>
+
+        <div tal:define="widget nocall:python:view.form_instance.widgets['IBasic.title']">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+        <div tal:define="widget nocall:python:view.form_instance.widgets['IBasic.description']">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+
+        <div class="action">
+            <input id="form-buttons-save" name="form.buttons.save" i18n:attributes="value"
+                    class="submit-widget button-field context allow-once" value="Save" type="submit">
+            <input id="form-buttons-cancel" name="form.buttons.cancel" i18n:attributes="value"
+                class="submit-widget button-field standalone" value="Cancel" type="submit">
+        </div>
+    </form>
+
+</metal:form>
+</html>

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-19 13:55+0000\n"
+"POT-Creation-Date: 2013-04-22 09:43+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,9 +43,18 @@ msgstr "Voeg Aktiwiteite by"
 msgid "Add Activity"
 msgstr "Voeg Aktiwiteit by"
 
+#: ./browser/forms.py:117
 #: ./browser/templates/assessments.pt:19
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
+
+#: ./browser/forms.py:92
+msgid "Add Classlist"
+msgstr "Voeg Klaslys by"
+
+#: ./browser/forms.py:143
+msgid "Add EvaluationSheet"
+msgstr "Voeg Evaluasieblad by"
 
 #: ./browser/templates/topictrees.pt:16
 msgid "Add Topic Tree"
@@ -92,8 +101,9 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
+#: ./browser/templates/addclasslist.pt:30
+#: ./browser/templates/addevaluationsheet.pt:30
 #: ./browser/templates/addtoassessment.pt:38
-#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:31
 msgid "Cancel"
 msgstr "Kanseleer"
 
@@ -166,6 +176,14 @@ msgstr "EMIS"
 msgid "Eastern Cape"
 msgstr "Oos-Kaap"
 
+#: ./browser/forms.py:129
+msgid "Edit Assessment"
+msgstr "Redigeer Assessering"
+
+#: ./browser/forms.py:104
+msgid "Edit Classlist"
+msgstr "Redigeer Klaslys"
+
 #: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
@@ -176,7 +194,7 @@ msgid "Evaluations"
 msgstr "Evaluasies"
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:44
+#: ./browser/forms.py:52
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -218,7 +236,7 @@ msgid "Generate Report"
 msgstr "Genereer Verslag"
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:46
+#: ./browser/forms.py:54
 msgid "Good"
 msgstr "Goed"
 
@@ -287,7 +305,7 @@ msgid "Mpumalanga"
 msgstr "Mpumalanga"
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:50
+#: ./browser/forms.py:58
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -390,10 +408,12 @@ msgid "Rubric"
 msgstr "Rubriek"
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:48
+#: ./browser/forms.py:56
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
+#: ./browser/templates/addclasslist.pt:28
+#: ./browser/templates/addevaluationsheet.pt:28
 #: ./browser/templates/addtoassessment.pt:36
 msgid "Save"
 msgstr "Stoor"
@@ -640,8 +660,9 @@ msgstr "Onderwysers:"
 msgid "heading_topic_trees"
 msgstr "Onderwerp Bome"
 
-#. Default: "USAGE STATS:"
+#. Default: "USAGE STATS"
 #: ./browser/templates/usagestats.pt:12
+#, fuzzy
 msgid "heading_usagestats"
 msgstr "GEBRUIK STATISTIEKE"
 
@@ -848,11 +869,6 @@ msgstr "E-pos"
 msgid "label_equipment_and_admin"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
-#. Default: "Evaluations Created"
-#: ./browser/templates/usagestats.pt:96
-msgid "label_evaluations_created"
-msgstr "Evaluaskies Geskep"
-
 #. Default: "Evaluation Sheet"
 #: ./browser/templates/evaluationsheets.pt:29
 msgid "label_evaluationsheet"
@@ -863,6 +879,11 @@ msgstr "Evaluasieblad"
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasieblad PDF"
+
+#. Default: "Evaluationsheets Created"
+#: ./browser/templates/usagestats.pt:96
+msgid "label_evaluationsheets_created"
+msgstr "Evaluasieblaaie Geskep"
 
 #. Default: "Feedback"
 #: ./browser/templates/activities.pt:116

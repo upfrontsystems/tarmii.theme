@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-19 13:55+0000\n"
+"POT-Creation-Date: 2013-04-22 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,8 +43,17 @@ msgstr ""
 msgid "Add Activity"
 msgstr ""
 
+#: ./browser/forms.py:117
 #: ./browser/templates/assessments.pt:19
 msgid "Add Assessment"
+msgstr ""
+
+#: ./browser/forms.py:92
+msgid "Add Classlist"
+msgstr ""
+
+#: ./browser/forms.py:143
+msgid "Add EvaluationSheet"
 msgstr ""
 
 #: ./browser/templates/topictrees.pt:16
@@ -92,8 +101,9 @@ msgstr ""
 msgid "August"
 msgstr ""
 
+#: ./browser/templates/addclasslist.pt:30
+#: ./browser/templates/addevaluationsheet.pt:30
 #: ./browser/templates/addtoassessment.pt:38
-#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:31
 msgid "Cancel"
 msgstr ""
 
@@ -166,6 +176,14 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
+#: ./browser/forms.py:129
+msgid "Edit Assessment"
+msgstr ""
+
+#: ./browser/forms.py:104
+msgid "Edit Classlist"
+msgstr ""
+
 #: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
@@ -176,7 +194,7 @@ msgid "Evaluations"
 msgstr ""
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:44
+#: ./browser/forms.py:52
 msgid "Excellent"
 msgstr ""
 
@@ -218,7 +236,7 @@ msgid "Generate Report"
 msgstr ""
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:46
+#: ./browser/forms.py:54
 msgid "Good"
 msgstr ""
 
@@ -284,7 +302,7 @@ msgid "Mpumalanga"
 msgstr ""
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:50
+#: ./browser/forms.py:58
 msgid "Needs improvement"
 msgstr ""
 
@@ -387,10 +405,12 @@ msgid "Rubric"
 msgstr ""
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:48
+#: ./browser/forms.py:56
 msgid "Satisfactory"
 msgstr ""
 
+#: ./browser/templates/addclasslist.pt:28
+#: ./browser/templates/addevaluationsheet.pt:28
 #: ./browser/templates/addtoassessment.pt:36
 msgid "Save"
 msgstr ""
@@ -637,7 +657,7 @@ msgstr ""
 msgid "heading_topic_trees"
 msgstr ""
 
-#. Default: "USAGE STATS:"
+#. Default: "USAGE STATS"
 #: ./browser/templates/usagestats.pt:12
 msgid "heading_usagestats"
 msgstr ""
@@ -845,11 +865,6 @@ msgstr ""
 msgid "label_equipment_and_admin"
 msgstr ""
 
-#. Default: "Evaluations Created"
-#: ./browser/templates/usagestats.pt:96
-msgid "label_evaluations_created"
-msgstr ""
-
 #. Default: "Evaluation Sheet"
 #: ./browser/templates/evaluationsheets.pt:29
 msgid "label_evaluationsheet"
@@ -859,6 +874,11 @@ msgstr ""
 #: ./browser/templates/assessments.pt:37
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
+msgstr ""
+
+#. Default: "Evaluationsheets Created"
+#: ./browser/templates/usagestats.pt:96
+msgid "label_evaluationsheets_created"
 msgstr ""
 
 #. Default: "Feedback"
