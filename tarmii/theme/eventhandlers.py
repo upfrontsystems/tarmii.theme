@@ -106,6 +106,7 @@ def on_user_initial_login(user, event):
     # create members folder
     pm.createMemberArea()
     members_folder = pm.getHomeFolder()
+
     # create classlists folder in members folder
     members_folder.invokeFactory(type_name='Folder', id='classlists',
                                  title='Class Lists')
@@ -139,4 +140,7 @@ def on_user_initial_login(user, event):
     classlists_folder.title = 'Class Lists'
     assessments_folder.title = 'Assessments'
     evaluation_folder.title = 'Evaluations'
+
+    # set default view of members folder to classlist view
+    members_folder.setLayout('@@classlists')
 
