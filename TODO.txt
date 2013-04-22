@@ -36,10 +36,6 @@ Edit Assessment Item
     TinyMCE - Edit without visual editor link
     save, cancel buttons
 
-Add Evaluation Sheet
-    Assessment heading
-    Classlist heading
-
 
 Translation issues:
 
