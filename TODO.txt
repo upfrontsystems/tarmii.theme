@@ -39,16 +39,6 @@ Edit Assessment Item
 Add Evaluation Sheet
     Assessment heading
     Classlist heading
-    Save, cancel buttons
-
-Add Classlist
-Edit Class List
-    Save, Cancel buttons
-
-Add Assessment
-Edit Assessment
-    heading
-    Save, Cancel buttons
 
 
 Translation issues:
