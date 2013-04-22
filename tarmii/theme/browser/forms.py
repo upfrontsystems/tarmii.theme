@@ -129,7 +129,7 @@ class AssessmentEditForm(CustomLogger, dexterity.EditForm):
         return self.context.translate(_("Edit Assessment"))
 
 
-class AssessmentEvaluationSheetForm(CustomLogger, dexterity.AddForm):
+class AssessmentEvaluationSheetAddForm(CustomLogger, dexterity.AddForm):
     grok.name('upfront.assessment.content.evaluationsheet')
     grok.template('addevaluationsheet')
     grok.layer(ITARMIIThemeLayer)
