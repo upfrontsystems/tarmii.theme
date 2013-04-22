@@ -60,8 +60,6 @@ class UsageStatsView(grok.View):
 
             # filter via month and year
             # date format is: 19/04/2013
-            if self.month is None: # XXX CHECK IF THIS CHECK STILL NEEDED
-                return []
             if self.month in date[3:5] and self.year in date[6:10]:
                 date_data = self.user_stats[date]
                 stat_entry = { 'day' : date[0:2],

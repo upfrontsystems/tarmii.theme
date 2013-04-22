@@ -662,7 +662,6 @@ msgstr "Onderwerp Bome"
 
 #. Default: "USAGE STATS"
 #: ./browser/templates/usagestats.pt:12
-#, fuzzy
 msgid "heading_usagestats"
 msgstr "GEBRUIK STATISTIEKE"
 
