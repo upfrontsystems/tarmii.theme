@@ -48,12 +48,9 @@ class UsageStatsView(grok.View):
         """ return all the site usage stats
         """
         new_activity = '++add++upfront.assessmentitem.content.assessmentitem'
-
-        # XXX these are actually shown in overlays, and not registered
-        # must figure out a fix
         new_assessment = '++add++upfront.assessment.content.assessment'
         new_classlist = '++add++upfront.classlist.content.classlist'
-        new_evaluation = '++add++upfront.assessment.content.evaluationsheet'
+        new_evaluationsheet= '++add++upfront.assessment.content.evaluationsheet'
 
         # reverse the dates, latest first
         self.stat_dates.reverse()
@@ -63,7 +60,7 @@ class UsageStatsView(grok.View):
 
             # filter via month and year
             # date format is: 19/04/2013
-            if self.month is None:
+            if self.month is None: # XXX CHECK IF THIS CHECK STILL NEEDED
                 return []
             if self.month in date[3:5] and self.year in date[6:10]:
                 date_data = self.user_stats[date]
@@ -73,10 +70,10 @@ class UsageStatsView(grok.View):
                                'pedagogical_clips_viewed' : 0,                  
                                'teacher_resources_viewed' : 0,
                                'activities_created' : 0,
-                               'assessment_created' : 0,
-                               'classlist_created' : 0,
-                               'evaluation_created' : 0,
-                        }
+                               'assessments_created' : 0,
+                               'classlists_created' : 0,
+                               'evaluationsheets_created' : 0,
+                             }
 
                 # parse all the url paths from a specific date
                 for entry in date_data:
@@ -91,6 +88,12 @@ class UsageStatsView(grok.View):
     
                     if entry.find(new_activity) != -1:
                         stat_entry['activities_created'] += 1
+                    if entry.find(new_assessment) != -1:
+                        stat_entry['assessments_created'] += 1
+                    if entry.find(new_classlist) != -1:
+                        stat_entry['classlists_created'] += 1
+                    if entry.find(new_evaluationsheet) != -1:
+                        stat_entry['evaluationsheets_created'] += 1
 
                 stats.append(stat_entry)
 

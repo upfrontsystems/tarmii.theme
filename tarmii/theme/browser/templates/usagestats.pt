@@ -93,7 +93,7 @@
                     <th i18n:translate="label_activities_created">Activities Created</th>
                     <th i18n:translate="label_assessments_created">Assessments Created</th>
                     <th i18n:translate="label_classlists_created">Classlists Created</th>
-                    <th i18n:translate="label_evaluations_created">Evaluations Created</th>
+                    <th i18n:translate="label_evaluationsheets_created">Evaluationsheets Created</th>
                 </tr>
                 <tr tal:repeat="stat view/stats">
                     <td tal:content="stat/day"></td>
@@ -102,9 +102,9 @@
                     <td tal:content="stat/pedagogical_clips_viewed"></td>
                     <td tal:content="stat/teacher_resources_viewed"></td>
                     <td tal:content="stat/activities_created"></td>
-                    <td tal:content="stat/assessment_created"></td>
-                    <td tal:content="stat/classlist_created"></td>
-                    <td tal:content="stat/evaluation_created"></td>
+                    <td tal:content="stat/assessments_created"></td>
+                    <td tal:content="stat/classlists_created"></td>
+                    <td tal:content="stat/evaluationsheets_created"></td>
                 </tr>  
             </table>
         </tal:showstats>
