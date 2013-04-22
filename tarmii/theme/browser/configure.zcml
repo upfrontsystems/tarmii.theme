@@ -72,4 +72,14 @@
             permission="zope.Public"
             />
 
+     <browser:page
+            name="tarmii-ploneform-macros"
+            for="*"
+            layer="tarmii.theme.interfaces.ITARMIIThemeLayer"
+            class="plone.z3cform.templates.Macros"
+            template="templates/tarmiimacros.pt"
+            allowed_interface="zope.interface.common.mapping.IItemMapping"
+            permission="zope.Public"
+            />
+
 </configure>
