@@ -21,6 +21,7 @@ sitefolders = (
     ('resources', 'resources', 'Teacher Resources',
         ['tarmii.theme.content.teacherresource']),
     ('videos', 'videos', 'Videos', ['File','Image','Folder']),
+    ('images', 'images', 'Images', ['Image']),
 )
 
 def setupPortalContent(portal):
