@@ -7,7 +7,7 @@
 
 <metal:form metal:define-macro="form">
 
-    <form action="." method="post" id="add-classlist-form"
+    <form action="." method="post" id="form"
         tal:attributes="name view/formname;
                         action request/getURL; enctype view/enctype;
                         class view/kssformname">
