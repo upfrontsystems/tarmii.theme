@@ -55,6 +55,10 @@ def setupPortalContent(portal):
     portal.activities.manage_setLocalRoles('AuthenticatedUsers',
         ['Contributor', 'Editor', 'Reader'])
 
+    # allow members to create images in images folder
+    portal.images.manage_setLocalRoles('AuthenticatedUsers',
+        ['Contributor', 'Editor', 'Reader'])
+
     # allow member folders to be created
     security_adapter =  ISecuritySchema(portal)
     security_adapter.set_enable_user_folders(True)
