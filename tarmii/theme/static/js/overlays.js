@@ -19,7 +19,7 @@ $(function($) {
         closeselector: '[name="form.button.Cancel"]',
         });
 
-        $('a.add_to_assessment').prepOverlay({
+    $('a.add_to_assessment').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
