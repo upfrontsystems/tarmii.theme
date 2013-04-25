@@ -67,13 +67,16 @@ class CustomLogger:
             (same as update method of PageTrackerViewlet)
         """
         mt = getToolByName(self.context, 'portal_membership')
-        user = mt.getAuthenticatedMember().getUserName()
+        user = mt.getAuthenticatedMember()        
         now = datetime.datetime.now()
         datetime_str = now.strftime('%d/%m/%Y %H:%M:%S')
 
         data = { "time" : datetime_str,
                  "url"  : self.request['URL'],
-                 "user" : user }
+                 "user"     : user.getUserName(),
+                 "province" : user.getProperty('province'),
+                 "school"   : user.getProperty('school'),
+               }
 
         pagetracker = getUtility(IPageTracker)
         pagetracker.log(data)
@@ -141,4 +144,4 @@ class AssessmentEvaluationSheetAddForm(CustomLogger, dexterity.AddForm):
 
     def mainheading(self):
         return self.context.translate(_("Add EvaluationSheet"))
-
+ 
