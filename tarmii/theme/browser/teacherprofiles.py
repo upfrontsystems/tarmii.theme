@@ -21,7 +21,8 @@ class TeacherProfilesView(grok.View):
     grok.require('cmf.ManagePortal')
 
     def update(self, **kwargs):
-        """ get teacher data from utility each time the template is rendered """
+        """ get teacher data from utility each time the template is rendered 
+        """
         sitedata = getUtility(ISiteData)
 #        self.teacher_data = sitedata.extract_teacher_data()
 
@@ -33,19 +34,22 @@ class TeacherProfilesView(grok.View):
         return
 
     def show_provinces(self):
-        """ show teachers if both province and school are NOT on the request """
+        """ show teachers if both province and school are NOT on the request 
+        """
         province = bool(self.request.has_key('province'))
         school = bool(self.request.has_key('school'))
         return not province and not school
 
     def show_schools(self):
-        """ show schools if province is on and school is NOT on the request """
+        """ show schools if province is on and school is NOT on the request 
+        """
         province = bool(self.request.has_key('province'))
         school = bool(self.request.has_key('school'))
         return province and not school
 
     def show_teachers(self):
-        """ show teachers if both province and school are on the request """
+        """ show teachers if both province and school are on the request
+        """
         province = bool(self.request.has_key('province'))
         school = bool(self.request.has_key('school'))
         return province and school
@@ -55,15 +59,18 @@ class TeacherProfilesView(grok.View):
         return self.context.absolute_url()
 
     def province_request(self):
-        """ return the province from the request """
+        """ return the province from the request 
+        """
         return self.request.get('province')
 
     def school_request(self):
-        """ return the school from the request """
+        """ return the school from the request 
+        """
         return self.request.get('school')
 
     def provinces(self):
-        """ return all provinces from teacher_data object """
+        """ return all provinces from teacher_data object 
+        """
         province_list = []
         for province in range(len(self.teacher_data.items())):
             province_list.append(self.teacher_data.items()[province][0])
@@ -72,7 +79,8 @@ class TeacherProfilesView(grok.View):
         return province_list
 
     def schools(self):
-        """ return all schools in current province from teacher_data object """
+        """ return all schools in current province from teacher_data object 
+        """
         school_list = []
         province = self.request.get('province')
         for school in range(len(self.teacher_data[province].items())):
