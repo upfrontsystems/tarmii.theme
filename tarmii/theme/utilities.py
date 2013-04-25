@@ -111,7 +111,6 @@ class SiteData(Persistent):
         zf.close()
         return province_dict
 
-
     def extract_logs(self):
         zipped_data = self.sitedata.items()
         zipped_file = StringIO()       
@@ -148,32 +147,56 @@ class SiteData(Persistent):
         log_data = logs.getvalue().splitlines()
     
         # as reference from exportloggedrequests
-        # fieldnames=['time', 'path', 'username'],
+        # fieldnames=['time', 'path', 'username','province','school'],
 
+        # delete all log values that do not contain a province or school entry  
+        log_data_clean = []       
+        for entry in range(len(log_data)):
+            province_name = log_data[entry].split(',')[3]
+            if province_name != '':
+                log_data_clean.append(log_data[entry])            
+      
+        # sort data by province, school and time
+        log_data_clean.sort(key= lambda line: ( line.split(",")[3],
+                                                line.split(",")[4],
+                                                line.split(",")[0]))
         # place data in an organised dictionary
-        log_dict = {}
-        datelist = []
-
-        for entry in log_data:
-            date_time = entry.split(',')[0]
-            date = date_time[:10]
+        province_dict = {}
+        for entry in range(len(log_data_clean)):
+            province_name = log_data_clean[entry].split(',')[3]
 
             try:
-                x = log_dict[date]
+                x = province_dict[province_name]
+                # if this province exists, we do not set it to blank
+            except KeyError:
+                # province entry did not yet exist, initialise to {}
+                province_dict.update({province_name:{}})
+
+            school_dict = province_dict[province_name]
+            school_name = log_data_clean[entry].split(',')[4]
+
+            try:
+                x = school_dict[school_name]
+                # if this school exists, we do not set it to blank
+            except KeyError:
+                # school entry did not yet exist, initialise to {}
+                school_dict.update({school_name: {}})
+
+            date_dict = school_dict[school_name]
+            date_uuid = log_data_clean[entry].split(',')[0][:10]
+
+            try:
+                x = date_dict[date_uuid]
                 # if this date exists, we do not set it to blank
             except KeyError:
                 # date entry did not yet exist, initialise to {}
-                log_dict.update({date:{}})
-                datelist.append(date)
+                date_dict.update({date_uuid: []})
 
-            path_data = log_dict[date]
-            path_entry = entry.split(',')[1]
-            if path_data == {}:
-                path_data = []
-            path_data.append(path_entry)
-            log_dict.update({date: path_data})
+            date_data = date_dict[date_uuid] # get existing list of paths
+            # append another path to existing list of paths
+            date_data.append(log_data_clean[entry].split(',')[1])
+            date_dict.update({date_uuid: date_data})
 
         zf.close()
-        # log_dict[date] gives us a list of url paths accessed on that date.
-        return log_dict, datelist
+        return province_dict
 
