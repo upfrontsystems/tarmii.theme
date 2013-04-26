@@ -60,10 +60,10 @@ class BaseChart(Drawing):
         self.add(legend, name='Legend')
 
 
-class ClassPerformanceForActivity(BaseChart):
+class ClassPerformanceForActivityChart(BaseChart):
     def __init__(self, data_dict, width=300, height=325, colorscheme='color'):
         chart = Pie()
-        GraphAssessmentBank.__init__(self,
+        BaseChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
 
         self._chart.width = 500
@@ -73,12 +73,12 @@ class ClassPerformanceForActivity(BaseChart):
         self.setLabels()
 
     def setTitle(self):
-        GraphAssessmentBank.setTitle(self)
+        BaseChart.setTitle(self)
         self.Title.x = 150
         self.Title.y = 300 
 
     def setLegend(self):
-        GraphAssessmentBank.setLegend(self)
+        BaseChart.setLegend(self)
         self.Legend.x = 400
         self.Legend.y = 200
         self.Legend.columnMaximum = len(self._data_dict['value_labels'])
