@@ -21,8 +21,8 @@ class BaseChart(Drawing):
         self._chart.x = 50
         self._chart.y = 40
         self._chart.fillColor = colors.white
-        self.fontname = 'Helvetica-Bold'
-        self.fontsize = 12
+#        self.fontName = 'Helvetica-Bold'
+#        self.fontSize = 12
         self.setTitle()
 
         # Add some data to the chart
@@ -33,8 +33,8 @@ class BaseChart(Drawing):
 
     def setTitle(self):
         title = Label()        
-        title.fontName = self.fontname
-        title.fontSize = self.fontsize
+#        title.fontName = self.fontName
+#        title.fontSize = self.fontSize
         title.x = 300
         title.y = 335
         title._text = self._data_dict.get('title', '')
@@ -46,8 +46,8 @@ class BaseChart(Drawing):
     def setLegend(self):
         legend = Legend()
         legend.colorNamePairs = []
-        legend.fontName = self.fontname
-        legend.fontSize = self.fontsize
+#        legend.fontName = self.fontName
+#        legend.fontSize = self.fontSize
         legend.x = 100
         legend.y = 310
         legend.dxTextSpace = 5
@@ -97,7 +97,7 @@ class ClassPerformanceForActivityChart(BaseChart):
         self._chart.slices[1].fillColor = colors.red
 
     def setLabels(self):
-        self._chart.labels = self._data_dict['category_labels']
+#        self._chart.labels = self._data_dict['category_labels']
         for idx in range(len(self._data_dict['value_data'])):
             self._chart.slices[idx].labelRadius = 0.5
 

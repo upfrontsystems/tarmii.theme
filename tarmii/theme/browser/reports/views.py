@@ -29,7 +29,7 @@ class ClassPerformanceForActivityChartView(grok.View):
         request = self.request
         response = request.response
 
-        drawing = ClassPerformanceForActivityChart(self.data)
+        drawing = ClassPerformanceForActivityChart(self.data())
         out = StringIO(renderPM.drawToString(drawing, 'PNG'))
         response.setHeader('expires', 0)
         response['content-type']='image/png'
