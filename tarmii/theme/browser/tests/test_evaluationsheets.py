@@ -14,3 +14,10 @@ class TestEvaluationSheets(TarmiiThemeTestBase):
             "%s/++add++upfront.assessment.content.evaluationsheet" % 
             self.evaluationsheets.absolute_url())
 
+    def test_evaluationsheet_title(self):
+        view = self.evaluationsheets.restrictedTraverse('@@evaluationsheets')
+        evalsheet_brain = self.evaluationsheets.getFolderContents()[0]
+        view.evaluationsheet_title(evalsheet_brain)
+        self.assertEqual(view.evaluationsheet_title(evalsheet_brain),
+                         'Test1 List1')
+
