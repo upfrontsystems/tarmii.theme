@@ -2,6 +2,7 @@ from StringIO import StringIO
 from reportlab.graphics import renderPM
 
 from five import grok
+from zope.interface import Interface
 from tarmii.theme.browser.reports.charts import ClassPerformanceForActivityChart
 
 grok.templatedir('templates')
@@ -28,7 +29,7 @@ class ClassPerformanceForActivityChartView(grok.View):
         request = self.request
         response = request.response
 
-        drawing = ClassPerformanceForActivity(self.data)
+        drawing = ClassPerformanceForActivityChart(self.data)
         out = StringIO(renderPM.drawToString(drawing, 'PNG'))
         response.setHeader('expires', 0)
         response['content-type']='image/png'
