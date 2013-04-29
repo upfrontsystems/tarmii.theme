@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-22 12:53+0000\n"
+"POT-Creation-Date: 2013-04-29 06:44+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,20 +39,21 @@ msgstr "Aktiwiteite"
 msgid "Add Activities"
 msgstr "Voeg Aktiwiteite by"
 
+#: ./browser/forms.py:67
 #: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr "Voeg Aktiwiteit by"
 
-#: ./browser/forms.py:117
+#: ./browser/forms.py:129
 #: ./browser/templates/assessments.pt:19
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
 
-#: ./browser/forms.py:92
+#: ./browser/forms.py:104
 msgid "Add Classlist"
 msgstr "Voeg Klaslys by"
 
-#: ./browser/forms.py:143
+#: ./browser/forms.py:155
 msgid "Add EvaluationSheet"
 msgstr "Voeg Evaluasieblad by"
 
@@ -60,7 +61,7 @@ msgstr "Voeg Evaluasieblad by"
 msgid "Add Topic Tree"
 msgstr "Voeg Onderwerpboom by"
 
-#: ./browser/templates/classlists.pt:20
+#: ./browser/templates/classlists.pt:22
 msgid "Add class list"
 msgstr "Voeg Klaslys by"
 
@@ -88,7 +89,7 @@ msgstr "Alle graderings moet positief en groter as nul wees."
 msgid "All rating values must be unique."
 msgstr "Elke gradering moet uniek wees."
 
-#: ./browser/templates/usagestats.pt:30
+#: ./browser/templates/usagestats.pt:56
 msgid "April"
 msgstr "April"
 
@@ -97,13 +98,13 @@ msgstr "April"
 msgid "Assessments"
 msgstr "Assesserings"
 
-#: ./browser/templates/usagestats.pt:38
+#: ./browser/templates/usagestats.pt:64
 msgid "August"
 msgstr "Augustus"
 
+#: ./browser/templates/addassessmentitem.pt:288
 #: ./browser/templates/addclasslist.pt:30
-#: ./browser/templates/addevaluationsheet.pt:39
-#: ./browser/templates/addtoassessment.pt:38
+#: ./browser/templates/addevaluationsheet.pt:35
 msgid "Cancel"
 msgstr "Kanseleer"
 
@@ -156,7 +157,7 @@ msgstr "Inhoud/Konsep/Vaardighede Geassesseer"
 msgid "Contribute own activity"
 msgstr "Dra jou eie aktiwiteit by"
 
-#: ./browser/templates/usagestats.pt:46
+#: ./browser/templates/usagestats.pt:72
 msgid "December"
 msgstr "Desember"
 
@@ -176,11 +177,11 @@ msgstr "EMIS"
 msgid "Eastern Cape"
 msgstr "Oos-Kaap"
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:141
 msgid "Edit Assessment"
 msgstr "Redigeer Assessering"
 
-#: ./browser/forms.py:104
+#: ./browser/forms.py:116
 msgid "Edit Classlist"
 msgstr "Redigeer Klaslys"
 
@@ -194,7 +195,7 @@ msgid "Evaluations"
 msgstr "Evaluasies"
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:52
+#: ./browser/forms.py:53
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -202,7 +203,7 @@ msgstr "Uitstekend"
 msgid "Failed"
 msgstr "Nie gewerk nie"
 
-#: ./browser/templates/usagestats.pt:26
+#: ./browser/templates/usagestats.pt:52
 msgid "February"
 msgstr "Februarie"
 
@@ -236,7 +237,7 @@ msgid "Generate Report"
 msgstr "Genereer Verslag"
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:54
+#: ./browser/forms.py:55
 msgid "Good"
 msgstr "Goed"
 
@@ -253,15 +254,15 @@ msgstr "Vinnige Prent Oplaai"
 msgid "Item ID"
 msgstr "Item ID"
 
-#: ./browser/templates/usagestats.pt:24
+#: ./browser/templates/usagestats.pt:50
 msgid "January"
 msgstr "Januarie"
 
-#: ./browser/templates/usagestats.pt:36
+#: ./browser/templates/usagestats.pt:62
 msgid "July"
 msgstr "Julie"
 
-#: ./browser/templates/usagestats.pt:34
+#: ./browser/templates/usagestats.pt:60
 msgid "June"
 msgstr "Junie"
 
@@ -288,11 +289,11 @@ msgstr "Limpopo"
 # This entry is used in gomobiletheme.mfabrik  templates for the campaign page header
 # It is not automatically picked, since it is referred from external package
 #. Default: "Watch video"
-#: ./browser/templates/usagestats.pt:28
+#: ./browser/templates/usagestats.pt:54
 msgid "March"
 msgstr "Maart"
 
-#: ./browser/templates/usagestats.pt:32
+#: ./browser/templates/usagestats.pt:58
 msgid "May"
 msgstr "Mei"
 
@@ -305,11 +306,11 @@ msgid "Mpumalanga"
 msgstr "Mpumalanga"
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:58
+#: ./browser/forms.py:59
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
-#: ./browser/teacherprofiles.py:103
+#: ./browser/teacherprofiles.py:111
 msgid "Never"
 msgstr "Nooit"
 
@@ -329,7 +330,7 @@ msgstr "Noordwes"
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
-#: ./browser/templates/usagestats.pt:44
+#: ./browser/templates/usagestats.pt:70
 msgid "November"
 msgstr "November"
 
@@ -337,7 +338,7 @@ msgstr "November"
 msgid "Number of years teaching foundation phase."
 msgstr "Aantal jare onderrig van grondslagfase"
 
-#: ./browser/templates/usagestats.pt:71
+#: ./browser/templates/usagestats.pt:97
 msgid "OK"
 msgstr "OK"
 
@@ -345,7 +346,7 @@ msgstr "OK"
 msgid "Observation Sheet"
 msgstr "Waarnemingsblad"
 
-#: ./browser/templates/usagestats.pt:42
+#: ./browser/templates/usagestats.pt:68
 msgid "October"
 msgstr "Oktober"
 
@@ -408,13 +409,13 @@ msgid "Rubric"
 msgstr "Rubriek"
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:56
+#: ./browser/forms.py:57
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
+#: ./browser/templates/addassessmentitem.pt:286
 #: ./browser/templates/addclasslist.pt:28
-#: ./browser/templates/addevaluationsheet.pt:37
-#: ./browser/templates/addtoassessment.pt:36
+#: ./browser/templates/addevaluationsheet.pt:33
 msgid "Save"
 msgstr "Stoor"
 
@@ -447,7 +448,7 @@ msgstr "Geselekteerde elemente bevat 'n leë lêer of lêergids:"
 msgid "Send"
 msgstr "Stuur"
 
-#: ./browser/templates/usagestats.pt:40
+#: ./browser/templates/usagestats.pt:66
 msgid "September"
 msgstr "September"
 
@@ -539,12 +540,12 @@ msgid "description_assesments"
 msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die naam van die assessering om dit te redigeer."
 
 #. Default: "Here you can add new class lists or"
-#: ./browser/templates/classlists.pt:15
+#: ./browser/templates/classlists.pt:16
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
 
 #. Default: "No usage stats present."
-#: ./browser/templates/usagestats.pt:80
+#: ./browser/templates/usagestats.pt:106
 msgid "description_nostats"
 msgstr "Geen huidige gebruik statistieke."
 
@@ -599,6 +600,11 @@ msgstr "Klas lys"
 msgid "heading_classlists"
 msgstr "Klaslyste"
 
+#. Default: "Class Performance For Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:11
+msgid "heading_classperformance_for_activity"
+msgstr ""
+
 #. Default: "Evaluations"
 #: ./browser/templates/evaluationsheets.pt:11
 msgid "heading_evaluations"
@@ -611,11 +617,13 @@ msgstr "Evaluasieblad vir "
 
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
+#: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
 msgstr "Provinsies:"
 
 #. Default: "Schools:"
 #: ./browser/templates/teacherprofiles.pt:25
+#: ./browser/templates/usagestats.pt:26
 msgid "heading_schools"
 msgstr "Skole:"
 
@@ -741,12 +749,12 @@ msgid "home_heading_videos"
 msgstr "VIDEOS"
 
 #. Default: "Activities Created"
-#: ./browser/templates/usagestats.pt:92
+#: ./browser/templates/usagestats.pt:118
 msgid "label_activities_created"
 msgstr "Aktiwiteite Geskep"
 
 #. Default: "Activities Viewed"
-#: ./browser/templates/usagestats.pt:88
+#: ./browser/templates/usagestats.pt:114
 msgid "label_activities_viewed"
 msgstr "Aktiwiteite Gesien"
 
@@ -767,7 +775,7 @@ msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
 #. Default: "Assessment"
-#: ./browser/templates/addevaluationsheet.pt:28
+#: ./browser/templates/addevaluationsheet.pt:26
 msgid "label_assessment"
 msgstr "Assessering"
 
@@ -787,7 +795,7 @@ msgid "label_assessment_pdf"
 msgstr "Assessering PDF"
 
 #. Default: "Assessments Created"
-#: ./browser/templates/usagestats.pt:93
+#: ./browser/templates/usagestats.pt:119
 msgid "label_assessments_created"
 msgstr "Assesserings Geskep"
 
@@ -813,12 +821,12 @@ msgstr "Kies jou lêers:"
 
 #. Default: "Classlist"
 #: ./browser/templates/addevaluationsheet.pt:20
-#: ./browser/templates/classlists.pt:32
+#: ./browser/templates/classlists.pt:34
 msgid "label_classlist"
 msgstr "Klaslys"
 
 #. Default: "Classlists Created"
-#: ./browser/templates/usagestats.pt:94
+#: ./browser/templates/usagestats.pt:120
 msgid "label_classlists_created"
 msgstr "Klaslyste Geskep"
 
@@ -840,14 +848,14 @@ msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Day"
-#: ./browser/templates/usagestats.pt:87
+#: ./browser/templates/usagestats.pt:113
 msgid "label_day"
 msgstr "Dag"
 
 #. Default: "Delete"
 #: ./browser/templates/assessmentitem-view.pt:50
 #: ./browser/templates/assessments.pt:35
-#: ./browser/templates/classlists.pt:34
+#: ./browser/templates/classlists.pt:36
 msgid "label_delete"
 msgstr "Werwyder"
 
@@ -886,7 +894,7 @@ msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasieblad PDF"
 
 #. Default: "Evaluationsheets Created"
-#: ./browser/templates/usagestats.pt:95
+#: ./browser/templates/usagestats.pt:121
 msgid "label_evaluationsheets_created"
 msgstr "Evaluasieblaaie Geskep"
 
@@ -907,7 +915,7 @@ msgid "label_how_to"
 msgstr "Hoe om"
 
 #. Default: "Howto Clips Viewed"
-#: ./browser/templates/usagestats.pt:89
+#: ./browser/templates/usagestats.pt:115
 msgid "label_howto_clips_viewed"
 msgstr "Hoe om Videos Gesien"
 
@@ -945,7 +953,7 @@ msgid "label_pedagogic"
 msgstr "Pedagogiese"
 
 #. Default: "Pedagogic Clips Viewed"
-#: ./browser/templates/usagestats.pt:90
+#: ./browser/templates/usagestats.pt:116
 msgid "label_pedagogic_clips_viewed"
 msgstr "Pedagogiese Videos Gesien"
 
@@ -992,7 +1000,7 @@ msgid "label_search_activity"
 msgstr "Soek vir 'n aktiwiteit :"
 
 #. Default: "Teacher Resources Viewed"
-#: ./browser/templates/usagestats.pt:91
+#: ./browser/templates/usagestats.pt:117
 msgid "label_teacher_resources_viewed"
 msgstr "Onderwyser Hulpbronne Gesien"
 
@@ -1041,11 +1049,13 @@ msgstr "Jaar onderwyservaring"
 
 #. Default: "Back to provinces"
 #: ./browser/templates/teacherprofiles.pt:23
+#: ./browser/templates/usagestats.pt:23
 msgid "link_back_to_provinces"
 msgstr "Terug na provinsies"
 
 #. Default: "Back to schools"
 #: ./browser/templates/teacherprofiles.pt:33
+#: ./browser/templates/usagestats.pt:35
 msgid "link_back_to_schools"
 msgstr "Terug na skoole"
 
@@ -1055,7 +1065,7 @@ msgid "link_create_new_profile"
 msgstr "Skep 'n nuwe profil"
 
 #. Default: "import learners to an existing/new class list."
-#: ./browser/templates/classlists.pt:16
+#: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
 
@@ -1094,7 +1104,7 @@ msgid "message_no_assesments_exist"
 msgstr "Geen assesserings is nog geskep."
 
 #. Default: "No class lists have been created yet."
-#: ./browser/templates/classlists.pt:26
+#: ./browser/templates/classlists.pt:28
 msgid "message_no_classlists_exist"
 msgstr "Geen klaslyse is nog geskep."
 
@@ -1161,12 +1171,12 @@ msgid "title_assessment"
 msgstr "Assessering: ${assessment_title}"
 
 #. Default: "MONTH"
-#: ./browser/templates/usagestats.pt:18
+#: ./browser/templates/usagestats.pt:44
 msgid "title_month"
 msgstr "MAAND"
 
 #. Default: "YEAR"
-#: ./browser/templates/usagestats.pt:19
+#: ./browser/templates/usagestats.pt:45
 msgid "title_year"
 msgstr "JAAR"
 
