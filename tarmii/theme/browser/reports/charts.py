@@ -66,7 +66,7 @@ class ClassPerformanceForActivityChart(BaseChart):
         BaseChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
 
-        self._chart.width = 500
+        self._chart.width = 200
         self._chart.height = 240
         self._chart.slices.strokeWidth = 0.5
         self.setChartColors()

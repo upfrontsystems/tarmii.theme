@@ -10,9 +10,51 @@
     <metal:main fill-slot="content-title">
         <h1 class="documentFirstHeading" i18n:translate="heading_classperformance_for_activity">Class Performance For Activity</h1>
     </metal:main>
+
     <metal:main fill-slot="content-core">
+
+        <form name="assessment-form" tal:attributes="action string:${view/__name__}" method="post">
+                
+            <div tal:condition="view/activities">
+                 <table>
+                     <tbody>
+                        <tr>
+                            <th i18n:translate="label_assessment">ASSESSMENT</th>
+                            <th i18n:translate="label_activity">ACTIVITY</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="assessment_uid_selected" onchange="this.form.submit()">
+                                    <option tal:repeat="assessment view/assessments"
+                                            tal:attributes="value assessment/UID;
+                                                            selected python:assessment.UID == request.get('assessment_uid_selected', '')"
+                                            tal:content="assessment/Title">
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="activity_uid_selected" onchange="this.form.submit()">
+                                    <option tal:repeat="activity view/activities"
+                                            tal:attributes="value python:activity.to_object.id;
+                                                            selected python:activity.to_object.id == request.get('activity_uid_selected', '')"
+                                            tal:content="python:activity.to_object.id">
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                     </tbody>
+                 </table>
+            </div>
+            <tal:noassessments tal:condition="not:view/activities">
+                <div i18n:translate="message_no_assesments_or_activities_exist">No assessments have been created yet,
+                                                                                or existing assessments contain no activities.</div>
+            </tal:noassessments>            
+            
+        </form>
     
-        <img src="@@classperformance-for-activity-chart"/>
+        <tal:assessments tal:condition="view/activities">
+            <img src="@@classperformance-for-activity-chart"/>
+        </tal:assessments>
 
     </metal:main>
 </body>
