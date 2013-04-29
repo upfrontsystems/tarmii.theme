@@ -42,6 +42,9 @@ Translation issues:
 * When assessment item is created correctly - portal message is in english:
   'Info - Item Created'
 
+* When assessment item is removed from assessment - portal message is in english:
+  'Info - Activity removed'
+
 * Upon creating of assessment item the month of creating is in english as is 
   the workflow_state ('internally_published')
   30 January 2013 0 punte 0 minute internally_published
