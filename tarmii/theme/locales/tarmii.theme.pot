@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-22 12:53+0000\n"
+"POT-Creation-Date: 2013-04-30 11:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,20 +39,21 @@ msgstr ""
 msgid "Add Activities"
 msgstr ""
 
+#: ./browser/forms.py:67
 #: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr ""
 
-#: ./browser/forms.py:117
+#: ./browser/forms.py:129
 #: ./browser/templates/assessments.pt:19
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/forms.py:92
+#: ./browser/forms.py:104
 msgid "Add Classlist"
 msgstr ""
 
-#: ./browser/forms.py:143
+#: ./browser/forms.py:155
 msgid "Add EvaluationSheet"
 msgstr ""
 
@@ -60,7 +61,7 @@ msgstr ""
 msgid "Add Topic Tree"
 msgstr ""
 
-#: ./browser/templates/classlists.pt:20
+#: ./browser/templates/classlists.pt:22
 msgid "Add class list"
 msgstr ""
 
@@ -88,7 +89,7 @@ msgstr ""
 msgid "All rating values must be unique."
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:30
+#: ./browser/templates/usagestats.pt:56
 msgid "April"
 msgstr ""
 
@@ -97,13 +98,13 @@ msgstr ""
 msgid "Assessments"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:38
+#: ./browser/templates/usagestats.pt:64
 msgid "August"
 msgstr ""
 
+#: ./browser/templates/addassessmentitem.pt:285
 #: ./browser/templates/addclasslist.pt:30
-#: ./browser/templates/addevaluationsheet.pt:39
-#: ./browser/templates/addtoassessment.pt:38
+#: ./browser/templates/addevaluationsheet.pt:35
 msgid "Cancel"
 msgstr ""
 
@@ -156,7 +157,7 @@ msgstr ""
 msgid "Contribute own activity"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:46
+#: ./browser/templates/usagestats.pt:72
 msgid "December"
 msgstr ""
 
@@ -176,11 +177,11 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:141
 msgid "Edit Assessment"
 msgstr ""
 
-#: ./browser/forms.py:104
+#: ./browser/forms.py:116
 msgid "Edit Classlist"
 msgstr ""
 
@@ -194,7 +195,7 @@ msgid "Evaluations"
 msgstr ""
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:52
+#: ./browser/forms.py:53
 msgid "Excellent"
 msgstr ""
 
@@ -202,7 +203,7 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:26
+#: ./browser/templates/usagestats.pt:52
 msgid "February"
 msgstr ""
 
@@ -236,7 +237,7 @@ msgid "Generate Report"
 msgstr ""
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:54
+#: ./browser/forms.py:55
 msgid "Good"
 msgstr ""
 
@@ -253,15 +254,15 @@ msgstr ""
 msgid "Item ID"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:24
+#: ./browser/templates/usagestats.pt:50
 msgid "January"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:36
+#: ./browser/templates/usagestats.pt:62
 msgid "July"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:34
+#: ./browser/templates/usagestats.pt:60
 msgid "June"
 msgstr ""
 
@@ -285,11 +286,11 @@ msgstr ""
 msgid "Limpopo"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:28
+#: ./browser/templates/usagestats.pt:54
 msgid "March"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:32
+#: ./browser/templates/usagestats.pt:58
 msgid "May"
 msgstr ""
 
@@ -302,11 +303,11 @@ msgid "Mpumalanga"
 msgstr ""
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:58
+#: ./browser/forms.py:59
 msgid "Needs improvement"
 msgstr ""
 
-#: ./browser/teacherprofiles.py:103
+#: ./browser/teacherprofiles.py:111
 msgid "Never"
 msgstr ""
 
@@ -326,7 +327,7 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:44
+#: ./browser/templates/usagestats.pt:70
 msgid "November"
 msgstr ""
 
@@ -334,7 +335,7 @@ msgstr ""
 msgid "Number of years teaching foundation phase."
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:71
+#: ./browser/templates/usagestats.pt:97
 msgid "OK"
 msgstr ""
 
@@ -342,7 +343,7 @@ msgstr ""
 msgid "Observation Sheet"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:42
+#: ./browser/templates/usagestats.pt:68
 msgid "October"
 msgstr ""
 
@@ -405,13 +406,13 @@ msgid "Rubric"
 msgstr ""
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:56
+#: ./browser/forms.py:57
 msgid "Satisfactory"
 msgstr ""
 
+#: ./browser/templates/addassessmentitem.pt:283
 #: ./browser/templates/addclasslist.pt:28
-#: ./browser/templates/addevaluationsheet.pt:37
-#: ./browser/templates/addtoassessment.pt:36
+#: ./browser/templates/addevaluationsheet.pt:33
 msgid "Save"
 msgstr ""
 
@@ -444,7 +445,7 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: ./browser/templates/usagestats.pt:40
+#: ./browser/templates/usagestats.pt:66
 msgid "September"
 msgstr ""
 
@@ -536,12 +537,12 @@ msgid "description_assesments"
 msgstr ""
 
 #. Default: "Here you can add new class lists or"
-#: ./browser/templates/classlists.pt:15
+#: ./browser/templates/classlists.pt:16
 msgid "description_classlists_add"
 msgstr ""
 
 #. Default: "No usage stats present."
-#: ./browser/templates/usagestats.pt:80
+#: ./browser/templates/usagestats.pt:106
 msgid "description_nostats"
 msgstr ""
 
@@ -596,6 +597,11 @@ msgstr ""
 msgid "heading_classlists"
 msgstr ""
 
+#. Default: "Class Performance For Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:11
+msgid "heading_classperformance_for_activity"
+msgstr ""
+
 #. Default: "Evaluations"
 #: ./browser/templates/evaluationsheets.pt:11
 msgid "heading_evaluations"
@@ -608,11 +614,13 @@ msgstr ""
 
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
+#: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
 msgstr ""
 
 #. Default: "Schools:"
 #: ./browser/templates/teacherprofiles.pt:25
+#: ./browser/templates/usagestats.pt:26
 msgid "heading_schools"
 msgstr ""
 
@@ -738,16 +746,17 @@ msgid "home_heading_videos"
 msgstr ""
 
 #. Default: "Activities Created"
-#: ./browser/templates/usagestats.pt:92
+#: ./browser/templates/usagestats.pt:118
 msgid "label_activities_created"
 msgstr ""
 
 #. Default: "Activities Viewed"
-#: ./browser/templates/usagestats.pt:88
+#: ./browser/templates/usagestats.pt:114
 msgid "label_activities_viewed"
 msgstr ""
 
 #. Default: "Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:23
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
 msgstr ""
@@ -764,7 +773,8 @@ msgid "label_addtoassessment"
 msgstr ""
 
 #. Default: "Assessment"
-#: ./browser/templates/addevaluationsheet.pt:28
+#: ./browser/reports/templates/classperformance-for-activity.pt:22
+#: ./browser/templates/addevaluationsheet.pt:26
 msgid "label_assessment"
 msgstr ""
 
@@ -784,7 +794,7 @@ msgid "label_assessment_pdf"
 msgstr ""
 
 #. Default: "Assessments Created"
-#: ./browser/templates/usagestats.pt:93
+#: ./browser/templates/usagestats.pt:119
 msgid "label_assessments_created"
 msgstr ""
 
@@ -810,12 +820,12 @@ msgstr ""
 
 #. Default: "Classlist"
 #: ./browser/templates/addevaluationsheet.pt:20
-#: ./browser/templates/classlists.pt:32
+#: ./browser/templates/classlists.pt:34
 msgid "label_classlist"
 msgstr ""
 
 #. Default: "Classlists Created"
-#: ./browser/templates/usagestats.pt:94
+#: ./browser/templates/usagestats.pt:120
 msgid "label_classlists_created"
 msgstr ""
 
@@ -837,14 +847,14 @@ msgid "label_date"
 msgstr ""
 
 #. Default: "Day"
-#: ./browser/templates/usagestats.pt:87
+#: ./browser/templates/usagestats.pt:113
 msgid "label_day"
 msgstr ""
 
 #. Default: "Delete"
 #: ./browser/templates/assessmentitem-view.pt:50
 #: ./browser/templates/assessments.pt:35
-#: ./browser/templates/classlists.pt:34
+#: ./browser/templates/classlists.pt:36
 msgid "label_delete"
 msgstr ""
 
@@ -883,7 +893,7 @@ msgid "label_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Evaluationsheets Created"
-#: ./browser/templates/usagestats.pt:95
+#: ./browser/templates/usagestats.pt:121
 msgid "label_evaluationsheets_created"
 msgstr ""
 
@@ -904,7 +914,7 @@ msgid "label_how_to"
 msgstr ""
 
 #. Default: "Howto Clips Viewed"
-#: ./browser/templates/usagestats.pt:89
+#: ./browser/templates/usagestats.pt:115
 msgid "label_howto_clips_viewed"
 msgstr ""
 
@@ -942,7 +952,7 @@ msgid "label_pedagogic"
 msgstr ""
 
 #. Default: "Pedagogic Clips Viewed"
-#: ./browser/templates/usagestats.pt:90
+#: ./browser/templates/usagestats.pt:116
 msgid "label_pedagogic_clips_viewed"
 msgstr ""
 
@@ -989,7 +999,7 @@ msgid "label_search_activity"
 msgstr ""
 
 #. Default: "Teacher Resources Viewed"
-#: ./browser/templates/usagestats.pt:91
+#: ./browser/templates/usagestats.pt:117
 msgid "label_teacher_resources_viewed"
 msgstr ""
 
@@ -1038,11 +1048,13 @@ msgstr ""
 
 #. Default: "Back to provinces"
 #: ./browser/templates/teacherprofiles.pt:23
+#: ./browser/templates/usagestats.pt:23
 msgid "link_back_to_provinces"
 msgstr ""
 
 #. Default: "Back to schools"
 #: ./browser/templates/teacherprofiles.pt:33
+#: ./browser/templates/usagestats.pt:35
 msgid "link_back_to_schools"
 msgstr ""
 
@@ -1052,7 +1064,7 @@ msgid "link_create_new_profile"
 msgstr ""
 
 #. Default: "import learners to an existing/new class list."
-#: ./browser/templates/classlists.pt:16
+#: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
 msgstr ""
 
@@ -1068,6 +1080,11 @@ msgstr ""
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
 #: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
+msgstr ""
+
+#. Default: "No evaluationsheets have been created for this assessment. Alternatively, assessments have been created with an empty classlist. If this is the case, please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
+#: ./browser/reports/templates/classperformance-for-activity.pt:57
+msgid "message_evaluationsheet_incorrect"
 msgstr ""
 
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
@@ -1090,8 +1107,13 @@ msgstr ""
 msgid "message_no_assesments_exist"
 msgstr ""
 
+#. Default: "No assessments have been created yet, or existing assessments contain no activities."
+#: ./browser/reports/templates/classperformance-for-activity.pt:51
+msgid "message_no_assesments_or_activities_exist"
+msgstr ""
+
 #. Default: "No class lists have been created yet."
-#: ./browser/templates/classlists.pt:26
+#: ./browser/templates/classlists.pt:28
 msgid "message_no_classlists_exist"
 msgstr ""
 
@@ -1158,12 +1180,12 @@ msgid "title_assessment"
 msgstr ""
 
 #. Default: "MONTH"
-#: ./browser/templates/usagestats.pt:18
+#: ./browser/templates/usagestats.pt:44
 msgid "title_month"
 msgstr ""
 
 #. Default: "YEAR"
-#: ./browser/templates/usagestats.pt:19
+#: ./browser/templates/usagestats.pt:45
 msgid "title_year"
 msgstr ""
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 06:44+0000\n"
+"POT-Creation-Date: 2013-04-30 11:18+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,7 +102,7 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
-#: ./browser/templates/addassessmentitem.pt:288
+#: ./browser/templates/addassessmentitem.pt:285
 #: ./browser/templates/addclasslist.pt:30
 #: ./browser/templates/addevaluationsheet.pt:35
 msgid "Cancel"
@@ -413,7 +413,7 @@ msgstr "Rubriek"
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
-#: ./browser/templates/addassessmentitem.pt:286
+#: ./browser/templates/addassessmentitem.pt:283
 #: ./browser/templates/addclasslist.pt:28
 #: ./browser/templates/addevaluationsheet.pt:33
 msgid "Save"
@@ -603,7 +603,7 @@ msgstr "Klaslyste"
 #. Default: "Class Performance For Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
 msgid "heading_classperformance_for_activity"
-msgstr ""
+msgstr "Klas Prestasie Vir Aktiwiteit"
 
 #. Default: "Evaluations"
 #: ./browser/templates/evaluationsheets.pt:11
@@ -759,6 +759,7 @@ msgid "label_activities_viewed"
 msgstr "Aktiwiteite Gesien"
 
 #. Default: "Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:23
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
 msgstr "Aktiwiteit"
@@ -775,6 +776,7 @@ msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
 #. Default: "Assessment"
+#: ./browser/reports/templates/classperformance-for-activity.pt:22
 #: ./browser/templates/addevaluationsheet.pt:26
 msgid "label_assessment"
 msgstr "Assessering"
@@ -1083,6 +1085,11 @@ msgstr "Aktiwiteite gevind"
 msgid "message_assessment_frozen"
 msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan nie verander word nie."
 
+#. Default: "No evaluationsheets have been created for this assessment. Alternatively, assessments have been created with an empty classlist. If this is the case, please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
+#: ./browser/reports/templates/classperformance-for-activity.pt:57
+msgid "message_evaluationsheet_incorrect"
+msgstr "Geen evaluationsheets is geskep vir hierdie assessering. Alternatiewelik, assesserings is geskep met 'n leë klaslys. As dit die geval is, voeg 'n paar leerders om jou klaslys wat jy gebruik met hierdie evaluering en herskep die evaluationsheet weer."
+
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
@@ -1102,6 +1109,11 @@ msgstr "Geen aktiwiteite is gevind."
 #: ./browser/templates/assessments.pt:25
 msgid "message_no_assesments_exist"
 msgstr "Geen assesserings is nog geskep."
+
+#. Default: "No assessments have been created yet, or existing assessments contain no activities."
+#: ./browser/reports/templates/classperformance-for-activity.pt:51
+msgid "message_no_assesments_or_activities_exist"
+msgstr ""
 
 #. Default: "No class lists have been created yet."
 #: ./browser/templates/classlists.pt:28

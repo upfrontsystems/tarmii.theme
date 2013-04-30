@@ -33,10 +33,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="activity_id_selected" onchange="this.form.submit()">
+                                <select name="activity_uid_selected" onchange="this.form.submit()">
                                     <option tal:repeat="activity view/activities"
-                                            tal:attributes="value python:activity.to_object.id;
-                                                            selected python:activity.to_object.id == request.get('activity_id_selected', '')"
+                                            tal:attributes="value python:view.getUID(activity.to_object);
+                                                            selected python:view.getUID(activity.to_object) ==
+                                                                     request.get('activity_uid_selected', '')"
                                             tal:content="python:activity.to_object.id">
                                     </option>
                                 </select>
@@ -50,7 +51,16 @@
                     <div i18n:translate="message_no_assesments_or_activities_exist">No assessments have been created yet,
                                                                                 or existing assessments contain no activities.</div>
                 </tal:evaluations>            
-            </tal:noassessments>            
+            </tal:noassessments>
+            <tal:noassessments tal:condition="view/activities">
+                <tal:evaluations tal:condition="not:view/evaluations">
+                    <div i18n:translate="message_evaluationsheet_incorrect">No evaluationsheets have been created for this assessment.  
+                                                                            Alternatively, assessments have been created with an empty 
+                                                                            classlist. If this is the case, please add some learners to your 
+                                                                            classlist that you are using with this assessment and 
+                                                                            recreate the evaluationsheet again.</div>
+                </tal:evaluations>            
+            </tal:noassessments>
             
         </form>
     
