@@ -1113,7 +1113,7 @@ msgstr "Geen assesserings is nog geskep."
 #. Default: "No assessments have been created yet, or existing assessments contain no activities."
 #: ./browser/reports/templates/classperformance-for-activity.pt:51
 msgid "message_no_assesments_or_activities_exist"
-msgstr ""
+msgstr "Geen assesserings is nog geskep, of bestaande assesserings bevat geen aktiwiteite."
 
 #. Default: "No class lists have been created yet."
 #: ./browser/templates/classlists.pt:28
