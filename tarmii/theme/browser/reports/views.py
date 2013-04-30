@@ -2,6 +2,7 @@ from StringIO import StringIO
 from reportlab.graphics import renderPM
 
 from five import grok
+from AccessControl import Unauthorized
 from zope.app.intid.interfaces import IIntIds
 from zope.component.hooks import getSite
 from zope.component import getUtility
@@ -151,6 +152,8 @@ class ClassPerformanceForActivityView(grok.View):
         if self.assessment_uid == '':
             pm = getSite().portal_membership
             members_folder = pm.getHomeFolder()
+            if members_folder == None:
+                return []
             if len(members_folder.assessments.getFolderContents()) == 0:
                 # assessments contains no activities
                 self.assessment_id = ''
@@ -163,12 +166,21 @@ class ClassPerformanceForActivityView(grok.View):
                 if len(assessment.assessment_items) != 0:
                     self.activity_uid =\
                                  IUUID(assessment.assessment_items[0].to_object)
+        elif self.activity_uid == '':
+            # this executes when one is picking an assessment with activities
+            # after having picked an assessment with no activities
+            assessment = uuidToObject(self.assessment_uid)
+            if len(assessment.assessment_items) != 0:
+                self.activity_uid =\
+                                IUUID(assessment.assessment_items[0].to_object)
 
     def assessments(self):
         """ return all of the assessments of the current user
         """
         pm = getSite().portal_membership
         members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
         return members_folder.assessments.getFolderContents()
 
     def activities(self):
@@ -178,7 +190,6 @@ class ClassPerformanceForActivityView(grok.View):
             return []
         else:
             assessment = uuidToObject(self.assessment_uid)
-#            import pdb; pdb.set_trace()
         return assessment.assessment_items
 
     def selected_assessment(self):
@@ -232,3 +243,9 @@ class ClassPerformanceForActivityView(grok.View):
                     return rel_list
             return []
 
+    def user_anonymous(self):
+        """ Raise Unauthorized if user is anonymous
+        """
+        pm = getToolByName(self.context, 'portal_membership')
+        if pm.isAnonymousUser():
+            raise Unauthorized("You do not have permission to view this page.")

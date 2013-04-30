@@ -13,14 +13,20 @@
 
     <metal:main fill-slot="content-core">
 
+    <!-- check: dont allow anonymous role access to this template -->
+    <div tal:condition="view/user_anonymous">
+    </div>
+
         <form name="assessment-form" tal:attributes="action string:${view/__name__}" method="post">
                 
-            <div tal:condition="view/activities">
+            <div tal:condition="view/assessments">
                  <table>
                      <tbody>
                         <tr>
                             <th i18n:translate="label_assessment">Assessment</th>
-                            <th i18n:translate="label_activity">Activity</th>
+                            <tal:activities tal:condition="view/activities">
+                                <th i18n:translate="label_activity">Activity</th>
+                            </tal:activities>
                         </tr>
                         <tr>
                             <td class="select-assessment">
@@ -31,27 +37,31 @@
                                             tal:content="assessment/Title">
                                     </option>
                                 </select>
-                            </td class="select-activity">
-                            <td>
-                                <select name="activity_uid_selected" onchange="this.form.submit()">
-                                    <option tal:repeat="activity view/activities"
-                                            tal:attributes="value python:view.getUID(activity.to_object);
-                                                            selected python:view.getUID(activity.to_object) ==
-                                                                     request.get('activity_uid_selected', '')"
-                                            tal:content="python:activity.to_object.id">
-                                    </option>
-                                </select>
                             </td>
+                            <tal:activities tal:condition="view/activities">
+                                <td class="select-activity">
+                                    <select name="activity_uid_selected" onchange="this.form.submit()">
+                                        <option tal:repeat="activity view/activities"
+                                                tal:attributes="value python:view.getUID(activity.to_object);
+                                                                selected python:view.getUID(activity.to_object) ==
+                                                                         request.get('activity_uid_selected', '')"
+                                                tal:content="python:activity.to_object.id">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tal:activities>
                         </tr>
                      </tbody>
                  </table>
             </div>
+
             <tal:noassessments tal:condition="not:view/activities">
                 <tal:evaluations tal:condition="not:view/evaluations">
                     <div i18n:translate="message_no_assesments_or_activities_exist">No assessments have been created yet,
                                                                                 or existing assessments contain no activities.</div>
-                </tal:evaluations>            
+                </tal:evaluations>
             </tal:noassessments>
+
             <tal:noassessments tal:condition="view/activities">
                 <tal:evaluations tal:condition="not:view/evaluations">
                     <div i18n:translate="message_evaluationsheet_incorrect">No evaluationsheets have been created for this assessment.  
@@ -61,12 +71,21 @@
                                                                             recreate the evaluationsheet again.</div>
                 </tal:evaluations>            
             </tal:noassessments>
+
+            <tal:noactivities tal:condition="not:view/activities">
+                <tal:evaluations tal:condition="view/evaluations">
+                    <div i18n:translate="message_no_activities_in_assessment">No activities associated with selected assessment. 
+                                                                              Please update the assessment.</div>
+                </tal:evaluations>
+            </tal:noactivities>
             
         </form>
     
-        <tal:evaluations tal:condition="view/evaluations">
-            <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}"/>
-        </tal:evaluations>
+        <tal:activities tal:condition="view/activities">
+            <tal:evaluations tal:condition="view/evaluations">
+                <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}"/>
+            </tal:evaluations>
+        </tal:activities>
 
     </metal:main>
 </body>
