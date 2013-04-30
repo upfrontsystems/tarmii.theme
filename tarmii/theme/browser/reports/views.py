@@ -2,9 +2,15 @@ from StringIO import StringIO
 from reportlab.graphics import renderPM
 
 from five import grok
-from zope.interface import Interface
+from zope.app.intid.interfaces import IIntIds
 from zope.component.hooks import getSite
+from zope.component import getUtility
+from zope.interface import Interface
+from zc.relation.interfaces import ICatalog
+from plone.uuid.interfaces import IUUID
+from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
+
 
 from tarmii.theme.browser.reports.charts import ClassPerformanceForActivityChart
 
@@ -18,6 +24,34 @@ class ClassPerformanceForActivityChartView(grok.View):
     grok.require('zope2.View')
 
     def data(self):
+        assessment_uid = self.request.get('assessment', '')
+        activity_uid = self.request.get('activity', '')
+
+        # if we are here, evaluations exist
+        assessment = uuidToObject(assessment_uid)
+        # find all evaluationsheets that reference the chosen assessment
+        ref_catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
+        result = ref_catalog.findRelations(
+                 {'to_id': intids.getId(assessment)})
+        rel_list = []
+        notfinished = True;
+        while notfinished:
+            try:
+                rel = result.next()
+                if rel.from_object.portal_type ==\
+                      'upfront.assessment.content.evaluationsheet':
+                    # only track references from evaluation objects.
+                    rel_list.append(rel.from_object)
+            except StopIteration:
+                notfinished = False;
+
+        # iterate through all evaluations that reference the current assessment             
+#        import pdb; pdb.set_trace()
+
+
+
+
         return { 
             'title' : 'Class performance for activity',
             'value_labels'   : (
@@ -49,6 +83,31 @@ class ClassPerformanceForActivityView(grok.View):
     grok.template('classperformance-for-activity')
     grok.require('zope2.View')
 
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """ store the of the request parameters, if they are '',
+            initialise them in an intelligent manner to first choices of the 
+            options (if applicable)
+        """
+        self.assessment_uid = self.request.get('activity_uid_selected', '')
+        self.activity_id = self.request.get('activity_id_selected', '')
+
+        if self.assessment_uid == '':
+            pm = getSite().portal_membership
+            members_folder = pm.getHomeFolder()
+            if len(members_folder.assessments.getFolderContents()) == 0:
+                # assessments contains no activities
+                self.assessment_id = ''
+                return []
+            else:                
+                # no assessment selected so pick first one in list
+                assessment = members_folder.assessments.getFolderContents()[0]\
+                                                                    .getObject()
+                self.assessment_uid = IUUID(assessment)
+                if len(assessment.assessment_items) != 0:
+                    self.activity_id =\
+                                     assessment.assessment_items[0].to_object.id
+
     def assessments(self):
         """ return all of the assessments of the current user
         """
@@ -59,25 +118,82 @@ class ClassPerformanceForActivityView(grok.View):
     def activities(self):
         """ return all of the activities of a specific assessment
         """
-        assessment_uid = self.request.get('assessment_uid_selected', '')
-        if assessment_uid == '':
-            pm = getSite().portal_membership
-            members_folder = pm.getHomeFolder()
-            if len(members_folder.assessments.getFolderContents()) == 0:
-                # assessments contains no activities
-                return []
-            else:                
-                # no assessment selected so pick first one in list
-                assessment = members_folder.assessments.getFolderContents()[0]\
-                                                                    .getObject()
+        if self.assessment_uid == '':
+            return []
         else:
-            catalog = getToolByName(self.context, 'portal_catalog')
-            brain = catalog.searchResults(
-                    portal_type='upfront.assessment.content.assessment',
-                    UID=assessment_uid)
-            assessment = brain[0].getObject()
-
+            assessment = uuidToObject(self.assessment_uid)
         return assessment.assessment_items
+
+    def selected_assessment(self):
+        return self.assessment_uid
+
+    def selected_activity(self):
+        return self.activity_id
+
+    def evaluations(self):
+        """ returns all evaluations associated with currently selected 
+            assessment
+        """
+        if self.assessment_uid == '':
+            print 'NO ASSESSMENT'
+            return []
+        if self.activity_id == '':
+            print 'NO ACTIVITIES BUT HAVE ASSESSMENT'
+            return []
+
+        assessment = uuidToObject(self.assessment_uid)
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if len(members_folder.evaluations.getFolderContents()) == 0:
+            # no evaluations
+            return []
+        else:
+            # find all evaluationsheets that reference the chosen assessment
+            ref_catalog = getUtility(ICatalog)
+            intids = getUtility(IIntIds)
+            result = ref_catalog.findRelations(
+                     {'to_id': intids.getId(assessment)})
+            rel_list = []
+            notfinished = True;
+            while notfinished:
+                try:
+                    rel = result.next()
+                    if rel.from_object.portal_type ==\
+                          'upfront.assessment.content.evaluationsheet':
+                        # only track references from evaluation objects.
+                        rel_list.append(IUUID(rel.from_object))
+                except StopIteration:
+                    notfinished = False;
+             
+            return rel_list
+       
+
+
+    def evaluation_data(self, assessment):
+        """ return all of the activities of a specific assessment
+        """
+
+        assessment_uid = self.request.get('assessment_uid_selected', '')
+#        if assessment_uid == '':
+#            pm = getSite().portal_membership
+#            members_folder = pm.getHomeFolder()
+#            if len(members_folder.assessments.getFolderContents()) == 0:
+#                # assessments contains no activities
+#                return []
+#            else:                
+#                # no assessment selected so pick first one in list
+#                assessment = members_folder.assessments.getFolderContents()[0]\
+#                                                                    .getObject()
+#        else:
+#            catalog = getToolByName(self.context, 'portal_catalog')
+#            brain = catalog.searchResults(
+#                    portal_type='upfront.assessment.content.assessment',
+#                    UID=assessment_uid)
+#            assessment = brain[0].getObject()
+#
+#        return assessment.assessment_items
+
+
 
 
 
