@@ -53,11 +53,11 @@ class ClassPerformanceForActivityChartView(grok.View):
         pm = getSite().portal_membership
         members_folder = pm.getHomeFolder()
 
+        rating_scale = {}
+        count_dict = {}
+        lookup_dict = {}
         for evalsheet in members_folder.evaluations.getFolderContents():
             if evalsheet.getObject() in evalsheet_rel_list:
-                rating_scale = {}
-                count_dict = {}
-                lookup_dict = {}
                 for eval_obj in evalsheet.getObject().getFolderContents():
                     # 1 eval_obj/learner
                     for x in range(len(eval_obj.getObject().evaluation)):
@@ -83,16 +83,25 @@ class ClassPerformanceForActivityChartView(grok.View):
                             if rating != 0:
                                count_dict[lookup_dict[rating]] += 1
 
+        # parse count_dict into a format that the charting code accepts
+        value_data = ()
+        value_labels = ()
+        for key, value in count_dict.iteritems():
+            key_lower = ''.join(c.lower() for c in key if not c.isspace())
+            value_labels = value_labels + ((key_lower,key),)
+            value_data = value_data + (value,)
 
+        # value_labels = (
+        #                ('excellent', 'Excellent'),
+        #                ('good', 'Good'),
+        #                ('satisfactory', 'Satisfactory'),
+        #                ('needsimprovement', 'Needs improvement'))  
+        # 'value_data' : (88, 6, 5, 1)   # does not have to add up to 100
 
         return { 
             'title' : 'Class performance for activity',
-            'value_labels'   : (
-                ('excellent', 'Excellent'),
-                ('good', 'Good'),
-                ('satisfactory', 'Satisfactory'),
-                ('needsimprovement', 'Needs improvement')),
-            'value_data' : (88, 6, 5, 1)
+            'value_labels'   : value_labels,
+            'value_data' : value_data
             }
 
     def render(self):
