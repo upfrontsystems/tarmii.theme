@@ -23,7 +23,7 @@
                             <th i18n:translate="label_activity">Activity</th>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="select-assessment">
                                 <select name="assessment_uid_selected" onchange="this.form.submit()">
                                     <option tal:repeat="assessment view/assessments"
                                             tal:attributes="value assessment/UID;
@@ -31,7 +31,7 @@
                                             tal:content="assessment/Title">
                                     </option>
                                 </select>
-                            </td>
+                            </td class="select-activity">
                             <td>
                                 <select name="activity_uid_selected" onchange="this.form.submit()">
                                     <option tal:repeat="activity view/activities"

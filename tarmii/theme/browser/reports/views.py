@@ -91,6 +91,20 @@ class ClassPerformanceForActivityChartView(grok.View):
             value_labels = value_labels + ((key_lower,key),)
             value_data = value_data + (value,)
 
+
+        # make sure we are not supplying of value_data of all zeros 
+        # this can legally happen if no evaluations are graded yet.
+        value_data_is_ok = False
+        for x in range(len(value_data)):
+            if value_data[x] != 0:
+                value_data_is_ok = True
+
+        if not value_data_is_ok:
+            # make extra entry of 1 to prevent division by 0
+            value_labels = value_labels + (('x','X'),)
+            value_data = value_data + (1,)
+
+        # structure of data required by charting mechanism
         # value_labels = (
         #                ('excellent', 'Excellent'),
         #                ('good', 'Good'),
@@ -164,6 +178,7 @@ class ClassPerformanceForActivityView(grok.View):
             return []
         else:
             assessment = uuidToObject(self.assessment_uid)
+#            import pdb; pdb.set_trace()
         return assessment.assessment_items
 
     def selected_assessment(self):

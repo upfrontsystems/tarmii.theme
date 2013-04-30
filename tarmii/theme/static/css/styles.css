@@ -635,3 +635,7 @@ table.listing.admin-table th {
 .bold {
     font-weight: bold;
 }
+
+.select-assessment {
+    padding-right: 4px;
+}
