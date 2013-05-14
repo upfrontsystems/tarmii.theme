@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-14 11:20+0000\n"
-"PO-Revision-Date: 2013-04-04 22:34+0200\n"
+"POT-Creation-Date: 2013-05-14 17:14+0000\n"
+"PO-Revision-Date: 2013-05-14 19:17+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -140,7 +140,7 @@ msgstr "Kies die prente om op te laai"
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
-#: ./browser/reports/views.py:127
+#: ./browser/reports/views.py:123
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
 
@@ -322,7 +322,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:113
+#: ./browser/reports/views.py:112
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -402,6 +402,11 @@ msgstr "Databediener konfigurasie"
 #: ./interfaces.py:35
 msgid "Remote Server Url"
 msgstr "Databediener URL"
+
+#. Default: "Reports"
+#: ./profiles/default/actions.xml
+msgid "Reports"
+msgstr "Verslae"
 
 #: ./content/teacherresource.py:14
 msgid "Resource File"
@@ -557,6 +562,11 @@ msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
 msgid "description_nostats"
 msgstr "Geen huidige gebruik statistieke."
 
+#. Default: "Click on the name of the report to access it."
+#: ./browser/templates/reports.pt:15
+msgid "description_reports"
+msgstr "Klik op die naam van die verslag om dit te oopmaak."
+
 #. Default: "Activities"
 #: ./browser/templates/activities.pt:11
 msgid "heading_activities"
@@ -628,6 +638,11 @@ msgstr "Evaluasieblad vir "
 #: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
 msgstr "Provinsies:"
+
+#. Default: "Reports"
+#: ./browser/templates/reports.pt:11
+msgid "heading_reports"
+msgstr "Verslae"
 
 #. Default: "Schools:"
 #: ./browser/templates/teacherprofiles.pt:25
@@ -1069,15 +1084,40 @@ msgstr "Terug na provinsies"
 msgid "link_back_to_schools"
 msgstr "Terug na skoole"
 
+#. Default: "Class Performance For Activity"
+#: ./browser/templates/reports.pt:20
+msgid "link_class_performance_chart"
+msgstr "Klas Prestasie Vir Aktiwiteit"
+
+#. Default: "Class Progress"
+#: ./browser/templates/reports.pt:24
+msgid "link_class_progress_chart"
+msgstr "Klas Vordering"
+
 #. Default: "Create a new profile"
 #: ./browser/templates/selectprofile.pt:45
 msgid "link_create_new_profile"
 msgstr "Skep 'n nuwe profil"
 
+#. Default: "Evaluation Sheet"
+#: ./browser/templates/reports.pt:36
+msgid "link_evaluation_sheet_chart"
+msgstr "Evaluasieblad"
+
 #. Default: "import learners to an existing/new class list."
 #: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
+
+#. Default: "Learner Progress"
+#: ./browser/templates/reports.pt:28
+msgid "link_learner_progress_chart"
+msgstr "Leerder Vordering"
+
+#. Default: "Strengths and Weaknesses"
+#: ./browser/templates/reports.pt:32
+msgid "link_strengths_weaknesses_chart"
+msgstr "Sterk-en Swakpunte"
 
 #: ./browser/quickupload.py:377
 msgid "maximum file size is:"

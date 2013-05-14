@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content-title">
+        <h1 class="documentFirstHeading" i18n:translate="heading_reports">Reports</h1>
+    </metal:main>
+    <metal:main fill-slot="content-core">
+    
+        <p i18n:translate="description_reports">Click on the name of the report to access it.
+        </p>
+
+        <ul>
+            <li>
+                <a tal:attributes="href string:${context/absolute_url}/@@classperformance-for-activity"
+                   i18n:translate="link_class_performance_chart">Class Performance For Activity</a>
+            </li>
+            <li>
+                <a tal:attributes="href string:${context/absolute_url}/@@class-progress"
+                   i18n:translate="link_class_progress_chart">Class Progress</a>
+            </li>
+            <li>
+                <a tal:attributes="href string:${context/absolute_url}/@@learner-progress"
+                   i18n:translate="link_learner_progress_chart">Learner Progress</a>
+            </li>
+            <li>
+                <a tal:attributes="href string:${context/absolute_url}/@@strengths-and-weaknesses"
+                   i18n:translate="link_strengths_weaknesses_chart">Strengths and Weaknesses</a>
+            </li>
+            <li>
+                <a tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
+                   i18n:translate="link_evaluation_sheet_chart">Evaluation Sheet</a>
+            </li>
+        </ul>
+
+    </metal:main>
+</body>
+</html>
+

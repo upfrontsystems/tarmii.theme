@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-14 11:20+0000\n"
+"POT-Creation-Date: 2013-05-14 17:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./browser/reports/views.py:127
+#: ./browser/reports/views.py:123
 msgid "Class performance for activity"
 msgstr ""
 
@@ -319,7 +319,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:113
+#: ./browser/reports/views.py:112
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -398,6 +398,11 @@ msgstr ""
 
 #: ./interfaces.py:35
 msgid "Remote Server Url"
+msgstr ""
+
+#. Default: "Reports"
+#: ./profiles/default/actions.xml
+msgid "Reports"
 msgstr ""
 
 #: ./content/teacherresource.py:14
@@ -554,6 +559,11 @@ msgstr ""
 msgid "description_nostats"
 msgstr ""
 
+#. Default: "Click on the name of the report to access it."
+#: ./browser/templates/reports.pt:15
+msgid "description_reports"
+msgstr ""
+
 #. Default: "Activities"
 #: ./browser/templates/activities.pt:11
 msgid "heading_activities"
@@ -624,6 +634,11 @@ msgstr ""
 #: ./browser/templates/teacherprofiles.pt:15
 #: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
+msgstr ""
+
+#. Default: "Reports"
+#: ./browser/templates/reports.pt:11
+msgid "heading_reports"
 msgstr ""
 
 #. Default: "Schools:"
@@ -1066,14 +1081,39 @@ msgstr ""
 msgid "link_back_to_schools"
 msgstr ""
 
+#. Default: "Class Performance For Activity"
+#: ./browser/templates/reports.pt:20
+msgid "link_class_performance_chart"
+msgstr ""
+
+#. Default: "Class Progress"
+#: ./browser/templates/reports.pt:24
+msgid "link_class_progress_chart"
+msgstr ""
+
 #. Default: "Create a new profile"
 #: ./browser/templates/selectprofile.pt:45
 msgid "link_create_new_profile"
 msgstr ""
 
+#. Default: "Evaluation Sheet"
+#: ./browser/templates/reports.pt:36
+msgid "link_evaluation_sheet_chart"
+msgstr ""
+
 #. Default: "import learners to an existing/new class list."
 #: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
+msgstr ""
+
+#. Default: "Learner Progress"
+#: ./browser/templates/reports.pt:28
+msgid "link_learner_progress_chart"
+msgstr ""
+
+#. Default: "Strengths and Weaknesses"
+#: ./browser/templates/reports.pt:32
+msgid "link_strengths_weaknesses_chart"
 msgstr ""
 
 #: ./browser/quickupload.py:377
