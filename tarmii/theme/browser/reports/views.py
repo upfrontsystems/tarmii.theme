@@ -179,8 +179,22 @@ class ClassPerformanceForActivityView(grok.View):
             # this executes when one is picking an assessment with activities
             # after having picked an assessment with no activities
             assessment = uuidToObject(self.assessment_uid)
-            if len(assessment.assessment_items) != 0:
+            if len(assessment.assessment_items) != 0: 
+                # pick the first activity from the assessment's activities
                 self.activity_uid =\
+                                IUUID(assessment.assessment_items[0].to_object)
+        else:
+            # check that the activity selected is valid for this assessment
+            # this scenario can happen when switching assessments from an 
+            # eg. assessment1 that contains activity3 but the assessment2 does
+            # not
+            assessment = uuidToObject(self.assessment_uid)
+            act = uuidToObject(self.activity_uid)
+            # if activity selected is not in the newly selected assessment
+            if not act in [x.to_object for x in assessment.assessment_items]:                
+                if len(assessment.assessment_items) != 0:
+                    # pick the first activity from the assessment's activities
+                    self.activity_uid =\
                                 IUUID(assessment.assessment_items[0].to_object)
 
     def assessments(self):
