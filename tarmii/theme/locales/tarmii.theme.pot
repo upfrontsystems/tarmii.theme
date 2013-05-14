@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-30 21:05+0000\n"
+"POT-Creation-Date: 2013-05-14 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,6 +138,10 @@ msgstr ""
 
 #: ./browser/quickupload.py:303
 msgid "Choose video files to upload"
+msgstr ""
+
+#: ./browser/reports/views.py:127
+msgid "Class performance for activity"
 msgstr ""
 
 #. Default: "Classlists"
@@ -313,6 +317,10 @@ msgstr ""
 
 #: ./browser/exportactivities.py:96
 msgid "No activities exist"
+msgstr ""
+
+#: ./browser/reports/views.py:113
+msgid "No evaluation data exists"
 msgstr ""
 
 #: ./browser/exportuserprofiles.py:97
@@ -756,7 +764,7 @@ msgid "label_activities_viewed"
 msgstr ""
 
 #. Default: "Activity"
-#: ./browser/reports/templates/classperformance-for-activity.pt:24
+#: ./browser/reports/templates/classperformance-for-activity.pt:28
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
 msgstr ""
@@ -773,7 +781,7 @@ msgid "label_addtoassessment"
 msgstr ""
 
 #. Default: "Assessment"
-#: ./browser/reports/templates/classperformance-for-activity.pt:22
+#: ./browser/reports/templates/classperformance-for-activity.pt:26
 #: ./browser/templates/addevaluationsheet.pt:26
 msgid "label_assessment"
 msgstr ""
@@ -1083,7 +1091,7 @@ msgid "message_assessment_frozen"
 msgstr ""
 
 #. Default: "No evaluationsheets have been created for this assessment. Alternatively, assessments have been created with an empty classlist. If this is the case, please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
-#: ./browser/reports/templates/classperformance-for-activity.pt:63
+#: ./browser/reports/templates/classperformance-for-activity.pt:67
 msgid "message_evaluationsheet_incorrect"
 msgstr ""
 
@@ -1103,7 +1111,7 @@ msgid "message_no_activities_found"
 msgstr ""
 
 #. Default: "No activities associated with selected assessment. Please update the assessment."
-#: ./browser/reports/templates/classperformance-for-activity.pt:73
+#: ./browser/reports/templates/classperformance-for-activity.pt:77
 msgid "message_no_activities_in_assessment"
 msgstr ""
 
@@ -1113,7 +1121,7 @@ msgid "message_no_assesments_exist"
 msgstr ""
 
 #. Default: "No assessments have been created yet, or existing assessments contain no activities."
-#: ./browser/reports/templates/classperformance-for-activity.pt:56
+#: ./browser/reports/templates/classperformance-for-activity.pt:60
 msgid "message_no_assesments_or_activities_exist"
 msgstr ""
 

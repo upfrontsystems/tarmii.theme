@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-30 21:05+0000\n"
+"POT-Creation-Date: 2013-05-14 11:20+0000\n"
 "PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,6 +139,10 @@ msgstr "Kies die prente om op te laai"
 #: ./browser/quickupload.py:303
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
+
+#: ./browser/reports/views.py:127
+msgid "Class performance for activity"
+msgstr "Klas prestasie vir aktiwiteit"
 
 #. Default: "Classlists"
 #: ./profiles/default/actions.xml
@@ -317,6 +321,10 @@ msgstr "Nooit"
 #: ./browser/exportactivities.py:96
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
+
+#: ./browser/reports/views.py:113
+msgid "No evaluation data exists"
+msgstr "Geen evaluering data bestaan"
 
 #: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
@@ -759,7 +767,7 @@ msgid "label_activities_viewed"
 msgstr "Aktiwiteite Gesien"
 
 #. Default: "Activity"
-#: ./browser/reports/templates/classperformance-for-activity.pt:24
+#: ./browser/reports/templates/classperformance-for-activity.pt:28
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
 msgstr "Aktiwiteit"
@@ -776,7 +784,7 @@ msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
 #. Default: "Assessment"
-#: ./browser/reports/templates/classperformance-for-activity.pt:22
+#: ./browser/reports/templates/classperformance-for-activity.pt:26
 #: ./browser/templates/addevaluationsheet.pt:26
 msgid "label_assessment"
 msgstr "Assessering"
@@ -1086,7 +1094,7 @@ msgid "message_assessment_frozen"
 msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan nie verander word nie."
 
 #. Default: "No evaluationsheets have been created for this assessment. Alternatively, assessments have been created with an empty classlist. If this is the case, please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
-#: ./browser/reports/templates/classperformance-for-activity.pt:63
+#: ./browser/reports/templates/classperformance-for-activity.pt:67
 msgid "message_evaluationsheet_incorrect"
 msgstr "Geen evaluationsheets is geskep vir hierdie assessering. Alternatiewelik, assesserings is geskep met 'n leë klaslys. As dit die geval is, voeg 'n paar leerders om jou klaslys wat jy gebruik met hierdie evaluering en herskep die evaluationsheet weer."
 
@@ -1106,7 +1114,7 @@ msgid "message_no_activities_found"
 msgstr "Geen aktiwiteite is gevind."
 
 #. Default: "No activities associated with selected assessment. Please update the assessment."
-#: ./browser/reports/templates/classperformance-for-activity.pt:73
+#: ./browser/reports/templates/classperformance-for-activity.pt:77
 msgid "message_no_activities_in_assessment"
 msgstr "Geen aktiwiteite is geassosieer met die geselekteerde assessering. Bywerk die assessering asseblief."
 
@@ -1116,7 +1124,7 @@ msgid "message_no_assesments_exist"
 msgstr "Geen assesserings is nog geskep."
 
 #. Default: "No assessments have been created yet, or existing assessments contain no activities."
-#: ./browser/reports/templates/classperformance-for-activity.pt:56
+#: ./browser/reports/templates/classperformance-for-activity.pt:60
 msgid "message_no_assesments_or_activities_exist"
 msgstr "Geen assesserings is nog geskep, of bestaande assesserings bevat geen aktiwiteite."
 

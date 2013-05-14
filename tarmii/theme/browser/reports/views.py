@@ -8,10 +8,12 @@ from zope.component.hooks import getSite
 from zope.component import getUtility
 from zope.interface import Interface
 from zc.relation.interfaces import ICatalog
+
 from plone.uuid.interfaces import IUUID
 from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
 
+from tarmii.theme import MessageFactory as _
 
 from tarmii.theme.browser.reports.charts import ClassPerformanceForActivityChart
 
@@ -80,18 +82,23 @@ class ClassPerformanceForActivityChartView(grok.View):
 
                             # use lookup dict to interpret ratings
                             rating=eval_obj.getObject().evaluation[x]['rating']
-                            # do not add unrated (0) entries into the count
-                            if rating != 0:
+                            # do not add unrated (0) entries and 
+                            # explicitly unrated (-1) entries into the count
+                            if rating != 0 and rating != -1:
                                count_dict[lookup_dict[rating]] += 1
 
         # parse count_dict into a format that the charting code accepts
         value_data = ()
-        value_labels = ()
-        for key, value in count_dict.iteritems():
-            key_lower = ''.join(c.lower() for c in key if not c.isspace())
-            value_labels = value_labels + ((key_lower,key),)
-            value_data = value_data + (value,)
+        value_labels = []
+        category_labels = []
 
+        # iterate over lookup_dict and extract data from count_dict
+        # this is because lookup_dict contains the rating scale in correct order
+        for value, key in lookup_dict.iteritems():
+            value_labels.append(key) 
+            value = count_dict[key] # get count data
+            value_data = value_data + (value,)
+            category_labels.append(str(value))
 
         # make sure we are not supplying of value_data of all zeros 
         # this can legally happen if no evaluations are graded yet.
@@ -102,21 +109,23 @@ class ClassPerformanceForActivityChartView(grok.View):
 
         if not value_data_is_ok:
             # make extra entry of 1 to prevent division by 0
-            value_labels = value_labels + (('x','X'),)
-            value_data = value_data + (1,)
+            no_data = [self.context.translate(_(u'No evaluation data exists'))]
+            value_labels = no_data
+            value_data = (1,)
+            category_labels = []
 
         # structure of data required by charting mechanism
-        # value_labels = (
-        #                ('excellent', 'Excellent'),
-        #                ('good', 'Good'),
-        #                ('satisfactory', 'Satisfactory'),
-        #                ('needsimprovement', 'Needs improvement'))  
+        # value_labels = ['Excellent', 'Good', 'Satisfactory',
+        #                 'Needs improvement']
         # 'value_data' : (88, 6, 5, 1)   # does not have to add up to 100
+        # 'category_labels' : ['label1','label2','label3','label4']
 
+        title = self.context.translate(_(u'Class performance for activity'))
         return { 
-            'title' : 'Class performance for activity',
+            'title' : title,
             'value_labels'   : value_labels,
-            'value_data' : value_data
+            'value_data' : value_data,
+            'category_labels' : category_labels
             }
 
     def render(self):
@@ -142,7 +151,7 @@ class ClassPerformanceForActivityView(grok.View):
 
     #  __call__ calls update before generating the template
     def update(self, **kwargs):
-        """ store the of the request parameters, if they are '',
+        """ store the uid of the request parameters, if they are '',
             initialise them in an intelligent manner to first choices of the 
             options (if applicable)
         """

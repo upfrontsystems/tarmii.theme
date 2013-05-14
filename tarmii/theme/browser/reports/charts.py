@@ -49,11 +49,11 @@ class BaseChart(Drawing):
 #        legend.fontName = self.fontName
 #        legend.fontSize = self.fontSize
         legend.x = 100
-        legend.y = 310
+        legend.y = 110
         legend.dxTextSpace = 5
         legend.dy = 20
         legend.dx = 20
-        # legend.deltay = 5
+        legend.deltay = 5
         legend.deltax = 7
         legend.columnMaximum = 1
         legend.alignment ='right'
@@ -61,44 +61,45 @@ class BaseChart(Drawing):
 
 
 class ClassPerformanceForActivityChart(BaseChart):
-    def __init__(self, data_dict, width=300, height=325, colorscheme='color'):
+
+    color_array = [colors.green, colors.red, colors.gold, colors.deepskyblue,
+                   colors.olive, colors.orange, colors.blueviolet, colors.peru]
+
+    def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
         chart = Pie()
         BaseChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
 
-        self._chart.width = 200
-        self._chart.height = 240
-        self._chart.slices.strokeWidth = 0.5
+        self._chart.width = 350
+        self._chart.height = 300
+        self._chart.slices.strokeWidth = 1.0
         self.setChartColors()
         self.setLabels()
+        self.setLegend()
 
     def setTitle(self):
         BaseChart.setTitle(self)
-        self.Title.x = 150
-        self.Title.y = 300 
+        self.Title.x = 230
+        self.Title.y = 380 
 
     def setLegend(self):
         BaseChart.setLegend(self)
-        self.Legend.x = 400
+        self.Legend.x = 450
         self.Legend.y = 200
         self.Legend.columnMaximum = len(self._data_dict['value_labels'])
-        color0 = colors.green
-        color1 = colors.red
-        self.Legend.colorNamePairs = \
-                [
-                (color0, self._data_dict['value_labels'][0]),
-                (color1, self._data_dict['value_labels'][1])
-                ]
+        self.Legend.colorNamePairs = []
+        for x in range(len(self._data_dict['value_labels'])):
+            self.Legend.colorNamePairs.append((self.color_array[x],
+                                            self._data_dict['value_labels'][x]))
 
     def setChartColors(self):
-        self._chart.slices.fontSize = 30
+        self._chart.slices.fontSize = 20
         self._chart.slices.fontColor = colors.white
-        self._chart.slices[0].fillColor = colors.green
-        self._chart.slices[1].fillColor = colors.red
+        for x in range(len(self._data_dict['value_labels'])):
+           self._chart.slices[x].fillColor = self.color_array[x]
 
     def setLabels(self):
-#        self._chart.labels = self._data_dict['category_labels']
+        self._chart.labels = self._data_dict['category_labels']
         for idx in range(len(self._data_dict['value_data'])):
-            self._chart.slices[idx].labelRadius = 0.5
-
+            self._chart.slices[idx].labelRadius = 0.8
 
