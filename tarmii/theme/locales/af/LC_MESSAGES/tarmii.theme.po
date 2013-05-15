@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-14 17:14+0000\n"
-"PO-Revision-Date: 2013-05-14 19:17+0200\n"
+"POT-Creation-Date: 2013-05-15 23:54+0000\n"
+"PO-Revision-Date: 2013-05-16 01:55+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -140,7 +140,7 @@ msgstr "Kies die prente om op te laai"
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
-#: ./browser/reports/views.py:123
+#: ./browser/reports/views.py:177
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
 
@@ -188,6 +188,10 @@ msgstr "Redigeer Assessering"
 #: ./browser/forms.py:116
 msgid "Edit Classlist"
 msgstr "Redigeer Klaslys"
+
+#: ./browser/reports/views.py:70
+msgid "End Date"
+msgstr "Einde Datum"
 
 #: ./behaviors.py:123
 msgid "Equipment and Administration (For the teacher)"
@@ -322,7 +326,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:112
+#: ./browser/reports/views.py:166
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -469,6 +473,10 @@ msgstr "September"
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
+#: ./browser/reports/views.py:73
+msgid "Start Date"
+msgstr "Begin Datum"
+
 #: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
 msgstr "TARMII Remove Server Stellings"
@@ -518,6 +526,11 @@ msgstr "Onderwerp Bome"
 msgid "UUID"
 msgstr "UUID"
 
+#: ./browser/reports/templates/classprogress.pt:69
+#: ./browser/reports/templates/learnerprogress.pt:69
+msgid "Update Dates"
+msgstr "Opdateer Datums"
+
 #: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
@@ -563,7 +576,7 @@ msgid "description_nostats"
 msgstr "Geen huidige gebruik statistieke."
 
 #. Default: "Click on the name of the report to access it."
-#: ./browser/templates/reports.pt:15
+#: ./browser/templates/report.pt:15
 msgid "description_reports"
 msgstr "Klik op die naam van die verslag om dit te oopmaak."
 
@@ -608,6 +621,11 @@ msgstr "Assessering Taak"
 msgid "heading_assessments"
 msgstr "Assesserings"
 
+#. Default: "Class Progress"
+#: ./browser/reports/templates/classprogress.pt:20
+msgid "heading_class_progress"
+msgstr "Klas Vordering"
+
 #. Default: "Class list"
 #: ./browser/templates/evaluationsheets.pt:31
 msgid "heading_classlist"
@@ -628,10 +646,20 @@ msgstr "Klas Prestasie Vir Aktiwiteit"
 msgid "heading_evaluations"
 msgstr "Evaluasies"
 
+#. Default: "Evaluation Sheet"
+#: ./browser/reports/templates/evaluationsheet.pt:11
+msgid "heading_evaluationsheet"
+msgstr "Evaluasie Blad"
+
 #. Default: "Evaluation Sheet for"
 #: ./browser/templates/evaluationsheet-pdf.pt:103
 msgid "heading_evaluationsheet_pdf"
 msgstr "Evaluasieblad vir "
+
+#. Default: "Learner Progress"
+#: ./browser/reports/templates/learnerprogress.pt:20
+msgid "heading_learner_progress"
+msgstr "Leerder Vordering"
 
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
@@ -640,7 +668,7 @@ msgid "heading_provinces"
 msgstr "Provinsies:"
 
 #. Default: "Reports"
-#: ./browser/templates/reports.pt:11
+#: ./browser/templates/report.pt:11
 msgid "heading_reports"
 msgstr "Verslae"
 
@@ -665,6 +693,11 @@ msgstr "Kies U Taal"
 #: ./browser/templates/selectprofile.pt:26
 msgid "heading_select_profile"
 msgstr "Kies U Profil"
+
+#. Default: "Strengths and Weaknesses"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:11
+msgid "heading_strenghts_and_weaknesses"
+msgstr "Sterk-en Swakpunte"
 
 #. Default: "Teacher Information for"
 #: ./browser/templates/teacher-info-pdf.pt:109
@@ -845,8 +878,9 @@ msgid "label_choose_your_files_nodrag"
 msgstr "Kies jou lêers:"
 
 #. Default: "Classlist"
+#: ./browser/reports/templates/classprogress.pt:81
+#: ./browser/reports/templates/learnerprogress.pt:81
 #: ./browser/templates/addevaluationsheet.pt:20
-#: ./browser/templates/classlists.pt:34
 msgid "label_classlist"
 msgstr "Klaslys"
 
@@ -949,6 +983,11 @@ msgstr "Hoe om Videos Gesien"
 msgid "label_last_login_time"
 msgstr "Laaste aanmelding tyd"
 
+#. Default: "Learner"
+#: ./browser/reports/templates/learnerprogress.pt:83
+msgid "label_learner"
+msgstr "Leerder"
+
 #. Default: "Learner Name"
 #: ./browser/templates/assessment-pdf.pt:134
 #: ./browser/templates/evaluationsheet-pdf.pt:109
@@ -971,6 +1010,11 @@ msgstr "${medialabel} Vinnig Oplaai"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
 msgstr "Selfoon"
+
+#. Default: "No Learners in this classlist"
+#: ./browser/reports/templates/learnerprogress.pt:109
+msgid "label_nolearners"
+msgstr "Geen leerders in hierdie klaslys"
 
 #. Default: "Pedagogic"
 #: ./browser/templates/videos.pt:35
@@ -1085,12 +1129,12 @@ msgid "link_back_to_schools"
 msgstr "Terug na skoole"
 
 #. Default: "Class Performance For Activity"
-#: ./browser/templates/reports.pt:20
+#: ./browser/templates/report.pt:20
 msgid "link_class_performance_chart"
 msgstr "Klas Prestasie Vir Aktiwiteit"
 
 #. Default: "Class Progress"
-#: ./browser/templates/reports.pt:24
+#: ./browser/templates/report.pt:24
 msgid "link_class_progress_chart"
 msgstr "Klas Vordering"
 
@@ -1100,7 +1144,7 @@ msgid "link_create_new_profile"
 msgstr "Skep 'n nuwe profil"
 
 #. Default: "Evaluation Sheet"
-#: ./browser/templates/reports.pt:36
+#: ./browser/templates/report.pt:36
 msgid "link_evaluation_sheet_chart"
 msgstr "Evaluasieblad"
 
@@ -1110,12 +1154,12 @@ msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
 
 #. Default: "Learner Progress"
-#: ./browser/templates/reports.pt:28
+#: ./browser/templates/report.pt:28
 msgid "link_learner_progress_chart"
 msgstr "Leerder Vordering"
 
 #. Default: "Strengths and Weaknesses"
-#: ./browser/templates/reports.pt:32
+#: ./browser/templates/report.pt:32
 msgid "link_strengths_weaknesses_chart"
 msgstr "Sterk-en Swakpunte"
 
@@ -1228,7 +1272,7 @@ msgstr "kies asseblief lêers weer sonder dit."
 
 #: ./browser/quickupload.py:373
 msgid "please try again."
-msgstr "probeer asseblief weer"
+msgstr "probeer asseblief weer."
 
 #. Default: "Assessment: ${assessment_title}"
 #: ./browser/templates/assessment-view.pt:13

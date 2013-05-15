@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-14 17:18+0000\n"
+"POT-Creation-Date: 2013-05-15 23:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./browser/reports/views.py:123
+#: ./browser/reports/views.py:177
 msgid "Class performance for activity"
 msgstr ""
 
@@ -187,6 +187,10 @@ msgstr ""
 
 #: ./browser/forms.py:116
 msgid "Edit Classlist"
+msgstr ""
+
+#: ./browser/reports/views.py:70
+msgid "End Date"
 msgstr ""
 
 #: ./behaviors.py:123
@@ -319,7 +323,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:112
+#: ./browser/reports/views.py:166
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -466,6 +470,10 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
+#: ./browser/reports/views.py:73
+msgid "Start Date"
+msgstr ""
+
 #: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
 msgstr ""
@@ -515,6 +523,11 @@ msgstr ""
 msgid "UUID"
 msgstr ""
 
+#: ./browser/reports/templates/classprogress.pt:69
+#: ./browser/reports/templates/learnerprogress.pt:69
+msgid "Update Dates"
+msgstr ""
+
 #: ./browser/uploadtoserver.py:75
 msgid "Upload Server not specified in settings"
 msgstr ""
@@ -560,7 +573,7 @@ msgid "description_nostats"
 msgstr ""
 
 #. Default: "Click on the name of the report to access it."
-#: ./browser/templates/reports.pt:15
+#: ./browser/templates/report.pt:15
 msgid "description_reports"
 msgstr ""
 
@@ -605,6 +618,11 @@ msgstr ""
 msgid "heading_assessments"
 msgstr ""
 
+#. Default: "Class Progress"
+#: ./browser/reports/templates/classprogress.pt:20
+msgid "heading_class_progress"
+msgstr ""
+
 #. Default: "Class list"
 #: ./browser/templates/evaluationsheets.pt:31
 msgid "heading_classlist"
@@ -625,9 +643,19 @@ msgstr ""
 msgid "heading_evaluations"
 msgstr ""
 
+#. Default: "Evaluation Sheet"
+#: ./browser/reports/templates/evaluationsheet.pt:11
+msgid "heading_evaluationsheet"
+msgstr ""
+
 #. Default: "Evaluation Sheet for"
 #: ./browser/templates/evaluationsheet-pdf.pt:103
 msgid "heading_evaluationsheet_pdf"
+msgstr ""
+
+#. Default: "Learner Progress"
+#: ./browser/reports/templates/learnerprogress.pt:20
+msgid "heading_learner_progress"
 msgstr ""
 
 #. Default: "Provinces:"
@@ -637,7 +665,7 @@ msgid "heading_provinces"
 msgstr ""
 
 #. Default: "Reports"
-#: ./browser/templates/reports.pt:11
+#: ./browser/templates/report.pt:11
 msgid "heading_reports"
 msgstr ""
 
@@ -661,6 +689,11 @@ msgstr ""
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:26
 msgid "heading_select_profile"
+msgstr ""
+
+#. Default: "Strengths and Weaknesses"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:11
+msgid "heading_strenghts_and_weaknesses"
 msgstr ""
 
 #. Default: "Teacher Information for"
@@ -842,8 +875,9 @@ msgid "label_choose_your_files_nodrag"
 msgstr ""
 
 #. Default: "Classlist"
+#: ./browser/reports/templates/classprogress.pt:81
+#: ./browser/reports/templates/learnerprogress.pt:81
 #: ./browser/templates/addevaluationsheet.pt:20
-#: ./browser/templates/classlists.pt:34
 msgid "label_classlist"
 msgstr ""
 
@@ -946,6 +980,11 @@ msgstr ""
 msgid "label_last_login_time"
 msgstr ""
 
+#. Default: "Learner"
+#: ./browser/reports/templates/learnerprogress.pt:83
+msgid "label_learner"
+msgstr ""
+
 #. Default: "Learner Name"
 #: ./browser/templates/assessment-pdf.pt:134
 #: ./browser/templates/evaluationsheet-pdf.pt:109
@@ -967,6 +1006,11 @@ msgstr ""
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
+msgstr ""
+
+#. Default: "No Learners in this classlist"
+#: ./browser/reports/templates/learnerprogress.pt:109
+msgid "label_nolearners"
 msgstr ""
 
 #. Default: "Pedagogic"
@@ -1082,12 +1126,12 @@ msgid "link_back_to_schools"
 msgstr ""
 
 #. Default: "Class Performance For Activity"
-#: ./browser/templates/reports.pt:20
+#: ./browser/templates/report.pt:20
 msgid "link_class_performance_chart"
 msgstr ""
 
 #. Default: "Class Progress"
-#: ./browser/templates/reports.pt:24
+#: ./browser/templates/report.pt:24
 msgid "link_class_progress_chart"
 msgstr ""
 
@@ -1097,7 +1141,7 @@ msgid "link_create_new_profile"
 msgstr ""
 
 #. Default: "Evaluation Sheet"
-#: ./browser/templates/reports.pt:36
+#: ./browser/templates/report.pt:36
 msgid "link_evaluation_sheet_chart"
 msgstr ""
 
@@ -1107,12 +1151,12 @@ msgid "link_importclasslist"
 msgstr ""
 
 #. Default: "Learner Progress"
-#: ./browser/templates/reports.pt:28
+#: ./browser/templates/report.pt:28
 msgid "link_learner_progress_chart"
 msgstr ""
 
 #. Default: "Strengths and Weaknesses"
-#: ./browser/templates/reports.pt:32
+#: ./browser/templates/report.pt:32
 msgid "link_strengths_weaknesses_chart"
 msgstr ""
 

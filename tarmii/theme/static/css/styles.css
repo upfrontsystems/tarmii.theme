@@ -639,3 +639,13 @@ table.listing.admin-table th {
 .select-assessment {
     padding-right: 4px;
 }
+
+.inlineblock {
+    display: inline-block;
+}
+
+.datelabel {
+    font-size: 12px;
+    font-weight: bold;
+}
+

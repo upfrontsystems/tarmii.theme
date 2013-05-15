@@ -1,3 +1,4 @@
+import datetime
 from StringIO import StringIO
 from reportlab.graphics import renderPM
 
@@ -14,10 +15,63 @@ from plone.app.uuid.utils import uuidToObject
 from Products.CMFCore.utils import getToolByName
 
 from tarmii.theme import MessageFactory as _
-
 from tarmii.theme.browser.reports.charts import ClassPerformanceForActivityChart
 
 grok.templatedir('templates')
+
+class ReportViewsCommon:
+    """ Mixin class that provides user_anonymous method.
+    """
+
+    def user_anonymous(self):
+        """ Raise Unauthorized if user is anonymous
+        """
+        pm = getToolByName(self.context, 'portal_membership')
+        if pm.isAnonymousUser():
+            raise Unauthorized("You do not have permission to view this page.")
+
+class DatePickers:
+    """ Mixin class that provides datepicker methods.
+    """
+
+    def startDateString(self):
+        """ return datestring for start date - date picker
+        """
+        start_date_day = self.request.get('Start-Date_day')
+        start_date_month = self.request.get('Start-Date_month')
+        start_date_year = self.request.get('Start-Date_year')
+
+        if start_date_day is not None:
+            start_date = datetime.date(int(start_date_year),
+                                       int(start_date_month),
+                                       int(start_date_day))
+        else:
+            start_date = datetime.datetime.today() - datetime.timedelta(365)
+
+        return start_date.strftime(u'%Y-%m-%d')
+
+    def endDateString(self):
+        """ return datestring for end date - date picker
+        """
+        end_date_day = self.request.get('End-Date_day')
+        end_date_month = self.request.get('End-Date_month')
+        end_date_year = self.request.get('End-Date_year')
+
+        if end_date_day is not None:
+            end_date = datetime.date(int(end_date_year),
+                                     int(end_date_month),
+                                     int(end_date_day))
+        else:
+            end_date = datetime.datetime.today()
+
+        return end_date.strftime(u'%Y-%m-%d')
+
+    def end_date_label(self):
+        return self.context.translate(_(u'End Date'))
+
+    def start_date_label(self):
+        return self.context.translate(_(u'Start Date'))
+
 
 class ClassPerformanceForActivityChartView(grok.View):
     """ Class performance for a given activity
@@ -141,7 +195,7 @@ class ClassPerformanceForActivityChartView(grok.View):
         out.close()
 
 
-class ClassPerformanceForActivityView(grok.View):
+class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
     """ Class performance for a given activity
     """
     grok.context(Interface)
@@ -266,9 +320,154 @@ class ClassPerformanceForActivityView(grok.View):
                     return rel_list
             return []
 
-    def user_anonymous(self):
-        """ Raise Unauthorized if user is anonymous
+
+class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
+    """ Class progress report view
+    """
+    grok.context(Interface)
+    grok.name('class-progress')
+    grok.template('classprogress')
+    grok.require('zope2.View')
+
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """ get classlist parameter from request, if none selected pick first
+            classlist in classlists folder.
         """
-        pm = getToolByName(self.context, 'portal_membership')
-        if pm.isAnonymousUser():
-            raise Unauthorized("You do not have permission to view this page.")
+
+        self.classlist_uid = self.request.get('classlist_uid_selected', '')
+
+        if self.classlist_uid == '':
+            pm = getSite().portal_membership
+            members_folder = pm.getHomeFolder()
+            if members_folder == None:
+                return []
+            if len(members_folder.classlists.getFolderContents()) == 0:
+                # no classlists
+                self.classlist_id = ''
+                return []
+            else:                
+                # no classlist selected so pick first one in list
+                classlist = members_folder.classlists.getFolderContents()[0]\
+                                                                    .getObject()
+                self.classlist_uid = IUUID(classlist)
+
+    def classlists(self):
+        """ return all of the classlists of the current user
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
+        return members_folder.classlists.getFolderContents(contentFilter)
+
+
+class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
+    """ Learner progress report view
+    """
+    grok.context(Interface)
+    grok.name('learner-progress')
+    grok.template('learnerprogress')
+    grok.require('zope2.View')
+
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """
+        """
+        self.classlist_uid = self.request.get('classlist_uid_selected', '')
+        self.learner_uid = self.request.get('learner_uid_selected', '')
+
+        if self.classlist_uid == '':
+            pm = getSite().portal_membership
+            members_folder = pm.getHomeFolder()
+            if members_folder == None:
+                return []
+            if len(members_folder.classlists.getFolderContents()) == 0:
+                # no classlists
+                self.classlist_id = ''
+                return []
+            else:                
+                # no classlist selected so pick first one in list
+                classlist = members_folder.classlists.getFolderContents()[0]\
+                                                                    .getObject()
+                self.classlist_uid = IUUID(classlist)
+                contentFilter = {
+                    'portal_type': 'upfront.classlist.content.learner',
+                    'sort_on': 'sortable_title'}
+                classlist_contents = classlist.getFolderContents(contentFilter)
+                if len(classlist_contents) != 0:
+                    self.learner_uid = IUUID(classlist_contents[0].getObject())
+        elif self.learner_uid == '':
+            # this executes when one is picking a classlist with learners
+            # after having picked a classlist with no learners
+            classlist = uuidToObject(self.classlist_uid)
+            contentFilter = { 
+                'portal_type': 'upfront.classlist.content.learner',
+                'sort_on': 'sortable_title'}
+            classlist_contents = classlist.getFolderContents(contentFilter)
+            if len(classlist_contents) != 0:
+                # pick the first learner from the classlist
+                self.learner_uid = IUUID(classlist_contents[0].getObject())
+
+    def classlists(self):
+        """ return all of the classlists of the current user
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
+        return members_folder.classlists.getFolderContents(contentFilter)
+
+    def learners(self):
+        """ return all of the learners from a specific classlist
+        """
+        if self.classlist_uid == '':
+            return []
+        else:
+            contentFilter = {
+                'portal_type': 'upfront.classlist.content.learner',
+                'sort_on': 'sortable_title'}
+            classlist = uuidToObject(self.classlist_uid)
+            return classlist.getFolderContents(contentFilter)
+
+    def getUID(self, obj):
+        return IUUID(obj)
+
+
+class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
+    """ Strengths And Weaknesses report view
+    """
+    grok.context(Interface)
+    grok.name('strengths-and-weaknesses')
+    grok.template('strengths-and-weaknesses')
+    grok.require('zope2.View')
+
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """
+        """
+        return True
+
+
+class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
+    """ Evaluationsheet report view
+    """
+    grok.context(Interface)
+    grok.name('evaluationsheet')
+    grok.template('evaluationsheet')
+    grok.require('zope2.View')
+
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """
+        """
+        return True
+
+
+
