@@ -98,6 +98,10 @@
 
         </form>
 
+        <tal:assessments tal:condition="view/assessments">
+                <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}"/>
+        </tal:assessments>
+
     </metal:main>
 </body>
 </html>

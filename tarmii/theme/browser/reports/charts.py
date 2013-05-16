@@ -1,6 +1,7 @@
 from reportlab.lib import colors
 from reportlab.graphics.shapes import Drawing, Group, Line
 from reportlab.graphics.charts.piecharts import Pie
+from reportlab.graphics.charts.linecharts import HorizontalLineChart
 from reportlab.graphics.charts.textlabels import Label
 from reportlab.graphics.charts.legends import Legend
 
@@ -115,4 +116,31 @@ class ClassPerformanceForActivityChart(BaseChart):
         self._chart.labels = self._data_dict['category_labels']
         for idx in range(len(self._data_dict['value_data'])):
             self._chart.slices[idx].labelRadius = 0.8
+
+
+class ClassProgressChart(BaseChart):
+
+    def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
+        return None
+        #chart = HorizontalLineChart()
+
+
+class LearnerProgressChart(BaseChart):
+
+    def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
+        return None
+        #chart = HorizontalLineChart()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
