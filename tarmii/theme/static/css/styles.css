@@ -636,7 +636,8 @@ table.listing.admin-table th {
     font-weight: bold;
 }
 
-.select-assessment {
+.select-assessment,
+.select-classlist {
     padding-right: 4px;
 }
 

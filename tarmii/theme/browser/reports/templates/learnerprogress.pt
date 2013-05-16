@@ -38,7 +38,7 @@
                             </tal:classlists>
                         </tr>
                         <tr>
-                            <td class="select-classlists">
+                            <td class="select-classlist">
                                 <select name="classlist_uid_selected" onchange="this.form.submit()">
                                     <option tal:repeat="classlist view/classlists"
                                             tal:attributes="value classlist/UID;
@@ -113,7 +113,6 @@
                      </tbody>
                  </table>                
             </div>
-
 
         </form>
 
