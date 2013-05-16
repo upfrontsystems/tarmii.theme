@@ -27,6 +27,28 @@
     </div>
 
         <form name="classlist-form" tal:attributes="action string:${view/__name__}" method="post">
+
+            <div tal:condition="view/classlists">
+                 <table>
+                     <tbody>
+                        <tr>
+                            <th i18n:translate="label_classlist">Classlist</th>
+                        </tr>
+                        <tr>
+                            <td class="select-classlist">
+                                <select name="classlist_uid_selected" onchange="this.form.submit()">
+                                    <option tal:repeat="classlist view/classlists"
+                                            tal:attributes="value classlist/UID;
+                                                            selected python:classlist.UID == request.get('classlist_uid_selected', '')"
+                                            tal:content="classlist/Title">
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                     </tbody>
+                 </table>
+            </div>
+
             <div>
                  <table>
                      <tbody>
@@ -72,27 +94,6 @@
                         </tr>
                      </tbody>
                  </table>                
-            </div>
-
-            <div tal:condition="view/classlists">
-                 <table>
-                     <tbody>
-                        <tr>
-                            <th i18n:translate="label_classlist">Classlist</th>
-                        </tr>
-                        <tr>
-                            <td class="select-classlist">
-                                <select name="classlist_uid_selected" onchange="this.form.submit()">
-                                    <option tal:repeat="classlist view/classlists"
-                                            tal:attributes="value classlist/UID;
-                                                            selected python:classlist.UID == request.get('classlist_uid_selected', '')"
-                                            tal:content="classlist/Title">
-                                    </option>
-                                </select>
-                            </td>
-                        </tr>
-                     </tbody>
-                 </table>
             </div>
 
         </form>

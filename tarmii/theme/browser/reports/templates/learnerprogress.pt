@@ -27,6 +27,46 @@
     </div>
 
         <form name="classlist-form" tal:attributes="action string:${view/__name__}" method="post">
+
+            <div tal:condition="view/classlists">
+                 <table>
+                     <tbody>
+                        <tr>
+                            <th i18n:translate="label_classlist">Classlist</th>
+                            <tal:classlists tal:condition="view/classlists">
+                                <th i18n:translate="label_learner">Learner</th>
+                            </tal:classlists>
+                        </tr>
+                        <tr>
+                            <td class="select-classlists">
+                                <select name="classlist_uid_selected" onchange="this.form.submit()">
+                                    <option tal:repeat="classlist view/classlists"
+                                            tal:attributes="value classlist/UID;
+                                                            selected python:classlist.UID == request.get('classlist_uid_selected', '')"
+                                            tal:content="classlist/Title">
+                                    </option>
+                                </select>
+                            </td>
+                            <tal:learners tal:condition="view/learners">
+                                <td class="select-learner">
+                                    <select name="learner_uid_selected" onchange="this.form.submit()">
+                                        <option tal:repeat="learner view/learners"
+                                                tal:attributes="value python:view.getUID(learner.getObject());
+                                                                selected python:view.getUID(learner.getObject()) ==
+                                                                         request.get('learner_uid_selected', '')"
+                                                tal:content="python:learner.getObject().Title()">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tal:learners>
+                            <tal:nolearners tal:condition="not:view/learners">
+                                <td i18n:translate="label_nolearners">No Learners in this classlist</td>
+                            </tal:nolearners>
+                        </tr>
+                     </tbody>
+                 </table>
+            </div>
+
             <div>
                  <table>
                      <tbody>
@@ -74,44 +114,7 @@
                  </table>                
             </div>
 
-            <div tal:condition="view/classlists">
-                 <table>
-                     <tbody>
-                        <tr>
-                            <th i18n:translate="label_classlist">Classlist</th>
-                            <tal:classlists tal:condition="view/classlists">
-                                <th i18n:translate="label_learner">Learner</th>
-                            </tal:classlists>
-                        </tr>
-                        <tr>
-                            <td class="select-classlists">
-                                <select name="classlist_uid_selected" onchange="this.form.submit()">
-                                    <option tal:repeat="classlist view/classlists"
-                                            tal:attributes="value classlist/UID;
-                                                            selected python:classlist.UID == request.get('classlist_uid_selected', '')"
-                                            tal:content="classlist/Title">
-                                    </option>
-                                </select>
-                            </td>
-                            <tal:learners tal:condition="view/learners">
-                                <td class="select-learner">
-                                    <select name="learner_uid_selected" onchange="this.form.submit()">
-                                        <option tal:repeat="learner view/learners"
-                                                tal:attributes="value python:view.getUID(learner.getObject());
-                                                                selected python:view.getUID(learner.getObject()) ==
-                                                                         request.get('learner_uid_selected', '')"
-                                                tal:content="python:learner.getObject().Title()">
-                                        </option>
-                                    </select>
-                                </td>
-                            </tal:learners>
-                            <tal:nolearners tal:condition="not:view/learners">
-                                <td i18n:translate="label_nolearners">No Learners in this classlist</td>
-                            </tal:nolearners>
-                        </tr>
-                     </tbody>
-                 </table>
-            </div>
+
         </form>
 
     </metal:main>
