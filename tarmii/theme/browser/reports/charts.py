@@ -128,7 +128,7 @@ class BaseLineChart(Drawing):
         self._data_dict = data_dict
         Drawing.__init__(self, width, height)
         self.add(chart, name='_linechart')
-        self._linechart.width = 500
+        self._linechart.width = 900
         self._linechart.height = 240
         self._linechart.x = 50
         self._linechart.y = 40
@@ -137,8 +137,8 @@ class BaseLineChart(Drawing):
         self._linechart.categoryAxis.categoryNames = self.getCategories()
         self._linechart.categoryAxis.labels.boxAnchor = 'n'
         self._linechart.valueAxis.valueMin = 0
-        self._linechart.valueAxis.valueMax = 60
-        self._linechart.valueAxis.valueStep = 15
+        self._linechart.valueAxis.valueMax = self.getHighestScore()
+        self._linechart.valueAxis.valueStep = 1
         self._linechart.lines[0].strokeWidth = 2
         self._linechart.lines[1].strokeWidth = 1.5
         self.setTitle()
@@ -149,6 +149,9 @@ class BaseLineChart(Drawing):
 
     def getCategories(self):
         return self._data_dict['category_data']
+
+    def getHighestScore(self):
+        return self._data_dict['highest_score']
 
     def setTitle(self):
         title = Label()        
@@ -165,27 +168,34 @@ class BaseLineChart(Drawing):
 
 class ClassProgressChart(BaseLineChart):
 
-    def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
+    def __init__(self, data_dict, width=900, height=400, colorscheme='color'):
         chart = HorizontalLineChart()
         BaseLineChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
 
-        self._linechart.width = 350
+        self._linechart.width = 900
         self._linechart.height = 300
 
     def setTitle(self):
         BaseLineChart.setTitle(self)
-        self.Title.x = 230
+        self.Title.x = 450
         self.Title.y = 380 
 
 
-class LearnerProgressChart(BaseChart):
+class LearnerProgressChart(BaseLineChart):
 
-    def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
-        return None
-        #chart = HorizontalLineChart()
+    def __init__(self, data_dict, width=900, height=400, colorscheme='color'):
+        chart = HorizontalLineChart()
+        BaseLineChart.__init__(self,
+                chart, data_dict, width, height, colorscheme=colorscheme)
 
+        self._linechart.width = 900
+        self._linechart.height = 300
 
+    def setTitle(self):
+        BaseLineChart.setTitle(self)
+        self.Title.x = 450
+        self.Title.y = 380
 
 
 

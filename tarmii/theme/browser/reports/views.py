@@ -380,6 +380,7 @@ class ClassProgressChartView(grok.View):
             scores = []
             activity_ids = []
             highest_rating = []
+            rating_scales = []
             for ev in evaluation_objects:
                 for x in range(len(ev.evaluation)):
                     if scores == []:
@@ -387,6 +388,7 @@ class ClassProgressChartView(grok.View):
                         scores = [0] * len(ev.evaluation)
                         activity_ids = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
+                        rating_scales = [None] * len(ev.evaluation)
                         number_of_learners_in_activity = len(ev.evaluation)
                     activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
                     # dont add unrated (-1) scores into the average calculation
@@ -415,7 +417,8 @@ class ClassProgressChartView(grok.View):
                             (5, 20, 46, 38, 23, 21, 6, 14)
                            ],
             'category_data' : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                               'Jul', 'Aug']
+                               'Jul', 'Aug'],
+            'highest_score' : max(all_highest_ratings)
             }
 
     def render(self):
@@ -518,15 +521,82 @@ class LearnerProgressChartView(grok.View):
     def data(self):
         # if we are here, evaluationsheets exist in the specified range
 
-        title = self.context.translate(_(u'Class progress'))
+        classlist_uid = self.request.get('classlist', '')
+        learner_uid = self.request.get('learner', '')
+        startdate = self.request.get('startdate', '')
+        enddate = self.request.get('enddate', '')
+
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter =\
+                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets =\
+                     members_folder.evaluations.getFolderContents(contentFilter)
+
+        # find all evaluationsheets that match the specified date range
+        evaluationsheets_in_range = []
+        for evaluationsheet in evaluationsheets:
+            obj = evaluationsheet.getObject()
+            evaluationsheet_date = datetime.datetime.strptime(obj.created()
+                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(startdate,u'%Y-%m-%d')
+            end_date = datetime.datetime.strptime(enddate,u'%Y-%m-%d')
+            # only include evaluationsheets for the specified class
+            if obj.classlist.to_object == uuidToObject(classlist_uid):
+                if evaluationsheet_date >= start_date and\
+                                               evaluationsheet_date <= end_date:
+                    evaluationsheets_in_range.append(obj)
+       
+        all_scores = []
+        all_activity_ids = []
+        all_highest_ratings = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter =\
+                       {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects =\
+             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            scores = []
+            activity_ids = []
+            highest_rating = []
+            for ev in evaluation_objects:
+                # only use the score data of the specified learner
+                if ev.learner.to_object == uuidToObject(learner_uid):
+                    if scores == []:
+                        # init lists so that we can use indexing
+                        scores = [0] * len(ev.evaluation) # one bucket/activity
+                        activity_ids = [None] * len(ev.evaluation)
+                        highest_rating = [None] * len(ev.evaluation)
+                    for x in range(len(ev.evaluation)):
+                        activity_ids[x] =\
+                                        uuidToObject(ev.evaluation[x]['uid']).id
+                        scores[x] = ev.evaluation[x]['rating']
+                        if scores[x] == -1:
+                            # unrated (-1) scores get set to 0
+                            scores[x] = 0
+                        # find the highest possible rating in this activities 
+                        # rating scale
+                        rating_scale = ev.evaluation[x]['rating_scale']
+                        for y in range(len(rating_scale)):
+                            if highest_rating[x] < rating_scale[y]['rating']:
+                                # update highest_rating if higher rating found
+                                # than previously stored rating
+                                highest_rating[x] = rating_scale[y]['rating']
+
+            all_scores += scores
+            all_activity_ids += activity_ids
+            all_highest_ratings += highest_rating
+
+        title = self.context.translate(_(u'Learner progress'))
         return { 
             'title' : title,
             'value_data' : [
-                            (13, 5, 20, 22, 37, 45, 19, 4),
-                            (5, 20, 46, 38, 23, 21, 6, 14)
+                            tuple(all_highest_ratings),
+                            tuple(all_scores)    
                            ],
-            'category_data' : ['Learner', 'Progress', 'Chart', 'Apr', 'May',
-                               'Jun', 'Jul', 'Aug']
+            'category_data' : all_activity_ids,
+            'highest_score' : max(all_highest_ratings)
             }
 
     def render(self):
@@ -588,6 +658,24 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
             if len(classlist_contents) != 0:
                 # pick the first learner from the classlist
                 self.learner_uid = IUUID(classlist_contents[0].getObject())
+        else:
+            # check that the learner selected is valid for this classlist
+            # if not, pick first learner from the now selected classlist
+            # (if it is not empty)
+            # this scenario will happen when switching between classlists
+            # as learners are unique to a classlist
+            classlist = uuidToObject(self.classlist_uid)
+            learner = uuidToObject(self.learner_uid)
+            contentFilter = {'portal_type': 'upfront.classlist.content.learner',
+                             'sort_on': 'sortable_title'}
+            classlist_contents = classlist.getFolderContents(contentFilter)
+            # if activity selected is not in the newly selected assessment
+            if not learner in [x.getObject() for x in classlist_contents]:
+                if len(classlist_contents) != 0:
+                    # pick the first learner from the classlist's learners
+                    self.learner_uid = IUUID(classlist_contents[0].getObject())
+                else: 
+                    self.learner_uid = ''
 
     def classlists(self):
         """ return all of the classlists of the current user
