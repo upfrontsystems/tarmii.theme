@@ -106,7 +106,7 @@
 
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-                <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}"/>
+                <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
             </tal:datecheck>
         </tal:evaluationsheets>
 

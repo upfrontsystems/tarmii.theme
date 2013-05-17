@@ -343,8 +343,71 @@ class ClassProgressChartView(grok.View):
     def data(self):
         # if we are here, evaluationsheets exist in the specified range
 
-        classlist_uid = self.request.get('classlist', '')
+        classlist_uid = self.request.get('classlist')
+        startdate = self.request.get('startdate', '')
+        enddate = self.request.get('enddate', '')
+
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter =\
+                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets =\
+                     members_folder.evaluations.getFolderContents(contentFilter)
+
+        evaluationsheets_in_range = []
+        for evaluationsheet in evaluationsheets:
+            obj = evaluationsheet.getObject()
+            evaluationsheet_date = datetime.datetime.strptime(obj.created()
+                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(startdate,u'%Y-%m-%d')
+            end_date = datetime.datetime.strptime(enddate,u'%Y-%m-%d')
+            # only include evaluationsheets for the specified class
+            if obj.classlist.to_object == uuidToObject(classlist_uid):
+                if evaluationsheet_date >= start_date and\
+                                               evaluationsheet_date <= end_date:
+                    evaluationsheets_in_range.append(obj)
+        
+        all_scores = []
+        all_activity_ids = []
+        all_highest_ratings = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter =\
+                       {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects =\
+             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            scores = []
+            activity_ids = []
+            highest_rating = []
+            for ev in evaluation_objects:
+                for x in range(len(ev.evaluation)):
+                    if scores == []:
+                        # init lists so that we can use indexing
+                        scores = [0] * len(ev.evaluation)
+                        activity_ids = [None] * len(ev.evaluation)
+                        highest_rating = [None] * len(ev.evaluation)
+                        number_of_learners_in_activity = len(ev.evaluation)
+                    activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
+                    # dont add unrated (-1) scores into the average calculation
+                    if ev.evaluation[x]['rating'] != -1:
+                        # update score total
+                        scores[x] += ev.evaluation[x]['rating']
+                    # find the highest possible rating in this activities rating
+                    # scale
+                    rating_scale = ev.evaluation[x]['rating_scale']
+                    for y in range(len(rating_scale)):
+                        if highest_rating[x] < rating_scale[y]['rating']:
+                            # update highest_rating if higher rating found than
+                            # previously stored rating
+                            highest_rating[x] = rating_scale[y]['rating']
+
+            all_scores += scores
+            all_activity_ids += activity_ids
+            all_highest_ratings += highest_rating
+
         title = self.context.translate(_(u'Class progress'))
+
         return { 
             'title' : title,
             'value_data' : [
@@ -429,15 +492,54 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
             evaluationsheet_date = datetime.datetime.strptime(obj.created()
                                .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
             start_date = datetime.datetime.strptime(self.startDateString(),
-                                                                    u'%Y-%m-%d')    
-            if self.check_date_integrity():
-                if evaluationsheet_date >= start_date:
-                    evaluationsheets_in_range.append(obj)
+                                                                    u'%Y-%m-%d')
+            end_date = datetime.datetime.strptime(self.endDateString(),
+                                                                    u'%Y-%m-%d')
+            # only include evaluationsheets for the specified class
+            if obj.classlist.to_object == uuidToObject(self.classlist_uid):
+                if self.check_date_integrity():
+                    if evaluationsheet_date >= start_date and\
+                                               evaluationsheet_date <= end_date:
+                        evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
 
     def selected_classlist(self):
         return self.classlist_uid
+
+
+class LearnerProgressChartView(grok.View):
+    """ Learner progress for a given time period
+    """
+    grok.context(Interface)
+    grok.name('learnerprogress-chart')
+    grok.require('zope2.View')
+
+    def data(self):
+        # if we are here, evaluationsheets exist in the specified range
+
+        title = self.context.translate(_(u'Class progress'))
+        return { 
+            'title' : title,
+            'value_data' : [
+                            (13, 5, 20, 22, 37, 45, 19, 4),
+                            (5, 20, 46, 38, 23, 21, 6, 14)
+                           ],
+            'category_data' : ['Learner', 'Progress', 'Chart', 'Apr', 'May',
+                               'Jun', 'Jul', 'Aug']
+            }
+
+    def render(self):
+        request = self.request
+        response = request.response
+
+        drawing = LearnerProgressChart(self.data())
+        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+        response.setHeader('expires', 0)
+        response['content-type']='image/png'
+        response['Content-Length'] = out.len
+        response.write(out.getvalue())
+        out.close()
 
 
 class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
@@ -530,9 +632,14 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                                .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
             start_date = datetime.datetime.strptime(self.startDateString(),
                                                                     u'%Y-%m-%d')    
-            if self.check_date_integrity():
-                if evaluationsheet_date >= start_date:
-                    evaluationsheets_in_range.append(obj)
+            end_date = datetime.datetime.strptime(self.endDateString(),
+                                                                    u'%Y-%m-%d')
+            # only include evaluationsheets for the specified class
+            if obj.classlist.to_object == uuidToObject(self.classlist_uid):
+                if self.check_date_integrity():
+                    if evaluationsheet_date >= start_date and\
+                                               evaluationsheet_date <= end_date:
+                        evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
 
