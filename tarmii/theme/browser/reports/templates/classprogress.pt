@@ -98,9 +98,17 @@
 
         </form>
 
-        <tal:assessments tal:condition="view/assessments">
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <tal:datecheck tal:condition="not:view/check_date_integrity">
+                    <div i18n:translate="message_startdate_bigger_enddate">Specified Start Date must be earlier than the End Date.</div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
                 <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}"/>
-        </tal:assessments>
+            </tal:datecheck>
+        </tal:evaluationsheets>
 
     </metal:main>
 </body>

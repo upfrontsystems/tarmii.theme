@@ -118,11 +118,65 @@ class ClassPerformanceForActivityChart(BaseChart):
             self._chart.slices[idx].labelRadius = 0.8
 
 
-class ClassProgressChart(BaseChart):
+class BaseLineChart(Drawing):
+
+    def __init__(self, chart, data_dict, width=600, height=450,
+                 colorscheme='color'):
+        """ Initialize the basic graphing class.
+            Set the chart, data, width, height and color scheme.
+        """
+        self._data_dict = data_dict
+        Drawing.__init__(self, width, height)
+        self.add(chart, name='_linechart')
+        self._linechart.width = 500
+        self._linechart.height = 240
+        self._linechart.x = 50
+        self._linechart.y = 40
+
+        self._linechart.joinedLines = 1
+        self._linechart.categoryAxis.categoryNames = self.getCategories()
+        self._linechart.categoryAxis.labels.boxAnchor = 'n'
+        self._linechart.valueAxis.valueMin = 0
+        self._linechart.valueAxis.valueMax = 60
+        self._linechart.valueAxis.valueStep = 15
+        self._linechart.lines[0].strokeWidth = 2
+        self._linechart.lines[1].strokeWidth = 1.5
+        self.setTitle()
+        self._linechart.data = self.getChartData()
+
+    def getChartData(self):
+        return self._data_dict['value_data']
+
+    def getCategories(self):
+        return self._data_dict['category_data']
+
+    def setTitle(self):
+        title = Label()        
+        title.fontName = 'Helvetica-Bold'
+        title.fontSize = 12
+        title.x = 300
+        title.y = 335
+        title._text = self._data_dict.get('title', '')
+        title.maxWidth = 180
+        title.height = 20
+        title.textAnchor ='middle'
+        self.add(title, name='Title')
+
+
+class ClassProgressChart(BaseLineChart):
 
     def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
-        return None
-        #chart = HorizontalLineChart()
+        chart = HorizontalLineChart()
+        BaseLineChart.__init__(self,
+                chart, data_dict, width, height, colorscheme=colorscheme)
+
+        self._linechart.width = 350
+        self._linechart.height = 300
+
+    def setTitle(self):
+        BaseLineChart.setTitle(self)
+        self.Title.x = 230
+        self.Title.y = 380 
 
 
 class LearnerProgressChart(BaseChart):

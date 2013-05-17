@@ -16,6 +16,8 @@ from Products.CMFCore.utils import getToolByName
 
 from tarmii.theme import MessageFactory as _
 from tarmii.theme.browser.reports.charts import ClassPerformanceForActivityChart
+from tarmii.theme.browser.reports.charts import ClassProgressChart
+from tarmii.theme.browser.reports.charts import LearnerProgressChart
 
 grok.templatedir('templates')
 
@@ -71,6 +73,16 @@ class DatePickers:
 
     def start_date_label(self):
         return self.context.translate(_(u'Start Date'))
+
+    def check_date_integrity(self):
+        """ returns False if start_date specified is later than the end_date
+        """
+        start_date = datetime.datetime.strptime(self.startDateString(),
+                                                                    u'%Y-%m-%d')
+        end_date = datetime.datetime.strptime(self.endDateString(), u'%Y-%m-%d')
+        if start_date > end_date:
+            return False
+        return True    
 
 
 class ClassPerformanceForActivityChartView(grok.View):
@@ -321,6 +333,41 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             return []
 
 
+class ClassProgressChartView(grok.View):
+    """ Class progress for a given time period
+    """
+    grok.context(Interface)
+    grok.name('classprogress-chart')
+    grok.require('zope2.View')
+
+    def data(self):
+        # if we are here, evaluationsheets exist in the specified range
+
+        classlist_uid = self.request.get('classlist', '')
+        title = self.context.translate(_(u'Class progress'))
+        return { 
+            'title' : title,
+            'value_data' : [
+                            (13, 5, 20, 22, 37, 45, 19, 4),
+                            (5, 20, 46, 38, 23, 21, 6, 14)
+                           ],
+            'category_data' : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                               'Jul', 'Aug']
+            }
+
+    def render(self):
+        request = self.request
+        response = request.response
+
+        drawing = ClassProgressChart(self.data())
+        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+        response.setHeader('expires', 0)
+        response['content-type']='image/png'
+        response['Content-Length'] = out.len
+        response.write(out.getvalue())
+        out.close()
+
+
 class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
     """ Class progress report view
     """
@@ -363,6 +410,34 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
             'portal_type': 'upfront.classlist.content.classlist',
             'sort_on': 'sortable_title'}
         return members_folder.classlists.getFolderContents(contentFilter)
+
+    def evaluationsheets(self):
+        """ return all user's evaluationsheets for the selected date range
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter =\
+                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets =\
+                     members_folder.evaluations.getFolderContents(contentFilter)
+
+        evaluationsheets_in_range = []
+        for evaluationsheet in evaluationsheets:
+            obj = evaluationsheet.getObject()
+            evaluationsheet_date = datetime.datetime.strptime(obj.created()
+                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(self.startDateString(),
+                                                                    u'%Y-%m-%d')    
+            if self.check_date_integrity():
+                if evaluationsheet_date >= start_date:
+                    evaluationsheets_in_range.append(obj)
+
+        return evaluationsheets_in_range
+
+    def selected_classlist(self):
+        return self.classlist_uid
 
 
 class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
@@ -435,6 +510,37 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                 'sort_on': 'sortable_title'}
             classlist = uuidToObject(self.classlist_uid)
             return classlist.getFolderContents(contentFilter)
+
+    def evaluationsheets(self):
+        """ return all user's evaluationsheets for the selected date range
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter =\
+                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets =\
+                     members_folder.evaluations.getFolderContents(contentFilter)
+
+        evaluationsheets_in_range = []
+        for evaluationsheet in evaluationsheets:
+            obj = evaluationsheet.getObject()
+            evaluationsheet_date = datetime.datetime.strptime(obj.created()
+                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(self.startDateString(),
+                                                                    u'%Y-%m-%d')    
+            if self.check_date_integrity():
+                if evaluationsheet_date >= start_date:
+                    evaluationsheets_in_range.append(obj)
+
+        return evaluationsheets_in_range
+
+    def selected_classlist(self):
+        return self.classlist_uid
+
+    def selected_learner(self):
+        return self.learner_uid
 
     def getUID(self, obj):
         return IUUID(obj)
