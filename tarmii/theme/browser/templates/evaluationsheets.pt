@@ -29,6 +29,7 @@
                         <th i18n:translate="label_evaluationsheet">Evaluation Sheet</th>
                         <th i18n:translate="heading_assessment">Assessment</th>
                         <th i18n:translate="heading_classlist">Class list</th>
+                        <th i18n:translate="label_evaluationsheet_date">Date</th>
                         <th i18n:translate="label_delete">Delete</th>
                         <th>PDF</th>
                     </tr>
@@ -37,6 +38,7 @@
                                tal:attributes="href python:evaluationsheet.getObject().absolute_url()">View</a></td>
                         <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
                         <td tal:content="python:evaluationsheet.getObject().classlist.to_object.title"></td>
+                        <td tal:content="python:view.translated_date(evaluationsheet.created)"></td>
                         <td>
                             <div class="delete-anchor">
                                <a class="trashcan edit_link" tal:attributes="href string:${evaluationsheet/getURL}/delete_confirmation"></a>
