@@ -1,3 +1,4 @@
+from __future__ import division
 import datetime
 from StringIO import StringIO
 from reportlab.graphics import renderPM
@@ -372,6 +373,7 @@ class ClassProgressChartView(grok.View):
         all_scores = []
         all_activity_ids = []
         all_highest_ratings = []
+        all_rating_scales = []
         for evalsheet in evaluationsheets_in_range:
             contentFilter =\
                        {'portal_type': 'upfront.assessment.content.evaluation'}
@@ -395,9 +397,17 @@ class ClassProgressChartView(grok.View):
                     if ev.evaluation[x]['rating'] != -1:
                         # update score total
                         scores[x] += ev.evaluation[x]['rating']
+                    rating_scale = ev.evaluation[x]['rating_scale']
+                    rating_scales[x] = [0] * len(rating_scale)
+                    for y in range(len(rating_scale)):
+                        # store the rating scale for activity x
+                        rating_scales[x][y] = rating_scale[y]['rating']
+                    # sort the stored rating scale highest to lowest (in case
+                    # it isnt already the case)
+                    rating_scales[x].sort()
+                    rating_scales[x].reverse()
                     # find the highest possible rating in this activities rating
                     # scale
-                    rating_scale = ev.evaluation[x]['rating_scale']
                     for y in range(len(rating_scale)):
                         if highest_rating[x] < rating_scale[y]['rating']:
                             # update highest_rating if higher rating found than
@@ -407,17 +417,59 @@ class ClassProgressChartView(grok.View):
             all_scores += scores
             all_activity_ids += activity_ids
             all_highest_ratings += highest_rating
+            all_rating_scales += rating_scales
+
+        # divide the score / number of learners
+        average_all_scores = [0] * len(all_scores)
+        for x in range(len(all_scores)):
+            average_all_scores[x] = float(all_scores[x]) / all_highest_ratings[x]
+
+        # now we must normalise the average scores so that they represent valid
+        # rating scale values 
+        normalised_avg_all_scores = [0] * len(all_scores)
+        for x in range(len(average_all_scores)):
+            notfound = True
+            rating_scale = all_rating_scales[x]
+            index = 0
+            while notfound:
+            # we iterate through the activities rating scale (which has been
+            # sorted - highest to lowest)
+                if average_all_scores[x] < rating_scale[len(rating_scale)-1]:
+                    # set to the lowest entry in the current rating scale,
+                    # a rating average cannot be lower than this (if it is, then
+                    # it is because some learners were not yet rated and thus 
+                    # are marked as zero which means that practically the avg
+                    # score can drop below the lowest possible score but we 
+                    # correct for that here
+                    normalised_avg_all_scores[x] =\
+                                               rating_scale[len(rating_scale)-1]
+                    notfound = False
+                if average_all_scores[x] == 0:
+                # or lower than the lowest entry in the current rating scale 
+                    # set to 0
+                    normalised_avg_all_scores[x] = average_all_scores[x] 
+                    notfound = False
+                if rating_scale[index] <= average_all_scores[x]:
+                    # the average score is bigger or equal to current scale #
+                    normalised_avg_all_scores[x] = rating_scale[index]
+                    notfound = False
+                index += 1
+
+        print all_scores
+        print all_activity_ids
+        print all_highest_ratings
+        print all_rating_scales
+        print average_all_scores
+        print normalised_avg_all_scores
 
         title = self.context.translate(_(u'Class progress'))
-
         return { 
             'title' : title,
             'value_data' : [
-                            (13, 5, 20, 22, 37, 45, 19, 4),
-                            (5, 20, 46, 38, 23, 21, 6, 14)
+                            tuple(normalised_avg_all_scores),
+                            tuple(all_highest_ratings)
                            ],
-            'category_data' : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                               'Jul', 'Aug'],
+            'category_data' : all_activity_ids,
             'highest_score' : max(all_highest_ratings)
             }
 
@@ -588,12 +640,16 @@ class LearnerProgressChartView(grok.View):
             all_activity_ids += activity_ids
             all_highest_ratings += highest_rating
 
+        print all_scores
+        print all_activity_ids
+        print all_highest_ratings
+
         title = self.context.translate(_(u'Learner progress'))
         return { 
             'title' : title,
             'value_data' : [
-                            tuple(all_highest_ratings),
-                            tuple(all_scores)    
+                            tuple(all_scores),
+                            tuple(all_highest_ratings)
                            ],
             'category_data' : all_activity_ids,
             'highest_score' : max(all_highest_ratings)
@@ -666,6 +722,7 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
             # as learners are unique to a classlist
             classlist = uuidToObject(self.classlist_uid)
             learner = uuidToObject(self.learner_uid)
+
             contentFilter = {'portal_type': 'upfront.classlist.content.learner',
                              'sort_on': 'sortable_title'}
             classlist_contents = classlist.getFolderContents(contentFilter)
