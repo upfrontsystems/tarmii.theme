@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-15 23:54+0000\n"
+"POT-Creation-Date: 2013-05-20 17:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,7 @@ msgid " uploads return an error."
 msgstr ""
 
 #: ./browser/assessments.py:32
+#: ./browser/evaluationsheets.py:38
 msgid "%B"
 msgstr ""
 
@@ -140,8 +141,12 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./browser/reports/views.py:177
+#: ./browser/reports/views.py:190
 msgid "Class performance for activity"
+msgstr ""
+
+#: ./browser/reports/views.py:465
+msgid "Class progress"
 msgstr ""
 
 #. Default: "Classlists"
@@ -189,7 +194,7 @@ msgstr ""
 msgid "Edit Classlist"
 msgstr ""
 
-#: ./browser/reports/views.py:70
+#: ./browser/reports/views.py:73
 msgid "End Date"
 msgstr ""
 
@@ -290,6 +295,10 @@ msgstr ""
 msgid "Learner Task/Activity"
 msgstr ""
 
+#: ./browser/reports/views.py:647
+msgid "Learner progress"
+msgstr ""
+
 #: ./vocabs.py:13
 msgid "Limpopo"
 msgstr ""
@@ -323,7 +332,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:166
+#: ./browser/reports/views.py:179
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -470,7 +479,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/reports/views.py:73
+#: ./browser/reports/views.py:76
 msgid "Start Date"
 msgstr ""
 
@@ -523,8 +532,9 @@ msgstr ""
 msgid "UUID"
 msgstr ""
 
-#: ./browser/reports/templates/classprogress.pt:69
-#: ./browser/reports/templates/learnerprogress.pt:69
+#: ./browser/reports/templates/classprogress.pt:91
+#: ./browser/reports/templates/evaluationsheet.pt:61
+#: ./browser/reports/templates/learnerprogress.pt:109
 msgid "Update Dates"
 msgstr ""
 
@@ -875,8 +885,8 @@ msgid "label_choose_your_files_nodrag"
 msgstr ""
 
 #. Default: "Classlist"
-#: ./browser/reports/templates/classprogress.pt:81
-#: ./browser/reports/templates/learnerprogress.pt:81
+#: ./browser/reports/templates/classprogress.pt:35
+#: ./browser/reports/templates/learnerprogress.pt:35
 #: ./browser/templates/addevaluationsheet.pt:20
 msgid "label_classlist"
 msgstr ""
@@ -943,6 +953,11 @@ msgstr ""
 msgid "label_evaluationsheet"
 msgstr ""
 
+#. Default: "Date"
+#: ./browser/templates/evaluationsheets.pt:32
+msgid "label_evaluationsheet_date"
+msgstr ""
+
 #. Default: "Evaluation Sheet PDF"
 #: ./browser/templates/assessments.pt:37
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
@@ -981,7 +996,7 @@ msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner"
-#: ./browser/reports/templates/learnerprogress.pt:83
+#: ./browser/reports/templates/learnerprogress.pt:37
 msgid "label_learner"
 msgstr ""
 
@@ -1009,7 +1024,7 @@ msgid "label_mobile"
 msgstr ""
 
 #. Default: "No Learners in this classlist"
-#: ./browser/reports/templates/learnerprogress.pt:109
+#: ./browser/reports/templates/learnerprogress.pt:63
 msgid "label_nolearners"
 msgstr ""
 
@@ -1242,6 +1257,12 @@ msgstr ""
 #. Default: "Resource(s) found"
 #: ./browser/templates/resources.pt:63
 msgid "message_resources_found"
+msgstr ""
+
+#. Default: "Specified Start Date must be earlier than the End Date."
+#: ./browser/reports/templates/classprogress.pt:103
+#: ./browser/reports/templates/learnerprogress.pt:121
+msgid "message_startdate_bigger_enddate"
 msgstr ""
 
 #. Default: "Thank you for your request about ${subject}, ${customer_email}."

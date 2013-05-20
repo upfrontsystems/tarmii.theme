@@ -466,8 +466,8 @@ class ClassProgressChartView(grok.View):
         return { 
             'title' : title,
             'value_data' : [
-                            tuple(normalised_avg_all_scores),
-                            tuple(all_highest_ratings)
+                            tuple(all_highest_ratings),
+                            tuple(normalised_avg_all_scores)                           
                            ],
             'category_data' : all_activity_ids,
             'highest_score' : max(all_highest_ratings)
@@ -648,8 +648,8 @@ class LearnerProgressChartView(grok.View):
         return { 
             'title' : title,
             'value_data' : [
-                            tuple(all_scores),
-                            tuple(all_highest_ratings)
+                            tuple(all_highest_ratings),
+                            tuple(all_scores)
                            ],
             'category_data' : all_activity_ids,
             'highest_score' : max(all_highest_ratings)

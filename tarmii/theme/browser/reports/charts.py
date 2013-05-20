@@ -141,6 +141,9 @@ class BaseLineChart(Drawing):
         self._linechart.valueAxis.valueStep = 1
         self._linechart.lines[0].strokeWidth = 2
         self._linechart.lines[1].strokeWidth = 1.5
+        self._linechart.lines[0].strokeColor = colors.green
+        self._linechart.lines[1].strokeColor = colors.red
+
         self.setTitle()
         self._linechart.data = self.getChartData()
 
