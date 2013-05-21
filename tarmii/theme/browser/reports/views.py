@@ -531,6 +531,7 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
+            and only for the selected classlist
         """
         pm = getSite().portal_membership
         members_folder = pm.getHomeFolder()
@@ -760,6 +761,7 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
+            and only for the selected classlist
         """
         pm = getSite().portal_membership
         members_folder = pm.getHomeFolder()
@@ -808,9 +810,50 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
 
     #  __call__ calls update before generating the template
     def update(self, **kwargs):
+        """ calculate the two activities in which the users performed the best
+            on average and the two activities in which the users performed the 
+            worst on average
         """
-        """
+
+        self.highest_lowest_activities = ['BAct1','BAct2','WAct1','WAct2']
         return True
+
+    def evaluationsheets(self):
+        """ return all user's evaluationsheets for the selected date range
+            and only for the selected classlist
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter =\
+                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets =\
+                     members_folder.evaluations.getFolderContents(contentFilter)
+
+        evaluationsheets_in_range = []
+        for evaluationsheet in evaluationsheets:
+            obj = evaluationsheet.getObject()
+            evaluationsheet_date = datetime.datetime.strptime(obj.created()
+                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(self.startDateString(),
+                                                                    u'%Y-%m-%d')    
+            end_date = datetime.datetime.strptime(self.endDateString(),
+                                                                    u'%Y-%m-%d')
+            if self.check_date_integrity():
+                if evaluationsheet_date >= start_date and\
+                                               evaluationsheet_date <= end_date:
+                   evaluationsheets_in_range.append(obj)
+
+        return evaluationsheets_in_range
+
+
+    def activity(self, index):
+        """ returns an activity from the highest_lowest activities list
+            activity is specified via index parameter.
+        """
+        return self.highest_lowest_activities[index]
+
 
 
 class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):

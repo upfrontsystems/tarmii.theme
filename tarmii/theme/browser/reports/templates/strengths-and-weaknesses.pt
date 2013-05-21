@@ -66,6 +66,43 @@
                  </table>                
             </div>
 
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <tal:datecheck tal:condition="not:view/check_date_integrity">
+                    <div i18n:translate="message_startdate_bigger_enddate">Specified Start Date must be earlier than the End Date.</div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                <div>&nbsp;</div>
+                <div id="div-best-worst-table">
+                    <table class="listing admin-table">
+                        <tr> 
+                            <td i18n:translate="label_best_activity">Activity that the highest number of learners answered correctly.</td>
+                            <td tal:content="python:view.activity(0)"></td>
+                        </tr>
+                        <tr> 
+                            <td i18n:translate="label_second_best_activity">Activity that the second highest number of learners answered correctly.</td>
+                            <td tal:content="python:view.activity(1)"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr> 
+                            <td i18n:translate="label_worst_activity">Activity that the highest number of learners answered incorrectly.</td>
+                            <td tal:content="python:view.activity(2)"></td>
+                        </tr>
+                        <tr> 
+                            <td i18n:translate="label_second_worst_activity">Activity that the highest number of learners answered incorrectly.</td>
+                            <td tal:content="python:view.activity(3)"></td>
+                        </tr>
+                    </table>
+                </div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+
         </form>
 
     </metal:main>
