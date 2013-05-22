@@ -122,6 +122,12 @@
             </tal:datecheck>
         </tal:evaluationsheets>
 
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                    <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
                 <img tal:attributes="src string:@@learnerprogress-chart?classlist=${view/selected_classlist}&learner=${view/selected_learner}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>

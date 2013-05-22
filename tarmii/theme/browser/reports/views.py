@@ -1,4 +1,5 @@
 from __future__ import division
+from sets import Set
 import datetime
 from StringIO import StringIO
 from reportlab.graphics import renderPM
@@ -424,6 +425,7 @@ class ClassProgressChartView(grok.View):
         for x in range(len(all_scores)):
             average_all_scores[x] = float(all_scores[x]) / all_highest_ratings[x]
 
+
         # now we must normalise the average scores so that they represent valid
         # rating scale values 
         normalised_avg_all_scores = [0] * len(all_scores)
@@ -462,7 +464,12 @@ class ClassProgressChartView(grok.View):
         print average_all_scores
         print normalised_avg_all_scores
 
-        title = self.context.translate(_(u'Class progress'))
+        title = self.context.translate(_(u'Class Progress'))
+        max_score_legend = self.context.translate(_(u'Highest Possible Score'))
+        score_legend = self.context.translate(_(u'Average Learner Score'))
+        xlabel = self.context.translate(_(u'Activities'))
+        ylabel = self.context.translate(_(u'Ratings'))
+
         return { 
             'title' : title,
             'value_data' : [
@@ -470,7 +477,11 @@ class ClassProgressChartView(grok.View):
                             tuple(normalised_avg_all_scores)                           
                            ],
             'category_data' : all_activity_ids,
-            'highest_score' : max(all_highest_ratings)
+            'highest_score' : max(all_highest_ratings),
+            'max_score_legend' : max_score_legend,
+            'score_legend' : score_legend,
+            'xlabel' : xlabel,
+            'ylabel' : ylabel
             }
 
     def render(self):
@@ -645,7 +656,12 @@ class LearnerProgressChartView(grok.View):
         print all_activity_ids
         print all_highest_ratings
 
-        title = self.context.translate(_(u'Learner progress'))
+        title = self.context.translate(_(u'Learner Progress'))
+        max_score_legend = self.context.translate(_(u'Highest Possible Score'))
+        score_legend = self.context.translate(_(u'Learner Score'))
+        xlabel = self.context.translate(_(u'Activities'))
+        ylabel = self.context.translate(_(u'Ratings'))
+
         return { 
             'title' : title,
             'value_data' : [
@@ -653,7 +669,11 @@ class LearnerProgressChartView(grok.View):
                             tuple(all_scores)
                            ],
             'category_data' : all_activity_ids,
-            'highest_score' : max(all_highest_ratings)
+            'highest_score' : max(all_highest_ratings),
+            'max_score_legend' : max_score_legend,
+            'score_legend' : score_legend,
+            'xlabel' : xlabel,
+            'ylabel' : ylabel
             }
 
     def render(self):
@@ -815,8 +835,40 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
             worst on average
         """
 
+        evaluationsheets_in_range = self.evaluationsheets()
+
+
+
+
+
+
+        # find all unique activities and keep track of how many learners have
+        # done each
+
+        # keep each unique activity's rating scale
+
+        # sum scores 
+
+        # get average score - total scores
+
+
+
+        # do a check to save us doing normalization calculations if all the 
+        # rating scales of the activities are the default ones.
+
+
+        # normalize scores
+        # group (score with activity id)
+        
+
+        # sort highest to lowest
+
+        # pick 2 highest and 2 lowest (1st two elements in list, last 2 elements
+        # in list
+
         self.highest_lowest_activities = ['BAct1','BAct2','WAct1','WAct2']
-        return True
+#        import pdb; pdb.set_trace()
+
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range

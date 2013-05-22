@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-20 17:34+0000\n"
+"POT-Creation-Date: 2013-05-22 17:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
-#. Default: "Activities"
+#: ./browser/reports/views.py:470
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr ""
@@ -103,6 +103,10 @@ msgstr ""
 msgid "August"
 msgstr ""
 
+#: ./browser/reports/views.py:469
+msgid "Average Learner Score"
+msgstr ""
+
 #: ./browser/templates/addassessmentitem.pt:285
 #: ./browser/templates/addclasslist.pt:30
 #: ./browser/templates/addevaluationsheet.pt:35
@@ -141,12 +145,12 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./browser/reports/views.py:190
-msgid "Class performance for activity"
+#: ./browser/reports/views.py:467
+msgid "Class Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:465
-msgid "Class progress"
+#: ./browser/reports/views.py:191
+msgid "Class performance for activity"
 msgstr ""
 
 #. Default: "Classlists"
@@ -194,7 +198,7 @@ msgstr ""
 msgid "Edit Classlist"
 msgstr ""
 
-#: ./browser/reports/views.py:73
+#: ./browser/reports/views.py:74
 msgid "End Date"
 msgstr ""
 
@@ -254,6 +258,10 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
+#: ./browser/reports/views.py:468
+msgid "Highest Possible Score"
+msgstr ""
+
 #. Default: "Home"
 #: ./profiles/default/actions.xml
 msgid "Home"
@@ -291,12 +299,16 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./behaviors.py:108
-msgid "Learner Task/Activity"
+#: ./browser/reports/views.py:659
+msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:647
-msgid "Learner progress"
+#: ./browser/reports/views.py:661
+msgid "Learner Score"
+msgstr ""
+
+#: ./behaviors.py:108
+msgid "Learner Task/Activity"
 msgstr ""
 
 #: ./vocabs.py:13
@@ -332,7 +344,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:179
+#: ./browser/reports/views.py:180
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -399,6 +411,10 @@ msgstr ""
 
 #: ./behaviors.py:65
 msgid "Rating scale"
+msgstr ""
+
+#: ./browser/reports/views.py:471
+msgid "Ratings"
 msgstr ""
 
 #: ./behaviors.py:82
@@ -479,7 +495,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/reports/views.py:76
+#: ./browser/reports/views.py:77
 msgid "Start Date"
 msgstr ""
 
@@ -864,6 +880,11 @@ msgstr ""
 msgid "label_assessments_created"
 msgstr ""
 
+#. Default: "Activity that the highest number of learners answered correctly."
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:81
+msgid "label_best_activity"
+msgstr ""
+
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
 msgid "label_choose_assessment"
@@ -1080,6 +1101,16 @@ msgstr ""
 msgid "label_search_activity"
 msgstr ""
 
+#. Default: "Activity that the second highest number of learners answered correctly."
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:85
+msgid "label_second_best_activity"
+msgstr ""
+
+#. Default: "Activity that the second highest number of learners answered incorrectly."
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:97
+msgid "label_second_worst_activity"
+msgstr ""
+
 #. Default: "Teacher Resources Viewed"
 #: ./browser/templates/usagestats.pt:117
 msgid "label_teacher_resources_viewed"
@@ -1121,6 +1152,11 @@ msgstr ""
 #: ./browser/templates/assessment-view.pt:66
 #: ./browser/templates/videos.pt:82
 msgid "label_view"
+msgstr ""
+
+#. Default: "Activity that the highest number of learners answered incorrectly."
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:93
+msgid "label_worst_activity"
 msgstr ""
 
 #. Default: "Years teaching"
@@ -1229,6 +1265,12 @@ msgstr ""
 msgid "message_no_classlists_exist"
 msgstr ""
 
+#. Default: "No evaluationsheets found in the specified date range."
+#: ./browser/reports/templates/classprogress.pt:109
+#: ./browser/reports/templates/learnerprogress.pt:127
+msgid "message_no_evaluationsheets"
+msgstr ""
+
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
@@ -1262,6 +1304,7 @@ msgstr ""
 #. Default: "Specified Start Date must be earlier than the End Date."
 #: ./browser/reports/templates/classprogress.pt:103
 #: ./browser/reports/templates/learnerprogress.pt:121
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:71
 msgid "message_startdate_bigger_enddate"
 msgstr ""
 
