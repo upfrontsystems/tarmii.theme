@@ -650,3 +650,17 @@ table.listing.admin-table th {
     font-weight: bold;
 }
 
+table.listing tbody tr td.red,
+table.listing tbody tr.odd td.red {
+    background-color : #E55;
+}
+
+table.listing tbody tr td.green,
+table.listing tbody tr.odd td.green {
+    background-color : #6D6;
+}
+
+
+
+
+
