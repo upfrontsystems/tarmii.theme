@@ -837,38 +837,7 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
 
         evaluationsheets_in_range = self.evaluationsheets()
 
-
-
-
-
-
-        # find all unique activities and keep track of how many learners have
-        # done each
-
-        # keep each unique activity's rating scale
-
-        # sum scores 
-
-        # get average score - total scores
-
-
-
-        # do a check to save us doing normalization calculations if all the 
-        # rating scales of the activities are the default ones.
-
-
-        # normalize scores
-        # group (score with activity id)
-        
-
-        # sort highest to lowest
-
-        # pick 2 highest and 2 lowest (1st two elements in list, last 2 elements
-        # in list
-
         self.highest_lowest_activities = ['BAct1','BAct2','WAct1','WAct2']
-#        import pdb; pdb.set_trace()
-
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
