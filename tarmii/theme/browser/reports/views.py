@@ -543,7 +543,6 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
         """ get classlist parameter from request, if none selected pick first
             classlist in classlists folder.
         """
-
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
 
         if self.classlist_uid == '':
@@ -603,7 +602,6 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                         evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
-
 
     def selected_classlist(self):
         return self.classlist_uid
@@ -686,9 +684,26 @@ class LearnerProgressChartView(grok.View):
             all_activity_ids += activity_ids
             all_highest_ratings += highest_rating
 
+        # filter out activities which this learner has not completed
+        # (unrated or "Not rated")
+        filtered_all_highest_ratings = []
+        filtered_all_scores = []
+        filtered_all_activity_ids = []
+        for x in range(len(all_scores)):
+            if all_scores[x] > 0:
+                filtered_all_highest_ratings.append(all_highest_ratings[x])
+                filtered_all_scores.append(all_scores[x])
+                filtered_all_activity_ids.append(all_activity_ids[x])
+
+        print '=========================='
         print all_scores
         print all_activity_ids
         print all_highest_ratings
+        print '--------------------------'
+        print filtered_all_scores
+        print filtered_all_activity_ids
+        print filtered_all_highest_ratings
+        print '=========================='
 
         title = self.context.translate(_(u'Learner Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
@@ -699,11 +714,11 @@ class LearnerProgressChartView(grok.View):
         return { 
             'title' : title,
             'value_data' : [
-                            tuple(all_highest_ratings),
-                            tuple(all_scores)
+                            tuple(filtered_all_highest_ratings),
+                            tuple(filtered_all_scores)
                            ],
-            'category_data' : all_activity_ids,
-            'highest_score' : max(all_highest_ratings),
+            'category_data' : filtered_all_activity_ids,
+            'highest_score' : max(filtered_all_highest_ratings),
             'max_score_legend' : max_score_legend,
             'score_legend' : score_legend,
             'xlabel' : xlabel,
@@ -868,37 +883,8 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
             on average and the two activities in which the users performed the 
             worst on average
         """
-
         evaluationsheets_in_range = self.evaluationsheets()
-
-
-        # find all unique activities and keep track of how many learners have
-        # done each
-
-        # keep each unique activity's rating scale
-
-        # sum scores 
-
-        # get average score - total scores
-
-
-
-        # do a check to save us doing normalization calculations if all the 
-        # rating scales of the activities are the default ones.
-
-
-        # normalize scores
-        # group (score with activity id)
-        
-
-        # sort highest to lowest
-
-        # pick 2 highest and 2 lowest (1st two elements in list, last 2 elements
-        # in list
-
         self.highest_lowest_activities = ['BAct1','BAct2','WAct1','WAct2']
-#        import pdb; pdb.set_trace()
-
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
@@ -929,13 +915,11 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
 
         return evaluationsheets_in_range
 
-
     def activity(self, index):
         """ returns an activity from the highest_lowest activities list
             activity is specified via index parameter.
         """
         return self.highest_lowest_activities[index]
-
 
 
 class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
@@ -948,9 +932,145 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
     #  __call__ calls update before generating the template
     def update(self, **kwargs):
+        """ get classlist parameter from request, if none selected pick first
+            classlist in classlists folder.
         """
+
+        self.classlist_uid = self.request.get('classlist_uid_selected', '')
+
+        if self.classlist_uid == '':
+            pm = getSite().portal_membership
+            members_folder = pm.getHomeFolder()
+            if members_folder == None:
+                return []
+            if len(members_folder.classlists.getFolderContents()) == 0:
+                # no classlists
+                self.classlist_id = ''
+                return []
+            else:                
+                # no classlist selected so pick first one in list
+                classlist = members_folder.classlists.getFolderContents()[0]\
+                                                                    .getObject()
+                self.classlist_uid = IUUID(classlist)
+
+    def classlists(self):
+        """ return all of the classlists of the current user
         """
-        return True
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
+        return members_folder.classlists.getFolderContents(contentFilter)
 
+    def evaluationsheets(self):
+        """ return all user's evaluationsheets for the selected date range
+            and only for the selected classlist
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter =\
+                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets =\
+                     members_folder.evaluations.getFolderContents(contentFilter)
 
+        evaluationsheets_in_range = []
+        for evaluationsheet in evaluationsheets:
+            obj = evaluationsheet.getObject()
+            evaluationsheet_date = datetime.datetime.strptime(obj.created()
+                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(self.startDateString(),
+                                                                    u'%Y-%m-%d')    
+            end_date = datetime.datetime.strptime(self.endDateString(),
+                                                                    u'%Y-%m-%d')
+
+            # only include evaluationsheets for the specified class
+            if obj.classlist.to_object == uuidToObject(self.classlist_uid):
+                if self.check_date_integrity():
+                    if evaluationsheet_date >= start_date and\
+                                               evaluationsheet_date <= end_date:
+                        evaluationsheets_in_range.append(obj)
+
+        return evaluationsheets_in_range
+
+    def classlist(self):
+        """ return select classlist """
+        return uuidToObject(self.classlist_uid).Title()
+
+    def learners(self):
+        """ return all of the learners from a specific classlist
+        """        
+        classlist = uuidToObject(self.classlist_uid)
+        contentFilter =\
+                   {'portal_type': 'upfront.classlist.content.learner',
+                    'sort_on': 'sortable_title'}
+        return classlist.getFolderContents(contentFilter)
+
+    def scores_for_learner(self, learner):
+        """ return all the scores of a learner for all the evaluationsheets in
+            the specified date range.
+        """
+        evaluationsheets_in_range = self.evaluationsheets()
+
+        all_scores = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter =\
+                       {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects =\
+             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            scores = []
+            # one ev object per learner
+            for ev in evaluation_objects:
+                # only use the score data of the specified learner
+                if ev.learner.to_object == learner:
+                    if scores == []:
+                        # init lists so that we can use indexing
+                        scores = [None] * len(ev.evaluation)
+                        activity_ids = [None] * len(ev.evaluation)
+                    # x iterates through the activities each learner did
+                    for x in range(len(ev.evaluation)):
+                        scores[x] = ev.evaluation[x]['rating']
+                        # translate score integer into string
+                        if scores[x] == -1:
+                            scores[x] = '' # Unrated are left as blanks
+                        elif scores[x] == 0:
+                            scores[x] = self.context.translate(_(u'Not Rated'))
+                        else:
+                            rating_scale = ev.evaluation[x]['rating_scale']
+                            for y in range(len(rating_scale)):
+                                if scores[x] == rating_scale[y]['rating']:
+                                    scores[x] = rating_scale[y]['label']
+
+            all_scores += scores   
+
+        return [learner.Title()] + all_scores
+
+    def activity_ids(self):
+        """ return all the activity ids for all the evaluationsheets in
+            the specified date range.
+        """
+        evaluationsheets_in_range = self.evaluationsheets()
+
+        all_activity_ids = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter =\
+                       {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects =\
+             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            activity_ids = []
+            # one ev object per learner
+            for ev in evaluation_objects:
+                if activity_ids == []:
+                   # init lists so that we can use indexing
+                   activity_ids = [None] * len(ev.evaluation)
+                   # x iterates through the activities each learner did
+                   for x in range(len(ev.evaluation)):
+                      activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
+            all_activity_ids += activity_ids
+      
+        return all_activity_ids
 

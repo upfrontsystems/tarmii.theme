@@ -6,9 +6,18 @@
       i18n:domain="tarmii.theme"
       lang="en">
 
+<head>
+     <metal:calendar fill-slot="javascript_head_slot">
+        <!-- ECMAScript calendar -->
+        <style type="text/css" media="all" tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+        <script type="text/javascript" tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+        <script type="text/javascript" charset="iso-8859-1" tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+    </metal:calendar>
+</head>
+
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_evaluationsheet">Evaluation Sheet</h1>
+        <h1 class="documentFirstHeading" i18n:translate="heading_class_progress">Class Progress</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">
@@ -17,14 +26,35 @@
     <div tal:condition="view/user_anonymous">
     </div>
 
-        <form name="datepicker-form" tal:attributes="action string:${view/__name__}" method="post">
+        <form name="classlist-form" tal:attributes="action string:${view/__name__}" method="post">
+
+            <div tal:condition="view/classlists">
+                 <table>
+                     <tbody>
+                        <tr>
+                            <th i18n:translate="label_classlist">Classlist</th>
+                        </tr>
+                        <tr>
+                            <td class="select-classlist">
+                                <select name="classlist_uid_selected" onchange="this.form.submit()">
+                                    <option tal:repeat="classlist view/classlists"
+                                            tal:attributes="value classlist/UID;
+                                                            selected python:classlist.UID == request.get('classlist_uid_selected', '')"
+                                            tal:content="classlist/Title">
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                     </tbody>
+                 </table>
+            </div>
 
             <div>
                  <table>
                      <tbody>
                         <tr>
-                            <th class="datelabel" tal:content="view/start_date_label"></th>
-                            <th class="datelabel" tal:content="view/end_date_label"></th>
+                             <th class="datelabel" tal:content="view/start_date_label"></th>
+                             <th class="datelabel" tal:content="view/end_date_label"></th>
                         </tr>
                         <tr>
                             <td>
@@ -34,7 +64,7 @@
                                                     starting_year python:2012;
                                                     ending_year python:None;
                                                     future_years python:0;
-                                                    formname string:DatePicker;
+                                                    formname string:Classlist;
                                                     inputvalue view/startDateString;
                                                     inputname string:Start-Date">
                                 <metal:box use-macro="here/calendar_macros/macros/calendarDatePickerBox|default">
@@ -49,7 +79,7 @@
                                                     starting_year python:2012;
                                                     ending_year python:None;
                                                     future_years python:0;
-                                                    formname string:DatePicker;
+                                                    formname string:Classlist;
                                                     inputvalue view/endDateString;
                                                     inputname string:End-Date">
                                 <metal:box use-macro="here/calendar_macros/macros/calendarDatePickerBox|default">
@@ -67,6 +97,39 @@
             </div>
 
         </form>
+
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <tal:datecheck tal:condition="not:view/check_date_integrity">
+                    <div i18n:translate="message_startdate_bigger_enddate">Specified Start Date must be earlier than the End Date.</div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                    <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                <div>&nbsp;</div>
+                <div id="div-evaluationsheet-table">
+                    <table class="listing admin-table">
+                        <tr> 
+                            <th></th>
+                            <div tal:repeat="activity_id view/activity_ids">
+                                <th tal:content="activity_id"></th>
+                            </div>
+                        </tr>
+                        <tr tal:repeat="learner view/learners">
+                            <div tal:repeat="item python:view.scores_for_learner(learner.getObject())">
+                                <td tal:content="item"></td>
+                            </div>
+                        </tr>
+                    </table>
+                </div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
 
     </metal:main>
 </body>
