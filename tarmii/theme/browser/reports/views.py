@@ -97,6 +97,7 @@ class ClassPerformanceForActivityChartView(grok.View):
     def data(self):
         # if we are here, evaluations exist
 
+        classlist_uid = self.request.get('classlist', '')
         assessment_uid = self.request.get('assessment', '')
         activity_uid = self.request.get('activity', '')
 
@@ -118,9 +119,14 @@ class ClassPerformanceForActivityChartView(grok.View):
             except StopIteration:
                 notfinished = False;
 
+        # make sure that we use evaluationsheets only for the selected classlist
+        filtered_evalsheet_rel_list = []
+        for evalsheet in evalsheet_rel_list:
+            if evalsheet.classlist.to_object == uuidToObject(classlist_uid):
+                filtered_evalsheet_rel_list.append(evalsheet)
+
         # iterate through all evaluations that reference the current assessment
         activity = uuidToObject(activity_uid)
-
         pm = getSite().portal_membership
         members_folder = pm.getHomeFolder()
 
@@ -128,7 +134,7 @@ class ClassPerformanceForActivityChartView(grok.View):
         count_dict = {}
         lookup_dict = {}
         for evalsheet in members_folder.evaluations.getFolderContents():
-            if evalsheet.getObject() in evalsheet_rel_list:
+            if evalsheet.getObject() in filtered_evalsheet_rel_list:
                 for eval_obj in evalsheet.getObject().getFolderContents():
                     # 1 eval_obj/learner
                     for x in range(len(eval_obj.getObject().evaluation)):
@@ -223,8 +229,24 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             initialise them in an intelligent manner to first choices of the 
             options (if applicable)
         """
+        self.classlist_uid = self.request.get('classlist_uid_selected', '')
         self.assessment_uid = self.request.get('assessment_uid_selected', '')
         self.activity_uid = self.request.get('activity_uid_selected', '')
+
+        if self.classlist_uid == '':
+            pm = getSite().portal_membership
+            members_folder = pm.getHomeFolder()
+            if members_folder == None:
+                return []
+            if len(members_folder.classlists.getFolderContents()) == 0:
+                # no classlists
+                self.classlist_id = ''
+                return []
+            else:                
+                # no classlist selected so pick first one in list
+                classlist = members_folder.classlists.getFolderContents()[0]\
+                                                                    .getObject()
+                self.classlist_uid = IUUID(classlist)
 
         if self.assessment_uid == '':
             pm = getSite().portal_membership
@@ -283,6 +305,21 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             assessment = uuidToObject(self.assessment_uid)
         return assessment.assessment_items
 
+    def classlists(self):
+        """ return all of the classlists of the current user
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
+        return members_folder.classlists.getFolderContents(contentFilter)
+
+    def selected_classlist(self):
+        return self.classlist_uid
+
     def selected_assessment(self):
         return self.assessment_uid
 
@@ -328,10 +365,11 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
              
             # make sure that there are at least some evaluation objects in the
             # evaluationsheets, ie. the classlists used for generating 
-            # evaluations were not empty.            
+            # evaluations were not empty.
             for evaluationsheet in rel_list:
                 if len(uuidToObject(evaluationsheet).getFolderContents()) != 0:
                     return rel_list
+
             return []
 
 

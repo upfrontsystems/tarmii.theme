@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-22 17:10+0000\n"
+"POT-Creation-Date: 2013-05-23 17:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
-#: ./browser/reports/views.py:470
+#: ./browser/reports/views.py:503
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr ""
@@ -103,7 +103,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:469
+#: ./browser/reports/views.py:502
 msgid "Average Learner Score"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./browser/reports/views.py:467
+#: ./browser/reports/views.py:500
 msgid "Class Progress"
 msgstr ""
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: ./browser/reports/views.py:468
+#: ./browser/reports/views.py:501
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -299,11 +299,11 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./browser/reports/views.py:659
+#: ./browser/reports/views.py:708
 msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:661
+#: ./browser/reports/views.py:710
 msgid "Learner Score"
 msgstr ""
 
@@ -360,6 +360,10 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
+#: ./browser/reports/views.py:1041
+msgid "Not Rated"
+msgstr ""
+
 #: ./browser/templates/usagestats.pt:70
 msgid "November"
 msgstr ""
@@ -413,7 +417,7 @@ msgstr ""
 msgid "Rating scale"
 msgstr ""
 
-#: ./browser/reports/views.py:471
+#: ./browser/reports/views.py:504
 msgid "Ratings"
 msgstr ""
 
@@ -549,7 +553,7 @@ msgid "UUID"
 msgstr ""
 
 #: ./browser/reports/templates/classprogress.pt:91
-#: ./browser/reports/templates/evaluationsheet.pt:61
+#: ./browser/reports/templates/evaluationsheet.pt:91
 #: ./browser/reports/templates/learnerprogress.pt:109
 msgid "Update Dates"
 msgstr ""
@@ -670,7 +674,7 @@ msgid "heading_evaluations"
 msgstr ""
 
 #. Default: "Evaluation Sheet"
-#: ./browser/reports/templates/evaluationsheet.pt:11
+#: ./browser/reports/templates/evaluationsheet.pt:20
 msgid "heading_evaluationsheet"
 msgstr ""
 
@@ -907,8 +911,8 @@ msgstr ""
 
 #. Default: "Classlist"
 #: ./browser/reports/templates/classprogress.pt:35
+#: ./browser/reports/templates/evaluationsheet.pt:35
 #: ./browser/reports/templates/learnerprogress.pt:35
-#: ./browser/templates/addevaluationsheet.pt:20
 msgid "label_classlist"
 msgstr ""
 
@@ -1267,6 +1271,7 @@ msgstr ""
 
 #. Default: "No evaluationsheets found in the specified date range."
 #: ./browser/reports/templates/classprogress.pt:109
+#: ./browser/reports/templates/evaluationsheet.pt:109
 #: ./browser/reports/templates/learnerprogress.pt:127
 msgid "message_no_evaluationsheets"
 msgstr ""
@@ -1303,8 +1308,8 @@ msgstr ""
 
 #. Default: "Specified Start Date must be earlier than the End Date."
 #: ./browser/reports/templates/classprogress.pt:103
+#: ./browser/reports/templates/evaluationsheet.pt:103
 #: ./browser/reports/templates/learnerprogress.pt:121
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:71
 msgid "message_startdate_bigger_enddate"
 msgstr ""
 

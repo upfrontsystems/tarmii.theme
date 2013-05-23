@@ -23,12 +23,26 @@
                  <table>
                      <tbody>
                         <tr>
+                            <div tal:condition="view/classlists">
+                                <th i18n:translate="label_classlist">Classlist</th>
+                            </div>
                             <th i18n:translate="label_assessment">Assessment</th>
                             <tal:activities tal:condition="view/activities">
                                 <th i18n:translate="label_activity">Activity</th>
                             </tal:activities>
                         </tr>
                         <tr>
+                            <tal:classlists tal:condition="view/classlists">
+                                <td class="select-classlist">
+                                    <select name="classlist_uid_selected" onchange="this.form.submit()">
+                                        <option tal:repeat="classlist view/classlists"
+                                                tal:attributes="value classlist/UID;
+                                                                selected python:classlist.UID == request.get('classlist_uid_selected', '')"
+                                                tal:content="classlist/Title">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tal:classlists>
                             <td class="select-assessment">
                                 <select name="assessment_uid_selected" onchange="this.form.submit()">
                                     <option tal:repeat="assessment view/assessments"
@@ -83,7 +97,7 @@
     
         <tal:activities tal:condition="view/activities">
             <tal:evaluations tal:condition="view/evaluations">
-                <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}"/>
+                <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}&classlist=${view/selected_classlist}"/>
             </tal:evaluations>
         </tal:activities>
 
