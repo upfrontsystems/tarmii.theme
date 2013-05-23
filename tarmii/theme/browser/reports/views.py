@@ -372,6 +372,7 @@ class ClassProgressChartView(grok.View):
                     evaluationsheets_in_range.append(obj)
         
         all_scores = []
+        all_learner_count = []
         all_activity_ids = []
         all_highest_ratings = []
         all_rating_scales = []
@@ -384,11 +385,15 @@ class ClassProgressChartView(grok.View):
             activity_ids = []
             highest_rating = []
             rating_scales = []
+            learner_count = []
+            # one ev object per learner
             for ev in evaluation_objects:
+                # x iterates through the activities each learner did
                 for x in range(len(ev.evaluation)):
                     if scores == []:
                         # init lists so that we can use indexing
                         scores = [0] * len(ev.evaluation)
+                        learner_count = [0] * len(ev.evaluation)
                         activity_ids = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
                         rating_scales = [None] * len(ev.evaluation)
@@ -396,8 +401,10 @@ class ClassProgressChartView(grok.View):
                     activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
                     # dont add unrated (-1) scores into the average calculation
                     if ev.evaluation[x]['rating'] != -1:
-                        # update score total
-                        scores[x] += ev.evaluation[x]['rating']
+                        # update score total and ignore explicitly "not rated"
+                        if ev.evaluation[x]['rating'] != 0:
+                            scores[x] += ev.evaluation[x]['rating']
+                            learner_count[x] += 1
                     rating_scale = ev.evaluation[x]['rating_scale']
                     rating_scales[x] = [0] * len(rating_scale)
                     for y in range(len(rating_scale)):
@@ -408,30 +415,47 @@ class ClassProgressChartView(grok.View):
                     rating_scales[x].sort()
                     rating_scales[x].reverse()
                     # find the highest possible rating in this activities rating
-                    # scale
+                    # scale, needed for reference line on the chart
                     for y in range(len(rating_scale)):
                         if highest_rating[x] < rating_scale[y]['rating']:
                             # update highest_rating if higher rating found than
                             # previously stored rating
                             highest_rating[x] = rating_scale[y]['rating']
 
+            all_learner_count += learner_count
             all_scores += scores
             all_activity_ids += activity_ids
             all_highest_ratings += highest_rating
             all_rating_scales += rating_scales
 
-        # divide the score / number of learners
-        average_all_scores = [0] * len(all_scores)
+        # filter out activities which no learners have completed
+        filtered_all_highest_ratings = []
+        filtered_all_scores = []
+        filtered_all_activity_ids = []
+        filtered_all_rating_scales = []
+        filtered_all_learner_count = []
         for x in range(len(all_scores)):
-            average_all_scores[x] = float(all_scores[x]) / all_highest_ratings[x]
+            if all_learner_count[x] > 0:
+                filtered_all_highest_ratings.append(all_highest_ratings[x])
+                filtered_all_scores.append(all_scores[x])
+                filtered_all_activity_ids.append(all_activity_ids[x])
+                filtered_all_rating_scales.append(all_rating_scales[x])
+                filtered_all_learner_count.append(all_learner_count[x])
 
+        # divide the score of each activity / number of learners that completed
+        # the activity
+        average_all_scores = [0] * len(filtered_all_scores)
+        for x in range(len(filtered_all_scores)):
+            average_all_scores[x] = float(filtered_all_scores[x])\
+                                                 / filtered_all_learner_count[x]
 
         # now we must normalise the average scores so that they represent valid
-        # rating scale values 
-        normalised_avg_all_scores = [0] * len(all_scores)
+        # rating scale values (ie so that they fit into the rating scale)
+        # eg. a value of 5.5 between valid scale values of 7 and 4, should => 4
+        normalised_avg_all_scores = [0] * len(filtered_all_scores)
         for x in range(len(average_all_scores)):
             notfound = True
-            rating_scale = all_rating_scales[x]
+            rating_scale = filtered_all_rating_scales[x]
             index = 0
             while notfound:
             # we iterate through the activities rating scale (which has been
@@ -457,12 +481,21 @@ class ClassProgressChartView(grok.View):
                     notfound = False
                 index += 1
 
+        print '=========================='
         print all_scores
+        print learner_count
         print all_activity_ids
         print all_highest_ratings
         print all_rating_scales
         print average_all_scores
         print normalised_avg_all_scores
+        print '--------------------------'
+        print filtered_all_highest_ratings
+        print filtered_all_activity_ids
+        print filtered_all_rating_scales
+        print filtered_all_learner_count
+        print filtered_all_scores
+        print '=========================='
 
         title = self.context.translate(_(u'Class Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
@@ -473,11 +506,11 @@ class ClassProgressChartView(grok.View):
         return { 
             'title' : title,
             'value_data' : [
-                            tuple(all_highest_ratings),
+                            tuple(filtered_all_highest_ratings),
                             tuple(normalised_avg_all_scores)                           
                            ],
-            'category_data' : all_activity_ids,
-            'highest_score' : max(all_highest_ratings),
+            'category_data' : filtered_all_activity_ids,
+            'highest_score' : max(filtered_all_highest_ratings),
             'max_score_legend' : max_score_legend,
             'score_legend' : score_legend,
             'xlabel' : xlabel,
@@ -570,6 +603,7 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                         evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
+
 
     def selected_classlist(self):
         return self.classlist_uid
@@ -837,7 +871,34 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
 
         evaluationsheets_in_range = self.evaluationsheets()
 
+
+        # find all unique activities and keep track of how many learners have
+        # done each
+
+        # keep each unique activity's rating scale
+
+        # sum scores 
+
+        # get average score - total scores
+
+
+
+        # do a check to save us doing normalization calculations if all the 
+        # rating scales of the activities are the default ones.
+
+
+        # normalize scores
+        # group (score with activity id)
+        
+
+        # sort highest to lowest
+
+        # pick 2 highest and 2 lowest (1st two elements in list, last 2 elements
+        # in list
+
         self.highest_lowest_activities = ['BAct1','BAct2','WAct1','WAct2']
+#        import pdb; pdb.set_trace()
+
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range

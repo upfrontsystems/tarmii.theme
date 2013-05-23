@@ -219,12 +219,12 @@ class BaseLineChart(Drawing):
     
 class ClassProgressChart(BaseLineChart):
 
-    def __init__(self, data_dict, width=900, height=400, colorscheme='color'):
+    def __init__(self, data_dict, width=920, height=400, colorscheme='color'):
         chart = HorizontalLineChart()
         BaseLineChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
 
-        self._linechart.width = 900
+        self._linechart.width = 860
         self._linechart.height = 270
         self.setLegend()
         self.setAxesLabels()
@@ -241,12 +241,12 @@ class ClassProgressChart(BaseLineChart):
 
 class LearnerProgressChart(BaseLineChart):
 
-    def __init__(self, data_dict, width=900, height=400, colorscheme='color'):
+    def __init__(self, data_dict, width=920, height=400, colorscheme='color'):
         chart = HorizontalLineChart()
         BaseLineChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
 
-        self._linechart.width = 900
+        self._linechart.width = 860
         self._linechart.height = 270
         self.setLegend()
         self.setAxesLabels()
