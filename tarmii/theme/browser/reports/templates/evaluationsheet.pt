@@ -17,7 +17,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_class_progress">Class Progress</h1>
+        <h1 class="documentFirstHeading" i18n:translate="heading_evaluationsheet">Evaluation Sheet</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">
@@ -26,7 +26,7 @@
     <div tal:condition="view/user_anonymous">
     </div>
 
-        <form name="classlist-form" tal:attributes="action string:${view/__name__}" method="post">
+        <form name="datepicker-form" tal:attributes="action string:${view/__name__}" method="post">
 
             <div tal:condition="view/classlists">
                  <table>
@@ -64,7 +64,7 @@
                                                     starting_year python:2012;
                                                     ending_year python:None;
                                                     future_years python:0;
-                                                    formname string:Classlist;
+                                                    formname string:DatePicker;
                                                     inputvalue view/startDateString;
                                                     inputname string:Start-Date">
                                 <metal:box use-macro="here/calendar_macros/macros/calendarDatePickerBox|default">
@@ -79,7 +79,7 @@
                                                     starting_year python:2012;
                                                     ending_year python:None;
                                                     future_years python:0;
-                                                    formname string:Classlist;
+                                                    formname string:DatePicker;
                                                     inputvalue view/endDateString;
                                                     inputname string:End-Date">
                                 <metal:box use-macro="here/calendar_macros/macros/calendarDatePickerBox|default">
