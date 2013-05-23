@@ -102,6 +102,7 @@
                         </td>
                     </tr>  
                 </table>
+                <div metal:use-macro="context/batch_macros/macros/navigation" />
             </tal:listing>
         </tal:user_is_admin>
 
