@@ -437,10 +437,10 @@ class ClassProgressChartView(grok.View):
                         rating_scales = [None] * len(ev.evaluation)
                         number_of_learners_in_activity = len(ev.evaluation)
                     activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
-                    # dont add unrated (-1) scores into the average calculation
-                    if ev.evaluation[x]['rating'] != -1:
+                    # dont add unrated (0) scores into the average calculation
+                    if ev.evaluation[x]['rating'] != 0:
                         # update score total and ignore explicitly "not rated"
-                        if ev.evaluation[x]['rating'] != 0:
+                        if ev.evaluation[x]['rating'] != -1:
                             scores[x] += ev.evaluation[x]['rating']
                             learner_count[x] += 1
                     rating_scale = ev.evaluation[x]['rating_scale']
@@ -707,7 +707,7 @@ class LearnerProgressChartView(grok.View):
                                         uuidToObject(ev.evaluation[x]['uid']).id
                         scores[x] = ev.evaluation[x]['rating']
                         if scores[x] == -1:
-                            # unrated (-1) scores get set to 0
+                            # explicitly unrated (-1) scores get set to 0
                             scores[x] = 0
                         # find the highest possible rating in this activities 
                         # rating scale
@@ -1073,10 +1073,10 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                     for x in range(len(ev.evaluation)):
                         scores[x] = ev.evaluation[x]['rating']
                         # translate score integer into string
-                        if scores[x] == -1:
+                        if scores[x] == 0:
                             scores[x] = '' # Unrated are left as blanks
-                        elif scores[x] == 0:
-                            scores[x] = self.context.translate(_(u'Not Rated'))
+                        elif scores[x] == -1:
+                            scores[x] = self.context.translate(_(u'Not Rated'))                            
                         else:
                             rating_scale = ev.evaluation[x]['rating_scale']
                             for y in range(len(rating_scale)):
