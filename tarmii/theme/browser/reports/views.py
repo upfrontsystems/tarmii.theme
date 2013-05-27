@@ -24,7 +24,7 @@ from tarmii.theme.browser.reports.charts import LearnerProgressChart
 grok.templatedir('templates')
 
 class ReportViewsCommon:
-    """ Mixin class that provides user_anonymous method.
+    """ Mixin class that provides user_anonymous method and classlists method.
     """
 
     def user_anonymous(self):
@@ -33,6 +33,19 @@ class ReportViewsCommon:
         pm = getToolByName(self.context, 'portal_membership')
         if pm.isAnonymousUser():
             raise Unauthorized("You do not have permission to view this page.")
+
+    def classlists(self):
+        """ return all of the classlists of the current user
+        """
+        pm = getSite().portal_membership
+        members_folder = pm.getHomeFolder()
+        if members_folder == None:
+            return []
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.classlist',
+            'sort_on': 'sortable_title'}
+        return members_folder.classlists.getFolderContents(contentFilter)
+
 
 class DatePickers:
     """ Mixin class that provides datepicker methods.
@@ -172,7 +185,12 @@ class ClassPerformanceForActivityChartView(grok.View):
             value_labels.append(key) 
             value = count_dict[key] # get count data
             value_data = value_data + (value,)
-            category_labels.append(str(value))
+            # append 'learner' or 'learners' to the number of learners.
+            if value > 1:
+                learner_str = ' learners'
+            else:
+                learner_str = ' learner'
+            category_labels.append(str(value) + learner_str)
 
         # make sure we are not supplying of value_data of all zeros 
         # this can legally happen if no evaluations are graded yet.
@@ -195,8 +213,11 @@ class ClassPerformanceForActivityChartView(grok.View):
         # 'category_labels' : ['label1','label2','label3','label4']
 
         title = self.context.translate(_(u'Class performance for activity'))
+        description = self.context.translate(_(u'Number of learners per rating'))
+
         return { 
             'title' : title,
+            'description' : description,
             'value_labels'   : value_labels,
             'value_data' : value_data,
             'category_labels' : category_labels
@@ -304,18 +325,6 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
         else:
             assessment = uuidToObject(self.assessment_uid)
         return assessment.assessment_items
-
-    def classlists(self):
-        """ return all of the classlists of the current user
-        """
-        pm = getSite().portal_membership
-        members_folder = pm.getHomeFolder()
-        if members_folder == None:
-            return []
-        contentFilter = {
-            'portal_type': 'upfront.classlist.content.classlist',
-            'sort_on': 'sortable_title'}
-        return members_folder.classlists.getFolderContents(contentFilter)
 
     def selected_classlist(self):
         return self.classlist_uid
@@ -598,18 +607,6 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                                                                     .getObject()
                 self.classlist_uid = IUUID(classlist)
 
-    def classlists(self):
-        """ return all of the classlists of the current user
-        """
-        pm = getSite().portal_membership
-        members_folder = pm.getHomeFolder()
-        if members_folder == None:
-            return []
-        contentFilter = {
-            'portal_type': 'upfront.classlist.content.classlist',
-            'sort_on': 'sortable_title'}
-        return members_folder.classlists.getFolderContents(contentFilter)
-
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
             and only for the selected classlist
@@ -842,18 +839,6 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                 else: 
                     self.learner_uid = ''
 
-    def classlists(self):
-        """ return all of the classlists of the current user
-        """
-        pm = getSite().portal_membership
-        members_folder = pm.getHomeFolder()
-        if members_folder == None:
-            return []
-        contentFilter = {
-            'portal_type': 'upfront.classlist.content.classlist',
-            'sort_on': 'sortable_title'}
-        return members_folder.classlists.getFolderContents(contentFilter)
-
     def learners(self):
         """ return all of the learners from a specific classlist
         """
@@ -990,18 +975,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                 classlist = members_folder.classlists.getFolderContents()[0]\
                                                                     .getObject()
                 self.classlist_uid = IUUID(classlist)
-
-    def classlists(self):
-        """ return all of the classlists of the current user
-        """
-        pm = getSite().portal_membership
-        members_folder = pm.getHomeFolder()
-        if members_folder == None:
-            return []
-        contentFilter = {
-            'portal_type': 'upfront.classlist.content.classlist',
-            'sort_on': 'sortable_title'}
-        return members_folder.classlists.getFolderContents(contentFilter)
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range

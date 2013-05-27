@@ -26,6 +26,7 @@
     <div tal:condition="view/user_anonymous">
     </div>
 
+    <tal:classlists tal:condition="view/classlists">
         <form name="classlist-form" tal:attributes="action string:${view/__name__}" method="post">
 
             <div tal:condition="view/classlists">
@@ -100,13 +101,13 @@
 
         <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
             <tal:datecheck tal:condition="not:view/check_date_integrity">
-                    <div i18n:translate="message_startdate_bigger_enddate">Specified Start Date must be earlier than the End Date.</div>
+                <div i18n:translate="message_startdate_bigger_enddate">Specified Start Date must be earlier than the End Date.</div>
             </tal:datecheck>
         </tal:evaluationsheets>
 
         <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-                    <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
+               <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
             </tal:datecheck>
         </tal:evaluationsheets>
 
@@ -115,6 +116,11 @@
                 <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
             </tal:datecheck>
         </tal:evaluationsheets>
+
+    </tal:classlists>
+    <tal:classlists tal:condition="not:view/classlists">
+        <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations.</div>
+    </tal:classlists>
 
     </metal:main>
 </body>

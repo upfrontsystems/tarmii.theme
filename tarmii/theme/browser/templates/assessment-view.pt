@@ -24,7 +24,7 @@
 
         <div>&nbsp;</div>
         <tal:activities tal:condition="not:view/activities">
-            <div i18n:translate="message_no_activities_added">No activities have been added yet.</div>
+            <div i18n:translate="message_no_activities_added">No activities have been added to this assessment.</div>
         </tal:activities>
 
         <tal:activities tal:condition="view/activities">

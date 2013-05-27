@@ -42,6 +42,18 @@ class BaseChart(Drawing):
         title.textAnchor ='middle'
         self.add(title, name='Title')
 
+    def setDescription(self):
+        desc = Label()        
+        desc.fontName = 'Helvetica'
+        desc.fontSize = 12
+        desc.x = 230
+        desc.y = 10
+        desc._text = self._data_dict.get('description', '')
+        desc.maxWidth = 280
+        desc.height = 20
+        desc.textAnchor ='middle'
+        self.add(desc, name='Description')
+
     def setLegend(self):
         legend = Legend()
         legend.colorNamePairs = []
@@ -61,15 +73,15 @@ class BaseChart(Drawing):
 
 class ClassPerformanceForActivityChart(BaseChart):
 
-    color_array = [colors.green, colors.red, colors.gold, colors.deepskyblue,
-                   colors.olive, colors.orange, colors.blueviolet, colors.peru,
+    color_array = [colors.green, colors.red, colors.orange, colors.deepskyblue,
+                   colors.olive, colors.gold, colors.blueviolet, colors.peru,
                    colors.grey, colors.honeydew, colors.pink, colors.lavender,
                    colors.indianred, colors.khaki, colors.black, colors.ivory,
                    colors.salmon, colors.seashell, colors.teal, colors.maroon ]
                   # 20 colors specified, rating scales over 20 will use color 20
                   # for colors 20+
 
-    def __init__(self, data_dict, width=600, height=400, colorscheme='color'):
+    def __init__(self, data_dict, width=750, height=400, colorscheme='color'):
         chart = Pie()
         BaseChart.__init__(self,
                 chart, data_dict, width, height, colorscheme=colorscheme)
@@ -80,11 +92,15 @@ class ClassPerformanceForActivityChart(BaseChart):
         self.setChartColors()
         self.setLabels()
         self.setLegend()
+        self.setDescription()
 
     def setTitle(self):
         BaseChart.setTitle(self)
         self.Title.x = 230
-        self.Title.y = 380 
+        self.Title.y = 380
+
+    def setDescription(self):
+        BaseChart.setDescription(self)
 
     def setLegend(self):
         BaseChart.setLegend(self)
@@ -102,9 +118,9 @@ class ClassPerformanceForActivityChart(BaseChart):
                                             self._data_dict['value_labels'][x]))
 
     def setChartColors(self):
-        self._chart.slices.fontSize = 20
+        self._chart.slices.fontSize = 12
         self._chart.slices.fontName = 'Helvetica-Bold'
-        self._chart.slices.fontColor = colors.white
+        self._chart.slices.fontColor = colors.black
         for x in range(len(self._data_dict['value_labels'])):
             if x < 20:
                 self._chart.slices[x].fillColor = self.color_array[x]
@@ -114,7 +130,7 @@ class ClassPerformanceForActivityChart(BaseChart):
 
     def setLabels(self):
         self._chart.labels = self._data_dict['category_labels']
-        for idx in range(len(self._data_dict['value_data'])):
+        for idx in range(len(self._data_dict['value_data'])):   
             self._chart.slices[idx].labelRadius = 0.8
 
 

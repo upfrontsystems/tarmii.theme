@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-23 17:16+0000\n"
+"POT-Creation-Date: 2013-05-27 12:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
-#: ./browser/reports/views.py:503
+#: ./browser/reports/views.py:550
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr ""
@@ -103,7 +103,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:502
+#: ./browser/reports/views.py:549
 msgid "Average Learner Score"
 msgstr ""
 
@@ -145,11 +145,11 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
-#: ./browser/reports/views.py:500
+#: ./browser/reports/views.py:547
 msgid "Class Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:191
+#: ./browser/reports/views.py:215
 msgid "Class performance for activity"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Edit Classlist"
 msgstr ""
 
-#: ./browser/reports/views.py:74
+#: ./browser/reports/views.py:87
 msgid "End Date"
 msgstr ""
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: ./browser/reports/views.py:501
+#: ./browser/reports/views.py:548
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -299,11 +299,11 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./browser/reports/views.py:708
+#: ./browser/reports/views.py:743
 msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:710
+#: ./browser/reports/views.py:745
 msgid "Learner Score"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:180
+#: ./browser/reports/views.py:204
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -360,12 +360,16 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
-#: ./browser/reports/views.py:1041
+#: ./browser/reports/views.py:1052
 msgid "Not Rated"
 msgstr ""
 
 #: ./browser/templates/usagestats.pt:70
 msgid "November"
+msgstr ""
+
+#: ./browser/reports/views.py:216
+msgid "Number of learners per rating"
 msgstr ""
 
 #: ./userdataschema.py:48
@@ -417,7 +421,7 @@ msgstr ""
 msgid "Rating scale"
 msgstr ""
 
-#: ./browser/reports/views.py:504
+#: ./browser/reports/views.py:551
 msgid "Ratings"
 msgstr ""
 
@@ -499,7 +503,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/reports/views.py:77
+#: ./browser/reports/views.py:90
 msgid "Start Date"
 msgstr ""
 
@@ -552,9 +556,9 @@ msgstr ""
 msgid "UUID"
 msgstr ""
 
-#: ./browser/reports/templates/classprogress.pt:91
-#: ./browser/reports/templates/evaluationsheet.pt:91
-#: ./browser/reports/templates/learnerprogress.pt:109
+#: ./browser/reports/templates/classprogress.pt:92
+#: ./browser/reports/templates/evaluationsheet.pt:92
+#: ./browser/reports/templates/learnerprogress.pt:110
 msgid "Update Dates"
 msgstr ""
 
@@ -842,7 +846,7 @@ msgid "label_activities_viewed"
 msgstr ""
 
 #. Default: "Activity"
-#: ./browser/reports/templates/classperformance-for-activity.pt:28
+#: ./browser/reports/templates/classperformance-for-activity.pt:32
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
 msgstr ""
@@ -859,7 +863,7 @@ msgid "label_addtoassessment"
 msgstr ""
 
 #. Default: "Assessment"
-#: ./browser/reports/templates/classperformance-for-activity.pt:26
+#: ./browser/reports/templates/classperformance-for-activity.pt:30
 #: ./browser/templates/addevaluationsheet.pt:26
 msgid "label_assessment"
 msgstr ""
@@ -885,7 +889,7 @@ msgid "label_assessments_created"
 msgstr ""
 
 #. Default: "Activity that the highest number of learners answered correctly."
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:81
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:89
 msgid "label_best_activity"
 msgstr ""
 
@@ -910,9 +914,9 @@ msgid "label_choose_your_files_nodrag"
 msgstr ""
 
 #. Default: "Classlist"
-#: ./browser/reports/templates/classprogress.pt:35
-#: ./browser/reports/templates/evaluationsheet.pt:35
-#: ./browser/reports/templates/learnerprogress.pt:35
+#: ./browser/reports/templates/classperformance-for-activity.pt:28
+#: ./browser/reports/templates/classprogress.pt:36
+#: ./browser/reports/templates/evaluationsheet.pt:36
 msgid "label_classlist"
 msgstr ""
 
@@ -1021,7 +1025,7 @@ msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner"
-#: ./browser/reports/templates/learnerprogress.pt:37
+#: ./browser/reports/templates/learnerprogress.pt:38
 msgid "label_learner"
 msgstr ""
 
@@ -1049,7 +1053,7 @@ msgid "label_mobile"
 msgstr ""
 
 #. Default: "No Learners in this classlist"
-#: ./browser/reports/templates/learnerprogress.pt:63
+#: ./browser/reports/templates/learnerprogress.pt:64
 msgid "label_nolearners"
 msgstr ""
 
@@ -1106,13 +1110,18 @@ msgid "label_search_activity"
 msgstr ""
 
 #. Default: "Activity that the second highest number of learners answered correctly."
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:85
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:93
 msgid "label_second_best_activity"
 msgstr ""
 
 #. Default: "Activity that the second highest number of learners answered incorrectly."
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:97
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:106
 msgid "label_second_worst_activity"
+msgstr ""
+
+#. Default: "Strengths"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:85
+msgid "label_strengths"
 msgstr ""
 
 #. Default: "Teacher Resources Viewed"
@@ -1158,8 +1167,13 @@ msgstr ""
 msgid "label_view"
 msgstr ""
 
+#. Default: "Weaknessess"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:99
+msgid "label_weaknessess"
+msgstr ""
+
 #. Default: "Activity that the highest number of learners answered incorrectly."
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:93
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:102
 msgid "label_worst_activity"
 msgstr ""
 
@@ -1229,8 +1243,15 @@ msgstr ""
 msgid "message_assessment_frozen"
 msgstr ""
 
+#. Default: "Please create some classlists, assessments and evaluations."
+#: ./browser/reports/templates/classperformance-for-activity.pt:100
+#: ./browser/reports/templates/classprogress.pt:122
+#: ./browser/reports/templates/evaluationsheet.pt:136
+msgid "message_create_classlists"
+msgstr ""
+
 #. Default: "No evaluationsheets have been created for this assessment. Alternatively, assessments have been created with an empty classlist. If this is the case, please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
-#: ./browser/reports/templates/classperformance-for-activity.pt:67
+#: ./browser/reports/templates/classperformance-for-activity.pt:82
 msgid "message_evaluationsheet_incorrect"
 msgstr ""
 
@@ -1239,7 +1260,7 @@ msgstr ""
 msgid "message_feedback_thankyou"
 msgstr ""
 
-#. Default: "No activities have been added yet."
+#. Default: "No activities have been added to this assessment."
 #: ./browser/templates/assessment-view.pt:27
 msgid "message_no_activities_added"
 msgstr ""
@@ -1250,7 +1271,7 @@ msgid "message_no_activities_found"
 msgstr ""
 
 #. Default: "No activities associated with selected assessment. Please update the assessment."
-#: ./browser/reports/templates/classperformance-for-activity.pt:77
+#: ./browser/reports/templates/classperformance-for-activity.pt:92
 msgid "message_no_activities_in_assessment"
 msgstr ""
 
@@ -1260,7 +1281,7 @@ msgid "message_no_assesments_exist"
 msgstr ""
 
 #. Default: "No assessments have been created yet, or existing assessments contain no activities."
-#: ./browser/reports/templates/classperformance-for-activity.pt:60
+#: ./browser/reports/templates/classperformance-for-activity.pt:75
 msgid "message_no_assesments_or_activities_exist"
 msgstr ""
 
@@ -1270,9 +1291,9 @@ msgid "message_no_classlists_exist"
 msgstr ""
 
 #. Default: "No evaluationsheets found in the specified date range."
-#: ./browser/reports/templates/classprogress.pt:109
+#: ./browser/reports/templates/classprogress.pt:110
 #: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/learnerprogress.pt:127
+#: ./browser/reports/templates/learnerprogress.pt:128
 msgid "message_no_evaluationsheets"
 msgstr ""
 
@@ -1307,9 +1328,9 @@ msgid "message_resources_found"
 msgstr ""
 
 #. Default: "Specified Start Date must be earlier than the End Date."
-#: ./browser/reports/templates/classprogress.pt:103
+#: ./browser/reports/templates/classprogress.pt:104
 #: ./browser/reports/templates/evaluationsheet.pt:103
-#: ./browser/reports/templates/learnerprogress.pt:121
+#: ./browser/reports/templates/learnerprogress.pt:122
 msgid "message_startdate_bigger_enddate"
 msgstr ""
 

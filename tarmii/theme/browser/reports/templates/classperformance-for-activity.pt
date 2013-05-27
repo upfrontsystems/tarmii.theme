@@ -17,6 +17,7 @@
     <div tal:condition="view/user_anonymous">
     </div>
 
+    <tal:classlists tal:condition="view/classlists">
         <form name="assessment-form" tal:attributes="action string:${view/__name__}" method="post">
                 
             <div tal:condition="view/assessments">
@@ -94,12 +95,16 @@
             </tal:noactivities>
             
         </form>
+    </tal:classlists>
+    <tal:classlists tal:condition="not:view/classlists">
+        <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations.</div>
+    </tal:classlists>
     
-        <tal:activities tal:condition="view/activities">
-            <tal:evaluations tal:condition="view/evaluations">
-                <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}&classlist=${view/selected_classlist}"/>
-            </tal:evaluations>
-        </tal:activities>
+    <tal:activities tal:condition="view/activities">
+        <tal:evaluations tal:condition="view/evaluations">
+            <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}&classlist=${view/selected_classlist}"/>
+        </tal:evaluations>
+    </tal:activities>
 
     </metal:main>
 </body>
