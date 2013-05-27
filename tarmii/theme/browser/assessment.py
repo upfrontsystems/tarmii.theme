@@ -58,6 +58,7 @@ class View(dexterity.DisplayForm):
                             else:
                                 topic_list.append(topic.to_object.title)
 
+        topic_list.sort()
         return ', '.join(map(str,topic_list))
 
     def activities(self):
