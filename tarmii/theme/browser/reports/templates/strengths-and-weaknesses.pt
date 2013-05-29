@@ -86,12 +86,12 @@
                 <div id="div-best-worst-table">
                     <table class="listing admin-table">
                         <tr> 
-                            <td class="green" i18n:translate="label_best_activity">Activity that the highest number of learners answered correctly.</td>
-                            <td class="green" tal:content="python:view.activity(0)"></td>
+                            <td class="lightgreen" i18n:translate="label_best_activity">Activity that the highest number of learners answered correctly.</td>
+                            <td class="lightgreen" tal:content="python:view.activity(0)"></td>
                         </tr>
                         <tr> 
-                            <td class="green" i18n:translate="label_second_best_activity">Activity that the second highest number of learners answered correctly.</td>
-                            <td class="green" tal:content="python:view.activity(1)"></td>
+                            <td class="lightgreen" i18n:translate="label_second_best_activity">Activity that the second highest number of learners answered correctly.</td>
+                            <td class="lightgreen" tal:content="python:view.activity(1)"></td>
                         </tr>
                     </table>
                 </div>
@@ -99,12 +99,12 @@
                 <h3 i18n:translate="label_weaknessess">Weaknessess</h3>
                     <table class="listing admin-table">
                         <tr> 
-                            <td class="red" i18n:translate="label_worst_activity">Activity that the highest number of learners answered incorrectly.</td>
-                            <td class="red" tal:content="python:view.activity(2)"></td>
+                            <td class="lightred" i18n:translate="label_worst_activity">Activity that the highest number of learners answered incorrectly.</td>
+                            <td class="lightred" tal:content="python:view.activity(2)"></td>
                         </tr>
                         <tr> 
-                            <td class="red" i18n:translate="label_second_worst_activity">Activity that the second highest number of learners answered incorrectly.</td>
-                            <td class="red" tal:content="python:view.activity(3)"></td>
+                            <td class="lightred" i18n:translate="label_second_worst_activity">Activity that the second highest number of learners answered incorrectly.</td>
+                            <td class="lightred" tal:content="python:view.activity(3)"></td>
                         </tr>                    </table>
                 </div>
             </tal:datecheck>

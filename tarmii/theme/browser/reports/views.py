@@ -1027,6 +1027,11 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             all_activity_ids += activity_ids
         self.activity_ids = all_activity_ids
 
+        if hasattr(self, 'test'):
+            if self.test == '1':
+                print 'TESTING WORKS!'
+        self.test = 1
+
         return 
 
     def evaluationsheets(self):
@@ -1074,6 +1079,20 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                          'sort_on': 'sortable_title'}
         return classlist.getFolderContents(contentFilter)
 
+    def is_standard_rating_scale(self, scale):
+        """ test if a rating scale contains 4 ratings and they are numbered 1..4
+        """
+        if len(scale) != 4:
+            return False
+        scale_list = []
+        for z in range(len(scale)):
+            scale_list.append(scale[z]['rating'])
+        scale_list.sort()
+        for z in range(len(scale_list)):
+            if scale_list[z] != z+1:
+                return False
+        return True
+
     def scores_for_learner(self, learner):
         """ return all the scores of a learner for all the evaluationsheets in
             the specified date range.
@@ -1099,16 +1118,56 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
                         score = ['',''] # to store eg. [u'Excellent','green']
                         score[0] = ev.evaluation[x]['rating']
+                        scale = ev.evaluation[x]['rating_scale']
 
                         # do a color lookup for the score
-                        if score[0] == 1:
-                            score[1] = 'mattred'                            
-                        elif score[0] == 2:
-                            score[1] = 'orange'
-                        elif score[0] == 3:
-                            score[1] = 'blue'
-                        elif score[0] == 4:
-                            score[1] = 'mattgreen'
+                        # non-scored entries are ignored
+                        if score[0] == 0:
+                            pass
+                        # explicitly unrated entries are ignored
+                        elif score[0] == -1:
+                            pass
+                        # test if activity is using default scale
+                        elif self.is_standard_rating_scale(scale):
+                            if score[0] == 1:
+                                score[1] = 'mattred'
+                            elif score[0] == 2:
+                                score[1] = 'gold'
+                            elif score[0] == 3:
+                                score[1] = 'deepblue'
+                            elif score[0] == 4:
+                                score[1] = 'mattgreen'
+                        # if activity is using a non-default scale#
+                        else:
+                            colors = ['red','redorange','orange','yelloworange',    
+                                      'pink','yellowgreen','pregreen','green',
+                                      'bluegreen','blue','blueviolet','violet',
+                                      'redviolet','brown1','brown2','brown3']
+                
+                            # in case someone makes a scale with 16+ ratings
+                            if len(scale) > 16:
+                                colors_available = [''] * len(scale)
+                                colors_available[0:15] = colors
+                            else:
+                                colors_available = colors
+
+                            # generate color scale for this entire activity
+                            # then do color lookup based on current score
+                            scale_list = []
+                            for z in range(len(scale)):
+                                scale_list.append(scale[z]['rating'])
+                            # sort scale - we have to assume that user used 
+                            # highest as the best - otherwise well the colors 
+                            # not flow from red to brown as intended
+                            scale_list.sort()
+                            color_dict = {}
+                            # assign colors to this rating scale
+                            for z in range(len(scale_list)):
+                                color_dict.update({scale_list[z] : 
+                                                  colors_available[z]})
+
+                            # do color lookup for the score
+                            score[1] = color_dict[score[0]]
 
                         # translate score number (int) into a rating (string)
                         if score[0] == 0:

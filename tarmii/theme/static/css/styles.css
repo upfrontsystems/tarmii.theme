@@ -652,35 +652,103 @@ table.listing.admin-table th {
 
 /* colors for strength+weaknessess chart view */
 
-table.listing tbody tr td.red,
-table.listing tbody tr.odd td.red {
+table.listing tbody tr td.lightred,
+table.listing tbody tr.odd td.lightred {
     background-color : #E55;
 }
 
-table.listing tbody tr td.green,
-table.listing tbody tr.odd td.green {
+table.listing tbody tr td.lightgreen,
+table.listing tbody tr.odd td.lightgreen {
     background-color : #6D6;
 }
 
 /* colors for evaluationsheet chart view */
 
+#div-evaluationsheet-table table.listing tbody tr td, 
+#div-evaluationsheet-table table.listing tbody tr.odd td {
+    border-top: 1px solid #fff
+}
+
+/* normal rating scale */
 table.listing tbody tr td.mattred,
 table.listing tbody tr.odd td.mattred {
     background-color : #d02027;
 }
-
 table.listing tbody tr td.mattgreen,
 table.listing tbody tr.odd td.mattgreen {
     background-color : #6dce25;
 }
+table.listing tbody tr td.deepblue,
+table.listing tbody tr.odd td.deepblue {
+    background-color : #17c5e4;
+}
+table.listing tbody tr td.gold,
+table.listing tbody tr.odd td.gold {
+    background-color : #E90;
+}
 
+/* custom rating scales */
+table.listing tbody tr td.red,
+table.listing tbody tr.odd td.red {
+    background-color : #cc0000;
+}
+table.listing tbody tr td.redorange,
+table.listing tbody tr.odd td.redorange {
+    background-color : #ff3300;
+}
+table.listing tbody tr td.orange,
+table.listing tbody tr.odd td.orange {
+    background-color : #ff6600;
+}
+table.listing tbody tr td.yelloworange,
+table.listing tbody tr.odd td.yelloworange {
+    background-color : #ff9900;
+}
+table.listing tbody tr td.pink,
+table.listing tbody tr.odd td.pink {
+    background-color : #ff9966;
+}
+table.listing tbody tr td.yellowgreen,
+table.listing tbody tr.odd td.yellowgreen {
+    background-color : #c0cc00;
+}
+table.listing tbody tr td.pregreen,
+table.listing tbody tr.odd td.pregreen {
+    background-color : #00cc00;
+}
+table.listing tbody tr td.green,
+table.listing tbody tr.odd td.green {
+    background-color : #1a921a;
+}
+table.listing tbody tr td.bluegreen,
+table.listing tbody tr.odd td.bluegreen {
+    background-color : #009999;
+}
 table.listing tbody tr td.blue,
 table.listing tbody tr.odd td.blue {
     background-color : #17c5e4;
 }
-
-table.listing tbody tr td.orange,
-table.listing tbody tr.odd td.orange {
-    background-color : #E90;
+table.listing tbody tr td.blueviolet,
+table.listing tbody tr.odd td.blueviolet {
+    background-color : #396dd4;
 }
-
+table.listing tbody tr td.violet,
+table.listing tbody tr.odd td.violet {
+    background-color : #874dc1;
+}
+table.listing tbody tr td.redviolet,
+table.listing tbody tr.odd td.redviolet {
+    background-color : #9933cc;
+}
+table.listing tbody tr td.brown1,
+table.listing tbody tr.odd td.brown1 {
+    background-color : #855439;
+}
+table.listing tbody tr td.brown2,
+table.listing tbody tr.odd td.brown2 {
+    background-color : #844204;
+}
+table.listing tbody tr td.brown3,
+table.listing tbody tr.odd td.brown3 {
+    background-color : #8d340a;
+}
