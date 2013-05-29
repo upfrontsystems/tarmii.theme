@@ -650,6 +650,8 @@ table.listing.admin-table th {
     font-weight: bold;
 }
 
+/* colors for strength+weaknessess chart view */
+
 table.listing tbody tr td.red,
 table.listing tbody tr.odd td.red {
     background-color : #E55;
@@ -658,5 +660,27 @@ table.listing tbody tr.odd td.red {
 table.listing tbody tr td.green,
 table.listing tbody tr.odd td.green {
     background-color : #6D6;
+}
+
+/* colors for evaluationsheet chart view */
+
+table.listing tbody tr td.mattred,
+table.listing tbody tr.odd td.mattred {
+    background-color : #d02027;
+}
+
+table.listing tbody tr td.mattgreen,
+table.listing tbody tr.odd td.mattgreen {
+    background-color : #6dce25;
+}
+
+table.listing tbody tr td.blue,
+table.listing tbody tr.odd td.blue {
+    background-color : #17c5e4;
+}
+
+table.listing tbody tr td.orange,
+table.listing tbody tr.odd td.orange {
+    background-color : #E90;
 }
 

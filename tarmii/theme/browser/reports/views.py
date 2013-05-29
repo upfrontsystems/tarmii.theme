@@ -1080,7 +1080,7 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         """
         evaluationsheets_in_range = self.evaluationsheets()
 
-        scores = [''] * len(self.activity_ids)
+        scores = [['','']] * len(self.activity_ids)
         buckets = range(len(self.activity_ids))
 
         for evalsheet in evaluationsheets_in_range:
@@ -1089,7 +1089,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             evaluation_objects = \
                 [x for x in evalsheet.getFolderContents(contentFilter,
                                                         full_objects=True)]
-
             # one ev object per learner
             for ev in evaluation_objects:
                 # only use the score data of the specified learner
@@ -1097,18 +1096,31 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                     # x iterates through the activities each learner did
 
                     for x in range(len(ev.evaluation)):
-                        score = ev.evaluation[x]['rating']
+
+                        score = ['',''] # to store eg. [u'Excellent','green']
+                        score[0] = ev.evaluation[x]['rating']
+
+                        # do a color lookup for the score
+                        if score[0] == 1:
+                            score[1] = 'mattred'                            
+                        elif score[0] == 2:
+                            score[1] = 'orange'
+                        elif score[0] == 3:
+                            score[1] = 'blue'
+                        elif score[0] == 4:
+                            score[1] = 'mattgreen'
+
                         # translate score number (int) into a rating (string)
-                        if score == 0:
-                            score = '' # Unrated are left as blanks
-                        elif score == -1:
-                            score = self.context.translate(_(u'Not Rated'))                            
+                        if score[0] == 0:
+                            score[0] = '' # Unrated are left as blanks
+                        elif score[0] == -1:
+                            score[0] = self.context.translate(_(u'Not Rated'))                            
                         else:
                             rating_scale = ev.evaluation[x]['rating_scale']
                             for y in range(len(rating_scale)):
-                                if score == rating_scale[y]['rating']:
-                                    score = rating_scale[y]['label']
-                    
+                                if score[0] == rating_scale[y]['rating']:
+                                    score[0] = rating_scale[y]['label']
+
                         # find correct score bucket to place this score in.
                         act_id = uuidToObject(ev.evaluation[x]['uid']).id
                         ev_id = IUUID(evalsheet)
@@ -1128,8 +1140,8 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                             else:
                                 # point index at the next available bucket
                                 idx += 1
-
-        return [learner.Title()] + scores
+        
+        return [[learner.Title(),'']] + scores
 
     def activity_ids(self):
         return self.activity_ids

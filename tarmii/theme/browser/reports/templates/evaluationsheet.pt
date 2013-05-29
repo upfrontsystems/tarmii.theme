@@ -118,12 +118,12 @@
                         <tr> 
                             <th></th>
                             <div tal:repeat="activity_id view/activity_ids">
-                                <th tal:content="python:activity_id[0]"></th>
+                                <th class="red" tal:content="python:activity_id[0]"></th>
                             </div>
                         </tr>
                         <tr tal:repeat="learner view/learners">
                             <div tal:repeat="item python:view.scores_for_learner(learner.getObject())">
-                                <td tal:content="item"></td>
+                                <td tal:attributes="class python:item[1]" tal:content="python:item[0]"></td>
                             </div>
                         </tr>
                     </table>
