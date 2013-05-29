@@ -1029,7 +1029,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
         return 
 
-
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
             and only for the selected classlist
@@ -1131,46 +1130,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                                 idx += 1
 
         return [learner.Title()] + scores
-
-    def scores_for_learner2(self, learner):
-        """ return all the scores of a learner for all the evaluationsheets in
-            the specified date range.
-        """
-        evaluationsheets_in_range = self.evaluationsheets()
-
-        all_scores = []
-        for evalsheet in evaluationsheets_in_range:
-            contentFilter = \
-                {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects = \
-                [x for x in evalsheet.getFolderContents(contentFilter,
-                                                        full_objects=True)]
-            scores = []
-            # one ev object per learner
-            for ev in evaluation_objects:
-                # only use the score data of the specified learner
-                if ev.learner.to_object == learner:
-                    if scores == []:
-                        # init lists so that we can use indexing
-                        scores = [None] * len(ev.evaluation)
-                        activity_ids = [None] * len(ev.evaluation)
-                    # x iterates through the activities each learner did
-                    for x in range(len(ev.evaluation)):
-                        scores[x] = ev.evaluation[x]['rating']
-                        # translate score integer into string
-                        if scores[x] == 0:
-                            scores[x] = '' # Unrated are left as blanks
-                        elif scores[x] == -1:
-                            scores[x] = self.context.translate(_(u'Not Rated'))                            
-                        else:
-                            rating_scale = ev.evaluation[x]['rating_scale']
-                            for y in range(len(rating_scale)):
-                                if scores[x] == rating_scale[y]['rating']:
-                                    scores[x] = rating_scale[y]['label']
-
-            all_scores += scores
-
-        return [learner.Title()] + all_scores
 
     def activity_ids(self):
         return self.activity_ids
