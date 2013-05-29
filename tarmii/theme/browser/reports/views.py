@@ -41,9 +41,8 @@ class ReportViewsCommon:
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter = {
-            'portal_type': 'upfront.classlist.content.classlist',
-            'sort_on': 'sortable_title'}
+        contentFilter = { 'portal_type': 'upfront.classlist.content.classlist',
+                          'sort_on': 'sortable_title'}
         return members_folder.classlists.getFolderContents(contentFilter)
 
 
@@ -93,7 +92,7 @@ class DatePickers:
         """ returns False if start_date specified is later than the end_date
         """
         start_date = datetime.datetime.strptime(self.startDateString(),
-                                                                    u'%Y-%m-%d')
+                                                u'%Y-%m-%d')
         end_date = datetime.datetime.strptime(self.endDateString(), u'%Y-%m-%d')
         if start_date > end_date:
             return False
@@ -118,14 +117,13 @@ class ClassPerformanceForActivityChartView(grok.View):
         # find all evaluationsheets that reference the chosen assessment
         ref_catalog = getUtility(ICatalog)
         intids = getUtility(IIntIds)
-        result = ref_catalog.findRelations(
-                 {'to_id': intids.getId(assessment)})
+        result = ref_catalog.findRelations({'to_id': intids.getId(assessment)})
         evalsheet_rel_list = []
         notfinished = True;
         while notfinished:
             try:
                 rel = result.next()
-                if rel.from_object.portal_type ==\
+                if rel.from_object.portal_type == \
                       'upfront.assessment.content.evaluationsheet':
                     # only track references from evaluationsheet objects.
                     evalsheet_rel_list.append(rel.from_object)
@@ -158,14 +156,14 @@ class ClassPerformanceForActivityChartView(grok.View):
                             # get the rating_scale, init the count and lookup 
                             # dictionaries only once.
                             if rating_scale == {}:
-                                rating_scale = eval_obj.getObject()\
-                                                  .evaluation[x]['rating_scale']
+                                rating_scale = eval_obj.getObject() \
+                                               .evaluation[x]['rating_scale']
 
                                 for z in range(len(rating_scale)):
                                     # init the score counter and the lookup dict
                                     count_dict[rating_scale[z]['label']] = 0
-                                    lookup_dict[rating_scale[z]['rating']] =\
-                                                        rating_scale[z]['label']
+                                    lookup_dict[rating_scale[z]['rating']] = \
+                                        rating_scale[z]['label']
 
                             # use lookup dict to interpret ratings
                             rating=eval_obj.getObject().evaluation[x]['rating']
@@ -213,7 +211,8 @@ class ClassPerformanceForActivityChartView(grok.View):
         # 'category_labels' : ['label1','label2','label3','label4']
 
         title = self.context.translate(_(u'Class performance for activity'))
-        description = self.context.translate(_(u'Number of learners per rating'))
+        description = \
+            self.context.translate(_(u'Number of learners per rating'))
 
         return { 
             'title' : title,
@@ -265,8 +264,8 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0]\
-                                                                    .getObject()
+                classlist = members_folder.classlists.getFolderContents()[0] \
+                            .getObject()
                 self.classlist_uid = IUUID(classlist)
 
         if self.assessment_uid == '':
@@ -280,20 +279,20 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
                 return []
             else:                
                 # no assessment selected so pick first one in list
-                assessment = members_folder.assessments.getFolderContents()[0]\
-                                                                    .getObject()
+                assessment = members_folder.assessments.getFolderContents()[0] \
+                             .getObject()
                 self.assessment_uid = IUUID(assessment)
                 if len(assessment.assessment_items) != 0:
-                    self.activity_uid =\
-                                 IUUID(assessment.assessment_items[0].to_object)
+                    self.activity_uid = \
+                        IUUID(assessment.assessment_items[0].to_object)
         elif self.activity_uid == '':
             # this executes when one is picking an assessment with activities
             # after having picked an assessment with no activities
             assessment = uuidToObject(self.assessment_uid)
             if len(assessment.assessment_items) != 0: 
                 # pick the first activity from the assessment's activities
-                self.activity_uid =\
-                                IUUID(assessment.assessment_items[0].to_object)
+                self.activity_uid = \
+                    IUUID(assessment.assessment_items[0].to_object)
         else:
             # check that the activity selected is valid for this assessment
             # this scenario can happen when switching assessments from an 
@@ -305,8 +304,8 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             if not act in [x.to_object for x in assessment.assessment_items]:                
                 if len(assessment.assessment_items) != 0:
                     # pick the first activity from the assessment's activities
-                    self.activity_uid =\
-                                IUUID(assessment.assessment_items[0].to_object)
+                    self.activity_uid = \
+                        IUUID(assessment.assessment_items[0].to_object)
 
     def assessments(self):
         """ return all of the assessments of the current user
@@ -358,14 +357,14 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             # find all evaluationsheets that reference the chosen assessment
             ref_catalog = getUtility(ICatalog)
             intids = getUtility(IIntIds)
-            result = ref_catalog.findRelations(
-                     {'to_id': intids.getId(assessment)})
+            result = \
+                ref_catalog.findRelations({'to_id': intids.getId(assessment)})
             rel_list = []
             notfinished = True;
             while notfinished:
                 try:
                     rel = result.next()
-                    if rel.from_object.portal_type ==\
+                    if rel.from_object.portal_type == \
                           'upfront.assessment.content.evaluationsheet':
                         # only track references from evaluation objects.
                         rel_list.append(IUUID(rel.from_object))
@@ -400,22 +399,22 @@ class ClassProgressChartView(grok.View):
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter =\
-                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets =\
-                     members_folder.evaluations.getFolderContents(contentFilter)
+        contentFilter = \
+            {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets = \
+            members_folder.evaluations.getFolderContents(contentFilter)
 
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
-            evaluationsheet_date = datetime.datetime.strptime(obj.created()
-                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
-            start_date = datetime.datetime.strptime(startdate,u'%Y-%m-%d')
-            end_date = datetime.datetime.strptime(enddate,u'%Y-%m-%d')
+            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
+            evaluationsheet_date = datetime.datetime.strptime(cdat, u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(startdate, u'%Y-%m-%d')
+            end_date = datetime.datetime.strptime(enddate, u'%Y-%m-%d')
             # only include evaluationsheets for the specified class
             if obj.classlist.to_object == uuidToObject(classlist_uid):
-                if evaluationsheet_date >= start_date and\
-                                               evaluationsheet_date <= end_date:
+                if evaluationsheet_date >= start_date and \
+                   evaluationsheet_date <= end_date:
                     evaluationsheets_in_range.append(obj)
         
         all_scores = []
@@ -424,10 +423,11 @@ class ClassProgressChartView(grok.View):
         all_highest_ratings = []
         all_rating_scales = []
         for evalsheet in evaluationsheets_in_range:
-            contentFilter =\
-                       {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects =\
-             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
             scores = []
             activity_ids = []
             highest_rating = []
@@ -493,8 +493,8 @@ class ClassProgressChartView(grok.View):
         # the activity
         average_all_scores = [0] * len(filtered_all_scores)
         for x in range(len(filtered_all_scores)):
-            average_all_scores[x] = float(filtered_all_scores[x])\
-                                                 / filtered_all_learner_count[x]
+            average_all_scores[x] = \
+                float(filtered_all_scores[x]) / filtered_all_learner_count[x]
 
         # now we must normalise the average scores so that they represent valid
         # rating scale values (ie so that they fit into the rating scale)
@@ -514,8 +514,8 @@ class ClassProgressChartView(grok.View):
                     # are marked as zero which means that practically the avg
                     # score can drop below the lowest possible score but we 
                     # correct for that here
-                    normalised_avg_all_scores[x] =\
-                                               rating_scale[len(rating_scale)-1]
+                    normalised_avg_all_scores[x] = \
+                        rating_scale[len(rating_scale)-1]
                     notfound = False
                 if average_all_scores[x] == 0:
                 # or lower than the lowest entry in the current rating scale 
@@ -603,8 +603,8 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0]\
-                                                                    .getObject()
+                classlist = members_folder.classlists.getFolderContents()[0] \
+                            .getObject()
                 self.classlist_uid = IUUID(classlist)
 
     def evaluationsheets(self):
@@ -615,25 +615,25 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter =\
-                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets =\
-                     members_folder.evaluations.getFolderContents(contentFilter)
+        contentFilter = \
+            {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets = \
+            members_folder.evaluations.getFolderContents(contentFilter)
 
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
-            evaluationsheet_date = datetime.datetime.strptime(obj.created()
-                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
+            evaluationsheet_date = datetime.datetime.strptime(cdat, u'%Y-%m-%d')
             start_date = datetime.datetime.strptime(self.startDateString(),
-                                                                    u'%Y-%m-%d')
+                                                    u'%Y-%m-%d')
             end_date = datetime.datetime.strptime(self.endDateString(),
-                                                                    u'%Y-%m-%d')
+                                                  u'%Y-%m-%d')
             # only include evaluationsheets for the specified class
             if obj.classlist.to_object == uuidToObject(self.classlist_uid):
                 if self.check_date_integrity():
-                    if evaluationsheet_date >= start_date and\
-                                               evaluationsheet_date <= end_date:
+                    if evaluationsheet_date >= start_date and \
+                       evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
@@ -661,33 +661,34 @@ class LearnerProgressChartView(grok.View):
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter =\
-                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets =\
-                     members_folder.evaluations.getFolderContents(contentFilter)
+        contentFilter = \
+           {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets = \
+            members_folder.evaluations.getFolderContents(contentFilter)
 
         # find all evaluationsheets that match the specified date range
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
-            evaluationsheet_date = datetime.datetime.strptime(obj.created()
-                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
-            start_date = datetime.datetime.strptime(startdate,u'%Y-%m-%d')
-            end_date = datetime.datetime.strptime(enddate,u'%Y-%m-%d')
+            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
+            evaluationsheet_date = datetime.datetime.strptime(cdat, u'%Y-%m-%d')
+            start_date = datetime.datetime.strptime(startdate, u'%Y-%m-%d')
+            end_date = datetime.datetime.strptime(enddate, u'%Y-%m-%d')
             # only include evaluationsheets for the specified class
             if obj.classlist.to_object == uuidToObject(classlist_uid):
-                if evaluationsheet_date >= start_date and\
-                                               evaluationsheet_date <= end_date:
+                if evaluationsheet_date >= start_date and \
+                   evaluationsheet_date <= end_date:
                     evaluationsheets_in_range.append(obj)
        
         all_scores = []
         all_activity_ids = []
         all_highest_ratings = []
         for evalsheet in evaluationsheets_in_range:
-            contentFilter =\
-                       {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects =\
-             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
             scores = []
             activity_ids = []
             highest_rating = []
@@ -700,8 +701,8 @@ class LearnerProgressChartView(grok.View):
                         activity_ids = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
                     for x in range(len(ev.evaluation)):
-                        activity_ids[x] =\
-                                        uuidToObject(ev.evaluation[x]['uid']).id
+                        activity_ids[x] = \
+                            uuidToObject(ev.evaluation[x]['uid']).id
                         scores[x] = ev.evaluation[x]['rating']
                         if scores[x] == -1:
                             # explicitly unrated (-1) scores get set to 0
@@ -799,8 +800,8 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0]\
-                                                                    .getObject()
+                classlist = members_folder.classlists.getFolderContents()[0] \
+                            .getObject()
                 self.classlist_uid = IUUID(classlist)
                 contentFilter = {
                     'portal_type': 'upfront.classlist.content.learner',
@@ -830,9 +831,10 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
 
             contentFilter = {'portal_type': 'upfront.classlist.content.learner',
                              'sort_on': 'sortable_title'}
-            classlist_contents = classlist.getFolderContents(contentFilter)
+            classlist_contents = classlist.getFolderContents(contentFilter,
+                                                             full_objects=True)
             # if activity selected is not in the newly selected assessment
-            if not learner in [x.getObject() for x in classlist_contents]:
+            if not learner in [x for x in classlist_contents]:
                 if len(classlist_contents) != 0:
                     # pick the first learner from the classlist's learners
                     self.learner_uid = IUUID(classlist_contents[0].getObject())
@@ -859,25 +861,26 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter =\
-                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets =\
-                     members_folder.evaluations.getFolderContents(contentFilter)
+        contentFilter = \
+            {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets = \
+            members_folder.evaluations.getFolderContents(contentFilter)
 
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
-            evaluationsheet_date = datetime.datetime.strptime(obj.created()
-                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
+            evaluationsheet_date = \
+                datetime.datetime.strptime(cdat, u'%Y-%m-%d')
             start_date = datetime.datetime.strptime(self.startDateString(),
-                                                                    u'%Y-%m-%d')    
+                                                    u'%Y-%m-%d')    
             end_date = datetime.datetime.strptime(self.endDateString(),
-                                                                    u'%Y-%m-%d')
+                                                  u'%Y-%m-%d')
             # only include evaluationsheets for the specified class
             if obj.classlist.to_object == uuidToObject(self.classlist_uid):
                 if self.check_date_integrity():
-                    if evaluationsheet_date >= start_date and\
-                                               evaluationsheet_date <= end_date:
+                    if evaluationsheet_date >= start_date and \
+                       evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
@@ -917,24 +920,25 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter =\
-                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets =\
-                     members_folder.evaluations.getFolderContents(contentFilter)
+        contentFilter = \
+            {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets = \
+            members_folder.evaluations.getFolderContents(contentFilter)
 
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
-            evaluationsheet_date = datetime.datetime.strptime(obj.created()
-                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
+            evaluationsheet_date = \
+                datetime.datetime.strptime(cdat, u'%Y-%m-%d')
             start_date = datetime.datetime.strptime(self.startDateString(),
-                                                                    u'%Y-%m-%d')    
+                                                    u'%Y-%m-%d')    
             end_date = datetime.datetime.strptime(self.endDateString(),
-                                                                    u'%Y-%m-%d')
+                                                  u'%Y-%m-%d')
             if self.check_date_integrity():
-                if evaluationsheet_date >= start_date and\
-                                               evaluationsheet_date <= end_date:
-                   evaluationsheets_in_range.append(obj)
+                if evaluationsheet_date >= start_date and \
+                   evaluationsheet_date <= end_date:
+                    evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
 
@@ -957,6 +961,8 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
     def update(self, **kwargs):
         """ get classlist parameter from request, if none selected pick first
             classlist in classlists folder.
+            calculate all the activity_ids that are contained in the 
+            evaluationsheets selected by the date range.
         """
 
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
@@ -972,9 +978,57 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0]\
-                                                                    .getObject()
+                classlist = \
+                    members_folder.classlists.getFolderContents()[0].getObject()
                 self.classlist_uid = IUUID(classlist)
+
+        # calculate the activity ids for the all the activities
+        evaluationsheets_in_range = self.evaluationsheets()
+        if evaluationsheets_in_range == []:
+            self.activity_ids = []
+            return
+
+        all_activity_ids = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+            activity_ids = []
+
+            # one ev object per learner
+            for ev in evaluation_objects:
+                if activity_ids == []:
+                    # init lists so that we can use indexing
+                    activity_ids = [None] * len(ev.evaluation)
+                    # x iterates through the activities each learner did
+                    if len(ev.evaluation) == 0: # XXX DEBUG
+                        print 'NO EVALUATION DATA!'
+                    for x in range(len(ev.evaluation)):
+                        activity_ids[x] = \
+                            [uuidToObject(ev.evaluation[x]['uid']).id, 
+                             IUUID(evalsheet)]
+                elif len(ev.evaluation) > len(activity_ids):
+                    # if this learner has more activities than the previous one
+                    # the assumption here is that the previous learner's 
+                    # activities were a subset of this learners activities. 
+                    # XXX if this doesnt hold, we need to rethink our strategy.
+
+                    # clear all previously collected activity_ids
+                    activity_ids = [None] * len(ev.evaluation)
+                    # use this learners activities instead
+                    for x in range(len(ev.evaluation)):
+                        obj = [uuidToObject(ev.evaluation[x]['uid']).id, 
+                               IUUID(ev)]
+                        print 'XXX DEBUG' #XXX DEBUG
+                        activity_ids[x] = obj
+
+            all_activity_ids += activity_ids
+        self.activity_ids = all_activity_ids
+
+        return 
+
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
@@ -984,26 +1038,27 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter =\
-                   {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets =\
-                     members_folder.evaluations.getFolderContents(contentFilter)
+        contentFilter = \
+            {'portal_type': 'upfront.assessment.content.evaluationsheet'}
+        evaluationsheets = \
+            members_folder.evaluations.getFolderContents(contentFilter)
 
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
-            evaluationsheet_date = datetime.datetime.strptime(obj.created()
-                               .asdatetime().strftime(u'%Y-%m-%d'),u'%Y-%m-%d')
+            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
+            evaluationsheet_date = \
+                datetime.datetime.strptime(cdat, u'%Y-%m-%d')
             start_date = datetime.datetime.strptime(self.startDateString(),
-                                                                    u'%Y-%m-%d')    
+                                                    u'%Y-%m-%d')    
             end_date = datetime.datetime.strptime(self.endDateString(),
-                                                                    u'%Y-%m-%d')
+                                                  u'%Y-%m-%d')
 
             # only include evaluationsheets for the specified class
             if obj.classlist.to_object == uuidToObject(self.classlist_uid):
                 if self.check_date_integrity():
-                    if evaluationsheet_date >= start_date and\
-                                               evaluationsheet_date <= end_date:
+                    if evaluationsheet_date >= start_date and \
+                       evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
@@ -1016,9 +1071,8 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         """ return all of the learners from a specific classlist
         """        
         classlist = uuidToObject(self.classlist_uid)
-        contentFilter =\
-                   {'portal_type': 'upfront.classlist.content.learner',
-                    'sort_on': 'sortable_title'}
+        contentFilter = {'portal_type': 'upfront.classlist.content.learner',
+                         'sort_on': 'sortable_title'}
         return classlist.getFolderContents(contentFilter)
 
     def scores_for_learner(self, learner):
@@ -1027,12 +1081,70 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         """
         evaluationsheets_in_range = self.evaluationsheets()
 
+        scores = [''] * len(self.activity_ids)
+        buckets = range(len(self.activity_ids))
+
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+
+            # one ev object per learner
+            for ev in evaluation_objects:
+                # only use the score data of the specified learner
+                if ev.learner.to_object == learner:
+                    # x iterates through the activities each learner did
+
+                    for x in range(len(ev.evaluation)):
+                        score = ev.evaluation[x]['rating']
+                        # translate score number (int) into a rating (string)
+                        if score == 0:
+                            score = '' # Unrated are left as blanks
+                        elif score == -1:
+                            score = self.context.translate(_(u'Not Rated'))                            
+                        else:
+                            rating_scale = ev.evaluation[x]['rating_scale']
+                            for y in range(len(rating_scale)):
+                                if score == rating_scale[y]['rating']:
+                                    score = rating_scale[y]['label']
+                    
+                        # find correct score bucket to place this score in.
+                        act_id = uuidToObject(ev.evaluation[x]['uid']).id
+                        ev_id = IUUID(evalsheet)
+
+                        notfound = True
+                        idx = 0
+                        while notfound:
+                            if len(buckets) == 0:
+                                print 'EMPTY !!!' # XXX debug
+                            if act_id == self.activity_ids[buckets[idx]][0] \
+                                and ev_id == self.activity_ids[buckets[idx]][1]:
+                                # found the bucket we want
+                                scores[buckets[idx]] = score
+                                notfound = False
+                                # remove the chosen index from future searches
+                                del buckets[idx]
+                            else:
+                                # point index at the next available bucket
+                                idx += 1
+
+        return [learner.Title()] + scores
+
+    def scores_for_learner2(self, learner):
+        """ return all the scores of a learner for all the evaluationsheets in
+            the specified date range.
+        """
+        evaluationsheets_in_range = self.evaluationsheets()
+
         all_scores = []
         for evalsheet in evaluationsheets_in_range:
-            contentFilter =\
-                       {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects =\
-             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
             scores = []
             # one ev object per learner
             for ev in evaluation_objects:
@@ -1056,32 +1168,9 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                                 if scores[x] == rating_scale[y]['rating']:
                                     scores[x] = rating_scale[y]['label']
 
-            all_scores += scores   
+            all_scores += scores
 
         return [learner.Title()] + all_scores
 
     def activity_ids(self):
-        """ return all the activity ids for all the evaluationsheets in
-            the specified date range.
-        """
-        evaluationsheets_in_range = self.evaluationsheets()
-
-        all_activity_ids = []
-        for evalsheet in evaluationsheets_in_range:
-            contentFilter =\
-                       {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects =\
-             [x.getObject() for x in evalsheet.getFolderContents(contentFilter)]
-            activity_ids = []
-            # one ev object per learner
-            for ev in evaluation_objects:
-                if activity_ids == []:
-                   # init lists so that we can use indexing
-                   activity_ids = [None] * len(ev.evaluation)
-                   # x iterates through the activities each learner did
-                   for x in range(len(ev.evaluation)):
-                      activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
-            all_activity_ids += activity_ids
-      
-        return all_activity_ids
-
+        return self.activity_ids

@@ -118,7 +118,7 @@
                         <tr> 
                             <th></th>
                             <div tal:repeat="activity_id view/activity_ids">
-                                <th tal:content="activity_id"></th>
+                                <th tal:content="python:activity_id[0]"></th>
                             </div>
                         </tr>
                         <tr tal:repeat="learner view/learners">
@@ -135,7 +135,6 @@
     <tal:classlists tal:condition="not:view/classlists">
         <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations.</div>
     </tal:classlists>
-
 
     </metal:main>
 </body>

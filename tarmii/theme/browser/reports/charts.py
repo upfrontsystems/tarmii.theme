@@ -159,6 +159,12 @@ class BaseLineChart(Drawing):
         self._linechart.lines[1].strokeWidth = 1.5
         self._linechart.lines[0].strokeColor = colors.green
         self._linechart.lines[1].strokeColor = colors.red
+        # calculate a sane y-axis interval
+        valuestep = self.getHighestScore() / 10
+        if valuestep <= 1:
+            self._linechart.valueAxis.valueStep = 1
+        else:
+            self._linechart.valueAxis.valueStep = valuestep
 
         self.setTitle()
         self._linechart.data = self.getChartData()
@@ -199,7 +205,7 @@ class BaseLineChart(Drawing):
         ylabel = Label()
         ylabel.fontName = 'Helvetica'
         ylabel.fontSize = 12
-        ylabel.x = 30
+        ylabel.x = 20
         ylabel.y = 210
         ylabel.angle = 90
         ylabel._text = self._data_dict.get('ylabel', '')
