@@ -1027,11 +1027,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             all_activity_ids += activity_ids
         self.activity_ids = all_activity_ids
 
-        if hasattr(self, 'test'):
-            if self.test == '1':
-                print 'TESTING WORKS!'
-        self.test = 1
-
         return 
 
     def evaluationsheets(self):
