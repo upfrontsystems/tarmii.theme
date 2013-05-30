@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-30 12:10+0000\n"
+"POT-Creation-Date: 2013-05-30 14:44+0000\n"
 "PO-Revision-Date: 2013-05-30 15:16+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -300,11 +300,11 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
-#: ./browser/reports/views.py:759
+#: ./browser/reports/views.py:765
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
 
-#: ./browser/reports/views.py:761
+#: ./browser/reports/views.py:767
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -364,7 +364,7 @@ msgstr "Noordwes"
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
-#: ./browser/reports/views.py:1209
+#: ./browser/reports/views.py:1216
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -1249,7 +1249,7 @@ msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan 
 
 #. Default: "Please create some classlists, assessments and evaluations."
 #: ./browser/reports/templates/classperformance-for-activity.pt:100
-#: ./browser/reports/templates/classprogress.pt:122
+#: ./browser/reports/templates/classprogress.pt:133
 #: ./browser/reports/templates/evaluationsheet.pt:136
 msgid "message_create_classlists"
 msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies."
@@ -1259,10 +1259,20 @@ msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies."
 msgid "message_evaluationsheet_incorrect"
 msgstr "Geen evaluationsheets is geskep vir hierdie assessering. Alternatiewelik, assesserings is geskep met 'n leë klaslys. As dit die geval is, voeg 'n paar leerders om jou klaslys wat jy gebruik met hierdie evaluering en herskep die evaluationsheet weer."
 
+#. Default: "Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/classprogress.pt:117
+msgid "message_evaluationsheets_not_marked"
+msgstr "Evaluasieblaaie bestaan vir hierdie klaslys, maar nie een van hulle is nog gemerk nie. Let wel: 'Nie Gegradeer' se keuses is nie beskou as gemerk."
+
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
 msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
+
+#. Default: "Evaluationsheets exist for this learner, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/learnerprogress.pt:135
+msgid "message_learner_not_marked"
+msgstr "Evaluasieblaaie bestaan vir hierdie leerder, maar nie een van hulle is nog gemerk nie. Let wel: 'Nie Gegradeer' se keuses is nie beskou as gemerk."
 
 #. Default: "No activities have been added to this assessment."
 #: ./browser/templates/assessment-view.pt:27
@@ -1295,25 +1305,16 @@ msgid "message_no_classlists_exist"
 msgstr "Geen klaslyse is nog geskep."
 
 #. Default: "No evaluationsheets found in the specified date range."
+#: ./browser/reports/templates/classprogress.pt:110
 #: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:79
+#: ./browser/reports/templates/learnerprogress.pt:128
 msgid "message_no_evaluationsheets"
 msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik."
-
-#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist but none of them have been marked yet."
-#: ./browser/reports/templates/classprogress.pt:110
-msgid "message_no_evaluationsheets_classprogress"
-msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik. Dit is ook moontlik dat evaluasieblaaie bestaan, maar nie een van hulle is nog gemerk nie."
 
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
 msgstr "Geen evaluasieblaaie is nog geskep."
-
-#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist for this learner but none of them have been marked yet."
-#: ./browser/reports/templates/learnerprogress.pt:128
-msgid "message_no_evaluationsheets_learnerprogress"
-msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik. Dit is ook moontlik dat evaluasieblaaie vir hierdie leerder bestaan, maar nie een van hulle is nog gemerk nie."
 
 #. Default: "No profiles have been created yet."
 #: ./browser/templates/selectprofile.pt:29

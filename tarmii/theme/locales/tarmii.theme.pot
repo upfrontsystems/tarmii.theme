@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-30 12:10+0000\n"
+"POT-Creation-Date: 2013-05-30 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,11 +299,11 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./browser/reports/views.py:759
+#: ./browser/reports/views.py:765
 msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:761
+#: ./browser/reports/views.py:767
 msgid "Learner Score"
 msgstr ""
 
@@ -360,7 +360,7 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
-#: ./browser/reports/views.py:1209
+#: ./browser/reports/views.py:1216
 msgid "Not Rated"
 msgstr ""
 
@@ -1245,7 +1245,7 @@ msgstr ""
 
 #. Default: "Please create some classlists, assessments and evaluations."
 #: ./browser/reports/templates/classperformance-for-activity.pt:100
-#: ./browser/reports/templates/classprogress.pt:122
+#: ./browser/reports/templates/classprogress.pt:133
 #: ./browser/reports/templates/evaluationsheet.pt:136
 msgid "message_create_classlists"
 msgstr ""
@@ -1255,9 +1255,19 @@ msgstr ""
 msgid "message_evaluationsheet_incorrect"
 msgstr ""
 
+#. Default: "Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/classprogress.pt:117
+msgid "message_evaluationsheets_not_marked"
+msgstr ""
+
 #. Default: "Thank you for your feedback about ${assessment_item_id}."
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
+msgstr ""
+
+#. Default: "Evaluationsheets exist for this learner, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/learnerprogress.pt:135
+msgid "message_learner_not_marked"
 msgstr ""
 
 #. Default: "No activities have been added to this assessment."
@@ -1291,24 +1301,15 @@ msgid "message_no_classlists_exist"
 msgstr ""
 
 #. Default: "No evaluationsheets found in the specified date range."
-#: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/strengths-and-weaknesses.pt:79
-msgid "message_no_evaluationsheets"
-msgstr ""
-
-#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist but none of them have been marked yet."
 #: ./browser/reports/templates/classprogress.pt:110
-msgid "message_no_evaluationsheets_classprogress"
+#: ./browser/reports/templates/evaluationsheet.pt:109
+#: ./browser/reports/templates/learnerprogress.pt:128
+msgid "message_no_evaluationsheets"
 msgstr ""
 
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
-msgstr ""
-
-#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist for this learner but none of them have been marked yet."
-#: ./browser/reports/templates/learnerprogress.pt:128
-msgid "message_no_evaluationsheets_learnerprogress"
 msgstr ""
 
 #. Default: "No profiles have been created yet."

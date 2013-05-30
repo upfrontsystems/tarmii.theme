@@ -125,13 +125,23 @@
 
         <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-                <div i18n:translate="message_no_evaluationsheets_learnerprogress">No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist for this learner but none of them have been marked yet.</div>
+                <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
             </tal:datecheck>
         </tal:evaluationsheets>
 
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-                <img tal:attributes="src string:@@learnerprogress-chart?classlist=${view/selected_classlist}&learner=${view/selected_learner}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
+                <tal:learner_has_score tal:condition="not:view/learner_has_score">
+                    <div i18n:translate="message_learner_not_marked">Evaluationsheets exist for this learner, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked.</div>
+                </tal:learner_has_score>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                <tal:learner_has_score tal:condition="view/learner_has_score">
+                    <img tal:attributes="src string:@@learnerprogress-chart?classlist=${view/selected_classlist}&learner=${view/selected_learner}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
+                </tal:learner_has_score>
             </tal:datecheck>
         </tal:evaluationsheets>
 

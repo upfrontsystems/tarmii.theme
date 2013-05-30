@@ -636,10 +636,16 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                        evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
-        # make sure that there are at least some evaluation objects that have 
-        # been scored in any one of the evaluationsheets in range.        
-        # explicitly not rated scores are regarded as not scored (as they are 
-        # then later not included in this line chart)
+        return evaluationsheets_in_range
+
+    def evaluation_objects_scored(self): 
+        """ make sure that there are at least some evaluation objects that have 
+            been scored in any one of the evaluationsheets in range.        
+            explicitly not rated scores are regarded as not scored (as they are 
+            then later not included in this line chart)
+        """
+        evaluationsheets_in_range = self.evaluationsheets()
+
         for evalsheet in evaluationsheets_in_range:
             contentFilter = \
                 {'portal_type': 'upfront.assessment.content.evaluation'}
@@ -650,8 +656,8 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                 for x in range(len(ev.evaluation)):
                     if ev.evaluation[x]['rating'] > 0:
                         # a score has been found
-                        return evaluationsheets_in_range
-        return []
+                        return True
+        return False
 
     def selected_classlist(self):
         return self.classlist_uid
@@ -898,10 +904,15 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                        evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
-        # make sure that the selected learner has at least one scored 
-        # evaluation object in the selected evaluationsheets
-        # explicitly not rated scores are regarded as not scored (as they are 
-        # then later not included in this line chart)
+        return evaluationsheets_in_range
+
+    def learner_has_score(self): 
+        """ make sure that the selected learner has at least one scored 
+            evaluation object in the selected evaluationsheets
+            explicitly not rated scores are regarded as not scored (as they are 
+            then later not included in this line chart)
+        """
+        evaluationsheets_in_range = self.evaluationsheets()
 
         for evalsheet in evaluationsheets_in_range:
             contentFilter = \
@@ -911,15 +922,11 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                                                         full_objects=True)]
             for ev in evaluation_objects:
                 if ev.learner.to_object == uuidToObject(self.learner_uid):
-                    count = 0
                     for x in range(len(ev.evaluation)):
                         if ev.evaluation[x]['rating'] > 0:
-                            count+= 1                            
-                    if count == len(ev.evaluation):
-                        # all evaluations have been scored
-                        return evaluationsheets_in_range
-        return []
-
+                            return True
+        return False
+     
     def selected_classlist(self):
         return self.classlist_uid
 

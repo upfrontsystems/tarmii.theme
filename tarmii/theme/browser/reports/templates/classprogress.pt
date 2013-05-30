@@ -107,15 +107,26 @@
 
         <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-               <div i18n:translate="message_no_evaluationsheets_classprogress">No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist but none of them have been marked yet.</div>
+               <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
             </tal:datecheck>
         </tal:evaluationsheets>
 
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-                <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
+                <tal:evaluationsheet_has_score tal:condition="not:view/evaluation_objects_scored">
+                    <div i18n:translate="message_evaluationsheets_not_marked">Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked.</div>
+                </tal:evaluationsheet_has_score>
             </tal:datecheck>
         </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                <tal:evaluationsheet_has_score tal:condition="view/evaluation_objects_scored">
+                    <img tal:attributes="src string:@@classprogress-chart?classlist=${view/selected_classlist}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
+                </tal:evaluationsheet_has_score>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
 
     </tal:classlists>
     <tal:classlists tal:condition="not:view/classlists">
