@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-27 12:12+0000\n"
-"PO-Revision-Date: 2013-05-27 14:17+0200\n"
+"POT-Creation-Date: 2013-05-30 12:10+0000\n"
+"PO-Revision-Date: 2013-05-30 15:16+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -150,7 +150,7 @@ msgstr "Kies die video lêers om op te laai"
 msgid "Class Progress"
 msgstr "Klas Vordering"
 
-#: ./browser/reports/views.py:215
+#: ./browser/reports/views.py:213
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
 
@@ -199,7 +199,7 @@ msgstr "Redigeer Assessering"
 msgid "Edit Classlist"
 msgstr "Redigeer Klaslys"
 
-#: ./browser/reports/views.py:87
+#: ./browser/reports/views.py:86
 msgid "End Date"
 msgstr "Einde Datum"
 
@@ -300,11 +300,11 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
-#: ./browser/reports/views.py:743
+#: ./browser/reports/views.py:759
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
 
-#: ./browser/reports/views.py:745
+#: ./browser/reports/views.py:761
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -348,7 +348,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:204
+#: ./browser/reports/views.py:202
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -364,7 +364,7 @@ msgstr "Noordwes"
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
-#: ./browser/reports/views.py:1052
+#: ./browser/reports/views.py:1209
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -372,9 +372,9 @@ msgstr "Nie Gegradeer nie"
 msgid "November"
 msgstr "November"
 
-#: ./browser/reports/views.py:216
+#: ./browser/reports/views.py:215
 msgid "Number of learners per rating"
-msgstr ""
+msgstr "Aantal leerders per gradering"
 
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase."
@@ -507,7 +507,7 @@ msgstr "September"
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
-#: ./browser/reports/views.py:90
+#: ./browser/reports/views.py:89
 msgid "Start Date"
 msgstr "Begin Datum"
 
@@ -1295,16 +1295,25 @@ msgid "message_no_classlists_exist"
 msgstr "Geen klaslyse is nog geskep."
 
 #. Default: "No evaluationsheets found in the specified date range."
-#: ./browser/reports/templates/classprogress.pt:110
 #: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/learnerprogress.pt:128
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:79
 msgid "message_no_evaluationsheets"
-msgstr "Geen evaluasiebaaie is gevind in die gespesifiseerde datum bereik."
+msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik."
+
+#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist but none of them have been marked yet."
+#: ./browser/reports/templates/classprogress.pt:110
+msgid "message_no_evaluationsheets_classprogress"
+msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik. Dit is ook moontlik dat evaluasieblaaie bestaan, maar nie een van hulle is nog gemerk nie."
 
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
 msgstr "Geen evaluasieblaaie is nog geskep."
+
+#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist for this learner but none of them have been marked yet."
+#: ./browser/reports/templates/learnerprogress.pt:128
+msgid "message_no_evaluationsheets_learnerprogress"
+msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik. Dit is ook moontlik dat evaluasieblaaie vir hierdie leerder bestaan, maar nie een van hulle is nog gemerk nie."
 
 #. Default: "No profiles have been created yet."
 #: ./browser/templates/selectprofile.pt:29

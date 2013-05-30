@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-27 12:12+0000\n"
+"POT-Creation-Date: 2013-05-30 12:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Class Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:215
+#: ./browser/reports/views.py:213
 msgid "Class performance for activity"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Edit Classlist"
 msgstr ""
 
-#: ./browser/reports/views.py:87
+#: ./browser/reports/views.py:86
 msgid "End Date"
 msgstr ""
 
@@ -299,11 +299,11 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
-#: ./browser/reports/views.py:743
+#: ./browser/reports/views.py:759
 msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:745
+#: ./browser/reports/views.py:761
 msgid "Learner Score"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:204
+#: ./browser/reports/views.py:202
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -360,7 +360,7 @@ msgstr ""
 msgid "Northern Cape"
 msgstr ""
 
-#: ./browser/reports/views.py:1052
+#: ./browser/reports/views.py:1209
 msgid "Not Rated"
 msgstr ""
 
@@ -368,7 +368,7 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: ./browser/reports/views.py:216
+#: ./browser/reports/views.py:215
 msgid "Number of learners per rating"
 msgstr ""
 
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again."
 msgstr ""
 
-#: ./browser/reports/views.py:90
+#: ./browser/reports/views.py:89
 msgid "Start Date"
 msgstr ""
 
@@ -1291,15 +1291,24 @@ msgid "message_no_classlists_exist"
 msgstr ""
 
 #. Default: "No evaluationsheets found in the specified date range."
-#: ./browser/reports/templates/classprogress.pt:110
 #: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/learnerprogress.pt:128
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:79
 msgid "message_no_evaluationsheets"
+msgstr ""
+
+#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist but none of them have been marked yet."
+#: ./browser/reports/templates/classprogress.pt:110
+msgid "message_no_evaluationsheets_classprogress"
 msgstr ""
 
 #. Default: "No evaluation sheets have been created yet."
 #: ./browser/templates/evaluationsheets.pt:22
 msgid "message_no_evaluationsheets_exist"
+msgstr ""
+
+#. Default: "No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist for this learner but none of them have been marked yet."
+#: ./browser/reports/templates/learnerprogress.pt:128
+msgid "message_no_evaluationsheets_learnerprogress"
 msgstr ""
 
 #. Default: "No profiles have been created yet."

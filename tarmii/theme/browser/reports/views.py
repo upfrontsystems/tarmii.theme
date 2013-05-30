@@ -636,7 +636,22 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                        evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
-        return evaluationsheets_in_range
+        # make sure that there are at least some evaluation objects that have 
+        # been scored in any one of the evaluationsheets in range.        
+        # explicitly not rated scores are regarded as not scored (as they are 
+        # then later not included in this line chart)
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+            for ev in evaluation_objects:
+                for x in range(len(ev.evaluation)):
+                    if ev.evaluation[x]['rating'] > 0:
+                        # a score has been found
+                        return evaluationsheets_in_range
+        return []
 
     def selected_classlist(self):
         return self.classlist_uid
@@ -837,7 +852,7 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
             if not learner in [x for x in classlist_contents]:
                 if len(classlist_contents) != 0:
                     # pick the first learner from the classlist's learners
-                    self.learner_uid = IUUID(classlist_contents[0].getObject())
+                    self.learner_uid = IUUID(classlist_contents[0])
                 else: 
                     self.learner_uid = ''
 
@@ -883,7 +898,27 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                        evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
-        return evaluationsheets_in_range
+        # make sure that the selected learner has at least one scored 
+        # evaluation object in the selected evaluationsheets
+        # explicitly not rated scores are regarded as not scored (as they are 
+        # then later not included in this line chart)
+
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+            for ev in evaluation_objects:
+                if ev.learner.to_object == uuidToObject(self.learner_uid):
+                    count = 0
+                    for x in range(len(ev.evaluation)):
+                        if ev.evaluation[x]['rating'] > 0:
+                            count+= 1                            
+                    if count == len(ev.evaluation):
+                        # all evaluations have been scored
+                        return evaluationsheets_in_range
+        return []
 
     def selected_classlist(self):
         return self.classlist_uid
@@ -1042,6 +1077,7 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         evaluationsheets = \
             members_folder.evaluations.getFolderContents(contentFilter)
 
+        import pdb; pdb.set_trace()
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
@@ -1060,6 +1096,7 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                        evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
+        import pdb; pdb.set_trace()
         return evaluationsheets_in_range
 
     def classlist(self):
@@ -1076,6 +1113,7 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
     def is_standard_rating_scale(self, scale):
         """ test if a rating scale contains 4 ratings and they are numbered 1..4
+            (but this will also pass if the ratings are not sorted eg.1,4,3,2)
         """
         if len(scale) != 4:
             return False
@@ -1132,7 +1170,7 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                                 score[1] = 'deepblue'
                             elif score[0] == 4:
                                 score[1] = 'mattgreen'
-                        # if activity is using a non-default scale#
+                        # if activity is using a non-default scale
                         else:
                             colors = ['red','redorange','orange','yelloworange',    
                                       'pink','yellowgreen','pregreen','green',

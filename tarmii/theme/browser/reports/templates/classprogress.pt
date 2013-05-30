@@ -107,7 +107,7 @@
 
         <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
-               <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range.</div>
+               <div i18n:translate="message_no_evaluationsheets_classprogress">No evaluationsheets found in the specified date range. It is also possible that evaluationsheets exist but none of them have been marked yet.</div>
             </tal:datecheck>
         </tal:evaluationsheets>
 
