@@ -1084,7 +1084,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         evaluationsheets = \
             members_folder.evaluations.getFolderContents(contentFilter)
 
-        import pdb; pdb.set_trace()
         evaluationsheets_in_range = []
         for evaluationsheet in evaluationsheets:
             obj = evaluationsheet.getObject()
@@ -1103,7 +1102,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                        evaluationsheet_date <= end_date:
                         evaluationsheets_in_range.append(obj)
 
-        import pdb; pdb.set_trace()
         return evaluationsheets_in_range
 
     def classlist(self):
