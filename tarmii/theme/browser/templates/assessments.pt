@@ -10,7 +10,8 @@
     <metal:main fill-slot="content-title">
         <h1 class="documentFirstHeading" i18n:translate="heading_assessments">Assessments</h1>
     </metal:main>
-    <metal:main fill-slot="content-core">
+    <metal:main fill-slot="content-core"
+        tal:define="batch view/assessments_batch">
     
         <p i18n:translate="description_assesments">This section lists assessments created by you. Click on the name of the assessment to edit it.
         </p>
@@ -37,7 +38,7 @@
                         <th i18n:translate="label_evaluationsheet_pdf">Evaluation Sheet PDF</th>
                         <th i18n:translate="label_teacherinfo_pdf">Teacher Info PDF</th>
                     </tr>
-                    <tr tal:repeat="assessment view/assessments">
+                    <tr tal:repeat="assessment view/assessments_batch">
                         <td><a tal:attributes="href string:${assessment/getURL}" tal:content="assessment/Title"></a></td>
                         <td tal:content="python:view.translated_date(assessment.created)"></td>
                         <td>
@@ -72,6 +73,7 @@
                     </tr>  
                 </table>
         </tal:listing>
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
         </div>
 
     </metal:main>

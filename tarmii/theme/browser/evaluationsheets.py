@@ -1,6 +1,7 @@
 from five import grok
 from zope.interface import Interface
 from tarmii.theme import MessageFactory as _
+from Products.CMFPlone.PloneBatch import Batch
 
 grok.templatedir('templates')
 
@@ -18,6 +19,14 @@ class EvaluationSheetsView(grok.View):
         contentFilter = {
             'portal_type': 'upfront.assessment.content.evaluationsheet'}
         return self.context.getFolderContents(contentFilter)
+
+    def evaluationsheets_batch(self):
+        """ Return evaluationsheets in the current folder.
+            Return batched.
+        """
+        b_size = 10
+        b_start = self.request.get('b_start', 0)
+        return Batch(self.evaluationsheets(), b_size, int(b_start), orphan=0)
 
     def add_evaluationsheet_url(self):
         """ URL for evaluationsheet add form

@@ -10,7 +10,8 @@
     <metal:main fill-slot="content-title">
         <h1 class="documentFirstHeading" i18n:translate="heading_evaluations">Evaluations</h1>
     </metal:main>
-    <metal:main fill-slot="content-core">
+    <metal:main fill-slot="content-core"
+        tal:define="batch view/evaluationsheets_batch">
     
         <form id="add-button-form" name="add-evaluationsheet-form" tal:attributes="action view/add_evaluationsheet_url">
             <input class="allowMultiSubmit" type="submit" value="Add evaluation sheet" i18n:attributes="value"
@@ -33,7 +34,7 @@
                         <th i18n:translate="label_delete">Delete</th>
                         <th>PDF</th>
                     </tr>
-                    <tr tal:repeat="evaluationsheet view/evaluationsheets">
+                    <tr tal:repeat="evaluationsheet view/evaluationsheets_batch">
                         <td><a tal:content="python:view.evaluationsheet_title(evaluationsheet)"
                                tal:attributes="href python:evaluationsheet.getObject().absolute_url()">View</a></td>
                         <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
@@ -52,6 +53,7 @@
                     </tr>
                 </table>
         </tal:listing>
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
         </div>
 
     </metal:main>
