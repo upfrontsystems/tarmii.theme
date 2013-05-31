@@ -20,17 +20,19 @@
     <tal:classlists tal:condition="view/classlists">
         <form name="assessment-form" tal:attributes="action string:${view/__name__}" method="post">
                 
-            <div tal:condition="view/evaluationsheets">
+            <div tal:condition="view/classlists">
                  <table>
                      <tbody>
                         <tr>
                             <div tal:condition="view/classlists">
                                 <th i18n:translate="label_classlist">Classlist</th>
                             </div>
-                            <th i18n:translate="label_assessment">Assessment</th>
-                            <tal:activities tal:condition="view/activities">
-                                <th i18n:translate="label_activity">Activity</th>
-                            </tal:activities>
+                            <tal:evaluationsheets tal:condition="view/evaluationsheets">
+                                <th i18n:translate="label_assessment">Assessment</th>
+                                <tal:activities tal:condition="view/activities">
+                                    <th i18n:translate="label_activity">Activity</th>
+                                </tal:activities>
+                            </tal:evaluationsheets>
                         </tr>
                         <tr>
                             <tal:classlists tal:condition="view/classlists">
@@ -45,28 +47,30 @@
                                     </select>
                                 </td>
                             </tal:classlists>
-                            <td class="select-assessment">
-                                <select name="evaluationsheet_uid_selected" onchange="this.form.submit()">
-                                    <option tal:repeat="evaluationsheet view/evaluationsheets"
-                                            tal:attributes="value python:view.getUID(evaluationsheet);
-                                                            selected python:view.getUID(evaluationsheet) ==
-                                                                     request.get('evaluationsheet_uid_selected', '')"
-                                            tal:content="python:view.getCustomTitle(evaluationsheet)">
-                                    </option>
-                                </select>
-                            </td>
-                            <tal:activities tal:condition="view/activities">
-                                <td class="select-activity">
-                                    <select name="activity_uid_selected" onchange="this.form.submit()">
-                                        <option tal:repeat="activity view/activities"
-                                                tal:attributes="value python:view.getUID(activity.to_object);
-                                                                selected python:view.getUID(activity.to_object) ==
-                                                                         request.get('activity_uid_selected', '')"
-                                                tal:content="python:activity.to_object.id">
+                            <tal:evaluationsheets tal:condition="view/evaluationsheets">
+                                <td class="select-assessment">
+                                    <select name="evaluationsheet_uid_selected" onchange="this.form.submit()">
+                                        <option tal:repeat="evaluationsheet view/evaluationsheets"
+                                                tal:attributes="value python:view.getUID(evaluationsheet);
+                                                                selected python:view.getUID(evaluationsheet) ==
+                                                                         request.get('evaluationsheet_uid_selected', '')"
+                                                tal:content="python:view.getCustomTitle(evaluationsheet)">
                                         </option>
                                     </select>
                                 </td>
-                            </tal:activities>
+                                <tal:activities tal:condition="view/activities">
+                                    <td class="select-activity">
+                                        <select name="activity_uid_selected" onchange="this.form.submit()">
+                                            <option tal:repeat="activity view/activities"
+                                                    tal:attributes="value python:view.getUID(activity.to_object);
+                                                                    selected python:view.getUID(activity.to_object) ==
+                                                                             request.get('activity_uid_selected', '')"
+                                                    tal:content="python:activity.to_object.id">
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tal:activities>
+                            </tal:evaluationsheets>
                         </tr>
                      </tbody>
                  </table>

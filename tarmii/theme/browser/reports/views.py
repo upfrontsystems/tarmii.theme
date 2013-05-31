@@ -308,6 +308,8 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
         if self.evaluationsheet_uid == '':
             return []
         else:
+            if self.evaluationsheets() == []:
+                return []
             ev = uuidToObject(self.evaluationsheet_uid)
             assessment = ev.assessment.to_object
         return assessment.assessment_items
