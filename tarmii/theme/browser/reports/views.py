@@ -339,6 +339,17 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
 
         return []
 
+    def getCustomTitle(self, evaluationsheet):
+        """ return title for evaluationsheet eg. 'Assessment3 on 31 May 2013'
+            and translate the month part of the date
+        """
+        date = evaluationsheet.created()
+        assessment_title = evaluationsheet.assessment.to_object.title        
+        on_string = self.context.translate(_(u'on'))
+        month = self.context.translate(_(date.strftime('%B')))
+        date_string = '%s %s %s' % (date.day(), month, date.year())
+        return assessment_title + ' ' + on_string + ' ' + date_string
+
 
 class ClassProgressChartView(grok.View):
     """ Class progress for a given time period

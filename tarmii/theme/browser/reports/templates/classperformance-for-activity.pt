@@ -51,7 +51,7 @@
                                             tal:attributes="value python:view.getUID(evaluationsheet);
                                                             selected python:view.getUID(evaluationsheet) ==
                                                                      request.get('evaluationsheet_uid_selected', '')"
-                                            tal:content="evaluationsheet/id">
+                                            tal:content="python:view.getCustomTitle(evaluationsheet)">
                                     </option>
                                 </select>
                             </td>
