@@ -75,9 +75,9 @@ class ClassPerformanceForActivityChart(BaseChart):
 
     color_array = [colors.green, colors.red, colors.orange, colors.deepskyblue,
                    colors.olive, colors.gold, colors.blueviolet, colors.peru,
-                   colors.grey, colors.honeydew, colors.pink, colors.lavender,
-                   colors.indianred, colors.khaki, colors.black, colors.ivory,
-                   colors.salmon, colors.seashell, colors.teal, colors.maroon ]
+                   colors.grey, colors.honeydew, colors.palegreen, colors.cyan,
+                   colors.indianred, colors.khaki, colors.pink, colors.thistle,
+                   colors.salmon, colors.lawngreen, colors.teal, colors.maroon ]
                   # 20 colors specified, rating scales over 20 will use color 20
                   # for colors 20+
 
@@ -105,7 +105,14 @@ class ClassPerformanceForActivityChart(BaseChart):
     def setLegend(self):
         BaseChart.setLegend(self)
         self.Legend.x = 450
-        self.Legend.y = 200
+        self.Legend.y = 220
+        # adjust legend y locations for big scales
+        if len(self._data_dict['value_labels']) > 8:
+            self.Legend.y = 250
+        if len(self._data_dict['value_labels']) > 10:
+            self.Legend.y = 300
+        if len(self._data_dict['value_labels']) > 12:
+            self.Legend.y = 400
         self.Legend.columnMaximum = len(self._data_dict['value_labels'])
         self.Legend.colorNamePairs = []
         for x in range(len(self._data_dict['value_labels'])):
