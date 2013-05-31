@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-30 14:44+0000\n"
+"POT-Creation-Date: 2013-05-30 15:18+0000\n"
 "PO-Revision-Date: 2013-05-30 15:16+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,20 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
+#: ./browser/reports/views.py:190
+msgid " learner"
+msgstr " leerder"
+
+#: ./browser/reports/views.py:188
+msgid " learners"
+msgstr " leerders"
+
 #: ./browser/quickupload.py:370
 msgid " uploads return an error."
 msgstr "oplaai rapporteer 'n fout."
 
-#: ./browser/assessments.py:32
-#: ./browser/evaluationsheets.py:38
+#: ./browser/assessments.py:41
+#: ./browser/evaluationsheets.py:47
 msgid "%B"
 msgstr ""
 
@@ -47,7 +55,7 @@ msgid "Add Activity"
 msgstr "Voeg Aktiwiteit by"
 
 #: ./browser/forms.py:129
-#: ./browser/templates/assessments.pt:19
+#: ./browser/templates/assessments.pt:20
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
 
@@ -67,7 +75,7 @@ msgstr "Voeg Onderwerpboom by"
 msgid "Add class list"
 msgstr "Voeg Klaslys by"
 
-#: ./browser/templates/evaluationsheets.pt:16
+#: ./browser/templates/evaluationsheets.pt:17
 msgid "Add evaluation sheet"
 msgstr "Voeg evaluasieblad by"
 
@@ -364,7 +372,7 @@ msgstr "Noordwes"
 msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
-#: ./browser/reports/views.py:1216
+#: ./browser/reports/views.py:1214
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -596,7 +604,7 @@ msgid "You don't have permission to add this content in this place."
 msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
-#: ./browser/templates/assessments.pt:15
+#: ./browser/templates/assessments.pt:16
 msgid "description_assesments"
 msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die naam van die assessering om dit te redigeer."
 
@@ -642,7 +650,7 @@ msgid "heading_add_user_form"
 msgstr "Skep Profil"
 
 #. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:30
+#: ./browser/templates/evaluationsheets.pt:31
 msgid "heading_assessment"
 msgstr "Assessering"
 
@@ -662,7 +670,7 @@ msgid "heading_class_progress"
 msgstr "Klas Vordering"
 
 #. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:31
+#: ./browser/templates/evaluationsheets.pt:32
 msgid "heading_classlist"
 msgstr "Klas lys"
 
@@ -873,17 +881,17 @@ msgid "label_assessment"
 msgstr "Assessering"
 
 #. Default: "Date"
-#: ./browser/templates/assessments.pt:33
+#: ./browser/templates/assessments.pt:34
 msgid "label_assessment_date"
 msgstr "Datum"
 
 #. Default: "Assessment"
-#: ./browser/templates/assessments.pt:32
+#: ./browser/templates/assessments.pt:33
 msgid "label_assessment_name"
 msgstr "Assessering naam"
 
 #. Default: "Assessment PDF"
-#: ./browser/templates/assessments.pt:36
+#: ./browser/templates/assessments.pt:37
 msgid "label_assessment_pdf"
 msgstr "Assessering PDF"
 
@@ -953,7 +961,7 @@ msgstr "Dag"
 
 #. Default: "Delete"
 #: ./browser/templates/assessmentitem-view.pt:50
-#: ./browser/templates/assessments.pt:35
+#: ./browser/templates/assessments.pt:36
 #: ./browser/templates/classlists.pt:36
 msgid "label_delete"
 msgstr "Werwyder"
@@ -982,17 +990,17 @@ msgid "label_equipment_and_admin"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
 #. Default: "Evaluation Sheet"
-#: ./browser/templates/evaluationsheets.pt:29
+#: ./browser/templates/evaluationsheets.pt:30
 msgid "label_evaluationsheet"
 msgstr "Evaluasieblad"
 
 #. Default: "Date"
-#: ./browser/templates/evaluationsheets.pt:32
+#: ./browser/templates/evaluationsheets.pt:33
 msgid "label_evaluationsheet_date"
 msgstr "Datum"
 
 #. Default: "Evaluation Sheet PDF"
-#: ./browser/templates/assessments.pt:37
+#: ./browser/templates/assessments.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasieblad PDF"
@@ -1134,7 +1142,7 @@ msgid "label_teacher_resources_viewed"
 msgstr "Onderwyser Hulpbronne Gesien"
 
 #. Default: "Teacher Info PDF"
-#: ./browser/templates/assessments.pt:38
+#: ./browser/templates/assessments.pt:39
 msgid "label_teacherinfo_pdf"
 msgstr "Onderwyser Informasie PDF"
 
@@ -1290,7 +1298,7 @@ msgid "message_no_activities_in_assessment"
 msgstr "Geen aktiwiteite is geassosieer met die geselekteerde assessering. Bywerk die assessering asseblief."
 
 #. Default: "No assessments have been created yet."
-#: ./browser/templates/assessments.pt:25
+#: ./browser/templates/assessments.pt:26
 msgid "message_no_assesments_exist"
 msgstr "Geen assesserings is nog geskep."
 
@@ -1312,7 +1320,7 @@ msgid "message_no_evaluationsheets"
 msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik."
 
 #. Default: "No evaluation sheets have been created yet."
-#: ./browser/templates/evaluationsheets.pt:22
+#: ./browser/templates/evaluationsheets.pt:23
 msgid "message_no_evaluationsheets_exist"
 msgstr "Geen evaluasieblaaie is nog geskep."
 

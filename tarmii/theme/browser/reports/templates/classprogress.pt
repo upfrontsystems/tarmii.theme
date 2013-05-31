@@ -114,7 +114,9 @@
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
                 <tal:evaluationsheet_has_score tal:condition="not:view/evaluation_objects_scored">
-                    <div i18n:translate="message_evaluationsheets_not_marked">Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked.</div>
+                    <div i18n:translate="message_evaluationsheets_not_marked">Evaluationsheets exist for this classlist,
+                                                                              but none of them have been marked yet. 
+                                                                              Note: 'Not Rated' choices are not considered as marked.</div>
                 </tal:evaluationsheet_has_score>
             </tal:datecheck>
         </tal:evaluationsheets>
