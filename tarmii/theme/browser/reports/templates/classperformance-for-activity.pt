@@ -20,7 +20,7 @@
     <tal:classlists tal:condition="view/classlists">
         <form name="assessment-form" tal:attributes="action string:${view/__name__}" method="post">
                 
-            <div tal:condition="view/assessments">
+            <div tal:condition="view/evaluationsheets">
                  <table>
                      <tbody>
                         <tr>
@@ -38,18 +38,20 @@
                                     <select name="classlist_uid_selected" onchange="this.form.submit()">
                                         <option tal:repeat="classlist view/classlists"
                                                 tal:attributes="value classlist/UID;
-                                                                selected python:classlist.UID == request.get('classlist_uid_selected', '')"
+                                                                selected python:classlist.UID == 
+                                                                         request.get('classlist_uid_selected', '')"
                                                 tal:content="classlist/Title">
                                         </option>
                                     </select>
                                 </td>
                             </tal:classlists>
                             <td class="select-assessment">
-                                <select name="assessment_uid_selected" onchange="this.form.submit()">
-                                    <option tal:repeat="assessment view/assessments"
-                                            tal:attributes="value assessment/UID;
-                                                            selected python:assessment.UID == request.get('assessment_uid_selected', '')"
-                                            tal:content="assessment/Title">
+                                <select name="evaluationsheet_uid_selected" onchange="this.form.submit()">
+                                    <option tal:repeat="evaluationsheet view/evaluationsheets"
+                                            tal:attributes="value python:view.getUID(evaluationsheet);
+                                                            selected python:view.getUID(evaluationsheet) ==
+                                                                     request.get('evaluationsheet_uid_selected', '')"
+                                            tal:content="evaluationsheet/id">
                                     </option>
                                 </select>
                             </td>
@@ -102,7 +104,7 @@
     
     <tal:activities tal:condition="view/activities">
         <tal:evaluations tal:condition="view/evaluations">
-            <img tal:attributes="src string:@@classperformance-for-activity-chart?assessment=${view/selected_assessment}&activity=${view/selected_activity}&classlist=${view/selected_classlist}"/>
+            <img tal:attributes="src string:@@classperformance-for-activity-chart?evaluationsheet=${view/selected_evaluationsheet}&activity=${view/selected_activity}"/>
         </tal:evaluations>
     </tal:activities>
 
