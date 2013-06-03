@@ -84,7 +84,7 @@
             </tal:noassessments>
 
             <tal:noassessments tal:condition="view/activities">
-                <tal:evaluations tal:condition="not:view/evaluations">
+                <tal:evaluations tal:condition="not:view/evaluationsheets">
                     <div i18n:translate="message_evaluationsheet_incorrect">No evaluationsheets have been created for this assessment.  
                                                                             Alternatively, assessments have been created with an empty 
                                                                             classlist. If this is the case, please add some learners to your 

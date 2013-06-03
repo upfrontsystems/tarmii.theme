@@ -222,6 +222,7 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             options (if applicable)
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
+        print self.classlist_uid
         self.evaluationsheet_uid = \
             self.request.get('evaluationsheet_uid_selected', '')
         self.activity_uid = self.request.get('activity_uid_selected', '')
@@ -241,8 +242,11 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
                             .getObject()
                 self.classlist_uid = IUUID(classlist)
 
+        evaluationsheets = self.evaluationsheets()
         if self.evaluationsheet_uid == '':
-            evaluationsheets = self.evaluationsheets()
+            # this executes when one is picking a classlist with 
+            # evaluatonsheets after having picked a classlist with no 
+            # evaluationsheets
             if len(self.evaluationsheets()) == 0:
                 # classlist contains no evaluationsheets
                 self.evaluationsheet_uid = ''
@@ -250,13 +254,26 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             else:                
                 # no evaluationsheet selected so pick first one in list
                 ev = evaluationsheets[0]
-                self.evaluationsheet_uid = IUUID(ev)  
                 assessment = ev.assessment.to_object
-                self.assessment_uid = IUUID(assessment)
                 if len(assessment.assessment_items) != 0:
                     self.activity_uid = \
                         IUUID(assessment.assessment_items[0].to_object)
-        elif self.activity_uid == '':
+                self.evaluationsheet_uid = IUUID(ev)
+        else:
+            # check that the evaluationsheet selected is valid for this class
+            # this check is necessary when changing classlists            
+            ev = uuidToObject(self.evaluationsheet_uid)
+            # check if this chosen evaluationsheet is in the selected classlist 
+            if not ev in evaluationsheets:
+                if len(evaluationsheets) != 0:
+                    ev = evaluationsheets[0]
+                    assessment = ev.assessment.to_object
+                    if len(assessment.assessment_items) != 0:
+                        self.activity_uid = \
+                            IUUID(assessment.assessment_items[0].to_object)
+                    self.evaluationsheet_uid = IUUID(ev)
+
+        if self.activity_uid == '':
             # this executes when one is picking an assessment with activities
             # after having picked an assessment with no activities
             ev = uuidToObject(self.evaluationsheet_uid)
@@ -281,7 +298,7 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
                         IUUID(assessment.assessment_items[0].to_object)
 
     def evaluationsheets(self):
-        """ return all of the evaluationsheet of the current classlist
+        """ return all of the evaluationsheets of the current classlist
         """
         pm = getSite().portal_membership
         members_folder = pm.getHomeFolder()
@@ -297,7 +314,8 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
         # make sure that we use evaluationsheets only for the selected classlist
         filtered_evalsheet_list = []
         for evalsheet in evaluationsheets:
-            if evalsheet.classlist.to_object == uuidToObject(self.classlist_uid):
+            classlist = uuidToObject(self.classlist_uid)
+            if evalsheet.classlist.to_object == classlist:
                 filtered_evalsheet_list.append(evalsheet)
         
         return filtered_evalsheet_list
