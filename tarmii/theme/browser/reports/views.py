@@ -222,7 +222,6 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             options (if applicable)
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
-        print self.classlist_uid
         self.evaluationsheet_uid = \
             self.request.get('evaluationsheet_uid_selected', '')
         self.activity_uid = self.request.get('activity_uid_selected', '')
