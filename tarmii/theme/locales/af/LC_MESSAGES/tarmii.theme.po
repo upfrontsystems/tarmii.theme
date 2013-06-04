@@ -1266,7 +1266,7 @@ msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies."
 #. Default: "No evaluationsheets have been created for this assessment. Alternatively, assessments have been created with an empty classlist. If this is the case, please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
 #: ./browser/reports/templates/classperformance-for-activity.pt:84
 msgid "message_evaluationsheet_incorrect"
-msgstr "Geen evaluationsheets is geskep vir hierdie assessering. Alternatiewelik, assesserings is geskep met 'n leë klaslys. As dit die geval is, voeg 'n paar leerders om jou klaslys wat jy gebruik met hierdie evaluering en herskep die evaluationsheet weer."
+msgstr "Die assesserings is geskep met 'n leë klaslys. Voeg asseblief 'n paar leerders om jou klaslys wat jy gebruik met hierdie evaluering en herskep die evaluationsheet weer."
 
 #. Default: "Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
 #: ./browser/reports/templates/classprogress.pt:117

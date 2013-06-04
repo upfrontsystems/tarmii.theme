@@ -316,7 +316,11 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             classlist = uuidToObject(self.classlist_uid)
             if evalsheet.classlist.to_object == classlist:
                 filtered_evalsheet_list.append(evalsheet)
-        
+
+        # sort by created date and show latest evaluationsheets first        
+        filtered_evalsheet_list.sort(key=lambda x: x.created)
+        filtered_evalsheet_list.reverse()
+
         return filtered_evalsheet_list
 
     def activities(self):
@@ -335,7 +339,7 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
         return self.evaluationsheet_uid
 
     def selected_activity(self):
-        return self.activity_uid
+        return self.activity_uid    
 
     def getUID(self, obj):
         return IUUID(obj)
@@ -351,8 +355,8 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             return []
             
         # make sure that there are at least some evaluation objects in the
-        # selected evaluationsheet, ie. the classlists used for generating 
-        # evaluations were not empty.
+        # selected evaluationsheet, ie. that the classlists that were used to
+        # generate evaluation objects, were not empty.
         if len(uuidToObject(self.evaluationsheet_uid).getFolderContents()) != 0:
             return uuidToObject(self.evaluationsheet_uid).getFolderContents()
 
