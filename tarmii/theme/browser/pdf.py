@@ -313,28 +313,13 @@ class ScoreSheetPDF(grok.View):
                          'sort_on': 'sortable_title'}
         return classlist.getFolderContents(contentFilter)
 
-    def is_standard_rating_scale(self, scale):
-        """ test if a rating scale contains 4 ratings and they are numbered 1..4
-            (but this will also pass if the ratings are not sorted eg.1,4,3,2)
-        """
-        if len(scale) != 4:
-            return False
-        scale_list = []
-        for z in range(len(scale)):
-            scale_list.append(scale[z]['rating'])
-        scale_list.sort()
-        for z in range(len(scale_list)):
-            if scale_list[z] != z+1:
-                return False
-        return True
-
     def scores_for_learner(self, learner):
         """ return all the scores of a learner for all the evaluationsheets in
             the specified date range.
         """
         activity_ids = self.activity_ids()
 
-        scores = [['','']] * len(activity_ids)
+        scores = [''] * len(activity_ids)
         buckets = range(len(activity_ids))
 
         evalsheet = self.context
@@ -348,69 +333,19 @@ class ScoreSheetPDF(grok.View):
             if ev.learner.to_object == learner:
                 # x iterates through the activities each learner did
                 for x in range(len(ev.evaluation)):
-                    score = ['',''] # to store eg. [u'Excellent','green']
-                    score[0] = ev.evaluation[x]['rating']
+                    score = ev.evaluation[x]['rating']
                     scale = ev.evaluation[x]['rating_scale']
 
-                    # do a color lookup for the score
-                    # non-scored entries are ignored
-                    if score[0] == 0:
-                        pass
-                    # explicitly unrated entries are ignored
-                    elif score[0] == -1:
-                        pass
-                    # test if activity is using default scale
-                    elif self.is_standard_rating_scale(scale):
-                        if score[0] == 1:
-                            score[1] = 'mattred'
-                        elif score[0] == 2:
-                            score[1] = 'gold'
-                        elif score[0] == 3:
-                            score[1] = 'deepblue'
-                        elif score[0] == 4:
-                            score[1] = 'mattgreen'
-                    # if activity is using a non-default scale
-                    else:
-                        colors = ['red','redorange','orange','yelloworange',    
-                                  'pink','yellowgreen','pregreen','green',
-                                  'bluegreen','blue','blueviolet','violet',
-                                  'redviolet','brown1','brown2','brown3']
-            
-                        # in case someone makes a scale with 16+ ratings
-                        if len(scale) > 16:
-                            colors_available = [''] * len(scale)
-                            colors_available[0:15] = colors
-                        else:
-                            colors_available = colors
-
-                        # generate color scale for this entire activity
-                        # then do color lookup based on current score
-                        scale_list = []
-                        for z in range(len(scale)):
-                            scale_list.append(scale[z]['rating'])
-                        # sort scale - we have to assume that user used 
-                        # highest as the best - otherwise well the colors 
-                        # not flow from red to brown as intended
-                        scale_list.sort()
-                        color_dict = {}
-                        # assign colors to this rating scale
-                        for z in range(len(scale_list)):
-                            color_dict.update({scale_list[z] : 
-                                              colors_available[z]})
-
-                        # do color lookup for the score
-                        score[1] = color_dict[score[0]]
-
                     # translate score number (int) into a rating (string)
-                    if score[0] == 0:
-                        score[0] = '' # Unrated are left as blanks
-                    elif score[0] == -1:
-                        score[0] = self.context.translate(_(u'Not Rated'))                            
+                    if score == 0:
+                        score = '' # Unrated are left as blanks
+                    elif score == -1:
+                        score = self.context.translate(_(u'Not Rated'))                            
                     else:
                         rating_scale = ev.evaluation[x]['rating_scale']
                         for y in range(len(rating_scale)):
-                            if score[0] == rating_scale[y]['rating']:
-                                score[0] = rating_scale[y]['label']
+                            if score == rating_scale[y]['rating']:
+                                score = rating_scale[y]['label']
 
                     # find correct score bucket to place this score in.
                     act_id = uuidToObject(ev.evaluation[x]['uid']).id
@@ -428,7 +363,7 @@ class ScoreSheetPDF(grok.View):
                             # point index at the next available bucket
                             idx += 1
         
-        return [[learner.Title(),'']] + scores
+        return [learner.Title()] + scores
 
     def activity_ids(self):
         """ get the activity ids for the activities in this current 
