@@ -1,6 +1,8 @@
 from __future__ import division
 from sets import Set
-import datetime
+import datetime            
+import heapq
+import operator
 from StringIO import StringIO
 from reportlab.graphics import renderPM
 
@@ -24,7 +26,7 @@ from tarmii.theme.browser.reports.charts import LearnerProgressChart
 grok.templatedir('templates')
 
 class DatePickers:
-    """ Mixin class that provides datepicker methods.
+    """ Mixin class that provides datepicker methods for the charting views.
     """
 
     def startDateString(self):
@@ -77,10 +79,11 @@ class DatePickers:
 
 
 class ReportViewsCommon(DatePickers):
-    """ Mixin class that provides user_anonymous method, classlists and
-        is_standard_rating_scale method. They are not necessarily used by all
-        charting views but when more thant two classes use exactly the same
-        method, it is placed here.
+    """ Mixin class that provides user_anonymous, classlists,
+        is_standard_rating_scale, evaluationsheet_filter and average_scores 
+        methods.
+        These are not necessarily used by all charting views but when more than
+        two classes use exactly the same code/method, it is placed here.
     """
 
     def user_anonymous(self):
@@ -152,6 +155,146 @@ class ReportViewsCommon(DatePickers):
                         evaluationsheets_in_range.append(obj)
 
         return evaluationsheets_in_range
+
+    def average_scores(self, evaluationsheets_in_range):
+        """ preforms calculations on the specified evaluationsheets
+            returns filtered_all_activity_ids, filtered_all_scores,
+                    filtered_all_highest_ratings, filtered_all_rating_scales
+                    normalised_avg_all_scores
+                    * filtered means, that unrated and non-rated scores are 
+                    filtered out of the result
+            used by class performance chart and strength and weakness chart       
+        """
+        all_scores = []
+        all_learner_count = []
+        all_activity_ids = []
+        all_highest_ratings = []
+        all_rating_scales = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+            scores = []
+            activity_ids = []
+            highest_rating = []
+            rating_scales = []
+            learner_count = []
+            # one ev object per learner
+            for ev in evaluation_objects:
+                # x iterates through the activities each learner did
+                for x in range(len(ev.evaluation)):
+                    if scores == []:
+                        # init lists so that we can use indexing
+                        scores = [0] * len(ev.evaluation)
+                        learner_count = [0] * len(ev.evaluation)
+                        activity_ids = [None] * len(ev.evaluation)
+                        highest_rating = [None] * len(ev.evaluation)
+                        rating_scales = [None] * len(ev.evaluation)
+                        number_of_learners_in_activity = len(ev.evaluation)
+                    activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
+                    # dont add unrated (0) scores into the average calculation
+                    if ev.evaluation[x]['rating'] != 0:
+                        # update score total and ignore explicitly "not rated"
+                        if ev.evaluation[x]['rating'] != -1:
+                            scores[x] += ev.evaluation[x]['rating']
+                            learner_count[x] += 1
+                    rating_scale = ev.evaluation[x]['rating_scale']
+                    rating_scales[x] = [0] * len(rating_scale)
+                    for y in range(len(rating_scale)):
+                        # store the rating scale for activity x
+                        rating_scales[x][y] = rating_scale[y]['rating']
+                    # sort the stored rating scale highest to lowest (in case
+                    # it isnt already the case)
+                    rating_scales[x].sort()
+                    rating_scales[x].reverse()
+                    # find the highest possible rating in this activities rating
+                    # scale, needed for reference line on the chart
+                    for y in range(len(rating_scale)):
+                        if highest_rating[x] < rating_scale[y]['rating']:
+                            # update highest_rating if higher rating found than
+                            # previously stored rating
+                            highest_rating[x] = rating_scale[y]['rating']
+
+            all_learner_count += learner_count
+            all_scores += scores
+            all_activity_ids += activity_ids
+            all_highest_ratings += highest_rating
+            all_rating_scales += rating_scales
+
+        # filter out activities which no learners have completed
+        filtered_all_highest_ratings = []
+        filtered_all_scores = []
+        filtered_all_activity_ids = []
+        filtered_all_rating_scales = []
+        filtered_all_learner_count = []
+        for x in range(len(all_scores)):
+            if all_learner_count[x] > 0:
+                filtered_all_highest_ratings.append(all_highest_ratings[x])
+                filtered_all_scores.append(all_scores[x])
+                filtered_all_activity_ids.append(all_activity_ids[x])
+                filtered_all_rating_scales.append(all_rating_scales[x])
+                filtered_all_learner_count.append(all_learner_count[x])
+
+        # divide the score of each activity / number of learners that completed
+        # the activity
+        average_all_scores = [0] * len(filtered_all_scores)
+        for x in range(len(filtered_all_scores)):
+            average_all_scores[x] = \
+                float(filtered_all_scores[x]) / filtered_all_learner_count[x]
+
+        # now we must normalise the average scores so that they represent valid
+        # rating scale values (ie so that they fit into the rating scale)
+        # eg. a value of 5.5 between valid scale values of 7 and 4, should => 4
+        normalised_avg_all_scores = [0] * len(filtered_all_scores)
+        for x in range(len(average_all_scores)):
+            notfound = True
+            rating_scale = filtered_all_rating_scales[x]
+            index = 0
+            while notfound:
+            # we iterate through the activities rating scale (which has been
+            # sorted - highest to lowest)
+                if average_all_scores[x] < rating_scale[len(rating_scale)-1]:
+                    # set to the lowest entry in the current rating scale,
+                    # a rating average cannot be lower than this (if it is, then
+                    # it is because some learners were not yet rated and thus 
+                    # are marked as zero which means that practically the avg
+                    # score can drop below the lowest possible score but we 
+                    # correct for that here
+                    normalised_avg_all_scores[x] = \
+                        rating_scale[len(rating_scale)-1]
+                    notfound = False
+                if average_all_scores[x] == 0:
+                # or lower than the lowest entry in the current rating scale 
+                    # set to 0
+                    normalised_avg_all_scores[x] = average_all_scores[x] 
+                    notfound = False
+                if rating_scale[index] <= average_all_scores[x]:
+                    # the average score is bigger or equal to current scale #
+                    normalised_avg_all_scores[x] = rating_scale[index]
+                    notfound = False
+                index += 1
+
+        print '=========================='
+        print all_scores
+        print learner_count
+        print all_activity_ids
+        print all_highest_ratings
+        print all_rating_scales
+        print average_all_scores
+        print normalised_avg_all_scores
+        print '--------------------------'
+        print filtered_all_highest_ratings
+        print filtered_all_activity_ids
+        print filtered_all_rating_scales
+        print filtered_all_learner_count
+        print filtered_all_scores
+        print '=========================='
+
+        return [filtered_all_activity_ids, filtered_all_scores,
+                filtered_all_highest_ratings, filtered_all_rating_scales,
+                normalised_avg_all_scores ]
 
 
 class ClassPerformanceForActivityChartView(grok.View):
@@ -437,142 +580,19 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
     grok.require('zope2.View')
 
     def data(self):
-        # if we are here, evaluationsheets exist in the specified range
+        # if we are here, evaluationsheets exist in the specified date range
 
         classlist_uid = self.request.get('classlist')
         startdate = self.request.get('startdate', '')
         enddate = self.request.get('enddate', '')
 
-        evaluationsheets_in_range = \
+        esheets_in_range = \
             self.evaluationsheets_filter(startdate, enddate, classlist_uid)
         
-        all_scores = []
-        all_learner_count = []
-        all_activity_ids = []
-        all_highest_ratings = []
-        all_rating_scales = []
-        for evalsheet in evaluationsheets_in_range:
-            contentFilter = \
-                {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects = \
-                [x for x in evalsheet.getFolderContents(contentFilter,
-                                                        full_objects=True)]
-            scores = []
-            activity_ids = []
-            highest_rating = []
-            rating_scales = []
-            learner_count = []
-            # one ev object per learner
-            for ev in evaluation_objects:
-                # x iterates through the activities each learner did
-                for x in range(len(ev.evaluation)):
-                    if scores == []:
-                        # init lists so that we can use indexing
-                        scores = [0] * len(ev.evaluation)
-                        learner_count = [0] * len(ev.evaluation)
-                        activity_ids = [None] * len(ev.evaluation)
-                        highest_rating = [None] * len(ev.evaluation)
-                        rating_scales = [None] * len(ev.evaluation)
-                        number_of_learners_in_activity = len(ev.evaluation)
-                    activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
-                    # dont add unrated (0) scores into the average calculation
-                    if ev.evaluation[x]['rating'] != 0:
-                        # update score total and ignore explicitly "not rated"
-                        if ev.evaluation[x]['rating'] != -1:
-                            scores[x] += ev.evaluation[x]['rating']
-                            learner_count[x] += 1
-                    rating_scale = ev.evaluation[x]['rating_scale']
-                    rating_scales[x] = [0] * len(rating_scale)
-                    for y in range(len(rating_scale)):
-                        # store the rating scale for activity x
-                        rating_scales[x][y] = rating_scale[y]['rating']
-                    # sort the stored rating scale highest to lowest (in case
-                    # it isnt already the case)
-                    rating_scales[x].sort()
-                    rating_scales[x].reverse()
-                    # find the highest possible rating in this activities rating
-                    # scale, needed for reference line on the chart
-                    for y in range(len(rating_scale)):
-                        if highest_rating[x] < rating_scale[y]['rating']:
-                            # update highest_rating if higher rating found than
-                            # previously stored rating
-                            highest_rating[x] = rating_scale[y]['rating']
-
-            all_learner_count += learner_count
-            all_scores += scores
-            all_activity_ids += activity_ids
-            all_highest_ratings += highest_rating
-            all_rating_scales += rating_scales
-
-        # filter out activities which no learners have completed
-        filtered_all_highest_ratings = []
-        filtered_all_scores = []
-        filtered_all_activity_ids = []
-        filtered_all_rating_scales = []
-        filtered_all_learner_count = []
-        for x in range(len(all_scores)):
-            if all_learner_count[x] > 0:
-                filtered_all_highest_ratings.append(all_highest_ratings[x])
-                filtered_all_scores.append(all_scores[x])
-                filtered_all_activity_ids.append(all_activity_ids[x])
-                filtered_all_rating_scales.append(all_rating_scales[x])
-                filtered_all_learner_count.append(all_learner_count[x])
-
-        # divide the score of each activity / number of learners that completed
-        # the activity
-        average_all_scores = [0] * len(filtered_all_scores)
-        for x in range(len(filtered_all_scores)):
-            average_all_scores[x] = \
-                float(filtered_all_scores[x]) / filtered_all_learner_count[x]
-
-        # now we must normalise the average scores so that they represent valid
-        # rating scale values (ie so that they fit into the rating scale)
-        # eg. a value of 5.5 between valid scale values of 7 and 4, should => 4
-        normalised_avg_all_scores = [0] * len(filtered_all_scores)
-        for x in range(len(average_all_scores)):
-            notfound = True
-            rating_scale = filtered_all_rating_scales[x]
-            index = 0
-            while notfound:
-            # we iterate through the activities rating scale (which has been
-            # sorted - highest to lowest)
-                if average_all_scores[x] < rating_scale[len(rating_scale)-1]:
-                    # set to the lowest entry in the current rating scale,
-                    # a rating average cannot be lower than this (if it is, then
-                    # it is because some learners were not yet rated and thus 
-                    # are marked as zero which means that practically the avg
-                    # score can drop below the lowest possible score but we 
-                    # correct for that here
-                    normalised_avg_all_scores[x] = \
-                        rating_scale[len(rating_scale)-1]
-                    notfound = False
-                if average_all_scores[x] == 0:
-                # or lower than the lowest entry in the current rating scale 
-                    # set to 0
-                    normalised_avg_all_scores[x] = average_all_scores[x] 
-                    notfound = False
-                if rating_scale[index] <= average_all_scores[x]:
-                    # the average score is bigger or equal to current scale #
-                    normalised_avg_all_scores[x] = rating_scale[index]
-                    notfound = False
-                index += 1
-
-        print '=========================='
-        print all_scores
-        print learner_count
-        print all_activity_ids
-        print all_highest_ratings
-        print all_rating_scales
-        print average_all_scores
-        print normalised_avg_all_scores
-        print '--------------------------'
-        print filtered_all_highest_ratings
-        print filtered_all_activity_ids
-        print filtered_all_rating_scales
-        print filtered_all_learner_count
-        print filtered_all_scores
-        print '=========================='
-
+        [filtered_all_activity_ids, filtered_all_scores,
+         filtered_all_highest_ratings, filtered_all_rating_scales, 
+         normalised_avg_all_scores] = self.average_scores(esheets_in_range)
+         
         title = self.context.translate(_(u'Class Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
         score_legend = self.context.translate(_(u'Average Learner Score'))
@@ -679,7 +699,7 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
     grok.require('zope2.View')
 
     def data(self):
-        # if we are here, evaluationsheets exist in the specified range
+        # if we are here, evaluationsheets exist in the specified date range
 
         classlist_uid = self.request.get('classlist', '')
         learner_uid = self.request.get('learner', '')
@@ -917,9 +937,38 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
             on average and the two activities in which the users performed the 
             worst on average
         """
-        evaluationsheets_in_range = self.evaluationsheets()
+        esheets_in_range = self.evaluationsheets()
 
-        self.highest_lowest_activities = ['BAct1','BAct2','WAct1','WAct2']
+        [filtered_all_activity_ids, filtered_all_scores,
+         filtered_all_highest_ratings, filtered_all_rating_scales, 
+         normalised_avg_all_scores] = self.average_scores(esheets_in_range)
+
+        # check for existance of custom scales
+        self.custom_rating_scale_present = False
+        for scale in filtered_all_rating_scales:
+            # scale must have 4 entries
+            if len(scale) != 4:
+                self.custom_rating_scale_present = True
+            scale.reverse()
+            for z in range(len(scale)):
+                if scale[z] != z+1:
+                    self.custom_rating_scale_present = True
+           
+        # combine filtered_all_scores with filtered_all_activity_ids
+        id_scores = []
+        for x in range(len(filtered_all_activity_ids)):
+            id_scores.append((filtered_all_activity_ids[x],
+                              filtered_all_scores[x]))
+
+        # extract two highest scoring and two lowest scoring activities
+        if self.custom_rating_scale_present:
+            self.highest_lowest_activities = ['x','x','x','x']
+        else:
+            # default rating scales
+            highest = heapq.nlargest(2, id_scores, key=operator.itemgetter(1))
+            lowest = heapq.nsmallest(2, id_scores, key=operator.itemgetter(1))
+            self.highest_lowest_activities = [highest[0][0], highest[1][0],
+                                              lowest[0][0], lowest[1][0]]
 
     def evaluationsheets(self):
         """ return all user's evaluationsheets for the selected date range
@@ -953,7 +1002,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             calculate all the activity_ids that are contained in the 
             evaluationsheets selected by the date range.
         """
-
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
 
         if self.classlist_uid == '':
