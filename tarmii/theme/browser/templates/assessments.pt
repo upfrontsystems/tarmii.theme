@@ -23,7 +23,7 @@
 
         <div>&nbsp;</div>
         <tal:assessments tal:condition="not:view/assessments">
-            <div i18n:translate="message_no_assesments_exist">No assessments have been created yet.</div>
+            <div i18n:translate="message_no_assesments_exist">No assessments have been created yet</div>
         </tal:assessments>
 
         <div id="div-assessment-listing">

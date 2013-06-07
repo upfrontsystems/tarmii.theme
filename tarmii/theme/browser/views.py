@@ -116,7 +116,7 @@ class TARMIIAddUserForm(AddUserForm):
         member.setMemberProperties(mapping={"uuid":str(uuid.uuid1())})
 
         IStatusMessage(self.request).addStatusMessage(
-            _(u"Profile created."), type='info')
+            _(u"Profile created"), type='info')
 
         # Fire PropertiesUpdatedEvent since Plone doesn't
         acl_users = getToolByName(self.context, 'acl_users')

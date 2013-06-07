@@ -127,7 +127,7 @@
     </div>
     <div tal:condition="not:view/activity_ids" >
         <h2 class="questionheader">
-            <span i18n:translate="message_no_activities_found">No activities found. </span>
+            <span i18n:translate="message_no_activities_found">No activities found</span>
         </h2>
     </div>
 

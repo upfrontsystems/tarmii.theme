@@ -60,7 +60,7 @@
 
         <tal:listing tal:condition="not:batch">
             <div>&nbsp;</div>
-            <div i18n:translate="message_no_videos">No videos found in this category.</div>
+            <div i18n:translate="message_no_videos">No videos found in this category</div>
         </tal:listing>
 
         <tal:listing tal:condition="batch">

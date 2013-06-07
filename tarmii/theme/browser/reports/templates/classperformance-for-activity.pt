@@ -76,13 +76,13 @@
 
             <tal:noassessments tal:condition="not:view/evaluationsheets">
                     <div i18n:translate="message_no_assesments_or_activities_exist">No assessments have been created yet,
-                                                                                or existing assessments contain no activities.</div>
+                                                                                or existing assessments contain no activities</div>
             </tal:noassessments>
 
             <tal:assessments tal:condition="view/evaluationsheets">
                 <tal:noactivities tal:condition="not:view/activities">
-                        <div i18n:translate="message_no_activities_in_assessment">No activities associated with selected assessment. 
-                                                                                  Please update the assessment.</div>
+                        <div i18n:translate="message_no_activities_in_assessment">No activities associated with selected assessment,
+                                                                                  please update the assessment</div>
                 </tal:noactivities>
             </tal:assessments>
 
@@ -101,7 +101,7 @@
     </tal:classlists>
 
     <tal:classlists tal:condition="not:view/classlists">
-        <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations.</div>
+        <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations</div>
     </tal:classlists>
     
     <tal:assessments tal:condition="view/evaluationsheets">

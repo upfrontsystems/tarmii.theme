@@ -22,6 +22,7 @@
         <div class="activity" tal:content="structure context/content_concept_skills/output|nothing">
             The Content Concept Skills
         </div>
+
         <h5 i18n:translate="label_prior_knowledge">Prior Knowledge or Skill(s) Assessed</h5>
         <div class="activity" tal:content="structure context/prior_knowledge_skills/output|nothing">
             The Prior Knowledge Skills

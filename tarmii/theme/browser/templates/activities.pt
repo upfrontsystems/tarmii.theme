@@ -89,7 +89,7 @@
         </div>
         </tal:activities>
         <tal:noactivities tal:condition="not:view/activities">
-            <div i18n:translate="message_no_activities_found">No activities found.</div>
+            <div i18n:translate="message_no_activities_found">No activities found</div>
         </tal:noactivities>
 
         <tal:activities

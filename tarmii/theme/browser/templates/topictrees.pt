@@ -19,7 +19,7 @@
 
         <div>&nbsp;</div>
         <tal:topictrees tal:condition="not:view/topictrees">
-            <div i18n:translate="message_no_topictrees_exist">No topic trees have been created yet.</div>
+            <div i18n:translate="message_no_topictrees_exist">No topic trees have been created yet</div>
         </tal:topictrees>
 
         <tal:listing tal:condition="view/topictrees">

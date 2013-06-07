@@ -103,8 +103,7 @@
             </form>
 
             <tal:nostats tal:condition="not:view/stats">
-                <p i18n:translate="description_nostats">No usage stats present.
-                </p>
+                <p i18n:translate="description_nostats">No usage stats present</p>
             </tal:nostats>
 
             <tal:stats tal:condition="view/stats">

@@ -12,7 +12,7 @@
     </metal:main>
     <metal:main fill-slot="content-core">
     
-        <p i18n:translate="description_reports">Click on the name of the report to access it.
+        <p i18n:translate="description_reports">Click on the name of the report to access it
         </p>
 
         <ul>

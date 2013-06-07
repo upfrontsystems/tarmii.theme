@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-06 09:37+0000\n"
+"POT-Creation-Date: 2013-06-07 09:50+0000\n"
 "PO-Revision-Date: 2013-05-30 15:16+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/reports/views.py:217
+#: ./browser/reports/views.py:360
 msgid " learner"
 msgstr " leerder"
 
-#: ./browser/reports/views.py:215
+#: ./browser/reports/views.py:358
 msgid " learners"
 msgstr " leerders"
 
@@ -32,7 +32,7 @@ msgstr "oplaai rapporteer 'n fout."
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:47
-#: ./browser/reports/views.py:427
+#: ./browser/reports/views.py:570
 msgid "%B"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgid "A data base conflict error happened when uploading this file:"
 msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 
 #. Default: "Activities"
-#: ./browser/reports/views.py:579
+#: ./browser/reports/views.py:599
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr "Aktiwiteite"
@@ -113,7 +113,7 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
-#: ./browser/reports/views.py:578
+#: ./browser/reports/views.py:598
 msgid "Average Learner Score"
 msgstr "Gemiddelde Leerder Telling"
 
@@ -155,11 +155,11 @@ msgstr "Kies die prente om op te laai"
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
-#: ./browser/reports/views.py:576
+#: ./browser/reports/views.py:596
 msgid "Class Progress"
 msgstr "Klas Vordering"
 
-#: ./browser/reports/views.py:240
+#: ./browser/reports/views.py:383
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
 
@@ -208,7 +208,7 @@ msgstr "Redigeer Assessering"
 msgid "Edit Classlist"
 msgstr "Redigeer Klaslys"
 
-#: ./browser/reports/views.py:63
+#: ./browser/reports/views.py:65
 msgid "End Date"
 msgstr "Einde Datum"
 
@@ -268,7 +268,7 @@ msgstr "Genereer Verslag"
 msgid "Good"
 msgstr "Goed"
 
-#: ./browser/reports/views.py:577
+#: ./browser/reports/views.py:597
 msgid "Highest Possible Score"
 msgstr "Hoogste Moontlike Telling"
 
@@ -309,11 +309,11 @@ msgstr "Etiket"
 msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
-#: ./browser/reports/views.py:753
+#: ./browser/reports/views.py:773
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
 
-#: ./browser/reports/views.py:755
+#: ./browser/reports/views.py:775
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -325,9 +325,6 @@ msgstr "Leerder Taak/Aktiwiteit"
 msgid "Limpopo"
 msgstr "Limpopo"
 
-# This entry is used in gomobiletheme.mfabrik  templates for the campaign page header
-# It is not automatically picked, since it is referred from external package
-#. Default: "Watch video"
 #: ./browser/templates/usagestats.pt:54
 msgid "March"
 msgstr "Maart"
@@ -357,7 +354,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:229
+#: ./browser/reports/views.py:372
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -374,7 +371,7 @@ msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1278
+#: ./browser/reports/views.py:1171
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -382,13 +379,13 @@ msgstr "Nie Gegradeer nie"
 msgid "November"
 msgstr "November"
 
-#: ./browser/reports/views.py:242
+#: ./browser/reports/views.py:385
 msgid "Number of learners per rating"
 msgstr "Aantal leerders per gradering"
 
 #: ./userdataschema.py:48
-msgid "Number of years teaching foundation phase."
-msgstr "Aantal jare onderrig van grondslagfase"
+msgid "Number of years teaching foundation phase"
+msgstr "Aantal jare grondslagfase onderrig"
 
 #: ./browser/templates/usagestats.pt:97
 msgid "OK"
@@ -416,8 +413,8 @@ msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
 #: ./browser/views.py:119
-msgid "Profile created."
-msgstr "Profiel geskep."
+msgid "Profile created"
+msgstr "Profil geskep"
 
 #: ./userdataschema.py:22
 msgid "Province"
@@ -435,7 +432,7 @@ msgstr "Gradering"
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./browser/reports/views.py:580
+#: ./browser/reports/views.py:600
 msgid "Ratings"
 msgstr "Graderings"
 
@@ -517,7 +514,7 @@ msgstr "September"
 msgid "Server error, please contact support and/or try again."
 msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
 
-#: ./browser/reports/views.py:66
+#: ./browser/reports/views.py:68
 msgid "Start Date"
 msgstr "Begin Datum"
 
@@ -615,15 +612,15 @@ msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die na
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
 
-#. Default: "No usage stats present."
+#. Default: "No usage stats present"
 #: ./browser/templates/usagestats.pt:106
 msgid "description_nostats"
-msgstr "Geen huidige gebruik statistieke."
+msgstr "Geen huidige gebruik statistieke"
 
-#. Default: "Click on the name of the report to access it."
+#. Default: "Click on the name of the report to access it"
 #: ./browser/templates/report.pt:15
 msgid "description_reports"
-msgstr "Klik op die naam van die verslag om dit te oopmaak."
+msgstr "Klik op die naam van die verslag om dit te oopmaak"
 
 #. Default: "Activities"
 #: ./browser/templates/activities.pt:11
@@ -638,7 +635,7 @@ msgstr "Alle aktiwiteite in die stelsel"
 #. Default: "Activity ID:"
 #: ./browser/templates/evaluationsheet-pdf.pt:106
 msgid "heading_activity_id"
-msgstr "Aktiwiteit ID: "
+msgstr "Aktiwiteit ID:"
 
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
@@ -725,7 +722,7 @@ msgstr "Skole:"
 #. Default: "Score Sheet for"
 #: ./browser/templates/scoresheet-pdf.pt:109
 msgid "heading_scoresheet_pdf"
-msgstr "Verslagsblad vir "
+msgstr "Verslagsblad vir"
 
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
@@ -849,12 +846,12 @@ msgid "home_heading_videos"
 msgstr "VIDEOS"
 
 #. Default: "Activities Created"
-#: ./browser/templates/usagestats.pt:118
+#: ./browser/templates/usagestats.pt:117
 msgid "label_activities_created"
 msgstr "Aktiwiteite Geskep"
 
 #. Default: "Activities Viewed"
-#: ./browser/templates/usagestats.pt:114
+#: ./browser/templates/usagestats.pt:113
 msgid "label_activities_viewed"
 msgstr "Aktiwiteite Gesien"
 
@@ -871,7 +868,7 @@ msgstr "Of tik die naam van 'n nuwe assessering in:"
 
 #. Default: "Add to Assessment"
 #: ./browser/templates/activities.pt:114
-#: ./browser/templates/assessmentitem-view.pt:48
+#: ./browser/templates/assessmentitem-view.pt:49
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
@@ -897,14 +894,14 @@ msgid "label_assessment_pdf"
 msgstr "Assessering PDF"
 
 #. Default: "Assessments Created"
-#: ./browser/templates/usagestats.pt:119
+#: ./browser/templates/usagestats.pt:118
 msgid "label_assessments_created"
 msgstr "Assesserings Geskep"
 
-#. Default: "Activity that the highest number of learners answered correctly."
+#. Default: "Activity that the highest number of learners answered correctly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:89
 msgid "label_best_activity"
-msgstr "Aktiwiteit wat die hoogste aantal leerders korrek beantwoord het."
+msgstr "Aktiwiteit wat die hoogste aantal leerders korrek beantwoord het"
 
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
@@ -934,7 +931,7 @@ msgid "label_classlist"
 msgstr "Klaslys"
 
 #. Default: "Classlists Created"
-#: ./browser/templates/usagestats.pt:120
+#: ./browser/templates/usagestats.pt:119
 msgid "label_classlists_created"
 msgstr "Klaslyste Geskep"
 
@@ -956,12 +953,12 @@ msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Day"
-#: ./browser/templates/usagestats.pt:113
+#: ./browser/templates/usagestats.pt:112
 msgid "label_day"
 msgstr "Dag"
 
 #. Default: "Delete"
-#: ./browser/templates/assessmentitem-view.pt:50
+#: ./browser/templates/assessmentitem-view.pt:51
 #: ./browser/templates/assessments.pt:36
 #: ./browser/templates/classlists.pt:36
 msgid "label_delete"
@@ -975,7 +972,7 @@ msgstr "Skuif af"
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:112
 #: ./browser/templates/assessment-view.pt:68
-#: ./browser/templates/assessmentitem-view.pt:46
+#: ./browser/templates/assessmentitem-view.pt:47
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -986,7 +983,7 @@ msgstr "E-pos"
 
 #. Default: "Equipment and Administration (For the teacher)"
 #: ./browser/templates/activities-pdf.pt:128
-#: ./browser/templates/assessmentitem-view.pt:29
+#: ./browser/templates/assessmentitem-view.pt:30
 msgid "label_equipment_and_admin"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
@@ -1007,7 +1004,7 @@ msgid "label_evaluationsheet_pdf"
 msgstr "Evaluasieblad PDF"
 
 #. Default: "Evaluationsheets Created"
-#: ./browser/templates/usagestats.pt:121
+#: ./browser/templates/usagestats.pt:120
 msgid "label_evaluationsheets_created"
 msgstr "Evaluasieblaaie Geskep"
 
@@ -1028,7 +1025,7 @@ msgid "label_how_to"
 msgstr "Hoe om"
 
 #. Default: "Howto Clips Viewed"
-#: ./browser/templates/usagestats.pt:115
+#: ./browser/templates/usagestats.pt:114
 msgid "label_howto_clips_viewed"
 msgstr "Hoe om Videos Gesien"
 
@@ -1075,13 +1072,13 @@ msgid "label_pedagogic"
 msgstr "Pedagogiese"
 
 #. Default: "Pedagogic Clips Viewed"
-#: ./browser/templates/usagestats.pt:116
+#: ./browser/templates/usagestats.pt:115
 msgid "label_pedagogic_clips_viewed"
 msgstr "Pedagogiese Videos Gesien"
 
 #. Default: "Prior Knowledge or Skill(s) Assessed"
 #: ./browser/templates/activities-pdf.pt:124
-#: ./browser/templates/assessmentitem-view.pt:25
+#: ./browser/templates/assessmentitem-view.pt:26
 msgid "label_prior_knowledge"
 msgstr "Vorige Kennis of Vaardighede Geassesseer"
 
@@ -1121,15 +1118,15 @@ msgstr "Skool Naam"
 msgid "label_search_activity"
 msgstr "Soek vir 'n aktiwiteit :"
 
-#. Default: "Activity that the second highest number of learners answered correctly."
+#. Default: "Activity that the second highest number of learners answered correctly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:94
 msgid "label_second_best_activity"
-msgstr "Aktiwiteit wat die tweede hoogste aantal leerders korrek beantwoord het."
+msgstr "Aktiwiteit wat die tweede hoogste aantal leerders korrek beantwoord het"
 
-#. Default: "Activity that the second highest number of learners answered incorrectly."
+#. Default: "Activity that the second highest number of learners answered incorrectly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:109
 msgid "label_second_worst_activity"
-msgstr "Aktiwiteit wat die tweede hoogste aantal leerders verkeerd beantwoord het."
+msgstr "Aktiwiteit wat die tweede hoogste aantal leerders verkeerd beantwoord het"
 
 #. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknessess cannot be calculated when this is the case."
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:118
@@ -1142,7 +1139,7 @@ msgid "label_strengths"
 msgstr "Sterkpunte"
 
 #. Default: "Teacher Resources Viewed"
-#: ./browser/templates/usagestats.pt:117
+#: ./browser/templates/usagestats.pt:116
 msgid "label_teacher_resources_viewed"
 msgstr "Onderwyser Hulpbronne Gesien"
 
@@ -1153,7 +1150,7 @@ msgstr "Onderwyser Informasie PDF"
 
 #. Default: "Topics:"
 #: ./browser/templates/activities-pdf.pt:133
-#: ./browser/templates/assessmentitem-view.pt:33
+#: ./browser/templates/assessmentitem-view.pt:34
 msgid "label_topics"
 msgstr "Onderwerpe:"
 
@@ -1189,10 +1186,10 @@ msgstr "Sien"
 msgid "label_weaknessess"
 msgstr "Swakhede"
 
-#. Default: "Activity that the highest number of learners answered incorrectly."
+#. Default: "Activity that the highest number of learners answered incorrectly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:104
 msgid "label_worst_activity"
-msgstr "Aktiwiteit wat die hoogste aantal leerders verkeerd beantwoord het."
+msgstr "Aktiwiteit wat die hoogste aantal leerders verkeerd beantwoord het"
 
 #. Default: "Years teaching"
 #: ./browser/templates/teacherprofiles.pt:43
@@ -1231,10 +1228,10 @@ msgstr "Skep 'n nuwe profil"
 msgid "link_evaluation_sheet_chart"
 msgstr "Evaluasieblad"
 
-#. Default: "import learners to an existing/new class list."
+#. Default: "import learners to an existing/new class list"
 #: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
-msgstr "leerders tot 'n bestaande/nuwe klaslys invoer."
+msgstr "leerders tot 'n bestaande/nuwe klaslys invoer"
 
 #. Default: "Learner Progress"
 #: ./browser/templates/report.pt:28
@@ -1255,17 +1252,17 @@ msgstr "maksimum lêer grootte is:"
 msgid "message_activities_found"
 msgstr "Aktiwiteite gevind"
 
-#. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified."
+#. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified"
 #: ./browser/templates/assessment-view.pt:22
 msgid "message_assessment_frozen"
-msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan nie verander word nie."
+msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan nie verander word nie"
 
-#. Default: "Please create some classlists, assessments and evaluations."
+#. Default: "Please create some classlists, assessments and evaluations"
 #: ./browser/reports/templates/classperformance-for-activity.pt:104
 #: ./browser/reports/templates/classprogress.pt:135
 #: ./browser/reports/templates/evaluationsheet.pt:136
 msgid "message_create_classlists"
-msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies."
+msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies"
 
 #. Default: "The assessments have been created with an empty classlist. Please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
 #: ./browser/reports/templates/classperformance-for-activity.pt:92
@@ -1277,90 +1274,90 @@ msgstr "Die assesserings is geskep met 'n leë klaslys. Voeg asseblief 'n paar l
 msgid "message_evaluationsheets_not_marked"
 msgstr "Evaluasieblaaie bestaan vir hierdie klaslys, maar nie een van hulle is nog gemerk nie. Let wel: 'Nie Gegradeer' se keuses is nie beskou as gemerk."
 
-#. Default: "Thank you for your feedback about ${assessment_item_id}."
+#. Default: "Thank you for your feedback about ${assessment_item_id}"
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
-msgstr "Dankie vir U terugvoer oor ${assessment_item_id}."
+msgstr "Dankie vir U terugvoer oor ${assessment_item_id}"
 
 #. Default: "Evaluationsheets exist for this learner, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
 #: ./browser/reports/templates/learnerprogress.pt:135
 msgid "message_learner_not_marked"
 msgstr "Evaluasieblaaie bestaan vir hierdie leerder, maar nie een van hulle is nog gemerk nie. Let wel: 'Nie Gegradeer' se keuses is nie beskou as gemerk."
 
-#. Default: "No activities have been added to this assessment."
+#. Default: "No activities have been added to this assessment"
 #: ./browser/templates/assessment-view.pt:27
 msgid "message_no_activities_added"
-msgstr "Geen aktiwiteite is nog nie by hierdie assessering bygevoeg nie."
+msgstr "Geen aktiwiteite is nog nie by hierdie assessering bygevoeg nie"
 
-#. Default: "No activities found."
+#. Default: "No activities found"
 #: ./browser/templates/activities.pt:92
 #: ./browser/templates/scoresheet-pdf.pt:130
 msgid "message_no_activities_found"
-msgstr "Geen aktiwiteite is gevind."
+msgstr "Geen aktiwiteite is gevind"
 
-#. Default: "No activities associated with selected assessment. Please update the assessment."
+#. Default: "No activities associated with selected assessment, please update the assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:84
 msgid "message_no_activities_in_assessment"
-msgstr "Geen aktiwiteite is geassosieer met die geselekteerde assessering. Bywerk die assessering asseblief."
+msgstr "Geen aktiwiteite is geassosieer met die geselekteerde assessering. Bywerk die assessering asseblief"
 
-#. Default: "No assessments have been created yet."
+#. Default: "No assessments have been created yet"
 #: ./browser/templates/assessments.pt:26
 msgid "message_no_assesments_exist"
-msgstr "Geen assesserings is nog geskep."
+msgstr "Geen assesserings is nog geskep"
 
-#. Default: "No assessments have been created yet, or existing assessments contain no activities."
+#. Default: "No assessments have been created yet, or existing assessments contain no activities"
 #: ./browser/reports/templates/classperformance-for-activity.pt:78
 msgid "message_no_assesments_or_activities_exist"
-msgstr "Geen assesserings is nog geskep, of bestaande assesserings bevat geen aktiwiteite."
+msgstr "Geen assesserings is nog geskep, of bestaande assesserings bevat geen aktiwiteite"
 
-#. Default: "No class lists have been created yet."
+#. Default: "No class lists have been created yet"
 #: ./browser/templates/classlists.pt:28
 msgid "message_no_classlists_exist"
-msgstr "Geen klaslyse is nog geskep."
+msgstr "Geen klaslyse is nog geskep"
 
-#. Default: "No evaluationsheets found in the specified date range."
+#. Default: "No evaluationsheets found in the specified date range"
 #: ./browser/reports/templates/classprogress.pt:110
 #: ./browser/reports/templates/evaluationsheet.pt:109
 #: ./browser/reports/templates/learnerprogress.pt:128
 msgid "message_no_evaluationsheets"
-msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik."
+msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik"
 
-#. Default: "No evaluation sheets have been created yet."
+#. Default: "No evaluation sheets have been created yet"
 #: ./browser/templates/evaluationsheets.pt:23
 msgid "message_no_evaluationsheets_exist"
-msgstr "Geen evaluasieblaaie is nog geskep."
+msgstr "Geen evaluasieblaaie is nog geskep"
 
-#. Default: "No profiles have been created yet."
+#. Default: "No profiles have been created yet"
 #: ./browser/templates/selectprofile.pt:29
 msgid "message_no_profiles_exist"
-msgstr "Geen profile is nog geskep."
+msgstr "Geen profile is nog geskep"
 
-#. Default: "No resources found in the system."
+#. Default: "No resources found in the system"
 #: ./browser/templates/resources.pt:25
 msgid "message_no_resources"
-msgstr "Geen hulpbronne gevind in die stelsel."
+msgstr "Geen hulpbronne gevind in die stelsel"
 
-#. Default: "No topic trees have been created yet."
+#. Default: "No topic trees have been created yet"
 #: ./browser/templates/topictrees.pt:22
 msgid "message_no_topictrees_exist"
-msgstr "Geen onderwyser boome is nog geskep."
+msgstr "Geen onderwyser boome is nog geskep"
 
-#. Default: "No videos found in this category."
+#. Default: "No videos found in this category"
 #: ./browser/templates/videos.pt:63
 msgid "message_no_videos"
-msgstr "Geen videos gevind in die stelsel."
+msgstr "Geen videos gevind in die stelsel"
 
 #. Default: "Resource(s) found"
 #: ./browser/templates/resources.pt:63
 msgid "message_resources_found"
 msgstr "Hulpbronne gevind"
 
-#. Default: "Specified Start Date must be earlier than the End Date."
+#. Default: "Specified Start Date must be earlier than the End Date"
 #: ./browser/reports/templates/classprogress.pt:104
 #: ./browser/reports/templates/evaluationsheet.pt:103
 #: ./browser/reports/templates/learnerprogress.pt:122
 msgid "message_startdate_bigger_enddate"
-msgstr "Gespesifiseerde start datum moet vroeër as die einde datum wees."
+msgstr "Gespesifiseerde start datum moet vroeër as die einde datum wees"
 
 #. Default: "Thank you for your request about ${subject}, ${customer_email}."
 #: ./browser/templates/feedback_result.pt:15
@@ -1381,7 +1378,7 @@ msgstr "Ons sal binnekort antwoord."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:426
+#: ./browser/reports/views.py:569
 msgid "on"
 msgstr "op"
 

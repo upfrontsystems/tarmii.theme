@@ -19,12 +19,12 @@
         </tal:assessment_editable>
 
         <tal:assessment_not_editable condition="not:view/assessment_editable">
-            <div i18n:translate="message_assessment_frozen">This assessment is used by existing evaluationsheet(s) and cannot be modified.</div>
+            <div i18n:translate="message_assessment_frozen">This assessment is used by existing evaluationsheet(s) and cannot be modified</div>
         </tal:assessment_not_editable>
 
         <div>&nbsp;</div>
         <tal:activities tal:condition="not:view/activities">
-            <div i18n:translate="message_no_activities_added">No activities have been added to this assessment.</div>
+            <div i18n:translate="message_no_activities_added">No activities have been added to this assessment</div>
         </tal:activities>
 
         <tal:activities tal:condition="view/activities">

@@ -45,7 +45,7 @@ class ITARMIIUserDataSchema(IUserDataSchema):
         )
 
     years_teaching = schema.TextLine(
-            title=_(u"Number of years teaching foundation phase."),
+            title=_(u"Number of years teaching foundation phase"),
             required=True,
         )
 

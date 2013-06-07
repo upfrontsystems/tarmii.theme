@@ -22,7 +22,7 @@
 
         <div>&nbsp;</div>
         <tal:topictrees tal:condition="not:view/topictrees">
-            <div i18n:translate="message_no_resources">No resources found in the system.</div>
+            <div i18n:translate="message_no_resources">No resources found in the system</div>
         </tal:topictrees>
 
         <form id="filter-results-form" name="filter-result-form" tal:attributes="action string:${here/absolute_url}">

@@ -12,7 +12,7 @@
         <h1 tal:content="view/label">Form label</h1>
 
         <p i18n:translate="message_feedback_thankyou">Thank you for your feedback about 
-            <span i18n:name="assessment_item_id" tal:replace="view/assessment_item_id"></span>.
+            <span i18n:name="assessment_item_id" tal:replace="view/assessment_item_id"></span>
         </p>
 
     </div>
