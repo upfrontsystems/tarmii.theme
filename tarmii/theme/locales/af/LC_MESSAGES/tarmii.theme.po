@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-07 09:50+0000\n"
-"PO-Revision-Date: 2013-05-30 15:16+0200\n"
+"POT-Creation-Date: 2013-06-10 09:05+0000\n"
+"PO-Revision-Date: 2013-06-10 11:10+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,8 +27,8 @@ msgid " learners"
 msgstr " leerders"
 
 #: ./browser/quickupload.py:370
-msgid " uploads return an error."
-msgstr "oplaai rapporteer 'n fout."
+msgid " uploads return an error"
+msgstr " oplaai gee 'n fout"
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:47
@@ -89,16 +89,16 @@ msgid "Add video "
 msgstr "Voeg video by"
 
 #: ./browser/quickupload.py:368
-msgid "All files uploaded with success."
-msgstr "Alle lêers het suksesvol opgelaai."
+msgid "All files uploaded with success"
+msgstr "Alle lêers suksesvol opgelaai"
 
 #: ./behaviors.py:163
-msgid "All rating values must be positive and larger than zero."
-msgstr "Alle graderings moet positief en groter as nul wees."
+msgid "All rating values must be positive and larger than zero"
+msgstr "Alle gradering waardes moet positief en groter as nul wees"
 
 #: ./behaviors.py:166
-msgid "All rating values must be unique."
-msgstr "Elke gradering moet uniek wees."
+msgid "All rating values must be unique"
+msgstr "Alle gradering waardes moet uniek wees"
 
 #: ./browser/templates/usagestats.pt:56
 msgid "April"
@@ -185,8 +185,8 @@ msgid "December"
 msgstr "Desember"
 
 #: ./interfaces.py:36
-msgid "Define the url where the logs can be uploaded."
-msgstr "Definieer die URL waar die logs opgelaai kan word."
+msgid "Define the url where the logs can be uploaded"
+msgstr "Definieer die url waar die stompe kan opgelaai word"
 
 #: ./browser/quickupload.py:367
 msgid "Drag and drop files to upload"
@@ -511,8 +511,8 @@ msgid "September"
 msgstr "September"
 
 #: ./browser/quickupload.py:384
-msgid "Server error, please contact support and/or try again."
-msgstr "Server fout, kontak asseblief vir ondersteuning en / of probeer weer."
+msgid "Server error, please contact support and/or try again"
+msgstr "Bediener fout, kontak ondersteuning en / of probeer weer"
 
 #: ./browser/reports/views.py:68
 msgid "Start Date"
@@ -531,8 +531,8 @@ msgid "The message body"
 msgstr "Die boodskap teks"
 
 #: ./behaviors.py:189
-msgid "This Item ID is already in use."
-msgstr "Hierdie Item ID is reeds gebruik."
+msgid "This Item ID is already in use"
+msgstr "Hierdie punt ID is reeds in gebruik"
 
 #: ./browser/quickupload.py:382
 msgid "This file already exists with the same name on server:"
@@ -551,8 +551,8 @@ msgid "This file is too large:"
 msgstr "Hierdie lêer is te groot:"
 
 #: ./browser/quickupload.py:381
-msgid "This type of element is not allowed in this folder."
-msgstr "Hierdie tipe van element is nie toegelaat in hierdie lêergids nie."
+msgid "This type of element is not allowed in this folder"
+msgstr "Hierdie tipe van die element is nie toegelaat om in hierdie gids"
 
 #: ./eventhandlers.py:67
 msgid "Thumbnail generation failed"
@@ -599,8 +599,8 @@ msgid "Western Cape"
 msgstr "Wes-Kaap"
 
 #: ./browser/quickupload.py:380
-msgid "You don't have permission to add this content in this place."
-msgstr "Jy het nie toestemming om hierdie inhoud in hierdie plek in te voeg."
+msgid "You don't have permission to add this content in this place"
+msgstr "Jy het nie toestemming om hierdie inhoud by hierdie plek in te voeg"
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
 #: ./browser/templates/assessments.pt:16
@@ -1383,12 +1383,12 @@ msgid "on"
 msgstr "op"
 
 #: ./browser/quickupload.py:372
-msgid "please select files again without it."
-msgstr "kies asseblief lêers weer sonder dit."
+msgid "please select files again without it"
+msgstr "kies asseblief lêers weer sonder dit"
 
 #: ./browser/quickupload.py:373
-msgid "please try again."
-msgstr "probeer asseblief weer."
+msgid "please try again"
+msgstr "probeer weer asseblief"
 
 #. Default: "Assessment: ${assessment_title}"
 #: ./browser/templates/assessment-view.pt:13

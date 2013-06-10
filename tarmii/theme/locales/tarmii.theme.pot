@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-07 09:50+0000\n"
+"POT-Creation-Date: 2013-06-10 09:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgid " learners"
 msgstr ""
 
 #: ./browser/quickupload.py:370
-msgid " uploads return an error."
+msgid " uploads return an error"
 msgstr ""
 
 #: ./browser/assessments.py:41
@@ -88,15 +88,15 @@ msgid "Add video "
 msgstr ""
 
 #: ./browser/quickupload.py:368
-msgid "All files uploaded with success."
+msgid "All files uploaded with success"
 msgstr ""
 
 #: ./behaviors.py:163
-msgid "All rating values must be positive and larger than zero."
+msgid "All rating values must be positive and larger than zero"
 msgstr ""
 
 #: ./behaviors.py:166
-msgid "All rating values must be unique."
+msgid "All rating values must be unique"
 msgstr ""
 
 #: ./browser/templates/usagestats.pt:56
@@ -184,7 +184,7 @@ msgid "December"
 msgstr ""
 
 #: ./interfaces.py:36
-msgid "Define the url where the logs can be uploaded."
+msgid "Define the url where the logs can be uploaded"
 msgstr ""
 
 #: ./browser/quickupload.py:367
@@ -510,7 +510,7 @@ msgid "September"
 msgstr ""
 
 #: ./browser/quickupload.py:384
-msgid "Server error, please contact support and/or try again."
+msgid "Server error, please contact support and/or try again"
 msgstr ""
 
 #: ./browser/reports/views.py:68
@@ -530,7 +530,7 @@ msgid "The message body"
 msgstr ""
 
 #: ./behaviors.py:189
-msgid "This Item ID is already in use."
+msgid "This Item ID is already in use"
 msgstr ""
 
 #: ./browser/quickupload.py:382
@@ -550,7 +550,7 @@ msgid "This file is too large:"
 msgstr ""
 
 #: ./browser/quickupload.py:381
-msgid "This type of element is not allowed in this folder."
+msgid "This type of element is not allowed in this folder"
 msgstr ""
 
 #: ./eventhandlers.py:67
@@ -598,7 +598,7 @@ msgid "Western Cape"
 msgstr ""
 
 #: ./browser/quickupload.py:380
-msgid "You don't have permission to add this content in this place."
+msgid "You don't have permission to add this content in this place"
 msgstr ""
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
@@ -1382,11 +1382,11 @@ msgid "on"
 msgstr ""
 
 #: ./browser/quickupload.py:372
-msgid "please select files again without it."
+msgid "please select files again without it"
 msgstr ""
 
 #: ./browser/quickupload.py:373
-msgid "please try again."
+msgid "please try again"
 msgstr ""
 
 #. Default: "Assessment: ${assessment_title}"

@@ -33,7 +33,7 @@ class ITARMIIRemoteServerSettings(Interface):
 
     server_url = TextLine(
         title=_(u'Remote Server Url'),
-        description=_(u'Define the url where the logs can be uploaded.'),
+        description=_(u'Define the url where the logs can be uploaded'),
         required=True
     )
 

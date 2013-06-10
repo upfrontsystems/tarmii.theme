@@ -14,7 +14,6 @@ class DownloadTeacherDataView(grok.View):
     def __call__(self):
         """ Return zip content as http response
         """
-
         view = self.context.restrictedTraverse('@@upload-to-server')
         zip_data = view.zip_csv()
         now = DateTime()

@@ -161,9 +161,9 @@ class RatingValidator(validator.SimpleFieldValidator):
             rating = value[x]['rating']            
             if rating <= 0:
                 raise Invalid(_(u"All rating values must be positive and " +\
-                                u"larger than zero."))
+                                u"larger than zero"))
             if rating in ratings_set:
-                raise Invalid(_(u"All rating values must be unique."))
+                raise Invalid(_(u"All rating values must be unique"))
             else:
                 ratings_set.add(rating)
       
@@ -186,7 +186,7 @@ class ItemIdValidator(validator.SimpleFieldValidator):
         existing_ids = Set([x.getObject().id for x
                             in self.context.getFolderContents(contentFilter)])
         if normalized_value in existing_ids:
-                raise Invalid(_(u"This Item ID is already in use."))
+                raise Invalid(_(u"This Item ID is already in use"))
       
 
 validator.WidgetValidatorDiscriminators(ItemIdValidator,
