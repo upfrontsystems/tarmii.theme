@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 11:33+0000\n"
+"POT-Creation-Date: 2013-06-10 12:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -620,7 +620,7 @@ msgstr ""
 msgid "description_assesments"
 msgstr ""
 
-#. Default: "Here you can add new class lists or"
+#. Default: "Here you can add new classlists or"
 #: ./browser/templates/classlists.pt:16
 msgid "description_classlists_add"
 msgstr ""
@@ -726,72 +726,72 @@ msgid "heading_usagestats"
 msgstr ""
 
 #. Default: "This section allows you to use existing activites in your class room or create your own activities."
-#: ./browser/templates/home.pt:38
+#: ./browser/templates/home.pt:37
 msgid "home_description_activities"
 msgstr ""
 
 #. Default: "This section enables you to create formal and informal assessments."
-#: ./browser/templates/home.pt:53
+#: ./browser/templates/home.pt:52
 msgid "home_description_assessments"
 msgstr ""
 
-#. Default: "This section allows you to manage your class lists. Here you can create or delete, import or export your class lists."
+#. Default: "This section allows you to manage your classlists. Here you can create or delete, import or export your classlists."
 #: ./browser/templates/home.pt:23
 msgid "home_description_classlists"
 msgstr ""
 
 #. Default: "This section allows you to create evaluation sheets and rate how learners perform on assessments."
-#: ./browser/templates/home.pt:66
+#: ./browser/templates/home.pt:65
 msgid "home_description_evaluations"
 msgstr ""
 
 #. Default: "This section allows you to generate various assessment reports for assessments you have administered."
-#: ./browser/templates/home.pt:81
+#: ./browser/templates/home.pt:80
 msgid "home_description_reports"
 msgstr ""
 
 #. Default: "This section contains resources that you can use in the class room."
-#: ./browser/templates/home.pt:110
+#: ./browser/templates/home.pt:109
 msgid "home_description_teacherresources"
 msgstr ""
 
 #. Default: "This section contains video tutorials."
-#: ./browser/templates/home.pt:97
+#: ./browser/templates/home.pt:96
 msgid "home_description_videos"
 msgstr ""
 
 #. Default: "ACTIVITIES"
-#: ./browser/templates/home.pt:36
+#: ./browser/templates/home.pt:35
 msgid "home_heading_activities"
 msgstr ""
 
 #. Default: "GENERATE ASSESSMENT ACTIVITIES"
-#: ./browser/templates/home.pt:51
+#: ./browser/templates/home.pt:50
 msgid "home_heading_assessments"
 msgstr ""
 
-#. Default: "CREATE CLASS LISTS"
+#. Default: "CREATE CLASSLISTS"
 #: ./browser/templates/home.pt:21
 msgid "home_heading_classlists"
 msgstr ""
 
 #. Default: "EVALUATE LEARNERS"
-#: ./browser/templates/home.pt:64
+#: ./browser/templates/home.pt:63
 msgid "home_heading_evaluations"
 msgstr ""
 
 #. Default: "GENERATE REPORTS"
-#: ./browser/templates/home.pt:79
+#: ./browser/templates/home.pt:78
 msgid "home_heading_reports"
 msgstr ""
 
 #. Default: "TEACHER RESOURCES"
-#: ./browser/templates/home.pt:108
+#: ./browser/templates/home.pt:107
 msgid "home_heading_teacherresources"
 msgstr ""
 
 #. Default: "VIDEOS"
-#: ./browser/templates/home.pt:95
+#: ./browser/templates/home.pt:94
 msgid "home_heading_videos"
 msgstr ""
 
@@ -825,13 +825,8 @@ msgstr ""
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
-#: ./browser/templates/evaluationsheets.pt:31
-msgid "label_assessment"
-msgstr ""
-
-#. Default: "Assessment"
 #: ./browser/templates/assessments.pt:33
-msgid "label_assessment_name"
+msgid "label_assessment"
 msgstr ""
 
 #. Default: "Assessment PDF"
@@ -1115,7 +1110,7 @@ msgstr ""
 msgid "link_create_new_profile"
 msgstr ""
 
-#. Default: "import learners to an existing/new class list"
+#. Default: "import learners to an existing/new classlist"
 #: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
 msgstr ""
@@ -1187,7 +1182,7 @@ msgstr ""
 msgid "message_no_assesments_or_activities_exist"
 msgstr ""
 
-#. Default: "No class lists have been created yet"
+#. Default: "No classlists have been created yet"
 #: ./browser/templates/classlists.pt:28
 msgid "message_no_classlists_exist"
 msgstr ""

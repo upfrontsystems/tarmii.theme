@@ -19,10 +19,9 @@
                           <img src="++theme++tarmii.theme/images/class_list.png" /></a></td>
                     <td>
                       <h3><a tal:attributes="href string:${view/members_folder}/classlists"
-                             i18n:translate="home_heading_classlists">CREATE CLASS LISTS</a></h3>
-                      <p i18n:translate="home_description_classlists">This section allows you to manage your class lists. Here
-                      you can create or delete, import or export your class
-                      lists.</p>  
+                             i18n:translate="home_heading_classlists">CREATE CLASSLISTS</a></h3>
+                      <p i18n:translate="home_description_classlists">This section allows you to manage your classlists. Here
+                      you can create or delete, import or export your classlists.</p>  
                     </td>
                   </tr>
                 </table>

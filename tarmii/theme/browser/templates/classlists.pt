@@ -13,9 +13,9 @@
 
     <metal:main fill-slot="content-core">
     
-        <span i18n:translate="description_classlists_add">Here you can add new class lists or </span>
+        <span i18n:translate="description_classlists_add">Here you can add new classlists or </span>
         <a tal:attributes="href view/import_learners_url" 
-           i18n:translate="link_importclasslist">import learners to an existing/new class list</a>
+           i18n:translate="link_importclasslist">import learners to an existing/new classlist</a>
         <div>&nbsp;</div>        
 
         <form id="add-button-form" name="add-classlist-form" tal:attributes="action view/add_classlist_url">
@@ -25,7 +25,7 @@
 
         <div>&nbsp;</div>
         <tal:classlists tal:condition="not:view/classlists">
-            <div i18n:translate="message_no_classlists_exist">No class lists have been created yet</div>
+            <div i18n:translate="message_no_classlists_exist">No classlists have been created yet</div>
         </tal:classlists>
 
         <tal:listing tal:condition="view/classlists">

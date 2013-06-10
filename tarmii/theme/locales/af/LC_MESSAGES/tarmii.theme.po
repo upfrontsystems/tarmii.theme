@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 11:33+0000\n"
+"POT-Creation-Date: 2013-06-10 12:58+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -513,7 +513,6 @@ msgstr "Soek"
 #: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
 #: ./profiles/default/actions.xml
-#, fuzzy
 msgid "Select Language"
 msgstr "Kies U Taal"
 
@@ -628,7 +627,7 @@ msgstr "Jy het nie toestemming om hierdie inhoud by hierdie plek in te voeg"
 msgid "description_assesments"
 msgstr "Hierdie artikel bevat assesserings wat deur u geskep is. Kliek op die naam van die assessering om dit te redigeer."
 
-#. Default: "Here you can add new class lists or"
+#. Default: "Here you can add new classlists or"
 #: ./browser/templates/classlists.pt:16
 msgid "description_classlists_add"
 msgstr "Hier kan U nuwe nuwe klaslyste byvoeg of"
@@ -734,72 +733,72 @@ msgid "heading_usagestats"
 msgstr "GEBRUIK STATISTIEKE"
 
 #. Default: "This section allows you to use existing activites in your class room or create your own activities."
-#: ./browser/templates/home.pt:38
+#: ./browser/templates/home.pt:37
 msgid "home_description_activities"
 msgstr "Hierdie afdeling kan u bestaande aktiwiteite in jou klaskamer te gebruik of jou eie aktiwiteite te skep."
 
 #. Default: "This section enables you to create formal and informal assessments."
-#: ./browser/templates/home.pt:53
+#: ./browser/templates/home.pt:52
 msgid "home_description_assessments"
 msgstr "Hierdie artikel stel jou in staat om formele en informele assessering te skep."
 
-#. Default: "This section allows you to manage your class lists. Here you can create or delete, import or export your class lists."
+#. Default: "This section allows you to manage your classlists. Here you can create or delete, import or export your classlists."
 #: ./browser/templates/home.pt:23
 msgid "home_description_classlists"
 msgstr "Hierdie artikel stel jou in staat om te skep formele en informele assessments.This artikel stel jou in staat om jou klaslyste te bestuur. Hier kan jy skep of verwyder, invoer of uitvoer van jou klaslyste."
 
 #. Default: "This section allows you to create evaluation sheets and rate how learners perform on assessments."
-#: ./browser/templates/home.pt:66
+#: ./browser/templates/home.pt:65
 msgid "home_description_evaluations"
 msgstr "Hierdie rubriek laat jou evaluasie velle en koers hoe leerders presteer op assesserings te skep."
 
 #. Default: "This section allows you to generate various assessment reports for assessments you have administered."
-#: ./browser/templates/home.pt:81
+#: ./browser/templates/home.pt:80
 msgid "home_description_reports"
 msgstr "Hierdie artikel stel jou in staat om verskeie assesseringspraktyke te genereer verslae vir assesserings wat jy toegedien het."
 
 #. Default: "This section contains resources that you can use in the class room."
-#: ./browser/templates/home.pt:110
+#: ./browser/templates/home.pt:109
 msgid "home_description_teacherresources"
 msgstr "Hierdie afdeling bevat hulpbronne wat jy kan gebruik in die klaskamer."
 
 #. Default: "This section contains video tutorials."
-#: ./browser/templates/home.pt:97
+#: ./browser/templates/home.pt:96
 msgid "home_description_videos"
 msgstr "Hierdie afdeling bevat video tutoriale."
 
 #. Default: "ACTIVITIES"
-#: ./browser/templates/home.pt:36
+#: ./browser/templates/home.pt:35
 msgid "home_heading_activities"
 msgstr "AKTIWITEITE"
 
 #. Default: "GENERATE ASSESSMENT ACTIVITIES"
-#: ./browser/templates/home.pt:51
+#: ./browser/templates/home.pt:50
 msgid "home_heading_assessments"
 msgstr "GENEREER ASSESSERING AKTIWITEITE"
 
-#. Default: "CREATE CLASS LISTS"
+#. Default: "CREATE CLASSLISTS"
 #: ./browser/templates/home.pt:21
 msgid "home_heading_classlists"
 msgstr "GENEREER KLASLYSTE"
 
 #. Default: "EVALUATE LEARNERS"
-#: ./browser/templates/home.pt:64
+#: ./browser/templates/home.pt:63
 msgid "home_heading_evaluations"
 msgstr "EVALUEER LEERDERS"
 
 #. Default: "GENERATE REPORTS"
-#: ./browser/templates/home.pt:79
+#: ./browser/templates/home.pt:78
 msgid "home_heading_reports"
 msgstr "GENEREER VERSLAE"
 
 #. Default: "TEACHER RESOURCES"
-#: ./browser/templates/home.pt:108
+#: ./browser/templates/home.pt:107
 msgid "home_heading_teacherresources"
 msgstr "ONDERWYSER HULPBRONNE"
 
 #. Default: "VIDEOS"
-#: ./browser/templates/home.pt:95
+#: ./browser/templates/home.pt:94
 msgid "home_heading_videos"
 msgstr "VIDEOS"
 
@@ -833,14 +832,9 @@ msgstr "Voeg by Assessering"
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
-#: ./browser/templates/evaluationsheets.pt:31
+#: ./browser/templates/assessments.pt:33
 msgid "label_assessment"
 msgstr "Assessering"
-
-#. Default: "Assessment"
-#: ./browser/templates/assessments.pt:33
-msgid "label_assessment_name"
-msgstr "Assessering naam"
 
 #. Default: "Assessment PDF"
 #: ./browser/templates/assessments.pt:37
@@ -1123,7 +1117,7 @@ msgstr "Terug na skoole"
 msgid "link_create_new_profile"
 msgstr "Skep 'n nuwe profil"
 
-#. Default: "import learners to an existing/new class list"
+#. Default: "import learners to an existing/new classlist"
 #: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
 msgstr "leerders tot 'n bestaande/nuwe klaslys invoer"
@@ -1195,7 +1189,7 @@ msgstr "Geen assesserings is nog geskep"
 msgid "message_no_assesments_or_activities_exist"
 msgstr "Geen assesserings is nog geskep, of bestaande assesserings bevat geen aktiwiteite"
 
-#. Default: "No class lists have been created yet"
+#. Default: "No classlists have been created yet"
 #: ./browser/templates/classlists.pt:28
 msgid "message_no_classlists_exist"
 msgstr "Geen klaslyse is nog geskep"

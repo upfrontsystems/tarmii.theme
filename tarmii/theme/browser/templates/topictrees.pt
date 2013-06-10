@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_topic_trees">Topic Trees</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Topic Trees">Topic Trees</h1>
     </metal:main>
     <metal:main fill-slot="content-core">
     

@@ -30,7 +30,7 @@
         <tal:listing tal:condition="view/assessments">
                 <table class="listing admin-table">
                     <tr> 
-                        <th i18n:translate="label_assessment_name">Assessment</th>
+                        <th i18n:translate="label_assessment">Assessment</th>
                         <th i18n:translate="label_date">Date</th>
                         <th i18n:translate="label_edit">Edit</th>
                         <th i18n:translate="label_delete">Delete</th>
