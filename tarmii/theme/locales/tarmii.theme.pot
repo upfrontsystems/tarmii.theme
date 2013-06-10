@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 09:05+0000\n"
+"POT-Creation-Date: 2013-06-10 11:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,6 +41,7 @@ msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
 #: ./browser/reports/views.py:599
+#: ./browser/templates/activities.pt:11
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr ""
@@ -49,42 +50,35 @@ msgstr ""
 msgid "Add Activities"
 msgstr ""
 
-#: ./browser/forms.py:67
 #: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr ""
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:120
 #: ./browser/templates/assessments.pt:20
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/forms.py:104
+#: ./browser/forms.py:95
+#: ./browser/templates/classlists.pt:22
 msgid "Add Classlist"
 msgstr ""
 
-#: ./browser/forms.py:155
-msgid "Add EvaluationSheet"
+#: ./browser/forms.py:146
+#: ./browser/templates/evaluationsheets.pt:17
+msgid "Add Evaluation Sheet"
+msgstr ""
+
+#: ./browser/templates/resources.pt:18
+msgid "Add Resource"
 msgstr ""
 
 #: ./browser/templates/topictrees.pt:16
 msgid "Add Topic Tree"
 msgstr ""
 
-#: ./browser/templates/classlists.pt:22
-msgid "Add class list"
-msgstr ""
-
-#: ./browser/templates/evaluationsheets.pt:17
-msgid "Add evaluation sheet"
-msgstr ""
-
-#: ./browser/templates/resources.pt:18
-msgid "Add resource"
-msgstr ""
-
 #: ./browser/quickupload.py:366
-msgid "Add video "
+msgid "Add Video "
 msgstr ""
 
 #: ./browser/quickupload.py:368
@@ -103,7 +97,7 @@ msgstr ""
 msgid "April"
 msgstr ""
 
-#. Default: "Assessments"
+#: ./browser/templates/assessments.pt:11
 #: ./profiles/default/actions.xml
 msgid "Assessments"
 msgstr ""
@@ -154,15 +148,20 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
+#: ./browser/reports/templates/classprogress.pt:20
 #: ./browser/reports/views.py:596
+#: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr ""
 
+#. Default: "Class Performance For Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:11
 #: ./browser/reports/views.py:383
+#: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr ""
 
-#. Default: "Classlists"
+#: ./browser/templates/classlists.pt:11
 #: ./profiles/default/actions.xml
 msgid "Classlists"
 msgstr ""
@@ -172,6 +171,8 @@ msgid "Contact Us"
 msgstr ""
 
 #: ./behaviors.py:113
+#: ./browser/templates/activities-pdf.pt:120
+#: ./browser/templates/assessmentitem-view.pt:21
 msgid "Content/Concept/Skills Assessed"
 msgstr ""
 
@@ -199,11 +200,11 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./browser/forms.py:141
+#: ./browser/forms.py:132
 msgid "Edit Assessment"
 msgstr ""
 
-#: ./browser/forms.py:116
+#: ./browser/forms.py:107
 msgid "Edit Classlist"
 msgstr ""
 
@@ -212,16 +213,18 @@ msgid "End Date"
 msgstr ""
 
 #: ./behaviors.py:123
+#: ./browser/templates/activities-pdf.pt:128
+#: ./browser/templates/assessmentitem-view.pt:30
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
-#. Default: "Evaluations"
+#: ./browser/templates/evaluationsheets.pt:11
 #: ./profiles/default/actions.xml
 msgid "Evaluations"
 msgstr ""
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:53
+#: ./browser/forms.py:52
 msgid "Excellent"
 msgstr ""
 
@@ -234,6 +237,8 @@ msgid "February"
 msgstr ""
 
 #: ./browser/feedback.py:83
+#: ./browser/templates/activities.pt:116
+#: ./browser/templates/assessment-view.pt:74
 msgid "Feedback"
 msgstr ""
 
@@ -263,7 +268,7 @@ msgid "Generate Report"
 msgstr ""
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:55
+#: ./browser/forms.py:54
 msgid "Good"
 msgstr ""
 
@@ -308,7 +313,9 @@ msgstr ""
 msgid "Last version number"
 msgstr ""
 
+#: ./browser/reports/templates/learnerprogress.pt:20
 #: ./browser/reports/views.py:773
+#: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr ""
 
@@ -317,6 +324,8 @@ msgid "Learner Score"
 msgstr ""
 
 #: ./behaviors.py:108
+#: ./browser/templates/activities-pdf.pt:116
+#: ./browser/templates/assessmentitem-view.pt:17
 msgid "Learner Task/Activity"
 msgstr ""
 
@@ -341,7 +350,7 @@ msgid "Mpumalanga"
 msgstr ""
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:59
+#: ./browser/forms.py:58
 msgid "Needs improvement"
 msgstr ""
 
@@ -408,6 +417,8 @@ msgid "Personal Information"
 msgstr ""
 
 #: ./behaviors.py:118
+#: ./browser/templates/activities-pdf.pt:124
+#: ./browser/templates/assessmentitem-view.pt:26
 msgid "Prior Knowledge or Skill(s) Assessed"
 msgstr ""
 
@@ -419,6 +430,7 @@ msgstr ""
 msgid "Province"
 msgstr ""
 
+#: ./browser/templates/teacherprofiles.pt:42
 #: ./userdataschema.py:43
 msgid "Qualification"
 msgstr ""
@@ -447,7 +459,7 @@ msgstr ""
 msgid "Remote Server Url"
 msgstr ""
 
-#. Default: "Reports"
+#: ./browser/templates/report.pt:11
 #: ./profiles/default/actions.xml
 msgid "Reports"
 msgstr ""
@@ -466,7 +478,7 @@ msgid "Rubric"
 msgstr ""
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:57
+#: ./browser/forms.py:56
 msgid "Satisfactory"
 msgstr ""
 
@@ -492,7 +504,9 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#. Default: "Select Language"
+#. Default: "Select your language"
+#: ./browser/templates/selectlanguage.pt:12
+#: ./browser/templates/selectprofile.pt:13
 #: ./profiles/default/actions.xml
 msgid "Select Language"
 msgstr ""
@@ -557,7 +571,7 @@ msgstr ""
 msgid "Thumbnail generation failed"
 msgstr ""
 
-#. Default: "Topic Trees"
+#: ./browser/templates/topictrees.pt:11
 #: ./profiles/default/actions.xml
 msgid "Topic Trees"
 msgstr ""
@@ -588,7 +602,7 @@ msgstr ""
 msgid "Use with Teacher Resources"
 msgstr ""
 
-#. Default: "Videos"
+#: ./browser/templates/videos.pt:11
 #: ./profiles/default/actions.xml
 msgid "Videos"
 msgstr ""
@@ -621,11 +635,6 @@ msgstr ""
 msgid "description_reports"
 msgstr ""
 
-#. Default: "Activities"
-#: ./browser/templates/activities.pt:11
-msgid "heading_activities"
-msgstr ""
-
 #. Default: "All Activities in the system"
 #: ./browser/templates/activities-pdf.pt:107
 msgid "heading_activities_pdf"
@@ -646,48 +655,15 @@ msgstr ""
 msgid "heading_add_user_form"
 msgstr ""
 
-#. Default: "Assessment"
-#: ./browser/templates/evaluationsheets.pt:31
-msgid "heading_assessment"
-msgstr ""
-
 #. Default: "Assessment Task"
 #: ./browser/templates/assessment-pdf.pt:126
 msgid "heading_assessment_pdf"
 msgstr ""
 
-#. Default: "Assessments"
-#: ./browser/templates/assessments.pt:11
-msgid "heading_assessments"
-msgstr ""
-
-#. Default: "Class Progress"
-#: ./browser/reports/templates/classprogress.pt:20
-msgid "heading_class_progress"
-msgstr ""
-
-#. Default: "Class list"
-#: ./browser/templates/evaluationsheets.pt:32
-msgid "heading_classlist"
-msgstr ""
-
-#. Default: "Classlists"
-#: ./browser/templates/classlists.pt:11
-msgid "heading_classlists"
-msgstr ""
-
-#. Default: "Class Performance For Activity"
-#: ./browser/reports/templates/classperformance-for-activity.pt:11
-msgid "heading_classperformance_for_activity"
-msgstr ""
-
-#. Default: "Evaluations"
-#: ./browser/templates/evaluationsheets.pt:11
-msgid "heading_evaluations"
-msgstr ""
-
 #. Default: "Evaluation Sheet"
 #: ./browser/reports/templates/evaluationsheet.pt:20
+#: ./browser/templates/evaluationsheets.pt:30
+#: ./browser/templates/report.pt:36
 msgid "heading_evaluationsheet"
 msgstr ""
 
@@ -696,20 +672,10 @@ msgstr ""
 msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
-#. Default: "Learner Progress"
-#: ./browser/reports/templates/learnerprogress.pt:20
-msgid "heading_learner_progress"
-msgstr ""
-
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
 #: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
-msgstr ""
-
-#. Default: "Reports"
-#: ./browser/templates/report.pt:11
-msgid "heading_reports"
 msgstr ""
 
 #. Default: "Schools:"
@@ -723,12 +689,6 @@ msgstr ""
 msgid "heading_scoresheet_pdf"
 msgstr ""
 
-#. Default: "Select your language"
-#: ./browser/templates/selectlanguage.pt:12
-#: ./browser/templates/selectprofile.pt:13
-msgid "heading_select_language"
-msgstr ""
-
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:26
 msgid "heading_select_profile"
@@ -736,6 +696,7 @@ msgstr ""
 
 #. Default: "Strengths and Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:11
+#: ./browser/templates/report.pt:32
 msgid "heading_strenghts_and_weaknesses"
 msgstr ""
 
@@ -759,19 +720,9 @@ msgstr ""
 msgid "heading_teachers"
 msgstr ""
 
-#. Default: "Topic Trees"
-#: ./browser/templates/topictrees.pt:11
-msgid "heading_topic_trees"
-msgstr ""
-
 #. Default: "USAGE STATS"
 #: ./browser/templates/usagestats.pt:12
 msgid "heading_usagestats"
-msgstr ""
-
-#. Default: "Videos"
-#: ./browser/templates/videos.pt:11
-msgid "heading_videos"
 msgstr ""
 
 #. Default: "This section allows you to use existing activites in your class room or create your own activities."
@@ -874,12 +825,8 @@ msgstr ""
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
+#: ./browser/templates/evaluationsheets.pt:31
 msgid "label_assessment"
-msgstr ""
-
-#. Default: "Date"
-#: ./browser/templates/assessments.pt:34
-msgid "label_assessment_date"
 msgstr ""
 
 #. Default: "Assessment"
@@ -939,15 +886,10 @@ msgstr ""
 msgid "label_clear_queue"
 msgstr ""
 
-#. Default: "Content/Concept/Skills Assessed"
-#: ./browser/templates/activities-pdf.pt:120
-#: ./browser/templates/assessmentitem-view.pt:21
-msgid "label_content_concept_skills"
-msgstr ""
-
 #. Default: "Date"
 #: ./browser/templates/assessment-pdf.pt:160
-#: ./browser/templates/teacher-info-pdf.pt:127
+#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/evaluationsheets.pt:33
 msgid "label_date"
 msgstr ""
 
@@ -980,22 +922,6 @@ msgstr ""
 msgid "label_email"
 msgstr ""
 
-#. Default: "Equipment and Administration (For the teacher)"
-#: ./browser/templates/activities-pdf.pt:128
-#: ./browser/templates/assessmentitem-view.pt:30
-msgid "label_equipment_and_admin"
-msgstr ""
-
-#. Default: "Evaluation Sheet"
-#: ./browser/templates/evaluationsheets.pt:30
-msgid "label_evaluationsheet"
-msgstr ""
-
-#. Default: "Date"
-#: ./browser/templates/evaluationsheets.pt:33
-msgid "label_evaluationsheet_date"
-msgstr ""
-
 #. Default: "Evaluation Sheet PDF"
 #: ./browser/templates/assessments.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
@@ -1005,12 +931,6 @@ msgstr ""
 #. Default: "Evaluationsheets Created"
 #: ./browser/templates/usagestats.pt:120
 msgid "label_evaluationsheets_created"
-msgstr ""
-
-#. Default: "Feedback"
-#: ./browser/templates/activities.pt:116
-#: ./browser/templates/assessment-view.pt:74
-msgid "label_feedback"
 msgstr ""
 
 #. Default: "Full Name"
@@ -1044,12 +964,6 @@ msgstr ""
 msgid "label_learner_name"
 msgstr ""
 
-#. Default: "Learner Task/Activity"
-#: ./browser/templates/activities-pdf.pt:116
-#: ./browser/templates/assessmentitem-view.pt:17
-msgid "label_learner_task"
-msgstr ""
-
 #. Default: "${medialabel} Quick Upload"
 #: ./browser/quickupload.py:95
 msgid "label_media_quickupload"
@@ -1075,19 +989,8 @@ msgstr ""
 msgid "label_pedagogic_clips_viewed"
 msgstr ""
 
-#. Default: "Prior Knowledge or Skill(s) Assessed"
-#: ./browser/templates/activities-pdf.pt:124
-#: ./browser/templates/assessmentitem-view.pt:26
-msgid "label_prior_knowledge"
-msgstr ""
-
-#. Default: "Qualification"
-#: ./browser/templates/teacherprofiles.pt:42
-msgid "label_qualification"
-msgstr ""
-
 #. Default: "Rating Scale:"
-#: ./browser/templates/activities-pdf.pt:138
+#: ./browser/templates/activities-pdf.pt:139
 msgid "label_rating_scale"
 msgstr ""
 
@@ -1148,7 +1051,7 @@ msgid "label_teacherinfo_pdf"
 msgstr ""
 
 #. Default: "Topics:"
-#: ./browser/templates/activities-pdf.pt:133
+#: ./browser/templates/activities-pdf.pt:134
 #: ./browser/templates/assessmentitem-view.pt:34
 msgid "label_topics"
 msgstr ""
@@ -1207,24 +1110,9 @@ msgstr ""
 msgid "link_back_to_schools"
 msgstr ""
 
-#. Default: "Class Performance For Activity"
-#: ./browser/templates/report.pt:20
-msgid "link_class_performance_chart"
-msgstr ""
-
-#. Default: "Class Progress"
-#: ./browser/templates/report.pt:24
-msgid "link_class_progress_chart"
-msgstr ""
-
 #. Default: "Create a new profile"
 #: ./browser/templates/selectprofile.pt:45
 msgid "link_create_new_profile"
-msgstr ""
-
-#. Default: "Evaluation Sheet"
-#: ./browser/templates/report.pt:36
-msgid "link_evaluation_sheet_chart"
 msgstr ""
 
 #. Default: "import learners to an existing/new class list"
@@ -1232,21 +1120,11 @@ msgstr ""
 msgid "link_importclasslist"
 msgstr ""
 
-#. Default: "Learner Progress"
-#: ./browser/templates/report.pt:28
-msgid "link_learner_progress_chart"
-msgstr ""
-
-#. Default: "Strengths and Weaknesses"
-#: ./browser/templates/report.pt:32
-msgid "link_strengths_weaknesses_chart"
-msgstr ""
-
 #: ./browser/quickupload.py:377
 msgid "maximum file size is:"
 msgstr ""
 
-#. Default: "Activities found"
+#. Default: "activities found"
 #: ./browser/templates/activities.pt:88
 msgid "message_activities_found"
 msgstr ""

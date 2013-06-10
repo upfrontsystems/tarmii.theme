@@ -39,7 +39,7 @@
                     <th i18n:translate="label_username">User name</th>
                     <th i18n:translate="label_email">Email</th>
                     <th i18n:translate="label_mobile">Cell phone</th>
-                    <th i18n:translate="label_qualification">Qualification</th>
+                    <th i18n:translate="Qualification">Qualification</th>
                     <th i18n:translate="label_years_teaching">Years teaching</th>
                     <th i18n:translate="label_last_login_time">Last login time</th>
                 </tr>

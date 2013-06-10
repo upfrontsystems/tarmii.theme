@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_reports">Reports</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Reports">Reports</h1>
     </metal:main>
     <metal:main fill-slot="content-core">
     
@@ -18,23 +18,23 @@
         <ul>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@classperformance-for-activity"
-                   i18n:translate="link_class_performance_chart">Class Performance For Activity</a>
+                   i18n:translate="Class performance for activity">Class Performance For Activity</a>
             </li>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@class-progress"
-                   i18n:translate="link_class_progress_chart">Class Progress</a>
+                   i18n:translate="Class Progress">Class Progress</a>
             </li>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@learner-progress"
-                   i18n:translate="link_learner_progress_chart">Learner Progress</a>
+                   i18n:translate="Learner Progress">Learner Progress</a>
             </li>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@strengths-and-weaknesses"
-                   i18n:translate="link_strengths_weaknesses_chart">Strengths and Weaknesses</a>
+                   i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</a>
             </li>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
-                   i18n:translate="link_evaluation_sheet_chart">Evaluation Sheet</a>
+                   i18n:translate="heading_evaluationsheet">Evaluation Sheet</a>
             </li>
         </ul>
 

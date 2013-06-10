@@ -10,7 +10,7 @@
     <metal:main fill-slot="main">
 
         <tal:nolanguagechosen tal:condition="not:view/language_cookie_status">
-            <h1 i18n:translate="heading_select_language"> Select your language</h1>
+            <h1 i18n:translate="Select Language">Select your language</h1>
             <ul id="languageselector">
                 <tal:lang tal:repeat="lang view/languages">              
                 <li>

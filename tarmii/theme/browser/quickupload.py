@@ -363,7 +363,7 @@ class CustomQuickUploadInit(QuickUploadInit):
             ul_size_limit          = self.qup_prefs.size_limit and str(self.qup_prefs.size_limit*1024) or '',
             ul_xhr_size_limit      = self.qup_prefs.size_limit and str(self.qup_prefs.size_limit*1024) or '0',
             ul_sim_upload_limit    = str(self.qup_prefs.sim_upload_limit),
-            ul_button_text         = self._translate(_(u'Add video ')),
+            ul_button_text         = self._translate(_(u'Add Video ')),
             ul_draganddrop_text    = self._translate(_(u'Drag and drop files to upload')),
             ul_msg_all_sucess      = self._translate(_(u'All files uploaded with success')),
             ul_msg_some_sucess     = self._translate(_(u' files uploaded with success, ')),

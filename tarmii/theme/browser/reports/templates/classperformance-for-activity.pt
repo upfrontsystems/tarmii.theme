@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_classperformance_for_activity">Class Performance For Activity</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Class performance for activity">Class Performance For Activity</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">

@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_classlists">Classlists</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Classlists">Classlists</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">
@@ -19,7 +19,7 @@
         <div>&nbsp;</div>        
 
         <form id="add-button-form" name="add-classlist-form" tal:attributes="action view/add_classlist_url">
-            <input class="allowMultiSubmit" type="submit" value="Add class list" i18n:attributes="value"
+            <input class="allowMultiSubmit" type="submit" value="Add Classlist" i18n:attributes="value"
                 tal:attributes="href view/add_classlist_url">
         </form>
 

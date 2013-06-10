@@ -75,7 +75,7 @@ class CustomLogger:
                  "url"  : self.request['URL'],
                  "user"     : user.getUserName(),
                  "province" : user.getProperty('province'),
-                 "school"   : user.getProperty('school'),
+                 "school"   : user.getProperty('school')
                }
 
         pagetracker = getUtility(IPageTracker)
@@ -143,5 +143,5 @@ class AssessmentEvaluationSheetAddForm(CustomLogger, dexterity.AddForm):
             "kssattr-formname-++add++upfront.assessment.content.evaluationsheet"
 
     def mainheading(self):
-        return self.context.translate(_("Add EvaluationSheet"))
+        return self.context.translate(_("Add Evaluation Sheet"))
  

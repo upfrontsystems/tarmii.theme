@@ -17,7 +17,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_learner_progress">Learner Progress</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Learner Progress">Learner Progress</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">

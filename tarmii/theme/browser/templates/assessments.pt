@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_assessments">Assessments</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Assessments">Assessments</h1>
     </metal:main>
     <metal:main fill-slot="content-core"
         tal:define="batch view/assessments_batch">
@@ -31,7 +31,7 @@
                 <table class="listing admin-table">
                     <tr> 
                         <th i18n:translate="label_assessment_name">Assessment</th>
-                        <th i18n:translate="label_assessment_date">Date</th>
+                        <th i18n:translate="label_date">Date</th>
                         <th i18n:translate="label_edit">Edit</th>
                         <th i18n:translate="label_delete">Delete</th>
                         <th i18n:translate="label_assessment_pdf">Assessment PDF</th>

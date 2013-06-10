@@ -72,7 +72,7 @@
                                    i18n:translate="label_removefromassessment">Remove from Assessment</a>
                             </tal:assessment_editable>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
-                               i18n:translate="label_feedback">Feedback</a>
+                               i18n:translate="Feedback">Feedback</a>
                         </div>
                         <hr class="item-separator"/>
                     </div>

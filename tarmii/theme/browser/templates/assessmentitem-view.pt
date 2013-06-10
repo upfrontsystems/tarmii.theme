@@ -14,20 +14,20 @@
 
         <h1 tal:content="view/assessmentitem"></h1>
 
-        <h5 i18n:translate="label_learner_task">Learner Task/Activity</h5>
+        <h5 i18n:translate="Learner Task/Activity">Learner Task/Activity</h5>
         <div class="activity" tal:content="structure context/activity/output|nothing">
             The Activity
         </div>
-        <h5 i18n:translate="label_content_concept_skills">Content/Concept/Skills Assessed</h5>
+        <h5 i18n:translate="Content/Concept/Skills Assessed">Content/Concept/Skills Assessed</h5>
         <div class="activity" tal:content="structure context/content_concept_skills/output|nothing">
             The Content Concept Skills
         </div>
 
-        <h5 i18n:translate="label_prior_knowledge">Prior Knowledge or Skill(s) Assessed</h5>
+        <h5 i18n:translate="Prior Knowledge or Skill(s) Assessed">Prior Knowledge or Skill(s) Assessed</h5>
         <div class="activity" tal:content="structure context/prior_knowledge_skills/output|nothing">
             The Prior Knowledge Skills
         </div>
-        <h5 i18n:translate="label_equipment_and_admin">Equipment and Administration (For the teacher)</h5>
+        <h5 i18n:translate="Equipment and Administration (For the teacher)">Equipment and Administration (For the teacher)</h5>
         <div class="activity" tal:content="structure context/equipment_and_administration/output|nothing">
             The Equipment and Administration
         </div>
@@ -40,8 +40,8 @@
         <div id="actions-and-info">
             <div class="item-info">
                 <span class="item-info" tal:content="view/creationdate"/>
-                <span class="state-draft" tal:attributes="class string:item-info state-${view/review_state}" tal:content="view/review_state" i18n:translate=""></span>
-
+                <span class="state-draft" tal:attributes="class string:item-info state-${view/review_state}" 
+                      tal:content="view/review_state" i18n:translate=""></span>
             </div>
             <div class="item-actions">
                 <a tal:attributes="href string:${context/absolute_url}/edit"

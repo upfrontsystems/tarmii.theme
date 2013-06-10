@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_activities">Activities</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Activities">Activities</h1>
     </metal:main>
     <metal:main fill-slot="content-core"
         tal:define="batch view/activities_batch">
@@ -85,7 +85,7 @@
         <tal:activities tal:condition="view/activities">
         <div>
             <span tal:content="view/activities_count">0</span>
-            <span i18n:translate="message_activities_found"> Activities found</span>
+            <span i18n:translate="message_activities_found"> activities found</span>
         </div>
         </tal:activities>
         <tal:noactivities tal:condition="not:view/activities">
@@ -114,7 +114,7 @@
                             <a class="add_to_assessment" tal:attributes="href string:${item/absolute_url}/@@add-to-assessment?activity_id=${item/id}" 
                                i18n:translate="label_addtoassessment">Add to Assessment</a>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
-                               i18n:translate="label_feedback">Feedback</a>
+                               i18n:translate="Feedback">Feedback</a>
                         </div>
                         <hr class="item-separator"/>
                     </tal:item>

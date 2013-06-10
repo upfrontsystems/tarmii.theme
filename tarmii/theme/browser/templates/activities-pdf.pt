@@ -113,19 +113,20 @@
     <div class="activities"
          tal:repeat="item view/activities">
         <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
-        <h2 class="questionheader" i18n:translate="label_learner_task">Learner Task/Activity</h2>
+        <h2 class="questionheader" i18n:translate="Learner Task/Activity">Learner Task/Activity</h2>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
         </div>
-        <h2 class="questionheader" i18n:translate="label_content_concept_skills">Content/Concept/Skills Assessed</h2>
+        <h2 class="questionheader" i18n:translate="Content/Concept/Skills Assessed">Content/Concept/Skills Assessed</h2>
         <div class="activity" tal:content="structure item/content_concept_skills/output|nothing">
             The Content Concept Skills
         </div>
-        <h2 class="questionheader" i18n:translate="label_prior_knowledge">Prior Knowledge or Skill(s) Assessed</h2>
+        <h2 class="questionheader" i18n:translate="Prior Knowledge or Skill(s) Assessed">Prior Knowledge or Skill(s) Assessed</h2>
         <div class="activity" tal:content="structure item/prior_knowledge_skills/output|nothing">
             The Prior Knowledge Skills
         </div>
-        <h2 class="questionheader" i18n:translate="label_equipment_and_admin">Equipment and Administration (For the teacher)</h2>
+        <h2 class="questionheader" 
+            i18n:translate="Equipment and Administration (For the teacher)">Equipment and Administration (For the teacher)</h2>
         <div class="activity" tal:content="structure item/equipment_and_administration/output|nothing">
             The Equipment and Administration
         </div>

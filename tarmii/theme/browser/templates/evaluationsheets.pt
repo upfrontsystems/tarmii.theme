@@ -8,13 +8,13 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="heading_evaluations">Evaluations</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Evaluations">Evaluations</h1>
     </metal:main>
     <metal:main fill-slot="content-core"
         tal:define="batch view/evaluationsheets_batch">
     
         <form id="add-button-form" name="add-evaluationsheet-form" tal:attributes="action view/add_evaluationsheet_url">
-            <input class="allowMultiSubmit" type="submit" value="Add evaluation sheet" i18n:attributes="value"
+            <input class="allowMultiSubmit" type="submit" value="Add Evaluation Sheet" i18n:attributes="value"
                 tal:attributes="href view/add_evaluationsheet_url">
         </form>
 
@@ -27,10 +27,10 @@
         <tal:listing tal:condition="view/evaluationsheets">
                 <table class="listing admin-table">
                     <tr> 
-                        <th i18n:translate="label_evaluationsheet">Evaluation Sheet</th>
-                        <th i18n:translate="heading_assessment">Assessment</th>
-                        <th i18n:translate="heading_classlist">Class list</th>
-                        <th i18n:translate="label_evaluationsheet_date">Date</th>
+                        <th i18n:translate="heading_evaluationsheet">Evaluation Sheet</th>
+                        <th i18n:translate="label_assessment">Assessment</th>
+                        <th i18n:translate="label_classlist">Classlist</th>
+                        <th i18n:translate="label_date">Date</th>
                         <th i18n:translate="label_delete">Delete</th>
                         <th>PDF</th>
                     </tr>
