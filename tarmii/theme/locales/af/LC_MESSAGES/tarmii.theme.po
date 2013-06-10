@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 12:58+0000\n"
+"POT-Creation-Date: 2013-06-10 15:26+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -732,8 +732,9 @@ msgstr "Onderwysers:"
 msgid "heading_usagestats"
 msgstr "GEBRUIK STATISTIEKE"
 
-#. Default: "This section allows you to use existing activites in your class room or create your own activities."
+#. Default: "This section allows you to use existing activities in your class room or create your own activities."
 #: ./browser/templates/home.pt:37
+#, fuzzy
 msgid "home_description_activities"
 msgstr "Hierdie afdeling kan u bestaande aktiwiteite in jou klaskamer te gebruik of jou eie aktiwiteite te skep."
 
@@ -1032,7 +1033,7 @@ msgstr "Aktiwiteit wat die tweede hoogste aantal leerders korrek beantwoord het"
 msgid "label_second_worst_activity"
 msgstr "Aktiwiteit wat die tweede hoogste aantal leerders verkeerd beantwoord het"
 
-#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknessess cannot be calculated when this is the case."
+#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknesses cannot be calculated when this is the case."
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:118
 msgid "label_strength_weakness_not_possible"
 msgstr "* Sommige assesserings bevat aktiwiteite wat gebruik maak van nie-standaard graderingskale. Die sterk-en swakpunte kan nie bereken word wanneer dit die geval is."
@@ -1085,9 +1086,9 @@ msgstr "Gebruikersnaam"
 msgid "label_view"
 msgstr "Sien"
 
-#. Default: "Weaknessess"
+#. Default: "Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:101
-msgid "label_weaknessess"
+msgid "label_weaknesses"
 msgstr "Swakhede"
 
 #. Default: "Activity that the highest number of learners answered incorrectly"

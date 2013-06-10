@@ -98,7 +98,7 @@
                     </table>
                 </div>
                 <div id="div-best-worst-table">
-                <h3 i18n:translate="label_weaknessess">Weaknessess</h3>
+                <h3 i18n:translate="label_weaknesses">Weaknesses</h3>
                     <table class="listing admin-table">
                         <tr> 
                             <td class="lightred" i18n:translate="label_worst_activity">Activity that the highest 
@@ -116,7 +116,7 @@
 
         <tal:custom_scales tal:condition="view/custom_rating_scale_present">
             <span i18n:translate="label_strength_weakness_not_possible">* Some assessments contain activities that use non-default
-                                                                        rating scales. The Strengths and Weaknessess cannot be 
+                                                                        rating scales. The Strengths and Weaknesses cannot be 
                                                                         calculated when this is the case.</span>
         </tal:custom_scales>
 

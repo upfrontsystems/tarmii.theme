@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 12:58+0000\n"
+"POT-Creation-Date: 2013-06-10 15:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -725,7 +725,7 @@ msgstr ""
 msgid "heading_usagestats"
 msgstr ""
 
-#. Default: "This section allows you to use existing activites in your class room or create your own activities."
+#. Default: "This section allows you to use existing activities in your class room or create your own activities."
 #: ./browser/templates/home.pt:37
 msgid "home_description_activities"
 msgstr ""
@@ -1025,7 +1025,7 @@ msgstr ""
 msgid "label_second_worst_activity"
 msgstr ""
 
-#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknessess cannot be calculated when this is the case."
+#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknesses cannot be calculated when this is the case."
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:118
 msgid "label_strength_weakness_not_possible"
 msgstr ""
@@ -1078,9 +1078,9 @@ msgstr ""
 msgid "label_view"
 msgstr ""
 
-#. Default: "Weaknessess"
+#. Default: "Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:101
-msgid "label_weaknessess"
+msgid "label_weaknesses"
 msgstr ""
 
 #. Default: "Activity that the highest number of learners answered incorrectly"

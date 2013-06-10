@@ -34,7 +34,7 @@
                     <td>
                       <h3><a tal:attributes="href string:${view/portal_root}/activities"
                              i18n:translate="home_heading_activities">ACTIVITIES</a></h3>
-                      <p i18n:translate="home_description_activities">This section allows you to use existing activites in your class room or create your own activities.</p>
+                      <p i18n:translate="home_description_activities">This section allows you to use existing activities in your class room or create your own activities.</p>
                     </td>
                   </tr>
                 </table>
