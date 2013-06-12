@@ -276,22 +276,6 @@ class ReportViewsCommon(DatePickers):
                     notfound = False
                 index += 1
 
-        print '=========================='
-        print all_scores
-        print learner_count
-        print all_activity_ids
-        print all_highest_ratings
-        print all_rating_scales
-        print average_all_scores
-        print normalised_avg_all_scores
-        print '--------------------------'
-        print filtered_all_highest_ratings
-        print filtered_all_activity_ids
-        print filtered_all_rating_scales
-        print filtered_all_learner_count
-        print filtered_all_scores
-        print '=========================='
-
         return [filtered_all_activity_ids, filtered_all_scores,
                 filtered_all_highest_ratings, filtered_all_rating_scales,
                 normalised_avg_all_scores ]
@@ -760,16 +744,6 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
 
-        print '=========================='
-        print all_scores
-        print all_activity_ids
-        print all_highest_ratings
-        print '--------------------------'
-        print filtered_all_scores
-        print filtered_all_activity_ids
-        print filtered_all_highest_ratings
-        print '=========================='
-
         title = self.context.translate(_(u'Learner Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
         score_legend = self.context.translate(_(u'Learner Score'))
@@ -997,10 +971,10 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
     #  __call__ calls update before generating the template
     def update(self, **kwargs):
-        """ get classlist parameter from request, if none selected pick first
+        """ get classlist parameter from request, if none selected, pick first
             classlist in classlists folder.
             calculate all the activity_ids that are contained in the 
-            evaluationsheets selected by the date range.
+            evaluationsheets (in the selected date range).
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
 
@@ -1033,35 +1007,20 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                 [x for x in evalsheet.getFolderContents(contentFilter,
                                                         full_objects=True)]
             activity_ids = []
-
             # one ev object per learner
             for ev in evaluation_objects:
                 if activity_ids == []:
                     # init lists so that we can use indexing
                     activity_ids = [None] * len(ev.evaluation)
-                    # x iterates through the activities each learner did
-                    if len(ev.evaluation) == 0: # XXX DEBUG
-                        print 'NO EVALUATION DATA!'
+                    # x iterates through the activities each learner did,
+                    # if this learner was absent for this evaluation, then
+                    # we obtain the activities from the next present learner
                     for x in range(len(ev.evaluation)):
                         activity_ids[x] = \
                             [uuidToObject(ev.evaluation[x]['uid']).id, 
                              IUUID(evalsheet)]
-                elif len(ev.evaluation) > len(activity_ids):
-                    # if this learner has more activities than the previous one
-                    # the assumption here is that the previous learner's 
-                    # activities were a subset of this learners activities. 
-                    # XXX if this doesnt hold, we need to rethink our strategy.
-
-                    # clear all previously collected activity_ids
-                    activity_ids = [None] * len(ev.evaluation)
-                    # use this learners activities instead
-                    for x in range(len(ev.evaluation)):
-                        obj = [uuidToObject(ev.evaluation[x]['uid']).id, 
-                               IUUID(ev)]
-                        print 'XXX DEBUG' #XXX DEBUG
-                        activity_ids[x] = obj
-
             all_activity_ids += activity_ids
+
         self.activity_ids = all_activity_ids
 
         return 
@@ -1182,8 +1141,6 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                         notfound = True
                         idx = 0
                         while notfound:
-                            if len(buckets) == 0:
-                                print 'EMPTY !!!' # XXX debug
                             if act_id == self.activity_ids[buckets[idx]][0] \
                                 and ev_id == self.activity_ids[buckets[idx]][1]:
                                 # found the bucket we want
