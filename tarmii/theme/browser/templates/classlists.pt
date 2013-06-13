@@ -45,9 +45,11 @@
                             </div>
                         </td>
                         <td>
-                            <div class="delete-anchor">
-                                <a class="trashcan edit_link" tal:attributes="href string:${classlist/getURL}/delete_confirmation"></a>
-                            </div>
+                            <tal:is_editable tal:condition="python:classlist.getObject().is_editable()"> 
+                                <div class="delete-anchor">
+                                    <a class="trashcan edit_link" tal:attributes="href string:${classlist/getURL}/delete_confirmation"></a>
+                                </div>
+                            </tal:is_editable>
                         </td>
                     </tr>  
                 </table>
