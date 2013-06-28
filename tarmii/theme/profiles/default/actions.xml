@@ -13,7 +13,7 @@
             <property name="permissions">
                 <element value="Set own properties"/>
             </property>
-            <property name="visible">False</property>
+            <property name="visible">True</property>
         </object>
         <object name="topictrees" meta_type="CMF Action" i18n:domain="tarmii.theme">
             <property name="title" i18n:translate="Topic Trees">Topic Trees</property>
