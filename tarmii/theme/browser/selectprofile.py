@@ -70,15 +70,15 @@ class SelectProfileView(grok.View):
         """
         languages = [('af', u'Afrikaans'),
                      ('en', u'English'),
-                     ('nr', u'isiNdebele'),
-                     ('xh', u'isiXhosa'),
-                     ('zu', u'isiZulu'),
+                    # ('nr', u'isiNdebele'),
+                    # ('xh', u'isiXhosa'),
+                    # ('zu', u'isiZulu'),
                      ('st', u'SeSotho'),
                      ('x-nso', u'SePedi'),
-                     ('tn', u'Setswana'),
-                     ('ss', u'siSwati'),
-                     ('ve', u'Tshivenda'),
-                     ('ts', u'Xitsonga')]
+                     ('tn', u'Setswana')]
+                    # ('ss', u'siSwati'),
+                    # ('ve', u'Tshivenda'),
+                    # ('ts', u'Xitsonga')]
         lang_data = []
         context = self.context
         while INavigationRoot.providedBy(context) == False:
@@ -91,4 +91,3 @@ class SelectProfileView(grok.View):
                 'link': x[1]
                })
         return lang_data
-
