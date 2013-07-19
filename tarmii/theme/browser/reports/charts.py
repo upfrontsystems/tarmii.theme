@@ -4,6 +4,7 @@ from reportlab.graphics.charts.piecharts import Pie
 from reportlab.graphics.charts.linecharts import HorizontalLineChart
 from reportlab.graphics.charts.textlabels import Label
 from reportlab.graphics.charts.legends import Legend
+from reportlab.graphics.widgets.markers import makeMarker
 
 class BaseChart(Drawing):
 
@@ -164,8 +165,12 @@ class BaseLineChart(Drawing):
         self._linechart.valueAxis.valueStep = 1
         self._linechart.lines[0].strokeWidth = 2
         self._linechart.lines[1].strokeWidth = 1.5
+        self._linechart.lines[0].strokeDashArray=3,4
         self._linechart.lines[0].strokeColor = colors.green
         self._linechart.lines[1].strokeColor = colors.red
+        self._linechart.lines[1].symbol = makeMarker('Cross')
+        self._linechart.lines[0].symbol = makeMarker('Cross')
+
         # calculate a sane y-axis interval
         valuestep = self.getHighestScore() / 10
         if valuestep <= 1:

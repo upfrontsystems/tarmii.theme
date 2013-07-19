@@ -368,6 +368,13 @@ class ClassPerformanceForActivityChartView(grok.View):
         description = \
             self.context.translate(_(u'Number of learners per rating'))
 
+        # reverse so that the labels show up with 'excellent' first
+        # (this will only work for custom scales if people who make custom 
+        # scales do not mess with the order and keep it the same as default)
+        value_data = value_data[::-1]        
+        value_labels.reverse()
+        category_labels.reverse()
+
         return { 
             'title' : title,
             'description' : description,
@@ -580,8 +587,8 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
         title = self.context.translate(_(u'Class Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
         score_legend = self.context.translate(_(u'Average Learner Score'))
-        xlabel = self.context.translate(_(u'Activities'))
-        ylabel = self.context.translate(_(u'Ratings'))
+        xlabel = self.context.translate(_(u'Activities across time'))
+        ylabel = self.context.translate(_(u'Performance Rating'))
 
         return { 
             'title' : title,
@@ -744,11 +751,12 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
 
-        title = self.context.translate(_(u'Learner Progress'))
+        learner_string = ': ' + uuidToObject(learner_uid).Title()
+        title = self.context.translate(_(u'Learner Progress')) + learner_string
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
         score_legend = self.context.translate(_(u'Learner Score'))
-        xlabel = self.context.translate(_(u'Activities'))
-        ylabel = self.context.translate(_(u'Ratings'))
+        xlabel = self.context.translate(_(u'Activities across time'))
+        ylabel = self.context.translate(_(u'Performance Rating'))
 
         return { 
             'title' : title,
