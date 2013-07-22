@@ -23,6 +23,8 @@ from tarmii.theme.browser.reports.charts import ClassPerformanceForActivityChart
 from tarmii.theme.browser.reports.charts import ClassProgressChart
 from tarmii.theme.browser.reports.charts import LearnerProgressChart
 
+from upfront.assessment.content.evaluation import UN_RATED, NOT_RATED
+
 grok.templatedir('templates')
 
 class DatePickers:
@@ -187,17 +189,17 @@ class ReportViewsCommon(DatePickers):
                 for x in range(len(ev.evaluation)):
                     if scores == []:
                         # init lists so that we can use indexing
-                        scores = [0] * len(ev.evaluation)
+                        scores = [UN_RATED] * len(ev.evaluation)
                         learner_count = [0] * len(ev.evaluation)
                         activity_ids = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
                         rating_scales = [None] * len(ev.evaluation)
                         number_of_learners_in_activity = len(ev.evaluation)
                     activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
-                    # dont add unrated (0) scores into the average calculation
-                    if ev.evaluation[x]['rating'] != 0:
+                    # dont add unrated scores into the average calculation
+                    if ev.evaluation[x]['rating'] != UN_RATED:
                         # update score total and ignore explicitly "not rated"
-                        if ev.evaluation[x]['rating'] != -1:
+                        if ev.evaluation[x]['rating'] != NOT_RATED:
                             scores[x] += ev.evaluation[x]['rating']
                             learner_count[x] += 1
                     rating_scale = ev.evaluation[x]['rating_scale']
@@ -230,7 +232,7 @@ class ReportViewsCommon(DatePickers):
         filtered_all_rating_scales = []
         filtered_all_learner_count = []
         for x in range(len(all_scores)):
-            if all_learner_count[x] > 0:
+            if all_learner_count[x] >= 0:
                 filtered_all_highest_ratings.append(all_highest_ratings[x])
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
@@ -247,7 +249,7 @@ class ReportViewsCommon(DatePickers):
         # now we must normalise the average scores so that they represent valid
         # rating scale values (ie so that they fit into the rating scale)
         # eg. a value of 5.5 between valid scale values of 7 and 4, should => 4
-        normalised_avg_all_scores = [0] * len(filtered_all_scores)
+        normalised_avg_all_scores = [0] * len(filtered_all_scores) #XXX
         for x in range(len(average_all_scores)):
             notfound = True
             rating_scale = filtered_all_rating_scales[x]
@@ -265,7 +267,7 @@ class ReportViewsCommon(DatePickers):
                     normalised_avg_all_scores[x] = \
                         rating_scale[len(rating_scale)-1]
                     notfound = False
-                if average_all_scores[x] == 0:
+                if average_all_scores[x] == 0: #XXX
                 # or lower than the lowest entry in the current rating scale 
                     # set to 0
                     normalised_avg_all_scores[x] = average_all_scores[x] 
@@ -321,9 +323,9 @@ class ClassPerformanceForActivityChartView(grok.View):
 
                     # use lookup dict to interpret ratings
                     rating=eval_obj.getObject().evaluation[x]['rating']
-                    # do not add unrated (0) entries and 
-                    # explicitly unrated (-1) entries into the count
-                    if rating != 0 and rating != -1:
+                    # do not add unrated entries and 
+                    # explicitly unrated/not_rated entries into the count
+                    if rating != UN_RATED and rating != NOT_RATED:
                        count_dict[lookup_dict[rating]] += 1
 
         # parse count_dict into a format that the charting code accepts
@@ -344,11 +346,11 @@ class ClassPerformanceForActivityChartView(grok.View):
                 learner_str = self.context.translate(_(u' learner'))
             category_labels.append(str(value) + learner_str)
 
-        # make sure we are not supplying of value_data of all zeros 
+        # make sure we are not supplying of value_data of all zeros # XXX 
         # this can legally happen if no evaluations are graded yet.
         value_data_is_ok = False
         for x in range(len(value_data)):
-            if value_data[x] != 0:
+            if value_data[x] != UN_RATED:
                 value_data_is_ok = True
 
         if not value_data_is_ok:
@@ -673,7 +675,7 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                                                         full_objects=True)]
             for ev in evaluation_objects:
                 for x in range(len(ev.evaluation)):
-                    if ev.evaluation[x]['rating'] > 0:
+                    if ev.evaluation[x]['rating'] >= 0:
                         # a score has been found
                         return True
         return False
@@ -717,15 +719,16 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
                 if ev.learner.to_object == uuidToObject(learner_uid):
                     if scores == []:
                         # init lists so that we can use indexing
-                        scores = [0] * len(ev.evaluation) # one bucket/activity
+                        # one bucket/activity
+                        scores = [UN_RATED] * len(ev.evaluation) 
                         activity_ids = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
                     for x in range(len(ev.evaluation)):
                         activity_ids[x] = \
                             uuidToObject(ev.evaluation[x]['uid']).id
                         scores[x] = ev.evaluation[x]['rating']
-                        if scores[x] == -1:
-                            # explicitly unrated (-1) scores get set to 0
+                        if scores[x] == NOT_RATED:
+                            # explicitly unrated scores get set to 0   #XXX  WHY?
                             scores[x] = 0
                         # find the highest possible rating in this activities 
                         # rating scale
@@ -746,7 +749,7 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         filtered_all_scores = []
         filtered_all_activity_ids = []
         for x in range(len(all_scores)):
-            if all_scores[x] > 0:
+            if all_scores[x] >= 0:
                 filtered_all_highest_ratings.append(all_highest_ratings[x])
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
@@ -891,7 +894,7 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
             for ev in evaluation_objects:
                 if ev.learner.to_object == uuidToObject(self.learner_uid):
                     for x in range(len(ev.evaluation)):
-                        if ev.evaluation[x]['rating'] > 0:
+                        if ev.evaluation[x]['rating'] >= 0:
                             return True
         return False
      
@@ -1084,10 +1087,10 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
                         # do a color lookup for the score
                         # non-scored entries are ignored
-                        if score[0] == 0:
+                        if score[0] == UN_RATED:
                             pass
                         # explicitly unrated entries are ignored
-                        elif score[0] == -1:
+                        elif score[0] == NOT_RATED:
                             pass
                         # test if activity is using default scale
                         elif self.is_standard_rating_scale(scale):
@@ -1132,9 +1135,9 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                             score[1] = color_dict[score[0]]
 
                         # translate score number (int) into a rating (string)
-                        if score[0] == 0:
+                        if score[0] == UN_RATED:
                             score[0] = '' # Unrated are left as blanks
-                        elif score[0] == -1:
+                        elif score[0] == NOT_RATED:
                             score[0] = self.context.translate(_(u'Not Rated'))                            
                         else:
                             rating_scale = ev.evaluation[x]['rating_scale']
