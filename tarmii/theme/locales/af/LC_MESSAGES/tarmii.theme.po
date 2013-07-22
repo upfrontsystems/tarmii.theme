@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 15:26+0000\n"
+"POT-Creation-Date: 2013-07-22 12:44+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/reports/views.py:360
+#: ./browser/reports/views.py:344
 msgid " learner"
 msgstr " leerder"
 
-#: ./browser/reports/views.py:358
+#: ./browser/reports/views.py:342
 msgid " learners"
 msgstr " leerders"
 
@@ -32,7 +32,7 @@ msgstr " oplaai gee 'n fout"
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:47
-#: ./browser/reports/views.py:570
+#: ./browser/reports/views.py:561
 msgid "%B"
 msgstr ""
 
@@ -41,31 +41,35 @@ msgid "A data base conflict error happened when uploading this file:"
 msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 
 #. Default: "Activities"
-#: ./browser/reports/views.py:599
 #: ./browser/templates/activities.pt:11
 #: ./profiles/default/actions.xml
 msgid "Activities"
 msgstr "Aktiwiteite"
 
+#: ./browser/reports/views.py:590
+msgid "Activities across time"
+msgstr "Aktiwiteite in tyd"
+
 #: ./browser/templates/assessment-view.pt:17
 msgid "Add Activities"
 msgstr "Voeg Aktiwiteite by"
 
+#: ./browser/forms.py:67
 #: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr "Voeg Aktiwiteit by"
 
-#: ./browser/forms.py:120
+#: ./browser/forms.py:129
 #: ./browser/templates/assessments.pt:20
 msgid "Add Assessment"
 msgstr "Voeg Assessering by"
 
-#: ./browser/forms.py:95
+#: ./browser/forms.py:104
 #: ./browser/templates/classlists.pt:22
 msgid "Add Classlist"
 msgstr "Voeg Klaslys by"
 
-#: ./browser/forms.py:146
+#: ./browser/forms.py:155
 #: ./browser/templates/evaluationsheets.pt:17
 msgid "Add Evaluation Sheet"
 msgstr "Voeg Evaluasieblad by"
@@ -87,8 +91,8 @@ msgid "All files uploaded with success"
 msgstr "Alle lêers suksesvol opgelaai"
 
 #: ./behaviors.py:163
-msgid "All rating values must be positive and larger than zero"
-msgstr "Alle gradering waardes moet positief en groter as nul wees"
+msgid "All rating values must be positive or equal to zero"
+msgstr "Alle gradering waardes moet positief of gelyk aan nul wees"
 
 #: ./behaviors.py:166
 msgid "All rating values must be unique"
@@ -108,7 +112,7 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
-#: ./browser/reports/views.py:598
+#: ./browser/reports/views.py:589
 msgid "Average Learner Score"
 msgstr "Gemiddelde Leerder Telling"
 
@@ -151,14 +155,14 @@ msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:596
+#: ./browser/reports/views.py:587
 #: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr "Klas Vordering"
 
 #. Default: "Class Performance For Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:383
+#: ./browser/reports/views.py:367
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
@@ -203,11 +207,11 @@ msgstr "EMIS"
 msgid "Eastern Cape"
 msgstr "Oos-Kaap"
 
-#: ./browser/forms.py:132
+#: ./browser/forms.py:141
 msgid "Edit Assessment"
 msgstr "Redigeer Assessering"
 
-#: ./browser/forms.py:107
+#: ./browser/forms.py:116
 msgid "Edit Classlist"
 msgstr "Redigeer Klaslys"
 
@@ -228,7 +232,7 @@ msgid "Evaluations"
 msgstr "Evaluasies"
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:52
+#: ./browser/forms.py:53
 msgid "Excellent"
 msgstr "Uitstekend"
 
@@ -246,7 +250,7 @@ msgstr "Februarie"
 msgid "Feedback"
 msgstr "Terugvoer"
 
-#: ./browser/uploadtoserver.py:97
+#: ./browser/uploadtoserver.py:108
 msgid "File sent to server"
 msgstr "Lêer na bediener gestuur"
 
@@ -272,11 +276,11 @@ msgid "Generate Report"
 msgstr "Genereer Verslag"
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:54
+#: ./browser/forms.py:55
 msgid "Good"
 msgstr "Goed"
 
-#: ./browser/reports/views.py:597
+#: ./browser/reports/views.py:588
 msgid "Highest Possible Score"
 msgstr "Hoogste Moontlike Telling"
 
@@ -318,12 +322,12 @@ msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:773
+#: ./browser/reports/views.py:755
 #: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
 
-#: ./browser/reports/views.py:775
+#: ./browser/reports/views.py:757
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -354,7 +358,7 @@ msgid "Mpumalanga"
 msgstr "Mpumalanga"
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:58
+#: ./browser/forms.py:59
 msgid "Needs improvement"
 msgstr "Benodig verbetering"
 
@@ -366,7 +370,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:372
+#: ./browser/reports/views.py:356
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -383,7 +387,7 @@ msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1171
+#: ./browser/reports/views.py:1138
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -391,7 +395,7 @@ msgstr "Nie Gegradeer nie"
 msgid "November"
 msgstr "November"
 
-#: ./browser/reports/views.py:385
+#: ./browser/reports/views.py:369
 msgid "Number of learners per rating"
 msgstr "Aantal leerders per gradering"
 
@@ -414,6 +418,10 @@ msgstr "Oktober"
 #: ./browser/quickupload.py:379
 msgid "Only allowed:"
 msgstr "Slegs toegelaat:"
+
+#: ./browser/reports/views.py:591
+msgid "Performance Rating"
+msgstr "Prestasie Gradering"
 
 #. Default: "Personal Information"
 #: ./profiles/default/actions.xml
@@ -447,10 +455,6 @@ msgstr "Gradering"
 msgid "Rating scale"
 msgstr "Graderingskaal"
 
-#: ./browser/reports/views.py:600
-msgid "Ratings"
-msgstr "Graderings"
-
 #: ./behaviors.py:82
 msgid "Related"
 msgstr "Verwant"
@@ -483,7 +487,7 @@ msgid "Rubric"
 msgstr "Rubriek"
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:56
+#: ./browser/forms.py:57
 msgid "Satisfactory"
 msgstr "Bevredigend"
 
@@ -592,7 +596,7 @@ msgstr "UUID"
 msgid "Update Dates"
 msgstr "Opdateer Datums"
 
-#: ./browser/uploadtoserver.py:75
+#: ./browser/uploadtoserver.py:79
 msgid "Upload Server not specified in settings"
 msgstr "Oplaai bediener nie in instellings"
 
@@ -1258,7 +1262,7 @@ msgstr "Ons sal binnekort antwoord."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:569
+#: ./browser/reports/views.py:560
 msgid "on"
 msgstr "op"
 

@@ -159,9 +159,9 @@ class RatingValidator(validator.SimpleFieldValidator):
         ratings_set = Set([])
         for x in range(len(value)):
             rating = value[x]['rating']            
-            if rating <= 0:
-                raise Invalid(_(u"All rating values must be positive and " +\
-                                u"larger than zero"))
+            if rating < 0:
+                raise Invalid(_(u"All rating values must be positive or " +\
+                                u"equal to zero"))
             if rating in ratings_set:
                 raise Invalid(_(u"All rating values must be unique"))
             else:

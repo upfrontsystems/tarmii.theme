@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 15:26+0000\n"
+"POT-Creation-Date: 2013-07-22 12:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr ""
 
-#: ./browser/reports/views.py:360
+#: ./browser/reports/views.py:344
 msgid " learner"
 msgstr ""
 
-#: ./browser/reports/views.py:358
+#: ./browser/reports/views.py:342
 msgid " learners"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:47
-#: ./browser/reports/views.py:570
+#: ./browser/reports/views.py:561
 msgid "%B"
 msgstr ""
 
@@ -40,31 +40,35 @@ msgstr ""
 msgid "A data base conflict error happened when uploading this file:"
 msgstr ""
 
-#: ./browser/reports/views.py:599
 #: ./browser/templates/activities.pt:11
 #: ./profiles/default/actions.xml
 msgid "Activities"
+msgstr ""
+
+#: ./browser/reports/views.py:590
+msgid "Activities across time"
 msgstr ""
 
 #: ./browser/templates/assessment-view.pt:17
 msgid "Add Activities"
 msgstr ""
 
+#: ./browser/forms.py:67
 #: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr ""
 
-#: ./browser/forms.py:120
+#: ./browser/forms.py:129
 #: ./browser/templates/assessments.pt:20
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/forms.py:95
+#: ./browser/forms.py:104
 #: ./browser/templates/classlists.pt:22
 msgid "Add Classlist"
 msgstr ""
 
-#: ./browser/forms.py:146
+#: ./browser/forms.py:155
 #: ./browser/templates/evaluationsheets.pt:17
 msgid "Add Evaluation Sheet"
 msgstr ""
@@ -86,7 +90,7 @@ msgid "All files uploaded with success"
 msgstr ""
 
 #: ./behaviors.py:163
-msgid "All rating values must be positive and larger than zero"
+msgid "All rating values must be positive or equal to zero"
 msgstr ""
 
 #: ./behaviors.py:166
@@ -106,7 +110,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:598
+#: ./browser/reports/views.py:589
 msgid "Average Learner Score"
 msgstr ""
 
@@ -149,14 +153,14 @@ msgid "Choose video files to upload"
 msgstr ""
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:596
+#: ./browser/reports/views.py:587
 #: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr ""
 
 #. Default: "Class Performance For Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:383
+#: ./browser/reports/views.py:367
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr ""
@@ -200,11 +204,11 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./browser/forms.py:132
+#: ./browser/forms.py:141
 msgid "Edit Assessment"
 msgstr ""
 
-#: ./browser/forms.py:107
+#: ./browser/forms.py:116
 msgid "Edit Classlist"
 msgstr ""
 
@@ -224,7 +228,7 @@ msgid "Evaluations"
 msgstr ""
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:52
+#: ./browser/forms.py:53
 msgid "Excellent"
 msgstr ""
 
@@ -242,7 +246,7 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
-#: ./browser/uploadtoserver.py:97
+#: ./browser/uploadtoserver.py:108
 msgid "File sent to server"
 msgstr ""
 
@@ -268,11 +272,11 @@ msgid "Generate Report"
 msgstr ""
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:54
+#: ./browser/forms.py:55
 msgid "Good"
 msgstr ""
 
-#: ./browser/reports/views.py:597
+#: ./browser/reports/views.py:588
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -314,12 +318,12 @@ msgid "Last version number"
 msgstr ""
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:773
+#: ./browser/reports/views.py:755
 #: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:775
+#: ./browser/reports/views.py:757
 msgid "Learner Score"
 msgstr ""
 
@@ -350,7 +354,7 @@ msgid "Mpumalanga"
 msgstr ""
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:58
+#: ./browser/forms.py:59
 msgid "Needs improvement"
 msgstr ""
 
@@ -362,7 +366,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:372
+#: ./browser/reports/views.py:356
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -379,7 +383,7 @@ msgid "Northern Cape"
 msgstr ""
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1171
+#: ./browser/reports/views.py:1138
 msgid "Not Rated"
 msgstr ""
 
@@ -387,7 +391,7 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: ./browser/reports/views.py:385
+#: ./browser/reports/views.py:369
 msgid "Number of learners per rating"
 msgstr ""
 
@@ -409,6 +413,10 @@ msgstr ""
 
 #: ./browser/quickupload.py:379
 msgid "Only allowed:"
+msgstr ""
+
+#: ./browser/reports/views.py:591
+msgid "Performance Rating"
 msgstr ""
 
 #. Default: "Personal Information"
@@ -443,10 +451,6 @@ msgstr ""
 msgid "Rating scale"
 msgstr ""
 
-#: ./browser/reports/views.py:600
-msgid "Ratings"
-msgstr ""
-
 #: ./behaviors.py:82
 msgid "Related"
 msgstr ""
@@ -478,7 +482,7 @@ msgid "Rubric"
 msgstr ""
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:56
+#: ./browser/forms.py:57
 msgid "Satisfactory"
 msgstr ""
 
@@ -586,7 +590,7 @@ msgstr ""
 msgid "Update Dates"
 msgstr ""
 
-#: ./browser/uploadtoserver.py:75
+#: ./browser/uploadtoserver.py:79
 msgid "Upload Server not specified in settings"
 msgstr ""
 
@@ -1250,7 +1254,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:569
+#: ./browser/reports/views.py:560
 msgid "on"
 msgstr ""
 
