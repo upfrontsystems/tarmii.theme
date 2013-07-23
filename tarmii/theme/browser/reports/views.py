@@ -121,6 +121,21 @@ class ReportViewsCommon(DatePickers):
                 return False
         return True
 
+    def is_zero_one_rating_scale(self, scale):
+        """ test if a rating scale contains 2 ratings and they are numbered 0 
+            and 1 (this will work for 1,0 and 0,1)
+        """
+        if len(scale) != 2:
+            return False
+        scale_list = []
+        for z in range(len(scale)):
+            scale_list.append(scale[z]['rating'])
+        scale_list.sort()
+        for z in range(len(scale_list)):
+            if scale_list[z] != z:
+                return False
+        return True
+
     def evaluationsheets_filter(self, startdate, enddate, classlist_uid):
         """ return all user's evaluationsheets for the selected date range 
             and only for the selected classlist if classlist_uid is supplied 
@@ -422,14 +437,13 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
             members_folder = pm.getHomeFolder()
             if members_folder == None:
                 return []
-            if len(members_folder.classlists.getFolderContents()) == 0:
+            if len(self.classlists()) == 0:
                 # no classlists
                 self.classlist_id = ''
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0] \
-                            .getObject()
+                classlist = self.classlists()[0].getObject()
                 self.classlist_uid = IUUID(classlist)
 
         evaluationsheets = self.evaluationsheets()
@@ -639,14 +653,13 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
             members_folder = pm.getHomeFolder()
             if members_folder == None:
                 return []
-            if len(members_folder.classlists.getFolderContents()) == 0:
+            if len(self.classlists()) == 0:
                 # no classlists
                 self.classlist_id = ''
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0] \
-                            .getObject()
+                classlist = self.classlists()[0].getObject()
                 self.classlist_uid = IUUID(classlist)
 
     def evaluationsheets(self):
@@ -808,14 +821,13 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
             members_folder = pm.getHomeFolder()
             if members_folder == None:
                 return []
-            if len(members_folder.classlists.getFolderContents()) == 0:
+            if len(self.classlists()) == 0:
                 # no classlists
                 self.classlist_id = ''
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = members_folder.classlists.getFolderContents()[0] \
-                            .getObject()
+                classlist = self.classlists()[0].getObject()
                 self.classlist_uid = IUUID(classlist)
                 contentFilter = {
                     'portal_type': 'upfront.classlist.content.learner',
@@ -994,14 +1006,13 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             members_folder = pm.getHomeFolder()
             if members_folder == None:
                 return []
-            if len(members_folder.classlists.getFolderContents()) == 0:
+            if len(self.classlists()) == 0:
                 # no classlists
                 self.classlist_id = ''
                 return []
             else:                
                 # no classlist selected so pick first one in list
-                classlist = \
-                    members_folder.classlists.getFolderContents()[0].getObject()
+                classlist = self.classlists()[0].getObject()
                 self.classlist_uid = IUUID(classlist)
 
         # calculate the activity ids for the all the activities
@@ -1092,6 +1103,12 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                         # explicitly unrated entries are ignored
                         elif score[0] == NOT_RATED:
                             pass
+                        # test if activity is using zero/one custom scale
+                        elif self.is_zero_one_rating_scale(scale):
+                            if score[0] == 0:
+                                score[1] = 'mattred'
+                            elif score[0] == 1:
+                                score[1] = 'mattgreen'
                         # test if activity is using default scale
                         elif self.is_standard_rating_scale(scale):
                             if score[0] == 1:
