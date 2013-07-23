@@ -247,7 +247,7 @@ class ReportViewsCommon(DatePickers):
         filtered_all_rating_scales = []
         filtered_all_learner_count = []
         for x in range(len(all_scores)):
-            if all_learner_count[x] >= 0:
+            if all_learner_count[x] > 0:
                 filtered_all_highest_ratings.append(all_highest_ratings[x])
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
@@ -264,7 +264,7 @@ class ReportViewsCommon(DatePickers):
         # now we must normalise the average scores so that they represent valid
         # rating scale values (ie so that they fit into the rating scale)
         # eg. a value of 5.5 between valid scale values of 7 and 4, should => 4
-        normalised_avg_all_scores = [0] * len(filtered_all_scores) #XXX
+        normalised_avg_all_scores = [0] * len(filtered_all_scores)
         for x in range(len(average_all_scores)):
             notfound = True
             rating_scale = filtered_all_rating_scales[x]
@@ -940,16 +940,22 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
          filtered_all_highest_ratings, filtered_all_rating_scales, 
          normalised_avg_all_scores] = self.average_scores(esheets_in_range)
 
-        # check for existance of custom scales
         self.custom_rating_scale_present = False
+        # check for existance of custom scales
+
         for scale in filtered_all_rating_scales:
-            # scale must have 4 entries
-            if len(scale) != 4:
+            # scale must have 4 entries or 2 entries
+            if len(scale) != 4 and len(scale) != 2:
                 self.custom_rating_scale_present = True
             scale.reverse()
-            for z in range(len(scale)):
-                if scale[z] != z+1:
-                    self.custom_rating_scale_present = True
+            if len(scale) == 2:
+                for z in range(len(scale)):
+                    if scale[z] != z:
+                        self.custom_rating_scale_present = True
+            if len(scale) == 4:
+                for z in range(len(scale)):
+                    if scale[z] != z+1:
+                        self.custom_rating_scale_present = True
            
         # combine filtered_all_scores with filtered_all_activity_ids
         id_scores = []
