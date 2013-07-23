@@ -37,8 +37,7 @@
             padding-bottom: 0cm;            
         }
 
-        table.frontpage,
-        div.activities {
+        table.frontpage {
             margin-left: 1cm;
             margin-right: 1cm;
             page-break-after: always;
@@ -76,6 +75,9 @@
             margin-left: 1cm;
             margin-right: 1cm;
             text-align: center;
+        }
+        div.equipment {
+            padding-top: 10px;
         }
         /* The default style */
         @page {
@@ -146,20 +148,23 @@
 
     <div>&nbsp;</div>
     <div>&nbsp;</div>
-    <div>
+    <div tal:repeat="activity view/activities">
         <table border="1" class="frontpage">
             <tr>
                <th></th>
-               <div tal:repeat="activity view/activities">
-                    <th><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></th>
-                </div>
+               <th><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></th>
             </tr>
             <tr tal:repeat="topictree view/topictrees">
-                <td><span tal:content="topictree/title"></span>
-                </td>
-               <div tal:repeat="topic python:view.topics_per_topictree(topictree)">
-                    <td tal:content="topic"></td>
-                </div>
+                <td><span tal:content="topictree/title"></span></td>
+                <td><span tal:content="python:view.topic_per_topictree(activity,topictree)"></span></td>
+            </tr>
+            <tr>
+               <td><span i18n:translate="Equipment and Administration (For the teacher)">
+                    Equipment and Administration (For the teacher)</span>
+               </td>
+               <td><div class="equipment" tal:content="structure activity/equipment_and_administration/output|nothing">
+                    The Equipment and Administration</div>
+               </td>
             </tr>
         </table>
     </div>

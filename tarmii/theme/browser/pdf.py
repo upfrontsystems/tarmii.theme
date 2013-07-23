@@ -455,32 +455,16 @@ class TeacherInformationPDF(grok.View):
 
         return ', '.join(map(str,topic_list))
 
-    def topics_per_topictree(self, topictree):
-        """ For each topictree, check which activities in the assessment
-            use the provided topictree and return which topic they were tagged
-            with. eg. for Language topictree with 4 activities in an assessment:
-            this method will return ['English', "Xhosa', '', 'English'] for
-            instance.
+    def topic_per_topictree(self, activity, topictree):
+        """ Return the topic given an activity and topictree
         """
-
-        topictrees = self.topictrees()
-        activities = self.activities()
-
-        # init a blank topic list
-        topic_list = []
-        for x in range(len(activities)):
-            topic_list.append('')
-
         # if activity has topics, place in correct positions in the topic list
-        for activity_index in range(len(activities)):
-            activity = activities[activity_index]
-            if hasattr(activity,'topics'):
-                for x in range(len(topictrees)):
-                    for topic in activity.topics:
-                        if topic.to_object.aq_parent.id == topictree.id:
-                            topic_list[activity_index] = topic.to_object.title
+        if hasattr(activity,'topics'):
+            for topic in activity.topics:
+                if topic.to_object.aq_parent.id == topictree.id:
+                    return topic.to_object.title
 
-        return topic_list
+        return ''
 
     def assessment_date(self):
         """ Return date that assessment was created with month translated
