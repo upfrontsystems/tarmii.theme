@@ -247,7 +247,7 @@ class ReportViewsCommon(DatePickers):
         filtered_all_rating_scales = []
         filtered_all_learner_count = []
         for x in range(len(all_scores)):
-            if all_learner_count[x] > 0:
+            if all_learner_count[x] > 0:  # XXX NEEDS CHECK
                 filtered_all_highest_ratings.append(all_highest_ratings[x])
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
@@ -282,7 +282,7 @@ class ReportViewsCommon(DatePickers):
                     normalised_avg_all_scores[x] = \
                         rating_scale[len(rating_scale)-1]
                     notfound = False
-                if average_all_scores[x] == 0: #XXX
+                if average_all_scores[x] == 0: #XXX why???
                 # or lower than the lowest entry in the current rating scale 
                     # set to 0
                     normalised_avg_all_scores[x] = average_all_scores[x] 
@@ -361,11 +361,14 @@ class ClassPerformanceForActivityChartView(grok.View):
                 learner_str = self.context.translate(_(u' learner'))
             category_labels.append(str(value) + learner_str)
 
-        # make sure we are not supplying of value_data of all zeros # XXX 
+        # make sure we are not supplying of value_data of all zeros
         # this can legally happen if no evaluations are graded yet.
+        # a zero represents that for a specific rating/score, no learners 
+        # achieved this. if no learners achieved no scores, we have no data to 
+        # show
         value_data_is_ok = False
         for x in range(len(value_data)):
-            if value_data[x] != UN_RATED:
+            if value_data[x] != 0:
                 value_data_is_ok = True
 
         if not value_data_is_ok:
@@ -740,9 +743,6 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
                         activity_ids[x] = \
                             uuidToObject(ev.evaluation[x]['uid']).id
                         scores[x] = ev.evaluation[x]['rating']
-                        if scores[x] == NOT_RATED:
-                            # explicitly unrated scores get set to 0   #XXX  WHY?
-                            scores[x] = 0
                         # find the highest possible rating in this activities 
                         # rating scale
                         rating_scale = ev.evaluation[x]['rating_scale']
@@ -791,6 +791,8 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
     def render(self):
         request = self.request
         response = request.response
+
+        print self.data()
 
         drawing = LearnerProgressChart(self.data())
         out = StringIO(renderPM.drawToString(drawing, 'PNG'))
@@ -940,9 +942,8 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
          filtered_all_highest_ratings, filtered_all_rating_scales, 
          normalised_avg_all_scores] = self.average_scores(esheets_in_range)
 
-        self.custom_rating_scale_present = False
         # check for existance of custom scales
-
+        self.custom_rating_scale_present = False
         for scale in filtered_all_rating_scales:
             # scale must have 4 entries or 2 entries
             if len(scale) != 4 and len(scale) != 2:

@@ -63,7 +63,7 @@
                                                     tal:attributes="value python:view.getUID(activity.to_object);
                                                                     selected python:view.getUID(activity.to_object) ==
                                                                              request.get('activity_uid_selected', '')"
-                                                    tal:content="python:activity.to_object.id">
+                                                    tal:content="repeat/activity/number">
                                             </option>
                                         </select>
                                     </td>
