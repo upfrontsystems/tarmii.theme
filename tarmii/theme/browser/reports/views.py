@@ -792,8 +792,6 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         request = self.request
         response = request.response
 
-        print self.data()
-
         drawing = LearnerProgressChart(self.data())
         out = StringIO(renderPM.drawToString(drawing, 'PNG'))
         response.setHeader('expires', 0)
