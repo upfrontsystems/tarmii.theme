@@ -8,6 +8,7 @@ from Acquisition import aq_base
 from Products.CMFCore.interfaces import IFolderish
 
 from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
+from upfront.assessment.content.assessment import IAssessment
 from upfront.assessment.content.evaluationsheet import IEvaluationSheet
 from tarmii.theme.interfaces import IItemVersion   
 
@@ -46,6 +47,15 @@ class AssessmentItemNameChooser(grok.Adapter, NormalizingNameChooser):
                     name = 'evaluationsheet-%s-%s' %\
                            (object.assessment.to_object.id,
                             object.classlist.to_object.id)
+                name = self._findUniqueName(name,object)
+            return normalizer.normalize(name)
+        elif IAssessment.providedBy(object):
+            normalizer = getUtility(IURLNormalizer)
+            if not name:
+                # first check if object has an id
+                name = getattr(aq_base(object), 'id', None)
+                if not name:
+                    name = 'assessment'
                 name = self._findUniqueName(name,object)
             return normalizer.normalize(name)
         # All other objects

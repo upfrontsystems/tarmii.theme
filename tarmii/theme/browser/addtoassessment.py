@@ -5,6 +5,10 @@ from zope.component import getUtility
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 
+from plone.i18n.normalizer.interfaces import IURLNormalizer
+#from plone.app.content.namechooser import NormalizingNameChooser
+from plone.dexterity.utils import createContentInContainer
+
 from z3c.relationfield import RelationValue
 from Products.CMFCore.utils import getToolByName
 
@@ -44,39 +48,23 @@ class AddToAssessmentView(grok.View):
                 assessment_list = []
                 for brain in brains:
                     assessment_list.append(brain.id)
-                if new_assessment not in assessment_list:
 
-                    # no such assessment already exists
-                    # create new assessment in assessments folder
-                    pm = getToolByName(self.context, 'portal_membership')
-                    members_folder = pm.getHomeFolder()
+                # create new assessment in assessments folder
+                pm = getToolByName(self.context, 'portal_membership')
+                members_folder = pm.getHomeFolder()
 
-                    # see explanation in assessments method why we do next 3 
-                    # lines instead of "members_folder._getOb('assessments')"
-                    ls = [x.getObject().Title() for x in 
-                                            members_folder.getFolderContents()]
-                    idx = ls.index('Assessments')
-                    assessments_folder = members_folder.getFolderContents()\
-                                                            [idx].getObject()
+                # see explanation in assessments method why we do next 3 
+                # lines instead of "members_folder._getOb('assessments')"
+                ls = [x.getObject().Title() for x in 
+                                        members_folder.getFolderContents()]
+                idx = ls.index('Assessments')
+                assessments_folder = members_folder.getFolderContents()\
+                                                        [idx].getObject()
 
-                    assessments_folder.invokeFactory(
-                                       'upfront.assessment.content.assessment',
-                                       new_assessment,
-                                       title=new_assessment)
-                    assessment = assessments_folder._getOb(new_assessment)
-                else:
-                    # assessment that we want to create already exists
-                    # add activity to it if it doesnt already contain the very
-                    # activity
-                    for brain in brains:
-                        obj = brain.getObject()
-                        if new_assessment == brain.id:
-                            ids_list =\
-                                [x.to_object.id for x in obj.assessment_items]
-                            if activity_id in ids_list:
-                                # do not add again to list of activities
-                                return
-                            assessment = obj
+                assessment = createContentInContainer(assessments_folder,
+                                 'upfront.assessment.content.assessment')
+                assessment.title = new_assessment
+
             else:
                 # get selected assessment from dropdown
                 selected = self.request.get('assessment_uid_selected', '')
@@ -92,7 +80,6 @@ class AddToAssessmentView(grok.View):
                     # availble assessments is empty
                     return self.request.RESPONSE.redirect(
                                                     self.context.absolute_url())
-
 
             # if we arrived here, we have obtained a valid assessment object,
             # associate the activity with it
