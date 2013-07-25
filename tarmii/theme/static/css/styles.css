@@ -650,6 +650,22 @@ table.listing.admin-table th {
     font-weight: bold;
 }
 
+.report-navigation {
+    display: block;
+}
+.report-navigation .left-link,
+.report-navigation .right-link {
+    display: inline-block;
+}
+
+.report-navigation .left-link {
+    float: left;
+}
+
+.report-navigation .right-link {
+    float: right;
+}
+
 /* colors for strength+weaknessess chart view */
 
 table.listing tbody tr td.lightred,

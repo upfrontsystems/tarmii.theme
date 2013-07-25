@@ -297,6 +297,9 @@ class ReportViewsCommon(DatePickers):
                 filtered_all_highest_ratings, filtered_all_rating_scales,
                 normalised_avg_all_scores ]
 
+    def site_url(self):
+        return getToolByName(self.context, 'portal_url')
+
 
 class ClassPerformanceForActivityChartView(grok.View):
     """ Class performance for a given activity

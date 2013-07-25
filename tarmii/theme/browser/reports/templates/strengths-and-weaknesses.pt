@@ -126,6 +126,17 @@
         <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations</div>
     </tal:classlists>
 
+    <div>&nbsp;</div>
+    <div class="report-navigation"
+         tal:define="portal_url view/site_url"> 
+        <div class="left-link">
+            <a tal:attributes="href string:$portal_url/@@learner-progress">Learner Progress Report</a>
+        </div>
+        <div class="right-link">
+            <a tal:attributes="href string:$portal_url/@@evaluationsheet">Evaluation Sheet Report</a>
+        </div>
+    </div>
+
     </metal:main>
 </body>
 </html>
