@@ -172,16 +172,16 @@ msgstr ""
 #: ./browser/reports/views.py:390
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
-msgstr ""
+msgstr "Ho kala tshebetso ya baithuti ditshebetsong"
 
 #: ./browser/templates/classlists.pt:11
 #: ./profiles/default/actions.xml
 msgid "Classlists"
-msgstr ""
+msgstr "Lenane la sehlopha sa baithuti"
 
 #: ./browser/feedback.py:44
 msgid "Contact Us"
-msgstr ""
+msgstr "Re letsetse"
 
 #: ./behaviors.py:113
 #: ./browser/templates/activities-pdf.pt:120
@@ -191,45 +191,45 @@ msgstr ""
 
 #: ./browser/templates/activities.pt:34
 msgid "Contribute own activity"
-msgstr ""
+msgstr "Fana ka tshebediso ya hao"
 
 #: ./browser/templates/usagestats.pt:72
 msgid "December"
-msgstr ""
+msgstr "Tsitoe"
 
 #: ./interfaces.py:36
 msgid "Define the url where the logs can be uploaded"
-msgstr ""
+msgstr "Hlalosa url moo diloko di ka kenywang difaeleng tsa neteweke"
 
 #: ./browser/quickupload.py:367
 msgid "Drag and drop files to upload"
-msgstr ""
+msgstr "Hula le ho lahla difaele tsa ho kenywa netewekeng"
 
 #: ./userdataschema.py:28
 msgid "EMIS"
-msgstr ""
+msgstr "EMIS"
 
 #: ./vocabs.py:9
 msgid "Eastern Cape"
-msgstr ""
+msgstr "Kapa Botjhabela"
 
 #: ./browser/forms.py:141
 msgid "Edit Assessment"
-msgstr ""
+msgstr "Fetola Tekolo"
 
 #: ./browser/forms.py:116
 msgid "Edit Classlist"
-msgstr ""
+msgstr "Hlophisa lenaneo la mabitso a barutwana"
 
 #: ./browser/reports/views.py:67
 msgid "End Date"
-msgstr ""
+msgstr "Letsatsi la hoqetela"
 
 #: ./behaviors.py:123
 #: ./browser/templates/activities-pdf.pt:128
 #: ./browser/templates/assessmentitem-view.pt:30
 msgid "Equipment and Administration (For the teacher)"
-msgstr ""
+msgstr "Disebedisoa le tsamaiso (ho bo Mosuwe le basuwetsana)"
 
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:137
 msgid "Evaluation Sheet Report"
@@ -238,47 +238,47 @@ msgstr ""
 #: ./browser/templates/evaluationsheets.pt:11
 #: ./profiles/default/actions.xml
 msgid "Evaluations"
-msgstr ""
+msgstr "Lihlahlobo"
 
 #: ./behaviors.py:67
 #: ./browser/forms.py:53
 msgid "Excellent"
-msgstr ""
+msgstr "Ka dinaledi"
 
 #: ./browser/quickupload.py:371
 msgid "Failed"
-msgstr ""
+msgstr "Hlolehile"
 
 #: ./browser/templates/usagestats.pt:52
 msgid "February"
-msgstr ""
+msgstr "Hlakola"
 
 #: ./browser/feedback.py:83
 #: ./browser/templates/activities.pt:116
 #: ./browser/templates/assessment-view.pt:74
 msgid "Feedback"
-msgstr ""
+msgstr "Ditlamorago"
 
 #: ./browser/uploadtoserver.py:108
 msgid "File sent to server"
-msgstr ""
+msgstr "Faele e rometswe polokong ya tshedimoso"
 
 #: ./browser/quickupload.py:91
 msgid "Files Quick Upload"
-msgstr ""
+msgstr "Ho kenya tshedimoso ya faele ka pele netewekeng"
 
 #: ./browser/templates/activities.pt:68
 #: ./browser/templates/resources.pt:56
 msgid "Filter results"
-msgstr ""
+msgstr "Sefa sephetho"
 
 #: ./vocabs.py:10
 msgid "Free State"
-msgstr ""
+msgstr "Foreistata"
 
 #: ./vocabs.py:11
 msgid "Gauteng"
-msgstr ""
+msgstr "Gauteng"
 
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:29
 msgid "Generate Report"
@@ -287,7 +287,7 @@ msgstr ""
 #: ./behaviors.py:68
 #: ./browser/forms.py:55
 msgid "Good"
-msgstr ""
+msgstr "Hantle"
 
 #: ./browser/reports/views.py:610
 msgid "Highest Possible Score"
@@ -300,7 +300,7 @@ msgstr ""
 
 #: ./browser/quickupload.py:93
 msgid "Images Quick Upload"
-msgstr ""
+msgstr "Ho kenya ditshwantsho ka pele faeleng ya neteweke"
 
 #: ./behaviors.py:103
 msgid "Item ID"
@@ -308,27 +308,27 @@ msgstr ""
 
 #: ./browser/templates/usagestats.pt:50
 msgid "January"
-msgstr ""
+msgstr "Pherekhong"
 
 #: ./browser/templates/usagestats.pt:62
 msgid "July"
-msgstr ""
+msgstr "Phupu"
 
 #: ./browser/templates/usagestats.pt:60
 msgid "June"
-msgstr ""
+msgstr "Phuptjane"
 
 #: ./vocabs.py:12
 msgid "Kwazulu-Natal"
-msgstr ""
+msgstr "Kwazulu-Natala"
 
 #: ./behaviors.py:50
 msgid "Label"
-msgstr ""
+msgstr "Letshwao"
 
 #: ./interfaces.py:15
 msgid "Last version number"
-msgstr ""
+msgstr "Palo ya ho qetela ya ho fetolwa"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
 #: ./browser/reports/views.py:774
@@ -353,32 +353,32 @@ msgstr ""
 
 #: ./vocabs.py:13
 msgid "Limpopo"
-msgstr ""
+msgstr "Limpopo"
 
 #: ./browser/templates/usagestats.pt:54
 msgid "March"
-msgstr ""
+msgstr "Hlakubele"
 
 #: ./browser/templates/usagestats.pt:58
 msgid "May"
-msgstr ""
+msgstr "Motseanong"
 
 #: ./browser/feedback.py:26
 msgid "Message"
-msgstr ""
+msgstr "Molaetsa"
 
 #: ./vocabs.py:14
 msgid "Mpumalanga"
-msgstr ""
+msgstr "Mpumalanga"
 
 #: ./behaviors.py:70
 #: ./browser/forms.py:59
 msgid "Needs improvement"
-msgstr ""
+msgstr "Ho hlokeha hlabollo"
 
 #: ./browser/teacherprofiles.py:111
 msgid "Never"
-msgstr ""
+msgstr "Le kgale"
 
 #: ./browser/exportactivities.py:96
 msgid "No activities exist"
@@ -390,24 +390,24 @@ msgstr ""
 
 #: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
-msgstr ""
+msgstr "Ha ho hlahelle diphorofaele tse sebediswang"
 
 #: ./vocabs.py:15
 msgid "North West"
-msgstr ""
+msgstr "Leboya_Bophirimela"
 
 #: ./vocabs.py:16
 msgid "Northern Cape"
-msgstr ""
+msgstr "Kapa_Leboya"
 
 #: ./browser/pdf.py:343
 #: ./browser/reports/views.py:1166
 msgid "Not Rated"
-msgstr ""
+msgstr "Ha di a lekangwa"
 
 #: ./browser/templates/usagestats.pt:70
 msgid "November"
-msgstr ""
+msgstr "Pudungoana"
 
 #: ./browser/reports/views.py:392
 msgid "Number of learners per rating"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase"
-msgstr ""
+msgstr "Dilemo tsa ho ruta dihlopha tsa pele"
 
 #: ./browser/templates/usagestats.pt:97
 msgid "OK"
@@ -423,15 +423,15 @@ msgstr ""
 
 #: ./behaviors.py:30
 msgid "Observation Sheet"
-msgstr ""
+msgstr "Leqephe la tekolo"
 
 #: ./browser/templates/usagestats.pt:68
 msgid "October"
-msgstr ""
+msgstr "Mphalane"
 
 #: ./browser/quickupload.py:379
 msgid "Only allowed:"
-msgstr ""
+msgstr "Ho dumelletswe feela:"
 
 #: ./browser/reports/views.py:613
 msgid "Performance Rating"
@@ -450,36 +450,36 @@ msgstr ""
 
 #: ./browser/views.py:119
 msgid "Profile created"
-msgstr ""
+msgstr "Ho entswe phorofaele"
 
 #: ./userdataschema.py:22
 msgid "Province"
-msgstr ""
+msgstr "Porofense"
 
 #: ./browser/templates/teacherprofiles.pt:42
 #: ./userdataschema.py:43
 msgid "Qualification"
-msgstr ""
+msgstr "Mangolo a dithuto"
 
 #: ./behaviors.py:51
 msgid "Rating"
-msgstr ""
+msgstr "Tekanelo"
 
 #: ./behaviors.py:65
 msgid "Rating scale"
-msgstr ""
+msgstr "Maemo a tekanelo"
 
 #: ./behaviors.py:82
 msgid "Related"
-msgstr ""
+msgstr "Tsamaisana"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
-msgstr ""
+msgstr "Peakanyo ya sefara ya ka thoko"
 
 #: ./interfaces.py:35
 msgid "Remote Server Url"
-msgstr ""
+msgstr "Sefara ya ka thoko ya Url"
 
 #: ./browser/templates/report.pt:11
 #: ./profiles/default/actions.xml
@@ -502,61 +502,61 @@ msgstr ""
 
 #: ./behaviors.py:40
 msgid "Rubric"
-msgstr ""
+msgstr "Rubiriki"
 
 #: ./behaviors.py:69
 #: ./browser/forms.py:57
 msgid "Satisfactory"
-msgstr ""
+msgstr "Kgotsofatsa"
 
 #: ./browser/templates/addassessmentitem.pt:283
 #: ./browser/templates/addclasslist.pt:28
 #: ./browser/templates/addevaluationsheet.pt:33
 msgid "Save"
-msgstr ""
+msgstr "Boloka"
 
 #: ./userdataschema.py:17
 msgid "School"
-msgstr ""
+msgstr "Sekolo"
 
 #: ./userdataschema.py:33
 msgid "School Contact Number"
-msgstr ""
+msgstr "Nomoro ya mogala wa sekolo:"
 
 #: ./userdataschema.py:38
 msgid "School Email"
-msgstr ""
+msgstr "Emeili ya sekolo:"
 
 #: ./browser/templates/activities.pt:78
 msgid "Search"
-msgstr ""
+msgstr "Batla"
 
 #. Default: "Select your language"
 #: ./browser/templates/selectlanguage.pt:12
 #: ./browser/templates/selectprofile.pt:13
 #: ./profiles/default/actions.xml
 msgid "Select Language"
-msgstr ""
+msgstr "Khetha puo"
 
 #: ./browser/quickupload.py:374
 msgid "Selected elements contain an empty file or a folder:"
-msgstr ""
+msgstr "Dikotwana tseo o di kgethileng di na le faele  e se nang letho:"
 
 #: ./browser/feedback.py:48
 msgid "Send"
-msgstr ""
+msgstr "Romela"
 
 #: ./browser/templates/usagestats.pt:66
 msgid "September"
-msgstr ""
+msgstr "Loetse"
 
 #: ./browser/quickupload.py:384
 msgid "Server error, please contact support and/or try again"
-msgstr ""
+msgstr "Phoso sefareng, ikopanye le ba thuso kapa o leke hape"
 
 #: ./browser/reports/views.py:70
 msgid "Start Date"
-msgstr ""
+msgstr "Tsatsi la ho qala"
 
 #: ./browser/reports/templates/evaluationsheet.pt:143
 #: ./browser/reports/templates/learnerprogress.pt:163
@@ -565,7 +565,7 @@ msgstr ""
 
 #: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
-msgstr ""
+msgstr "TARMII Peakanyo ya sefara e behetsweng thoko"
 
 #: ./profiles/default/types/tarmii.theme.content.teacherresource.xml
 msgid "Teacher Resource"
@@ -641,7 +641,7 @@ msgstr ""
 
 #: ./vocabs.py:17
 msgid "Western Cape"
-msgstr ""
+msgstr "Kapa_Bophirimela"
 
 #: ./browser/quickupload.py:380
 msgid "You don't have permission to add this content in this place"
@@ -670,7 +670,7 @@ msgstr ""
 #. Default: "All Activities in the system"
 #: ./browser/templates/activities-pdf.pt:107
 msgid "heading_activities_pdf"
-msgstr ""
+msgstr "Ditshebediso ka ofela tse komporong"
 
 #. Default: "Activity ID:"
 #: ./browser/templates/evaluationsheet-pdf.pt:106
@@ -690,7 +690,7 @@ msgstr ""
 #. Default: "Assessment Task"
 #: ./browser/templates/assessment-pdf.pt:126
 msgid "heading_assessment_pdf"
-msgstr ""
+msgstr "Mosebetsi wa holekola"
 
 #. Default: "Evaluation Sheet"
 #: ./browser/reports/templates/evaluationsheet.pt:20
@@ -702,7 +702,7 @@ msgstr ""
 #. Default: "Evaluation Sheet for"
 #: ./browser/templates/evaluationsheet-pdf.pt:103
 msgid "heading_evaluationsheet_pdf"
-msgstr ""
+msgstr "Pampiri ya hlahlobo ya"
 
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
@@ -730,7 +730,7 @@ msgstr ""
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:11
 #: ./browser/templates/report.pt:32
 msgid "heading_strenghts_and_weaknesses"
-msgstr ""
+msgstr "Matla le bo fokolo"
 
 #. Default: "Teacher Information for"
 #: ./browser/templates/teacher-info-pdf.pt:111
@@ -805,12 +805,12 @@ msgstr ""
 #. Default: "CREATE CLASSLISTS"
 #: ./browser/templates/home.pt:21
 msgid "home_heading_classlists"
-msgstr ""
+msgstr "BOPA LENANE LA BAITHUTI"
 
 #. Default: "EVALUATE LEARNERS"
 #: ./browser/templates/home.pt:63
 msgid "home_heading_evaluations"
-msgstr ""
+msgstr "HLAHLUBA BAITHUTI"
 
 #. Default: "GENERATE REPORTS"
 #: ./browser/templates/home.pt:78
@@ -830,12 +830,12 @@ msgstr ""
 #. Default: "Activities Created"
 #: ./browser/templates/usagestats.pt:117
 msgid "label_activities_created"
-msgstr ""
+msgstr "Ditshebetso tse bopuweng"
 
 #. Default: "Activities Viewed"
 #: ./browser/templates/usagestats.pt:113
 msgid "label_activities_viewed"
-msgstr ""
+msgstr "Ditshebetso tse shebuoeng"
 
 #. Default: "Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:31
@@ -869,12 +869,12 @@ msgstr ""
 #. Default: "Assessments Created"
 #: ./browser/templates/usagestats.pt:118
 msgid "label_assessments_created"
-msgstr ""
+msgstr "Ho lekola ho entsweng (bupuweng)"
 
 #. Default: "Activity that the highest number of learners answered correctly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:89
 msgid "label_best_activity"
-msgstr ""
+msgstr "Ditshebetso tse baithuti ba arabetseng holimo"
 
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
@@ -884,7 +884,7 @@ msgstr ""
 #. Default: "Choose classlist:"
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:18
 msgid "label_choose_classlist"
-msgstr ""
+msgstr "Khetha sehlopha sa baithuti:"
 
 #. Default: "Drag and drop or choose your files:"
 #: ./browser/templates/quick_upload.pt:19
@@ -918,12 +918,12 @@ msgstr ""
 #: ./browser/templates/assessments.pt:34
 #: ./browser/templates/evaluationsheets.pt:33
 msgid "label_date"
-msgstr ""
+msgstr "Mohla"
 
 #. Default: "Day"
 #: ./browser/templates/usagestats.pt:112
 msgid "label_day"
-msgstr ""
+msgstr "Letsatsi"
 
 #. Default: "Delete"
 #: ./browser/templates/assessmentitem-view.pt:51
@@ -953,12 +953,12 @@ msgstr ""
 #: ./browser/templates/assessments.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
-msgstr ""
+msgstr "Pampiri tsa hlahlobo tsa PDF"
 
 #. Default: "Evaluationsheets Created"
 #: ./browser/templates/usagestats.pt:120
 msgid "label_evaluationsheets_created"
-msgstr ""
+msgstr "Pampiri ya hlahlobo e bopuweng"
 
 #. Default: "Full Name"
 #: ./browser/templates/teacherprofiles.pt:38
@@ -987,7 +987,7 @@ msgstr ""
 
 #. Default: "Learner Name"
 #: ./browser/templates/assessment-pdf.pt:134
-#: ./browser/templates/evaluationsheet-pdf.pt:109
+#: ./browser/templates-pdf.pt:109
 msgid "label_learner_name"
 msgstr ""
 
@@ -999,12 +999,12 @@ msgstr ""
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
-msgstr ""
+msgstr "Mohala oa thekeng"
 
 #. Default: "No Learners in this classlist"
 #: ./browser/reports/templates/learnerprogress.pt:64
 msgid "label_nolearners"
-msgstr ""
+msgstr "Ha hona mabitso a baithuti lenaneng"
 
 #. Default: "Pedagogic"
 #: ./browser/templates/videos.pt:35
@@ -1040,7 +1040,7 @@ msgstr ""
 #: ./browser/templates/assessment-pdf.pt:142
 #: ./browser/templates/teacher-info-pdf.pt:120
 msgid "label_school_name"
-msgstr ""
+msgstr "Lebitso la sekolo"
 
 #. Default: "Search for an activity :"
 #: ./browser/templates/activities.pt:74
@@ -1050,12 +1050,12 @@ msgstr ""
 #. Default: "Activity that the second highest number of learners answered correctly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:94
 msgid "label_second_best_activity"
-msgstr ""
+msgstr "Ditshebetso tsa bobedi tse hodimo tsa baithuti ba arabileng ka nepo"
 
 #. Default: "Activity that the second highest number of learners answered incorrectly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:109
 msgid "label_second_worst_activity"
-msgstr ""
+msgstr "Ditshebetso tsa bobedi tse hodimo tsa baithuti ba sa arabang ka nepo"
 
 #. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknesses cannot be calculated when this is the case."
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:118
@@ -1065,7 +1065,7 @@ msgstr ""
 #. Default: "Strengths"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:85
 msgid "label_strengths"
-msgstr ""
+msgstr "Matla"
 
 #. Default: "Teacher Resources Viewed"
 #: ./browser/templates/usagestats.pt:116
@@ -1113,12 +1113,12 @@ msgstr ""
 #. Default: "Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:101
 msgid "label_weaknesses"
-msgstr ""
+msgstr "Bofokili"
 
 #. Default: "Activity that the highest number of learners answered incorrectly"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:104
 msgid "label_worst_activity"
-msgstr ""
+msgstr "Ditshebetso tse hodimo tsa baithuti ba sa arabang ka nepo"
 
 #. Default: "Years teaching"
 #: ./browser/templates/teacherprofiles.pt:43
@@ -1154,7 +1154,7 @@ msgstr ""
 #. Default: "activities found"
 #: ./browser/templates/activities.pt:88
 msgid "message_activities_found"
-msgstr ""
+msgstr "Ditshebetso tse fumanoeng"
 
 #. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified"
 #: ./browser/templates/assessment-view.pt:22
@@ -1176,7 +1176,7 @@ msgstr ""
 #. Default: "Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
 #: ./browser/reports/templates/classprogress.pt:117
 msgid "message_evaluationsheets_not_marked"
-msgstr ""
+msgstr "Pampiri ya hlahlobo e teng ya lenane la baithuti, empa ha ho sobe le tse tshwauweng ha jwale. Tseba hore:tse kgethueng ‘hose matshwao ’ ha di nkwe eka ditshwauwe."
 
 #. Default: "Thank you for your feedback about ${assessment_item_id}"
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
@@ -1302,10 +1302,10 @@ msgstr ""
 #. Default: "MONTH"
 #: ./browser/templates/usagestats.pt:44
 msgid "title_month"
-msgstr ""
+msgstr "Khoeli"
 
 #. Default: "YEAR"
 #: ./browser/templates/usagestats.pt:45
 msgid "title_year"
-msgstr ""
+msgstr "Selemo"
 

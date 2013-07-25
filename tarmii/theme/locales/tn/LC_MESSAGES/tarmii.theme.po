@@ -247,7 +247,7 @@ msgstr "Gantle gagolo"
 
 #: ./browser/quickupload.py:371
 msgid "Failed"
-msgstr ""
+msgstr "Retelelwa"
 
 #: ./browser/templates/usagestats.pt:52
 msgid "February"
@@ -257,15 +257,15 @@ msgstr ""
 #: ./browser/templates/activities.pt:116
 #: ./browser/templates/assessment-view.pt:74
 msgid "Feedback"
-msgstr ""
+msgstr "Ditlamorago"
 
 #: ./browser/uploadtoserver.py:108
 msgid "File sent to server"
-msgstr ""
+msgstr "Faele e rometswe sefareng (polokelong ya tshedimoso) "
 
 #: ./browser/quickupload.py:91
 msgid "Files Quick Upload"
-msgstr ""
+msgstr "Go tsenya ka pela netewekeng"
 
 #: ./browser/templates/activities.pt:68
 #: ./browser/templates/resources.pt:56
@@ -287,7 +287,7 @@ msgstr ""
 #: ./behaviors.py:68
 #: ./browser/forms.py:55
 msgid "Good"
-msgstr ""
+msgstr "Gantle"
 
 #: ./browser/reports/views.py:610
 msgid "Highest Possible Score"
@@ -300,7 +300,7 @@ msgstr ""
 
 #: ./browser/quickupload.py:93
 msgid "Images Quick Upload"
-msgstr ""
+msgstr "Go tsenya ditshwano ka pela faeleng ya neteweke"
 
 #: ./behaviors.py:103
 msgid "Item ID"
@@ -324,11 +324,11 @@ msgstr ""
 
 #: ./behaviors.py:50
 msgid "Label"
-msgstr ""
+msgstr "Letshwao"
 
 #: ./interfaces.py:15
 msgid "Last version number"
-msgstr ""
+msgstr "Palo ya bofelo ya go fetolwa"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
 #: ./browser/reports/views.py:774
@@ -365,7 +365,7 @@ msgstr ""
 
 #: ./browser/feedback.py:26
 msgid "Message"
-msgstr ""
+msgstr "Molaetsa"
 
 #: ./vocabs.py:14
 msgid "Mpumalanga"
@@ -374,11 +374,11 @@ msgstr ""
 #: ./behaviors.py:70
 #: ./browser/forms.py:59
 msgid "Needs improvement"
-msgstr ""
+msgstr "Go batlega tlhabollo"
 
 #: ./browser/teacherprofiles.py:111
 msgid "Never"
-msgstr ""
+msgstr "Le e seng"
 
 #: ./browser/exportactivities.py:96
 msgid "No activities exist"
@@ -390,7 +390,7 @@ msgstr ""
 
 #: ./browser/exportuserprofiles.py:97
 msgid "No user profiles exist"
-msgstr ""
+msgstr "Ga go bonagale diphorofaele tse di diriswang"
 
 #: ./vocabs.py:15
 msgid "North West"
@@ -403,7 +403,7 @@ msgstr ""
 #: ./browser/pdf.py:343
 #: ./browser/reports/views.py:1166
 msgid "Not Rated"
-msgstr ""
+msgstr "Ga se tsa lekanyetswa"
 
 #: ./browser/templates/usagestats.pt:70
 msgid "November"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: ./userdataschema.py:48
 msgid "Number of years teaching foundation phase"
-msgstr ""
+msgstr "Dingwaga o ruta sehlopha sa motheo wa fatshe"
 
 #: ./browser/templates/usagestats.pt:97
 msgid "OK"
@@ -423,7 +423,7 @@ msgstr ""
 
 #: ./behaviors.py:30
 msgid "Observation Sheet"
-msgstr ""
+msgstr "Tsebe ya tekolo"
 
 #: ./browser/templates/usagestats.pt:68
 msgid "October"
@@ -431,7 +431,7 @@ msgstr ""
 
 #: ./browser/quickupload.py:379
 msgid "Only allowed:"
-msgstr ""
+msgstr "Go dumeletswe feela:"
 
 #: ./browser/reports/views.py:613
 msgid "Performance Rating"
@@ -450,36 +450,36 @@ msgstr ""
 
 #: ./browser/views.py:119
 msgid "Profile created"
-msgstr ""
+msgstr "Go bopilwe phorofaele"
 
 #: ./userdataschema.py:22
 msgid "Province"
-msgstr ""
+msgstr "Porofense"
 
 #: ./browser/templates/teacherprofiles.pt:42
 #: ./userdataschema.py:43
 msgid "Qualification"
-msgstr ""
+msgstr "Mangwalo a dithuto"
 
 #: ./behaviors.py:51
 msgid "Rating"
-msgstr ""
+msgstr "Tekanelo"
 
 #: ./behaviors.py:65
 msgid "Rating scale"
-msgstr ""
+msgstr "Sekala sa tekanelo"
 
 #: ./behaviors.py:82
 msgid "Related"
-msgstr ""
+msgstr "Kutlwano"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Remote Server Settings"
-msgstr ""
+msgstr "Peakanyo ya sefara ya gole"
 
 #: ./interfaces.py:35
 msgid "Remote Server Url"
-msgstr ""
+msgstr "Sefara ya ka gole ya Url"
 
 #: ./browser/templates/report.pt:11
 #: ./profiles/default/actions.xml
@@ -502,30 +502,30 @@ msgstr ""
 
 #: ./behaviors.py:40
 msgid "Rubric"
-msgstr ""
+msgstr "Rubiriki"
 
 #: ./behaviors.py:69
 #: ./browser/forms.py:57
 msgid "Satisfactory"
-msgstr ""
+msgstr "Kgotsofatsa"
 
 #: ./browser/templates/addassessmentitem.pt:283
 #: ./browser/templates/addclasslist.pt:28
 #: ./browser/templates/addevaluationsheet.pt:33
 msgid "Save"
-msgstr ""
+msgstr "Boloka"
 
 #: ./userdataschema.py:17
 msgid "School"
-msgstr ""
+msgstr "Sekolo"
 
 #: ./userdataschema.py:33
 msgid "School Contact Number"
-msgstr ""
+msgstr "Nomoro ya mogala wa sekolo:"
 
 #: ./userdataschema.py:38
 msgid "School Email"
-msgstr ""
+msgstr "Emeili ya sekolo:"
 
 #: ./browser/templates/activities.pt:78
 msgid "Search"
@@ -540,11 +540,11 @@ msgstr ""
 
 #: ./browser/quickupload.py:374
 msgid "Selected elements contain an empty file or a folder:"
-msgstr ""
+msgstr "Dikarolo tse di kgethilweng di na le faele yeo e se nago selo:"
 
 #: ./browser/feedback.py:48
 msgid "Send"
-msgstr ""
+msgstr "Romela"
 
 #: ./browser/templates/usagestats.pt:66
 msgid "September"
@@ -552,7 +552,7 @@ msgstr ""
 
 #: ./browser/quickupload.py:384
 msgid "Server error, please contact support and/or try again"
-msgstr ""
+msgstr "Phoso sefareng, ikamaganye le ba thuso kompa o leke gape"
 
 #: ./browser/reports/views.py:70
 msgid "Start Date"
@@ -565,7 +565,7 @@ msgstr ""
 
 #: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
-msgstr ""
+msgstr "TARMII Peakanyo ya sefara ye e beetšwego gole"
 
 #: ./profiles/default/types/tarmii.theme.content.teacherresource.xml
 msgid "Teacher Resource"
