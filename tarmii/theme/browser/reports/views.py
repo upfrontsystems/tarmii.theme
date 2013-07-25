@@ -529,7 +529,7 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
                 filtered_evalsheet_list.append(evalsheet)
 
         # sort by created date and show latest evaluationsheets first        
-        filtered_evalsheet_list.sort(key=lambda x: x.created)
+        filtered_evalsheet_list.sort(key=lambda x: x.created())
         filtered_evalsheet_list.reverse()  
 
         return filtered_evalsheet_list
