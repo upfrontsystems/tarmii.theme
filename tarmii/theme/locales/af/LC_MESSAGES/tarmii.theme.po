@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-22 12:44+0000\n"
+"POT-Creation-Date: 2013-07-25 13:55+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/reports/views.py:344
+#: ./browser/reports/views.py:364
 msgid " learner"
 msgstr " leerder"
 
-#: ./browser/reports/views.py:342
+#: ./browser/reports/views.py:362
 msgid " learners"
 msgstr " leerders"
 
@@ -31,8 +31,8 @@ msgid " uploads return an error"
 msgstr " oplaai gee 'n fout"
 
 #: ./browser/assessments.py:41
-#: ./browser/evaluationsheets.py:47
-#: ./browser/reports/views.py:561
+#: ./browser/evaluationsheets.py:40
+#: ./browser/reports/views.py:583
 msgid "%B"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 msgid "Activities"
 msgstr "Aktiwiteite"
 
-#: ./browser/reports/views.py:590
+#: ./browser/reports/views.py:612
 msgid "Activities across time"
 msgstr "Aktiwiteite in tyd"
 
@@ -112,7 +112,7 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
-#: ./browser/reports/views.py:589
+#: ./browser/reports/views.py:611
 msgid "Average Learner Score"
 msgstr "Gemiddelde Leerder Telling"
 
@@ -154,15 +154,24 @@ msgstr "Kies die prente om op te laai"
 msgid "Choose video files to upload"
 msgstr "Kies die video lêers om op te laai"
 
+#: ./browser/reports/templates/classprogress.pt:142
+msgid "Class Performance for Activity Report"
+msgstr "Klas Prestasie vir Aktiwiteit Verslag"
+
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:587
+#: ./browser/reports/views.py:609
 #: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr "Klas Vordering"
 
-#. Default: "Class Performance For Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:123
+#: ./browser/reports/templates/learnerprogress.pt:159
+msgid "Class Progress Report"
+msgstr "Klas Vordering Verslag"
+
+#. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:367
+#: ./browser/reports/views.py:390
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
@@ -215,7 +224,7 @@ msgstr "Redigeer Assessering"
 msgid "Edit Classlist"
 msgstr "Redigeer Klaslys"
 
-#: ./browser/reports/views.py:65
+#: ./browser/reports/views.py:67
 msgid "End Date"
 msgstr "Einde Datum"
 
@@ -224,6 +233,10 @@ msgstr "Einde Datum"
 #: ./browser/templates/assessmentitem-view.pt:30
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
+
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:137
+msgid "Evaluation Sheet Report"
+msgstr "Evaluasieblad Verslag"
 
 #. Default: "Evaluations"
 #: ./browser/templates/evaluationsheets.pt:11
@@ -280,7 +293,7 @@ msgstr "Genereer Verslag"
 msgid "Good"
 msgstr "Goed"
 
-#: ./browser/reports/views.py:588
+#: ./browser/reports/views.py:610
 msgid "Highest Possible Score"
 msgstr "Hoogste Moontlike Telling"
 
@@ -322,12 +335,17 @@ msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:755
+#: ./browser/reports/views.py:774
 #: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
 
-#: ./browser/reports/views.py:757
+#: ./browser/reports/templates/classprogress.pt:146
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:133
+msgid "Learner Progress Report"
+msgstr "Leerder Vordering Verslag"
+
+#: ./browser/reports/views.py:776
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -370,7 +388,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:356
+#: ./browser/reports/views.py:379
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -387,7 +405,7 @@ msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1138
+#: ./browser/reports/views.py:1166
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -395,7 +413,7 @@ msgstr "Nie Gegradeer nie"
 msgid "November"
 msgstr "November"
 
-#: ./browser/reports/views.py:369
+#: ./browser/reports/views.py:392
 msgid "Number of learners per rating"
 msgstr "Aantal leerders per gradering"
 
@@ -419,7 +437,7 @@ msgstr "Oktober"
 msgid "Only allowed:"
 msgstr "Slegs toegelaat:"
 
-#: ./browser/reports/views.py:591
+#: ./browser/reports/views.py:613
 msgid "Performance Rating"
 msgstr "Prestasie Gradering"
 
@@ -472,6 +490,11 @@ msgstr "Databediener URL"
 #: ./profiles/default/actions.xml
 msgid "Reports"
 msgstr "Verslae"
+
+#: ./browser/reports/templates/classperformance-for-activity.pt:119
+#: ./browser/reports/templates/evaluationsheet.pt:147
+msgid "Reports Menu"
+msgstr "Verslae Kieslys"
 
 #: ./content/teacherresource.py:14
 msgid "Resource File"
@@ -536,9 +559,14 @@ msgstr "September"
 msgid "Server error, please contact support and/or try again"
 msgstr "Bediener fout, kontak ondersteuning en / of probeer weer"
 
-#: ./browser/reports/views.py:68
+#: ./browser/reports/views.py:70
 msgid "Start Date"
 msgstr "Begin Datum"
+
+#: ./browser/reports/templates/evaluationsheet.pt:143
+#: ./browser/reports/templates/learnerprogress.pt:163
+msgid "Strengths and Weaknesses Report"
+msgstr "Sterk-en Swakpunte Verslag"
 
 #: ./browser/views.py:132
 msgid "TARMII Remote Server Settings"
@@ -712,7 +740,7 @@ msgid "heading_strenghts_and_weaknesses"
 msgstr "Sterk-en Swakpunte"
 
 #. Default: "Teacher Information for"
-#: ./browser/templates/teacher-info-pdf.pt:109
+#: ./browser/templates/teacher-info-pdf.pt:111
 msgid "heading_teacher_information_pdf"
 msgstr "Onderwyser Informasie vir"
 
@@ -1018,7 +1046,7 @@ msgstr "Hulbron"
 
 #. Default: "School Name"
 #: ./browser/templates/assessment-pdf.pt:142
-#: ./browser/templates/teacher-info-pdf.pt:119
+#: ./browser/templates/teacher-info-pdf.pt:120
 msgid "label_school_name"
 msgstr "Skool Naam"
 
@@ -1262,7 +1290,7 @@ msgstr "Ons sal binnekort antwoord."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:560
+#: ./browser/reports/views.py:582
 msgid "on"
 msgstr "op"
 

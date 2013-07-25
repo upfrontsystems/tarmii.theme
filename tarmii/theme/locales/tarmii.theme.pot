@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-22 12:44+0000\n"
+"POT-Creation-Date: 2013-07-25 13:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr ""
 
-#: ./browser/reports/views.py:344
+#: ./browser/reports/views.py:364
 msgid " learner"
 msgstr ""
 
-#: ./browser/reports/views.py:342
+#: ./browser/reports/views.py:362
 msgid " learners"
 msgstr ""
 
@@ -31,8 +31,8 @@ msgid " uploads return an error"
 msgstr ""
 
 #: ./browser/assessments.py:41
-#: ./browser/evaluationsheets.py:47
-#: ./browser/reports/views.py:561
+#: ./browser/evaluationsheets.py:40
+#: ./browser/reports/views.py:583
 msgid "%B"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: ./browser/reports/views.py:590
+#: ./browser/reports/views.py:612
 msgid "Activities across time"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:589
+#: ./browser/reports/views.py:611
 msgid "Average Learner Score"
 msgstr ""
 
@@ -152,15 +152,24 @@ msgstr ""
 msgid "Choose video files to upload"
 msgstr ""
 
+#: ./browser/reports/templates/classprogress.pt:142
+msgid "Class Performance for Activity Report"
+msgstr ""
+
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:587
+#: ./browser/reports/views.py:609
 #: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr ""
 
-#. Default: "Class Performance For Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:123
+#: ./browser/reports/templates/learnerprogress.pt:159
+msgid "Class Progress Report"
+msgstr ""
+
+#. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:367
+#: ./browser/reports/views.py:390
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr ""
@@ -212,7 +221,7 @@ msgstr ""
 msgid "Edit Classlist"
 msgstr ""
 
-#: ./browser/reports/views.py:65
+#: ./browser/reports/views.py:67
 msgid "End Date"
 msgstr ""
 
@@ -220,6 +229,10 @@ msgstr ""
 #: ./browser/templates/activities-pdf.pt:128
 #: ./browser/templates/assessmentitem-view.pt:30
 msgid "Equipment and Administration (For the teacher)"
+msgstr ""
+
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:137
+msgid "Evaluation Sheet Report"
 msgstr ""
 
 #: ./browser/templates/evaluationsheets.pt:11
@@ -276,7 +289,7 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: ./browser/reports/views.py:588
+#: ./browser/reports/views.py:610
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -318,12 +331,17 @@ msgid "Last version number"
 msgstr ""
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:755
+#: ./browser/reports/views.py:774
 #: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr ""
 
-#: ./browser/reports/views.py:757
+#: ./browser/reports/templates/classprogress.pt:146
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:133
+msgid "Learner Progress Report"
+msgstr ""
+
+#: ./browser/reports/views.py:776
 msgid "Learner Score"
 msgstr ""
 
@@ -366,7 +384,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:356
+#: ./browser/reports/views.py:379
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -383,7 +401,7 @@ msgid "Northern Cape"
 msgstr ""
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1138
+#: ./browser/reports/views.py:1166
 msgid "Not Rated"
 msgstr ""
 
@@ -391,7 +409,7 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: ./browser/reports/views.py:369
+#: ./browser/reports/views.py:392
 msgid "Number of learners per rating"
 msgstr ""
 
@@ -415,7 +433,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
-#: ./browser/reports/views.py:591
+#: ./browser/reports/views.py:613
 msgid "Performance Rating"
 msgstr ""
 
@@ -466,6 +484,11 @@ msgstr ""
 #: ./browser/templates/report.pt:11
 #: ./profiles/default/actions.xml
 msgid "Reports"
+msgstr ""
+
+#: ./browser/reports/templates/classperformance-for-activity.pt:119
+#: ./browser/reports/templates/evaluationsheet.pt:147
+msgid "Reports Menu"
 msgstr ""
 
 #: ./content/teacherresource.py:14
@@ -531,8 +554,13 @@ msgstr ""
 msgid "Server error, please contact support and/or try again"
 msgstr ""
 
-#: ./browser/reports/views.py:68
+#: ./browser/reports/views.py:70
 msgid "Start Date"
+msgstr ""
+
+#: ./browser/reports/templates/evaluationsheet.pt:143
+#: ./browser/reports/templates/learnerprogress.pt:163
+msgid "Strengths and Weaknesses Report"
 msgstr ""
 
 #: ./browser/views.py:132
@@ -705,7 +733,7 @@ msgid "heading_strenghts_and_weaknesses"
 msgstr ""
 
 #. Default: "Teacher Information for"
-#: ./browser/templates/teacher-info-pdf.pt:109
+#: ./browser/templates/teacher-info-pdf.pt:111
 msgid "heading_teacher_information_pdf"
 msgstr ""
 
@@ -1010,7 +1038,7 @@ msgstr ""
 
 #. Default: "School Name"
 #: ./browser/templates/assessment-pdf.pt:142
-#: ./browser/templates/teacher-info-pdf.pt:119
+#: ./browser/templates/teacher-info-pdf.pt:120
 msgid "label_school_name"
 msgstr ""
 
@@ -1254,7 +1282,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:560
+#: ./browser/reports/views.py:582
 msgid "on"
 msgstr ""
 

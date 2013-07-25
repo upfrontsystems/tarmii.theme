@@ -156,10 +156,12 @@
     <div class="report-navigation"
          tal:define="portal_url view/site_url"> 
         <div class="left-link">
-            <a tal:attributes="href string:$portal_url/@@class-progress">Class Progress Report</a>
+            <a tal:attributes="href string:$portal_url/@@class-progress" i18n:translate="Class Progress Report">
+                Class Progress Report</a>
         </div>
         <div class="right-link">
-            <a tal:attributes="href string:$portal_url/@@strengths-and-weaknesses">Strenths and Weaknesses Report</a>
+            <a tal:attributes="href string:$portal_url/@@strengths-and-weaknesses" i18n:translate="Strengths and Weaknesses Report">
+                Strenths and Weaknesses Report</a>
         </div>
     </div>
 

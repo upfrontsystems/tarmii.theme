@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="Class performance for activity">Class Performance For Activity</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Class performance for activity">Class Performance for Activity</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">
@@ -116,10 +116,12 @@
     <div class="report-navigation"
          tal:define="portal_url view/site_url"> 
         <div class="left-link">
-            <a tal:attributes="href string:$portal_url/reports">Reports Menu</a>
+            <a tal:attributes="href string:$portal_url/reports" i18n:translate="Reports Menu">
+                Reports Menu</a>
         </div>
         <div class="right-link">
-            <a tal:attributes="href string:$portal_url/@@class-progress">Class Progress Report</a>
+            <a tal:attributes="href string:$portal_url/@@class-progress" i18n:translate="Class Progress Report">
+                Class Progress Report</a>
         </div>
     </div>
 
