@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Sun Aug 15 14:53:46 2010\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/z3c/form/form.py:186 src/z3c/form/subform.py:29
+msgid "There were some errors."
+msgstr "Ho no hona le phoso."
+
+#: src/z3c/form/interfaces.py:402
+msgid "Required"
+msgstr "Required"

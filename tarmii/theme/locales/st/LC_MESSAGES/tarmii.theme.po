@@ -1,0 +1,1311 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-07-25 13:55+0000\n"
+"PO-Revision-Date: 2013-07-25 15:30+0200\n"
+"Last-Translator: witek\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: st\n"
+"Language-Name: Sesotho\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: tarmii.theme\n"
+
+#: ./browser/quickupload.py:369
+msgid " files uploaded with success, "
+msgstr " tshedimoso ya difaele e hatisitswe ka katlego, "
+
+#: ./browser/reports/views.py:364
+msgid " learner"
+msgstr " morutwana"
+
+#: ./browser/reports/views.py:362
+msgid " learners"
+msgstr " baithuti"
+
+#: ./browser/quickupload.py:370
+msgid " uploads return an error"
+msgstr " ho khutlisitswe phoso ho tswa difaeleng tse ntshitsweng"
+
+#: ./browser/assessments.py:41
+#: ./browser/evaluationsheets.py:40
+#: ./browser/reports/views.py:583
+msgid "%B"
+msgstr ""
+
+#: ./browser/quickupload.py:383
+msgid "A data base conflict error happened when uploading this file:"
+msgstr "Mathata a hlahile hare fetolela tshedimosetso ya faele netewekeng:"
+
+#: ./browser/templates/activities.pt:11
+#: ./profiles/default/actions.xml
+msgid "Activities"
+msgstr "Ditshebetso"
+
+#: ./browser/reports/views.py:612
+msgid "Activities across time"
+msgstr ""
+
+#: ./browser/templates/assessment-view.pt:17
+msgid "Add Activities"
+msgstr "Eke Mesebetsi"
+
+#: ./browser/forms.py:67
+#: ./browser/templates/activities.pt:19
+msgid "Add Activity"
+msgstr "Eket Mosebetsi"
+
+#: ./browser/forms.py:129
+#: ./browser/templates/assessments.pt:20
+msgid "Add Assessment"
+msgstr "Eketsa Tekolo"
+
+#: ./browser/forms.py:104
+#: ./browser/templates/classlists.pt:22
+msgid "Add Classlist"
+msgstr "Eketsa mabitso a barutwana"
+
+#: ./browser/forms.py:155
+#: ./browser/templates/evaluationsheets.pt:17
+msgid "Add Evaluation Sheet"
+msgstr "Eketsa ka leqephe la tekolo"
+
+#: ./browser/templates/resources.pt:18
+msgid "Add Resource"
+msgstr "Eketsa ka disebediswa"
+
+#: ./browser/templates/topictrees.pt:16
+msgid "Add Topic Tree"
+msgstr "Eketsa ka sehloho sa sefate"
+
+#: ./browser/quickupload.py:366
+msgid "Add Video "
+msgstr "Tlatseletsa ka vidio tse hatisitsweng "
+
+#: ./browser/quickupload.py:368
+msgid "All files uploaded with success"
+msgstr "Difaele di hatisitswe ka katlego"
+
+#: ./behaviors.py:163
+msgid "All rating values must be positive or equal to zero"
+msgstr ""
+
+#: ./behaviors.py:166
+msgid "All rating values must be unique"
+msgstr "Ditekanyo tsa tekolo kaofela di tshwanetse go fapana"
+
+#: ./browser/templates/usagestats.pt:56
+msgid "April"
+msgstr "Mmesa"
+
+#: ./browser/templates/assessments.pt:11
+#: ./profiles/default/actions.xml
+msgid "Assessments"
+msgstr "Ho lekola"
+
+#: ./browser/templates/usagestats.pt:64
+msgid "August"
+msgstr "Phato"
+
+#: ./browser/reports/views.py:611
+msgid "Average Learner Score"
+msgstr "Dimaraka tsa moithuti tse bohareng"
+
+#: ./browser/templates/addassessmentitem.pt:285
+#: ./browser/templates/addclasslist.pt:30
+#: ./browser/templates/addevaluationsheet.pt:35
+msgid "Cancel"
+msgstr "Hlakola"
+
+#: ./behaviors.py:97
+msgid "Categorization"
+msgstr "Ho beha ka mananeo"
+
+#: ./userdataschema.py:12
+msgid "Cell Phone Number"
+msgstr "Nomoro ea mohala oa thekeng"
+
+#: ./behaviors.py:35
+msgid "Check list"
+msgstr "Lenaneotekolo la tekolo"
+
+#: ./browser/quickupload.py:306
+msgid "Choose audio files to upload"
+msgstr "Kgetha difaele tsa tshedimoso ya molomo o di kenye netewekeng"
+
+#: ./browser/quickupload.py:320
+msgid "Choose file for upload: ${ext}"
+msgstr "Kgetha faele ho e kenya netewekeng: ${ext}"
+
+#: ./browser/quickupload.py:309
+msgid "Choose flash files to upload"
+msgstr "Kgetha difaele tse phetlwang ho kenya netewekeng"
+
+#: ./browser/quickupload.py:300
+msgid "Choose images to upload"
+msgstr "Kgetha setshwantsho ho kenya faele netewekeng"
+
+#: ./browser/quickupload.py:303
+msgid "Choose video files to upload"
+msgstr "Kgetha difaele tsa ditshwantsho tse hatisitsweng o di kenye netewekeng"
+
+#: ./browser/reports/templates/classprogress.pt:142
+msgid "Class Performance for Activity Report"
+msgstr ""
+
+#: ./browser/reports/templates/classprogress.pt:20
+#: ./browser/reports/views.py:609
+#: ./browser/templates/report.pt:24
+msgid "Class Progress"
+msgstr "Tshwelopele ya baithuti"
+
+#: ./browser/reports/templates/classperformance-for-activity.pt:123
+#: ./browser/reports/templates/learnerprogress.pt:159
+msgid "Class Progress Report"
+msgstr ""
+
+#. Default: "Class Performance for Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:11
+#: ./browser/reports/views.py:390
+#: ./browser/templates/report.pt:20
+msgid "Class performance for activity"
+msgstr ""
+
+#: ./browser/templates/classlists.pt:11
+#: ./profiles/default/actions.xml
+msgid "Classlists"
+msgstr ""
+
+#: ./browser/feedback.py:44
+msgid "Contact Us"
+msgstr ""
+
+#: ./behaviors.py:113
+#: ./browser/templates/activities-pdf.pt:120
+#: ./browser/templates/assessmentitem-view.pt:21
+msgid "Content/Concept/Skills Assessed"
+msgstr ""
+
+#: ./browser/templates/activities.pt:34
+msgid "Contribute own activity"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:72
+msgid "December"
+msgstr ""
+
+#: ./interfaces.py:36
+msgid "Define the url where the logs can be uploaded"
+msgstr ""
+
+#: ./browser/quickupload.py:367
+msgid "Drag and drop files to upload"
+msgstr ""
+
+#: ./userdataschema.py:28
+msgid "EMIS"
+msgstr ""
+
+#: ./vocabs.py:9
+msgid "Eastern Cape"
+msgstr ""
+
+#: ./browser/forms.py:141
+msgid "Edit Assessment"
+msgstr ""
+
+#: ./browser/forms.py:116
+msgid "Edit Classlist"
+msgstr ""
+
+#: ./browser/reports/views.py:67
+msgid "End Date"
+msgstr ""
+
+#: ./behaviors.py:123
+#: ./browser/templates/activities-pdf.pt:128
+#: ./browser/templates/assessmentitem-view.pt:30
+msgid "Equipment and Administration (For the teacher)"
+msgstr ""
+
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:137
+msgid "Evaluation Sheet Report"
+msgstr ""
+
+#: ./browser/templates/evaluationsheets.pt:11
+#: ./profiles/default/actions.xml
+msgid "Evaluations"
+msgstr ""
+
+#: ./behaviors.py:67
+#: ./browser/forms.py:53
+msgid "Excellent"
+msgstr ""
+
+#: ./browser/quickupload.py:371
+msgid "Failed"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:52
+msgid "February"
+msgstr ""
+
+#: ./browser/feedback.py:83
+#: ./browser/templates/activities.pt:116
+#: ./browser/templates/assessment-view.pt:74
+msgid "Feedback"
+msgstr ""
+
+#: ./browser/uploadtoserver.py:108
+msgid "File sent to server"
+msgstr ""
+
+#: ./browser/quickupload.py:91
+msgid "Files Quick Upload"
+msgstr ""
+
+#: ./browser/templates/activities.pt:68
+#: ./browser/templates/resources.pt:56
+msgid "Filter results"
+msgstr ""
+
+#: ./vocabs.py:10
+msgid "Free State"
+msgstr ""
+
+#: ./vocabs.py:11
+msgid "Gauteng"
+msgstr ""
+
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:29
+msgid "Generate Report"
+msgstr ""
+
+#: ./behaviors.py:68
+#: ./browser/forms.py:55
+msgid "Good"
+msgstr ""
+
+#: ./browser/reports/views.py:610
+msgid "Highest Possible Score"
+msgstr ""
+
+#. Default: "Home"
+#: ./profiles/default/actions.xml
+msgid "Home"
+msgstr ""
+
+#: ./browser/quickupload.py:93
+msgid "Images Quick Upload"
+msgstr ""
+
+#: ./behaviors.py:103
+msgid "Item ID"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:50
+msgid "January"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:62
+msgid "July"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:60
+msgid "June"
+msgstr ""
+
+#: ./vocabs.py:12
+msgid "Kwazulu-Natal"
+msgstr ""
+
+#: ./behaviors.py:50
+msgid "Label"
+msgstr ""
+
+#: ./interfaces.py:15
+msgid "Last version number"
+msgstr ""
+
+#: ./browser/reports/templates/learnerprogress.pt:20
+#: ./browser/reports/views.py:774
+#: ./browser/templates/report.pt:28
+msgid "Learner Progress"
+msgstr ""
+
+#: ./browser/reports/templates/classprogress.pt:146
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:133
+msgid "Learner Progress Report"
+msgstr ""
+
+#: ./browser/reports/views.py:776
+msgid "Learner Score"
+msgstr ""
+
+#: ./behaviors.py:108
+#: ./browser/templates/activities-pdf.pt:116
+#: ./browser/templates/assessmentitem-view.pt:17
+msgid "Learner Task/Activity"
+msgstr ""
+
+#: ./vocabs.py:13
+msgid "Limpopo"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:54
+msgid "March"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:58
+msgid "May"
+msgstr ""
+
+#: ./browser/feedback.py:26
+msgid "Message"
+msgstr ""
+
+#: ./vocabs.py:14
+msgid "Mpumalanga"
+msgstr ""
+
+#: ./behaviors.py:70
+#: ./browser/forms.py:59
+msgid "Needs improvement"
+msgstr ""
+
+#: ./browser/teacherprofiles.py:111
+msgid "Never"
+msgstr ""
+
+#: ./browser/exportactivities.py:96
+msgid "No activities exist"
+msgstr ""
+
+#: ./browser/reports/views.py:379
+msgid "No evaluation data exists"
+msgstr ""
+
+#: ./browser/exportuserprofiles.py:97
+msgid "No user profiles exist"
+msgstr ""
+
+#: ./vocabs.py:15
+msgid "North West"
+msgstr ""
+
+#: ./vocabs.py:16
+msgid "Northern Cape"
+msgstr ""
+
+#: ./browser/pdf.py:343
+#: ./browser/reports/views.py:1166
+msgid "Not Rated"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:70
+msgid "November"
+msgstr ""
+
+#: ./browser/reports/views.py:392
+msgid "Number of learners per rating"
+msgstr ""
+
+#: ./userdataschema.py:48
+msgid "Number of years teaching foundation phase"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:97
+msgid "OK"
+msgstr ""
+
+#: ./behaviors.py:30
+msgid "Observation Sheet"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:68
+msgid "October"
+msgstr ""
+
+#: ./browser/quickupload.py:379
+msgid "Only allowed:"
+msgstr ""
+
+#: ./browser/reports/views.py:613
+msgid "Performance Rating"
+msgstr ""
+
+#. Default: "Personal Information"
+#: ./profiles/default/actions.xml
+msgid "Personal Information"
+msgstr ""
+
+#: ./behaviors.py:118
+#: ./browser/templates/activities-pdf.pt:124
+#: ./browser/templates/assessmentitem-view.pt:26
+msgid "Prior Knowledge or Skill(s) Assessed"
+msgstr ""
+
+#: ./browser/views.py:119
+msgid "Profile created"
+msgstr ""
+
+#: ./userdataschema.py:22
+msgid "Province"
+msgstr ""
+
+#: ./browser/templates/teacherprofiles.pt:42
+#: ./userdataschema.py:43
+msgid "Qualification"
+msgstr ""
+
+#: ./behaviors.py:51
+msgid "Rating"
+msgstr ""
+
+#: ./behaviors.py:65
+msgid "Rating scale"
+msgstr ""
+
+#: ./behaviors.py:82
+msgid "Related"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+msgid "Remote Server Settings"
+msgstr ""
+
+#: ./interfaces.py:35
+msgid "Remote Server Url"
+msgstr ""
+
+#: ./browser/templates/report.pt:11
+#: ./profiles/default/actions.xml
+msgid "Reports"
+msgstr ""
+
+#: ./browser/reports/templates/classperformance-for-activity.pt:119
+#: ./browser/reports/templates/evaluationsheet.pt:147
+msgid "Reports Menu"
+msgstr ""
+
+#: ./content/teacherresource.py:14
+msgid "Resource File"
+msgstr ""
+
+#. Default: "Resources"
+#: ./profiles/default/actions.xml
+msgid "Resources"
+msgstr ""
+
+#: ./behaviors.py:40
+msgid "Rubric"
+msgstr ""
+
+#: ./behaviors.py:69
+#: ./browser/forms.py:57
+msgid "Satisfactory"
+msgstr ""
+
+#: ./browser/templates/addassessmentitem.pt:283
+#: ./browser/templates/addclasslist.pt:28
+#: ./browser/templates/addevaluationsheet.pt:33
+msgid "Save"
+msgstr ""
+
+#: ./userdataschema.py:17
+msgid "School"
+msgstr ""
+
+#: ./userdataschema.py:33
+msgid "School Contact Number"
+msgstr ""
+
+#: ./userdataschema.py:38
+msgid "School Email"
+msgstr ""
+
+#: ./browser/templates/activities.pt:78
+msgid "Search"
+msgstr ""
+
+#. Default: "Select your language"
+#: ./browser/templates/selectlanguage.pt:12
+#: ./browser/templates/selectprofile.pt:13
+#: ./profiles/default/actions.xml
+msgid "Select Language"
+msgstr ""
+
+#: ./browser/quickupload.py:374
+msgid "Selected elements contain an empty file or a folder:"
+msgstr ""
+
+#: ./browser/feedback.py:48
+msgid "Send"
+msgstr ""
+
+#: ./browser/templates/usagestats.pt:66
+msgid "September"
+msgstr ""
+
+#: ./browser/quickupload.py:384
+msgid "Server error, please contact support and/or try again"
+msgstr ""
+
+#: ./browser/reports/views.py:70
+msgid "Start Date"
+msgstr ""
+
+#: ./browser/reports/templates/evaluationsheet.pt:143
+#: ./browser/reports/templates/learnerprogress.pt:163
+msgid "Strengths and Weaknesses Report"
+msgstr ""
+
+#: ./browser/views.py:132
+msgid "TARMII Remote Server Settings"
+msgstr ""
+
+#: ./profiles/default/types/tarmii.theme.content.teacherresource.xml
+msgid "Teacher Resource"
+msgstr ""
+
+#: ./browser/feedback.py:27
+msgid "The message body"
+msgstr ""
+
+#: ./behaviors.py:189
+msgid "This Item ID is already in use"
+msgstr ""
+
+#: ./browser/quickupload.py:382
+msgid "This file already exists with the same name on server:"
+msgstr ""
+
+#: ./browser/quickupload.py:378
+msgid "This file has invalid extension:"
+msgstr ""
+
+#: ./browser/quickupload.py:375
+msgid "This file has no extension:"
+msgstr ""
+
+#: ./browser/quickupload.py:376
+msgid "This file is too large:"
+msgstr ""
+
+#: ./browser/quickupload.py:381
+msgid "This type of element is not allowed in this folder"
+msgstr ""
+
+#: ./eventhandlers.py:67
+msgid "Thumbnail generation failed"
+msgstr ""
+
+#: ./browser/templates/topictrees.pt:11
+#: ./profiles/default/actions.xml
+msgid "Topic Trees"
+msgstr ""
+
+#: ./userdataschema.py:53
+msgid "UUID"
+msgstr ""
+
+#: ./browser/reports/templates/classprogress.pt:92
+#: ./browser/reports/templates/evaluationsheet.pt:92
+#: ./browser/reports/templates/learnerprogress.pt:110
+msgid "Update Dates"
+msgstr ""
+
+#: ./browser/uploadtoserver.py:79
+msgid "Upload Server not specified in settings"
+msgstr ""
+
+#: ./browser/views.py:133
+msgid "Use the settings below to configure tarmii remote server for this site"
+msgstr ""
+
+#: ./behaviors.py:135
+msgid "Use with Activities"
+msgstr ""
+
+#: ./behaviors.py:141
+msgid "Use with Teacher Resources"
+msgstr ""
+
+#: ./browser/templates/videos.pt:11
+#: ./profiles/default/actions.xml
+msgid "Videos"
+msgstr ""
+
+#: ./vocabs.py:17
+msgid "Western Cape"
+msgstr ""
+
+#: ./browser/quickupload.py:380
+msgid "You don't have permission to add this content in this place"
+msgstr ""
+
+#. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
+#: ./browser/templates/assessments.pt:16
+msgid "description_assesments"
+msgstr ""
+
+#. Default: "Here you can add new classlists or"
+#: ./browser/templates/classlists.pt:16
+msgid "description_classlists_add"
+msgstr ""
+
+#. Default: "No usage stats present"
+#: ./browser/templates/usagestats.pt:106
+msgid "description_nostats"
+msgstr ""
+
+#. Default: "Click on the name of the report to access it"
+#: ./browser/templates/report.pt:15
+msgid "description_reports"
+msgstr ""
+
+#. Default: "All Activities in the system"
+#: ./browser/templates/activities-pdf.pt:107
+msgid "heading_activities_pdf"
+msgstr ""
+
+#. Default: "Activity ID:"
+#: ./browser/templates/evaluationsheet-pdf.pt:106
+msgid "heading_activity_id"
+msgstr ""
+
+#. Default: "Add activity to assessment"
+#: ./browser/templates/addtoassessment.pt:12
+msgid "heading_add_to_assessment"
+msgstr ""
+
+#. Default: "Create Profile"
+#: ./browser/views.py:47
+msgid "heading_add_user_form"
+msgstr ""
+
+#. Default: "Assessment Task"
+#: ./browser/templates/assessment-pdf.pt:126
+msgid "heading_assessment_pdf"
+msgstr ""
+
+#. Default: "Evaluation Sheet"
+#: ./browser/reports/templates/evaluationsheet.pt:20
+#: ./browser/templates/evaluationsheets.pt:30
+#: ./browser/templates/report.pt:36
+msgid "heading_evaluationsheet"
+msgstr ""
+
+#. Default: "Evaluation Sheet for"
+#: ./browser/templates/evaluationsheet-pdf.pt:103
+msgid "heading_evaluationsheet_pdf"
+msgstr ""
+
+#. Default: "Provinces:"
+#: ./browser/templates/teacherprofiles.pt:15
+#: ./browser/templates/usagestats.pt:15
+msgid "heading_provinces"
+msgstr ""
+
+#. Default: "Schools:"
+#: ./browser/templates/teacherprofiles.pt:25
+#: ./browser/templates/usagestats.pt:26
+msgid "heading_schools"
+msgstr ""
+
+#. Default: "Score Sheet for"
+#: ./browser/templates/scoresheet-pdf.pt:109
+msgid "heading_scoresheet_pdf"
+msgstr ""
+
+#. Default: "Select your profile"
+#: ./browser/templates/selectprofile.pt:26
+msgid "heading_select_profile"
+msgstr ""
+
+#. Default: "Strengths and Weaknesses"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:11
+#: ./browser/templates/report.pt:32
+msgid "heading_strenghts_and_weaknesses"
+msgstr ""
+
+#. Default: "Teacher Information for"
+#: ./browser/templates/teacher-info-pdf.pt:111
+msgid "heading_teacher_information_pdf"
+msgstr ""
+
+#. Default: "Teacher Resources"
+#: ./browser/templates/resources.pt:11
+msgid "heading_teacher_resources"
+msgstr ""
+
+#. Default: "TEACHER PROFILES"
+#: ./browser/templates/teacherprofiles.pt:12
+msgid "heading_teacherprofiles"
+msgstr ""
+
+#. Default: "Teachers:"
+#: ./browser/templates/teacherprofiles.pt:35
+msgid "heading_teachers"
+msgstr ""
+
+#. Default: "USAGE STATS"
+#: ./browser/templates/usagestats.pt:12
+msgid "heading_usagestats"
+msgstr ""
+
+#. Default: "This section allows you to use existing activities in your class room or create your own activities."
+#: ./browser/templates/home.pt:37
+msgid "home_description_activities"
+msgstr ""
+
+#. Default: "This section enables you to create formal and informal assessments."
+#: ./browser/templates/home.pt:52
+msgid "home_description_assessments"
+msgstr ""
+
+#. Default: "This section allows you to manage your classlists. Here you can create or delete, import or export your classlists."
+#: ./browser/templates/home.pt:23
+msgid "home_description_classlists"
+msgstr ""
+
+#. Default: "This section allows you to create evaluation sheets and rate how learners perform on assessments."
+#: ./browser/templates/home.pt:65
+msgid "home_description_evaluations"
+msgstr ""
+
+#. Default: "This section allows you to generate various assessment reports for assessments you have administered."
+#: ./browser/templates/home.pt:80
+msgid "home_description_reports"
+msgstr ""
+
+#. Default: "This section contains resources that you can use in the class room."
+#: ./browser/templates/home.pt:109
+msgid "home_description_teacherresources"
+msgstr ""
+
+#. Default: "This section contains video tutorials."
+#: ./browser/templates/home.pt:96
+msgid "home_description_videos"
+msgstr ""
+
+#. Default: "ACTIVITIES"
+#: ./browser/templates/home.pt:35
+msgid "home_heading_activities"
+msgstr ""
+
+#. Default: "GENERATE ASSESSMENT ACTIVITIES"
+#: ./browser/templates/home.pt:50
+msgid "home_heading_assessments"
+msgstr ""
+
+#. Default: "CREATE CLASSLISTS"
+#: ./browser/templates/home.pt:21
+msgid "home_heading_classlists"
+msgstr ""
+
+#. Default: "EVALUATE LEARNERS"
+#: ./browser/templates/home.pt:63
+msgid "home_heading_evaluations"
+msgstr ""
+
+#. Default: "GENERATE REPORTS"
+#: ./browser/templates/home.pt:78
+msgid "home_heading_reports"
+msgstr ""
+
+#. Default: "TEACHER RESOURCES"
+#: ./browser/templates/home.pt:107
+msgid "home_heading_teacherresources"
+msgstr ""
+
+#. Default: "VIDEOS"
+#: ./browser/templates/home.pt:94
+msgid "home_heading_videos"
+msgstr ""
+
+#. Default: "Activities Created"
+#: ./browser/templates/usagestats.pt:117
+msgid "label_activities_created"
+msgstr ""
+
+#. Default: "Activities Viewed"
+#: ./browser/templates/usagestats.pt:113
+msgid "label_activities_viewed"
+msgstr ""
+
+#. Default: "Activity"
+#: ./browser/reports/templates/classperformance-for-activity.pt:31
+#: ./browser/templates/assessment-pdf.pt:172
+msgid "label_activity"
+msgstr ""
+
+#. Default: "Or enter the name of a new assessment:"
+#: ./browser/templates/addtoassessment.pt:29
+msgid "label_add_new_assessment"
+msgstr ""
+
+#. Default: "Add to Assessment"
+#: ./browser/templates/activities.pt:114
+#: ./browser/templates/assessmentitem-view.pt:49
+msgid "label_addtoassessment"
+msgstr ""
+
+#. Default: "Assessment"
+#: ./browser/reports/templates/classperformance-for-activity.pt:29
+#: ./browser/templates/addevaluationsheet.pt:26
+#: ./browser/templates/assessments.pt:33
+msgid "label_assessment"
+msgstr ""
+
+#. Default: "Assessment PDF"
+#: ./browser/templates/assessments.pt:37
+msgid "label_assessment_pdf"
+msgstr ""
+
+#. Default: "Assessments Created"
+#: ./browser/templates/usagestats.pt:118
+msgid "label_assessments_created"
+msgstr ""
+
+#. Default: "Activity that the highest number of learners answered correctly"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:89
+msgid "label_best_activity"
+msgstr ""
+
+#. Default: "Choose existing assessment:"
+#: ./browser/templates/addtoassessment.pt:18
+msgid "label_choose_assessment"
+msgstr ""
+
+#. Default: "Choose classlist:"
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:18
+msgid "label_choose_classlist"
+msgstr ""
+
+#. Default: "Drag and drop or choose your files:"
+#: ./browser/templates/quick_upload.pt:19
+msgid "label_choose_your_files"
+msgstr ""
+
+#. Default: "Choose your files:"
+#: ./browser/templates/quick_upload.pt:22
+msgid "label_choose_your_files_nodrag"
+msgstr ""
+
+#. Default: "Classlist"
+#: ./browser/reports/templates/classperformance-for-activity.pt:27
+#: ./browser/reports/templates/classprogress.pt:36
+#: ./browser/reports/templates/evaluationsheet.pt:36
+msgid "label_classlist"
+msgstr ""
+
+#. Default: "Classlists Created"
+#: ./browser/templates/usagestats.pt:119
+msgid "label_classlists_created"
+msgstr ""
+
+#. Default: "Clear Queue"
+#: ./browser/templates/quick_upload.pt:47
+msgid "label_clear_queue"
+msgstr ""
+
+#. Default: "Date"
+#: ./browser/templates/assessment-pdf.pt:160
+#: ./browser/templates/assessments.pt:34
+#: ./browser/templates/evaluationsheets.pt:33
+msgid "label_date"
+msgstr ""
+
+#. Default: "Day"
+#: ./browser/templates/usagestats.pt:112
+msgid "label_day"
+msgstr ""
+
+#. Default: "Delete"
+#: ./browser/templates/assessmentitem-view.pt:51
+#: ./browser/templates/assessments.pt:36
+#: ./browser/templates/classlists.pt:36
+msgid "label_delete"
+msgstr ""
+
+#. Default: "Move down"
+#: ./browser/templates/assessment-view.pt:62
+msgid "label_down"
+msgstr ""
+
+#. Default: "Edit"
+#: ./browser/templates/activities.pt:112
+#: ./browser/templates/assessment-view.pt:68
+#: ./browser/templates/assessmentitem-view.pt:47
+msgid "label_edit"
+msgstr ""
+
+#. Default: "Email"
+#: ./browser/templates/teacherprofiles.pt:40
+msgid "label_email"
+msgstr ""
+
+#. Default: "Evaluation Sheet PDF"
+#: ./browser/templates/assessments.pt:38
+#: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
+msgid "label_evaluationsheet_pdf"
+msgstr ""
+
+#. Default: "Evaluationsheets Created"
+#: ./browser/templates/usagestats.pt:120
+msgid "label_evaluationsheets_created"
+msgstr ""
+
+#. Default: "Full Name"
+#: ./browser/templates/teacherprofiles.pt:38
+msgid "label_fullname"
+msgstr ""
+
+#. Default: "How to"
+#: ./browser/templates/videos.pt:21
+msgid "label_how_to"
+msgstr ""
+
+#. Default: "Howto Clips Viewed"
+#: ./browser/templates/usagestats.pt:114
+msgid "label_howto_clips_viewed"
+msgstr ""
+
+#. Default: "Last login time"
+#: ./browser/templates/teacherprofiles.pt:44
+msgid "label_last_login_time"
+msgstr ""
+
+#. Default: "Learner"
+#: ./browser/reports/templates/learnerprogress.pt:38
+msgid "label_learner"
+msgstr ""
+
+#. Default: "Learner Name"
+#: ./browser/templates/assessment-pdf.pt:134
+#: ./browser/templates/evaluationsheet-pdf.pt:109
+msgid "label_learner_name"
+msgstr ""
+
+#. Default: "${medialabel} Quick Upload"
+#: ./browser/quickupload.py:95
+msgid "label_media_quickupload"
+msgstr ""
+
+#. Default: "Cell phone"
+#: ./browser/templates/teacherprofiles.pt:41
+msgid "label_mobile"
+msgstr ""
+
+#. Default: "No Learners in this classlist"
+#: ./browser/reports/templates/learnerprogress.pt:64
+msgid "label_nolearners"
+msgstr ""
+
+#. Default: "Pedagogic"
+#: ./browser/templates/videos.pt:35
+msgid "label_pedagogic"
+msgstr ""
+
+#. Default: "Pedagogic Clips Viewed"
+#: ./browser/templates/usagestats.pt:115
+msgid "label_pedagogic_clips_viewed"
+msgstr ""
+
+#. Default: "Rating Scale:"
+#: ./browser/templates/activities-pdf.pt:139
+msgid "label_rating_scale"
+msgstr ""
+
+#. Default: "Register"
+#: ./browser/views.py:74
+msgid "label_register"
+msgstr ""
+
+#. Default: "Remove from Assessment"
+#: ./browser/templates/assessment-view.pt:71
+msgid "label_removefromassessment"
+msgstr ""
+
+#. Default: "Resource"
+#: ./browser/templates/resources.pt:84
+msgid "label_resource"
+msgstr ""
+
+#. Default: "School Name"
+#: ./browser/templates/assessment-pdf.pt:142
+#: ./browser/templates/teacher-info-pdf.pt:120
+msgid "label_school_name"
+msgstr ""
+
+#. Default: "Search for an activity :"
+#: ./browser/templates/activities.pt:74
+msgid "label_search_activity"
+msgstr ""
+
+#. Default: "Activity that the second highest number of learners answered correctly"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:94
+msgid "label_second_best_activity"
+msgstr ""
+
+#. Default: "Activity that the second highest number of learners answered incorrectly"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:109
+msgid "label_second_worst_activity"
+msgstr ""
+
+#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknesses cannot be calculated when this is the case."
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:118
+msgid "label_strength_weakness_not_possible"
+msgstr ""
+
+#. Default: "Strengths"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:85
+msgid "label_strengths"
+msgstr ""
+
+#. Default: "Teacher Resources Viewed"
+#: ./browser/templates/usagestats.pt:116
+msgid "label_teacher_resources_viewed"
+msgstr ""
+
+#. Default: "Teacher Info PDF"
+#: ./browser/templates/assessments.pt:39
+msgid "label_teacherinfo_pdf"
+msgstr ""
+
+#. Default: "Topics:"
+#: ./browser/templates/activities-pdf.pt:134
+#: ./browser/templates/assessmentitem-view.pt:34
+msgid "label_topics"
+msgstr ""
+
+#. Default: "Topic Tree"
+#: ./browser/templates/topictrees.pt:28
+msgid "label_topictree"
+msgstr ""
+
+#. Default: "Move up"
+#: ./browser/templates/assessment-view.pt:58
+msgid "label_up"
+msgstr ""
+
+#. Default: "Upload Files"
+#: ./browser/templates/quick_upload.pt:41
+msgid "label_upload_files"
+msgstr ""
+
+#. Default: "User name"
+#: ./browser/templates/teacherprofiles.pt:39
+msgid "label_username"
+msgstr ""
+
+#. Default: "View"
+#: ./browser/templates/activities.pt:110
+#: ./browser/templates/assessment-view.pt:66
+#: ./browser/templates/videos.pt:82
+msgid "label_view"
+msgstr ""
+
+#. Default: "Weaknesses"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:101
+msgid "label_weaknesses"
+msgstr ""
+
+#. Default: "Activity that the highest number of learners answered incorrectly"
+#: ./browser/reports/templates/strengths-and-weaknesses.pt:104
+msgid "label_worst_activity"
+msgstr ""
+
+#. Default: "Years teaching"
+#: ./browser/templates/teacherprofiles.pt:43
+msgid "label_years_teaching"
+msgstr ""
+
+#. Default: "Back to provinces"
+#: ./browser/templates/teacherprofiles.pt:23
+#: ./browser/templates/usagestats.pt:23
+msgid "link_back_to_provinces"
+msgstr ""
+
+#. Default: "Back to schools"
+#: ./browser/templates/teacherprofiles.pt:33
+#: ./browser/templates/usagestats.pt:35
+msgid "link_back_to_schools"
+msgstr ""
+
+#. Default: "Create a new profile"
+#: ./browser/templates/selectprofile.pt:45
+msgid "link_create_new_profile"
+msgstr ""
+
+#. Default: "import learners to an existing/new classlist"
+#: ./browser/templates/classlists.pt:17
+msgid "link_importclasslist"
+msgstr ""
+
+#: ./browser/quickupload.py:377
+msgid "maximum file size is:"
+msgstr ""
+
+#. Default: "activities found"
+#: ./browser/templates/activities.pt:88
+msgid "message_activities_found"
+msgstr ""
+
+#. Default: "This assessment is used by existing evaluationsheet(s) and cannot be modified"
+#: ./browser/templates/assessment-view.pt:22
+msgid "message_assessment_frozen"
+msgstr ""
+
+#. Default: "Please create some classlists, assessments and evaluations"
+#: ./browser/reports/templates/classperformance-for-activity.pt:104
+#: ./browser/reports/templates/classprogress.pt:135
+#: ./browser/reports/templates/evaluationsheet.pt:136
+msgid "message_create_classlists"
+msgstr ""
+
+#. Default: "The assessments have been created with an empty classlist. Please add some learners to your classlist that you are using with this assessment and recreate the evaluationsheet again."
+#: ./browser/reports/templates/classperformance-for-activity.pt:92
+msgid "message_evaluationsheet_incorrect"
+msgstr ""
+
+#. Default: "Evaluationsheets exist for this classlist, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/classprogress.pt:117
+msgid "message_evaluationsheets_not_marked"
+msgstr ""
+
+#. Default: "Thank you for your feedback about ${assessment_item_id}"
+#: ./browser/templates/assessmentitem_feedback_result.pt:15
+msgid "message_feedback_thankyou"
+msgstr ""
+
+#. Default: "Evaluationsheets exist for this learner, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/learnerprogress.pt:135
+msgid "message_learner_not_marked"
+msgstr ""
+
+#. Default: "No activities have been added to this assessment"
+#: ./browser/templates/assessment-view.pt:27
+msgid "message_no_activities_added"
+msgstr ""
+
+#. Default: "No activities found"
+#: ./browser/templates/activities.pt:92
+#: ./browser/templates/scoresheet-pdf.pt:130
+msgid "message_no_activities_found"
+msgstr ""
+
+#. Default: "No activities associated with selected assessment, please update the assessment"
+#: ./browser/reports/templates/classperformance-for-activity.pt:84
+msgid "message_no_activities_in_assessment"
+msgstr ""
+
+#. Default: "No assessments have been created yet"
+#: ./browser/templates/assessments.pt:26
+msgid "message_no_assesments_exist"
+msgstr ""
+
+#. Default: "No assessments have been created yet, or existing assessments contain no activities"
+#: ./browser/reports/templates/classperformance-for-activity.pt:78
+msgid "message_no_assesments_or_activities_exist"
+msgstr ""
+
+#. Default: "No classlists have been created yet"
+#: ./browser/templates/classlists.pt:28
+msgid "message_no_classlists_exist"
+msgstr ""
+
+#. Default: "No evaluationsheets found in the specified date range"
+#: ./browser/reports/templates/classprogress.pt:110
+#: ./browser/reports/templates/evaluationsheet.pt:109
+#: ./browser/reports/templates/learnerprogress.pt:128
+msgid "message_no_evaluationsheets"
+msgstr ""
+
+#. Default: "No evaluation sheets have been created yet"
+#: ./browser/templates/evaluationsheets.pt:23
+msgid "message_no_evaluationsheets_exist"
+msgstr ""
+
+#. Default: "No profiles have been created yet"
+#: ./browser/templates/selectprofile.pt:29
+msgid "message_no_profiles_exist"
+msgstr ""
+
+#. Default: "No resources found in the system"
+#: ./browser/templates/resources.pt:25
+msgid "message_no_resources"
+msgstr ""
+
+#. Default: "No topic trees have been created yet"
+#: ./browser/templates/topictrees.pt:22
+msgid "message_no_topictrees_exist"
+msgstr ""
+
+#. Default: "No videos found in this category"
+#: ./browser/templates/videos.pt:63
+msgid "message_no_videos"
+msgstr ""
+
+#. Default: "Resource(s) found"
+#: ./browser/templates/resources.pt:63
+msgid "message_resources_found"
+msgstr ""
+
+#. Default: "Specified Start Date must be earlier than the End Date"
+#: ./browser/reports/templates/classprogress.pt:104
+#: ./browser/reports/templates/evaluationsheet.pt:103
+#: ./browser/reports/templates/learnerprogress.pt:122
+msgid "message_startdate_bigger_enddate"
+msgstr ""
+
+#. Default: "Thank you for your request about ${subject}, ${customer_email}."
+#: ./browser/templates/feedback_result.pt:15
+msgid "message_thankyou"
+msgstr ""
+
+#. Default: "Topics covered by activities:"
+#: ./browser/templates/assessment-view.pt:32
+msgid "message_topics_covered_by_activities"
+msgstr ""
+
+#. Default: "We will reply to it shortly."
+#: ./browser/templates/feedback_result.pt:16
+msgid "message_willreply"
+msgstr ""
+
+#: ./browser/viewlets.py:12
+msgid "name"
+msgstr ""
+
+#: ./browser/reports/views.py:582
+msgid "on"
+msgstr ""
+
+#: ./browser/quickupload.py:372
+msgid "please select files again without it"
+msgstr ""
+
+#: ./browser/quickupload.py:373
+msgid "please try again"
+msgstr ""
+
+#. Default: "Assessment: ${assessment_title}"
+#: ./browser/templates/assessment-view.pt:13
+msgid "title_assessment"
+msgstr ""
+
+#. Default: "MONTH"
+#: ./browser/templates/usagestats.pt:44
+msgid "title_month"
+msgstr ""
+
+#. Default: "YEAR"
+#: ./browser/templates/usagestats.pt:45
+msgid "title_year"
+msgstr ""
+
