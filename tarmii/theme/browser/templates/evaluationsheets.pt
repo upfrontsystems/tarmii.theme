@@ -35,7 +35,7 @@
                         <th>PDF</th>
                     </tr>
                     <tr tal:repeat="evaluationsheet view/evaluationsheets_batch">
-                        <td><a tal:content="python:view.evaluationsheet_title(evaluationsheet)"
+                        <td><a tal:content="evaluationsheet/Title"
                                tal:attributes="href python:evaluationsheet.getObject().absolute_url()">View</a></td>
                         <td tal:content="python:evaluationsheet.getObject().assessment.to_object.title"></td>
                         <td tal:content="python:evaluationsheet.getObject().classlist.to_object.title"></td>
