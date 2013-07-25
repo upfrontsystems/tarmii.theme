@@ -116,29 +116,25 @@
     <div class="learner-info">
         <table border="0" class="information">
             <tr>
-                <td>
-                    <h3>
-                        <span i18n:translate="label_school_name">School Name</span>
-                        <span>: </span><span tal:content="view/school_name"></span>
-                    </h3>
+                <td>                   
+                    <b><span i18n:translate="label_school_name">School Name</span>
+                       <span>: </span></b>
+                    <span tal:content="view/school_name"></span>             
                 </td>
             </tr>
             <tr>
                 <td>
-                    <h3>
-                        <span i18n:translate="label_date">Date</span>
-                        <span>: </span><span tal:content="view/assessment_date"></span>
-                    </h3>
+                    <b><span i18n:translate="label_date">Date</span>
+                    <span>: </span></b>
+                    <span tal:content="view/assessment_date"></span>
                 </td>
             </tr>
             <tal:activities tal:condition="view/activities">
                 <tal:topics condition="view/topictrees">        
                      <tr tal:repeat="topictree view/topictrees">
                         <td>
-                            <h3>
-                                <span tal:content="topictree/title"></span><span>: </span>
-                                <span tal:content="python:view.topics(topictree)"></span>
-                            </h3>
+                            <b><span tal:content="topictree/title"></span><span>: </span></b>
+                            <span tal:content="python:view.topics(topictree)"></span>
                         </td>
                     </tr>
                </tal:topics>
@@ -149,23 +145,17 @@
     <div>&nbsp;</div>
     <div>&nbsp;</div>
     <div tal:repeat="activity view/activities">
-        <table border="1" class="frontpage">
-            <tr>
-               <th></th>
-               <th><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></th>
-            </tr>
+        <h1><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></h1>
+        <table border="0" class="frontpage">
             <tr tal:repeat="topictree view/topictrees">
-                <td><span tal:content="topictree/title"></span></td>
-                <td><span tal:content="python:view.topic_per_topictree(activity,topictree)"></span></td>
+                <td><b><span tal:content="topictree/title"></span><span>: </span></b>
+                    <span tal:content="python:view.topic_per_topictree(activity,topictree)"></span>
+                </td>
             </tr>
-            <tr>
-               <td><span i18n:translate="Equipment and Administration (For the teacher)">
-                    Equipment and Administration (For the teacher)</span>
-               </td>
-               <td><div class="equipment" tal:content="structure activity/equipment_and_administration/output|nothing">
-                    The Equipment and Administration</div>
-               </td>
-            </tr>
+            <tr><td><b><span i18n:translate="Equipment and Administration (For the teacher)">
+                     Equipment and Administration (For the teacher)</span><span>: </span></b></td></tr>
+            <tr><td><div class="equipment" tal:content="structure activity/equipment_and_administration/output|nothing">
+                    The Equipment and Administration</div></td></tr>
         </table>
     </div>
 
