@@ -23,7 +23,13 @@
             margin-bottom: 0cm;
             padding-bottom: 0cm;
         }
-
+        h3 {
+            font-size:120%;
+            font-weight:normal;
+        }
+        .underline {
+            text-decoration:underline;
+        }
         .questionoption{
             font-size:10pt;
             font-weight:bold;
@@ -38,8 +44,6 @@
         }
 
         table.frontpage {
-            margin-left: 1cm;
-            margin-right: 1cm;
             page-break-after: always;
         }
 
@@ -72,8 +76,6 @@
             margin-left: -1cm;
         }
         div.learner-info {
-            margin-left: 1cm;
-            margin-right: 1cm;
             text-align: center;
         }
         div.equipment {
@@ -117,24 +119,30 @@
         <table border="0" class="information">
             <tr>
                 <td>                   
-                    <b><span i18n:translate="label_school_name">School Name</span>
-                       <span>: </span></b>
-                    <span tal:content="view/school_name"></span>             
+                    <h3>    
+                        <b><span i18n:translate="label_school_name">School Name</span>
+                        <span>: </span></b>
+                        <span tal:content="view/school_name"></span>
+                    </h3>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <b><span i18n:translate="label_date">Date</span>
-                    <span>: </span></b>
-                    <span tal:content="view/assessment_date"></span>
+                    <h3>
+                        <b><span i18n:translate="label_date">Date</span>
+                        <span>: </span></b>
+                        <span tal:content="view/assessment_date"></span>
+                    </h3>
                 </td>
             </tr>
             <tal:activities tal:condition="view/activities">
                 <tal:topics condition="view/topictrees">        
                      <tr tal:repeat="topictree view/topictrees">
                         <td>
-                            <b><span tal:content="topictree/title"></span><span>: </span></b>
-                            <span tal:content="python:view.topics(topictree)"></span>
+                            <h3>
+                                <b><span tal:content="topictree/title"></span><span>: </span></b>
+                                <span tal:content="python:view.topics(topictree)"></span>
+                            </h3>
                         </td>
                     </tr>
                </tal:topics>
@@ -143,9 +151,10 @@
     </div>
 
     <div>&nbsp;</div>
-    <div>&nbsp;</div>
     <div tal:repeat="activity view/activities">
-        <h1><span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span></h1>
+        <h1 class="underline">
+            <span tal:content="repeat/activity/number"></span><span>. </span><span tal:content="activity/id"></span>
+        </h1>
         <table border="0" class="frontpage">
             <tr tal:repeat="topictree view/topictrees">
                 <td><b><span tal:content="topictree/title"></span><span>: </span></b>
