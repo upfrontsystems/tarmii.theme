@@ -18,7 +18,7 @@
         <ul>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@classperformance-for-activity"
-                   i18n:translate="Class performance for activity">Class Performance For Activity</a>
+                   i18n:translate="Class performance for activity">Class Performance for Activity</a>
             </li>
             <li>
                 <a tal:attributes="href string:${context/absolute_url}/@@class-progress"
