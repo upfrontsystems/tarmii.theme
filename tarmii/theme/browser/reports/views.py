@@ -177,7 +177,7 @@ class ReportViewsCommon(DatePickers):
         """ preforms calculations on the specified evaluationsheets
             returns filtered_all_activity_ids, filtered_all_scores,
                     filtered_all_highest_ratings, filtered_all_rating_scales
-                    normalised_avg_all_scores
+                    average_all_scores
                     * filtered means, that unrated and non-rated scores are 
                     filtered out of the result
             used by class performance chart and strength and weakness chart       
@@ -204,19 +204,18 @@ class ReportViewsCommon(DatePickers):
                 for x in range(len(ev.evaluation)):
                     if scores == []:
                         # init lists so that we can use indexing
-                        scores = [UN_RATED] * len(ev.evaluation)
+                        scores = [0] * len(ev.evaluation)
                         learner_count = [0] * len(ev.evaluation)
                         activity_ids = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
                         rating_scales = [None] * len(ev.evaluation)
                         number_of_learners_in_activity = len(ev.evaluation)
                     activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
-                    # dont add unrated scores into the average calculation
-                    if ev.evaluation[x]['rating'] != UN_RATED:
-                        # update score total and ignore explicitly "not rated"
-                        if ev.evaluation[x]['rating'] != NOT_RATED:
-                            scores[x] += ev.evaluation[x]['rating']
-                            learner_count[x] += 1
+                    # dont add unrated/explicitly not_rated scores into the 
+                    #average calculation
+                    if ev.evaluation[x]['rating'] not in [UN_RATED,NOT_RATED]:
+                        scores[x] += ev.evaluation[x]['rating']
+                        learner_count[x] += 1
                     rating_scale = ev.evaluation[x]['rating_scale']
                     rating_scales[x] = [0] * len(rating_scale)
                     for y in range(len(rating_scale)):
@@ -247,7 +246,7 @@ class ReportViewsCommon(DatePickers):
         filtered_all_rating_scales = []
         filtered_all_learner_count = []
         for x in range(len(all_scores)):
-            if all_learner_count[x] > 0:  # XXX NEEDS CHECK
+            if all_learner_count[x] > 0:
                 filtered_all_highest_ratings.append(all_highest_ratings[x])
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
@@ -261,41 +260,9 @@ class ReportViewsCommon(DatePickers):
             average_all_scores[x] = \
                 float(filtered_all_scores[x]) / filtered_all_learner_count[x]
 
-        # now we must normalise the average scores so that they represent valid
-        # rating scale values (ie so that they fit into the rating scale)
-        # eg. a value of 5.5 between valid scale values of 7 and 4, should => 4
-        normalised_avg_all_scores = [0] * len(filtered_all_scores)
-        for x in range(len(average_all_scores)):
-            notfound = True
-            rating_scale = filtered_all_rating_scales[x]
-            index = 0
-            while notfound:
-            # we iterate through the activities rating scale (which has been
-            # sorted - highest to lowest)
-                if average_all_scores[x] < rating_scale[len(rating_scale)-1]:
-                    # set to the lowest entry in the current rating scale,
-                    # a rating average cannot be lower than this (if it is, then
-                    # it is because some learners were not yet rated and thus 
-                    # are marked as zero which means that practically the avg
-                    # score can drop below the lowest possible score but we 
-                    # correct for that here
-                    normalised_avg_all_scores[x] = \
-                        rating_scale[len(rating_scale)-1]
-                    notfound = False
-                if average_all_scores[x] == 0: #XXX why???
-                # or lower than the lowest entry in the current rating scale 
-                    # set to 0
-                    normalised_avg_all_scores[x] = average_all_scores[x] 
-                    notfound = False
-                if rating_scale[index] <= average_all_scores[x]:
-                    # the average score is bigger or equal to current scale #
-                    normalised_avg_all_scores[x] = rating_scale[index]
-                    notfound = False
-                index += 1
-
         return [filtered_all_activity_ids, filtered_all_scores,
                 filtered_all_highest_ratings, filtered_all_rating_scales,
-                normalised_avg_all_scores ]
+                average_all_scores ]
 
     def site_url(self):
         return getToolByName(self.context, 'portal_url')
@@ -604,7 +571,7 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
         
         [filtered_all_activity_ids, filtered_all_scores,
          filtered_all_highest_ratings, filtered_all_rating_scales, 
-         normalised_avg_all_scores] = self.average_scores(esheets_in_range)
+         average_all_scores] = self.average_scores(esheets_in_range)
          
         title = self.context.translate(_(u'Class Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
@@ -616,7 +583,7 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
             'title' : title,
             'value_data' : [
                             tuple(filtered_all_highest_ratings),
-                            tuple(normalised_avg_all_scores)                           
+                            tuple(average_all_scores)                           
                            ],
             'category_data' : filtered_all_activity_ids,
             'highest_score' : max(filtered_all_highest_ratings),
@@ -941,7 +908,7 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
 
         [filtered_all_activity_ids, filtered_all_scores,
          filtered_all_highest_ratings, filtered_all_rating_scales, 
-         normalised_avg_all_scores] = self.average_scores(esheets_in_range)
+         average_all_scores] = self.average_scores(esheets_in_range)
 
         # check for existance of custom scales
         self.custom_rating_scale_present = False
