@@ -573,7 +573,7 @@ msgstr ""
 
 #: ./browser/feedback.py:27
 msgid "The message body"
-msgstr ""
+msgstr "Mmele wa molaetsa"
 
 #: ./behaviors.py:189
 msgid "This Item ID is already in use"
@@ -581,27 +581,27 @@ msgstr ""
 
 #: ./browser/quickupload.py:382
 msgid "This file already exists with the same name on server:"
-msgstr ""
+msgstr "Faele ye e santse e le teng leineng lona leo ka sefareng (mogopeng wa tshedimošo):"
 
 #: ./browser/quickupload.py:378
 msgid "This file has invalid extension:"
-msgstr ""
+msgstr "Faele e ha ya okeletswa ka bonnete:"
 
 #: ./browser/quickupload.py:375
 msgid "This file has no extension:"
-msgstr ""
+msgstr "Faele ga ya okeletswa:"
 
 #: ./browser/quickupload.py:376
 msgid "This file is too large:"
-msgstr ""
+msgstr "Faele e  e kgolo gagolo:"
 
 #: ./browser/quickupload.py:381
 msgid "This type of element is not allowed in this folder"
-msgstr ""
+msgstr "Karolo ya mofuta o, ga se ya dumellwa faeleng ye"
 
 #: ./eventhandlers.py:67
 msgid "Thumbnail generation failed"
-msgstr ""
+msgstr "Go paletswe tsweletso e nnyane "
 
 #: ./browser/templates/topictrees.pt:11
 #: ./profiles/default/actions.xml
@@ -610,7 +610,7 @@ msgstr ""
 
 #: ./userdataschema.py:53
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 #: ./browser/reports/templates/classprogress.pt:92
 #: ./browser/reports/templates/evaluationsheet.pt:92
@@ -624,7 +624,7 @@ msgstr ""
 
 #: ./browser/views.py:133
 msgid "Use the settings below to configure tarmii remote server for this site"
-msgstr ""
+msgstr "Dirisa peakanyo ya fatshe go bopa sefara sa gole ya TARMII ya lefelo le"
 
 #: ./behaviors.py:135
 msgid "Use with Activities"
@@ -645,17 +645,17 @@ msgstr ""
 
 #: ./browser/quickupload.py:380
 msgid "You don't have permission to add this content in this place"
-msgstr ""
+msgstr "Ga o na tokelo ya go oketsa diteng sekgobeng se"
 
 #. Default: "This section lists assessments created by you. Click on the name of the assessment to edit it."
 #: ./browser/templates/assessments.pt:16
 msgid "description_assesments"
-msgstr ""
+msgstr "Karolo e, e na le kelo yeo o e bopilweng. Go rulaganya, tobetsa leineng la kelo."
 
 #. Default: "Here you can add new classlists or"
 #: ./browser/templates/classlists.pt:16
 msgid "description_classlists_add"
-msgstr ""
+msgstr "Mo o ka tlatsa lenaneo la maina a baithuti le leswa"
 
 #. Default: "No usage stats present"
 #: ./browser/templates/usagestats.pt:106
@@ -675,17 +675,17 @@ msgstr ""
 #. Default: "Activity ID:"
 #: ./browser/templates/evaluationsheet-pdf.pt:106
 msgid "heading_activity_id"
-msgstr ""
+msgstr "Modiro ID:"
 
 #. Default: "Add activity to assessment"
 #: ./browser/templates/addtoassessment.pt:12
 msgid "heading_add_to_assessment"
-msgstr ""
+msgstr "Oketsa modiro go kelo"
 
 #. Default: "Create Profile"
 #: ./browser/views.py:47
 msgid "heading_add_user_form"
-msgstr ""
+msgstr "Bopa phorofaele"
 
 #. Default: "Assessment Task"
 #: ./browser/templates/assessment-pdf.pt:126
@@ -697,7 +697,7 @@ msgstr ""
 #: ./browser/templates/evaluationsheets.pt:30
 #: ./browser/templates/report.pt:36
 msgid "heading_evaluationsheet"
-msgstr ""
+msgstr "Tsebe ya tekolo"
 
 #. Default: "Evaluation Sheet for"
 #: ./browser/templates/evaluationsheet-pdf.pt:103
@@ -708,13 +708,13 @@ msgstr ""
 #: ./browser/templates/teacherprofiles.pt:15
 #: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
-msgstr ""
+msgstr "Diporofense:"
 
 #. Default: "Schools:"
 #: ./browser/templates/teacherprofiles.pt:25
 #: ./browser/templates/usagestats.pt:26
 msgid "heading_schools"
-msgstr ""
+msgstr "Dikolo:"
 
 #. Default: "Score Sheet for"
 #: ./browser/templates/scoresheet-pdf.pt:109
@@ -724,7 +724,7 @@ msgstr ""
 #. Default: "Select your profile"
 #: ./browser/templates/selectprofile.pt:26
 msgid "heading_select_profile"
-msgstr ""
+msgstr "Kgetha phorofaele ya gao"
 
 #. Default: "Strengths and Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:11
@@ -745,12 +745,12 @@ msgstr ""
 #. Default: "TEACHER PROFILES"
 #: ./browser/templates/teacherprofiles.pt:12
 msgid "heading_teacherprofiles"
-msgstr ""
+msgstr "PHOROFAELE YA BARUTABANA"
 
 #. Default: "Teachers:"
 #: ./browser/templates/teacherprofiles.pt:35
 msgid "heading_teachers"
-msgstr ""
+msgstr "Barutabana:"
 
 #. Default: "USAGE STATS"
 #: ./browser/templates/usagestats.pt:12
@@ -841,30 +841,30 @@ msgstr ""
 #: ./browser/reports/templates/classperformance-for-activity.pt:31
 #: ./browser/templates/assessment-pdf.pt:172
 msgid "label_activity"
-msgstr ""
+msgstr "Modiro"
 
 #. Default: "Or enter the name of a new assessment:"
 #: ./browser/templates/addtoassessment.pt:29
 msgid "label_add_new_assessment"
-msgstr ""
+msgstr "Kampo ngwala leina la kelo e mpsha:"
 
 #. Default: "Add to Assessment"
 #: ./browser/templates/activities.pt:114
 #: ./browser/templates/assessmentitem-view.pt:49
 msgid "label_addtoassessment"
-msgstr ""
+msgstr "Oketsa go kelo"
 
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
 #: ./browser/templates/assessments.pt:33
 msgid "label_assessment"
-msgstr ""
+msgstr "Kelo"
 
 #. Default: "Assessment PDF"
 #: ./browser/templates/assessments.pt:37
 msgid "label_assessment_pdf"
-msgstr ""
+msgstr "Kelo PDF"
 
 #. Default: "Assessments Created"
 #: ./browser/templates/usagestats.pt:118
@@ -879,7 +879,7 @@ msgstr ""
 #. Default: "Choose existing assessment:"
 #: ./browser/templates/addtoassessment.pt:18
 msgid "label_choose_assessment"
-msgstr ""
+msgstr "Kgetha kelo ye e leng teng:"
 
 #. Default: "Choose classlist:"
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:18
@@ -889,19 +889,19 @@ msgstr ""
 #. Default: "Drag and drop or choose your files:"
 #: ./browser/templates/quick_upload.pt:19
 msgid "label_choose_your_files"
-msgstr ""
+msgstr "Goga le go usa kampo kgetha difaele tsa gao:"
 
 #. Default: "Choose your files:"
 #: ./browser/templates/quick_upload.pt:22
 msgid "label_choose_your_files_nodrag"
-msgstr ""
+msgstr "Kgetha difaele tsa gago:"
 
 #. Default: "Classlist"
 #: ./browser/reports/templates/classperformance-for-activity.pt:27
 #: ./browser/reports/templates/classprogress.pt:36
 #: ./browser/reports/templates/evaluationsheet.pt:36
 msgid "label_classlist"
-msgstr ""
+msgstr "Lenaneo la maina a barutwana"
 
 #. Default: "Classlists Created"
 #: ./browser/templates/usagestats.pt:119
@@ -911,7 +911,7 @@ msgstr ""
 #. Default: "Clear Queue"
 #: ./browser/templates/quick_upload.pt:47
 msgid "label_clear_queue"
-msgstr ""
+msgstr "Mola o bonalang"
 
 #. Default: "Date"
 #: ./browser/templates/assessment-pdf.pt:160
@@ -930,30 +930,30 @@ msgstr ""
 #: ./browser/templates/assessments.pt:36
 #: ./browser/templates/classlists.pt:36
 msgid "label_delete"
-msgstr ""
+msgstr "Phimola"
 
 #. Default: "Move down"
 #: ./browser/templates/assessment-view.pt:62
 msgid "label_down"
-msgstr ""
+msgstr "Sutisetsa fase"
 
 #. Default: "Edit"
 #: ./browser/templates/activities.pt:112
 #: ./browser/templates/assessment-view.pt:68
 #: ./browser/templates/assessmentitem-view.pt:47
 msgid "label_edit"
-msgstr ""
+msgstr "Rulaganya"
 
 #. Default: "Email"
 #: ./browser/templates/teacherprofiles.pt:40
 msgid "label_email"
-msgstr ""
+msgstr "Emeili"
 
 #. Default: "Evaluation Sheet PDF"
 #: ./browser/templates/assessments.pt:38
 #: ./browser/templates/select-classlist-for-evaluationsheet-pdf.pt:12
 msgid "label_evaluationsheet_pdf"
-msgstr ""
+msgstr "Tsebe ya tekolo PDF"
 
 #. Default: "Evaluationsheets Created"
 #: ./browser/templates/usagestats.pt:120
@@ -963,7 +963,7 @@ msgstr ""
 #. Default: "Full Name"
 #: ./browser/templates/teacherprofiles.pt:38
 msgid "label_fullname"
-msgstr ""
+msgstr "Leina ka botlalo"
 
 #. Default: "How to"
 #: ./browser/templates/videos.pt:21
@@ -978,23 +978,23 @@ msgstr ""
 #. Default: "Last login time"
 #: ./browser/templates/teacherprofiles.pt:44
 msgid "label_last_login_time"
-msgstr ""
+msgstr "Nako ya bofelo yeo o butseng ka yona"
 
 #. Default: "Learner"
 #: ./browser/reports/templates/learnerprogress.pt:38
 msgid "label_learner"
-msgstr ""
+msgstr "Morutwana"
 
 #. Default: "Learner Name"
 #: ./browser/templates/assessment-pdf.pt:134
 #: ./browser/templates/evaluationsheet-pdf.pt:109
 msgid "label_learner_name"
-msgstr ""
+msgstr "Leina La Moithuti"
 
 #. Default: "${medialabel} Quick Upload"
 #: ./browser/quickupload.py:95
 msgid "label_media_quickupload"
-msgstr ""
+msgstr "${medialabel} go tsenya faele netewekeng ka pela"
 
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
@@ -1019,17 +1019,17 @@ msgstr ""
 #. Default: "Rating Scale:"
 #: ./browser/templates/activities-pdf.pt:139
 msgid "label_rating_scale"
-msgstr ""
+msgstr "Sekala sa tekanelo:"
 
 #. Default: "Register"
 #: ./browser/views.py:74
 msgid "label_register"
-msgstr ""
+msgstr "Go ikwadisa"
 
 #. Default: "Remove from Assessment"
 #: ./browser/templates/assessment-view.pt:71
 msgid "label_removefromassessment"
-msgstr ""
+msgstr "Tlosa kelong"
 
 #. Default: "Resource"
 #: ./browser/templates/resources.pt:84
@@ -1081,34 +1081,34 @@ msgstr ""
 #: ./browser/templates/activities-pdf.pt:134
 #: ./browser/templates/assessmentitem-view.pt:34
 msgid "label_topics"
-msgstr ""
+msgstr "Direrwa:"
 
 #. Default: "Topic Tree"
 #: ./browser/templates/topictrees.pt:28
 msgid "label_topictree"
-msgstr ""
+msgstr "Mmepe wa sehlogo"
 
 #. Default: "Move up"
 #: ./browser/templates/assessment-view.pt:58
 msgid "label_up"
-msgstr ""
+msgstr "Sutisetsa godimo"
 
 #. Default: "Upload Files"
 #: ./browser/templates/quick_upload.pt:41
 msgid "label_upload_files"
-msgstr ""
+msgstr "Tsenya difaele netewekeng"
 
 #. Default: "User name"
 #: ./browser/templates/teacherprofiles.pt:39
 msgid "label_username"
-msgstr ""
+msgstr "Leina la tiriso"
 
 #. Default: "View"
 #: ./browser/templates/activities.pt:110
 #: ./browser/templates/assessment-view.pt:66
 #: ./browser/templates/videos.pt:82
 msgid "label_view"
-msgstr ""
+msgstr "Pono"
 
 #. Default: "Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:101
@@ -1123,33 +1123,33 @@ msgstr ""
 #. Default: "Years teaching"
 #: ./browser/templates/teacherprofiles.pt:43
 msgid "label_years_teaching"
-msgstr ""
+msgstr "Dingwaga thutong"
 
 #. Default: "Back to provinces"
 #: ./browser/templates/teacherprofiles.pt:23
 #: ./browser/templates/usagestats.pt:23
 msgid "link_back_to_provinces"
-msgstr ""
+msgstr "Go boela morago diporofinsing"
 
 #. Default: "Back to schools"
 #: ./browser/templates/teacherprofiles.pt:33
 #: ./browser/templates/usagestats.pt:35
 msgid "link_back_to_schools"
-msgstr ""
+msgstr "Go boela morago dikolong"
 
 #. Default: "Create a new profile"
 #: ./browser/templates/selectprofile.pt:45
 msgid "link_create_new_profile"
-msgstr ""
+msgstr "Bopa phorofaele leswa"
 
 #. Default: "import learners to an existing/new classlist"
 #: ./browser/templates/classlists.pt:17
 msgid "link_importclasslist"
-msgstr ""
+msgstr "Tlisa maina a baithuti/barutwana go ya lenaneong la kgale goba le leswa"
 
 #: ./browser/quickupload.py:377
 msgid "maximum file size is:"
-msgstr ""
+msgstr "botlalokgolo ba faele ke:"
 
 #. Default: "activities found"
 #: ./browser/templates/activities.pt:88
@@ -1181,7 +1181,7 @@ msgstr ""
 #. Default: "Thank you for your feedback about ${assessment_item_id}"
 #: ./browser/templates/assessmentitem_feedback_result.pt:15
 msgid "message_feedback_thankyou"
-msgstr ""
+msgstr "Re leboga dipoelo tsa gao ka ${assessment_item_id}"
 
 #. Default: "Evaluationsheets exist for this learner, but none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
 #: ./browser/reports/templates/learnerprogress.pt:135
@@ -1207,7 +1207,7 @@ msgstr ""
 #. Default: "No assessments have been created yet"
 #: ./browser/templates/assessments.pt:26
 msgid "message_no_assesments_exist"
-msgstr ""
+msgstr "Ga go kelo eo e bopilwego"
 
 #. Default: "No assessments have been created yet, or existing assessments contain no activities"
 #: ./browser/reports/templates/classperformance-for-activity.pt:78
@@ -1217,7 +1217,7 @@ msgstr ""
 #. Default: "No classlists have been created yet"
 #: ./browser/templates/classlists.pt:28
 msgid "message_no_classlists_exist"
-msgstr ""
+msgstr "Ga go lenaneo la maina a baithuti leo le bopilwego"
 
 #. Default: "No evaluationsheets found in the specified date range"
 #: ./browser/reports/templates/classprogress.pt:110
@@ -1229,22 +1229,22 @@ msgstr ""
 #. Default: "No evaluation sheets have been created yet"
 #: ./browser/templates/evaluationsheets.pt:23
 msgid "message_no_evaluationsheets_exist"
-msgstr ""
+msgstr "Tsebe ya tekolo a se e hlamiwe"
 
 #. Default: "No profiles have been created yet"
 #: ./browser/templates/selectprofile.pt:29
 msgid "message_no_profiles_exist"
-msgstr ""
+msgstr "Ga go na diphorofaele tse di bopilweng"
 
 #. Default: "No resources found in the system"
 #: ./browser/templates/resources.pt:25
 msgid "message_no_resources"
-msgstr ""
+msgstr "Ga go na didiriswa tse fumanweng tshepetsong"
 
 #. Default: "No topic trees have been created yet"
 #: ./browser/templates/topictrees.pt:22
 msgid "message_no_topictrees_exist"
-msgstr ""
+msgstr "Ga go na mmepe wa setlhogo wo o bopilweng"
 
 #. Default: "No videos found in this category"
 #: ./browser/templates/videos.pt:63
@@ -1266,17 +1266,17 @@ msgstr ""
 #. Default: "Thank you for your request about ${subject}, ${customer_email}."
 #: ./browser/templates/feedback_result.pt:15
 msgid "message_thankyou"
-msgstr ""
+msgstr "Re leboga kgopelo ya gago ka ${subject}, ${customer_email}."
 
 #. Default: "Topics covered by activities:"
 #: ./browser/templates/assessment-view.pt:32
 msgid "message_topics_covered_by_activities"
-msgstr ""
+msgstr "Direrwa tse di akaretswang ke mediro:"
 
 #. Default: "We will reply to it shortly."
 #: ./browser/templates/feedback_result.pt:16
 msgid "message_willreply"
-msgstr ""
+msgstr "Re tla araba morago ga sebakanyana."
 
 #: ./browser/viewlets.py:12
 msgid "name"
@@ -1288,16 +1288,16 @@ msgstr ""
 
 #: ./browser/quickupload.py:372
 msgid "please select files again without it"
-msgstr ""
+msgstr "Kgetha gape difaele ntle le yona"
 
 #: ./browser/quickupload.py:373
 msgid "please try again"
-msgstr ""
+msgstr "leka gape"
 
 #. Default: "Assessment: ${assessment_title}"
 #: ./browser/templates/assessment-view.pt:13
 msgid "title_assessment"
-msgstr ""
+msgstr "Kelo: ${assessment_title}"
 
 #. Default: "MONTH"
 #: ./browser/templates/usagestats.pt:44
