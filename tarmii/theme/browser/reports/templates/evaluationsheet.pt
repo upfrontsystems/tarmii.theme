@@ -144,8 +144,8 @@
                 Strengths and Weaknesses Report</a>
         </div>
         <div class="right-link">
-            <a tal:attributes="href string:$portal_url/reports" i18n:translate="Reports Menu">
-                Reports Menu</a>
+            <a tal:attributes="href string:$portal_url/@@compositelearner" i18n:translate="Composite Learner Report">
+                Composite Learner Report</a>
         </div>
     </div>
 

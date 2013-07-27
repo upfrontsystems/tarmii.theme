@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-25 13:55+0000\n"
+"POT-Creation-Date: 2013-07-27 13:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr ""
 
-#: ./browser/reports/views.py:364
+#: ./browser/reports/views.py:331
 msgid " learner"
 msgstr ""
 
-#: ./browser/reports/views.py:362
+#: ./browser/reports/views.py:329
 msgid " learners"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:40
-#: ./browser/reports/views.py:583
+#: ./browser/reports/views.py:550
 msgid "%B"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: ./browser/reports/views.py:612
+#: ./browser/reports/views.py:579
 msgid "Activities across time"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:611
+#: ./browser/reports/views.py:578
 msgid "Average Learner Score"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgid "Class Performance for Activity Report"
 msgstr ""
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:609
+#: ./browser/reports/views.py:576
 #: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr ""
@@ -169,7 +169,7 @@ msgstr ""
 
 #. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:390
+#: ./browser/reports/views.py:357
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr ""
@@ -177,6 +177,10 @@ msgstr ""
 #: ./browser/templates/classlists.pt:11
 #: ./profiles/default/actions.xml
 msgid "Classlists"
+msgstr ""
+
+#: ./browser/reports/templates/evaluationsheet.pt:147
+msgid "Composite Learner Report"
 msgstr ""
 
 #: ./browser/feedback.py:44
@@ -231,6 +235,7 @@ msgstr ""
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
+#: ./browser/reports/templates/compositelearner.pt:188
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:137
 msgid "Evaluation Sheet Report"
 msgstr ""
@@ -289,7 +294,7 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: ./browser/reports/views.py:610
+#: ./browser/reports/views.py:577
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -331,7 +336,7 @@ msgid "Last version number"
 msgstr ""
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:774
+#: ./browser/reports/views.py:741
 #: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr ""
@@ -341,7 +346,7 @@ msgstr ""
 msgid "Learner Progress Report"
 msgstr ""
 
-#: ./browser/reports/views.py:776
+#: ./browser/reports/views.py:743
 msgid "Learner Score"
 msgstr ""
 
@@ -384,7 +389,7 @@ msgstr ""
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:379
+#: ./browser/reports/views.py:346
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -401,7 +406,7 @@ msgid "Northern Cape"
 msgstr ""
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1166
+#: ./browser/reports/views.py:1133
 msgid "Not Rated"
 msgstr ""
 
@@ -409,7 +414,7 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: ./browser/reports/views.py:392
+#: ./browser/reports/views.py:359
 msgid "Number of learners per rating"
 msgstr ""
 
@@ -433,7 +438,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr ""
 
-#: ./browser/reports/views.py:613
+#: ./browser/reports/views.py:580
 msgid "Performance Rating"
 msgstr ""
 
@@ -487,7 +492,7 @@ msgid "Reports"
 msgstr ""
 
 #: ./browser/reports/templates/classperformance-for-activity.pt:119
-#: ./browser/reports/templates/evaluationsheet.pt:147
+#: ./browser/reports/templates/compositelearner.pt:192
 msgid "Reports Menu"
 msgstr ""
 
@@ -613,8 +618,8 @@ msgid "UUID"
 msgstr ""
 
 #: ./browser/reports/templates/classprogress.pt:92
+#: ./browser/reports/templates/compositelearner.pt:92
 #: ./browser/reports/templates/evaluationsheet.pt:92
-#: ./browser/reports/templates/learnerprogress.pt:110
 msgid "Update Dates"
 msgstr ""
 
@@ -692,6 +697,17 @@ msgstr ""
 msgid "heading_assessment_pdf"
 msgstr ""
 
+#. Default: "Composite Learner"
+#: ./browser/reports/templates/compositelearner.pt:20
+#: ./browser/templates/report.pt:40
+msgid "heading_compositelearner"
+msgstr ""
+
+#. Default: "Description of Competence"
+#: ./browser/reports/templates/compositelearner.pt:136
+msgid "heading_description_of_competence"
+msgstr ""
+
 #. Default: "Evaluation Sheet"
 #: ./browser/reports/templates/evaluationsheet.pt:20
 #: ./browser/templates/evaluationsheets.pt:30
@@ -704,10 +720,20 @@ msgstr ""
 msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
+#. Default: "Percentage"
+#: ./browser/reports/templates/compositelearner.pt:121
+msgid "heading_percentage"
+msgstr ""
+
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
 #: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
+msgstr ""
+
+#. Default: "Rating Code"
+#: ./browser/reports/templates/compositelearner.pt:122
+msgid "heading_rating_code"
 msgstr ""
 
 #. Default: "Schools:"
@@ -733,7 +759,7 @@ msgid "heading_strenghts_and_weaknesses"
 msgstr ""
 
 #. Default: "Teacher Information for"
-#: ./browser/templates/teacher-info-pdf.pt:111
+#: ./browser/templates/teacher-info-pdf.pt:116
 msgid "heading_teacher_information_pdf"
 msgstr ""
 
@@ -750,6 +776,11 @@ msgstr ""
 #. Default: "Teachers:"
 #: ./browser/templates/teacherprofiles.pt:35
 msgid "heading_teachers"
+msgstr ""
+
+#. Default: "Total Score"
+#: ./browser/reports/templates/compositelearner.pt:120
+msgid "heading_total_score"
 msgstr ""
 
 #. Default: "USAGE STATS"
@@ -854,6 +885,11 @@ msgstr ""
 msgid "label_addtoassessment"
 msgstr ""
 
+#. Default: "Adequate Achievement"
+#: ./browser/reports/templates/compositelearner.pt:156
+msgid "label_adequate_achievement"
+msgstr ""
+
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
@@ -899,7 +935,7 @@ msgstr ""
 #. Default: "Classlist"
 #: ./browser/reports/templates/classperformance-for-activity.pt:27
 #: ./browser/reports/templates/classprogress.pt:36
-#: ./browser/reports/templates/evaluationsheet.pt:36
+#: ./browser/reports/templates/compositelearner.pt:36
 msgid "label_classlist"
 msgstr ""
 
@@ -944,6 +980,11 @@ msgstr ""
 msgid "label_edit"
 msgstr ""
 
+#. Default: "Elementary Achievement"
+#: ./browser/reports/templates/compositelearner.pt:166
+msgid "label_elementary_achievement"
+msgstr ""
+
 #. Default: "Email"
 #: ./browser/templates/teacherprofiles.pt:40
 msgid "label_email"
@@ -981,6 +1022,7 @@ msgid "label_last_login_time"
 msgstr ""
 
 #. Default: "Learner"
+#: ./browser/reports/templates/compositelearner.pt:119
 #: ./browser/reports/templates/learnerprogress.pt:38
 msgid "label_learner"
 msgstr ""
@@ -996,14 +1038,34 @@ msgstr ""
 msgid "label_media_quickupload"
 msgstr ""
 
+#. Default: "Meritorious Achievement"
+#: ./browser/reports/templates/compositelearner.pt:146
+msgid "label_meritorious_achievement"
+msgstr ""
+
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
 msgstr ""
 
+#. Default: "Moderate Achievement"
+#: ./browser/reports/templates/compositelearner.pt:161
+msgid "label_moderate_achievement"
+msgstr ""
+
 #. Default: "No Learners in this classlist"
 #: ./browser/reports/templates/learnerprogress.pt:64
 msgid "label_nolearners"
+msgstr ""
+
+#. Default: "Not Achieved"
+#: ./browser/reports/templates/compositelearner.pt:171
+msgid "label_not_achieved"
+msgstr ""
+
+#. Default: "Outstanding Achievement"
+#: ./browser/reports/templates/compositelearner.pt:141
+msgid "label_outstanding_achievement"
 msgstr ""
 
 #. Default: "Pedagogic"
@@ -1038,7 +1100,7 @@ msgstr ""
 
 #. Default: "School Name"
 #: ./browser/templates/assessment-pdf.pt:142
-#: ./browser/templates/teacher-info-pdf.pt:120
+#: ./browser/templates/teacher-info-pdf.pt:126
 msgid "label_school_name"
 msgstr ""
 
@@ -1065,6 +1127,11 @@ msgstr ""
 #. Default: "Strengths"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:85
 msgid "label_strengths"
+msgstr ""
+
+#. Default: "Substantial Achievement"
+#: ./browser/reports/templates/compositelearner.pt:151
+msgid "label_substantial_achievement"
 msgstr ""
 
 #. Default: "Teacher Resources Viewed"
@@ -1164,7 +1231,7 @@ msgstr ""
 #. Default: "Please create some classlists, assessments and evaluations"
 #: ./browser/reports/templates/classperformance-for-activity.pt:104
 #: ./browser/reports/templates/classprogress.pt:135
-#: ./browser/reports/templates/evaluationsheet.pt:136
+#: ./browser/reports/templates/compositelearner.pt:181
 msgid "message_create_classlists"
 msgstr ""
 
@@ -1221,8 +1288,8 @@ msgstr ""
 
 #. Default: "No evaluationsheets found in the specified date range"
 #: ./browser/reports/templates/classprogress.pt:110
+#: ./browser/reports/templates/compositelearner.pt:109
 #: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/learnerprogress.pt:128
 msgid "message_no_evaluationsheets"
 msgstr ""
 
@@ -1258,8 +1325,8 @@ msgstr ""
 
 #. Default: "Specified Start Date must be earlier than the End Date"
 #: ./browser/reports/templates/classprogress.pt:104
+#: ./browser/reports/templates/compositelearner.pt:103
 #: ./browser/reports/templates/evaluationsheet.pt:103
-#: ./browser/reports/templates/learnerprogress.pt:122
 msgid "message_startdate_bigger_enddate"
 msgstr ""
 
@@ -1282,7 +1349,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:582
+#: ./browser/reports/views.py:549
 msgid "on"
 msgstr ""
 

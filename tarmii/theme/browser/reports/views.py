@@ -1159,3 +1159,149 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
 
     def activity_ids(self):
         return self.activity_ids
+
+
+class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
+    """ Composite Learner report view
+    """
+    grok.context(Interface)
+    grok.name('compositelearner')
+    grok.template('compositelearner')
+    grok.require('zope2.View')
+
+    #  __call__ calls update before generating the template
+    def update(self, **kwargs):
+        """ get classlist parameter from request, if none selected, pick first
+            classlist in classlists folder.
+            calculate all the activity_ids that are contained in the 
+            evaluationsheets (in the selected date range).
+        """
+        self.classlist_uid = self.request.get('classlist_uid_selected', '')
+
+        if self.classlist_uid == '':
+            pm = getSite().portal_membership
+            members_folder = pm.getHomeFolder()
+            if members_folder == None:
+                return []
+            if len(self.classlists()) == 0:
+                # no classlists
+                self.classlist_id = ''
+                return []
+            else:                
+                # no classlist selected so pick first one in list
+                classlist = self.classlists()[0].getObject()
+                self.classlist_uid = IUUID(classlist)
+
+        # calculate the activity ids for the all the activities
+        evaluationsheets_in_range = self.evaluationsheets()
+        if evaluationsheets_in_range == []:
+            self.activity_ids = []
+            return
+
+        all_activity_ids = []
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+            activity_ids = []
+            # one ev object per learner
+            for ev in evaluation_objects:
+                if activity_ids == []:
+                    # init lists so that we can use indexing
+                    activity_ids = [None] * len(ev.evaluation)
+                    # x iterates through the activities each learner did,
+                    # if this learner was absent for this evaluation, then
+                    # we obtain the activities from the next present learner
+                    for x in range(len(ev.evaluation)):
+                        activity_ids[x] = \
+                            [uuidToObject(ev.evaluation[x]['uid']).id, 
+                             IUUID(evalsheet)]
+            all_activity_ids += activity_ids
+
+        self.activity_ids = all_activity_ids
+
+        return 
+
+    def evaluationsheets(self):
+        """ return all user's evaluationsheets for the selected date range
+            and only for the selected classlist
+        """
+        evaluationsheets_in_range = \
+            self.evaluationsheets_filter(self.startDateString(), 
+                                         self.endDateString(), 
+                                         self.classlist_uid)
+        return evaluationsheets_in_range
+
+    def classlist(self):
+        """ return select classlist """
+        return uuidToObject(self.classlist_uid).Title()
+
+    def learners(self):
+        """ return all of the learners from a specific classlist
+        """        
+        classlist = uuidToObject(self.classlist_uid)
+        contentFilter = {'portal_type': 'upfront.classlist.content.learner',
+                         'sort_on': 'sortable_title'}
+        return classlist.getFolderContents(contentFilter)
+
+    def score_for_learner(self, learner):
+        """ returns the score of a learner for all the evaluationsheets in
+            the specified date range.
+            result is - name, score, percentage, rating code
+        """
+        evaluationsheets_in_range = self.evaluationsheets()
+
+        score_total = 0
+        activity_count = 0 # number of activities learner completed
+        scales_total = 0
+
+        for evalsheet in evaluationsheets_in_range:
+            contentFilter = \
+                {'portal_type': 'upfront.assessment.content.evaluation'}
+            evaluation_objects = \
+                [x for x in evalsheet.getFolderContents(contentFilter,
+                                                        full_objects=True)]
+            # one ev object per learner
+            for ev in evaluation_objects:
+                # only use the score data of the specified learner
+                if ev.learner.to_object == learner:
+                    # x iterates through the activities each learner did
+
+                    for x in range(len(ev.evaluation)):
+                        score = ev.evaluation[x]['rating']
+                        scale = ev.evaluation[x]['rating_scale']
+                        if score not in [UN_RATED, NOT_RATED]:
+                            activity_count += 1
+                            score_total += score   
+
+                            scale_list = []
+                            for z in range(len(scale)):
+                                scale_list.append(scale[z]['rating'])
+                            scale_list.sort()
+                            # add highest possible rating from this scale
+                            # to scales total
+                            scales_total += scale_list[len(scale_list)-1]
+
+        if scales_total != 0:
+            percentage = int((score_total/scales_total)*100)
+            if percentage == 100:
+                rating_code = 7
+            elif percentage < 100 and percentage >= 70:
+                rating_code = 6
+            elif percentage < 70 and percentage >= 60:
+                rating_code = 5
+            elif percentage < 60 and percentage >= 50:
+                rating_code = 4
+            elif percentage < 50 and percentage >= 40:
+                rating_code = 3
+            elif percentage < 40 and percentage >= 30:
+                rating_code = 2
+            elif percentage < 30:
+                rating_code = 1
+        else:
+            percentage = 'N/A'
+            rating_code = 'N/A'
+
+        return [ score_total, percentage, rating_code]

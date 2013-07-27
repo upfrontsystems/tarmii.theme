@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-25 13:55+0000\n"
+"POT-Creation-Date: 2013-07-27 13:07+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/reports/views.py:364
+#: ./browser/reports/views.py:331
 msgid " learner"
 msgstr " leerder"
 
-#: ./browser/reports/views.py:362
+#: ./browser/reports/views.py:329
 msgid " learners"
 msgstr " leerders"
 
@@ -32,7 +32,7 @@ msgstr " oplaai gee 'n fout"
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:40
-#: ./browser/reports/views.py:583
+#: ./browser/reports/views.py:550
 msgid "%B"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 msgid "Activities"
 msgstr "Aktiwiteite"
 
-#: ./browser/reports/views.py:612
+#: ./browser/reports/views.py:579
 msgid "Activities across time"
 msgstr "Aktiwiteite in tyd"
 
@@ -112,7 +112,7 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
-#: ./browser/reports/views.py:611
+#: ./browser/reports/views.py:578
 msgid "Average Learner Score"
 msgstr "Gemiddelde Leerder Telling"
 
@@ -159,7 +159,7 @@ msgid "Class Performance for Activity Report"
 msgstr "Klas Prestasie vir Aktiwiteit Verslag"
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:609
+#: ./browser/reports/views.py:576
 #: ./browser/templates/report.pt:24
 msgid "Class Progress"
 msgstr "Klas Vordering"
@@ -171,7 +171,7 @@ msgstr "Klas Vordering Verslag"
 
 #. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:390
+#: ./browser/reports/views.py:357
 #: ./browser/templates/report.pt:20
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
@@ -181,6 +181,10 @@ msgstr "Klas prestasie vir aktiwiteit"
 #: ./profiles/default/actions.xml
 msgid "Classlists"
 msgstr "Klaslyste"
+
+#: ./browser/reports/templates/evaluationsheet.pt:147
+msgid "Composite Learner Report"
+msgstr "Saamgestelde Leerder Verslag"
 
 #: ./browser/feedback.py:44
 msgid "Contact Us"
@@ -234,6 +238,7 @@ msgstr "Einde Datum"
 msgid "Equipment and Administration (For the teacher)"
 msgstr "Toerusting en Administrasie (Vir die onderwyser)"
 
+#: ./browser/reports/templates/compositelearner.pt:188
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:137
 msgid "Evaluation Sheet Report"
 msgstr "Evaluasieblad Verslag"
@@ -293,7 +298,7 @@ msgstr "Genereer Verslag"
 msgid "Good"
 msgstr "Goed"
 
-#: ./browser/reports/views.py:610
+#: ./browser/reports/views.py:577
 msgid "Highest Possible Score"
 msgstr "Hoogste Moontlike Telling"
 
@@ -335,7 +340,7 @@ msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:774
+#: ./browser/reports/views.py:741
 #: ./browser/templates/report.pt:28
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
@@ -345,7 +350,7 @@ msgstr "Leerder Vordering"
 msgid "Learner Progress Report"
 msgstr "Leerder Vordering Verslag"
 
-#: ./browser/reports/views.py:776
+#: ./browser/reports/views.py:743
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -388,7 +393,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:379
+#: ./browser/reports/views.py:346
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -405,7 +410,7 @@ msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1166
+#: ./browser/reports/views.py:1133
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -413,7 +418,7 @@ msgstr "Nie Gegradeer nie"
 msgid "November"
 msgstr "November"
 
-#: ./browser/reports/views.py:392
+#: ./browser/reports/views.py:359
 msgid "Number of learners per rating"
 msgstr "Aantal leerders per gradering"
 
@@ -437,7 +442,7 @@ msgstr "Oktober"
 msgid "Only allowed:"
 msgstr "Slegs toegelaat:"
 
-#: ./browser/reports/views.py:613
+#: ./browser/reports/views.py:580
 msgid "Performance Rating"
 msgstr "Prestasie Gradering"
 
@@ -492,7 +497,7 @@ msgid "Reports"
 msgstr "Verslae"
 
 #: ./browser/reports/templates/classperformance-for-activity.pt:119
-#: ./browser/reports/templates/evaluationsheet.pt:147
+#: ./browser/reports/templates/compositelearner.pt:192
 msgid "Reports Menu"
 msgstr "Verslae Kieslys"
 
@@ -619,8 +624,8 @@ msgid "UUID"
 msgstr "UUID"
 
 #: ./browser/reports/templates/classprogress.pt:92
+#: ./browser/reports/templates/compositelearner.pt:92
 #: ./browser/reports/templates/evaluationsheet.pt:92
-#: ./browser/reports/templates/learnerprogress.pt:110
 msgid "Update Dates"
 msgstr "Opdateer Datums"
 
@@ -699,6 +704,17 @@ msgstr "Skep Profil"
 msgid "heading_assessment_pdf"
 msgstr "Assessering Taak"
 
+#. Default: "Composite Learner"
+#: ./browser/reports/templates/compositelearner.pt:20
+#: ./browser/templates/report.pt:40
+msgid "heading_compositelearner"
+msgstr "Saamgestelde Leerder"
+
+#. Default: "Description of Competence"
+#: ./browser/reports/templates/compositelearner.pt:136
+msgid "heading_description_of_competence"
+msgstr "Beskrywing van bevoegdheid"
+
 #. Default: "Evaluation Sheet"
 #: ./browser/reports/templates/evaluationsheet.pt:20
 #: ./browser/templates/evaluationsheets.pt:30
@@ -711,11 +727,21 @@ msgstr "Evaluasieblad"
 msgid "heading_evaluationsheet_pdf"
 msgstr "Evaluasieblad vir "
 
+#. Default: "Percentage"
+#: ./browser/reports/templates/compositelearner.pt:121
+msgid "heading_percentage"
+msgstr "Persentasie"
+
 #. Default: "Provinces:"
 #: ./browser/templates/teacherprofiles.pt:15
 #: ./browser/templates/usagestats.pt:15
 msgid "heading_provinces"
 msgstr "Provinsies:"
+
+#. Default: "Rating Code"
+#: ./browser/reports/templates/compositelearner.pt:122
+msgid "heading_rating_code"
+msgstr "Gradering Kode"
 
 #. Default: "Schools:"
 #: ./browser/templates/teacherprofiles.pt:25
@@ -740,7 +766,7 @@ msgid "heading_strenghts_and_weaknesses"
 msgstr "Sterk-en Swakpunte"
 
 #. Default: "Teacher Information for"
-#: ./browser/templates/teacher-info-pdf.pt:111
+#: ./browser/templates/teacher-info-pdf.pt:116
 msgid "heading_teacher_information_pdf"
 msgstr "Onderwyser Informasie vir"
 
@@ -759,6 +785,11 @@ msgstr "ONDERWYSER PROFILES"
 msgid "heading_teachers"
 msgstr "Onderwysers:"
 
+#. Default: "Total Score"
+#: ./browser/reports/templates/compositelearner.pt:120
+msgid "heading_total_score"
+msgstr "Totaal Telling"
+
 #. Default: "USAGE STATS"
 #: ./browser/templates/usagestats.pt:12
 msgid "heading_usagestats"
@@ -766,7 +797,6 @@ msgstr "GEBRUIK STATISTIEKE"
 
 #. Default: "This section allows you to use existing activities in your class room or create your own activities."
 #: ./browser/templates/home.pt:37
-#, fuzzy
 msgid "home_description_activities"
 msgstr "Hierdie afdeling kan u bestaande aktiwiteite in jou klaskamer te gebruik of jou eie aktiwiteite te skep."
 
@@ -862,6 +892,11 @@ msgstr "Of tik die naam van 'n nuwe assessering in:"
 msgid "label_addtoassessment"
 msgstr "Voeg by Assessering"
 
+#. Default: "Adequate Achievement"
+#: ./browser/reports/templates/compositelearner.pt:156
+msgid "label_adequate_achievement"
+msgstr "Voldoende Prestasie"
+
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
@@ -907,7 +942,7 @@ msgstr "Kies jou lêers:"
 #. Default: "Classlist"
 #: ./browser/reports/templates/classperformance-for-activity.pt:27
 #: ./browser/reports/templates/classprogress.pt:36
-#: ./browser/reports/templates/evaluationsheet.pt:36
+#: ./browser/reports/templates/compositelearner.pt:36
 msgid "label_classlist"
 msgstr "Klaslys"
 
@@ -952,6 +987,11 @@ msgstr "Skuif af"
 msgid "label_edit"
 msgstr "Redigeer"
 
+#. Default: "Elementary Achievement"
+#: ./browser/reports/templates/compositelearner.pt:166
+msgid "label_elementary_achievement"
+msgstr "Elementêre Prestasie"
+
 #. Default: "Email"
 #: ./browser/templates/teacherprofiles.pt:40
 msgid "label_email"
@@ -989,6 +1029,7 @@ msgid "label_last_login_time"
 msgstr "Laaste aanmelding tyd"
 
 #. Default: "Learner"
+#: ./browser/reports/templates/compositelearner.pt:119
 #: ./browser/reports/templates/learnerprogress.pt:38
 msgid "label_learner"
 msgstr "Leerder"
@@ -1004,15 +1045,35 @@ msgstr "Leerder Naam"
 msgid "label_media_quickupload"
 msgstr "${medialabel} Vinnig Oplaai"
 
+#. Default: "Meritorious Achievement"
+#: ./browser/reports/templates/compositelearner.pt:146
+msgid "label_meritorious_achievement"
+msgstr "Verdienstelike Prestasie"
+
 #. Default: "Cell phone"
 #: ./browser/templates/teacherprofiles.pt:41
 msgid "label_mobile"
 msgstr "Selfoon"
 
+#. Default: "Moderate Achievement"
+#: ./browser/reports/templates/compositelearner.pt:161
+msgid "label_moderate_achievement"
+msgstr "Matige Prestasie"
+
 #. Default: "No Learners in this classlist"
 #: ./browser/reports/templates/learnerprogress.pt:64
 msgid "label_nolearners"
 msgstr "Geen leerders in hierdie klaslys"
+
+#. Default: "Not Achieved"
+#: ./browser/reports/templates/compositelearner.pt:171
+msgid "label_not_achieved"
+msgstr "Nie Bereik"
+
+#. Default: "Outstanding Achievement"
+#: ./browser/reports/templates/compositelearner.pt:141
+msgid "label_outstanding_achievement"
+msgstr "Uitstaande Prestasie"
 
 #. Default: "Pedagogic"
 #: ./browser/templates/videos.pt:35
@@ -1046,7 +1107,7 @@ msgstr "Hulbron"
 
 #. Default: "School Name"
 #: ./browser/templates/assessment-pdf.pt:142
-#: ./browser/templates/teacher-info-pdf.pt:120
+#: ./browser/templates/teacher-info-pdf.pt:126
 msgid "label_school_name"
 msgstr "Skool Naam"
 
@@ -1074,6 +1135,11 @@ msgstr "* Sommige assesserings bevat aktiwiteite wat gebruik maak van nie-standa
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:85
 msgid "label_strengths"
 msgstr "Sterkpunte"
+
+#. Default: "Substantial Achievement"
+#: ./browser/reports/templates/compositelearner.pt:151
+msgid "label_substantial_achievement"
+msgstr "Aansienlike Prestasie"
 
 #. Default: "Teacher Resources Viewed"
 #: ./browser/templates/usagestats.pt:116
@@ -1172,7 +1238,7 @@ msgstr "Hierdie assessering word gebruik deur bestaande evaluasieblad(e) en kan 
 #. Default: "Please create some classlists, assessments and evaluations"
 #: ./browser/reports/templates/classperformance-for-activity.pt:104
 #: ./browser/reports/templates/classprogress.pt:135
-#: ./browser/reports/templates/evaluationsheet.pt:136
+#: ./browser/reports/templates/compositelearner.pt:181
 msgid "message_create_classlists"
 msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies"
 
@@ -1229,8 +1295,8 @@ msgstr "Geen klaslyse is nog geskep"
 
 #. Default: "No evaluationsheets found in the specified date range"
 #: ./browser/reports/templates/classprogress.pt:110
+#: ./browser/reports/templates/compositelearner.pt:109
 #: ./browser/reports/templates/evaluationsheet.pt:109
-#: ./browser/reports/templates/learnerprogress.pt:128
 msgid "message_no_evaluationsheets"
 msgstr "Geen evaluasieblaaie is gevind in die gespesifiseerde datum bereik"
 
@@ -1266,8 +1332,8 @@ msgstr "Hulpbronne gevind"
 
 #. Default: "Specified Start Date must be earlier than the End Date"
 #: ./browser/reports/templates/classprogress.pt:104
+#: ./browser/reports/templates/compositelearner.pt:103
 #: ./browser/reports/templates/evaluationsheet.pt:103
-#: ./browser/reports/templates/learnerprogress.pt:122
 msgid "message_startdate_bigger_enddate"
 msgstr "Gespesifiseerde start datum moet vroeër as die einde datum wees"
 
@@ -1290,7 +1356,7 @@ msgstr "Ons sal binnekort antwoord."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:582
+#: ./browser/reports/views.py:549
 msgid "on"
 msgstr "op"
 

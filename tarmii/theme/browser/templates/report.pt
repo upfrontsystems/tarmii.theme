@@ -36,6 +36,10 @@
                 <a tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
                    i18n:translate="heading_evaluationsheet">Evaluation Sheet</a>
             </li>
+            <li>
+                <a tal:attributes="href string:${context/absolute_url}/@@compositelearner"
+                   i18n:translate="heading_compositelearner">Composite Learner</a>
+            </li>
         </ul>
 
     </metal:main>

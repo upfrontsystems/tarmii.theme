@@ -768,3 +768,35 @@ table.listing tbody tr td.brown3,
 table.listing tbody tr.odd td.brown3 {
     background-color : #8d340a;
 }
+
+#compositelearner-table table.listing tr.odd td.center,
+#compositelearner-table table.listing tr.even td.center,
+#compositelearner-legend-table table.listing td,
+#compositelearner-legend-table table.listing th {
+    text-align: center !important;   
+    vertical-align: middle !important;
+}
+
+#compositelearner-legend-table,
+#compositelearner-table {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#compositelearner-table {
+    padding-right: 20px;
+}
+
+#compositelearner-legend-table table.listing tbody tr.odd td,
+#compositelearner-legend-table table.listing tbody tr.even td {
+    background: #fff !important;
+    border-bottom: 1px solid #DDD;
+    line-height: 1em;
+}
+
+#compositelearner-legend-table table.listing tbody th {
+    background: #eee !important;
+}
+
+
+
