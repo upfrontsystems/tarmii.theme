@@ -34,6 +34,8 @@
                      <tbody>
                         <tr>
                             <th i18n:translate="label_classlist">Classlist</th>
+                            <th i18n:translate="label_subject">Subject</th>
+                            <th i18n:translate="label_language">Language</th>
                         </tr>
                         <tr>
                             <td class="select-classlist">
@@ -45,6 +47,32 @@
                                     </option>
                                 </select>
                             </td>
+                            <tal:subjects tal:condition="view/subjects">
+                                <td class="select-subject">
+                                    <select name="subject_topic_selected" onchange="this.form.submit()">
+                                        <option value=""></option>
+                                        <option tal:repeat="subject view/subjects"                                          
+                                                tal:attributes="value python:view.getUID(subject.getObject());
+                                                                selected python:view.getUID(subject.getObject()) ==
+                                                                         request.get('subject_topic_selected', '')"
+                                                tal:content="python:subject.getObject().Title()">
+                                        </option> 
+                                    </select>
+                                </td>
+                            </tal:subjects>
+                            <tal:languages tal:condition="view/languages">
+                                <td class="select-language">
+                                    <select name="language_topic_selected" onchange="this.form.submit()">
+                                        <option value=""></option>
+                                        <option tal:repeat="language view/languages"                                          
+                                                tal:attributes="value python:view.getUID(language.getObject());
+                                                                selected python:view.getUID(language.getObject()) ==
+                                                                         request.get('language_topic_selected', '')"
+                                                tal:content="python:language.getObject().Title()">
+                                        </option> 
+                                    </select>
+                                </td>
+                            </tal:languages>
                         </tr>
                      </tbody>
                  </table>

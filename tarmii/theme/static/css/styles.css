@@ -637,7 +637,10 @@ table.listing.admin-table th {
 }
 
 .select-assessment,
-.select-classlist {
+.select-classlist,
+.select-learner,
+.select-language,
+.select-subject {
     padding-right: 4px;
 }
 

@@ -36,6 +36,10 @@
                             <th i18n:translate="label_classlist">Classlist</th>
                             <tal:classlists tal:condition="view/classlists">
                                 <th i18n:translate="label_learner">Learner</th>
+                                <tal:learners tal:condition="view/learners">
+                                    <th i18n:translate="label_subject">Subject</th>
+                                    <th i18n:translate="label_language">Language</th>
+                                </tal:learners>
                             </tal:classlists>
                         </tr>
                         <tr>
@@ -59,6 +63,32 @@
                                         </option>
                                     </select>
                                 </td>
+                                <tal:subjects tal:condition="view/subjects">
+                                    <td class="select-subject">
+                                        <select name="subject_topic_selected" onchange="this.form.submit()">
+                                            <option value=""></option>
+                                            <option tal:repeat="subject view/subjects"                                          
+                                                    tal:attributes="value python:view.getUID(subject.getObject());
+                                                                    selected python:view.getUID(subject.getObject()) ==
+                                                                             request.get('subject_topic_selected', '')"
+                                                    tal:content="python:subject.getObject().Title()">
+                                            </option> 
+                                        </select>
+                                    </td>
+                                </tal:subjects>
+                                <tal:languages tal:condition="view/languages">
+                                    <td class="select-language">
+                                        <select name="language_topic_selected" onchange="this.form.submit()">
+                                            <option value=""></option>
+                                            <option tal:repeat="language view/languages"                                          
+                                                    tal:attributes="value python:view.getUID(language.getObject());
+                                                                    selected python:view.getUID(language.getObject()) ==
+                                                                             request.get('language_topic_selected', '')"
+                                                    tal:content="python:language.getObject().Title()">
+                                            </option> 
+                                        </select>
+                                    </td>
+                                </tal:languages>
                             </tal:learners>
                             <tal:nolearners tal:condition="not:view/learners">
                                 <td i18n:translate="label_nolearners">No Learners in this classlist</td>
@@ -142,7 +172,7 @@
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
                 <tal:learner_has_score tal:condition="view/learner_has_score">
-                    <img tal:attributes="src string:@@learnerprogress-chart?classlist=${view/selected_classlist}&learner=${view/selected_learner}&startdate=${view/startDateString}&enddate=${view/endDateString}"/>
+                    <img tal:attributes="src string:@@learnerprogress-chart?classlist=${view/selected_classlist}&learner=${view/selected_learner}&startdate=${view/startDateString}&enddate=${view/endDateString}&subject=${view/selected_subject}&language=${view/selected_language}"/>
                 </tal:learner_has_score>
             </tal:datecheck>
         </tal:evaluationsheets>
@@ -161,7 +191,7 @@
         </div>
         <div class="right-link">
             <a tal:attributes="href string:$portal_url/@@strengths-and-weaknesses" i18n:translate="Strengths and Weaknesses Report">
-                Strenths and Weaknesses Report</a>
+                Strengths and Weaknesses Report</a>
         </div>
     </div>
 

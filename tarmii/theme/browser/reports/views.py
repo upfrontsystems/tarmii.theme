@@ -173,14 +173,16 @@ class ReportViewsCommon(DatePickers):
 
         return evaluationsheets_in_range
 
-    def average_scores(self, evaluationsheets_in_range):
+    def average_scores(self, evaluationsheets_in_range, subject="", lang =""):
         """ preforms calculations on the specified evaluationsheets
             returns filtered_all_activity_ids, filtered_all_scores,
                     filtered_all_highest_ratings, filtered_all_rating_scales
                     average_all_scores
                     * filtered means, that unrated and non-rated scores are 
                     filtered out of the result
-            used by class performance chart and strength and weakness chart       
+            used by class performance chart and strength and weakness chart
+                    class performance chart can optionally provide subject and
+                    language uid parameters, that are used as optional filters
         """
         all_scores = []
         all_learner_count = []
@@ -266,6 +268,38 @@ class ReportViewsCommon(DatePickers):
 
     def site_url(self):
         return getToolByName(self.context, 'portal_url')
+
+    def getUID(self, obj):
+        return IUUID(obj)
+
+    def subjects(self):
+        """ return subject topics
+        """
+        topicfolder = getSite()._getOb('topictrees')
+        if topicfolder.hasObject('subject'):
+            subject_folder = topicfolder._getOb('subject')        
+            if len(subject_folder.getFolderContents()) != 0:
+                return subject_folder.getFolderContents()
+        return []
+
+    def languages(self):
+        """ return language topics 
+        """
+        topicfolder = getSite()._getOb('topictrees')
+        if topicfolder.hasObject('language'):
+            language_folder = topicfolder._getOb('language')
+            if len(language_folder.getFolderContents()) != 0:
+                return language_folder.getFolderContents()
+        return []
+
+    def selected_classlist(self):
+        return self.classlist_uid
+
+    def selected_subject(self):
+        return self.subject_uid
+
+    def selected_language(self):
+        return self.language_uid
 
 
 class ClassPerformanceForActivityChartView(grok.View):
@@ -519,9 +553,6 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
     def selected_activity(self):
         return self.activity_uid    
 
-    def getUID(self, obj):
-        return IUUID(obj)
-
     def evaluations(self):
         """ returns all evaluationsheets associated with currently selected 
             assessment, at least one of these evaluationsheet must contain 
@@ -565,13 +596,17 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
         classlist_uid = self.request.get('classlist')
         startdate = self.request.get('startdate', '')
         enddate = self.request.get('enddate', '')
+        subject = self.request.get('subject', '')
+        language = self.request.get('language', '') #XXX
 
         esheets_in_range = \
             self.evaluationsheets_filter(startdate, enddate, classlist_uid)
         
         [filtered_all_activity_ids, filtered_all_scores,
          filtered_all_highest_ratings, filtered_all_rating_scales, 
-         average_all_scores] = self.average_scores(esheets_in_range)
+         average_all_scores] = self.average_scores(esheets_in_range,
+                                                   subject,
+                                                   language)
          
         title = self.context.translate(_(u'Class Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
@@ -620,6 +655,8 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
             classlist in classlists folder.
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
+        self.subject_uid = self.request.get('subject_topic_selected', '')
+        self.language_uid = self.request.get('language_topic_selected', '')
 
         if self.classlist_uid == '':
             pm = getSite().portal_membership
@@ -666,9 +703,6 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                         return True
         return False
 
-    def selected_classlist(self):
-        return self.classlist_uid
-
 
 class LearnerProgressChartView(grok.View, ReportViewsCommon):
     """ Learner progress for a given time period
@@ -684,6 +718,8 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         learner_uid = self.request.get('learner', '')
         startdate = self.request.get('startdate', '')
         enddate = self.request.get('enddate', '')
+        subject = self.request.get('subject', '')
+        language = self.request.get('language', '') #XXX
 
         evaluationsheets_in_range = \
             self.evaluationsheets_filter(startdate, enddate, classlist_uid)
@@ -785,6 +821,8 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
         self.learner_uid = self.request.get('learner_uid_selected', '')
+        self.subject_uid = self.request.get('subject_topic_selected', '')
+        self.language_uid = self.request.get('language_topic_selected', '')
 
         if self.classlist_uid == '':
             pm = getSite().portal_membership
@@ -880,14 +918,8 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                             return True
         return False
      
-    def selected_classlist(self):
-        return self.classlist_uid
-
     def selected_learner(self):
         return self.learner_uid
-
-    def getUID(self, obj):
-        return IUUID(obj)
 
 
 class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
@@ -975,6 +1007,8 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             evaluationsheets (in the selected date range).
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
+        self.subject_uid = self.request.get('subject_topic_selected', '')
+        self.language_uid = self.request.get('language_topic_selected', '') #XXX
 
         if self.classlist_uid == '':
             pm = getSite().portal_membership
