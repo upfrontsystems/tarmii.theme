@@ -142,8 +142,8 @@
             <tal:datecheck tal:condition="view/check_date_integrity">
                 <div>&nbsp;</div>
                 <div id="div-evaluationsheet-table">
-                    <table class="listing admin-table">
-                        <tr> 
+                    <table class="listing admin-table" tal:condition="view/activity_ids">
+                        <tr>
                             <th></th>
                             <div tal:repeat="activity_id view/activity_ids">
                                 <th class="red" tal:content="python:activity_id[0]"></th>
@@ -155,6 +155,9 @@
                             </div>
                         </tr>
                     </table>
+                    <tal:activities_filtered_out tal:condition="not:view/activity_ids">
+                        <div i18n:translate="message_no_data_matched_selection">No data matched your selected filters</div>
+                    </tal:activities_filtered_out>
                 </div>
             </tal:datecheck>
         </tal:evaluationsheets>

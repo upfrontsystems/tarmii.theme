@@ -1008,7 +1008,11 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         """
         self.classlist_uid = self.request.get('classlist_uid_selected', '')
         self.subject_uid = self.request.get('subject_topic_selected', '')
-        self.language_uid = self.request.get('language_topic_selected', '') #XXX
+        self.language_uid = self.request.get('language_topic_selected', '')
+
+        self.topic_filtering_on = False
+        if self.subject_uid != '' or self.language_uid != '':
+            self.topic_filtering_on = True     
 
         if self.classlist_uid == '':
             pm = getSite().portal_membership
@@ -1040,16 +1044,54 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             activity_ids = []
             # one ev object per learner
             for ev in evaluation_objects:
+                valid_activities = [] # if filtering in use, used to store 
+                                      # indexes of activities that matched the 
+                                      # filter values
+
                 if activity_ids == []:
-                    # init lists so that we can use indexing
-                    activity_ids = [None] * len(ev.evaluation)
-                    # x iterates through the activities each learner did,
-                    # if this learner was absent for this evaluation, then
-                    # we obtain the activities from the next present learner
-                    for x in range(len(ev.evaluation)):
-                        activity_ids[x] = \
-                            [uuidToObject(ev.evaluation[x]['uid']).id, 
-                             IUUID(evalsheet)]
+                    # filter out activities based of subject and language if
+                    # the filters are in use 
+                    if self.topic_filtering_on:
+                        for x in range(len(ev.evaluation)):
+                            activity = uuidToObject(ev.evaluation[x]['uid'])
+                            if hasattr(activity,'topics'):
+                                # get all uids of activities topics                    
+                                uids = [IUUID(k.to_object) for k in
+                                        activity.topics]
+
+                                # now there are 3 scenarios: 
+                                # lang filter, subject filter both used
+                                # subject filter used only
+                                # lang filter used only
+                                if self.subject_uid != '' and \
+                                   self.language_uid != '':
+                                    if self.subject_uid in uids and \
+                                       self.language_uid in uids:
+                                        valid_activities.append(x)
+                                elif self.subject_uid != '':
+                                    if self.subject_uid in uids:
+                                        valid_activities.append(x)
+                                elif self.language_uid != '':
+                                    if self.language_uid in uids:
+                                        valid_activities.append(x)
+
+                        activity_ids = []
+                        for x in valid_activities:
+                            activity_ids.append(
+                                [uuidToObject(ev.evaluation[x]['uid']).id,
+                                 IUUID(evalsheet)])
+
+                    else: # filtering not in use
+                        # init lists so that we can use indexing
+                        activity_ids = [None] * len(ev.evaluation)
+                        # x iterates through the activities each learner did,
+                        # if this learner was absent for this evaluation, then
+                        # we obtain the activities from the next present learner
+                        for x in range(len(ev.evaluation)):
+                            activity_ids[x] = \
+                                [uuidToObject(ev.evaluation[x]['uid']).id, 
+                                 IUUID(evalsheet)]
+
             all_activity_ids += activity_ids
 
         self.activity_ids = all_activity_ids
@@ -1095,11 +1137,46 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                                                         full_objects=True)]
             # one ev object per learner
             for ev in evaluation_objects:
+
+                valid_activities = [] # if filtering in use, used to store 
+                                      # indexes of activities that matched the 
+                                      # filter values
+
                 # only use the score data of the specified learner
                 if ev.learner.to_object == learner:
                     # x iterates through the activities each learner did
 
-                    for x in range(len(ev.evaluation)):
+                    # filter out activities based of subject and language if
+                    # the filters are in use 
+                    if self.topic_filtering_on:
+                        for x in range(len(ev.evaluation)):
+                            activity = uuidToObject(ev.evaluation[x]['uid'])
+                            if hasattr(activity,'topics'):      
+                                # get all uids of activities topics                    
+                                uids = [IUUID(k.to_object) for k in
+                                        activity.topics]
+
+                                # now there are 3 scenarios: 
+                                # lang filter, subject filter both used
+                                # subject filter used only
+                                # lang filter used only
+                                if self.subject_uid != '' and  \
+                                   self.language_uid != '':
+                                    if self.subject_uid in uids and \
+                                       self.language_uid in uids:
+                                        valid_activities.append(x)
+                                elif self.subject_uid != '':
+                                    if self.subject_uid in uids:
+                                        valid_activities.append(x)
+                                elif self.language_uid != '':
+                                    if self.language_uid in uids:
+                                        valid_activities.append(x)
+
+                        activity_indexes = valid_activities
+                    else:
+                        activity_indexes = range(len(ev.evaluation))
+
+                    for x in activity_indexes:
 
                         score = ['',''] # to store eg. [u'Excellent','green']
                         score[0] = ev.evaluation[x]['rating']
