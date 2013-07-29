@@ -173,7 +173,7 @@ class ReportViewsCommon(DatePickers):
 
         return evaluationsheets_in_range
 
-    def average_scores(self, evaluationsheets_in_range, subject="", lang =""):
+    def average_scores(self, evaluationsheets_in_range):
         """ preforms calculations on the specified evaluationsheets
             returns filtered_all_activity_ids, filtered_all_scores,
                     filtered_all_highest_ratings, filtered_all_rating_scales
@@ -181,8 +181,7 @@ class ReportViewsCommon(DatePickers):
                     * filtered means, that unrated and non-rated scores are 
                     filtered out of the result
             used by class performance chart and strength and weakness chart
-                    class performance chart can optionally provide subject and
-                    language uid parameters, that are used as optional filters
+                   
         """
         all_scores = []
         all_learner_count = []
@@ -202,8 +201,14 @@ class ReportViewsCommon(DatePickers):
             learner_count = []
             # one ev object per learner
             for ev in evaluation_objects:
+                # filter out activities based of subject and language if
+                # the filters are in use 
+                if self.topic_filtering_on:
+                    activity_indexes = self.valid_activities(ev.evaluation)
+                else:
+                    activity_indexes = range(len(ev.evaluation))
                 # x iterates through the activities each learner did
-                for x in range(len(ev.evaluation)):
+                for x in activity_indexes:
                     if scores == []:
                         # init lists so that we can use indexing
                         scores = [0] * len(ev.evaluation)
@@ -300,6 +305,34 @@ class ReportViewsCommon(DatePickers):
 
     def selected_language(self):
         return self.language_uid
+
+    def valid_activities(self, evaluation):
+        """ returns indexes of activities (in the evaluation)
+            that have matched the filters specified
+            (expects that self.subject_uid and self.language_uid exist)
+        """
+        valid_activities = []
+        for x in range(len(evaluation)):
+            activity = uuidToObject(evaluation[x]['uid'])
+            if hasattr(activity,'topics'):      
+                # get all uids of activities topics                    
+                uids = [IUUID(k.to_object) for k in activity.topics]
+
+                # now there are 3 scenarios: 
+                # lang filter, subject filter both used
+                # subject filter used only
+                # lang filter used only
+                if self.subject_uid != '' and self.language_uid != '':
+                    if self.subject_uid in uids and self.language_uid in uids:
+                        valid_activities.append(x)
+                elif self.subject_uid != '':
+                    if self.subject_uid in uids:
+                        valid_activities.append(x)
+                elif self.language_uid != '':
+                    if self.language_uid in uids:
+                        valid_activities.append(x)
+
+        return valid_activities
 
 
 class ClassPerformanceForActivityChartView(grok.View):
@@ -596,17 +629,19 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
         classlist_uid = self.request.get('classlist')
         startdate = self.request.get('startdate', '')
         enddate = self.request.get('enddate', '')
-        subject = self.request.get('subject', '')
-        language = self.request.get('language', '') #XXX
+        self.subject_uid = self.request.get('subject', '')
+        self.language_uid = self.request.get('language', '') 
+
+        self.topic_filtering_on = False
+        if self.subject_uid != '' or self.language_uid != '':
+            self.topic_filtering_on = True
 
         esheets_in_range = \
             self.evaluationsheets_filter(startdate, enddate, classlist_uid)
         
         [filtered_all_activity_ids, filtered_all_scores,
          filtered_all_highest_ratings, filtered_all_rating_scales, 
-         average_all_scores] = self.average_scores(esheets_in_range,
-                                                   subject,
-                                                   language)
+         average_all_scores] = self.average_scores(esheets_in_range)
          
         title = self.context.translate(_(u'Class Progress'))
         max_score_legend = self.context.translate(_(u'Highest Possible Score'))
@@ -689,6 +724,9 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
             then later not included in this line chart)
         """
         evaluationsheets_in_range = self.evaluationsheets()
+        topic_filtering_on = False
+        if self.subject_uid != '' or self.language_uid != '':
+            topic_filtering_on = True
 
         for evalsheet in evaluationsheets_in_range:
             contentFilter = \
@@ -697,10 +735,15 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                 [x for x in evalsheet.getFolderContents(contentFilter,
                                                         full_objects=True)]
             for ev in evaluation_objects:
-                for x in range(len(ev.evaluation)):
+                if topic_filtering_on:
+                    activity_indexes = self.valid_activities(ev.evaluation)
+                else:
+                    activity_indexes = range(len(ev.evaluation))
+                for x in activity_indexes:
                     if ev.evaluation[x]['rating'] >= 0:
                         # a score has been found
                         return True
+
         return False
 
 
@@ -718,8 +761,12 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         learner_uid = self.request.get('learner', '')
         startdate = self.request.get('startdate', '')
         enddate = self.request.get('enddate', '')
-        subject = self.request.get('subject', '')
-        language = self.request.get('language', '') #XXX
+        self.subject_uid = self.request.get('subject', '')
+        self.language_uid = self.request.get('language', '') #XXX
+
+        topic_filtering_on = False
+        if self.subject_uid != '' or self.language_uid != '':
+            topic_filtering_on = True
 
         evaluationsheets_in_range = \
             self.evaluationsheets_filter(startdate, enddate, classlist_uid)
@@ -738,14 +785,23 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
             highest_rating = []
             for ev in evaluation_objects:
                 # only use the score data of the specified learner
+                valid_activities = []
                 if ev.learner.to_object == uuidToObject(learner_uid):
                     if scores == []:
+                        # filter out activities based of subject and language if
+                        # the filters are in use 
+                        if topic_filtering_on:
+                            activity_indexes = \
+                                self.valid_activities(ev.evaluation)
+                        else:
+                            activity_indexes = range(len(ev.evaluation))
+
                         # init lists so that we can use indexing
                         # one bucket/activity
-                        scores = [UN_RATED] * len(ev.evaluation) 
-                        activity_ids = [None] * len(ev.evaluation)
-                        highest_rating = [None] * len(ev.evaluation)
-                    for x in range(len(ev.evaluation)):
+                        scores = [UN_RATED] * len(activity_indexes) 
+                        activity_ids = [None] * len(activity_indexes)
+                        highest_rating = [None] * len(activity_indexes)
+                    for x in activity_indexes:
                         activity_ids[x] = \
                             uuidToObject(ev.evaluation[x]['uid']).id
                         scores[x] = ev.evaluation[x]['rating']
@@ -938,6 +994,7 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
         """
         esheets_in_range = self.evaluationsheets()
 
+        self.topic_filtering_on = False # self.average_scores needs to know this
         [filtered_all_activity_ids, filtered_all_scores,
          filtered_all_highest_ratings, filtered_all_rating_scales, 
          average_all_scores] = self.average_scores(esheets_in_range)
@@ -1044,43 +1101,15 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
             activity_ids = []
             # one ev object per learner
             for ev in evaluation_objects:
-                valid_activities = [] # if filtering in use, used to store 
-                                      # indexes of activities that matched the 
-                                      # filter values
-
                 if activity_ids == []:
                     # filter out activities based of subject and language if
                     # the filters are in use 
                     if self.topic_filtering_on:
-                        for x in range(len(ev.evaluation)):
-                            activity = uuidToObject(ev.evaluation[x]['uid'])
-                            if hasattr(activity,'topics'):
-                                # get all uids of activities topics                    
-                                uids = [IUUID(k.to_object) for k in
-                                        activity.topics]
-
-                                # now there are 3 scenarios: 
-                                # lang filter, subject filter both used
-                                # subject filter used only
-                                # lang filter used only
-                                if self.subject_uid != '' and \
-                                   self.language_uid != '':
-                                    if self.subject_uid in uids and \
-                                       self.language_uid in uids:
-                                        valid_activities.append(x)
-                                elif self.subject_uid != '':
-                                    if self.subject_uid in uids:
-                                        valid_activities.append(x)
-                                elif self.language_uid != '':
-                                    if self.language_uid in uids:
-                                        valid_activities.append(x)
-
                         activity_ids = []
-                        for x in valid_activities:
+                        for x in  self.valid_activities(ev.evaluation):
                             activity_ids.append(
                                 [uuidToObject(ev.evaluation[x]['uid']).id,
                                  IUUID(evalsheet)])
-
                     else: # filtering not in use
                         # init lists so that we can use indexing
                         activity_ids = [None] * len(ev.evaluation)
@@ -1137,45 +1166,16 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
                                                         full_objects=True)]
             # one ev object per learner
             for ev in evaluation_objects:
-
-                valid_activities = [] # if filtering in use, used to store 
-                                      # indexes of activities that matched the 
-                                      # filter values
-
                 # only use the score data of the specified learner
                 if ev.learner.to_object == learner:
-                    # x iterates through the activities each learner did
-
                     # filter out activities based of subject and language if
                     # the filters are in use 
                     if self.topic_filtering_on:
-                        for x in range(len(ev.evaluation)):
-                            activity = uuidToObject(ev.evaluation[x]['uid'])
-                            if hasattr(activity,'topics'):      
-                                # get all uids of activities topics                    
-                                uids = [IUUID(k.to_object) for k in
-                                        activity.topics]
-
-                                # now there are 3 scenarios: 
-                                # lang filter, subject filter both used
-                                # subject filter used only
-                                # lang filter used only
-                                if self.subject_uid != '' and  \
-                                   self.language_uid != '':
-                                    if self.subject_uid in uids and \
-                                       self.language_uid in uids:
-                                        valid_activities.append(x)
-                                elif self.subject_uid != '':
-                                    if self.subject_uid in uids:
-                                        valid_activities.append(x)
-                                elif self.language_uid != '':
-                                    if self.language_uid in uids:
-                                        valid_activities.append(x)
-
-                        activity_indexes = valid_activities
+                        activity_indexes = self.valid_activities(ev.evaluation)
                     else:
                         activity_indexes = range(len(ev.evaluation))
 
+                    # x iterates through the activities each learner did
                     for x in activity_indexes:
 
                         score = ['',''] # to store eg. [u'Excellent','green']

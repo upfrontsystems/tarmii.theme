@@ -156,7 +156,7 @@
                         </tr>
                     </table>
                     <tal:activities_filtered_out tal:condition="not:view/activity_ids">
-                        <div i18n:translate="message_no_data_matched_selection">No data matched your selected filters</div>
+                        <div i18n:translate="message_no_data_matched_selection">No results matched your selected filters</div>
                     </tal:activities_filtered_out>
                 </div>
             </tal:datecheck>
