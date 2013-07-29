@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-29 11:08+0000\n"
+"POT-Creation-Date: 2013-07-29 13:44+0000\n"
 "PO-Revision-Date: 2013-07-25 15:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1254,9 +1254,13 @@ msgstr ""
 msgid "message_evaluationsheet_incorrect"
 msgstr ""
 
+#. Default: "No results matched your selected filters. If evaluationsheets exist for this learner, it is possible that none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/learnerprogress.pt:165
+msgid "message_evaluationsheets_not_marked_learner_or_filtered_out"
+msgstr ""
+
 #. Default: "No results matched your selected filters. If evaluationsheets exist for this classlist, it is possible that none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
 #: ./browser/reports/templates/classprogress.pt:145
-#: ./browser/reports/templates/learnerprogress.pt:165
 msgid "message_evaluationsheets_not_marked_or_filtered_out"
 msgstr ""
 

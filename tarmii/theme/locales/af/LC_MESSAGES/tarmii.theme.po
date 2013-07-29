@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-29 11:08+0000\n"
+"POT-Creation-Date: 2013-07-29 13:44+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1261,9 +1261,13 @@ msgstr "Skep asseblief 'n paar klaslyste, assesserings en evaluasies"
 msgid "message_evaluationsheet_incorrect"
 msgstr "Die assesserings is geskep met 'n leë klaslys. Voeg asseblief 'n paar leerders om jou klaslys wat jy gebruik met hierdie evaluering en herskep die evaluationsheet weer."
 
+#. Default: "No results matched your selected filters. If evaluationsheets exist for this learner, it is possible that none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
+#: ./browser/reports/templates/learnerprogress.pt:165
+msgid "message_evaluationsheets_not_marked_learner_or_filtered_out"
+msgstr "Geen resultate gevind deur jou geselekteerde filters. As evaluasieblaaie vir hierdie leerder bestaan, is dit moontlik nie een van hulle is nog gemerk nie. Let wel: 'Nie Gegradeer' se keuses is nie beskou as gemerk."
+
 #. Default: "No results matched your selected filters. If evaluationsheets exist for this classlist, it is possible that none of them have been marked yet. Note: 'Not Rated' choices are not considered as marked."
 #: ./browser/reports/templates/classprogress.pt:145
-#: ./browser/reports/templates/learnerprogress.pt:165
 msgid "message_evaluationsheets_not_marked_or_filtered_out"
 msgstr "Geen resultate gevind deur jou geselekteerde filters. As evaluasieblaaie vir hierdie klaslys bestaan, is dit moontlik nie een van hulle is nog gemerk nie. Let wel: 'Nie Gegradeer' se keuses is nie beskou as gemerk."
 
