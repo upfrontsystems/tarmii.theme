@@ -186,6 +186,7 @@ class ReportViewsCommon(DatePickers):
         all_scores = []
         all_learner_count = []
         all_activity_ids = []
+        all_activities = []
         all_highest_ratings = []
         all_rating_scales = []
         for evalsheet in evaluationsheets_in_range:
@@ -196,28 +197,25 @@ class ReportViewsCommon(DatePickers):
                                                         full_objects=True)]
             scores = []
             activity_ids = []
+            activities = []
             highest_rating = []
             rating_scales = []
             learner_count = []
             # one ev object per learner
             for ev in evaluation_objects:
-                # filter out activities based of subject and language if
-                # the filters are in use 
-                if self.topic_filtering_on:
-                    activity_indexes = self.valid_activities(ev.evaluation)
-                else:
-                    activity_indexes = range(len(ev.evaluation))
                 # x iterates through the activities each learner did
-                for x in activity_indexes:
+                for x in range(len(ev.evaluation)):
                     if scores == []:
                         # init lists so that we can use indexing
                         scores = [0] * len(ev.evaluation)
                         learner_count = [0] * len(ev.evaluation)
                         activity_ids = [None] * len(ev.evaluation)
+                        activities = [None] * len(ev.evaluation)
                         highest_rating = [None] * len(ev.evaluation)
                         rating_scales = [None] * len(ev.evaluation)
                         number_of_learners_in_activity = len(ev.evaluation)
                     activity_ids[x] = uuidToObject(ev.evaluation[x]['uid']).id
+                    activities[x] = uuidToObject(ev.evaluation[x]['uid'])
                     # dont add unrated/explicitly not_rated scores into the 
                     #average calculation
                     if ev.evaluation[x]['rating'] not in [UN_RATED,NOT_RATED]:
@@ -243,6 +241,7 @@ class ReportViewsCommon(DatePickers):
             all_learner_count += learner_count
             all_scores += scores
             all_activity_ids += activity_ids
+            all_activities += activities
             all_highest_ratings += highest_rating
             all_rating_scales += rating_scales
 
@@ -250,6 +249,7 @@ class ReportViewsCommon(DatePickers):
         filtered_all_highest_ratings = []
         filtered_all_scores = []
         filtered_all_activity_ids = []
+        filtered_all_activities = []
         filtered_all_rating_scales = []
         filtered_all_learner_count = []
         for x in range(len(all_scores)):
@@ -257,6 +257,7 @@ class ReportViewsCommon(DatePickers):
                 filtered_all_highest_ratings.append(all_highest_ratings[x])
                 filtered_all_scores.append(all_scores[x])
                 filtered_all_activity_ids.append(all_activity_ids[x])
+                filtered_all_activities.append(all_activities[x])
                 filtered_all_rating_scales.append(all_rating_scales[x])
                 filtered_all_learner_count.append(all_learner_count[x])
 
@@ -267,9 +268,64 @@ class ReportViewsCommon(DatePickers):
             average_all_scores[x] = \
                 float(filtered_all_scores[x]) / filtered_all_learner_count[x]
 
-        return [filtered_all_activity_ids, filtered_all_scores,
-                filtered_all_highest_ratings, filtered_all_rating_scales,
-                average_all_scores ]
+        result = [filtered_all_activity_ids, filtered_all_scores,
+                  filtered_all_highest_ratings, filtered_all_rating_scales,
+                  average_all_scores]
+
+        # filter out activities based on subject and language if the filters are
+        # in use 
+        if self.topic_filtering_on:
+            tf_highest_ratings = [] # tf = topic filtered
+            tf_scores = []
+            tf_activity_ids = []
+            tf_rating_scales = []
+            tf_learner_count = []
+            for x in range(len(filtered_all_activities)):
+                activity = filtered_all_activities[x]
+                if hasattr(activity,'topics'):      
+                    # get all uids of activity's topics                    
+                    uids = [IUUID(k.to_object) for k in activity.topics]
+                    if self.subject_uid != '' and self.language_uid != '':
+                        if self.subject_uid in uids and \
+                           self.language_uid in uids:
+                            tf_highest_ratings.append(
+                                filtered_all_highest_ratings[x])
+                            tf_scores.append(filtered_all_scores[x])
+                            tf_activity_ids.append(filtered_all_activity_ids[x])
+                            tf_rating_scales.append(
+                                filtered_all_rating_scales[x])
+                            tf_learner_count.append(
+                                filtered_all_learner_count[x])
+                    elif self.subject_uid != '':
+                        if self.subject_uid in uids:
+                            tf_highest_ratings.append(
+                                filtered_all_highest_ratings[x])
+                            tf_scores.append(filtered_all_scores[x])
+                            tf_activity_ids.append(filtered_all_activity_ids[x])
+                            tf_rating_scales.append(
+                                filtered_all_rating_scales[x])
+                            tf_learner_count.append(
+                                filtered_all_learner_count[x])
+                    elif self.language_uid != '':
+                        if self.language_uid in uids:
+                            tf_highest_ratings.append(
+                                filtered_all_highest_ratings[x])
+                            tf_scores.append(filtered_all_scores[x])
+                            tf_activity_ids.append(filtered_all_activity_ids[x])
+                            tf_rating_scales.append(
+                                filtered_all_rating_scales[x])
+                            tf_learner_count.append(
+                                filtered_all_learner_count[x])
+
+            tf_average_all_scores = [0] * len(tf_scores)
+            for x in range(len(tf_scores)):
+                tf_average_all_scores[x] = \
+                    float(tf_scores[x]) / tf_learner_count[x]
+
+            result = [tf_activity_ids, tf_scores, tf_highest_ratings, 
+                      tf_rating_scales, tf_average_all_scores]
+
+        return result
 
     def site_url(self):
         return getToolByName(self.context, 'portal_url')
@@ -315,7 +371,7 @@ class ReportViewsCommon(DatePickers):
         for x in range(len(evaluation)):
             activity = uuidToObject(evaluation[x]['uid'])
             if hasattr(activity,'topics'):      
-                # get all uids of activities topics                    
+                # get all uids of activity's topics                    
                 uids = [IUUID(k.to_object) for k in activity.topics]
 
                 # now there are 3 scenarios: 
@@ -762,7 +818,7 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         startdate = self.request.get('startdate', '')
         enddate = self.request.get('enddate', '')
         self.subject_uid = self.request.get('subject', '')
-        self.language_uid = self.request.get('language', '') #XXX
+        self.language_uid = self.request.get('language', '')
 
         topic_filtering_on = False
         if self.subject_uid != '' or self.language_uid != '':
@@ -773,6 +829,7 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
 
         all_scores = []
         all_activity_ids = []
+        all_activities = []
         all_highest_ratings = []
         for evalsheet in evaluationsheets_in_range:
             contentFilter = \
@@ -782,28 +839,23 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
                                                         full_objects=True)]
             scores = []
             activity_ids = []
+            activities = []
             highest_rating = []
             for ev in evaluation_objects:
                 # only use the score data of the specified learner
                 valid_activities = []
                 if ev.learner.to_object == uuidToObject(learner_uid):
                     if scores == []:
-                        # filter out activities based of subject and language if
-                        # the filters are in use 
-                        if topic_filtering_on:
-                            activity_indexes = \
-                                self.valid_activities(ev.evaluation)
-                        else:
-                            activity_indexes = range(len(ev.evaluation))
-
                         # init lists so that we can use indexing
                         # one bucket/activity
-                        scores = [UN_RATED] * len(activity_indexes) 
-                        activity_ids = [None] * len(activity_indexes)
-                        highest_rating = [None] * len(activity_indexes)
-                    for x in activity_indexes:
+                        scores = [UN_RATED] * len(ev.evaluation)
+                        activity_ids = [None] * len(ev.evaluation)
+                        activities = [None] * len(ev.evaluation)
+                        highest_rating = [None] * len(ev.evaluation)
+                    for x in range(len(ev.evaluation)):
                         activity_ids[x] = \
                             uuidToObject(ev.evaluation[x]['uid']).id
+                        activities[x] = uuidToObject(ev.evaluation[x]['uid'])
                         scores[x] = ev.evaluation[x]['rating']
                         # find the highest possible rating in this activities 
                         # rating scale
@@ -816,18 +868,8 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
 
             all_scores += scores
             all_activity_ids += activity_ids
+            all_activities += activities
             all_highest_ratings += highest_rating
-
-        # filter out activities which this learner has not completed
-        # (unrated or "Not rated")
-        filtered_all_highest_ratings = []
-        filtered_all_scores = []
-        filtered_all_activity_ids = []
-        for x in range(len(all_scores)):
-            if all_scores[x] >= 0:
-                filtered_all_highest_ratings.append(all_highest_ratings[x])
-                filtered_all_scores.append(all_scores[x])
-                filtered_all_activity_ids.append(all_activity_ids[x])
 
         learner_string = ': ' + uuidToObject(learner_uid).Title()
         title = self.context.translate(_(u'Learner Progress')) + learner_string
@@ -836,19 +878,77 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         xlabel = self.context.translate(_(u'Activities across time'))
         ylabel = self.context.translate(_(u'Performance Rating'))
 
-        return { 
-            'title' : title,
-            'value_data' : [
-                            tuple(filtered_all_highest_ratings),
-                            tuple(filtered_all_scores)
-                           ],
-            'category_data' : filtered_all_activity_ids,
-            'highest_score' : max(filtered_all_highest_ratings),
-            'max_score_legend' : max_score_legend,
-            'score_legend' : score_legend,
-            'xlabel' : xlabel,
-            'ylabel' : ylabel
-            }
+        # filter out activities which this learner has not completed
+        # (unrated or "Not rated")
+        filtered_all_highest_ratings = []
+        filtered_all_scores = []
+        filtered_all_activities = []
+        filtered_all_activity_ids = []
+        for x in range(len(all_scores)):
+            if all_scores[x] >= 0:
+                filtered_all_highest_ratings.append(all_highest_ratings[x])
+                filtered_all_scores.append(all_scores[x])
+                filtered_all_activity_ids.append(all_activity_ids[x])
+                filtered_all_activities.append(all_activities[x])
+
+        chart_data = { 'title' : title,
+                       'value_data' : [
+                                       tuple(filtered_all_highest_ratings),
+                                       tuple(filtered_all_scores)
+                                      ],
+                       'category_data' : filtered_all_activity_ids,
+                       'highest_score' : max(filtered_all_highest_ratings),
+                       'max_score_legend' : max_score_legend,
+                       'score_legend' : score_legend,
+                       'xlabel' : xlabel,
+                       'ylabel' : ylabel
+                       }
+
+        # filter out activities based on subject and language if the filters are
+        # in use 
+        if topic_filtering_on:
+            tf_highest_ratings = [] # tf = topic filtered
+            tf_scores = []
+            tf_activity_ids = []
+            for x in range(len(filtered_all_activities)):
+                activity = filtered_all_activities[x]
+                if hasattr(activity,'topics'):      
+                    # get all uids of activity's topics                    
+                    uids = [IUUID(k.to_object) for k in activity.topics]
+                    if self.subject_uid != '' and self.language_uid != '':
+                        if self.subject_uid in uids and \
+                           self.language_uid in uids:
+                            tf_highest_ratings.append(
+                                filtered_all_highest_ratings[x])
+                            tf_scores.append(filtered_all_scores[x])
+                            tf_activity_ids.append(filtered_all_activity_ids[x])
+                    elif self.subject_uid != '':
+                        if self.subject_uid in uids:
+                            tf_highest_ratings.append(
+                                filtered_all_highest_ratings[x])
+                            tf_scores.append(filtered_all_scores[x])
+                            tf_activity_ids.append(filtered_all_activity_ids[x])
+                    elif self.language_uid != '':
+                        if self.language_uid in uids:
+                            tf_highest_ratings.append(
+                                filtered_all_highest_ratings[x])
+                            tf_scores.append(filtered_all_scores[x])
+                            tf_activity_ids.append(filtered_all_activity_ids[x])
+
+            chart_data = { 'title' : title,
+                           'value_data' : [
+                                           tuple(tf_highest_ratings),
+                                           tuple(tf_scores)
+                                          ],
+                           'category_data' : tf_activity_ids,
+                           'highest_score' : max(tf_highest_ratings),
+                           'max_score_legend' : max_score_legend,
+                           'score_legend' : score_legend,
+                           'xlabel' : xlabel,
+                           'ylabel' : ylabel
+                           }
+
+        return chart_data
 
     def render(self):
         request = self.request
@@ -960,6 +1060,9 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
             then later not included in this line chart)
         """
         evaluationsheets_in_range = self.evaluationsheets()
+        topic_filtering_on = False
+        if self.subject_uid != '' or self.language_uid != '':
+            topic_filtering_on = True
 
         for evalsheet in evaluationsheets_in_range:
             contentFilter = \
@@ -969,11 +1072,17 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
                                                         full_objects=True)]
             for ev in evaluation_objects:
                 if ev.learner.to_object == uuidToObject(self.learner_uid):
-                    for x in range(len(ev.evaluation)):
+                    if topic_filtering_on:
+                        activity_indexes = self.valid_activities(ev.evaluation)
+                    else:
+                        activity_indexes = range(len(ev.evaluation))
+                    for x in activity_indexes:
                         if ev.evaluation[x]['rating'] >= 0:
+                            # a score has been found
                             return True
+
         return False
-     
+
     def selected_learner(self):
         return self.learner_uid
 
