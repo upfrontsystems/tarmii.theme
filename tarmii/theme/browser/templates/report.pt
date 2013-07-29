@@ -11,38 +11,74 @@
         <h1 class="documentFirstHeading" i18n:translate="Reports">Reports</h1>
     </metal:main>
     <metal:main fill-slot="content-core">
-    
-        <p i18n:translate="description_reports">Click on the name of the report to access it
-        </p>
 
-        <ul>
-            <li>
-                <a tal:attributes="href string:${context/absolute_url}/@@classperformance-for-activity"
-                   i18n:translate="Class performance for activity">Class Performance for Activity</a>
-            </li>
-            <li>
-                <a tal:attributes="href string:${context/absolute_url}/@@class-progress"
-                   i18n:translate="Class Progress">Class Progress</a>
-            </li>
-            <li>
-                <a tal:attributes="href string:${context/absolute_url}/@@learner-progress"
-                   i18n:translate="Learner Progress">Learner Progress</a>
-            </li>
-            <li>
-                <a tal:attributes="href string:${context/absolute_url}/@@strengths-and-weaknesses"
-                   i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</a>
-            </li>
-            <li>
-                <a tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
-                   i18n:translate="heading_evaluationsheet">Evaluation Sheet</a>
-            </li>
-            <li>
-                <a tal:attributes="href string:${context/absolute_url}/@@compositelearner"
-                   i18n:translate="heading_compositelearner">Composite Learner</a>
-            </li>
-        </ul>
+    <!-- check: dont allow anonymous role access to this template -->
+    <div tal:condition="view/user_anonymous">
+    </div>
+    
+    <div id="report-menu-container">
+        <div id="report-links">
+            <p i18n:translate="description_reports">Click on the name of the report to access it
+            </p>
+            <ul>
+                <li>
+                    <a class="class_performance_link"
+                       tal:attributes="href string:${context/absolute_url}/@@classperformance-for-activity"
+                       i18n:translate="Class performance for activity">Class Performance for Activity</a>
+                </li>
+                <li>
+                    <a class="class_progress_link"
+                       tal:attributes="href string:${context/absolute_url}/@@class-progress"
+                       i18n:translate="Class Progress">Class Progress</a>
+                </li>
+                <li>
+                    <a class="learner_progress_link"
+                       tal:attributes="href string:${context/absolute_url}/@@learner-progress"
+                       i18n:translate="Learner Progress">Learner Progress</a>
+                </li>
+                <li>
+                    <a class="strengths_weaknesses_link"
+                    <a tal:attributes="href string:${context/absolute_url}/@@strengths-and-weaknesses"
+                       i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</a>
+                </li>
+                <li>
+                    <a class="evaluationsheet_link"
+                    <a tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
+                       i18n:translate="heading_evaluationsheet">Evaluation Sheet</a>
+                </li>
+                <li>
+                    <a class="composite_learner_link"
+                    <a tal:attributes="href string:${context/absolute_url}/@@compositelearner"
+                       i18n:translate="heading_compositelearner">Composite Learner</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="report_examples">
+            <div id="class_performance_for_activity_graph" class="hidden">
+                    <img src="/++theme++tarmii.theme/images/class_performance.png">
+            </div>
+            <div id="class_progress_graph" class="hidden">
+                    <img src="/++theme++tarmii.theme/images/class_progress.png">
+            </div>
+            <div id="learner_progress_graph" class="hidden">
+                    <img src="/++theme++tarmii.theme/images/learner_progress.png">
+            </div>
+            <div id="strengths_weaknesses_graph" class="hidden">
+                    <img src="/++theme++tarmii.theme/images/strength_weaknesses.png">
+            </div>
+            <div id="evaluationsheet_graph" class="hidden">
+                    <img src="/++theme++tarmii.theme/images/evaluationsheet.png">
+            </div>
+            <div id="composite_learner_graph" class="hidden">
+                    <img src="/++theme++tarmii.theme/images/composite_learner.png">
+            </div>
+        </div>
+    </div>
+
 
     </metal:main>
 </body>
 </html>
+
 

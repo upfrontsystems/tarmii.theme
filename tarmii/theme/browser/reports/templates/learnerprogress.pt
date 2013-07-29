@@ -162,8 +162,8 @@
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
             <tal:datecheck tal:condition="view/check_date_integrity">
                 <tal:learner_has_score tal:condition="not:view/learner_has_score">
-                    <div i18n:translate="message_evaluationsheets_not_marked_or_filtered_out">No results matched your selected filters.
-                                                                                              If evaluationsheets exist for this classlist, 
+                    <div i18n:translate="message_evaluationsheets_not_marked_learner_or_filtered_out">No results matched your selected filters.
+                                                                                              If evaluationsheets exist for this learner, 
                                                                                               it is possible that none of them have been 
                                                                                               marked yet. Note: 'Not Rated' choices are not
                                                                                               considered as marked.</div>

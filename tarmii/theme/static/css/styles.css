@@ -653,6 +653,22 @@ table.listing.admin-table th {
     font-weight: bold;
 }
 
+#report-menu-container {
+    display: block;
+}
+
+#report-links {
+    float: left;
+    display: inline-block;
+    width: 350px;
+}
+
+#report_examples {
+    float: left;
+    display: inline-block;
+    width: 500px;
+}
+
 .report-navigation {
     display: block;
 }

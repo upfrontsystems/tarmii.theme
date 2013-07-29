@@ -54,3 +54,54 @@ $(function() {
         $('.formControls').addClass('hidden');
     });
 });
+
+// reports menu - show report images on hover
+$(function() {
+    $("a.class_performance_link").hover(
+        function(){
+            $("#class_performance_for_activity_graph.hidden").removeClass("hidden");
+        },
+        function(){
+            $("#class_performance_for_activity_graph").addClass("hidden");
+        });
+    $("a.class_progress_link").hover(
+        function(){
+            $("#class_progress_graph.hidden").removeClass("hidden");
+        },
+        function(){
+            $("#class_progress_graph").addClass("hidden");
+        });
+    $("a.learner_progress_link").hover(
+        function(){
+            $("#learner_progress_graph.hidden").removeClass("hidden");
+        },
+        function(){
+            $("#learner_progress_graph").addClass("hidden");
+        });
+    $("a.strengths_weaknesses_link").hover(
+        function(){
+            $("#strengths_weaknesses_graph.hidden").removeClass("hidden");
+        },
+        function(){
+            $("#strengths_weaknesses_graph").addClass("hidden");
+        });
+    $("a.evaluationsheet_link").hover(
+        function(){
+            $("#evaluationsheet_graph.hidden").removeClass("hidden");
+        },
+        function(){
+            $("#evaluationsheet_graph").addClass("hidden");
+        });
+    $("a.composite_learner_link").hover(
+        function(){
+            $("#composite_learner_graph.hidden").removeClass("hidden");
+        },
+        function(){
+            $("#composite_learner_graph").addClass("hidden");
+        });
+});
+
+
+
+
+

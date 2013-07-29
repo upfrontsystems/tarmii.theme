@@ -6,6 +6,10 @@ AJAX error.
 Outstanding translations:
 ========================
 
+
+You are now logged in
+Continue to the {site_name} home page
+
 Black status tab:
 Logged in as _____
 Update user profile
