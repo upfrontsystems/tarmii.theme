@@ -92,7 +92,7 @@ def setupPortalContent(portal):
         langtree.invokeFactory('collective.topictree.topic',
                                'isizulu', title='IsiZulu')
         langtree.invokeFactory('collective.topictree.topic',
-                               'sepedi', title='SePedi)')
+                               'sepedi', title='SePedi')
         langtree.invokeFactory('collective.topictree.topic',
                                'setswana', title='Setswana')
         langtree.invokeFactory('collective.topictree.topic',
