@@ -1,3 +1,4 @@
+import urlparse
 from cStringIO import StringIO
 from DateTime import DateTime
 import httplib
@@ -17,6 +18,7 @@ class UploadToServerView(grok.View):
         evaluations sheets and user profiles for the last 30 days and then 
         post the zipfile to the remote url as set up in the configlet.
     """
+
     grok.context(Interface)
     grok.name('upload-to-server')
     grok.require('cmf.ManagePortal')
@@ -63,24 +65,23 @@ class UploadToServerView(grok.View):
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
 
         # make sure that a server has been specified
-        if settings.server_url != None: 
-            delimiter_index = settings.server_url.find('/')
-            if delimiter_index != -1:
-                host = settings.server_url[0:delimiter_index]
-                selector = settings.server_url[delimiter_index:]
-            else:
-                host = settings.server_url[0:]
-                selector = ''
+        if settings.server_url != None:
+            parts = urlparse.urlparse(settings.server_url)
+            host = urlparse.ParseResult('', parts.netloc, '', '', '', '')
+            host_url = urlparse.urlunparse(host)
         else:
             msg = _('Upload Server not specified in settings')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
             # redirect to show the error message
             return self.request.response.redirect(
-                   '/'.join(self.context.getPhysicalPath()))            
+                   '/'.join(self.context.getPhysicalPath()))
+
+        print host_url
+        print parts.path
 
         # send zip data to server
-        h = httplib.HTTP(host)
-        h.putrequest('POST', selector)
+        h = httplib.HTTP(host_url[2:]) # ignore leading '//'
+        h.putrequest('POST', parts.path)
         now = DateTime()
         nice_filename = '%s_%s' % ('tarmii_logs_',now.strftime('%Y%m%d'))
         h.putheader("Content-Disposition", "attachment; filename=%s.zip" % 
@@ -93,6 +94,10 @@ class UploadToServerView(grok.View):
         body = '\r\n' + zip_data
         h.send(body)
         errcode, errmsg, headers = h.getreply()
+
+        print 'status:'
+        print errcode
+        print errmsg
 
         msg = _('File sent to server')
         IStatusMessage(self.request).addStatusMessage(msg,"info")

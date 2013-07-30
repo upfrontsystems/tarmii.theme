@@ -15,6 +15,9 @@ class TeacherDataView(grok.View):
         """ store a file that is present on the request in a persistent utility
         """
         zipped_data = self.request.get('BODY')
+        print 'IN TEACHERDATA'
+        import pdb; pdb.set_trace() # so that we can see if were getting anything
+                                    # off the request
         sitedata = getUtility(ISiteData)
         sitedata.store_data(zipped_data)
 

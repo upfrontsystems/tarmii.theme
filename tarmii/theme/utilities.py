@@ -27,6 +27,7 @@ class SiteData(Persistent):
 
     def extract_teacher_data(self):
         zipped_data = self.sitedata.items()
+        import pdb; pdb.set_trace()
         zipped_file = StringIO()       
         zipped_file.write(zipped_data[0][1][2:]) # [2:] removes leading '\r\n'
         zipped_file.seek(0)
