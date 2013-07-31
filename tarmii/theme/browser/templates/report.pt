@@ -38,17 +38,17 @@
                 </li>
                 <li>
                     <a class="strengths_weaknesses_link"
-                    <a tal:attributes="href string:${context/absolute_url}/@@strengths-and-weaknesses"
+                       tal:attributes="href string:${context/absolute_url}/@@strengths-and-weaknesses"
                        i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</a>
                 </li>
                 <li>
                     <a class="evaluationsheet_link"
-                    <a tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
+                       tal:attributes="href string:${context/absolute_url}/@@evaluationsheet"
                        i18n:translate="heading_evaluationsheet">Evaluation Sheet</a>
                 </li>
                 <li>
                     <a class="composite_learner_link"
-                    <a tal:attributes="href string:${context/absolute_url}/@@compositelearner"
+                       tal:attributes="href string:${context/absolute_url}/@@compositelearner"
                        i18n:translate="heading_compositelearner">Composite Learner</a>
                 </li>
             </ul>
