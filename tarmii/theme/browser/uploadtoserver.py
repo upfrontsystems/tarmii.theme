@@ -1,5 +1,6 @@
 import base64
 import httplib
+import os
 import urlparse
 import zipfile
 from cStringIO import StringIO
@@ -83,8 +84,9 @@ class UploadToServerView(grok.View):
         h.putrequest('POST', parts.path)
         now = DateTime()
         body = '\r\n' + zip_data
-        memberid = 'admin'
-        passwd = 'admin'
+
+        memberid = os.environ['TEACHERDATA_USER']
+        passwd = os.environ['TEACHERDATA_PASS']
         authstr = "%s:%s" % (memberid, passwd)
 
         nice_filename = '%s_%s' % ('tarmii_logs_', now.strftime('%Y%m%d'))
