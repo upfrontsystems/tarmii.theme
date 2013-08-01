@@ -93,8 +93,9 @@ def on_video_deleted(video, event):
       [x.getObject() for x in video.aq_parent.getFolderContents(contentFilter)])
 
     # delete the thumbnail object
-    parent = thumb_obj[0].aq_parent
-    parent.manage_delObjects(thumb_obj[0].getId())
+    if len(thumb_obj) > 0:
+        parent = thumb_obj[0].aq_parent
+        parent.manage_delObjects(thumb_obj[0].getId())
 
 @grok.subscribe(IPropertiedUser, IUserInitialLoginInEvent)
 def on_user_initial_login(user, event):
