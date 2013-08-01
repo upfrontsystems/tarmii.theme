@@ -817,5 +817,8 @@ table.listing tbody tr.odd td.brown3 {
     background: #eee !important;
 }
 
+#report_examples {
+    padding-top: 20px;
+}
 
 
