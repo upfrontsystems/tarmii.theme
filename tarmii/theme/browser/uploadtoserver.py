@@ -1,8 +1,9 @@
+import base64
+import httplib
 import urlparse
+import zipfile
 from cStringIO import StringIO
 from DateTime import DateTime
-import httplib
-import zipfile
 
 from five import grok
 from zope.interface import Interface
@@ -67,8 +68,6 @@ class UploadToServerView(grok.View):
         # make sure that a server has been specified
         if settings.server_url != None:
             parts = urlparse.urlparse(settings.server_url)
-            host = urlparse.ParseResult('', parts.netloc, '', '', '', '')
-            host_url = urlparse.urlunparse(host)
         else:
             msg = _('Upload Server not specified in settings')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
@@ -76,26 +75,31 @@ class UploadToServerView(grok.View):
             return self.request.response.redirect(
                    '/'.join(self.context.getPhysicalPath()))
 
-        print host_url
+        print parts.netloc
         print parts.path
 
         # send zip data to server
-        h = httplib.HTTP(host_url[2:]) # ignore leading '//'
+        h = httplib.HTTP(parts.netloc) # ignore leading '//'
         h.putrequest('POST', parts.path)
         now = DateTime()
-        nice_filename = '%s_%s' % ('tarmii_logs_',now.strftime('%Y%m%d'))
+        body = '\r\n' + zip_data
+        memberid = 'admin'
+        passwd = 'admin'
+        authstr = "%s:%s" % (memberid, passwd)
+
+        nice_filename = '%s_%s' % ('tarmii_logs_', now.strftime('%Y%m%d'))
+        h.putheader('Authorization', 'Basic ' + base64.b64encode(authstr))
         h.putheader("Content-Disposition", "attachment; filename=%s.zip" % 
                                             nice_filename)
         h.putheader('Content-Type', 'application/octet-stream')
-        h.putheader('Content-Length', str(len(zip_data)))
+        h.putheader('Content-Length', str(len(body)))
         h.putheader('Last-Modified', DateTime.rfc822(DateTime()))
         h.endheaders()
 
-        body = '\r\n' + zip_data
         h.send(body)
         errcode, errmsg, headers = h.getreply()
 
-        print 'status:'
+        print 'status:' 
         print errcode
         print errmsg
 

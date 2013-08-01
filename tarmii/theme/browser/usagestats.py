@@ -24,13 +24,7 @@ class UsageStatsView(grok.View):
         """ get log data from utility each time the template is rendered
         """
         sitedata = getUtility(ISiteData)
-#        self.user_stats = sitedata.extract_logs()
-
-        # XXX debug - currently calling directly
-        view = self.context.restrictedTraverse('@@upload-to-server')
-        test_data = StringIO()
-        test_data.write(view.zip_csv())
-        self.user_stats = sitedata.extract_logs_test(test_data)
+        self.user_stats = sitedata.extract_logs()
 
         self.month = self.request.get('month-select')
         self.year = self.request.get('year-select')

@@ -26,32 +26,13 @@ class SiteData(Persistent):
         self.sitedata[0] = data
 
     def extract_teacher_data(self):
+        """ parse the zipped_data and extract the teacherdata information
+        """
         zipped_data = self.sitedata.items()
-        import pdb; pdb.set_trace()
         zipped_file = StringIO()       
         zipped_file.write(zipped_data[0][1][2:]) # [2:] removes leading '\r\n'
         zipped_file.seek(0)
         zf = zipfile.ZipFile(zipped_file, mode='r')
-        import pdb; pdb.set_trace()
-        users = StringIO()
-        for filename in zf.namelist():
-            if filename == 'users.csv':
-                bytes = zf.read(filename)
-                users.write(bytes)
-
-        # XXX after unzip is working (above), code from extract_test can be 
-        # be filled in below to complete the functionality.
-
-        # extract and grab data
-        # process and sort
-
-        zf.close()
-
-    def extract_test(self, zipped_data):
-        """ """
-        # get zip data
-        zipped_data.seek(0)
-        zf = zipfile.ZipFile(zipped_data, mode='r')
         users = StringIO()
         for filename in zf.namelist():
             if filename == 'users.csv':
@@ -113,31 +94,13 @@ class SiteData(Persistent):
         return province_dict
 
     def extract_logs(self):
+        """ parse the zipped_data and extract the user log information
+        """
         zipped_data = self.sitedata.items()
         zipped_file = StringIO()       
         zipped_file.write(zipped_data[0][1][2:]) # [2:] removes leading '\r\n'
         zipped_file.seek(0)
         zf = zipfile.ZipFile(zipped_file, mode='r')
-        import pdb; pdb.set_trace()
-        logs = StringIO()
-        for filename in zf.namelist():
-            if filename == 'logs.csv':
-                bytes = zf.read(filename)
-                logs.write(bytes)
-
-        # XXX after unzip is working (above), code from extract_logs_test can be 
-        # be filled in below to complete the functionality.
-
-        # extract and grab the data
-        # process and sort
-
-        zf.close()
-
-    def extract_logs_test(self, zipped_data):
-        """ """
-        # get zip data
-        zipped_data.seek(0)
-        zf = zipfile.ZipFile(zipped_data, mode='r')
         logs = StringIO()
         for filename in zf.namelist():
             if filename == 'logs.csv':

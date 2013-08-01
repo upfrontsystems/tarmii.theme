@@ -24,14 +24,7 @@ class TeacherProfilesView(grok.View):
         """ get teacher data from utility each time the template is rendered 
         """
         sitedata = getUtility(ISiteData)
-#        self.teacher_data = sitedata.extract_teacher_data()
-
-        # XXX debug - currently calling directly
-        view = self.context.restrictedTraverse('@@upload-to-server')
-        test_data = StringIO()
-        test_data.write(view.zip_csv())
-        self.teacher_data = sitedata.extract_test(test_data)
-        return
+        self.teacher_data = sitedata.extract_teacher_data()
 
     def show_provinces(self):
         """ show teachers if both province and school are NOT on the request 
