@@ -22,10 +22,9 @@ $(function($) {
     $('a.add_to_assessment').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
-        formselector: '#form',
-        noform: 'reload',
-        redirect: url,
-        closeselector: '[name="form.button.Cancel"]',
+        formselector: '#add-to-assessment-form',
+        noform: 'close',
+        closeselector: '[name="buttons.add.to.assessment.cancel"]',
         });
 
     $('a.edit_link').prepOverlay({
