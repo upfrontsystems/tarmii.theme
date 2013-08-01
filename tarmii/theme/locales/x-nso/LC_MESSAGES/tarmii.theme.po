@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-29 13:44+0000\n"
+"POT-Creation-Date: 2013-08-01 19:51+0000\n"
 "PO-Revision-Date: 2013-07-25 15:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr " tshedimošo ya difaele e gatišitšwe ka katlego, "
 
-#: ./browser/reports/views.py:454
+#: ./browser/reports/views.py:496
 msgid " learner"
 msgstr " morutwana"
 
-#: ./browser/reports/views.py:452
+#: ./browser/reports/views.py:494
 msgid " learners"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr " go bušwa ga phošo go tšwa difaeleng tšeo di tsentšhitšwego"
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:40
-#: ./browser/reports/views.py:670
+#: ./browser/reports/views.py:358
 msgid "%B"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr "Bothata bo hlagile ge re tsentšha tshedimošo ya faele netewekeng:"
 msgid "Activities"
 msgstr ""
 
-#: ./browser/reports/views.py:705
+#: ./browser/reports/views.py:706
 msgid "Activities across time"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:704
+#: ./browser/reports/views.py:705
 msgid "Average Learner Score"
 msgstr ""
 
@@ -157,8 +157,8 @@ msgid "Class Performance for Activity Report"
 msgstr ""
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:702
-#: ./browser/templates/report.pt:24
+#: ./browser/reports/views.py:703
+#: ./browser/templates/report.pt:30
 msgid "Class Progress"
 msgstr ""
 
@@ -169,8 +169,8 @@ msgstr ""
 
 #. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:480
-#: ./browser/templates/report.pt:20
+#: ./browser/reports/views.py:522
+#: ./browser/templates/report.pt:25
 msgid "Class performance for activity"
 msgstr ""
 
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Edit Classlist"
 msgstr "Rulaganya ya lenaneo la maina a barutwana"
 
-#: ./browser/reports/views.py:67
+#: ./browser/reports/views.py:61
 msgid "End Date"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgstr ""
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
-#: ./browser/reports/templates/compositelearner.pt:188
+#: ./browser/reports/templates/compositelearner.pt:141
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:137
 msgid "Evaluation Sheet Report"
 msgstr ""
@@ -294,7 +294,7 @@ msgstr ""
 msgid "Good"
 msgstr "Gabotse"
 
-#: ./browser/reports/views.py:703
+#: ./browser/reports/views.py:704
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -336,8 +336,8 @@ msgid "Last version number"
 msgstr "Palo ya bofelo ya go fetolwa"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:875
-#: ./browser/templates/report.pt:28
+#: ./browser/reports/views.py:874
+#: ./browser/templates/report.pt:35
 msgid "Learner Progress"
 msgstr ""
 
@@ -346,7 +346,7 @@ msgstr ""
 msgid "Learner Progress Report"
 msgstr ""
 
-#: ./browser/reports/views.py:877
+#: ./browser/reports/views.py:876
 msgid "Learner Score"
 msgstr ""
 
@@ -381,7 +381,7 @@ msgstr ""
 msgid "Needs improvement"
 msgstr "Go hlokega tlhabollo"
 
-#: ./browser/teacherprofiles.py:111
+#: ./browser/teacherprofiles.py:104
 msgid "Never"
 msgstr "Le goka"
 
@@ -389,7 +389,7 @@ msgstr "Le goka"
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:469
+#: ./browser/reports/views.py:511
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -414,7 +414,7 @@ msgstr "Ga se tša lekanyetšwa"
 msgid "November"
 msgstr ""
 
-#: ./browser/reports/views.py:482
+#: ./browser/reports/views.py:524
 msgid "Number of learners per rating"
 msgstr "Mengwaga ya go ruta sehlopha sa motheo wa fase"
 
@@ -438,7 +438,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr "Go dumeletšwe fela:"
 
-#: ./browser/reports/views.py:706
+#: ./browser/reports/views.py:707
 msgid "Performance Rating"
 msgstr ""
 
@@ -492,7 +492,7 @@ msgid "Reports"
 msgstr ""
 
 #: ./browser/reports/templates/classperformance-for-activity.pt:119
-#: ./browser/reports/templates/compositelearner.pt:192
+#: ./browser/reports/templates/compositelearner.pt:145
 msgid "Reports Menu"
 msgstr ""
 
@@ -559,7 +559,7 @@ msgstr ""
 msgid "Server error, please contact support and/or try again"
 msgstr "Phošo sefareng, ikamaganye le ba thušo goba o leke gape"
 
-#: ./browser/reports/views.py:70
+#: ./browser/reports/views.py:80
 msgid "Start Date"
 msgstr ""
 
@@ -618,12 +618,12 @@ msgid "UUID"
 msgstr "UUID"
 
 #: ./browser/reports/templates/classprogress.pt:120
-#: ./browser/reports/templates/compositelearner.pt:92
 #: ./browser/reports/templates/evaluationsheet.pt:120
+#: ./browser/reports/templates/learnerprogress.pt:140
 msgid "Update Dates"
 msgstr ""
 
-#: ./browser/uploadtoserver.py:79
+#: ./browser/uploadtoserver.py:73
 msgid "Upload Server not specified in settings"
 msgstr ""
 
@@ -668,7 +668,7 @@ msgid "description_nostats"
 msgstr ""
 
 #. Default: "Click on the name of the report to access it"
-#: ./browser/templates/report.pt:15
+#: ./browser/templates/report.pt:21
 msgid "description_reports"
 msgstr ""
 
@@ -697,21 +697,21 @@ msgstr "Bopa lenaneo la phorofaele"
 msgid "heading_assessment_pdf"
 msgstr ""
 
-#. Default: "Composite Learner"
-#: ./browser/reports/templates/compositelearner.pt:20
-#: ./browser/templates/report.pt:40
+#. Default: "Composite Learner Report"
+#: ./browser/reports/templates/compositelearner.pt:11
+#: ./browser/templates/report.pt:50
 msgid "heading_compositelearner"
 msgstr ""
 
 #. Default: "Description of Competence"
-#: ./browser/reports/templates/compositelearner.pt:136
+#: ./browser/reports/templates/compositelearner.pt:90
 msgid "heading_description_of_competence"
 msgstr ""
 
 #. Default: "Evaluation Sheet"
 #: ./browser/reports/templates/evaluationsheet.pt:20
 #: ./browser/templates/evaluationsheets.pt:30
-#: ./browser/templates/report.pt:36
+#: ./browser/templates/report.pt:45
 msgid "heading_evaluationsheet"
 msgstr "Letlakala la tekolo"
 
@@ -721,7 +721,7 @@ msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
 #. Default: "Percentage"
-#: ./browser/reports/templates/compositelearner.pt:121
+#: ./browser/reports/templates/compositelearner.pt:75
 msgid "heading_percentage"
 msgstr ""
 
@@ -732,7 +732,7 @@ msgid "heading_provinces"
 msgstr "Diporofense:"
 
 #. Default: "Rating Code"
-#: ./browser/reports/templates/compositelearner.pt:122
+#: ./browser/reports/templates/compositelearner.pt:76
 msgid "heading_rating_code"
 msgstr ""
 
@@ -754,7 +754,7 @@ msgstr "Kgetha phorofaele ya gago"
 
 #. Default: "Strengths and Weaknesses"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:11
-#: ./browser/templates/report.pt:32
+#: ./browser/templates/report.pt:40
 msgid "heading_strenghts_and_weaknesses"
 msgstr ""
 
@@ -779,7 +779,7 @@ msgid "heading_teachers"
 msgstr "Barutiši:"
 
 #. Default: "Total Score"
-#: ./browser/reports/templates/compositelearner.pt:120
+#: ./browser/reports/templates/compositelearner.pt:74
 msgid "heading_total_score"
 msgstr ""
 
@@ -886,14 +886,14 @@ msgid "label_addtoassessment"
 msgstr "Lokela go kelo"
 
 #. Default: "Adequate Achievement"
-#: ./browser/reports/templates/compositelearner.pt:156
+#: ./browser/reports/templates/compositelearner.pt:110
 msgid "label_adequate_achievement"
 msgstr ""
 
 #. Default: "Assessment"
 #: ./browser/reports/templates/classperformance-for-activity.pt:29
+#: ./browser/reports/templates/compositelearner.pt:29
 #: ./browser/templates/addevaluationsheet.pt:26
-#: ./browser/templates/assessments.pt:33
 msgid "label_assessment"
 msgstr "Kelo"
 
@@ -935,7 +935,7 @@ msgstr "Kgetha difaele tša gago:"
 #. Default: "Classlist"
 #: ./browser/reports/templates/classperformance-for-activity.pt:27
 #: ./browser/reports/templates/classprogress.pt:36
-#: ./browser/reports/templates/compositelearner.pt:36
+#: ./browser/reports/templates/compositelearner.pt:27
 msgid "label_classlist"
 msgstr "Lenaneo la maina a barutwana"
 
@@ -981,7 +981,7 @@ msgid "label_edit"
 msgstr "Rulaganya"
 
 #. Default: "Elementary Achievement"
-#: ./browser/reports/templates/compositelearner.pt:166
+#: ./browser/reports/templates/compositelearner.pt:120
 msgid "label_elementary_achievement"
 msgstr ""
 
@@ -1029,7 +1029,7 @@ msgid "label_last_login_time"
 msgstr "Nako ya bofelo yeo o butšego ka lona"
 
 #. Default: "Learner"
-#: ./browser/reports/templates/compositelearner.pt:119
+#: ./browser/reports/templates/compositelearner.pt:73
 #: ./browser/reports/templates/learnerprogress.pt:38
 msgid "label_learner"
 msgstr "Morutwana"
@@ -1046,7 +1046,7 @@ msgid "label_media_quickupload"
 msgstr "${medialabel} go tsenya faele netewekeng ka pela"
 
 #. Default: "Meritorious Achievement"
-#: ./browser/reports/templates/compositelearner.pt:146
+#: ./browser/reports/templates/compositelearner.pt:100
 msgid "label_meritorious_achievement"
 msgstr ""
 
@@ -1056,7 +1056,7 @@ msgid "label_mobile"
 msgstr ""
 
 #. Default: "Moderate Achievement"
-#: ./browser/reports/templates/compositelearner.pt:161
+#: ./browser/reports/templates/compositelearner.pt:115
 msgid "label_moderate_achievement"
 msgstr ""
 
@@ -1066,12 +1066,12 @@ msgid "label_nolearners"
 msgstr ""
 
 #. Default: "Not Achieved"
-#: ./browser/reports/templates/compositelearner.pt:171
+#: ./browser/reports/templates/compositelearner.pt:125
 msgid "label_not_achieved"
 msgstr ""
 
 #. Default: "Outstanding Achievement"
-#: ./browser/reports/templates/compositelearner.pt:141
+#: ./browser/reports/templates/compositelearner.pt:95
 msgid "label_outstanding_achievement"
 msgstr ""
 
@@ -1144,7 +1144,7 @@ msgid "label_subject"
 msgstr ""
 
 #. Default: "Substantial Achievement"
-#: ./browser/reports/templates/compositelearner.pt:151
+#: ./browser/reports/templates/compositelearner.pt:105
 msgid "label_substantial_achievement"
 msgstr ""
 
@@ -1245,7 +1245,7 @@ msgstr ""
 #. Default: "Please create some classlists, assessments and evaluations"
 #: ./browser/reports/templates/classperformance-for-activity.pt:104
 #: ./browser/reports/templates/classprogress.pt:165
-#: ./browser/reports/templates/compositelearner.pt:181
+#: ./browser/reports/templates/compositelearner.pt:134
 msgid "message_create_classlists"
 msgstr ""
 
@@ -1307,8 +1307,8 @@ msgstr ""
 
 #. Default: "No evaluationsheets found in the specified date range"
 #: ./browser/reports/templates/classprogress.pt:138
-#: ./browser/reports/templates/compositelearner.pt:109
 #: ./browser/reports/templates/evaluationsheet.pt:137
+#: ./browser/reports/templates/learnerprogress.pt:158
 msgid "message_no_evaluationsheets"
 msgstr ""
 
@@ -1316,6 +1316,11 @@ msgstr ""
 #: ./browser/templates/evaluationsheets.pt:23
 msgid "message_no_evaluationsheets_exist"
 msgstr "Maphephe a tekolo ga se a hlamiwe"
+
+#. Default: "No evaluationsheets found for the specified classlist"
+#: ./browser/reports/templates/compositelearner.pt:65
+msgid "message_no_evaluationsheets_in_classlist"
+msgstr ""
 
 #. Default: "No profiles have been created yet"
 #: ./browser/templates/selectprofile.pt:29
@@ -1344,8 +1349,8 @@ msgstr ""
 
 #. Default: "Specified Start Date must be earlier than the End Date"
 #: ./browser/reports/templates/classprogress.pt:132
-#: ./browser/reports/templates/compositelearner.pt:103
 #: ./browser/reports/templates/evaluationsheet.pt:131
+#: ./browser/reports/templates/learnerprogress.pt:152
 msgid "message_startdate_bigger_enddate"
 msgstr ""
 
@@ -1368,7 +1373,7 @@ msgstr "Re tla araba morago ga sebakanyana."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:669
+#: ./browser/reports/views.py:357
 msgid "on"
 msgstr ""
 
