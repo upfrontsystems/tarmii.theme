@@ -534,9 +534,8 @@ a.select-text {
     padding: 0px 3px 5px 0px;
 }
 
-.topics-widget {
-    display: block;
-    height: 180px;
+#formfield-form-widgets-ITopicTags-topics {
+    display: inline-block;
 }
 
 .resource-description {
@@ -547,7 +546,6 @@ a.select-text {
 .jstree-icon {
     cursor: pointer;
 }
-
 
 /* edit button on topictree/classlist/resources listing */
 .pencil {
@@ -820,5 +818,3 @@ table.listing tbody tr.odd td.brown3 {
 #report_examples {
     padding-top: 20px;
 }
-
-
