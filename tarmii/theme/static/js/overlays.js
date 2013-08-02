@@ -31,7 +31,8 @@ $(function($) {
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
-        noform: 'close',
+        noform: 'reload',
+        redirect: url,
         closeselector: '[name="form-buttons-cancel"]',
         });
 
@@ -39,7 +40,8 @@ $(function($) {
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#delete_confirmation',
-        noform: 'close',
+        noform: 'reload',
+        redirect: url,
         closeselector: '[name="form.button.Cancel"]',
         });
 
