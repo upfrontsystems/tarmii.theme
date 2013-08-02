@@ -707,9 +707,8 @@ msgstr "Assessering Taak"
 #. Default: "Composite Learner Report"
 #: ./browser/reports/templates/compositelearner.pt:11
 #: ./browser/templates/report.pt:50
-#, fuzzy
 msgid "heading_compositelearner"
-msgstr "Saamgestelde Leerder"
+msgstr "Saamgestelde Leerder Verslag"
 
 #. Default: "Description of Competence"
 #: ./browser/reports/templates/compositelearner.pt:90
