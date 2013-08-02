@@ -51,7 +51,8 @@
                         <td>
                             <tal:is_editable tal:condition="python:assessment.getObject().is_editable()">                
                                 <div class="delete-anchor">
-                                    <a class="trashcan edit_link" tal:attributes="href string:${assessment/getURL}/delete_confirmation"></a>
+                                    <a class="trashcan delete_confirmation" 
+                                       tal:attributes="href string:${assessment/getURL}/delete_confirmation"></a>
                                 </div>
                             </tal:is_editable>
                         </td>

@@ -42,7 +42,8 @@
                         <td tal:content="python:view.translated_date(evaluationsheet.created)"></td>
                         <td>
                             <div class="delete-anchor">
-                               <a class="trashcan edit_link" tal:attributes="href string:${evaluationsheet/getURL}/delete_confirmation"></a>
+                               <a class="trashcan delete_confirmation" 
+                                  tal:attributes="href string:${evaluationsheet/getURL}/delete_confirmation"></a>
                             </div>
                         </td>
                         <td>

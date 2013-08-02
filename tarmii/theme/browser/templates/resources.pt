@@ -97,7 +97,8 @@
                         </td>
                         <td>
                             <div class="delete-anchor">
-                                <a class="trashcan edit_link" tal:attributes="href string:${item/absolute_url}/delete_confirmation"></a>
+                                <a class="trashcan delete_confirmation" 
+                                   tal:attributes="href string:${item/absolute_url}/delete_confirmation"></a>
                             </div>
                         </td>
                     </tr>  

@@ -31,17 +31,15 @@ $(function($) {
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
-        noform: 'reload',
-        redirect: url,
-        closeselector: '[name="form.button.Cancel"]',
+        noform: 'close',
+        closeselector: '[name="form-buttons-cancel"]',
         });
 
     $('a.delete_confirmation').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
-        formselector: '#form',
-        noform: 'reload',
-        redirect: url,
+        formselector: '#delete_confirmation',
+        noform: 'close',
         closeselector: '[name="form.button.Cancel"]',
         });
 
