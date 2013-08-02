@@ -1479,6 +1479,8 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
         score_total = 0
         activity_count = 0 # number of activities that the learner completed
         scales_total = 0
+        score_percentages = [] # keeps track of learners percentage for each 
+                               # activity the they completed 
 
         contentFilter = {'portal_type': 'upfront.assessment.content.evaluation'}
         evaluation_objects = \
@@ -1493,7 +1495,6 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
                     score = ev.evaluation[x]['rating']
                     scale = ev.evaluation[x]['rating_scale']
                     if score not in [UN_RATED, NOT_RATED]:
-                        activity_count += 1
                         score_total += score
                         scale_list = []
                         for z in range(len(scale)):
@@ -1501,10 +1502,13 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
                         scale_list.sort()
                         # add highest possible rating from this scale
                         # to scales total
-                        scales_total += scale_list[len(scale_list)-1]
+                        highest_scale_entry = scale_list[len(scale_list)-1]
+                        scales_total += highest_scale_entry
+                        score_percentages.append(score/highest_scale_entry)
 
         if scales_total != 0:
-            percentage = int((score_total/scales_total)*100)
+            percentage =  \
+                int((sum(score_percentages) / len(score_percentages))*100)
             if percentage == 100:
                 rating_code = 7
             elif percentage < 100 and percentage >= 70:
@@ -1521,6 +1525,6 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
                 rating_code = 1
         else:
             percentage = 'N/A'
-            rating_code = 'N/A'
+            rating_code = '1'
 
         return [score_total, percentage, rating_code]
