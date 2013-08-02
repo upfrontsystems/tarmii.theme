@@ -114,12 +114,6 @@
             </tal:datecheck>
         </tal:evaluationsheets>
 
-        <tal:custom_scales tal:condition="view/custom_rating_scale_present">
-            <span i18n:translate="label_strength_weakness_not_possible">* Some assessments contain activities that use non-default
-                                                                        rating scales. The Strengths and Weaknesses cannot be 
-                                                                        calculated when this is the case.</span>
-        </tal:custom_scales>
-
         </form>
     </tal:classlists>
     <tal:classlists tal:condition="not:view/classlists">

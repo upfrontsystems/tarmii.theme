@@ -104,6 +104,7 @@ class ReportViewsCommon(DatePickers):
         all_activities = []
         all_highest_ratings = []
         all_rating_scales = []
+
         for evalsheet in evaluationsheets_in_range:
             contentFilter = \
                 {'portal_type': 'upfront.assessment.content.evaluation'}
@@ -1100,43 +1101,24 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
             worst on average
         """
         esheets_in_range = self.evaluationsheets()
+        if esheets_in_range == []:
+            return
 
         self.topic_filtering_on = False # self.average_scores needs to know this
         [filtered_all_activity_ids, filtered_all_scores,
          filtered_all_highest_ratings, filtered_all_rating_scales, 
          average_all_scores] = self.average_scores(esheets_in_range)
 
-        # check for existance of custom scales
-        self.custom_rating_scale_present = False
-        for scale in filtered_all_rating_scales:
-            # scale must have 4 entries or 2 entries
-            if len(scale) != 4 and len(scale) != 2:
-                self.custom_rating_scale_present = True
-            scale.reverse()
-            if len(scale) == 2:
-                for z in range(len(scale)):
-                    if scale[z] != z:
-                        self.custom_rating_scale_present = True
-            if len(scale) == 4:
-                for z in range(len(scale)):
-                    if scale[z] != z+1:
-                        self.custom_rating_scale_present = True
-           
-        # combine filtered_all_scores with filtered_all_activity_ids
+        # combine average_all_scores with filtered_all_activity_ids
         id_scores = []
-        for x in range(len(filtered_all_activity_ids)):
-            id_scores.append((filtered_all_activity_ids[x],
-                              filtered_all_scores[x]))
+        for x in range(len(average_all_scores)):
+            percent = average_all_scores[x] / filtered_all_highest_ratings[x]
+            id_scores.append((filtered_all_activity_ids[x], percent))
 
-        # extract two highest scoring and two lowest scoring activities
-        if self.custom_rating_scale_present:
-            self.highest_lowest_activities = ['x','x','x','x']
-        else:
-            # default rating scales
-            highest = heapq.nlargest(2, id_scores, key=operator.itemgetter(1))
-            lowest = heapq.nsmallest(2, id_scores, key=operator.itemgetter(1))
-            self.highest_lowest_activities = [highest[0][0], highest[1][0],
-                                              lowest[0][0], lowest[1][0]]
+        highest = heapq.nlargest(2, id_scores, key=operator.itemgetter(1))
+        lowest = heapq.nsmallest(2, id_scores, key=operator.itemgetter(1))
+        self.highest_lowest_activities = [highest[0][0], highest[1][0],
+                                          lowest[0][0], lowest[1][0]]
 
     def activity(self, index):
         """ returns an activity from the highest_lowest activities list
