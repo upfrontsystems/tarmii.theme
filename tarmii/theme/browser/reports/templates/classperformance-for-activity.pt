@@ -25,7 +25,7 @@
                      <tbody>
                         <tr>
                             <th i18n:translate="label_classlist">Classlist</th>
-                            <tal:evaluationsheets tal:condition="view/evaluationsheets">
+                            <tal:evaluationsheets tal:condition="view/evaluationsheets_of_classlist">
                                 <th i18n:translate="label_assessment">Assessment</th>
                                 <tal:activities tal:condition="view/activities">
                                     <th i18n:translate="label_activity">Activity</th>
@@ -45,10 +45,10 @@
                                     </select>
                                 </td>
                             </tal:classlists>
-                            <tal:evaluationsheets tal:condition="view/evaluationsheets">
+                            <tal:evaluationsheets tal:condition="view/evaluationsheets_of_classlist">
                                 <td class="select-assessment">
                                     <select name="evaluationsheet_uid_selected" onchange="this.form.submit()">
-                                        <option tal:repeat="evaluationsheet view/evaluationsheets"
+                                        <option tal:repeat="evaluationsheet view/evaluationsheets_of_classlist"
                                                 tal:attributes="value python:view.getUID(evaluationsheet);
                                                                 selected python:view.getUID(evaluationsheet) ==
                                                                          request.get('evaluationsheet_uid_selected', '')"
@@ -74,19 +74,19 @@
                  </table>
             </div>
 
-            <tal:noassessments tal:condition="not:view/evaluationsheets">
+            <tal:noassessments tal:condition="not:view/evaluationsheets_of_classlist">
                     <div i18n:translate="message_no_assesments_or_activities_exist">No assessments have been created yet,
                                                                                 or existing assessments contain no activities</div>
             </tal:noassessments>
 
-            <tal:assessments tal:condition="view/evaluationsheets">
+            <tal:assessments tal:condition="view/evaluationsheets_of_classlist">
                 <tal:noactivities tal:condition="not:view/activities">
                         <div i18n:translate="message_no_activities_in_assessment">No activities associated with selected assessment,
                                                                                   please update the assessment</div>
                 </tal:noactivities>
             </tal:assessments>
 
-            <tal:assessments tal:condition="view/evaluationsheets">
+            <tal:assessments tal:condition="view/evaluationsheets_of_classlist">
                 <tal:activities tal:condition="view/activities">
                     <tal:evaluations tal:condition="not:view/evaluations">
                         <div i18n:translate="message_evaluationsheet_incorrect">The assessments have been created with an empty 
@@ -104,7 +104,7 @@
         <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations</div>
     </tal:classlists>
     
-    <tal:assessments tal:condition="view/evaluationsheets">
+    <tal:assessments tal:condition="view/evaluationsheets_of_classlist">
         <tal:activities tal:condition="view/activities">
             <tal:evaluations tal:condition="view/evaluations">
                 <img tal:attributes="src string:@@classperformance-for-activity-chart?evaluationsheet=${view/selected_evaluationsheet}&activity=${view/selected_activity}"/>

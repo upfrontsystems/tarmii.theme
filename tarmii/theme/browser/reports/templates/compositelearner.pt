@@ -6,15 +6,6 @@
       i18n:domain="tarmii.theme"
       lang="en">
 
-<head>
-     <metal:calendar fill-slot="javascript_head_slot">
-        <!-- ECMAScript calendar -->
-        <style type="text/css" media="all" tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
-        <script type="text/javascript" tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
-        <script type="text/javascript" charset="iso-8859-1" tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
-    </metal:calendar>
-</head>
-
 <body>
     <metal:main fill-slot="content-title">
         <h1 class="documentFirstHeading" i18n:translate="heading_compositelearner">Composite Learner Report</h1>
@@ -34,146 +25,108 @@
                      <tbody>
                         <tr>
                             <th i18n:translate="label_classlist">Classlist</th>
+                            <tal:evaluationsheets tal:condition="view/evaluationsheets_of_classlist">
+                                <th i18n:translate="label_assessment">Assessment</th>
+                            </tal:evaluationsheets>
                         </tr>
                         <tr>
-                            <td class="select-classlist">
-                                <select name="classlist_uid_selected" onchange="this.form.submit()">
-                                    <option tal:repeat="classlist view/classlists"
-                                            tal:attributes="value classlist/UID;
-                                                            selected python:classlist.UID == request.get('classlist_uid_selected', '')"
-                                            tal:content="classlist/Title">
-                                    </option>
-                                </select>
-                            </td>
+                            <tal:classlists tal:condition="view/classlists">
+                                <td class="select-classlist">
+                                    <select name="classlist_uid_selected" onchange="this.form.submit()">
+                                        <option tal:repeat="classlist view/classlists"
+                                                tal:attributes="value classlist/UID;
+                                                                selected python:classlist.UID == 
+                                                                         request.get('classlist_uid_selected', '')"
+                                                tal:content="classlist/Title">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tal:classlists>
+                            <tal:evaluationsheets tal:condition="view/evaluationsheets_of_classlist">
+                                <td class="select-assessment">
+                                    <select name="evaluationsheet_uid_selected" onchange="this.form.submit()">
+                                        <option tal:repeat="evaluationsheet view/evaluationsheets_of_classlist"
+                                                tal:attributes="value python:view.getUID(evaluationsheet);
+                                                                selected python:view.getUID(evaluationsheet) ==
+                                                                         request.get('evaluationsheet_uid_selected', '')"
+                                                tal:content="python:view.getCustomTitle(evaluationsheet)">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tal:evaluationsheets>
                         </tr>
                      </tbody>
                  </table>
             </div>
 
-            <div>
-                 <table>
-                     <tbody>
-                        <tr>
-                             <th class="datelabel" tal:content="view/start_date_label"></th>
-                             <th class="datelabel" tal:content="view/end_date_label"></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="inlineblock">
-                                <tal:define define="show_hm python:False;
-                                                    show_ymd python:True;
-                                                    starting_year python:2012;
-                                                    ending_year python:None;
-                                                    future_years python:0;
-                                                    formname string:DatePicker;
-                                                    inputvalue view/startDateString;
-                                                    inputname string:Start-Date">
-                                <metal:box use-macro="here/calendar_macros/macros/calendarDatePickerBox|default">
-                                </metal:box>
-                                </tal:define>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="inlineblock">
-                                <tal:define define="show_hm python:False;
-                                                    show_ymd python:True;
-                                                    starting_year python:2012;
-                                                    ending_year python:None;
-                                                    future_years python:0;
-                                                    formname string:DatePicker;
-                                                    inputvalue view/endDateString;
-                                                    inputname string:End-Date">
-                                <metal:box use-macro="here/calendar_macros/macros/calendarDatePickerBox|default">
-                                </metal:box>
-                                </tal:define>
-                                </div>
-                            </td>
-                            <td>
-                                <input class="query-submit inlineblock" type="submit" name="submitted" i18n:attributes="value"
-                                       value="Update Dates">
-                            </td>
-                        </tr>
-                     </tbody>
-                 </table>                
-            </div>
-
         </form>
-        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
-            <tal:datecheck tal:condition="not:view/check_date_integrity">
-                <div i18n:translate="message_startdate_bigger_enddate">Specified Start Date must be earlier than the End Date</div>
-            </tal:datecheck>
+
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets_of_classlist">
+            <div i18n:translate="message_no_evaluationsheets_in_classlist">No evaluationsheets found for the specified classlist</div>
         </tal:evaluationsheets>
 
-        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
-            <tal:datecheck tal:condition="view/check_date_integrity">
-                <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range</div>
-            </tal:datecheck>
-        </tal:evaluationsheets>
-
-        <tal:evaluationsheets tal:condition="view/evaluationsheets">
-            <tal:datecheck tal:condition="view/check_date_integrity">
-                <div>&nbsp;</div>
-                    <div id="compositelearner-table">
-                    <table class="listing">
-                        <tr> 
-                            <th i18n:translate="label_learner">Learner</th>
-                            <th i18n:translate="heading_total_score">Total Score</th>
-                            <th i18n:translate="heading_percentage">Percentage</th>
-                            <th i18n:translate="heading_rating_code">Rating Code</th>
-                        </tr>
-                        <tr tal:repeat="learner view/learners">
-                            <td class="left" tal:content="python:learner.getObject().Title()"></td>
-                            <div tal:repeat="item python:view.score_for_learner(learner.getObject())">
-                                <td class="center" tal:content="python:item"></td>
-                            </div>
-                        </tr>
-                    </table>
-                </div>
-                <div id="compositelearner-legend-table">
-                    <table class="listing">
-                        <tr> 
-                            <th i18n:translate="heading_rating_code">Rating Code</th>
-                            <th i18n:translate="heading_description_of_competence">Description of Competence</th>
-                            <th i18n:translate="heading_percentage">Percentage</th>
-                        </tr>
-                        <tr> 
-                            <td>7</td>
-                            <td i18n:translate="label_outstanding_achievement">Outstanding Achievement</td>
-                            <td>80 - 100</td>
-                        </tr>
-                        <tr> 
-                            <td>6</td>
-                            <td i18n:translate="label_meritorious_achievement">Meritorious Achievement</td>
-                            <td>70 - 79</td>
-                        </tr>
-                        <tr> 
-                            <td>5</td>
-                            <td i18n:translate="label_substantial_achievement">Substantial Achievement</td>
-                            <td>60 - 69</td>
-                        </tr>
-                        <tr> 
-                            <td>4</td>
-                            <td i18n:translate="label_adequate_achievement">Adequate Achievement</td>
-                            <td>50 - 59</td>
-                        </tr>
-                        <tr> 
-                            <td>3</td>
-                            <td i18n:translate="label_moderate_achievement">Moderate Achievement</td>
-                            <td>40 - 49</td>
-                        </tr>
-                        <tr> 
-                            <td>2</td>
-                            <td i18n:translate="label_elementary_achievement">Elementary Achievement</td>
-                            <td>30 - 39</td>
-                        </tr>
-                        <tr> 
-                            <td>1</td>
-                            <td i18n:translate="label_not_achieved">Not Achieved</td>
-                            <td>0 - 29</td>
-                        </tr>
-                    </table>
-                </div>
-            </tal:datecheck>
+        <tal:evaluationsheets tal:condition="view/evaluationsheets_of_classlist">
+            <div>&nbsp;</div>
+                <div id="compositelearner-table">
+                <table class="listing">
+                    <tr> 
+                        <th i18n:translate="label_learner">Learner</th>
+                        <th i18n:translate="heading_total_score">Total Score</th>
+                        <th i18n:translate="heading_percentage">Percentage</th>
+                        <th i18n:translate="heading_rating_code">Rating Code</th>
+                    </tr>
+                    <tr tal:repeat="learner view/learners">
+                        <td class="left" tal:content="python:learner.getObject().Title()"></td>
+                        <div tal:repeat="item python:view.score_for_learner(learner.getObject())">
+                            <td class="center" tal:content="python:item"></td>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+            <div id="compositelearner-legend-table">
+                <table class="listing">
+                    <tr> 
+                        <th i18n:translate="heading_rating_code">Rating Code</th>
+                        <th i18n:translate="heading_description_of_competence">Description of Competence</th>
+                        <th i18n:translate="heading_percentage">Percentage</th>
+                    </tr>
+                    <tr> 
+                        <td>7</td>
+                        <td i18n:translate="label_outstanding_achievement">Outstanding Achievement</td>
+                        <td>80 - 100</td>
+                    </tr>
+                    <tr> 
+                        <td>6</td>
+                        <td i18n:translate="label_meritorious_achievement">Meritorious Achievement</td>
+                        <td>70 - 79</td>
+                    </tr>
+                    <tr> 
+                        <td>5</td>
+                        <td i18n:translate="label_substantial_achievement">Substantial Achievement</td>
+                        <td>60 - 69</td>
+                    </tr>
+                    <tr> 
+                        <td>4</td>
+                        <td i18n:translate="label_adequate_achievement">Adequate Achievement</td>
+                        <td>50 - 59</td>
+                    </tr>
+                    <tr> 
+                        <td>3</td>
+                        <td i18n:translate="label_moderate_achievement">Moderate Achievement</td>
+                        <td>40 - 49</td>
+                    </tr>
+                    <tr> 
+                        <td>2</td>
+                        <td i18n:translate="label_elementary_achievement">Elementary Achievement</td>
+                        <td>30 - 39</td>
+                    </tr>
+                    <tr> 
+                        <td>1</td>
+                        <td i18n:translate="label_not_achieved">Not Achieved</td>
+                        <td>0 - 29</td>
+                    </tr>
+                </table>
+            </div>
         </tal:evaluationsheets>
 
     </tal:classlists>
@@ -197,4 +150,3 @@
     </metal:main>
 </body>
 </html>
-
