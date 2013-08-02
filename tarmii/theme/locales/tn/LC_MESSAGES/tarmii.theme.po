@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-01 19:51+0000\n"
+"POT-Creation-Date: 2013-08-02 12:02+0000\n"
 "PO-Revision-Date: 2013-07-25 15:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr " tshedimoso e tsentswe ka katlego, "
 
-#: ./browser/reports/views.py:496
+#: ./browser/reports/views.py:497
 msgid " learner"
 msgstr " morutwana"
 
-#: ./browser/reports/views.py:494
+#: ./browser/reports/views.py:495
 msgid " learners"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr " go buswa ga phoso go tswa difaeleng tse di tsentshitsweng"
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:40
-#: ./browser/reports/views.py:358
+#: ./browser/reports/views.py:359
 msgid "%B"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr "Phoso e diragetse tulong ya tshedimoso ha re laisa faele netewekeng:"
 msgid "Activities"
 msgstr ""
 
-#: ./browser/reports/views.py:706
+#: ./browser/reports/views.py:707
 msgid "Activities across time"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: ./browser/reports/views.py:705
+#: ./browser/reports/views.py:706
 msgid "Average Learner Score"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgid "Class Performance for Activity Report"
 msgstr ""
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:703
+#: ./browser/reports/views.py:704
 #: ./browser/templates/report.pt:30
 msgid "Class Progress"
 msgstr ""
@@ -169,7 +169,7 @@ msgstr ""
 
 #. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:522
+#: ./browser/reports/views.py:523
 #: ./browser/templates/report.pt:25
 msgid "Class performance for activity"
 msgstr ""
@@ -294,7 +294,7 @@ msgstr ""
 msgid "Good"
 msgstr "Gantle"
 
-#: ./browser/reports/views.py:704
+#: ./browser/reports/views.py:705
 msgid "Highest Possible Score"
 msgstr ""
 
@@ -336,7 +336,7 @@ msgid "Last version number"
 msgstr "Palo ya bofelo ya go fetolwa"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:874
+#: ./browser/reports/views.py:875
 #: ./browser/templates/report.pt:35
 msgid "Learner Progress"
 msgstr ""
@@ -346,7 +346,7 @@ msgstr ""
 msgid "Learner Progress Report"
 msgstr ""
 
-#: ./browser/reports/views.py:876
+#: ./browser/reports/views.py:877
 msgid "Learner Score"
 msgstr ""
 
@@ -389,7 +389,7 @@ msgstr "Le e seng"
 msgid "No activities exist"
 msgstr ""
 
-#: ./browser/reports/views.py:511
+#: ./browser/reports/views.py:512
 msgid "No evaluation data exists"
 msgstr ""
 
@@ -406,7 +406,7 @@ msgid "Northern Cape"
 msgstr ""
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1353
+#: ./browser/reports/views.py:1347
 msgid "Not Rated"
 msgstr "Ga se tsa lekanyetswa"
 
@@ -414,7 +414,7 @@ msgstr "Ga se tsa lekanyetswa"
 msgid "November"
 msgstr ""
 
-#: ./browser/reports/views.py:524
+#: ./browser/reports/views.py:525
 msgid "Number of learners per rating"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgstr ""
 msgid "Only allowed:"
 msgstr "Go dumeletswe feela:"
 
-#: ./browser/reports/views.py:707
+#: ./browser/reports/views.py:708
 msgid "Performance Rating"
 msgstr ""
 
@@ -1126,7 +1126,7 @@ msgstr ""
 msgid "label_second_worst_activity"
 msgstr ""
 
-#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknesses cannot be calculated when this is the case."
+#. Default: "* Not enough activities have been scored yet. The Strengths and Weaknesses Report cannot be calculated when this is the case."
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:118
 msgid "label_strength_weakness_not_possible"
 msgstr ""
@@ -1373,7 +1373,7 @@ msgstr "Re tla araba morago ga sebakanyana."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:357
+#: ./browser/reports/views.py:358
 msgid "on"
 msgstr ""
 

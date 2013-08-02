@@ -114,6 +114,12 @@
             </tal:datecheck>
         </tal:evaluationsheets>
 
+        <tal:not_enough_data tal:condition="view/not_enough_data">
+            <span i18n:translate="label_strength_weakness_not_possible">* Not enough activities have been scored yet. 
+                                                                        The Strengths and Weaknesses Report cannot be
+                                                                        calculated when this is the case.</span>
+        </tal:not_enough_data>
+
         </form>
     </tal:classlists>
     <tal:classlists tal:condition="not:view/classlists">

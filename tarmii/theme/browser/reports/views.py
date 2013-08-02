@@ -1100,6 +1100,7 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
             on average and the two activities in which the users performed the 
             worst on average
         """
+        self.not_enough_data = False
         esheets_in_range = self.evaluationsheets()
         if esheets_in_range == []:
             return
@@ -1117,6 +1118,13 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
 
         highest = heapq.nlargest(2, id_scores, key=operator.itemgetter(1))
         lowest = heapq.nsmallest(2, id_scores, key=operator.itemgetter(1))
+    
+        # make sure we have enough data to calculate the report
+        if len(highest) < 2 or len(lowest) < 2:
+            self.highest_lowest_activities = ['x', 'x', 'x', 'x']
+            self.not_enough_data = True
+            return
+
         self.highest_lowest_activities = [highest[0][0], highest[1][0],
                                           lowest[0][0], lowest[1][0]]
 

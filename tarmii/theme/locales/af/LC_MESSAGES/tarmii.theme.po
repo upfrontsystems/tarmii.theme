@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-01 19:51+0000\n"
+"POT-Creation-Date: 2013-08-02 12:02+0000\n"
 "PO-Revision-Date: 2013-06-10 13:30+0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " files uploaded with success, "
 msgstr "lêers opgelaai met sukses,"
 
-#: ./browser/reports/views.py:496
+#: ./browser/reports/views.py:497
 msgid " learner"
 msgstr " leerder"
 
-#: ./browser/reports/views.py:494
+#: ./browser/reports/views.py:495
 msgid " learners"
 msgstr " leerders"
 
@@ -32,7 +32,7 @@ msgstr " oplaai gee 'n fout"
 
 #: ./browser/assessments.py:41
 #: ./browser/evaluationsheets.py:40
-#: ./browser/reports/views.py:358
+#: ./browser/reports/views.py:359
 msgid "%B"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr "Daar was 'n databasis konflik fout toe die volgende lêer opgelaai is:"
 msgid "Activities"
 msgstr "Aktiwiteite"
 
-#: ./browser/reports/views.py:706
+#: ./browser/reports/views.py:707
 msgid "Activities across time"
 msgstr "Aktiwiteite in tyd"
 
@@ -112,7 +112,7 @@ msgstr "Assesserings"
 msgid "August"
 msgstr "Augustus"
 
-#: ./browser/reports/views.py:705
+#: ./browser/reports/views.py:706
 msgid "Average Learner Score"
 msgstr "Gemiddelde Leerder Telling"
 
@@ -159,7 +159,7 @@ msgid "Class Performance for Activity Report"
 msgstr "Klas Prestasie vir Aktiwiteit Verslag"
 
 #: ./browser/reports/templates/classprogress.pt:20
-#: ./browser/reports/views.py:703
+#: ./browser/reports/views.py:704
 #: ./browser/templates/report.pt:30
 msgid "Class Progress"
 msgstr "Klas Vordering"
@@ -171,7 +171,7 @@ msgstr "Klas Vordering Verslag"
 
 #. Default: "Class Performance for Activity"
 #: ./browser/reports/templates/classperformance-for-activity.pt:11
-#: ./browser/reports/views.py:522
+#: ./browser/reports/views.py:523
 #: ./browser/templates/report.pt:25
 msgid "Class performance for activity"
 msgstr "Klas prestasie vir aktiwiteit"
@@ -298,7 +298,7 @@ msgstr "Genereer Verslag"
 msgid "Good"
 msgstr "Goed"
 
-#: ./browser/reports/views.py:704
+#: ./browser/reports/views.py:705
 msgid "Highest Possible Score"
 msgstr "Hoogste Moontlike Telling"
 
@@ -340,7 +340,7 @@ msgid "Last version number"
 msgstr "Laaste veergawe nommer"
 
 #: ./browser/reports/templates/learnerprogress.pt:20
-#: ./browser/reports/views.py:874
+#: ./browser/reports/views.py:875
 #: ./browser/templates/report.pt:35
 msgid "Learner Progress"
 msgstr "Leerder Vordering"
@@ -350,7 +350,7 @@ msgstr "Leerder Vordering"
 msgid "Learner Progress Report"
 msgstr "Leerder Vordering Verslag"
 
-#: ./browser/reports/views.py:876
+#: ./browser/reports/views.py:877
 msgid "Learner Score"
 msgstr "Leerder Telling"
 
@@ -393,7 +393,7 @@ msgstr "Nooit"
 msgid "No activities exist"
 msgstr "Geen aktiwiteite bestaan"
 
-#: ./browser/reports/views.py:511
+#: ./browser/reports/views.py:512
 msgid "No evaluation data exists"
 msgstr "Geen evaluering data bestaan"
 
@@ -410,7 +410,7 @@ msgid "Northern Cape"
 msgstr "Noord-Kaap"
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1353
+#: ./browser/reports/views.py:1347
 msgid "Not Rated"
 msgstr "Nie Gegradeer nie"
 
@@ -418,7 +418,7 @@ msgstr "Nie Gegradeer nie"
 msgid "November"
 msgstr "November"
 
-#: ./browser/reports/views.py:524
+#: ./browser/reports/views.py:525
 msgid "Number of learners per rating"
 msgstr "Aantal leerders per gradering"
 
@@ -442,7 +442,7 @@ msgstr "Oktober"
 msgid "Only allowed:"
 msgstr "Slegs toegelaat:"
 
-#: ./browser/reports/views.py:707
+#: ./browser/reports/views.py:708
 msgid "Performance Rating"
 msgstr "Prestasie Gradering"
 
@@ -1133,10 +1133,10 @@ msgstr "Aktiwiteit wat die tweede hoogste aantal leerders korrek beantwoord het"
 msgid "label_second_worst_activity"
 msgstr "Aktiwiteit wat die tweede hoogste aantal leerders verkeerd beantwoord het"
 
-#. Default: "* Some assessments contain activities that use non-default rating scales. The Strengths and Weaknesses cannot be calculated when this is the case."
+#. Default: "* Not enough activities have been scored yet. The Strengths and Weaknesses Report cannot be calculated when this is the case."
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:118
 msgid "label_strength_weakness_not_possible"
-msgstr "* Sommige assesserings bevat aktiwiteite wat gebruik maak van nie-standaard graderingskale. Die sterk-en swakpunte kan nie bereken word wanneer dit die geval is."
+msgstr "* Nie genoeg aktiwiteite is nog geassesseer. Die sterk-en swakpunte verslag kan nie bereken word wanneer dit die geval is."
 
 #. Default: "Strengths"
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:85
@@ -1380,7 +1380,7 @@ msgstr "Ons sal binnekort antwoord."
 msgid "name"
 msgstr ""
 
-#: ./browser/reports/views.py:357
+#: ./browser/reports/views.py:358
 msgid "on"
 msgstr "op"
 
