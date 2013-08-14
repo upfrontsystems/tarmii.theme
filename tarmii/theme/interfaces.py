@@ -1,5 +1,5 @@
 from zope.interface import Interface
-from zope.schema import Int, TextLine
+from zope.schema import Int, TextLine, Datetime
 from collective.quickupload.interfaces import IQuickUploadCapable
 
 from tarmii.theme import MessageFactory as _
@@ -35,6 +35,12 @@ class ITARMIIRemoteServerSettings(Interface):
         title=_(u'Remote Server Url'),
         description=_(u'Define the url where the logs can be uploaded'),
         required=True
+    )
+
+    last_successful_upload = Datetime(
+        title=_(u'Last Successful Upload Date'),
+        description=_(u'Stores last date of successful data upload'),
+        required=False
     )
 
 

@@ -4,6 +4,7 @@ import os
 import urlparse
 import zipfile
 from cStringIO import StringIO
+from datetime import datetime
 from DateTime import DateTime
 
 from five import grok
@@ -17,8 +18,9 @@ from tarmii.theme import MessageFactory as _
 
 class UploadToServerView(grok.View):
     """ Create a zip file in memory of the CSV files for logged requests, 
-        evaluations sheets and user profiles for the last 30 days and then 
-        post the zipfile to the remote url as set up in the configlet.
+        evaluations sheets and user profiles from a specified date
+        (stored in ITARMIIRemoteServerSettings registry) until the current date
+        and then post the zipfile to the remote url as set up in the configlet.
     """
 
     grok.context(Interface)
@@ -27,17 +29,27 @@ class UploadToServerView(grok.View):
 
     def zip_csv(self):
         """ Create a zip file in memory of the CSV files for logged requests, 
-            evaluations sheets and user profiles for the last 3 0 days.
+            evaluations sheets and user profiles from a specified date
+            (stored in ITARMIIRemoteServerSettings registry) until the current
         """
 
-        # get todays date + date 30 days ago
-        start = str(int(DateTime()-30))
-        end = str(int(DateTime())) # now
+        # get settings
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(ITARMIIRemoteServerSettings)
+        # make sure that a last successful upload has been specified before
+        if settings.last_successful_upload != None:
+            import pdb; pdb.set_trace() 
+            # set selection start date as the last successful upload date
+            start = DateTime(settings.last_successful_upload)
+            end = str(int(DateTime())) # now
+        else:
+            start = DateTime('2013-01-01 00:00:00') # earliest 'possible' date
+            end = str(int(DateTime())) # now
 
         # fetch data from each view
         users = self.context.restrictedTraverse('@@export-user-profiles')
-        self.request.set('start_date',start)
-        self.request.set('end_date',end)
+        self.request.set('start_date', start)
+        self.request.set('end_date', end)
         esheets = self.context.restrictedTraverse('@@export-evaluationsheets')
         logs = self.context.restrictedTraverse('@@export-logged-requests')
 
@@ -105,12 +117,17 @@ class UploadToServerView(grok.View):
         print errcode
         print errmsg
 
+        # fix this - XXX how do I know when it has been successful?
+        # if upload successful, set date in registry
+        dt = DateTime().asdatetime().replace(tzinfo=None)
+        settings.last_successful_upload = \
+            datetime(dt.year, dt.month, dt.day, dt.hour, dt.minute)
+
         msg = _('File sent to server')
         IStatusMessage(self.request).addStatusMessage(msg,"info")
         # redirect to show the error message
         return self.request.response.redirect(
                '/'.join(self.context.getPhysicalPath()))  
-
 
     def render(self):
         """ No-op to keep grok.View happy
