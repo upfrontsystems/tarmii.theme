@@ -38,7 +38,6 @@ class UploadToServerView(grok.View):
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
         # make sure that a last successful upload has been specified before
         if settings.last_successful_upload != None:
-            import pdb; pdb.set_trace() 
             # set selection start date as the last successful upload date
             start = DateTime(settings.last_successful_upload)
             end = str(int(DateTime())) # now
@@ -88,9 +87,6 @@ class UploadToServerView(grok.View):
             return self.request.response.redirect(
                    '/'.join(self.context.getPhysicalPath()))
 
-        print parts.netloc
-        print parts.path
-
         # send zip data to server
         h = httplib.HTTP(parts.netloc) # ignore leading '//'
         h.putrequest('POST', parts.path)
@@ -113,18 +109,17 @@ class UploadToServerView(grok.View):
         h.send(body)
         errcode, errmsg, headers = h.getreply()
 
-        print 'status:' 
-        print errcode
-        print errmsg
+        if errcode == 200 or errcode == 201:
+            # if upload successful, set date in registry
+            dt = DateTime().asdatetime().replace(tzinfo=None)
+            settings.last_successful_upload = \
+                datetime(dt.year, dt.month, dt.day, dt.hour, dt.minute)
+            msg = str(errcode) + ' : ' +_('File sent to server')
+            IStatusMessage(self.request).addStatusMessage(msg,"info")
+        else:
+            msg = str(errcode) + ' : ' + _('File not sent successfully')
+            IStatusMessage(self.request).addStatusMessage(msg,"error")
 
-        # fix this - XXX how do I know when it has been successful?
-        # if upload successful, set date in registry
-        dt = DateTime().asdatetime().replace(tzinfo=None)
-        settings.last_successful_upload = \
-            datetime(dt.year, dt.month, dt.day, dt.hour, dt.minute)
-
-        msg = _('File sent to server')
-        IStatusMessage(self.request).addStatusMessage(msg,"info")
         # redirect to show the error message
         return self.request.response.redirect(
                '/'.join(self.context.getPhysicalPath()))  
