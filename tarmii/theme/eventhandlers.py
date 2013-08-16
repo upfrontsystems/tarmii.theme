@@ -57,7 +57,9 @@ def on_video_added(video, event):
 
         # generate link so that we can get the video url from its thumbnail obj
         thumb_obj = video.aq_parent._getOb(video_id)
-        thumb_obj.link = thumb_obj.aq_parent.absolute_url() + '/' + video.id
+        path_str = '/'.join(thumb_obj.aq_parent.getPhysicalPath())
+        # get the part just after '/videos/....' and add / + the video.id      
+        thumb_obj.link = path_str[path_str.find('/videos')+7:] + '/' + video.id
         notify(ObjectModifiedEvent(thumb_obj))
 
     else:

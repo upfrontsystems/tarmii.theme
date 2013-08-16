@@ -7,6 +7,7 @@ from zope.interface import Interface
 from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.permissions import AddPortalContent
 from Products.CMFCore.permissions import ManagePortal
+from Products.CMFCore.utils import getToolByName
 
 from tarmii.theme import MessageFactory as _
 
@@ -78,6 +79,9 @@ class VideosView(grok.View):
         else:
             self.request.response.setCookie("VIDEO_PAGE", 'Pedagogic')
             return False
+
+    def context_url(self):
+        return self.context.absolute_url()
 
 
 class VideoView(grok.View):
