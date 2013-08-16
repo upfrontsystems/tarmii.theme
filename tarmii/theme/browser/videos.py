@@ -40,7 +40,7 @@ class VideosView(grok.View):
             brains = self.context.howto.getFolderContents(contentFilter)
         elif category == 'pedagogic':
             brains = self.context.pedagogic.getFolderContents(contentFilter)
-      
+
         b_size = 9
         b_start = self.request.get('b_start', 0)
         return Batch(brains, b_size, int(b_start), orphan=0)
@@ -83,9 +83,6 @@ class VideosView(grok.View):
     def video_link(self, thumb):
         return thumb.absolute_url()[:-6] # strip '-thumb' from the url
     
-    def context_url(self):
-        return self.context.absolute_url()
-
 
 class VideoView(grok.View):
     """ A view to display a single video
