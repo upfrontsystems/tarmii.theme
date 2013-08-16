@@ -54,14 +54,6 @@ def on_video_added(video, event):
             f.close()
         video.aq_parent.invokeFactory('Image', video_id, title=video.title,
                                       image=image_data)
-
-        # generate link so that we can get the video url from its thumbnail obj
-        thumb_obj = video.aq_parent._getOb(video_id)
-        path_str = '/'.join(thumb_obj.aq_parent.getPhysicalPath())
-        # get the part just after '/videos/....' and add / + the video.id      
-        thumb_obj.link = path_str[path_str.find('/videos')+7:] + '/' + video.id
-        notify(ObjectModifiedEvent(thumb_obj))
-
     else:
         #display errors in detail
         request = getattr(video, "REQUEST", None)

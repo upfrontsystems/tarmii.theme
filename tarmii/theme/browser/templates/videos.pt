@@ -69,7 +69,7 @@
                 <tal:fill tal:repeat="brain batch">
                     <div class="thumb" tal:define="thumb brain/getObject">
                         <tal:not_user_is_admin condition="not:view/user_is_admin">            
-                            <a class="thumb-link" tal:attributes="href string:${view/context_url}${thumb/link}/@@video">
+                            <a class="thumb-link" tal:attributes="href python:view.video_link(thumb) + '/@@video'">
                             <img tal:attributes="src string:${thumb/absolute_url}/image;
                                                  alt thumb/Title" />
                             </a>
@@ -79,10 +79,10 @@
                             <img tal:attributes="src string:${thumb/absolute_url}/image;
                                                  alt thumb/Title" />
                             </a>
-                           <a class="edit-hover-link" tal:attributes="href string:${view/context_url}${thumb/link}/@@video"
+                           <a class="edit-hover-link" tal:attributes="href python:view.video_link(thumb) + '/@@video'"
                               i18n:translate="label_view">View</a>
                            <a class="delete_confirmation delete-hover-link"
-                              tal:attributes="href string:${view/context_url}${thumb/link}/delete_confirmation"
+                              tal:attributes="href python:view.video_link(thumb) + '/delete_confirmation'"    
                               i18n:translate="label_delete">Delete</a>
                         </tal:user_is_admin>
                         <p tal:content="thumb/Title"></p>
