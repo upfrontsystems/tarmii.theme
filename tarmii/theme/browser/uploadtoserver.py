@@ -1,5 +1,6 @@
 import base64
 import httplib
+import logging
 import os
 import urlparse
 import zipfile
@@ -109,7 +110,7 @@ class UploadToServerView(grok.View):
         h.send(body)
         errcode, errmsg, headers = h.getreply()
 
-        if errcode == 200 or errcode == 201:
+        if errcode == 200:
             # if upload successful, set date in registry
             dt = DateTime().asdatetime().replace(tzinfo=None)
             settings.last_successful_upload = \
@@ -118,7 +119,9 @@ class UploadToServerView(grok.View):
             IStatusMessage(self.request).addStatusMessage(msg,"info")
         else:
             msg = str(errcode) + ' : ' + _('File not sent successfully')
-            IStatusMessage(self.request).addStatusMessage(msg,"error")
+            IStatusMessage(self.request).addStatusMessage(msg,"error")            
+            log = logging.getLogger('tarmii.theme.uploadtoserver')
+            log.error(msg)
 
         # redirect to show the error message
         return self.request.response.redirect(

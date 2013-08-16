@@ -17,6 +17,9 @@ class TeacherDataView(grok.View):
         zipped_data = self.request.get('BODY')
         sitedata = getUtility(ISiteData)
         sitedata.store_data(zipped_data)
+        return 'DATA UPLOAD OK' # need to return something so that zope returns
+                                # 200 status code
+
 
     def render(self):
         """ No-op to keep grok.View happy
