@@ -40,10 +40,10 @@ class UploadToServerView(grok.View):
         # make sure that a last successful upload has been specified before
         if settings.last_successful_upload != None:
             # set selection start date as the last successful upload date
-            start = DateTime(settings.last_successful_upload)
+            start = str(int(DateTime(settings.last_successful_upload)))
             end = str(int(DateTime())) # now
         else:
-            start = DateTime('2013-01-01 00:00:00') # earliest 'possible' date
+            start = str(int(DateTime('2013-01-01 00:00:00'))) # 'earliest' date
             end = str(int(DateTime())) # now
 
         # fetch data from each view
