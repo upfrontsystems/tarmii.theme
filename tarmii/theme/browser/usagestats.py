@@ -24,7 +24,7 @@ class UsageStatsView(grok.View):
         """ get log data from utility each time the template is rendered
         """
         sitedata = getUtility(ISiteData)
-        self.user_stats = sitedata.extract_logs()
+        self.user_stats = sitedata.log_data
 
         self.month = self.request.get('month-select')
         self.year = self.request.get('year-select')
@@ -79,10 +79,9 @@ class UsageStatsView(grok.View):
         """ return all provinces from teacher_data object
         """
         province_list = []
-        for province in range(len(self.user_stats.items())):
-            province_list.append(self.user_stats.items()[province][0])
+        for province in range(len(self.user_stats.keys())):
+            province_list.append(self.user_stats.keys()[province])
         province_list.sort()
-
         return province_list
 
     def schools(self):
@@ -107,7 +106,7 @@ class UsageStatsView(grok.View):
  
         province = self.request.get('province')
         school = self.request.get('school')
-        stat_subset = self.user_stats[province][school]
+        stat_subset = self.user_stats.get(province)[school]
 
         # return data for currently selected month and year
         for day in reversed(range(1,32)):
@@ -139,7 +138,7 @@ class UsageStatsView(grok.View):
                         stat_entry['activities_viewed'] += 1
                     if entry.find('howto') != -1 and entry[-7:] == '@@video':
                         stat_entry['howto_clips_viewed'] += 1
-                    if entry.find('pedagogic') != -1 and entry[-7:] == '@@video':
+                    if entry.find('pedagogic') != -1 and entry[-7:] =='@@video':
                         stat_entry['pedagogical_clips_viewed'] += 1
                     if entry[-9:] == 'resources':
                         stat_entry['teacher_resources_viewed'] += 1

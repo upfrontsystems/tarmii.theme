@@ -24,7 +24,7 @@ class TeacherProfilesView(grok.View):
         """ get teacher data from utility each time the template is rendered 
         """
         sitedata = getUtility(ISiteData)
-        self.teacher_data = sitedata.extract_teacher_data()
+        self.teacher_data = sitedata.user_data
 
     def show_provinces(self):
         """ show teachers if both province and school are NOT on the request 
@@ -65,8 +65,8 @@ class TeacherProfilesView(grok.View):
         """ return all provinces from teacher_data object 
         """
         province_list = []
-        for province in range(len(self.teacher_data.items())):
-            province_list.append(self.teacher_data.items()[province][0])
+        for province in range(len(self.teacher_data.keys())):
+            province_list.append(self.teacher_data.keys()[province])
         province_list.sort()
 
         return province_list
