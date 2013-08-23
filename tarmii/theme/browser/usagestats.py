@@ -103,11 +103,13 @@ class UsageStatsView(grok.View):
         new_evaluationsheet= '++add++upfront.assessment.content.evaluationsheet'
 
         stats = []
- 
+
         province = self.request.get('province')
         school = self.request.get('school')
+        if self.user_stats.get(province) is None:
+            return []
         stat_subset = self.user_stats.get(province)[school]
-
+        
         # return data for currently selected month and year
         for day in reversed(range(1,32)):
             day_str = str(day)
