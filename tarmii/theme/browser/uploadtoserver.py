@@ -16,6 +16,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 
 from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
+import time
 
 class UploadToServerView(grok.View):
     """ Create a zip file in memory of the CSV files for logged requests, 
@@ -27,6 +28,14 @@ class UploadToServerView(grok.View):
     grok.context(Interface)
     grok.name('upload-to-server')
     grok.require('cmf.ManagePortal')
+
+    def now_no_seconds(self):
+        """ return current date and time with the seconds truncated 
+        """
+        now = DateTime()
+        return DateTime(str(now.year())+'/'+str(now.month())+'/'+\
+            str(now.day())+' '+str(now.hour())+':'+str(now.minute())+' '+\
+            str(now.timezone()))        
 
     def zip_csv(self):
         """ Create a zip file in memory of the CSV files for logged requests, 
@@ -41,10 +50,10 @@ class UploadToServerView(grok.View):
         if settings.last_successful_upload != None:
             # set selection start date as the last successful upload date
             start = str(int(DateTime(settings.last_successful_upload)))
-            end = str(int(DateTime())) # now
+            end = self.now_no_seconds()
         else:
             start = str(int(DateTime('2013-01-01 00:00:00'))) # 'earliest' date
-            end = str(int(DateTime())) # now
+            end = self.now_no_seconds()
 
         # fetch data from each view
         users = self.context.restrictedTraverse('@@export-user-profiles')
@@ -63,6 +72,7 @@ class UploadToServerView(grok.View):
                         esheets.evaluation_sheets_csv())
         if logs.logged_requests_csv() is not None:
             zf.writestr('logs.csv', logs.logged_requests_csv())
+
         zf.close()
         in_memory_zip.seek(0)
 
