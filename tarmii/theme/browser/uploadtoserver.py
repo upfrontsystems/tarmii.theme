@@ -16,7 +16,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 
 from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
-import time
 
 class UploadToServerView(grok.View):
     """ Create a zip file in memory of the CSV files for logged requests, 
