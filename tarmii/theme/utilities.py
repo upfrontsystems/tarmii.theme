@@ -107,14 +107,14 @@ class SiteData(Persistent):
                 # as reference from exportloggedrequests
                 # fieldnames=['time', 'path', 'username','province','school'],
 
-                # delete all log values that do not contain a province or school 
+                # delete all log values that do not contain a province or school
                 # entry
                 log_data_clean = []
                 for entry in range(len(log_data)):
                     time, path, username, province_name, school_name = \
                     log_data[entry].split(',')
                     if province_name != '':
-                        log_data_clean.append(log_data[entry])            
+                        log_data_clean.append(log_data[entry])
               
                 # sort data by province, school and time
                 log_data_clean.sort(key= lambda line: ( line.split(",")[3],
@@ -151,7 +151,7 @@ class SiteData(Persistent):
                     school_dict.update({school_name: date_dict})
                     self.log_data.update({province_name:school_dict})
 
-        # 2nd pass to extract data out of evaluationsheets and store in 
+        # 2nd pass to extract data out of evaluationsheets and store in
         # persistent structure (requires users.csv to have been parsed already)
         for filename in zf.namelist():
             if filename == 'evaluation_sheets.csv':
@@ -179,7 +179,7 @@ class SiteData(Persistent):
                     province_name, teacher_uuid, esheet_uid = esheet.split(',')
 
                     school_dict = self.user_data.get(province_name)
-                    teacher_dict = school_dict[school_name]                                
+                    teacher_dict = school_dict[school_name]
                     teacher_data_dict = teacher_dict[teacher_uuid]
 
                     try:
@@ -215,7 +215,7 @@ class SiteData(Persistent):
                     activities = learner_obj['activity_data']
 
                     activity = { 'activity_number' : activity_number,
-                                 'rating' : rating  
+                                 'rating' : rating
                                }
                     activities.append(activity)
 

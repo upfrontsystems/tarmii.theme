@@ -18,7 +18,7 @@ from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
 
 class UploadToServerView(grok.View):
-    """ Create a zip file in memory of the CSV files for logged requests, 
+    """ Create a zip file in memory of the CSV files for logged requests,
         evaluations sheets and user profiles from a specified date
         (stored in ITARMIIRemoteServerSettings registry) until the current date
         and then post the zipfile to the remote url as set up in the configlet.
@@ -34,10 +34,10 @@ class UploadToServerView(grok.View):
         now = DateTime()
         return DateTime(str(now.year())+'/'+str(now.month())+'/'+\
             str(now.day())+' '+str(now.hour())+':'+str(now.minute())+' '+\
-            str(now.timezone()))        
+            str(now.timezone()))
 
     def zip_csv(self):
-        """ Create a zip file in memory of the CSV files for logged requests, 
+        """ Create a zip file in memory of the CSV files for logged requests,
             evaluations sheets and user profiles from a specified date
             (stored in ITARMIIRemoteServerSettings registry) until the current
         """
@@ -109,7 +109,7 @@ class UploadToServerView(grok.View):
 
         nice_filename = '%s_%s' % ('tarmii_logs_', now.strftime('%Y%m%d'))
         h.putheader('Authorization', 'Basic ' + base64.b64encode(authstr))
-        h.putheader("Content-Disposition", "attachment; filename=%s.zip" % 
+        h.putheader("Content-Disposition", "attachment; filename=%s.zip" %
                                             nice_filename)
         h.putheader('Content-Type', 'application/octet-stream')
         h.putheader('Content-Length', str(len(body)))
@@ -128,13 +128,13 @@ class UploadToServerView(grok.View):
             IStatusMessage(self.request).addStatusMessage(msg,"info")
         else:
             msg = str(errcode) + ' : ' + _('File not sent successfully')
-            IStatusMessage(self.request).addStatusMessage(msg,"error")            
+            IStatusMessage(self.request).addStatusMessage(msg,"error")
             log = logging.getLogger('tarmii.theme.uploadtoserver')
             log.error(msg)
 
         # redirect to show the error message
         return self.request.response.redirect(
-               '/'.join(self.context.getPhysicalPath()))  
+               '/'.join(self.context.getPhysicalPath()))
 
     def render(self):
         """ No-op to keep grok.View happy
