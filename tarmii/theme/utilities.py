@@ -71,6 +71,19 @@ class SiteData(Persistent):
                         # school entry did not yet exist, initialise to {}
                         school_dict.update({school_name: {}})
                     teacher_dict = school_dict[school_name]
+
+                    try:
+                        x = teacher_dict[teacher_uuid]
+                    except KeyError:
+                        teacher_dict.update({teacher_uuid: {}})
+                    teacher_data_dict = teacher_dict[teacher_uuid]
+
+                    try:
+                        x = teacher_data_dict['evaluationsheets']
+                    except KeyError:
+                        teacher_data_dict.update({'evaluationsheets': {}})
+                    e_list = teacher_data_dict['evaluationsheets']
+
                     teacher_data = { 'username' : username,
                                      'fullname' : fullname,
                                      'email' : email,
@@ -78,6 +91,7 @@ class SiteData(Persistent):
                                      'qualification' : qualification,
                                      'years_teaching' : years_teaching,
                                      'last_login_time' : last_login_time,
+                                     'evaluationsheets' : e_list,
                                    }
 
                     teacher_dict.update({teacher_uuid: teacher_data})
@@ -162,7 +176,7 @@ class SiteData(Persistent):
 
                     assessment, assessment_date, classlist, learner, \
                     learner_uid, activity_number, rating, school_name, \
-                    province_name, teacher_uuid = esheet.split(',')
+                    province_name, teacher_uuid, esheet_uid = esheet.split(',')
 
                     school_dict = self.user_data.get(province_name)
                     teacher_dict = school_dict[school_name]                                
@@ -174,7 +188,8 @@ class SiteData(Persistent):
                         teacher_data_dict.update({'evaluationsheets': {}})
                     e_list = teacher_data_dict['evaluationsheets']
 
-                    evalsheet_key = assessment + '_' + classlist
+                    evalsheet_key = assessment + '_' + classlist + '_' +\
+                        esheet_uid
                     try:
                         x = e_list[evalsheet_key]
                     except KeyError:
