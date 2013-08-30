@@ -163,7 +163,7 @@ class SiteData(Persistent):
                 #               fieldnames=['assessment', 'assessment_date',
                 #                           'classlist','learner','learner_uid',
                 #                           'activity_number','rating','school',
-                #                           'province','uuid']
+                #                           'province','uuid','esheet_uid']
 
                 # sort data by uuid, assessment, learner, activity_number
                 esheet_data.sort(key= lambda line: ( line.split(",")[9],
