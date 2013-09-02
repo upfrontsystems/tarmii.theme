@@ -32,12 +32,15 @@
                 <table class="listing admin-table">
                     <tr> 
                         <th i18n:translate="label_classlist">Classlist</th>
+                        <th i18n:translate="label_learner_count">Number of Learners</th>
                         <th i18n:translate="label_edit">Edit</th>
                         <th i18n:translate="label_delete">Delete</th>
                     </tr>
                     <tr tal:repeat="classlist view/classlists">
                         <td>
                             <a tal:attributes="href string:${classlist/getURL}" tal:content="classlist/Title"></a>                        
+                        </td>
+                        <td class="center" tal:content="python:view.learner_count(classlist.getObject())">
                         </td>
                         <td>
                             <div class="edit-anchor">

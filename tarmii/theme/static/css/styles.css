@@ -623,7 +623,11 @@ a.select-text {
 
 table.listing.admin-table td,
 table.listing.admin-table th {
-    vertical-align: middle;
+    vertical-align: middle;    
+}
+
+table.listing.admin-table td.center {
+    text-align: center;
 }
 
 .hidden {

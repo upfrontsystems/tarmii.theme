@@ -30,6 +30,14 @@ class ClassListsView(grok.View):
         return "%s/++add++upfront.classlist.content.classlist" % (
             self.context.absolute_url())
 
+    def learner_count(self, classlist):
+        """ return number of learners in a classlist
+        """
+        contentFilter = {
+            'portal_type': 'upfront.classlist.content.learner',
+            'sort_on': 'sortable_title'}
+        return len(classlist.getFolderContents(contentFilter))
+
 
 class ClassListAddForm(dexterity.AddForm):
     grok.name('upfront.classlist.content.classlist')
