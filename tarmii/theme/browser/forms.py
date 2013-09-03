@@ -11,6 +11,7 @@ from tarmii.theme.interfaces import ITARMIIThemeLayer
 from tarmii.theme.content.teacherresource import ITeacherResource
 from upfront.assessment.content.assessment import IAssessment
 from upfront.classlist.content.classlist import IClassList
+from upfront.classlist.content.learner import ILearner
 from upfront.pagetracker.interfaces import IPageTracker
 from upfront.pagetracker.browser.viewlets import PageTrackingViewlet
 
@@ -35,6 +36,21 @@ class TeacherResourceEditForm(dexterity.EditForm):
         # both save and cancel buttons redirect to the same place
         site = getSite()
         return '%s/resources' % (site.absolute_url())
+
+
+class LearnerEditForm(dexterity.EditForm):
+    grok.name('edit')
+    grok.context(ILearner)
+    grok.template('editlearner')
+
+    formname = 'form'
+    kssformname = "kssattr-formname-@@edit"
+    mainheading = "Edit Learner"
+
+    def nextURL(self):
+        # both save and cancel buttons redirect to the same place
+        classlist = self.context.aq_parent
+        return classlist.absolute_url()
 
 
 class ActivityAddForm(dexterity.AddForm):

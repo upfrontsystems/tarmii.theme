@@ -822,3 +822,7 @@ table.listing tbody tr.odd td.brown3 {
 #report_examples {
     padding-top: 20px;
 }
+
+#content a.link-overlay {
+    border-bottom: none !important;
+}

@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="main">
+
+    <div id="content-core">
+
+        <form action="." method="post" id="form"
+            tal:attributes="name view/formname;
+                            action request/getURL; enctype view/enctype;
+                            class view/kssformname">
+
+            <h1 class="mainheading" tal:content="view/mainheading">learner</h1>
+
+            <div class="inlineblock titlefield" tal:define="widget nocall:view/form_instance/widgets/code">
+                <metal:block use-macro="context/@@ploneform-macros/field" />
+            </div>
+            <br/>
+            <div class="inlineblock titlefield" tal:define="widget nocall:view/form_instance/widgets/name">
+                <metal:block use-macro="context/@@ploneform-macros/field" />
+            </div>
+            <br/>
+            <div class="inlineblock titlefield" tal:define="widget nocall:view/form_instance/widgets/home_language">
+                <metal:block use-macro="context/@@ploneform-macros/field" />
+            </div>
+            <br/>
+            <div class="inlineblock titlefield" tal:define="widget nocall:view/form_instance/widgets/gender">
+                <metal:block use-macro="context/@@ploneform-macros/field" />
+            </div>
+
+            <div class="action formControls">
+                <input id="form-buttons-save" name="form.buttons.save" i18n:attributes="value"
+                        class="submit-widget button-field context allow-once" value="Save" type="submit">
+                <input id="form-buttons-cancel" name="form-buttons-cancel" i18n:attributes="value"
+                    class="submit-widget button-field standalone" value="Cancel" type="submit">
+            </div>
+        </form>
+
+    </div>
+
+    </metal:main>
+</body>
+</html>
