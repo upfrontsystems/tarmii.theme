@@ -37,7 +37,7 @@
             <div class="action formControls">
                 <input id="form-buttons-save" name="form.buttons.save" i18n:attributes="value"
                         class="submit-widget button-field context allow-once" value="Save" type="submit">
-                <input id="form-buttons-cancel" name="form-buttons-cancel" i18n:attributes="value"
+                <input id="form-buttons-cancel" name="form.buttons.cancel" i18n:attributes="value"
                     class="submit-widget button-field standalone" value="Cancel" type="submit">
             </div>
         </form>

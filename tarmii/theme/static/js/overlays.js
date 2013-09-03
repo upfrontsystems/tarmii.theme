@@ -99,8 +99,3 @@ $(function() {
             $("#composite_learner_graph").addClass("hidden");
         });
 });
-
-
-
-
-
