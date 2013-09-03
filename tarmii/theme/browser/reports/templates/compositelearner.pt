@@ -72,6 +72,7 @@
                     <tr> 
                         <th i18n:translate="label_learner">Learner</th>
                         <th i18n:translate="heading_total_score">Total Score</th>
+                        <th i18n:translate="heading_max_score">Max Score</th>
                         <th i18n:translate="heading_percentage">Percentage</th>
                         <th i18n:translate="heading_rating_code">Rating Code</th>
                     </tr>

@@ -1524,7 +1524,8 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
             elif percentage < 30:
                 rating_code = 1
         else:
+            highest_scale_entry = 'N/A'
             percentage = 'N/A'
             rating_code = '1'
 
-        return [score_total, percentage, rating_code]
+        return [score_total, scales_total, percentage, rating_code]

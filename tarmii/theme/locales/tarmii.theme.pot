@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-02 12:02+0000\n"
+"POT-Creation-Date: 2013-09-03 09:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,22 +53,21 @@ msgstr ""
 msgid "Add Activities"
 msgstr ""
 
-#: ./browser/forms.py:67
 #: ./browser/templates/activities.pt:19
 msgid "Add Activity"
 msgstr ""
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:136
 #: ./browser/templates/assessments.pt:20
 msgid "Add Assessment"
 msgstr ""
 
-#: ./browser/forms.py:104
+#: ./browser/forms.py:111
 #: ./browser/templates/classlists.pt:22
 msgid "Add Classlist"
 msgstr ""
 
-#: ./browser/forms.py:155
+#: ./browser/forms.py:162
 #: ./browser/templates/evaluationsheets.pt:17
 msgid "Add Evaluation Sheet"
 msgstr ""
@@ -217,11 +216,11 @@ msgstr ""
 msgid "Eastern Cape"
 msgstr ""
 
-#: ./browser/forms.py:141
+#: ./browser/forms.py:148
 msgid "Edit Assessment"
 msgstr ""
 
-#: ./browser/forms.py:116
+#: ./browser/forms.py:123
 msgid "Edit Classlist"
 msgstr ""
 
@@ -235,7 +234,7 @@ msgstr ""
 msgid "Equipment and Administration (For the teacher)"
 msgstr ""
 
-#: ./browser/reports/templates/compositelearner.pt:141
+#: ./browser/reports/templates/compositelearner.pt:142
 #: ./browser/reports/templates/strengths-and-weaknesses.pt:137
 msgid "Evaluation Sheet Report"
 msgstr ""
@@ -246,7 +245,7 @@ msgid "Evaluations"
 msgstr ""
 
 #: ./behaviors.py:67
-#: ./browser/forms.py:53
+#: ./browser/forms.py:68
 msgid "Excellent"
 msgstr ""
 
@@ -264,7 +263,11 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
-#: ./browser/uploadtoserver.py:108
+#: ./browser/uploadtoserver.py:140
+msgid "File not sent successfully"
+msgstr ""
+
+#: ./browser/uploadtoserver.py:137
 msgid "File sent to server"
 msgstr ""
 
@@ -290,7 +293,7 @@ msgid "Generate Report"
 msgstr ""
 
 #: ./behaviors.py:68
-#: ./browser/forms.py:55
+#: ./browser/forms.py:70
 msgid "Good"
 msgstr ""
 
@@ -329,6 +332,10 @@ msgstr ""
 
 #: ./behaviors.py:50
 msgid "Label"
+msgstr ""
+
+#: ./interfaces.py:41
+msgid "Last Successful Upload Date"
 msgstr ""
 
 #: ./interfaces.py:15
@@ -377,7 +384,7 @@ msgid "Mpumalanga"
 msgstr ""
 
 #: ./behaviors.py:70
-#: ./browser/forms.py:59
+#: ./browser/forms.py:74
 msgid "Needs improvement"
 msgstr ""
 
@@ -406,7 +413,7 @@ msgid "Northern Cape"
 msgstr ""
 
 #: ./browser/pdf.py:343
-#: ./browser/reports/views.py:1347
+#: ./browser/reports/views.py:1343
 msgid "Not Rated"
 msgstr ""
 
@@ -492,7 +499,7 @@ msgid "Reports"
 msgstr ""
 
 #: ./browser/reports/templates/classperformance-for-activity.pt:119
-#: ./browser/reports/templates/compositelearner.pt:145
+#: ./browser/reports/templates/compositelearner.pt:146
 msgid "Reports Menu"
 msgstr ""
 
@@ -510,7 +517,7 @@ msgid "Rubric"
 msgstr ""
 
 #: ./behaviors.py:69
-#: ./browser/forms.py:57
+#: ./browser/forms.py:72
 msgid "Satisfactory"
 msgstr ""
 
@@ -563,6 +570,10 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
+#: ./interfaces.py:42
+msgid "Stores last date of successful data upload"
+msgstr ""
+
 #: ./browser/reports/templates/evaluationsheet.pt:174
 #: ./browser/reports/templates/learnerprogress.pt:195
 msgid "Strengths and Weaknesses Report"
@@ -604,7 +615,7 @@ msgstr ""
 msgid "This type of element is not allowed in this folder"
 msgstr ""
 
-#: ./eventhandlers.py:67
+#: ./eventhandlers.py:61
 msgid "Thumbnail generation failed"
 msgstr ""
 
@@ -623,7 +634,7 @@ msgstr ""
 msgid "Update Dates"
 msgstr ""
 
-#: ./browser/uploadtoserver.py:73
+#: ./browser/uploadtoserver.py:104
 msgid "Upload Server not specified in settings"
 msgstr ""
 
@@ -704,7 +715,7 @@ msgid "heading_compositelearner"
 msgstr ""
 
 #. Default: "Description of Competence"
-#: ./browser/reports/templates/compositelearner.pt:90
+#: ./browser/reports/templates/compositelearner.pt:91
 msgid "heading_description_of_competence"
 msgstr ""
 
@@ -720,8 +731,13 @@ msgstr ""
 msgid "heading_evaluationsheet_pdf"
 msgstr ""
 
-#. Default: "Percentage"
+#. Default: "Max Score"
 #: ./browser/reports/templates/compositelearner.pt:75
+msgid "heading_max_score"
+msgstr ""
+
+#. Default: "Percentage"
+#: ./browser/reports/templates/compositelearner.pt:76
 msgid "heading_percentage"
 msgstr ""
 
@@ -732,7 +748,7 @@ msgid "heading_provinces"
 msgstr ""
 
 #. Default: "Rating Code"
-#: ./browser/reports/templates/compositelearner.pt:76
+#: ./browser/reports/templates/compositelearner.pt:77
 msgid "heading_rating_code"
 msgstr ""
 
@@ -886,7 +902,7 @@ msgid "label_addtoassessment"
 msgstr ""
 
 #. Default: "Adequate Achievement"
-#: ./browser/reports/templates/compositelearner.pt:110
+#: ./browser/reports/templates/compositelearner.pt:111
 msgid "label_adequate_achievement"
 msgstr ""
 
@@ -964,7 +980,7 @@ msgstr ""
 #. Default: "Delete"
 #: ./browser/templates/assessmentitem-view.pt:51
 #: ./browser/templates/assessments.pt:36
-#: ./browser/templates/classlists.pt:36
+#: ./browser/templates/classlists.pt:37
 msgid "label_delete"
 msgstr ""
 
@@ -981,7 +997,7 @@ msgid "label_edit"
 msgstr ""
 
 #. Default: "Elementary Achievement"
-#: ./browser/reports/templates/compositelearner.pt:120
+#: ./browser/reports/templates/compositelearner.pt:121
 msgid "label_elementary_achievement"
 msgstr ""
 
@@ -1034,6 +1050,11 @@ msgstr ""
 msgid "label_learner"
 msgstr ""
 
+#. Default: "Number of Learners"
+#: ./browser/templates/classlists.pt:35
+msgid "label_learner_count"
+msgstr ""
+
 #. Default: "Learner Name"
 #: ./browser/templates/assessment-pdf.pt:134
 #: ./browser/templates/evaluationsheet-pdf.pt:109
@@ -1046,7 +1067,7 @@ msgid "label_media_quickupload"
 msgstr ""
 
 #. Default: "Meritorious Achievement"
-#: ./browser/reports/templates/compositelearner.pt:100
+#: ./browser/reports/templates/compositelearner.pt:101
 msgid "label_meritorious_achievement"
 msgstr ""
 
@@ -1056,7 +1077,7 @@ msgid "label_mobile"
 msgstr ""
 
 #. Default: "Moderate Achievement"
-#: ./browser/reports/templates/compositelearner.pt:115
+#: ./browser/reports/templates/compositelearner.pt:116
 msgid "label_moderate_achievement"
 msgstr ""
 
@@ -1066,12 +1087,12 @@ msgid "label_nolearners"
 msgstr ""
 
 #. Default: "Not Achieved"
-#: ./browser/reports/templates/compositelearner.pt:125
+#: ./browser/reports/templates/compositelearner.pt:126
 msgid "label_not_achieved"
 msgstr ""
 
 #. Default: "Outstanding Achievement"
-#: ./browser/reports/templates/compositelearner.pt:95
+#: ./browser/reports/templates/compositelearner.pt:96
 msgid "label_outstanding_achievement"
 msgstr ""
 
@@ -1144,7 +1165,7 @@ msgid "label_subject"
 msgstr ""
 
 #. Default: "Substantial Achievement"
-#: ./browser/reports/templates/compositelearner.pt:105
+#: ./browser/reports/templates/compositelearner.pt:106
 msgid "label_substantial_achievement"
 msgstr ""
 
@@ -1245,7 +1266,7 @@ msgstr ""
 #. Default: "Please create some classlists, assessments and evaluations"
 #: ./browser/reports/templates/classperformance-for-activity.pt:104
 #: ./browser/reports/templates/classprogress.pt:165
-#: ./browser/reports/templates/compositelearner.pt:134
+#: ./browser/reports/templates/compositelearner.pt:135
 msgid "message_create_classlists"
 msgstr ""
 
