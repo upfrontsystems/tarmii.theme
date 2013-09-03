@@ -1507,8 +1507,10 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
                         score_percentages.append(score/highest_scale_entry)
 
         if scales_total != 0:
-            percentage =  \
-                int((sum(score_percentages) / len(score_percentages))*100)
+            percentage = int((score_total / scales_total)*100)
+            # commented out is the mechanism that averages percentages instead
+            #percentage =  \
+            #    int((sum(score_percentages) / len(score_percentages))*100)
             if percentage == 100:
                 rating_code = 7
             elif percentage < 100 and percentage >= 70:
