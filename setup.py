@@ -30,6 +30,7 @@ setup(name='tarmii.theme',
           'plone.app.registry',          
           'plone.app.theming',
           'collective.quickupload',
+          'requests',
       ],
       entry_points="""
       # -*- Entry points: -*-

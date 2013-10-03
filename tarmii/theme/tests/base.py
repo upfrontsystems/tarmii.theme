@@ -12,8 +12,11 @@ from zope.app.intid.interfaces import IIntIds
 from zope.component import getUtility
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+from plone.registry.interfaces import IRegistry
 from plone.app.controlpanel.security import ISecuritySchema
 from zope.component.hooks import getSite
+
+from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 
 PROJECTNAME = "tarmii.theme"
 
@@ -235,4 +238,9 @@ class TarmiiThemeTestBase(unittest.TestCase):
         self.activities.invokeFactory('upfront.assessmentitem.content.assessmentitem',
                                       'assessmentitem4', title='Activity4')
         self.activity4 = self.activities._getOb('assessmentitem4')
-
+        
+        # make sure we have server urls for sync and upload testing
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(ITARMIIRemoteServerSettings)
+        settings.server_url = u'http://localhost:8080'
+        settings.sync_server_url = u'http://localhost:8080/tarmii/@@assessmentitem-ids-xml'

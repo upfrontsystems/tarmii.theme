@@ -43,6 +43,12 @@ class ITARMIIRemoteServerSettings(Interface):
         required=False
     )
 
+    sync_server_url = TextLine(
+        title=_(u'Synchronisation Server Url'),
+        description=_(u'Fetch the latests assessment items from this server.'),
+        required=True
+    )
+
 
 class ISiteData(Interface):
     """ A utility used to extract data from a zip file on the request, store it,
