@@ -38,6 +38,9 @@ class SynchroniseAssessmentsView(grok.View):
         super(SynchroniseAssessmentsView, self).__init__(context, request)
         registry = getUtility(IRegistry)
         self.settings = registry.forInterface(ITARMIIRemoteServerSettings)
+        self.url = self.settings.sync_server_url
+        self.user = self.settings.sync_server_user
+        self.password = self.settings.sync_server_password
         self.ids_xml = None
 
     def update(self):
@@ -51,18 +54,16 @@ class SynchroniseAssessmentsView(grok.View):
             return self.request.response.redirect('/')
         
         self.ids_xml = self.fetch_ids(self.settings)
-        self.missing_ids = self.missing_ids(self.ids_xml)
+        missing_ids = self.missing_ids(self.ids_xml)
+        assessments_xml = self.fetch_assessments(missing_ids)
 
     def fetch_ids(self, settings):
-        url = settings.sync_server_url + '/@@assessmentitem-ids-xml'
-        user = settings.sync_server_user
-        password = settings.sync_server_password
-        creds = (user, password)
-        result = requests.get(url, auth=creds)
+        ids_url = self.url + '/@@assessmentitem-ids-xml'
+        creds = (self.user, self.password)
+        result = requests.get(ids_url, auth=creds)
         return result.text
 
     def missing_ids(self, ids_xml):
-        import pdb;pdb.set_trace()
         new_ids_tree = lxml.etree.fromstring(ids_xml)
         new_ids = [e.get('id') for e in new_ids_tree.findall('assessmentitem')]
 
@@ -77,8 +78,21 @@ class SynchroniseAssessmentsView(grok.View):
         current_ids = [brain.getId for brain in brains]
         return set(new_ids).difference(current_ids)
 
-    def render(self):
-        self.request.response.setHeader('Content-Type', 'text/xml')
-        return self.ids_xml
+    def fetch_assessments(self, missing_ids):
+        assessments_url = self.url + '/@@assessmentitem-xml'
+        tree = lxml.etree.fromstring('<xml/>')
+        for a_id in missing_ids:
+            element = lxml.etree.Element('assessmentitem')
+            element.set('id', a_id)
+            element.text = 'Assessment item %s' % a_id
+            tree.append(element)
+        xml = lxml.etree.tostring(tree)
+        creds = (self.user, self.password)
+        requests.post(assessments_url, data={'xml':xml}, auth=creds)
 
-    
+    def render(self):
+        response = self.request.response
+        response.setHeader('Content-type', 'text/xml')
+        response.setHeader('expires', 0)
+        response['Content-Length'] = len(self.ids_xml)
+        response.write(self.ids_xml)
