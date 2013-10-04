@@ -13,7 +13,7 @@ from tarmii.theme.interfaces import ITARMIIThemeLayer
 from tarmii.theme import MessageFactory as _
 
 
-class AssessmentItemsIdsXML(grok.View):
+class AssessmentItemIdsXML(grok.View):
     """ Return assessment items ids and titles list as XML.
     """
 
@@ -22,7 +22,6 @@ class AssessmentItemsIdsXML(grok.View):
     grok.require('zope2.View')
 
     def update(self):
-        import pdb;pdb.set_trace()
         pc = getToolByName(self.context, 'portal_catalog')
         query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
         brains = pc(query)
@@ -35,4 +34,8 @@ class AssessmentItemsIdsXML(grok.View):
         self.xml_content = lxml.etree.tostring(tree)
 
     def render(self):
-        return self.xml_content
+        response = self.request.response
+        response.setHeader('Content-type', 'text/xml')
+        response.setHeader('expires', 0)
+        response['Content-Length'] = len(self.xml_content)
+        response.write(self.xml_content)

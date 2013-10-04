@@ -14,5 +14,4 @@ class TestSynchronisation(TarmiiThemeTestBase):
         result = view()
         assert result is not None
 
-        import pdb;pdb.set_trace()
         tree = lxml.etree.fromstring(result)

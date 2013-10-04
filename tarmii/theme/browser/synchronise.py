@@ -1,4 +1,5 @@
 import os
+import lxml
 import logging
 import zipfile
 import urlparse
@@ -12,6 +13,7 @@ from five import grok
 from zope.component import getUtility
 from zope.interface import Interface
 from plone.registry.interfaces import IRegistry
+from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
 from tarmii.theme.interfaces import ITARMIIThemeLayer
@@ -36,7 +38,7 @@ class SynchroniseAssessmentsView(grok.View):
         super(SynchroniseAssessmentsView, self).__init__(context, request)
         registry = getUtility(IRegistry)
         self.settings = registry.forInterface(ITARMIIRemoteServerSettings)
-        self.assessmentids_xml = None
+        self.ids_xml = None
 
     def update(self):
         if self.settings.sync_server_url is None or \
@@ -48,10 +50,10 @@ class SynchroniseAssessmentsView(grok.View):
             # redirect to show the error message
             return self.request.response.redirect('/')
         
-        self.assessmentids_xml = self.fetch_assessmentids(self.settings)
+        self.ids_xml = self.fetch_ids(self.settings)
+        self.missing_ids = self.missing_ids(self.ids_xml)
 
-
-    def fetch_assessmentids(self, settings):
+    def fetch_ids(self, settings):
         url = settings.sync_server_url + '/@@assessmentitem-ids-xml'
         user = settings.sync_server_user
         password = settings.sync_server_password
@@ -59,7 +61,24 @@ class SynchroniseAssessmentsView(grok.View):
         result = requests.get(url, auth=creds)
         return result.text
 
+    def missing_ids(self, ids_xml):
+        import pdb;pdb.set_trace()
+        new_ids_tree = lxml.etree.fromstring(ids_xml)
+        new_ids = [e.get('id') for e in new_ids_tree.findall('assessmentitem')]
+
+        pc = getToolByName(self.context, 'portal_catalog')
+        query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
+        brains = pc(query)
+
+        # if we have no assessment items, don't bother comparing, just return
+        if len(brains) < 1:
+            return new_ids
+
+        current_ids = [brain.getId for brain in brains]
+        return set(new_ids).difference(current_ids)
+
     def render(self):
-        return self.assessmentids_xml
+        self.request.response.setHeader('Content-Type', 'text/xml')
+        return self.ids_xml
 
     
