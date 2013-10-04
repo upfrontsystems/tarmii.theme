@@ -243,4 +243,6 @@ class TarmiiThemeTestBase(unittest.TestCase):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
         settings.server_url = u'http://localhost:8080'
-        settings.sync_server_url = u'http://localhost:8080/tarmii/@@assessmentitem-ids-xml'
+        settings.sync_server_url = u'http://localhost:8080/tarmii/'
+        settings.sync_server_user = u'admin'
+        settings.sync_server_password = u'admin'

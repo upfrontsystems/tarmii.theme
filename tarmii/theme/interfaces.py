@@ -49,6 +49,18 @@ class ITARMIIRemoteServerSettings(Interface):
         required=True
     )
 
+    sync_server_user = TextLine(
+        title=_(u'Synchronisation Server user name'),
+        description=_(u'Used to log in to the synchronisation server.'),
+        required=True
+    )
+
+    sync_server_password = TextLine(
+        title=_(u'Synchronisation Server password'),
+        description=_(u'Used to log in to the synchronisation server.'),
+        required=True
+    )
+
 
 class ISiteData(Interface):
     """ A utility used to extract data from a zip file on the request, store it,

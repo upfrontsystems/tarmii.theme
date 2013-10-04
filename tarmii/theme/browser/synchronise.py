@@ -36,23 +36,30 @@ class SynchroniseAssessmentsView(grok.View):
         super(SynchroniseAssessmentsView, self).__init__(context, request)
         registry = getUtility(IRegistry)
         self.settings = registry.forInterface(ITARMIIRemoteServerSettings)
-        self.xml_content = None
+        self.assessmentids_xml = None
 
     def update(self):
-        import pdb;pdb.set_trace()
-        server_url = None
-        if self.settings.server_url != None:
-            url = self.settings.sync_server_url
-            creds = ('admin', 'admin')
-            result = requests.get(url, auth=creds)
-            self.xml_content = result.text
-        else:
-            msg = _('Synchronisation server not specified in settings')
+        if self.settings.sync_server_url is None or \
+           self.settings.sync_server_user is None or \
+           self.settings.sync_server_password is None:
+
+            msg = _('Synchronisation server settings are incomplete.')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
             # redirect to show the error message
             return self.request.response.redirect('/')
+        
+        self.assessmentids_xml = self.fetch_assessmentids(self.settings)
+
+
+    def fetch_assessmentids(self, settings):
+        url = settings.sync_server_url + '/@@assessmentitem-ids-xml'
+        user = settings.sync_server_user
+        password = settings.sync_server_password
+        creds = (user, password)
+        result = requests.get(url, auth=creds)
+        return result.text
 
     def render(self):
-        return self.xml_content
+        return self.assessmentids_xml
 
     
