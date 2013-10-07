@@ -1,0 +1,23 @@
+<xml>
+    <assessmentitem id="001">
+        <title>Assessment item 001</title>
+    </assessmentitem>
+    <assessmentitem id="002">
+        <title>Assessment item 002</title>
+    </assessmentitem>
+    <assessmentitem id="003">
+        <title>Assessment item 003</title>
+    </assessmentitem>
+    <assessmentitem id="004">
+        <title>Assessment item 004</title>
+    </assessmentitem>
+    <assessmentitem id="005">
+        <title>Assessment item 005</title>
+    </assessmentitem>
+    <assessmentitem id="006">
+        <title>Assessment item 006</title>
+    </assessmentitem>
+    <assessmentitem id="007">
+        <title>Assessment item 007</title>
+    </assessmentitem>
+</xml>
