@@ -1,9 +1,10 @@
 import os
 import lxml
 import logging
-import zipfile
 import urlparse
 import requests
+from zipfile import ZipFile
+from cStringIO import StringIO
 
 from cStringIO import StringIO
 from datetime import datetime
@@ -42,6 +43,7 @@ class SynchroniseAssessmentsView(grok.View):
         self.user = self.settings.sync_server_user
         self.password = self.settings.sync_server_password
         self.ids_xml = None
+        self.assessments_zip = None
 
     def update(self):
         if self.settings.sync_server_url is None or \
@@ -88,11 +90,14 @@ class SynchroniseAssessmentsView(grok.View):
             tree.append(element)
         xml = lxml.etree.tostring(tree)
         creds = (self.user, self.password)
-        requests.post(assessments_url, data={'xml':xml}, auth=creds)
+        result = requests.post(assessments_url, data={'xml':xml}, auth=creds)
+        self.assessments_zip = result.content
+
+        zipio = StringIO(self.assessments_zip)
+        zipfile = ZipFile(zipio, 'r')
+
+        assessments_xml = zipfile.open('assessmentitems.xml').read()
+        print len(assessments_xml)
 
     def render(self):
-        response = self.request.response
-        response.setHeader('Content-type', 'text/xml')
-        response.setHeader('expires', 0)
-        response['Content-Length'] = len(self.ids_xml)
-        response.write(self.ids_xml)
+        return 'done'
