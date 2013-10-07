@@ -1,5 +1,7 @@
 import lxml
 import logging
+from zipfile import ZipFile
+from cStringIO import StringIO
 
 from datetime import datetime
 from DateTime import DateTime
@@ -21,7 +23,7 @@ class AssessmentItemXML(grok.View):
     grok.name('assessmentitem-xml')
     grok.require('zope2.View')
 
-    def update(self):
+    def __call__(self):
         xml = self.request.form.get('xml')
         if xml is None or len(xml) < 1:
             raise 'No xml payload provided!'
@@ -32,7 +34,8 @@ class AssessmentItemXML(grok.View):
             raise 'The xml contains no ids!'
 
         pc = getToolByName(self.context, 'portal_catalog')
-        query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
+        query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem',
+                 'getId': ids}
         brains = pc(query)
         tree = lxml.etree.fromstring('<xml/>')
         for brain in brains:
@@ -42,9 +45,24 @@ class AssessmentItemXML(grok.View):
             tree.append(element)
         self.xml_content = lxml.etree.tostring(tree)
 
-    def render(self):
+        zipio = StringIO()
+        zipfile = ZipFile(zipio, 'w')
+        zipfile.writestr('assessmentitems.xml', self.xml_content)
+        zipfile.close()
+        zipio.seek(0)
+        content = zipio.read()
+        zipio.close()
+
         response = self.request.response
-        response.setHeader('Content-type', 'text/xml')
+        response.setHeader('Content-Type', 'application/octet-stream')
+        response.setHeader('Content-Length', len(content))
+        response.setHeader('Last-Modified', DateTime.rfc822(DateTime()))
         response.setHeader('expires', 0)
-        response['Content-Length'] = len(self.xml_content)
-        response.write(self.xml_content)
+        response.setHeader("Content-Disposition",
+                           "attachment; filename=%assessmentitems.zip")
+
+        response.write(content)
+
+    def render(self):
+        """ Keep grok happy with no-op method """
+        pass
