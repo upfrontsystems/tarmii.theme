@@ -28,26 +28,26 @@ class AssessmentItemXML(grok.View):
         if xml is None or len(xml) < 1:
             raise 'No xml payload provided!'
         
+        assessments_tree = lxml.etree.fromstring('<xml/>')
+
         ids_tree = lxml.etree.fromstring(xml)
         ids = [e.get('id') for e in ids_tree.findall('assessmentitem')]
-        if ids is None or len(ids) < 1:
-            raise 'The xml contains no ids!'
+        if ids is not None:
+            pc = getToolByName(self.context, 'portal_catalog')
+            query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem',
+                     'getId': ids}
+            brains = pc(query)
+            for brain in brains:
+                element = lxml.etree.Element('assessmentitem')
+                element.set('id', brain.getId)
+                element.text = 'Assessment item %s' % brain.getId
+                assessments_tree.append(element)
 
-        pc = getToolByName(self.context, 'portal_catalog')
-        query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem',
-                 'getId': ids}
-        brains = pc(query)
-        tree = lxml.etree.fromstring('<xml/>')
-        for brain in brains:
-            element = lxml.etree.Element('assessmentitem')
-            element.set('id', brain.getId)
-            element.text = 'Assessment item %s' % brain.getId
-            tree.append(element)
-        self.xml_content = lxml.etree.tostring(tree)
+        xml_content = lxml.etree.tostring(assessments_tree)
 
         zipio = StringIO()
         zipfile = ZipFile(zipio, 'w')
-        zipfile.writestr('assessmentitems.xml', self.xml_content)
+        zipfile.writestr('assessmentitems.xml', xml_content)
         zipfile.close()
         zipio.seek(0)
         content = zipio.read()
