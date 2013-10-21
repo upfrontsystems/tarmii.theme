@@ -38,9 +38,7 @@ class AssessmentItemXML(grok.View):
                      'getId': ids}
             brains = pc(query)
             for brain in brains:
-                element = lxml.etree.Element('assessmentitem')
-                element.set('id', brain.getId)
-                element.text = 'Assessment item %s' % brain.getId
+                element = self.marshal_item(brain.getObject())
                 assessments_tree.append(element)
 
         xml_content = lxml.etree.tostring(assessments_tree)
@@ -62,6 +60,12 @@ class AssessmentItemXML(grok.View):
                            "attachment; filename=%assessmentitems.zip")
 
         response.write(content)
+
+    def marshal_item(self, assessmentitem):
+        element = lxml.etree.Element('assessmentitem')
+        element.set('id', assessmentitem.getId())
+        element.text = assessmentitem.Title()
+        return element
 
     def render(self):
         """ Keep grok happy with no-op method """
