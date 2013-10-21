@@ -37,6 +37,18 @@ class ITARMIIRemoteServerSettings(Interface):
         required=True
     )
 
+    upload_server_user = TextLine(
+        title=_(u'Data upload user name'),
+        description=_(u'Used to log in to the server.'),
+        required=True
+    )
+
+    upload_server_password = TextLine(
+        title=_(u'Upload password'),
+        description=_(u'Used to log in to the server.'),
+        required=True
+    )
+
     last_successful_upload = Datetime(
         title=_(u'Last Successful Upload Date'),
         description=_(u'Stores last date of successful data upload'),

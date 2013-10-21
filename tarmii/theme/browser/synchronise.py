@@ -22,6 +22,8 @@ from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
 
 
+grok.templatedir('templates')
+
 class SynchroniseAssessmentsView(grok.View):
     """ Fetch a file containing all assessment ids from the server.
         Check the ids against the local assessment ids.
@@ -34,6 +36,7 @@ class SynchroniseAssessmentsView(grok.View):
     grok.context(Interface)
     grok.name('synchronise')
     grok.require('zope2.View')
+    grok.template('synchronise')
 
     def __init__(self, context, request):
         super(SynchroniseAssessmentsView, self).__init__(context, request)
@@ -46,38 +49,44 @@ class SynchroniseAssessmentsView(grok.View):
         self.password = self.settings.sync_server_password
         self.ids_xml = None
         self.assessments_zip = None
-        self.errors = []
-        self.imported = []
 
     def update(self):
         if self.settings.sync_server_url is None or \
            self.settings.sync_server_user is None or \
            self.settings.sync_server_password is None:
-            msg = _('Synchronisation server settings are incomplete.')
-            self.errors.append(msg)
-        
-        self.ids_xml = self.fetch_ids(self.settings)
+            error = 'Synchronisation server settings are incomplete.'
+            self.add_errors([error])
+         
+        errors, self.ids_xml = self.fetch_ids(self.settings)
+        if errors:  
+            self.add_errors(errors)
+            return
+
         missing_ids = self.missing_ids(self.ids_xml)
-        assessments_zip = self.fetch_assessments_zip(missing_ids)
-        if assessments_zip is None:
-            msg = _('No assessments returned in zip file.')
-            self.errors.append(msg)
+        if not missing_ids:
+            msg = 'Assessment items up to date.'
+            self.add_messages([msg])
             return
 
-        import_errors, imported = self.import_assessments(assessments_zip)
-        if import_errors:
-            self.errors.extend(import_errors)
+        errors, assessments_zip = self.fetch_assessments_zip(missing_ids)
+        if errors:
+            self.add_errors(errors)
             return
 
-        if imported:
-            self.imported.extend(imported)
+        errors, imported = self.import_assessments(assessments_zip)
+        if errors:
+            self.add_errors(errors)
             return
+        self.add_messages(imported)
 
     def fetch_ids(self, settings):
         ids_url = self.url + '/@@assessmentitem-ids-xml'
         creds = (self.user, self.password)
-        result = requests.get(ids_url, auth=creds)
-        return result.text
+        try:
+            result = requests.get(ids_url, auth=creds)
+            return None, result.content
+        except ConnectionError:
+            return 'Could not connect to %s.' % ids_url, None
 
     def missing_ids(self, ids_xml):
         new_ids_tree = lxml.etree.fromstring(ids_xml)
@@ -104,12 +113,15 @@ class SynchroniseAssessmentsView(grok.View):
             tree.append(element)
         xml = lxml.etree.tostring(tree)
         creds = (self.user, self.password)
-        result = requests.post(assessments_url, data={'xml':xml}, auth=creds)
-        self.assessments_zip = result.content
+        try:
+            result = requests.post(assessments_url, data={'xml':xml}, auth=creds)
+            self.assessments_zip = result.content
 
-        zipio = StringIO(self.assessments_zip)
-        zipfile = ZipFile(zipio, 'r')
-        return zipfile
+            zipio = StringIO(self.assessments_zip)
+            zipfile = ZipFile(zipio, 'r')
+            return None, zipfile
+        except ConnectionError:
+            return 'Could not connect to %s.' %assessments_url, None
 
     def import_assessments(self, zipfile):
         errors = imported = []
@@ -122,18 +134,17 @@ class SynchroniseAssessmentsView(grok.View):
         activities = self.portal._getOb('activities')
         for count, element in enumerate(elements):
             print 'Importing assessment item %s of %s' % (count+1, len(elements)) 
-            imported.append('Assessment item %s' % element.get('id'))
             #obj = activities.createObjectInContainer
+            imported.append('Imported assessment item %s' % element.get('id'))
             
         return errors, imported
-
-    def render(self):
-        for error in self.errors: 
+    
+    def add_errors(self, errors):
+        for error in errors: 
             msg = _(error)
-            IStatusMessage(self.request).addStatusMessage(msg, "error")
+            IStatusMessage(self.request).addStatusMessage(msg, u"error")
 
-        for imported in self.imported:
-            msg = _('Imported assessment item %s')
-            IStatusMessage(self.request).addStatusMessage(msg, "info")
-
-        return self.request.response.redirect(self.portal.absolute_url())
+    def add_messages(self, messages):
+        for message in messages:
+            msg = _(message)
+            IStatusMessage(self.request).addStatusMessage(msg, u"info")

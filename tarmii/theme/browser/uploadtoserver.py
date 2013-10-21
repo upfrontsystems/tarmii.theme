@@ -3,6 +3,7 @@ import httplib
 import logging
 import os
 import urlparse
+from requests import Request, Session
 import zipfile
 from cStringIO import StringIO
 from datetime import datetime
@@ -88,9 +89,7 @@ class UploadToServerView(grok.View):
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
 
         # make sure that a server has been specified
-        if settings.server_url != None:
-            parts = urlparse.urlparse(settings.server_url)
-        else:
+        if settings.server_url is None or len(settings.server_url) == 0:
             msg = _('Upload Server not specified in settings')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
             # redirect to show the error message
@@ -98,26 +97,31 @@ class UploadToServerView(grok.View):
                    '/'.join(self.context.getPhysicalPath()))
 
         # send zip data to server
-        h = httplib.HTTP(parts.netloc) # ignore leading '//'
-        h.putrequest('POST', parts.path)
         now = DateTime()
-        body = '\r\n' + zip_data
-
+        nice_filename = '%s_%s' % ('tarmii_logs_', now.strftime('%Y%m%d'))
+        headers = {
+            'Content-Type'       : 'application/zip',
+            'Content-Length'     : str(len(zip_data)),
+            'Last-Modified'      : DateTime.rfc822(DateTime()),
+            "Content-Disposition": "attachment; filename=%s.zip" %
+                                    nice_filename
+        }
+        
         memberid = os.environ['TEACHERDATA_USER']
         passwd = os.environ['TEACHERDATA_PASS']
-        authstr = "%s:%s" % (memberid, passwd)
+        
+        session = Session()
+        prepped = Request('POST',
+                          settings.server_url,
+                          data=zip_data,
+                          auth=(memberid, passwd),
+                          headers=headers,
+                         ).prepare()
 
-        nice_filename = '%s_%s' % ('tarmii_logs_', now.strftime('%Y%m%d'))
-        h.putheader('Authorization', 'Basic ' + base64.b64encode(authstr))
-        h.putheader("Content-Disposition", "attachment; filename=%s.zip" %
-                                            nice_filename)
-        h.putheader('Content-Type', 'application/octet-stream')
-        h.putheader('Content-Length', str(len(body)))
-        h.putheader('Last-Modified', DateTime.rfc822(DateTime()))
-        h.endheaders()
+        result = session.send(prepped)
 
-        h.send(body)
-        errcode, errmsg, headers = h.getreply()
+        errcode = result.status_code
+        errmsg = result.reason
 
         if errcode == 200:
             # if upload successful, set date in registry
