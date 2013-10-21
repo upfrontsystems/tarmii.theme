@@ -96,7 +96,7 @@ class SynchroniseAssessmentsView(grok.View):
         query = {'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
         brains = pc(query)
 
-        # if we have no assessment items, don't bother comparing, just return
+        # if we have no assessment items, there is nothing to compare.
         if len(brains) < 1:
             return new_ids
 
