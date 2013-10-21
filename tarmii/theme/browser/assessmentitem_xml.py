@@ -26,8 +26,8 @@ class AssessmentItemXML(grok.View):
     def __call__(self):
         xml = self.request.form.get('xml')
         if xml is None or len(xml) < 1:
-            raise 'No xml payload provided!'
-        
+            raise RuntimeError('No xml payload provided!')
+
         assessments_tree = lxml.etree.fromstring('<xml/>')
 
         ids_tree = lxml.etree.fromstring(xml)
