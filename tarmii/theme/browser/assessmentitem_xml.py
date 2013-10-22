@@ -2,6 +2,7 @@ import lxml
 import logging
 from zipfile import ZipFile
 from cStringIO import StringIO
+from types import UnicodeType
 
 from datetime import datetime
 from DateTime import DateTime
@@ -10,7 +11,10 @@ from five import grok
 from zope.component import getUtility
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
+from plone.app.textfield import RichText
 
+from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
+from tarmii.theme.behaviors import IItemMetadata
 from tarmii.theme.interfaces import ITARMIIThemeLayer
 from tarmii.theme import MessageFactory as _
 
@@ -55,6 +59,21 @@ class AssessmentItemXML(grok.View):
         element = lxml.etree.Element('assessmentitem')
         element.set('id', assessmentitem.getId())
         element.text = assessmentitem.Title()
+
+        names_and_descriptions = IAssessmentItem.namesAndDescriptions() + \
+                                 IItemMetadata.namesAndDescriptions()
+        for fname, ftype in names_and_descriptions:
+            sub_element = lxml.etree.Element(fname)
+            value = getattr(assessmentitem, fname, u'')
+            # If we have a value and it is a RichText field.
+            if value is not None and isinstance(ftype, RichText):
+                value = getattr(assessmentitem, fname).raw
+            # If we have a value, but it is not unicode
+            if value is not None and not isinstance(value, UnicodeType):
+                portal_encoding = 'utf-8'
+                value = unicode(value, portal_encoding)
+            sub_element.text = value
+            element.append(sub_element)
         return element
 
     def render(self):
