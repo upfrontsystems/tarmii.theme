@@ -1,4 +1,5 @@
 import lxml
+import requests
 
 from zope.component import getUtility
 
@@ -10,10 +11,10 @@ class TestSynchronisation(TarmiiThemeTestBase):
     """
     
     def test_fetch_ids(self):
-        view = self.portal.restrictedTraverse('@@assessmentitem-xml')
+        view = self.portal.restrictedTraverse('@@assessmentitem-ids-xml')
         result = view()
-        assert result is not None
         tree = lxml.etree.fromstring(result)
+        self.assertEqual(len(tree.findall('assessmentitem')), 4)
 
     def test_fetch_assessments(self):
         self.fail()
