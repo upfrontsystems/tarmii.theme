@@ -14,9 +14,15 @@ from five import grok
 from zope.component import getUtility
 from zope.interface import Interface
 from plone.registry.interfaces import IRegistry
+from plone.dexterity.utils import createContentInContainer
+from plone.app.textfield import RichText
+from plone.app.textfield.value import RichTextValue
+from plone.app.textfield.interfaces import IRichTextValue
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
+from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
+from tarmii.theme.behaviors import IItemMetadata
 from tarmii.theme.interfaces import ITARMIIThemeLayer
 from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
@@ -74,9 +80,7 @@ class SynchroniseAssessmentsView(grok.View):
             return
 
         errors, imported = self.import_assessments(assessments_zip)
-        if errors:
-            self.add_errors(errors)
-            return
+        self.add_errors(errors)
         self.add_messages(imported)
 
     def fetch_ids(self, settings):
@@ -124,7 +128,8 @@ class SynchroniseAssessmentsView(grok.View):
             return 'Could not connect to %s.' %assessments_url, None
 
     def import_assessments(self, zipfile):
-        errors = imported = []
+        errors = []
+        imported = []
         assessments_xml = zipfile.open('assessmentitems.xml').read()
         tree = lxml.etree.fromstring(assessments_xml)
         elements = tree.findall('assessmentitem')
@@ -134,10 +139,38 @@ class SynchroniseAssessmentsView(grok.View):
         activities = self.portal._getOb('activities')
         for count, element in enumerate(elements):
             print 'Importing assessment item %s of %s' % (count+1, len(elements)) 
-            #obj = activities.createObjectInContainer
-            imported.append('Imported assessment item %s' % element.get('id'))
+            settings = self.get_settings(element)
+            if settings['id'] in activities.objectIds():
+                errors.append('Activity %s exists... skipping.' % settings['id'])
+            else:
+                obj = createContentInContainer(activities,
+                                               'upfront.assessmentitem.content.assessmentitem',
+                                               checkConstraints=False,
+                                               **settings)
+                imported.append('Imported assessment item %s' % element.get('id'))
             
         return errors, imported
+
+    def get_settings(self, element, encoding='utf-8'):
+        settings = {}
+        settings['id'] = element.attrib['id']
+        names_and_descriptions = IAssessmentItem.namesAndDescriptions() + \
+                                 IItemMetadata.namesAndDescriptions()
+        for fname, field in names_and_descriptions:
+            sub_element = element.find(fname)
+            value = sub_element.text
+            if value and isinstance(field, RichText):
+                mimeType = sub_element.attrib.get('mimeType',
+                                                  field.default_mime_type)
+                outputMimeType = sub_element.attrib.get('outputMimeType',
+                                                        field.output_mime_type)
+                value = RichTextValue(raw=sub_element.text,
+                                      mimeType=mimeType,
+                                      outputMimeType=outputMimeType,
+                                      encoding=encoding)
+            settings[fname] = value
+
+        return settings
     
     def add_errors(self, errors):
         for error in errors: 
