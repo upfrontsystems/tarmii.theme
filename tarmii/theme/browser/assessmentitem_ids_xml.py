@@ -37,5 +37,4 @@ class AssessmentItemIdsXML(grok.View):
         response = self.request.response
         response.setHeader('Content-type', 'text/xml')
         response.setHeader('expires', 0)
-        response['Content-Length'] = len(self.xml_content)
-        response.write(self.xml_content)
+        return self.xml_content
