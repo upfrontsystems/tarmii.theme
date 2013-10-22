@@ -23,7 +23,7 @@ class AssessmentItemXML(grok.View):
     grok.name('assessmentitem-xml')
     grok.require('zope2.View')
 
-    def __call__(self):
+    def update(self):
         xml = self.request.form.get('xml')
         if xml is None or len(xml) < 1:
             raise RuntimeError('No xml payload provided!')
@@ -48,18 +48,8 @@ class AssessmentItemXML(grok.View):
         zipfile.writestr('assessmentitems.xml', xml_content)
         zipfile.close()
         zipio.seek(0)
-        content = zipio.read()
+        self.content = zipio.read()
         zipio.close()
-
-        response = self.request.response
-        response.setHeader('Content-Type', 'application/octet-stream')
-        response.setHeader('Content-Length', len(content))
-        response.setHeader('Last-Modified', DateTime.rfc822(DateTime()))
-        response.setHeader('expires', 0)
-        response.setHeader("Content-Disposition",
-                           "attachment; filename=%assessmentitems.zip")
-
-        response.write(content)
 
     def marshal_item(self, assessmentitem):
         element = lxml.etree.Element('assessmentitem')
@@ -68,5 +58,13 @@ class AssessmentItemXML(grok.View):
         return element
 
     def render(self):
-        """ Keep grok happy with no-op method """
-        pass
+        response = self.request.response
+        response.setHeader('Content-Type', 'application/octet-stream')
+        response.setHeader('Content-Length', len(self.content))
+        response.setHeader('Last-Modified', DateTime.rfc822(DateTime()))
+        response.setHeader('expires', 0)
+        response.setHeader("Content-Disposition",
+                           "attachment; filename=%assessmentitems.zip")
+
+        #response.write(self.content)
+        return self.content
