@@ -28,11 +28,13 @@ class AssessmentItemXML(grok.View):
     grok.require('zope2.View')
 
     def update(self):
+        self.portal_encoding = 'utf-8'
         xml = self.request.form.get('xml')
         if xml is None or len(xml) < 1:
             raise RuntimeError('No xml payload provided!')
 
         assessments_tree = lxml.etree.fromstring('<xml/>')
+        assessments_tree.attrib['encoding'] = self.portal_encoding
 
         ids_tree = lxml.etree.fromstring(xml)
         ids = [e.get('id') for e in ids_tree.findall('assessmentitem')]
@@ -62,16 +64,19 @@ class AssessmentItemXML(grok.View):
 
         names_and_descriptions = IAssessmentItem.namesAndDescriptions() + \
                                  IItemMetadata.namesAndDescriptions()
-        for fname, ftype in names_and_descriptions:
+        for fname, field in names_and_descriptions:
             sub_element = lxml.etree.Element(fname)
+            attribs = {}
             value = getattr(assessmentitem, fname, u'')
             # If we have a value and it is a RichText field.
-            if value is not None and isinstance(ftype, RichText):
+            if value is not None and isinstance(field, RichText):
                 value = getattr(assessmentitem, fname).raw
+                attribs['mimeType'] = field.default_mime_type
+                attribs['outputMimeType'] = field.output_mime_type
             # If we have a value, but it is not unicode
             if value is not None and not isinstance(value, UnicodeType):
-                portal_encoding = 'utf-8'
-                value = unicode(value, portal_encoding)
+                value = unicode(value, self.portal_encoding)
+            sub_element.attrib.update(attribs)
             sub_element.text = value
             element.append(sub_element)
         return element
