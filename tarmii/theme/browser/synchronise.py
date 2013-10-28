@@ -5,6 +5,7 @@ import urlparse
 import requests
 from zipfile import ZipFile
 from cStringIO import StringIO
+from zExceptions import BadRequest
 
 from cStringIO import StringIO
 from datetime import datetime
@@ -18,6 +19,7 @@ from plone.dexterity.utils import createContentInContainer
 from plone.app.textfield import RichText
 from plone.app.textfield.value import RichTextValue
 from plone.app.textfield.interfaces import IRichTextValue
+from plone.i18n.normalizer.interfaces import IURLNormalizer
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
@@ -79,7 +81,7 @@ class SynchroniseAssessmentsView(grok.View):
             self.add_errors(errors)
             return
 
-        errors, imported = self.import_assessments(assessments_zip)
+        errors, imported = self.import_assessmentitems(assessments_zip)
         self.add_errors(errors)
         self.add_messages(imported)
 
@@ -89,7 +91,7 @@ class SynchroniseAssessmentsView(grok.View):
         try:
             result = requests.get(ids_url, auth=creds)
             return None, result.content
-        except ConnectionError:
+        except requests.ConnectionError:
             return 'Could not connect to %s.' % ids_url, None
 
     def missing_ids(self, ids_xml):
@@ -124,10 +126,10 @@ class SynchroniseAssessmentsView(grok.View):
             zipio = StringIO(self.assessments_zip)
             zipfile = ZipFile(zipio, 'r')
             return None, zipfile
-        except ConnectionError:
+        except requests.ConnectionError:
             return 'Could not connect to %s.' %assessments_url, None
 
-    def import_assessments(self, zipfile):
+    def import_assessmentitems(self, zipfile):
         errors = []
         imported = []
         assessments_xml = zipfile.open('assessmentitems.xml').read()
@@ -136,18 +138,29 @@ class SynchroniseAssessmentsView(grok.View):
         if elements is None or len(elements) < 1:
             return errors, []
         
+        normalizer = getUtility(IURLNormalizer)
         activities = self.portal._getOb('activities')
         for count, element in enumerate(elements):
             print 'Importing assessment item %s of %s' % (count+1, len(elements)) 
             settings = self.get_settings(element)
-            if settings['id'] in activities.objectIds():
+            validation_errors = self.validate_settings(settings)
+            if len(validation_errors) > 0:
+                errors.extend(validation_errors)
+                continue
+
+            # we use the same method tarmii.theme.namechooser does.
+            a_id = normalizer.normalize(str(settings['item_id']))
+            if a_id in activities.objectIds():
                 errors.append('Activity %s exists... skipping.' % settings['id'])
             else:
-                obj = createContentInContainer(activities,
-                                               'upfront.assessmentitem.content.assessmentitem',
-                                               checkConstraints=False,
-                                               **settings)
-                imported.append('Imported assessment item %s' % element.get('id'))
+                try:
+                    obj = createContentInContainer(activities,
+                                                   'upfront.assessmentitem.content.assessmentitem',
+                                                   checkConstraints=False,
+                                                   **settings)
+                    imported.append('Imported assessment item %s' % element.get('id'))
+                except BadRequest:
+                    errors.append('Error importing assessment item %s.' element.get('id'))
             
         return errors, imported
 
@@ -169,8 +182,15 @@ class SynchroniseAssessmentsView(grok.View):
                                       outputMimeType=outputMimeType,
                                       encoding=encoding)
             settings[fname] = value
-
         return settings
+    
+    def validate_settings(self, settings):
+        errors = []
+        for fname in ['item_id',]:
+            value = settings.get('item_id', '')
+            if value is None or len(value) == 0:
+                errors.append('Field %s is required. Skipping item.' % fname)
+        return errors
     
     def add_errors(self, errors):
         for error in errors: 
