@@ -154,13 +154,17 @@ class SynchroniseAssessmentsView(grok.View):
                 errors.append('Activity %s exists... skipping.' % settings['id'])
             else:
                 try:
-                    obj = createContentInContainer(activities,
-                                                   'upfront.assessmentitem.content.assessmentitem',
-                                                   checkConstraints=False,
-                                                   **settings)
-                    imported.append('Imported assessment item %s' % element.get('id'))
+                    obj = createContentInContainer(
+                        activities,
+                        'upfront.assessmentitem.content.assessmentitem',
+                        checkConstraints=False,
+                        **settings
+                    )
+                    imported.append(
+                        'Imported assessment item %s' % element.get('id')
+                    )
                 except BadRequest:
-                    errors.append('Error importing assessment item %s.' element.get('id'))
+                    errors.append('Error importing assessment item %s.' % element.get('id'))
             
         return errors, imported
 
