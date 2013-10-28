@@ -23,6 +23,27 @@ class TestSynchronisation(TarmiiThemeTestBase):
             item = tree.find('assessmentitem[@id="assessmentitem%s"]' % number)
             assert item is not None
 
+    def test_missing_ids(self):
+        self.fail()
+
+    def test_fetch_assessments_zip(self):
+        self.fail()
+    
+    def test_import_assessmentitems(self):
+        self.fail()
+
+    def test_get_settings(self):
+        self.fail()
+
+    def test_validate_settings(self):
+        self.fail()
+    
+    def test_add_errors(self):
+        self.fail()
+
+    def test_add_messages(self):
+        self.fail()
+
     def test_fetch_assessmentitems(self):   
         view = self.portal.restrictedTraverse('@@assessmentitem-ids-xml')
         xml = view()
