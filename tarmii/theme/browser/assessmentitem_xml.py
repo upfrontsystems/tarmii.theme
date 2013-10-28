@@ -1,5 +1,7 @@
+import re
 import lxml
 import logging
+import requests
 from zipfile import ZipFile
 from cStringIO import StringIO
 from types import UnicodeType
@@ -18,6 +20,12 @@ from tarmii.theme.behaviors import IItemMetadata
 from tarmii.theme.interfaces import ITARMIIThemeLayer
 from tarmii.theme import MessageFactory as _
 
+LOG = logging.getLogger('Assessmentite_xml:')
+
+IMAGE_EXP = re.compile('src=\"(.*?)\"')
+
+NAMES_AND_DESCRIPTIONS = IAssessmentItem.namesAndDescriptions() + \
+                         IItemMetadata.namesAndDescriptions()
 
 class AssessmentItemXML(grok.View):
     """ Return assessment items as XML.
@@ -28,6 +36,9 @@ class AssessmentItemXML(grok.View):
     grok.require('zope2.View')
 
     def update(self):
+        zipio = StringIO()
+        zipfile = ZipFile(zipio, 'w')
+
         self.portal_encoding = 'utf-8'
         xml = self.request.form.get('xml')
         if xml is None or len(xml) < 1:
@@ -44,13 +55,12 @@ class AssessmentItemXML(grok.View):
                      'getId': ids}
             brains = pc(query)
             for brain in brains:
-                element = self.marshal_item(brain.getObject())
+                item = brain.getObject()
+                element = self.marshal_item(item)
                 assessments_tree.append(element)
+                self.add_images_to_zip(item, zipfile)
 
         xml_content = lxml.etree.tostring(assessments_tree)
-
-        zipio = StringIO()
-        zipfile = ZipFile(zipio, 'w')
         zipfile.writestr('assessmentitems.xml', xml_content)
         zipfile.close()
         zipio.seek(0)
@@ -62,9 +72,7 @@ class AssessmentItemXML(grok.View):
         element.set('id', assessmentitem.getId())
         element.text = assessmentitem.Title()
 
-        names_and_descriptions = IAssessmentItem.namesAndDescriptions() + \
-                                 IItemMetadata.namesAndDescriptions()
-        for fname, field in names_and_descriptions:
+        for fname, field in NAMES_AND_DESCRIPTIONS:
             sub_element = lxml.etree.Element(fname)
             attribs = {}
             value = getattr(assessmentitem, fname, u'')
@@ -80,6 +88,40 @@ class AssessmentItemXML(grok.View):
             sub_element.text = value
             element.append(sub_element)
         return element
+
+    def add_images_to_zip(self, assessmentitem, zipfile):
+        pc = getToolByName(self.context, 'portal_catalog')
+        for fname, field in NAMES_AND_DESCRIPTIONS:
+            images = []
+            if not hasattr(assessmentitem, fname):
+                LOG.warn('Item %s has no attribute %s. This should not happen.'
+                    % (assessmentitem.getId(), fname))
+                
+            value = getattr(assessmentitem, fname, None)
+            if value is not None and isinstance(field, RichText):
+                value = value.raw
+                image_paths= IMAGE_EXP.findall(value)
+                for path in image_paths:
+                    # embedded, inline image
+                    if path.startswith('data:image'):
+                        # we could do something like:
+                        # f_image = path
+                        # image_id = 'image-%s' % str(len(assessmentitem.objectIds())+1)
+                        # zipfile.writestr('images/%s' % image_id, f_image)
+                        # but for the moment we just leave it in-line.
+                        continue
+                    else:
+                        image = None
+                        if 'resolveuid' in path:
+                            result = requests.get(path)
+                            image = result.content
+                        else:
+                            image = assessmentitem.restrictedTraverse([path])
+                            f_image = image.getImageAsFile()
+                            image = f_image.read()
+                            f_image.close()
+                        zipfile.writestr('images/'+path, image)
+
 
     def render(self):
         response = self.request.response
