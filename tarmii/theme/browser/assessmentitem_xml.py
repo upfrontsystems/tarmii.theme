@@ -120,7 +120,8 @@ class AssessmentItemXML(grok.View):
                             f_image = image.getImageAsFile()
                             image = f_image.read()
                             f_image.close()
-                        zipfile.writestr('images/'+path, image)
+                        img_path = 'images/%s/%s' % (assessmentitem.getId(), path)
+                        zipfile.writestr(img_path, image)
 
 
     def render(self):
