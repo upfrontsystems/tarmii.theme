@@ -13,15 +13,7 @@ class TestSynchronisation(TarmiiThemeTestBase):
     """
     
     def test_fetch_ids(self):
-        view = self.portal.restrictedTraverse('@@assessmentitem-ids-xml')
-        result = view()
-        tree = lxml.etree.fromstring(result)
-        num_activities = len(self.portal.activities.objectIds())
-        items = tree.findall('assessmentitem')
-        self.assertEqual(len(items), num_activities)
-        for number in range(1, num_activities + 1):
-            item = tree.find('assessmentitem[@id="assessmentitem%s"]' % number)
-            assert item is not None
+        self.fail()
 
     def test_missing_ids(self):
         self.fail()
