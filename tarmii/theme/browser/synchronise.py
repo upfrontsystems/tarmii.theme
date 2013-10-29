@@ -154,12 +154,13 @@ class SynchroniseAssessmentsView(grok.View):
                 errors.append('Activity %s exists... skipping.' % settings['id'])
             else:
                 try:
-                    obj = createContentInContainer(
+                    assessmentitem = createContentInContainer(
                         activities,
                         'upfront.assessmentitem.content.assessmentitem',
                         checkConstraints=False,
                         **settings
                     )
+                    self.import_images_for(assessmentitem, zipfile)
                     imported.append(
                         'Imported assessment item %s' % element.get('id')
                     )
@@ -195,6 +196,16 @@ class SynchroniseAssessmentsView(grok.View):
             if value is None or len(value) == 0:
                 errors.append('Field %s is required. Skipping item.' % fname)
         return errors
+
+    def import_images_for(self, assessmentitem, zipfile):
+        a_id = assessmentitem.getId()
+        zis = [i for i in zipfile.infolist() if a_id in i.filename.split('/')]
+        for info in zis:
+            data = zipfile.open(info).read()
+            img_id = info.filename.split('/')[-1]
+            assessmentitem.invokeFactory('Image', img_id)
+            img = assessmentitem._getOb(img_id)
+            img.setImage(data)
     
     def add_errors(self, errors):
         for error in errors: 
