@@ -54,24 +54,24 @@ class SynchroniseAssessmentsView(grok.View):
             'plone_portal_state').portal()
         registry = getUtility(IRegistry)
         self.settings = registry.forInterface(ITARMIIRemoteServerSettings)
-        self.url = self.settings.sync_server_url
-        self.user = self.settings.sync_server_user
-        self.password = self.settings.sync_server_password
+        self.url = self.settings.sync_server_url or None
+        self.user = self.settings.sync_server_user or None
+        self.password = self.settings.sync_server_password or None
         self.ids_xml = None
         self.assessments_zip = None
 
     def update(self):
-        if self.settings.sync_server_url is None or \
-           len(self.settings.sync_server_url) == 0 or \
-           self.settings.sync_server_user is None or \
-           self.settings.sync_server_password is None:
+        if self.url is None or self.user is None or self.password is None:
             error = 'Synchronisation server settings are incomplete.'
             LOG.error(error)
             self.add_errors([error])
+            LOG.error(error)
+            return
          
         errors, self.ids_xml = self.fetch_ids(self.settings)
         if errors:  
             self.add_errors(errors)
+            LOG.error(errors)
             return
 
         missing_ids = self.missing_ids(self.ids_xml)
@@ -83,10 +83,12 @@ class SynchroniseAssessmentsView(grok.View):
         errors, assessments_zip = self.fetch_assessments_zip(missing_ids)
         if errors:
             self.add_errors(errors)
+            LOG.error(errors)
             return
 
         errors, imported = self.import_assessmentitems(assessments_zip)
         self.add_errors(errors)
+        LOG.error(errors)
         self.add_messages(imported)
 
     def fetch_ids(self, settings):
