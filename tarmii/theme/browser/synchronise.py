@@ -30,6 +30,8 @@ from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
 
 
+LOG = logging.getLogger('tarmii.theme.synchronise')
+
 grok.templatedir('templates')
 
 class SynchroniseAssessmentsView(grok.View):
@@ -60,9 +62,11 @@ class SynchroniseAssessmentsView(grok.View):
 
     def update(self):
         if self.settings.sync_server_url is None or \
+           len(self.settings.sync_server_url) == 0 or \
            self.settings.sync_server_user is None or \
            self.settings.sync_server_password is None:
             error = 'Synchronisation server settings are incomplete.'
+            LOG.error(error)
             self.add_errors([error])
          
         errors, self.ids_xml = self.fetch_ids(self.settings)
