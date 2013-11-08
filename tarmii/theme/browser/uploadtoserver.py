@@ -18,6 +18,9 @@ from Products.statusmessages.interfaces import IStatusMessage
 from tarmii.theme.interfaces import ITARMIIRemoteServerSettings
 from tarmii.theme import MessageFactory as _
 
+LOG = logging.getLogger('tarmii.theme.uploadtoserver')
+
+
 class UploadToServerView(grok.View):
     """ Create a zip file in memory of the CSV files for logged requests,
         evaluations sheets and user profiles from a specified date
@@ -89,9 +92,12 @@ class UploadToServerView(grok.View):
         settings = registry.forInterface(ITARMIIRemoteServerSettings)
 
         # make sure that a server has been specified
-        if settings.server_url is None or len(settings.server_url) == 0:
-            msg = _('Upload Server not specified in settings')
+        if settings.server_url is None or len(settings.server_url) == 0 or \
+           settings.upload_server_user is None or \
+           settings.upload_server_password is None:
+            msg = _('Upload Server details not specified in settings.')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
+            LOG.error(msg)
             # redirect to show the error message
             return self.request.response.redirect(
                    '/'.join(self.context.getPhysicalPath()))
@@ -107,14 +113,14 @@ class UploadToServerView(grok.View):
                                     nice_filename
         }
         
-        memberid = os.environ['TEACHERDATA_USER']
-        passwd = os.environ['TEACHERDATA_PASS']
+        user = settings.upload_server_user
+        password = settings.upload_server_password
         
         session = Session()
         prepped = Request('POST',
                           settings.server_url,
                           data=zip_data,
-                          auth=(memberid, passwd),
+                          auth=(user, password),
                           headers=headers,
                          ).prepare()
 
@@ -133,8 +139,7 @@ class UploadToServerView(grok.View):
         else:
             msg = str(errcode) + ' : ' + _('File not sent successfully')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
-            log = logging.getLogger('tarmii.theme.uploadtoserver')
-            log.error(msg)
+            LOG.error(msg)
 
         # redirect to show the error message
         return self.request.response.redirect(
