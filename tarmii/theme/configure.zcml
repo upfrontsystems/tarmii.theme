@@ -20,6 +20,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="client_installer"
+        title="Tarmii Theme - Client installer"
+        directory="profiles/client"
+        description="Extension profile for Tarmii Theme which configures it for a client install."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
     <plone:static type="theme" directory="static" />
 
     <i18n:registerTranslations directory="locales" />
