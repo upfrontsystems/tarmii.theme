@@ -80,3 +80,8 @@ class ISiteData(Interface):
     """
 
 
+class IActivityCloner(Interface):
+    """ Marks an object which can clone an activity """
+
+    def clone(self):
+        raise 'Not implemented' 
