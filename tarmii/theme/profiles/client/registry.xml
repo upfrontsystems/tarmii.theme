@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<registry>
+    <!--record name="tarmii.theme.allow_item_id_edit">
+        <field type="plone.registry.field.Bool">
+            <title>Allow 'item_id' edit</title>
+        </field>
+        <value>False</value>
+    </record-->
+</registry>
