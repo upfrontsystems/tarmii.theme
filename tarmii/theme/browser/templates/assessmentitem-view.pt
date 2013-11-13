@@ -50,6 +50,8 @@
                     i18n:translate="label_addtoassessment">Add to Assessment</a>
                 <a class="delete_confirmation" tal:attributes="href string:${context/absolute_url}/delete_confirmation"
                     i18n:translate="label_delete">Delete</a>
+                <a tal:attributes="href string:${context/absolute_url}/clone"
+                   i18n:translate="clone">Create my own version</a>
             </div>
         </div>
 

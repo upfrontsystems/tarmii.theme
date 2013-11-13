@@ -115,6 +115,8 @@
                                i18n:translate="label_addtoassessment">Add to Assessment</a>
                             <a tal:attributes="href string:${item/absolute_url}/feedback"
                                i18n:translate="Feedback">Feedback</a>
+                            <a tal:attributes="href string:${item/absolute_url}/clone"
+                               i18n:translate="clone">Create my own version</a>
                         </div>
                         <hr class="item-separator"/>
                     </tal:item>
