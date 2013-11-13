@@ -1,4 +1,12 @@
+from zope.component import getUtility, getAdapterInContext
 from plone.app.users.browser.personalpreferences import UserDataPanelAdapter
+import grokcore.component
+from Products.CMFCore.utils import getToolByName
+
+from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
+from upfront.assessmentitem.interfaces import IAssessmentItemCloner
+from tarmii.theme.behaviors import IItemMetadata
+from tarmii.theme.interfaces import IActivityCloner
 
 class TARMIIUserDataPanelAdapter(UserDataPanelAdapter):
 
@@ -57,3 +65,29 @@ class TARMIIUserDataPanelAdapter(UserDataPanelAdapter):
     uuid = property(get_uuid, set_uuid)
 
 
+class TARMIIActivityCloner(grokcore.component.Adapter):
+    grokcore.component.context(IAssessmentItem)
+    grokcore.component.implements(IActivityCloner)
+
+    def clone(self, original):
+        container = original.aq_parent
+        cloner = getAdapterInContext(original,
+                                     IAssessmentItemCloner,
+                                     container)
+        clone = cloner.clone(original)
+        for fname, field in IItemMetadata.namesAndDescriptions():
+            value = field.get(original)
+            field.set(clone, value)
+
+        # clone the images
+        for image in original.objectValues(spec='ATBlob'):
+            cp = original.manage_copyObjects(image.getId(), None, None)
+            result = clone.manage_pasteObjects(cp, None)
+        
+        pc = getToolByName(original, 'portal_catalog')
+        brains = pc(portal_type='upfront.assessmentitem.content.assessmentitem',
+                    item_id = original.item_id)
+        item_id = '%s-%s' % (original.item_id, len(brains) +1)
+        clone.item_id = item_id
+
+        return clone
