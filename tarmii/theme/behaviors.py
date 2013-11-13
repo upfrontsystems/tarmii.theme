@@ -12,6 +12,7 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.i18n.normalizer.interfaces import IURLNormalizer
 from plone.namedfile.field import NamedBlobFile
+from Products.CMFCore.utils import getToolByName
 
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
@@ -180,13 +181,20 @@ class ItemIdValidator(validator.SimpleFieldValidator):
         # check that id is unique 
         # (all ids when created are URLNormalized)
         normalizer = getUtility(IURLNormalizer)
-        normalized_value = normalizer.normalize(value)        
-        contentFilter =\
-             {"portal_type" : "upfront.assessmentitem.content.assessmentitem"}
-        existing_ids = Set([x.getObject().id for x
-                            in self.context.getFolderContents(contentFilter)])
-        if normalized_value in existing_ids:
-                raise Invalid(_(u"This Item ID is already in use"))
+        normalized_value = normalizer.normalize(value)
+        pc = getToolByName(self.context, 'portal_catalog')
+        query = {
+            "portal_type" : "upfront.assessmentitem.content.assessmentitem",
+            "item_id": normalized_value,
+        }
+        brains = pc(query)
+        # If we find one with the same item_id it could just be the object we
+        # are editing, in which case we don't have to worry, it is legit.
+        if len(brains) == 1 and brains[0].getObject() == self.context:
+            return
+
+        if len(brains) > 0:
+            raise Invalid(_(u"This Item ID is already in use"))
       
 
 validator.WidgetValidatorDiscriminators(ItemIdValidator,
