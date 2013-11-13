@@ -3,7 +3,7 @@ from five import grok
 
 from AccessControl import getSecurityManager
 from zope.app.intid.interfaces import IIntIds
-from zope.component import getUtility
+from zope.component import getUtility, getAdapterInContext
 from zope.interface import Interface
 from zope.container.interfaces import INameChooser
 
@@ -15,6 +15,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.permissions import ManagePortal
 
+from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
+from tarmii.theme.interfaces import IActivityCloner
 from tarmii.theme import MessageFactory as _
 
 grok.templatedir('templates')
@@ -137,3 +139,22 @@ class ActivitiesView(grok.View):
             return self.request.form['buttons.search.activity.input']
         return ''
 
+
+class CloneActivity(grok.View):
+    """ Clone the current activity.
+    """
+    grok.context(IAssessmentItem)
+    grok.name('clone')
+    grok.require('zope2.View')
+
+    def update(self):
+        activity = self.context
+        container = activity.aq_parent
+        adapter = getAdapterInContext(activity, IActivityCloner, container)
+        self.clone = adapter.clone(activity)
+
+    def render(self):
+        """ Keep grok happy with no-op
+        """
+        url = self.clone.absolute_url() + '/edit'
+        self.request.response.redirect(url)
