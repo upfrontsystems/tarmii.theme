@@ -63,6 +63,16 @@
                     </div>
                 </tal:topictree>
             </div>
+            
+            <div class="help_text">
+                <label for="show_my_activities">
+                    Show only my activities
+                </label>
+            </div>
+            <div class="help_text">
+                <input id="show_my_activities" name="show_my_activities" type="checkbox" 
+                    tal:attributes="checked python:request.has_key('show_my_activities') and 'checked' or ''" />
+            </div>
 
             <div>&nbsp;</div>
             <input class="allowMultiSubmit" type="submit" value="Filter results" tal:attributes="action string:${here/absolute_url}" 

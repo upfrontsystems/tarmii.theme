@@ -94,6 +94,9 @@ class ActivitiesView(grok.View):
         """
         catalog = getToolByName(self.context, 'portal_catalog')
 
+        show_my_activities = self.request.form.get('show_my_activities')
+        pps = self.context.restrictedTraverse('@@plone_portal_state')
+        creator = pps.member().getId()
         if self.request.form.has_key('buttons.search.activity.submit'):
             search_id = self.request.form['buttons.search.activity.input']
             normalizer = getUtility(IURLNormalizer)
@@ -103,11 +106,16 @@ class ActivitiesView(grok.View):
             # no filter selected, show all options
             contentFilter = {
                 'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
+            if show_my_activities:
+                contentFilter['Creator'] = creator
             return self.context.getFolderContents(contentFilter)
         elif len(self.topics) == 1:
             # one filter selected, show all options
             rel_list = self.relations_lookup(self.topics[0])
-            results = catalog(UID=rel_list)
+            if show_my_activities:
+                results = catalog(UID=rel_list, Creator=creator)
+            else:
+                results = catalog(UID=rel_list)
         else:
             # more than one filter selected, show all options
             UID_set = Set(self.relations_lookup(self.topics[0]))
@@ -115,7 +123,10 @@ class ActivitiesView(grok.View):
                 next_set = Set(self.relations_lookup(self.topics[x+1]))
                 UID_set = UID_set.intersection(Set(next_set))
             UID_list = list(UID_set)
-            results = catalog(UID=UID_list)
+            if show_my_activities:
+                results = catalog(UID=UID_list, Creator=creator)
+            else:
+                results = catalog(UID=UID_list)
 
         return results
 
