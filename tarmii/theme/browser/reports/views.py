@@ -1,12 +1,17 @@
 from __future__ import division
+from AccessControl.SecurityManagement import newSecurityManager
+from DateTime import DateTime as DT
 from sets import Set
 import datetime            
 import heapq
 import operator
 from StringIO import StringIO
 from reportlab.graphics import renderPM
+from ho.pisa import pisaDocument
+from pyPdf import PdfFileWriter, PdfFileReader
 
 from five import grok
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from AccessControl import Unauthorized
 from zope.app.intid.interfaces import IIntIds
 from zope.component.hooks import getSite
@@ -422,7 +427,11 @@ class ReportViewsCommon(DatePickers):
                         valid_activities.append(x)
 
         return valid_activities
-
+    
+    def memberid(self):
+        pps = self.context.unrestrictedTraverse('@@plone_portal_state')
+        return pps.member().getId()
+        
     def user_anonymous(self):
         """ Raise Unauthorized if user is anonymous
         """
@@ -438,23 +447,32 @@ class ClassPerformanceForActivityChartView(grok.View):
     grok.name('classperformance-for-activity-chart')
     grok.require('zope2.View')
 
+    def update(self):
+        super(ClassPerformanceForActivityChartView, self).update()
+        pm = getToolByName(self.context, 'portal_membership')
+        if pm.isAnonymousUser() and self.request.has_key('memberid'):
+            member = pm.getMemberById(self.request['memberid'])
+            sm = newSecurityManager(self.request, member)
+
     def data(self):
+        pc = getToolByName(self.context, 'portal_catalog')
         # if we are here - evaluations and activities exist
 
         evaluationsheet_uid = self.request.get('evaluationsheet', '')
         activity_uid = self.request.get('activity', '')
 
         # iterate through all evaluations that reference the current assessment
-        activity = uuidToObject(activity_uid)
+        #activity = uuidToObject(activity_uid)
 
         rating_scale = {}
         count_dict = {}
         lookup_dict = {}
 
-        contentFilter = {'portal_type': 'upfront.assessment.content.evaluation'}
-        evaluation_objects = \
-            [x for x in uuidToObject(evaluationsheet_uid)
-                .getFolderContents(contentFilter, full_objects=True)]
+        evaluationsheet = pc.unrestrictedSearchResults(
+            UID=evaluationsheet_uid)[0]
+        query = {'portal_type': 'upfront.assessment.content.evaluation',
+                 'path': evaluationsheet.getPath()}
+        evaluation_objects = [x.getObject() for x in pc(query)]
 
         for ev in evaluation_objects:
             # 1 eval_obj/learner
@@ -673,6 +691,15 @@ class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
 
     def selected_activity(self):
         return self.activity_uid    
+
+    def pdf_url(self):
+        return '%s/%s?selected_evaluationsheet=%s&selected_activity=%s' % (
+            self.context.absolute_url(),
+            '@@classperformance-for-activity-pdf',
+            self.selected_evaluationsheet(),
+            self.selected_activity()
+        )
+
 
 class ClassProgressChartView(grok.View, ReportViewsCommon):
     """ Class progress for a given time period
@@ -1531,3 +1558,44 @@ class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
             rating_code = '1'
 
         return [score_total, scales_total, percentage, rating_code]
+
+
+class ClassPerformanceForActivityPDFView(grok.View, ReportViewsCommon):
+    """ Class performance for a given activity PDF
+    """
+    grok.context(Interface)
+    grok.name('classperformance-for-activity-pdf')
+    grok.require('zope2.View')
+    
+    pdf_template = ViewPageTemplateFile('templates/classperformance-for-activity-pdf.pt')
+    
+    def update(self):
+        self.selected_evaluationsheet = self.request['selected_evaluationsheet']
+        self.selected_activity = self.request['selected_activity']
+
+    def render(self):
+        charset = self.context.portal_properties.site_properties.default_charset
+        html = StringIO(self.pdf_template(view=self).encode(charset))
+
+        # Generate the pdf
+        pdf = StringIO()
+        pisadoc = pisaDocument(html, pdf, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        filename = self.__name__
+        now = DT()
+        nice_filename = '%s_%s' % (filename, now.strftime('%Y%m%d'))
+
+        self.request.response.setHeader("Content-Disposition",
+                                        "attachment; filename=%s.pdf" % 
+                                         nice_filename)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader('Last-Modified', DT.rfc822(DT()))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent

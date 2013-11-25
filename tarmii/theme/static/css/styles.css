@@ -609,7 +609,8 @@ a.select-text {
     margin: auto;
 }
 
-.activities-export-links {
+.activities-export-links,
+.print-pdf-button {
     display: inline-block;
     float: right;
 }
@@ -659,6 +660,10 @@ table.listing.admin-table td.center {
     display: block;
 }
 
+.report-controls {
+    float: left;
+}
+
 #report-links {
     float: left;
     display: inline-block;
@@ -685,6 +690,10 @@ table.listing.admin-table td.center {
 
 .report-navigation .right-link {
     float: right;
+}
+
+#report_examples {
+    padding-top: 20px;
 }
 
 /* colors for strength+weaknessess chart view */
@@ -817,10 +826,6 @@ table.listing tbody tr.odd td.brown3 {
 
 #compositelearner-legend-table table.listing tbody th {
     background: #eee !important;
-}
-
-#report_examples {
-    padding-top: 20px;
 }
 
 #content a.link-overlay {
