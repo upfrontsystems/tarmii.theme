@@ -5,9 +5,134 @@
       i18n:domain="tarmii.theme"
       lang="en">
 
-<head>
-</head>
+      <head>
+          <style type="text/css">
 
+            @page {
+              size: a4 landscape;
+              margin: 0.5cm;
+            } 
+
+            table {
+                text-align: left;
+                padding-top: 5px;
+                padding-left: 5px;
+            }
+
+            table.listing.admin-table td,
+            table.listing.admin-table th {
+                vertical-align: top;    
+            }   
+
+            table td,
+            table th {
+                padding-right: 5px;
+                border-top: solid grey 1px;
+                border-right: solid grey 1px;
+                border-left: solid grey 1px;
+                border-bottom: solid grey 1px;
+                white-space: normal;
+            }
+
+            /* colors for evaluationsheet chart view */
+
+            table.listing tr.odd {
+                background-color: red;
+            }
+
+            table.listing th {
+                color: black;
+                font-weight: bold;
+                line-height: 2em;
+                font-size: 2em;
+            }
+
+            /* normal rating scale */
+            table.listing tbody tr td.mattred,
+            table.listing tbody tr.odd td.mattred {
+                background-color : #d02027;
+            }
+            table.listing tbody tr td.mattgreen,
+            table.listing tbody tr.odd td.mattgreen {
+                background-color : #6dce25;
+            }
+            table.listing tbody tr td.deepblue,
+            table.listing tbody tr.odd td.deepblue {
+                background-color : #17c5e4;
+            }
+            table.listing tbody tr td.gold,
+            table.listing tbody tr.odd td.gold {
+                background-color : #E90;
+            }
+
+            /* custom rating scales */
+            table.listing tbody tr td.red,
+            table.listing tbody tr.odd td.red {
+                background-color : #cc0000;
+            }
+            table.listing tbody tr td.redorange,
+            table.listing tbody tr.odd td.redorange {
+                background-color : #ff3300;
+            }
+            table.listing tbody tr td.orange,
+            table.listing tbody tr.odd td.orange {
+                background-color : #ff6600;
+            }
+            table.listing tbody tr td.yelloworange,
+            table.listing tbody tr.odd td.yelloworange {
+                background-color : #ff9900;
+            }
+            table.listing tbody tr td.pink,
+            table.listing tbody tr.odd td.pink {
+                background-color : #ff9966;
+            }
+            table.listing tbody tr td.yellowgreen,
+            table.listing tbody tr.odd td.yellowgreen {
+                background-color : #c0cc00;
+            }
+            table.listing tbody tr td.pregreen,
+            table.listing tbody tr.odd td.pregreen {
+                background-color : #00cc00;
+            }
+            table.listing tbody tr td.green,
+            table.listing tbody tr.odd td.green {
+                background-color : #1a921a;
+            }
+            table.listing tbody tr td.bluegreen,
+            table.listing tbody tr.odd td.bluegreen {
+                background-color : #009999;
+            }
+            table.listing tbody tr td.blue,
+            table.listing tbody tr.odd td.blue {
+                background-color : #17c5e4;
+            }
+            table.listing tbody tr td.blueviolet,
+            table.listing tbody tr.odd td.blueviolet {
+                background-color : #396dd4;
+            }
+            table.listing tbody tr td.violet,
+            table.listing tbody tr.odd td.violet {
+                background-color : #874dc1;
+            }
+            table.listing tbody tr td.redviolet,
+            table.listing tbody tr.odd td.redviolet {
+                background-color : #9933cc;
+            }
+            table.listing tbody tr td.brown1,
+            table.listing tbody tr.odd td.brown1 {
+                background-color : #855439;
+            }
+            table.listing tbody tr td.brown2,
+            table.listing tbody tr.odd td.brown2 {
+                background-color : #844204;
+            }
+            table.listing tbody tr td.brown3,
+            table.listing tbody tr.odd td.brown3 {
+                background-color : #8d340a;
+            }
+
+          </style>
+      </head>
 <body>
     <h1 class="documentFirstHeading" i18n:translate="heading_evaluationsheet">Evaluation Sheet</h1>
 
@@ -26,9 +151,9 @@
                     <table class="listing admin-table" tal:condition="view/activity_ids">
                         <tr>
                             <th></th>
-                            <div tal:repeat="activity_id view/activity_ids">
-                                <th class="red" tal:content="python:activity_id[0]"></th>
-                            </div>
+                            <th tal:repeat="activity_id view/activity_ids">
+                                <p tal:content="python:activity_id[0]">content</p>
+                            </th>
                         </tr>
                         <tr tal:repeat="learner view/learners">
                             <div tal:repeat="item python:view.scores_for_learner(learner.getObject())">

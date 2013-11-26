@@ -1,4 +1,5 @@
 from __future__ import division
+import weasyprint
 from DateTime import DateTime as DT
 from sets import Set
 import datetime            
@@ -1859,6 +1860,3 @@ class EvaluationSheetPDFView(EvaluationSheetBase, grok.View):
         self.request.response.setHeader("Pragma", "no-cache")
         self.request.response.write(pdfcontent)
         return pdfcontent
-
-
-

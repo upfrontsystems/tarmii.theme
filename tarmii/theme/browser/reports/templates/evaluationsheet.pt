@@ -152,7 +152,7 @@
                         <tr>
                             <th></th>
                             <div tal:repeat="activity_id view/activity_ids">
-                                <th class="red" tal:content="python:activity_id[0]"></th>
+                                <th tal:content="python:activity_id[0]"></th>
                             </div>
                         </tr>
                         <tr tal:repeat="learner view/learners">
