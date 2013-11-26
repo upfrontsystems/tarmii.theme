@@ -4,4 +4,7 @@
  <index name="item_id" meta_type="FieldIndex">
   <indexed_attr value="item_id"/>
  </index>
+ <index name="classlist_uuid" meta_type="FieldIndex">
+  <indexed_attr value="classlist_uuid"/>
+ </index>
 </object>
