@@ -981,16 +981,24 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
 
         return chart_data
 
+    def get_image_data(self):
+        drawing = LearnerProgressChart(self.data())
+        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+        image_data = out.getvalue()
+        out.close()
+        return image_data
+
     def render(self):
         request = self.request
         response = request.response
-        drawing = LearnerProgressChart(self.data())
-        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+
+        image_data = self.get_image_data()
+
         response.setHeader('expires', 0)
         response['content-type']='image/png'
-        response['Content-Length'] = out.len
-        response.write(out.getvalue())
-        out.close()
+        response['Content-Length'] = len(image_data)
+        response.write(image_data)
+        return image_data
 
 
 class LearnerProgressView(grok.View, ReportViewsCommon):
@@ -1009,6 +1017,9 @@ class LearnerProgressView(grok.View, ReportViewsCommon):
         self.learner_uid = self.request.get('learner_uid_selected', '')
         self.subject_uid = self.request.get('subject_topic_selected', '')
         self.language_uid = self.request.get('language_topic_selected', '')
+        self.startdate = self.request.get('startdate', self.startDateString())
+        self.enddate = self.request.get('enddate', self.endDateString())
+
 
         if self.classlist_uid == '':
             pm = getSite().portal_membership
@@ -1115,6 +1126,17 @@ class LearnerProgressView(grok.View, ReportViewsCommon):
 
     def selected_learner(self):
         return self.learner_uid
+
+    def pdf_url(self):
+        return '%s/%s?classlist=%s&learner=%s&startdate=%s&enddate=%s&subject=%s&language=%s' % (
+            self.context.absolute_url(),
+            '@@learnerprogress-pdf',
+            self.classlist_uid,
+            self.learner_uid,
+            self.startdate,
+            self.enddate,
+            self.subject_uid,
+            self.language_uid)
 
 
 class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon):
@@ -1668,3 +1690,63 @@ class ClassProgressDFView(grok.View, ReportViewsCommon):
                                name='classprogress-chart')
         data = view.get_image_data()
         return pisa.makeDataURI(data=data, mimetype='img/png')
+
+
+class LearnerProgressPDFView(grok.View, ReportViewsCommon):
+    """ Download the Learner Progress report as PDF. 
+    """
+    grok.context(Interface)
+    grok.name('learnerprogress-pdf')
+    grok.require('zope2.View')
+    
+    pdf_template = ViewPageTemplateFile('templates/learnerprogress-pdf.pt')
+    
+    def update(self):
+        self.selected_classlist = self.request['classlist']
+        self.selected_learner = self.request['learner']
+        self.startdate = self.request.get('startdate', self.startDateString())
+        self.enddate = self.request.get('enddate', self.endDateString())
+        self.selected_subject = self.request['subject']
+        self.selected_language = self.request['language']
+
+    def render(self):
+        charset = self.context.portal_properties.site_properties.default_charset
+        html = StringIO(self.pdf_template(view=self).encode(charset))
+
+        # Generate the pdf
+        pdf = StringIO()
+        pisadoc = pisa.CreatePDF(html, pdf, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        filename = self.__name__
+        now = DT()
+        nice_filename = '%s_%s' % (filename, now.strftime('%Y%m%d'))
+
+        self.request.response.setHeader("Content-Disposition",
+                                        "attachment; filename=%s.pdf" % 
+                                         nice_filename)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader('Last-Modified', DT.rfc822(DT()))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent
+    
+    def make_data_uri(self):
+        self.request['classlist'] = self.selected_classlist
+        self.request['learner'] = self.selected_learner
+        self.request['startdate'] = self.startdate
+        self.request['enddate'] = self.enddate
+        self.request['subject'] = self.selected_subject
+        self.request['language'] = self.selected_language
+
+        view = getMultiAdapter((self.context, self.request),
+                               name='learnerprogress-chart')
+        data = view.get_image_data()
+        return pisa.makeDataURI(data=data, mimetype='img/png')
+
+

@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<head>
+    <title>Learner progress</title>
+</head>
+
+<body>
+    <tal:no-classlists tal:condition="not:view/classlists">
+    <div i18n:translate="message_create_classlists">
+        Please create some classlists, assessments and evaluations.
+    </div>
+    </tal:no-classlists>
+
+    <tal:got-classlists tal:condition="view/classlists">
+    <img src="#" tal:attributes="src view/make_data_uri" />
+    </tal:got-classlists>
+</body>
+</html>
