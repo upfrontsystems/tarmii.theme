@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <h1 class="documentFirstHeading" i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</h1>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+        <h3 i18n:translate="label_strengths">Strengths</h3>
+        <div id="div-best-worst-table">
+            <table class="listing admin-table">
+                <tr> 
+                    <td class="lightgreen" i18n:translate="label_best_activity">
+                        Activity that the highest number of learners answered correctly
+                    </td>
+                    <td class="lightgreen" tal:content="python:view.activity(0)">
+                        Activity
+                    </td>
+                </tr>
+                <tr> 
+                    <td class="lightgreen" i18n:translate="label_second_best_activity">
+                        Activity that the second highest number of learners answered correctly
+                    </td>
+                    <td class="lightgreen" tal:content="python:view.activity(1)">
+                        Activity
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="div-best-worst-table">
+        <h3 i18n:translate="label_weaknesses">Weaknesses</h3>
+            <table class="listing admin-table">
+                <tr> 
+                    <td class="lightred" i18n:translate="label_worst_activity">
+                        Activity that the highest number of learners answered incorrectly
+                    </td>
+                    <td class="lightred" tal:content="python:view.activity(2)">
+                        Activity
+                    </td>
+                </tr>
+                <tr> 
+                    <td class="lightred" i18n:translate="label_second_worst_activity">
+                        Activity that the second highest number of learners answered incorrectly
+                    </td>
+                    <td class="lightred" tal:content="python:view.activity(3)">
+                        Activity
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </tal:evaluationsheets>
+
+        <tal:not_enough_data tal:condition="view/not_enough_data">
+        <span i18n:translate="label_strength_weakness_not_possible">
+            * Not enough activities have been scored yet. 
+            The Strengths and Weaknesses Report cannot be
+            calculated when this is the case.
+        </span>
+        </tal:not_enough_data>
+
+
+    <tal:no-classlists tal:condition="not:view/classlists">
+    <div i18n:translate="message_create_classlists">
+        Please create some classlists, assessments and evaluations
+    </div>
+    </tal:no-classlists>
+</body>
+</html>

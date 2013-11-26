@@ -1139,14 +1139,9 @@ class LearnerProgressView(grok.View, ReportViewsCommon):
             self.language_uid)
 
 
-class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon):
-    """ Strengths And Weaknesses report view
+class StrengthsAndWeaknessesBase(ReportViewsCommon):
     """
-    grok.context(Interface)
-    grok.name('strengths-and-weaknesses')
-    grok.template('strengths-and-weaknesses')
-    grok.require('zope2.View')
-
+    """
     #  __call__ calls update before generating the template
     def update(self, **kwargs):
         """ calculate the two activities in which the users performed the best
@@ -1196,6 +1191,25 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon):
                                          self.endDateString(), 
                                          None)
         return evaluationsheets_in_range
+
+
+class StrengthsAndWeaknessesView(StrengthsAndWeaknessesBase, grok.View):
+    """ Strengths And Weaknesses report view
+    """
+    grok.context(Interface)
+    grok.name('strengths-and-weaknesses')
+    grok.template('strengths-and-weaknesses')
+    grok.require('zope2.View')
+
+    def update(self, **kwargs):
+        super(StrengthsAndWeaknessesView, self).update(**kwargs)
+
+    def pdf_url(self):
+        return '%s/%s?startdate=%s&enddate=%s' % (
+            self.context.absolute_url(),
+            '@@strengths-and-weaknesses-pdf',
+            self.startDateString(),
+            self.endDateString())
 
 
 class EvaluationSheetView(grok.View, ReportViewsCommon):
@@ -1750,3 +1764,41 @@ class LearnerProgressPDFView(grok.View, ReportViewsCommon):
         return pisa.makeDataURI(data=data, mimetype='img/png')
 
 
+class StrengthsAndWeaknessesPDFView(StrengthsAndWeaknessesBase, grok.View):
+    """ Download the Strengths and Weaknesses report as PDF. 
+    """
+    grok.context(Interface)
+    grok.name('strengths-and-weaknesses-pdf')
+    grok.require('zope2.View')
+    
+    pdf_template = ViewPageTemplateFile('templates/strengths_and_weaknesses_as_pdf.pt')
+    
+    def update(self, **kwargs):
+        super(StrengthsAndWeaknessesPDFView, self).update(**kwargs)
+
+    def render(self):
+        charset = self.context.portal_properties.site_properties.default_charset
+        html = StringIO(self.pdf_template(view=self).encode(charset))
+
+        # Generate the pdf
+        pdf = StringIO()
+        pisadoc = pisa.CreatePDF(html, pdf, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        filename = self.__name__
+        now = DT()
+        nice_filename = '%s_%s' % (filename, now.strftime('%Y%m%d'))
+
+        self.request.response.setHeader("Content-Disposition",
+                                        "attachment; filename=%s.pdf" % 
+                                         nice_filename)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader('Last-Modified', DT.rfc822(DT()))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent
