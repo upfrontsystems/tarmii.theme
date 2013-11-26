@@ -5,20 +5,19 @@
       i18n:domain="tarmii.theme"
       lang="en">
 
-<body>
-    <h1 class="documentFirstHeading" i18n:translate="Class performance for activity">
-        Class Performance for Activity
-    </h1>
+<head>
+    <title>Class progress</title>
+</head>
 
+<body>
     <tal:no-classlists tal:condition="not:view/classlists">
     <div i18n:translate="message_create_classlists">
-        Please create some classlists, assessments and evaluations
+        Please create some classlists, assessments and evaluations.
     </div>
     </tal:no-classlists>
 
     <tal:got-classlists tal:condition="view/classlists">
     <img src="#" tal:attributes="src view/make_data_uri" />
     </tal:got-classlists>
-
 </body>
 </html>

@@ -27,6 +27,12 @@
     </div>
 
     <tal:classlists tal:condition="view/classlists">
+         <div class="print-pdf-button">
+             <a href="#" tal:attributes="href view/pdf_url">
+                 <img src="++resource++tarmii.theme/images/pdf.png" alt="Download as PDF" />
+            </a>
+        </div>
+
         <form name="classlist-form" tal:attributes="action string:${view/__name__}" method="post">
 
             <div tal:condition="view/classlists">

@@ -1,5 +1,4 @@
 from __future__ import division
-from AccessControl.SecurityManagement import newSecurityManager
 from DateTime import DateTime as DT
 from sets import Set
 import datetime            
@@ -7,7 +6,7 @@ import heapq
 import operator
 from StringIO import StringIO
 from reportlab.graphics import renderPM
-from ho.pisa import pisaDocument
+from xhtml2pdf import pisa
 from pyPdf import PdfFileWriter, PdfFileReader
 
 from five import grok
@@ -15,7 +14,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from AccessControl import Unauthorized
 from zope.app.intid.interfaces import IIntIds
 from zope.component.hooks import getSite
-from zope.component import getUtility
+from zope.component import getUtility, getMultiAdapter
 from zope.interface import Interface
 from zc.relation.interfaces import ICatalog
 
@@ -111,11 +110,9 @@ class ReportViewsCommon(DatePickers):
         all_rating_scales = []
 
         for evalsheet in evaluationsheets_in_range:
-            contentFilter = \
-                {'portal_type': 'upfront.assessment.content.evaluation'}
-            evaluation_objects = \
-                [x for x in evalsheet.getFolderContents(contentFilter,
-                                                        full_objects=True)]
+            # this is safe since the evalsheet only allows evaluation objects.
+            evaluation_objects = evalsheet.objectValues()
+
             scores = []
             activity_ids = []
             activities = []
@@ -264,37 +261,24 @@ class ReportViewsCommon(DatePickers):
             and only for the selected classlist if classlist_uid is supplied 
             (not None)
         """
-        pm = getSite().portal_membership
+        site = getSite()
+        pc = getToolByName(self.context, 'portal_catalog')
+        pm = getToolByName(self.context, 'portal_membership')
         members_folder = pm.getHomeFolder()
         if members_folder == None:
             return []
-        contentFilter = \
-            {'portal_type': 'upfront.assessment.content.evaluationsheet'}
-        evaluationsheets = \
-            members_folder.evaluations.getFolderContents(contentFilter)
-
-        evaluationsheets_in_range = []
-        for evaluationsheet in evaluationsheets:
-            obj = evaluationsheet.getObject()
-            cdat = obj.created().asdatetime().strftime(u'%Y-%m-%d')
-            evaluationsheet_date = datetime.datetime.strptime(cdat, u'%Y-%m-%d')
-            start_date = datetime.datetime.strptime(startdate, u'%Y-%m-%d')
-            end_date = datetime.datetime.strptime(enddate, u'%Y-%m-%d')
-
-            if classlist_uid:
-                # only include evaluationsheets for the specified class
-                if obj.classlist.to_object == uuidToObject(classlist_uid):
-                    if self.check_date_integrity():
-                        if evaluationsheet_date >= start_date and \
-                           evaluationsheet_date <= end_date:
-                            evaluationsheets_in_range.append(obj)
-            else:
-                if self.check_date_integrity():
-                    if evaluationsheet_date >= start_date and \
-                       evaluationsheet_date <= end_date:
-                        evaluationsheets_in_range.append(obj)
-
-        return evaluationsheets_in_range
+        startdate = DT(startdate)
+        enddate = DT(enddate)
+        query = {'portal_type': 'upfront.assessment.content.evaluationsheet',
+                 'path': '/'.join(members_folder.getPhysicalPath()),
+                 'created': {'query': [startdate, enddate], 'range': 'minmax'}}
+        if classlist_uid is not None:
+            query['classlist_uid'] = classlist_uid
+        brains = pc.unrestrictedSearchResults(query)
+        evaluationsheets = [
+            site.unrestrictedTraverse(b.getPath()) for b in brains
+        ]
+        return evaluationsheets
 
     def evaluationsheets_of_classlist(self):
         """ returns all of the evaluationsheets of the current
@@ -447,13 +431,6 @@ class ClassPerformanceForActivityChartView(grok.View):
     grok.name('classperformance-for-activity-chart')
     grok.require('zope2.View')
 
-    def update(self):
-        super(ClassPerformanceForActivityChartView, self).update()
-        pm = getToolByName(self.context, 'portal_membership')
-        if pm.isAnonymousUser() and self.request.has_key('memberid'):
-            member = pm.getMemberById(self.request['memberid'])
-            sm = newSecurityManager(self.request, member)
-
     def data(self):
         pc = getToolByName(self.context, 'portal_catalog')
         # if we are here - evaluations and activities exist
@@ -557,16 +534,25 @@ class ClassPerformanceForActivityChartView(grok.View):
             'category_labels' : category_labels
             }
 
+    def get_image_data(self):
+        drawing = ClassPerformanceForActivityChart(self.data())
+        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+        image_data = out.getvalue()
+        out.close()
+        return image_data
+
     def render(self):
         request = self.request
         response = request.response
-        drawing = ClassPerformanceForActivityChart(self.data())
-        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+
+        image_data = self.get_image_data()
+
         response.setHeader('expires', 0)
         response['content-type']='image/png'
-        response['Content-Length'] = out.len
-        response.write(out.getvalue())
-        out.close()
+        response['Content-Length'] = len(image_data)
+        response.write(image_data)
+
+        return image_data
 
 
 class ClassPerformanceForActivityView(grok.View, ReportViewsCommon):
@@ -747,20 +733,28 @@ class ClassProgressChartView(grok.View, ReportViewsCommon):
             'xlabel' : xlabel,
             'ylabel' : ylabel
             }
+    
+    def get_image_data(self):
+        drawing = ClassProgressChart(self.data())
+        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+        image_data = out.getvalue()
+        out.close()
+        return image_data
 
     def render(self):
         request = self.request
         response = request.response
-        drawing = ClassProgressChart(self.data())
-        out = StringIO(renderPM.drawToString(drawing, 'PNG'))
+
+        image_data = self.get_image_data()
+
         response.setHeader('expires', 0)
         response['content-type']='image/png'
-        response['Content-Length'] = out.len
-        response.write(out.getvalue())
-        out.close()
+        response['Content-Length'] = len(image_data)
+        response.write(image_data)
+        return image_data
 
 
-class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
+class ClassProgressView(grok.View, ReportViewsCommon):
     """ Class progress report view
     """
     grok.context(Interface)
@@ -829,6 +823,16 @@ class ClassProgressView(grok.View, ReportViewsCommon, DatePickers):
                         return True
         return False
 
+    def pdf_url(self):
+        return '%s/%s?classlist=%s&startdate=%s&enddate=%s&subject=%s&language=%s&memberid=%s' % (
+            self.context.absolute_url(),
+            '@@classprogress-pdf',
+            self.selected_classlist(),
+            self.startDateString(),
+            self.endDateString(),
+            self.selected_subject(),
+            self.selected_language(),
+            self.memberid())
 
 class LearnerProgressChartView(grok.View, ReportViewsCommon):
     """ Learner progress for a given time period
@@ -989,7 +993,7 @@ class LearnerProgressChartView(grok.View, ReportViewsCommon):
         out.close()
 
 
-class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
+class LearnerProgressView(grok.View, ReportViewsCommon):
     """ Learner progress report view
     """
     grok.context(Interface)
@@ -1113,7 +1117,7 @@ class LearnerProgressView(grok.View, ReportViewsCommon, DatePickers):
         return self.learner_uid
 
 
-class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
+class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon):
     """ Strengths And Weaknesses report view
     """
     grok.context(Interface)
@@ -1172,7 +1176,7 @@ class StrengthsAndWeaknessesView(grok.View, ReportViewsCommon, DatePickers):
         return evaluationsheets_in_range
 
 
-class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
+class EvaluationSheetView(grok.View, ReportViewsCommon):
     """ Evaluationsheet report view
     """
     grok.context(Interface)
@@ -1395,7 +1399,7 @@ class EvaluationSheetView(grok.View, ReportViewsCommon, DatePickers):
         return [[learner.Title(),'']] + scores
 
 
-class CompositeLearnerView(grok.View, ReportViewsCommon, DatePickers):
+class CompositeLearnerView(grok.View, ReportViewsCommon):
     """ Composite Learner report view
     """
     grok.context(Interface)
@@ -1579,7 +1583,7 @@ class ClassPerformanceForActivityPDFView(grok.View, ReportViewsCommon):
 
         # Generate the pdf
         pdf = StringIO()
-        pisadoc = pisaDocument(html, pdf, raise_exception=False)
+        pisadoc = pisa.CreatePDF(html, pdf, raise_exception=False)
         assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
         html.close()
         pdfcontent = pdf.getvalue()
@@ -1599,3 +1603,68 @@ class ClassPerformanceForActivityPDFView(grok.View, ReportViewsCommon):
         self.request.response.setHeader("Pragma", "no-cache")
         self.request.response.write(pdfcontent)
         return pdfcontent
+    
+    def make_data_uri(self):
+        self.request['evaluationsheet'] = self.selected_evaluationsheet
+        self.request['activity'] = self.selected_activity
+        view = getMultiAdapter((self.context, self.request),
+                               name='classperformance-for-activity-chart')
+        data = view.get_image_data()
+        return pisa.makeDataURI(data=data, mimetype='img/png')
+
+
+class ClassProgressDFView(grok.View, ReportViewsCommon):
+    """ Class progress PDF
+    """
+    grok.context(Interface)
+    grok.name('classprogress-pdf')
+    grok.require('zope2.View')
+    
+    pdf_template = ViewPageTemplateFile('templates/classprogress-pdf.pt')
+    
+    def update(self):
+        self.classlist = self.request['classlist']
+        self.startdate = self.request['startdate']
+        self.enddate = self.request['enddate']
+        self.subject = self.request['subject']
+        self.language = self.request['language']
+        self.memberid = self.request['memberid']
+
+    def render(self):
+        charset = self.context.portal_properties.site_properties.default_charset
+        html = StringIO(self.pdf_template(view=self).encode(charset))
+
+        # Generate the pdf
+        pdf = StringIO()
+        pisadoc = pisa.CreatePDF(html, pdf, raise_exception=False)
+        assert pdf.len != 0, 'Pisa PDF generation returned empty PDF!'
+        html.close()
+        pdfcontent = pdf.getvalue()
+        pdf.close()
+
+        filename = self.__name__
+        now = DT()
+        nice_filename = '%s_%s' % (filename, now.strftime('%Y%m%d'))
+
+        self.request.response.setHeader("Content-Disposition",
+                                        "attachment; filename=%s.pdf" % 
+                                         nice_filename)
+        self.request.response.setHeader("Content-Type", "application/pdf")
+        self.request.response.setHeader("Content-Length", len(pdfcontent))
+        self.request.response.setHeader('Last-Modified', DT.rfc822(DT()))
+        self.request.response.setHeader("Cache-Control", "no-store")
+        self.request.response.setHeader("Pragma", "no-cache")
+        self.request.response.write(pdfcontent)
+        return pdfcontent
+
+    def make_data_uri(self):
+        self.request['classlist'] = self.classlist
+        self.request['startdate'] = self.startdate
+        self.request['enddate'] = self.enddate
+        self.request['subject'] = self.subject
+        self.request['language'] = self.language
+
+        view = getMultiAdapter((self.context, self.request),
+                               name='classprogress-chart')
+        data = view.get_image_data()
+        return pisa.makeDataURI(data=data, mimetype='img/png')
