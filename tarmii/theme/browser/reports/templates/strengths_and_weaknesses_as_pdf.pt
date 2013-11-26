@@ -5,6 +5,42 @@
       i18n:domain="tarmii.theme"
       lang="en">
 
+      <head>
+          <style type="text/css">
+              table.listing tbody tr.odd {
+                  background: #eee;
+              }
+
+              #div-best-worst-table {
+                  font-size: 100%;
+                  font-weight: normal;
+                  color: #333333;
+              }
+
+              table.listing tbody tr td.lightred,
+              table.listing tbody tr.odd td.lightred {
+                  padding-top: 5px;
+                  padding-left: 5px;
+                  background-color : #E55;
+              }
+
+              table.listing tbody tr td.lightgreen,
+              table.listing tbody tr.odd td.lightgreen {
+                  padding-top: 5px;
+                  padding-left: 5px;
+                  background-color : #6D6;
+              }
+
+              table.listing.admin-table td,
+              table.listing.admin-table th {
+                  vertical-align: middle;    
+              }
+
+              table.listing.admin-table td.center {
+                  text-align: center;
+              }
+          </style>
+      </head>
 <body>
     <h1 class="documentFirstHeading" i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</h1>
 
