@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<head>
+</head>
+
+<body>
+    <h1 class="documentFirstHeading" i18n:translate="heading_evaluationsheet">Evaluation Sheet</h1>
+
+    <tal:classlists tal:condition="view/classlists">
+
+        <tal:evaluationsheets tal:condition="not:view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                <div i18n:translate="message_no_evaluationsheets">No evaluationsheets found in the specified date range</div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+        <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <tal:datecheck tal:condition="view/check_date_integrity">
+                <div>&nbsp;</div>
+                <div id="div-evaluationsheet-table">
+                    <table class="listing admin-table" tal:condition="view/activity_ids">
+                        <tr>
+                            <th></th>
+                            <div tal:repeat="activity_id view/activity_ids">
+                                <th class="red" tal:content="python:activity_id[0]"></th>
+                            </div>
+                        </tr>
+                        <tr tal:repeat="learner view/learners">
+                            <div tal:repeat="item python:view.scores_for_learner(learner.getObject())">
+                                <td tal:attributes="class python:item[1]" tal:content="python:item[0]"></td>
+                            </div>
+                        </tr>
+                    </table>
+                    <tal:activities_filtered_out tal:condition="not:view/activity_ids">
+                        <div i18n:translate="message_no_data_matched_selection">No results matched your selected filters</div>
+                    </tal:activities_filtered_out>
+                </div>
+            </tal:datecheck>
+        </tal:evaluationsheets>
+
+    </tal:classlists>
+
+    <tal:classlists tal:condition="not:view/classlists">
+        <div i18n:translate="message_create_classlists">Please create some classlists, assessments and evaluations</div>
+    </tal:classlists>
+
+</body>
+</html>
