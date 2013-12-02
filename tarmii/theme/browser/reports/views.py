@@ -1,5 +1,4 @@
 from __future__ import division
-import weasyprint
 from DateTime import DateTime as DT
 from sets import Set
 import datetime            
