@@ -1640,6 +1640,24 @@ class ClassPerformanceForActivityPDFView(grok.View, ReportViewsCommon):
     def update(self):
         self.selected_evaluationsheet = self.request['selected_evaluationsheet']
         self.selected_activity = self.request['selected_activity']
+        self.pc = getToolByName(self.context, 'portal_catalog')
+    
+    def selectedClasslistTitle(self):
+        esheet = self.pc(UID=self.selected_evaluationsheet)[0].getObject()
+        return esheet.classlist.to_object.Title()
+
+    def selectedAssessmentTitle(self):
+        esheet = self.pc(UID=self.selected_evaluationsheet)[0].getObject()
+        return self.getCustomTitle(esheet)
+
+    def selectedActivityTitle(self):
+        ev = uuidToObject(self.selected_evaluationsheet)
+        assessment = ev.assessment.to_object
+        activities = assessment.assessment_items
+        for idx, activity in enumerate(activities):
+            if self.getUID(activity.to_object) == self.selected_activity:
+                return idx +1
+        return 'Unknown'
 
     def render(self):
         charset = self.context.portal_properties.site_properties.default_charset
@@ -1693,6 +1711,23 @@ class ClassProgressDFView(grok.View, ReportViewsCommon):
         self.subject = self.request['subject']
         self.language = self.request['language']
         self.memberid = self.request['memberid']
+        self.pc = getToolByName(self.context, 'portal_catalog')
+
+    def selectedClasslistTitle(self):
+        classlist = self.pc(UID=self.classlist)[0].getObject()
+        return classlist.Title()
+
+    def selectedSubjectTitle(self):
+        brains = self.pc(UID=self.subject)
+        if brains:
+            return brains[0].getObject().Title()
+        return ''
+
+    def selectedLanguageTitle(self):
+        brains = self.pc(UID=self.language)
+        if brains:
+            return brains[0].getObject().Title()
+        return ''
 
     def render(self):
         charset = self.context.portal_properties.site_properties.default_charset
@@ -1750,6 +1785,23 @@ class LearnerProgressPDFView(grok.View, ReportViewsCommon):
         self.enddate = self.request.get('enddate', self.endDateString())
         self.selected_subject = self.request['subject']
         self.selected_language = self.request['language']
+        self.pc = getToolByName(self.context, 'portal_catalog')
+
+    def selectedClasslistTitle(self):
+        classlist = self.pc(UID=self.selected_classlist)[0].getObject()
+        return classlist.Title()
+
+    def selectedSubjectTitle(self):
+        brains = self.pc(UID=self.selected_subject)
+        if brains:
+            return brains[0].getObject().Title()
+        return ''
+
+    def selectedLanguageTitle(self):
+        brains = self.pc(UID=self.selected_language)
+        if brains:
+            return brains[0].getObject().Title()
+        return ''
 
     def render(self):
         charset = self.context.portal_properties.site_properties.default_charset
@@ -1843,6 +1895,23 @@ class EvaluationSheetPDFView(EvaluationSheetBase, grok.View):
     
     def update(self, **kwargs):
         super(EvaluationSheetPDFView, self).update(**kwargs)
+        self.pc = getToolByName(self.context, 'portal_catalog')
+
+    def selectedClasslistTitle(self):
+        classlist = self.pc(UID=self.classlist_uid)[0].getObject()
+        return classlist.Title()
+
+    def selectedSubjectTitle(self):
+        brains = self.pc(UID=self.subject_uid)
+        if brains:
+            return brains[0].getObject().Title()
+        return ''
+
+    def selectedLanguageTitle(self):
+        brains = self.pc(UID=self.language_uid)
+        if brains:
+            return brains[0].getObject().Title()
+        return ''
 
     def render(self):
         charset = self.context.portal_properties.site_properties.default_charset
@@ -1883,6 +1952,15 @@ class CompositeLearnerPDFView(CompositeLearnerBase, grok.View):
     
     def update(self, **kwargs):
         super(CompositeLearnerPDFView, self).update(**kwargs)
+        self.pc = getToolByName(self.context, 'portal_catalog')
+
+    def selectedClasslistTitle(self):
+        classlist = self.pc(UID=self.classlist_uid)[0].getObject()
+        return classlist.Title()
+
+    def selectedAssessmentTitle(self):
+        esheet = self.pc(UID=self.evaluationsheet_uid)[0].getObject()
+        return self.getCustomTitle(esheet)
 
     def render(self):
         charset = self.context.portal_properties.site_properties.default_charset

@@ -13,6 +13,13 @@
             <div i18n:translate="message_no_evaluationsheets_in_classlist">No evaluationsheets found for the specified classlist</div>
         </tal:evaluationsheets>
 
+        <div>
+            <label for="classlist">Classlist: </label>
+            <span id="classlist" tal:content="view/selectedClasslistTitle">classlist</span><br/>
+            <label for="assessment">Assessment: </label>
+            <span id="assessment" tal:content="view/selectedAssessmentTitle">Assessment</span><br/>
+        </div>
+
         <tal:evaluationsheets tal:condition="view/evaluationsheets_of_classlist">
             <div>&nbsp;</div>
                 <div id="compositelearner-table">

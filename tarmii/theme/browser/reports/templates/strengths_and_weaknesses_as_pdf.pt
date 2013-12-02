@@ -45,6 +45,12 @@
     <h1 class="documentFirstHeading" i18n:translate="heading_strenghts_and_weaknesses">Strengths and Weaknesses</h1>
 
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
+        <div>
+            <label for="startdate">Start date: </label>
+            <span id="startdate" tal:content="view/startDateString">start date</span><br/>
+            <label for="enddate">End date: </label>
+            <span id="enddate" tal:content="view/endDateString">end date</span><br/>
+        </div>
         <h3 i18n:translate="label_strengths">Strengths</h3>
         <div id="div-best-worst-table">
             <table class="listing admin-table">

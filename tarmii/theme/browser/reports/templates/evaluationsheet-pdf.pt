@@ -145,6 +145,18 @@
         </tal:evaluationsheets>
 
         <tal:evaluationsheets tal:condition="view/evaluationsheets">
+            <div>
+                <label for="classlist">Classlist: </label>
+                <span id="classlist" tal:content="view/selectedClasslistTitle">Classlist</span><br/>
+                <label for="subject">Subject: </label>
+                <span id="subject" tal:content="view/selectedSubjectTitle">Subject</span><br/>
+                <label for="language">Language: </label>
+                <span id="language" tal:content="view/selectedLanguageTitle">Language</span><br/>
+                <label for="startdate">Start date: </label>
+                <span id="startdate" tal:content="view/startDateString">start date</span><br/>
+                <label for="enddate">End date: </label>
+                <span id="enddate" tal:content="view/endDateString">end date</span><br/>
+            </div>
             <tal:datecheck tal:condition="view/check_date_integrity">
                 <div>&nbsp;</div>
                 <div id="div-evaluationsheet-table">
