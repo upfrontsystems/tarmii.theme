@@ -17,6 +17,15 @@
     </tal:no-classlists>
 
     <tal:got-classlists tal:condition="view/classlists">
+    <div>
+        <label for="classlist">Classlist: </label>
+        <span id="classlist" tal:content="view/selectedClasslistTitle">classlist</span><br/>
+        <label for="assessment">Assessment: </label>
+        <span id="assessment" tal:content="view/selectedAssessmentTitle">Assessment</span><br/>
+        <label for="activity">Activity: </label>
+        <span id="activity" tal:content="view/selectedActivityTitle">Activity</span>
+    </div>
+
     <img src="#" tal:attributes="src view/make_data_uri" />
     </tal:got-classlists>
 
