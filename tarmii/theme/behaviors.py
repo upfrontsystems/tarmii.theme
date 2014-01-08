@@ -10,7 +10,6 @@ from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.formwidget.contenttree import ObjPathSourceBinder
-from plone.i18n.normalizer.interfaces import IURLNormalizer
 from plone.namedfile.field import NamedBlobFile
 from Products.CMFCore.utils import getToolByName
 
@@ -178,14 +177,11 @@ class ItemIdValidator(validator.SimpleFieldValidator):
     def validate(self, value):
         super(ItemIdValidator, self).validate(value)
 
-        # check that id is unique 
-        # (all ids when created are URLNormalized)
-        normalizer = getUtility(IURLNormalizer)
-        normalized_value = normalizer.normalize(value)
+        # check that item_id provided in param 'value' is unique 
         pc = getToolByName(self.context, 'portal_catalog')
         query = {
             "portal_type" : "upfront.assessmentitem.content.assessmentitem",
-            "item_id": normalized_value,
+            "item_id": value,
         }
         brains = pc(query)
         # If we find one with the same item_id it could just be the object we
