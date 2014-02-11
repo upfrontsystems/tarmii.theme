@@ -11,7 +11,8 @@
         <h1 class="documentFirstHeading" i18n:translate="Activities">Activities</h1>
     </metal:main>
     <metal:main fill-slot="content-core"
-        tal:define="batch view/activities_batch">
+        tal:define="batch view/activities_batch;
+        	    activities view/activities">
     
         <tal:user_is_admin condition="view/user_is_admin">
             <form id="add-button-admin-form" name="add-activity-admin-form"
@@ -92,22 +93,22 @@
         </form>
 
         <div>&nbsp;</div>
-        <tal:activities tal:condition="view/activities">
+        <tal:activities tal:condition="activities">
         <div>
             <span tal:content="view/activities_count">0</span>
             <span i18n:translate="message_activities_found"> activities found</span>
         </div>
         </tal:activities>
-        <tal:noactivities tal:condition="not:view/activities">
+        <tal:noactivities tal:condition="not:activities">
             <div i18n:translate="message_no_activities_found">No activities found</div>
         </tal:noactivities>
 
         <tal:activities
-            condition="view/activities"
+            condition="activities"
             define="template_id string:${view/__name__}">
 
             <div id="activities-list">
-                <tal:brains repeat="brain view/activities_batch">
+                <tal:brains repeat="brain batch">
                     <tal:item tal:define="item brain/getObject">
                         <h1 tal:content="item/id"></h1>
                         <div class="introduction" tal:content="structure item/introduction/output|nothing">
