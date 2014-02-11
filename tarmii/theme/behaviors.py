@@ -1,16 +1,16 @@
+import logging
 from sets import Set
 from five import grok
 from zope import schema
 from zope.component import getUtility
 from zope.interface import Interface, alsoProvides, Invalid
-from z3c.form import validator
+from z3c.form import validator, interfaces
 from z3c.relationfield.schema import RelationChoice, RelationList
 
 from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.formwidget.contenttree import ObjPathSourceBinder
-from plone.i18n.normalizer.interfaces import IURLNormalizer
 from plone.namedfile.field import NamedBlobFile
 from Products.CMFCore.utils import getToolByName
 
@@ -21,6 +21,9 @@ from upfront.classlist.content.classlist import IClassList
 
 from tarmii.theme.browser.topicswidget import TopicsFieldWidget
 from tarmii.theme import MessageFactory as _
+
+LOG = logging.getLogger('tarmii.behaviors')
+
 
 class IAssessmentItemBlobs(form.Schema):
     """ Behavior that extends the functionality of assessment item with three
@@ -154,12 +157,20 @@ alsoProvides(IFilterSelect, IFormFieldProvider)
 
 class RatingValidator(validator.SimpleFieldValidator):
     
-    def validate(self, value):
-        super(RatingValidator, self).validate(value)
+    def validate(self, values):
+        super(RatingValidator, self).validate(values)
 
         ratings_set = Set([])
-        for x in range(len(value)):
-            rating = value[x]['rating']            
+
+        # This has happened once and I cannot duplicate it.  I added this check
+        # just in case the users manage to trigger the condition again.
+        if values == interfaces.NO_VALUE:
+            LOG.error('NO_VALUE found while validating ratings for activity:%s'\
+                      % self.context)
+            raise Invalid(_(u"Please supply ratings."))
+
+        for x in range(len(values)):
+            rating = values[x]['rating'] 
             if rating < 0:
                 raise Invalid(_(u"All rating values must be positive or " +\
                                 u"equal to zero"))
@@ -178,14 +189,11 @@ class ItemIdValidator(validator.SimpleFieldValidator):
     def validate(self, value):
         super(ItemIdValidator, self).validate(value)
 
-        # check that id is unique 
-        # (all ids when created are URLNormalized)
-        normalizer = getUtility(IURLNormalizer)
-        normalized_value = normalizer.normalize(value)
+        # check that item_id provided in param 'value' is unique 
         pc = getToolByName(self.context, 'portal_catalog')
         query = {
             "portal_type" : "upfront.assessmentitem.content.assessmentitem",
-            "item_id": normalized_value,
+            "item_id": value,
         }
         brains = pc(query)
         # If we find one with the same item_id it could just be the object we
