@@ -9,11 +9,21 @@
 <body>
     <metal:main fill-slot="content-core">
 
-   <div class="flowplayer">
+   <div class="player">
       <video>
          <source type="video/mp4" tal:attributes="src view/video_link"/>
       </video>
    </div>
+
+<script>
+// run script after document is ready
+$(function () {
+ 
+   // install flowplayer to an element with CSS class "player"
+   $(".player").flowplayer({ swf: "/++theme++tarmii.theme/flowplayer-5.4.6/flowplayer.swf" });
+ 
+});
+</script>
 
     </metal:main>
 </body>
