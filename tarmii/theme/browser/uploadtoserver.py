@@ -30,7 +30,7 @@ class UploadToServerView(grok.View):
 
     grok.context(Interface)
     grok.name('upload-to-server')
-    grok.require('cmf.ManagePortal')
+    grok.require('zope2.View')
 
     def now_no_seconds(self):
         """ return current date and time with the seconds truncated 
@@ -98,9 +98,6 @@ class UploadToServerView(grok.View):
             msg = _('Upload Server details not specified in settings.')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
             LOG.error(msg)
-            # redirect to show the error message
-            return self.request.response.redirect(
-                   '/'.join(self.context.getPhysicalPath()))
 
         # send zip data to server
         now = DateTime()
@@ -134,16 +131,13 @@ class UploadToServerView(grok.View):
             dt = DateTime().asdatetime().replace(tzinfo=None)
             settings.last_successful_upload = \
                 datetime(dt.year, dt.month, dt.day, dt.hour, dt.minute)
-            msg = str(errcode) + ' : ' +_('File sent to server')
+            msg = _('Your profile and usage stats were successfully '
+                    'uploaded to the TARMII server')
             IStatusMessage(self.request).addStatusMessage(msg,"info")
         else:
             msg = str(errcode) + ' : ' + _('File not sent successfully')
             IStatusMessage(self.request).addStatusMessage(msg,"error")
             LOG.error(msg)
-
-        # redirect to show the error message
-        return self.request.response.redirect(
-               '/'.join(self.context.getPhysicalPath()))
 
     def render(self):
         """ No-op to keep grok.View happy
