@@ -1,4 +1,4 @@
-from csv import DictWriter
+import csv
 from cStringIO import StringIO
 from DateTime import DateTime
 
@@ -33,7 +33,7 @@ class ExportUserProfilesView(grok.View):
         user_profiles = pm.listMembers()
 
         if user_profiles is not None and len(user_profiles) > 0:
-            writer = DictWriter(profiles_csv,
+            writer = csv.DictWriter(profiles_csv,
                                 fieldnames=['username', 'fullname', 'email',
                                             'teacher_mobile_number', 'school',
                                             'province', 'EMIS',
@@ -43,7 +43,8 @@ class ExportUserProfilesView(grok.View):
                                             'uuid'],
                                 restval='',
                                 extrasaction='ignore',
-                                dialect='excel'
+                                dialect='excel',
+                                quoting=csv.QUOTE_ALL
                                )
 
             for user in user_profiles:
@@ -84,7 +85,7 @@ class ExportUserProfilesView(grok.View):
             nice_filename = '%s_%s' % ('userprofiles_', now.strftime('%Y%m%d'))
 
             self.request.response.setHeader("Content-Disposition",
-                                            "attachment; filename=%s.csv" % 
+                                            "attachment; filename=%s.xls" % 
                                              nice_filename)
             self.request.response.setHeader("Content-Type", "text/csv")
             self.request.response.setHeader("Content-Length", len(csv_content))

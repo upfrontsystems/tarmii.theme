@@ -1,4 +1,4 @@
-from csv import DictWriter
+import csv
 from cStringIO import StringIO
 from DateTime import DateTime
 
@@ -43,11 +43,12 @@ class ExportActivitiesView(grok.View):
         fieldindexes = [str(x) for x in range(1,len(fieldnames)+1)]
 
         if activities is not None and len(activities) > 0:
-            writer = DictWriter(activities_csv,
+            writer = csv.DictWriter(activities_csv,
                                 fieldindexes,
                                 restval='',
                                 extrasaction='ignore',
-                                dialect='excel'
+                                dialect='excel',
+                                quoting=csv.QUOTE_ALL
                                )
 
             for activity in activities:
@@ -83,7 +84,7 @@ class ExportActivitiesView(grok.View):
             now = DateTime()
             nice_filename = '%s_%s' % ('activities_', now.strftime('%Y%m%d'))
             self.request.response.setHeader("Content-Disposition",
-                                            "attachment; filename=%s.csv" % 
+                                            "attachment; filename=%s.xls" % 
                                              nice_filename)
             self.request.response.setHeader("Content-Type", "text/csv")
             self.request.response.setHeader("Content-Length", len(csv_content))
