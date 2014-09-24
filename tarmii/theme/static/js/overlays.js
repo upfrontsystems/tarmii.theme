@@ -45,6 +45,15 @@ $(function($) {
         closeselector: '[name="form.button.Cancel"]',
         });
 
+    $('a.delete-user-text').prepOverlay({
+        subtype: 'ajax',
+        filter: '#content>*',
+        formselector: '#delete_confirmation',
+        noform: 'reload',
+        redirect: url,
+        closeselector: '[name="form.buttons.Cancel"]',
+        });
+
 });
 
 // disable multi submit on add forms (save button)

@@ -1,8 +1,10 @@
 from zope.interface import Interface
 from five import grok
 
+from AccessControl import getSecurityManager
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.permissions import ManagePortal
 
 grok.templatedir('templates')
 
@@ -91,3 +93,31 @@ class SelectProfileView(grok.View):
                 'link': x[1]
                })
         return lang_data
+
+
+class DeleteUser(grok.View):
+    """ custom delete userview
+    """
+    grok.context(Interface)
+    grok.name('delete-user') 
+    grok.template('deleteuser')
+    grok.require('zope2.View') # because any user can do this
+
+    def username(self):
+        return self.request.get('username', '')
+
+    def update(self):
+        if not self.request.has_key('form.submitted'):
+            return
+
+        # delete user
+        pm = getToolByName(self.context, 'portal_membership')
+        user_id = self.request.get('username', '')
+#        print user_id
+        pm.deleteMembers(user_id)
+
+        # redirect to select-profile view
+        portal_state = self.context.restrictedTraverse('@@plone_portal_state')
+        portal = portal_state.portal()
+        redirect_to = '%s/@@select-profile' % portal.absolute_url()
+        self.request.RESPONSE.redirect(redirect_to)

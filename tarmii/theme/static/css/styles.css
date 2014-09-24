@@ -500,7 +500,7 @@ a.move-down:hover {
 }
 
 div.select-profile {
-    width: 500px;
+    width: 100%;
     height: 110px;
     display: block;
 }
@@ -516,6 +516,13 @@ a.select-avatar {
 a.select-text {
     float: left;
     padding-left: 1em;
+    margin-top: 35px;
+    border-bottom: 0em !important;
+}
+
+a.delete-user-text {
+    float: right;
+
     margin-top: 35px;
     border-bottom: 0em !important;
 }

@@ -38,6 +38,13 @@
                    tal:content="profile/fullname">
                 </a>
 
+                <a class="delete-user-text" tal:attributes="href string:${view/select_profile_url}/@@delete-user?username=${profile/username}">
+                   <span i18n:translate="label_delete_user">Delete User</span>
+                   <span> (</span>
+                   <span tal:content="profile/fullname"></span>
+                   <span>)</span>
+                </a>
+
             </div>
 
             <div class="visualClear"/>
