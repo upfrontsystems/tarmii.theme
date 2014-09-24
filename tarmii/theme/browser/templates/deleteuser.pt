@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tarmii.theme">
+
+<body>
+
+    <metal:main fill-slot="main">
+
+        <h1 class="documentFirstHeading">
+          <span i18n:translate="alert_really_delete_user">Do you really want to delete this user?</span>
+          <span>(</span>
+          <span tal:content="view/username"></span>
+          <span>)</span>
+        </h1>
+
+        <form method="POST"
+            action="#"
+            tal:attributes="action string:${context_state/current_page_url}"
+            id="delete_confirmation">
+
+            <input type="hidden"
+                   name="form.submitted"
+                   value="1"
+                   />
+
+            <input id="delete-user-button" name="form.buttons.DeleteUser" type="submit" value="Ok" i18n:attributes="value"/>
+            <input id="cancel-copy-prescriptions-button" name="form.buttons.Cancel"
+                   type="submit" value="Cancel" i18n:attributes="value"/>
+
+        </form>
+
+    </metal:main>
+
+</body>
+</html>
