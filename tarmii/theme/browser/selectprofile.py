@@ -2,9 +2,12 @@ from zope.interface import Interface
 from five import grok
 
 from zope.component import getUtility
+from zope.component.hooks import getSite
 
 from Acquisition import aq_parent, aq_inner, aq_base
-from AccessControl import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
@@ -115,54 +118,21 @@ class DeleteUser(grok.View):
         if not self.request.has_key('form.submitted'):
             return
 
+        # switch to admin user
+        portal = getSite()
+        pms = getToolByName(portal, 'portal_membership')
+        user = pms.getMemberById('admin')
+        sm = getSecurityManager()
+        newSecurityManager(None, user)
+
         # delete user
         pm = getToolByName(self.context, 'portal_membership')
         user_id = self.request.get('username', '')
+        pm.deleteMembers(user_id)
 
-        # Delete members in acl_users.
-        try:
-            pm.acl_users.userFolderDelUsers(user_id)
-        except (AttributeError, NotImplementedError):
-            raise NotImplementedError('The underlying User Folder '
-                                     'doesn\'t support deleting members.')
-
-        # Delete member data in portal_memberdata.
-        mdtool = getToolByName(self, 'portal_memberdata', None)
-        if mdtool is not None:
-            mdtool.deleteMemberData(user_id)
-
-        # Delete members' home folders including all content items.
-        portal_state = self.context.restrictedTraverse('@@plone_portal_state')
-        portal = portal_state.portal()
-        members = getattr(portal, 'Members', None)
-        if members:
-            if hasattr( aq_base(members), user_id):
-                members.manage_delObjects(user_id)
-
-        # Delete members' local roles.
-        self.deleteLocalRoles( getUtility(ISiteRoot), user_id,
-                               reindex=1, recursive=1 )
+        # switch back to current user
+        setSecurityManager(sm)
 
         # redirect to select-profile view
-        portal_state = self.context.restrictedTraverse('@@plone_portal_state')
-        portal = portal_state.portal()
         redirect_to = '%s/@@select-profile' % portal.absolute_url()
         self.request.RESPONSE.redirect(redirect_to)
-
-    def deleteLocalRoles(self, obj, member_ids, reindex=1, recursive=0,
-                         REQUEST=None):
-        """ Delete local roles of specified members.
-        """
-        for member_id in member_ids:
-            if obj.get_local_roles_for_userid(userid=member_id):
-                obj.manage_delLocalRoles(userids=member_ids)
-                break
-
-        if recursive and hasattr( aq_base(obj), 'contentValues' ):
-            for subobj in obj.contentValues():
-                self.deleteLocalRoles(subobj, member_ids, 0, 1)
-
-        if reindex and hasattr(aq_base(obj), 'reindexObjectSecurity'):
-            # reindexObjectSecurity is always recursive
-            obj.reindexObjectSecurity()
-
