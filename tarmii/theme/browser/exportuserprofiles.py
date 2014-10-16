@@ -1,3 +1,4 @@
+import xlwt
 import csv
 from cStringIO import StringIO
 from DateTime import DateTime
@@ -16,7 +17,7 @@ class ExportUserProfilesView(grok.View):
         last login time.
     """
     grok.context(Interface)
-    grok.name('export-user-profiles')
+    grok.name('export-user-profiles-csv')
     grok.require('cmf.ManagePortal')
 
     def user_profiles_csv(self):
@@ -69,6 +70,132 @@ class ExportUserProfilesView(grok.View):
                       }
                 writer.writerow(ldict)
            
+            csv_content = profiles_csv.getvalue()
+            profiles_csv.close()
+
+        return csv_content
+
+    def __call__(self):
+        """ Return csv content as http response or return info IStatusMessage
+        """
+
+        csv_content = self.user_profiles_csv()
+
+        if csv_content is not None:
+            now = DateTime()
+            nice_filename = '%s_%s' % ('userprofiles_', now.strftime('%Y%m%d'))
+
+            self.request.response.setHeader("Content-Disposition",
+                                            "attachment; filename=%s.xls" % 
+                                             nice_filename)
+            self.request.response.setHeader("Content-Type", "text/csv")
+            self.request.response.setHeader("Content-Length", len(csv_content))
+            self.request.response.setHeader('Last-Modified',
+                                            DateTime.rfc822(DateTime()))
+            self.request.response.setHeader("Cache-Control", "no-store")
+            self.request.response.setHeader("Pragma", "no-cache")
+            self.request.response.write(csv_content)
+        else:
+            msg = _('No user profiles exist')
+            IStatusMessage(self.request).addStatusMessage(msg,"info")
+
+        # redirect to show the info message
+        self.request.response.redirect(
+                '/'.join(self.context.getPhysicalPath()))
+
+        return csv_content
+
+    def render(self):
+        """ No-op to keep grok.View happy
+        """
+        return ''
+
+
+class ExportUserProfilesXlsView(grok.View):
+    """ Export all user profiles with columns for all fields captured during 
+        registration as well as the first time the user logged as well as the
+        last login time.
+    """
+    grok.context(Interface)
+    grok.name('export-user-profiles')
+    grok.require('cmf.ManagePortal')
+
+    def user_profiles_csv(self):
+        """ Export all user profiles with columns for all fields captured during 
+            registration as well as the first time the user logged as well as 
+            the last login time.
+        """
+
+        csv_content = None
+        profiles_csv = StringIO()
+
+        pm = getToolByName(self.context, 'portal_membership')
+        # get all user profiles in the system
+        user_profiles = pm.listMembers()
+
+        ezxf = xlwt.easyxf
+        headings = [self.context.translate(_('Username')),
+                    self.context.translate(_('Fullname')),
+                    self.context.translate(_('Email')),
+                    self.context.translate(_('Teacher Mobile Number')),
+                    self.context.translate(_('School')),
+                    self.context.translate(_('Province')),
+                    self.context.translate(_('EMIS')),
+                    self.context.translate(_('School contact number')),
+                    self.context.translate(_('School email')),
+                    self.context.translate(_('Qualification')),
+                    self.context.translate(_('Years teaching')),
+                    self.context.translate(_('Last login time')),
+                    self.context.translate(_('Uuid'))]
+        kinds = ['text','text','text','text','text','text','text','text','text',
+            'text','text','text','text']
+        if user_profiles is not None and len(user_profiles) > 0:
+
+            data = []
+            for user in user_profiles:
+                data.append([user.id,
+                             user.getProperty('fullname'),
+                             user.getProperty('email'),
+                             user.getProperty('teacher_mobile_number'),
+                             user.getProperty('school'),
+                             user.getProperty('province'),
+                             user.getProperty('EMIS'),
+                             user.getProperty('school_contact_number'),
+                             user.getProperty('school_email'),
+                             user.getProperty('qualification'),
+                             user.getProperty('years_teaching'),                      
+                 user.getProperty('login_time').strftime('%d/%m/%Y %H:%M:%S'),
+                             user.getProperty('uuid'),
+                            # 'login_time' is really the latest login
+                            # 'last_login_time' is the time user was logged in 
+                            # the time before 'login_time'
+                          ])
+
+            heading_xf = ezxf('font: bold on; align: wrap on, '
+                              'vert centre, horiz center')
+            kind_to_xf_map = {
+                'text': ezxf(),
+                }
+            data_xfs = [kind_to_xf_map[k] for k in kinds]
+
+            book = xlwt.Workbook()
+            sheet = book.add_sheet(self.context.title) # XXX make sure it is 
+                                                       # utf sanitized
+            rowx = 0
+            for colx, value in enumerate(headings):
+                sheet.write(rowx, colx, value, heading_xf)
+            sheet.set_panes_frozen(True) # frozen headings instead of 
+                                         # split panes
+            sheet.set_horz_split_pos(rowx+1) # in general, freeze after last 
+                                             # heading row
+            sheet.set_remove_splits(True) # if user does unfreeze, don't leave 
+                                          # a split there
+            for row in data:
+                rowx += 1
+                for colx, value in enumerate(row):
+                    sheet.write(rowx, colx, value, data_xfs[colx])
+
+            book.save(profiles_csv)
             csv_content = profiles_csv.getvalue()
             profiles_csv.close()
 
