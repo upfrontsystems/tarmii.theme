@@ -9,7 +9,7 @@
 <body>
     <metal:main fill-slot="main">
 
-            <h1 i18n:translate="Select Language">Select your language</h1>
+            <h1 i18n:translate="Select_Language_title">Select your language</h1>
             <ul id="languageselector">
                 <tal:lang tal:repeat="lang view/languages">              
                 <li>

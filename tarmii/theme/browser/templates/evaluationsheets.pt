@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="Evaluations">Evaluations</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Evaluations_title">Evaluations</h1>
     </metal:main>
     <metal:main fill-slot="content-core"
         tal:define="batch view/evaluationsheets_batch">

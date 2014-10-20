@@ -11,7 +11,7 @@
 
 <body>
     <tal:no-classlists tal:condition="not:view/classlists">
-    <div i18n:translate="message_create_classlists">
+    <div i18n:translate="message_create_classlists_assessments_evaluations">
         Please create some classlists, assessments and evaluations.
     </div>
     </tal:no-classlists>

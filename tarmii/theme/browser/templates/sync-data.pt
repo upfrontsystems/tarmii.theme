@@ -13,7 +13,8 @@
 
     <metal:main fill-slot="content-core">
 
-        <p>Click on <strong>Continue</strong> below to download
+        <p i18n:translate="sync_data_instructions">
+        Click on <strong>Continue</strong> below to download
         the latest activities from the TARMII server and upload your
         usage stats.  This might take several minutes so please be
         patient.

@@ -6,7 +6,7 @@
       lang="en">
 
 <body>
-    <h1 class="documentFirstHeading" i18n:translate="Class performance for activity">
+    <h1 class="documentFirstHeading" i18n:translate="Class_performance_for_activity_title">
         Class Performance for Activity
     </h1>
 

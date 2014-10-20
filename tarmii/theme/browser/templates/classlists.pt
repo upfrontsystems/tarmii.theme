@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="Classlists">Classlists</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Classlists_title">Classlists</h1>
     </metal:main>
 
     <metal:main fill-slot="content-core">

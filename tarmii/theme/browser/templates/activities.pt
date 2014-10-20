@@ -8,7 +8,7 @@
 
 <body>
     <metal:main fill-slot="content-title">
-        <h1 class="documentFirstHeading" i18n:translate="Activities">Activities</h1>
+        <h1 class="documentFirstHeading" i18n:translate="Activities_title">Activities</h1>
     </metal:main>
     <metal:main fill-slot="content-core"
         tal:define="batch view/activities_batch;

@@ -57,7 +57,7 @@ class ITARMIIRemoteServerSettings(Interface):
 
     sync_server_url = TextLine(
         title=_(u'Synchronisation Server Url'),
-        description=_(u'Fetch the latests assessment items from this server.'),
+        description=_(u'Fetch the latest assessment items from this server.'),
         required=True
     )
 
