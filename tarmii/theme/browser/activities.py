@@ -88,7 +88,7 @@ class ActivitiesView(grok.View):
             if show_my_activities:
                 query['Creator'] = creator
             if self.topics:
-                query['topic_uids'] = self.topics
+                query['topic_uids'] = {'query': self.topics, 'operator': 'and'}
             results = catalog(query)
 
         return results
