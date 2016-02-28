@@ -83,4 +83,6 @@
         for="plone.dexterity.interfaces.IDexterityContent"
         />
 
+    <adapter name="topic_uids" factory=".indexer.topic_uids" />
+
 </configure>

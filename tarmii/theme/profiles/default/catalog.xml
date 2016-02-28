@@ -7,4 +7,7 @@
  <index name="classlist_uuid" meta_type="FieldIndex">
   <indexed_attr value="classlist_uuid"/>
  </index>
+ <index name="topic_uids" meta_type="KeywordIndex">
+  <indexed_attr value="topic_uids"/>
+ </index>
 </object>

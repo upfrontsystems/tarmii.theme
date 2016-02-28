@@ -68,27 +68,6 @@ class ActivitiesView(grok.View):
                 topictree_list.append(x)
         return topictree_list
 
-    def relations_lookup(self,topic_uid):
-        """ Return a list of object uids that are referrencing the topic_uid
-        """
-        ref_catalog = getUtility(ICatalog)
-        intids = getUtility(IIntIds)
-        result = ref_catalog.findRelations(
-                            {'to_id': intids.getId(uuidToObject(topic_uid))})
-        rel_list = []
-        notfinished = True;
-        while notfinished:            
-            try:
-                rel = result.next()
-                if rel.from_object.portal_type ==\
-                            'upfront.assessmentitem.content.assessmentitem':
-                # only track references from assessmentitem objects.
-                     rel_list.append(IUUID(rel.from_object))
-            except StopIteration:
-                notfinished = False;
-
-        return rel_list
-
     def activities(self):
         """ Return activities that match current filter criteria.
         """
@@ -102,31 +81,15 @@ class ActivitiesView(grok.View):
             normalizer = getUtility(IURLNormalizer)
             item_id = normalizer.normalize(str(search_id))
             results = catalog(id=item_id)
-        elif len(self.topics) == 0:
-            # no filter selected, show all options
-            contentFilter = {
-                'portal_type': 'upfront.assessmentitem.content.assessmentitem'}
-            if show_my_activities:
-                contentFilter['Creator'] = creator
-            return self.context.getFolderContents(contentFilter)
-        elif len(self.topics) == 1:
-            # one filter selected, show all options
-            rel_list = self.relations_lookup(self.topics[0])
-            if show_my_activities:
-                results = catalog(UID=rel_list, Creator=creator)
-            else:
-                results = catalog(UID=rel_list)
         else:
-            # more than one filter selected, show all options
-            UID_set = Set(self.relations_lookup(self.topics[0]))
-            for x in range(len(self.topics)-1):
-                next_set = Set(self.relations_lookup(self.topics[x+1]))
-                UID_set = UID_set.intersection(Set(next_set))
-            UID_list = list(UID_set)
+            query = {
+                'portal_type': 'upfront.assessmentitem.content.assessmentitem'
+            }
             if show_my_activities:
-                results = catalog(UID=UID_list, Creator=creator)
-            else:
-                results = catalog(UID=UID_list)
+                query['Creator'] = creator
+            if self.topics:
+                query['topic_uids'] = self.topics
+            results = catalog(query)
 
         return results
 
@@ -137,11 +100,6 @@ class ActivitiesView(grok.View):
         b_size = 10
         b_start = self.request.get('b_start', 0)
         return Batch(self.activities(), b_size, int(b_start), orphan=0)
-
-    def activities_count(self):
-        """ Return number of activities that match current filter criteria
-        """
-        return len(self.activities())
 
     def search_value(self):
         """ Return the id of the activity that the user searched for
