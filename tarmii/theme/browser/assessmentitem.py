@@ -35,6 +35,13 @@ class View(dexterity.DisplayForm):
         wftool = getToolByName(self.context, 'portal_workflow')
         return wftool.getInfoFor(self.context, 'review_state')
 
+    def review_state_title(self):
+        state = self.review_state()
+        wftool = getToolByName(self.context, 'portal_workflow')
+        for wf in wftool.getWorkflowsFor(self.context):
+            if state in wf.states.keys():
+                return wf.states[state].title
+
     def topics(self):
         """ Return the topics in this activity
         """

@@ -37,11 +37,13 @@
             </span>
         </p>
 
-        <div id="actions-and-info">
+        <div id="actions-and-info" tal:define="state view/review_state">
             <div class="item-info">
                 <span class="item-info" tal:content="view/creationdate"/>
                 <span class="state-draft" tal:attributes="class string:item-info state-${view/review_state}" 
-                      tal:content="view/review_state" i18n:translate=""></span>
+                      tal:content="view/review_state_title" i18n:translate=""></span>
+                <span class="item-info" ><a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=publish_internally" tal:condition="python:view.review_state() == 'pending'">Publish</a></span>
+                <span class="item-info"><a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=retract" tal:condition="python:view.review_state() == 'internally_published'">Retract</a></span>
             </div>
             <div class="item-actions">
                 <a tal:attributes="href string:${context/absolute_url}/edit"

@@ -93,6 +93,13 @@ class ActivitiesView(grok.View):
 
         return results
 
+    def review_state_title(self, obj):
+        wftool = getToolByName(obj, 'portal_workflow')
+        state = wftool.getInfoFor(obj, 'review_state')
+        for wf in wftool.getWorkflowsFor(obj):
+            if state in wf.states.keys():
+                return wf.states[state].title
+
     def activities_batch(self):
         """ Return activities that match current filter criteria.
             Return batched.

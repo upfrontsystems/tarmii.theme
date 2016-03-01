@@ -116,6 +116,11 @@
                         <div class="activity" tal:content="structure item/activity/output|nothing">
                             The Activity
                         </div>
+                        <div class="item-info">
+                            <span class="item-info" tal:content="python:item.created().strftime('%d %B %Y')"/>
+                            <span class="state-draft" tal:attributes="class string:item-info state-${brain/review_state}" 
+                                tal:content="python:view.review_state_title(item)" i18n:translate=""></span>
+                        </div>
                         <div class="item-actions-left">
                             <a tal:attributes="href item/absolute_url"
                                i18n:translate="label_view">View</a>
