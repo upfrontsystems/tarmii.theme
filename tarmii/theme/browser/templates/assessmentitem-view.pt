@@ -12,7 +12,7 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 tal:content="view/assessmentitem"></h1>
+        <h1 tal:content="view/itemid"></h1>
 
         <h5 i18n:translate="Learner Task/Activity">Learner Task/Activity</h5>
         <div class="activity" tal:content="structure context/activity/output|nothing">
