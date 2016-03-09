@@ -109,7 +109,7 @@
             <div id="activities-list">
                 <tal:brains repeat="brain batch">
                     <tal:item tal:define="item brain/getObject">
-                        <h1 tal:content="item/item_id"></h1>
+                        <h1 tal:content="item/item_id|item/id"></h1>
                         <div class="introduction" tal:content="structure item/introduction/output|nothing">
                             Optional Activity Introduction
                         </div>
