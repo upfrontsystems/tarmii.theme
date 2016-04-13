@@ -111,8 +111,9 @@
   
     <div>&nbsp;</div>
     <div class="activities"
-         tal:repeat="item view/activities">
-        <h1><span tal:content="repeat/item/number"></span><span>. </span><span tal:content="item/id"></span></h1>
+         tal:repeat="brain view/activities">
+        <tal:item tal:define="item brain/getObject">
+        <h1><span tal:content="repeat/brain/number"></span><span>. </span><span tal:content="item/id"></span></h1>
         <h2 class="questionheader" i18n:translate="Learner Task/Activity">Learner Task/Activity</h2>
         <div class="activity" tal:content="structure item/activity/output|nothing">
             The Activity
@@ -131,6 +132,7 @@
             The Equipment and Administration
         </div>
         <br />
+        <p><strong>State:</strong> <span tal:replace="brain/review_state">pending</span></p>
         <p><span class="questionheader" i18n:translate="label_topics">Topics: </span>
         <span tal:repeat="topic python:view.topics(item)">
             <span tal:content="topic"></span><span>,</span>
@@ -142,6 +144,7 @@
         </p>
 
         <hr class="item-separator"/>
+        </tal:item>
     </div>
 
     <div id="pageNumber">

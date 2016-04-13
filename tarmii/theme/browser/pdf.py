@@ -67,7 +67,7 @@ class ActivitiesPDF(grok.View):
         brains = catalog(portal_type=\
                                 'upfront.assessmentitem.content.assessmentitem',
                                 sort_on='id')
-        return [x.getObject() for x in brains]
+        return brains
 
     def topics(self, activity):
         """ Return the categorization for a specific activity

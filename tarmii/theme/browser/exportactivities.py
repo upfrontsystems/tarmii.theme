@@ -137,14 +137,14 @@ class ExportActivitiesXlsView(grok.View):
             if x.getObject().use_with_activities:
                 topictree_list.append(x.getObject())
 
-        fieldnames = ['ItemID'] + [x.title for x in topictree_list]
+        fieldnames = ['ItemID', 'Status'] + [x.title for x in topictree_list]
 
         # use numbers 1 .. x as the titles
         fieldindexes = [str(x) for x in range(1,len(fieldnames)+1)]
 
         ezxf = xlwt.easyxf
-        headings = ['ID']
-        kinds = ['text']
+        headings = ['ID', 'Status']
+        kinds = ['text', 'text']
         for x in range(len(topictree_list)):
             headings.append(self.context.translate(_('Topic')) + ' ' +\
                 str(x+1) + ': ' + topictree_list[x].title)
@@ -154,20 +154,21 @@ class ExportActivitiesXlsView(grok.View):
 
             data = []
             for activity in activities:
-                ldict=range(len(topictree_list)+1)
+                ldict=range(len(topictree_list)+2)
                 # start indexing at '1' to keep dictionary entries in correct 
                 # order, for some reason 0 comes after 1 when used as index
                 # in a python dict.
                 ldict[0] = activity.getObject().id
+                ldict[1] = activity.review_state
                 for tree_index in range(len(topictree_list)):
-                    ldict[tree_index+1] = ''
+                    ldict[tree_index+2] = ''
                     # if activity has topics, use the topics else ''
                     if hasattr(activity.getObject(), 'topics'):
                         topics = activity.getObject().topics
                         for tag_index in range(len(topics)):
                             if topics[tag_index].to_object.aq_parent.id ==\
                                                  topictree_list[tree_index].id:
-                                ldict[tree_index+1] =\
+                                ldict[tree_index+2] =\
                                               topics[tag_index].to_object.title
                 data.append(ldict)
 
@@ -191,7 +192,7 @@ class ExportActivitiesXlsView(grok.View):
             sheet.set_remove_splits(True) # if user does unfreeze, don't leave 
                                           # a split there
             for row in data:
-                rowx += 1
+                rowx += 2
                 for colx, value in enumerate(row):
                     sheet.write(rowx, colx, value, data_xfs[colx])
 
